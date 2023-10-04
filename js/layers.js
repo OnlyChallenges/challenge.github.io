@@ -26,6 +26,8 @@ addLayer("r", {
     ],
     layerShown(){return true},
  upgrades: {
+      rows: 5,
+      cols: 5,
         11: {
         title: "You Gotta Start Somewhere",
         description: "Rocket Power boost your distance gain.",
@@ -35,5 +37,21 @@ addLayer("r", {
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
+	12: {
+	title: "20 Rockets are not",
+	description: "Rocket Power boost your distance gain.",
+	effect() {
+	    return player[this.layer].points.add(1).pow(0.7)
+	effectDisplay() {return "x"+format(this.effect())},
+	cost() new Decimal(20)
+	},
+	13: {
+	title: "Half Life 3 Confirmed",
+	description: "Rocket Power boost your distance gain.",
+	effect() {
+	    return player[this.layer].points.add(1).pow(0.8)
+	effectDisplay() {return "x"+format(this.effect())},
+	cost() new Decimal(300)
+	},
     },
 })
