@@ -42,7 +42,7 @@ addLayer("r", {
 	description: "Rocket Power boost your distance gain.",
 	effect() {
 	    return player[this.layer].points.add(1).pow(0.7)
-	effectDisplay() {return "x"+format(this.effect())},
+	effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
 	cost() new Decimal(20)
 	},
 	13: {
@@ -50,7 +50,7 @@ addLayer("r", {
 	description: "Rocket Power boost your distance gain.",
 	effect() {
 	    return player[this.layer].points.add(1).pow(0.8)
-	effectDisplay() {return "x"+format(this.effect())},
+	effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
 	cost() new Decimal(300)
 	},
     },
