@@ -36,20 +36,61 @@ addLayer("r", {
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
 	12: {
-	title: "20 Rockets are not",
-	description: "Rocket Power boost your distance gain.",
-	cost: new Decimal(20)
-	effect() {
-	    return player[this.layer].points.add(1).pow(0.7)
-	effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-	},
+	title: "20 rockets are not",
+        description: "Rocket Power boost your distance gain.",
+        cost: new Decimal(20),
+        effect() {
+            return player[this.layer].points.add(1).pow(0.5)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
+        },
 	13: {
 	title: "Half Life 3 Confirmed",
-	description: "Rocket Power boost your distance gain.",
-	cost: new Decimal(300)
-	effect() {
-	    return player[this.layer].points.add(1).pow(0.8)
-	effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-	},
+        description: "Rocket Power boost your distance gain.",
+        cost: new Decimal(300),
+        effect() {
+            return player[this.layer].points.add(1).pow(0.5)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
     },
 })
+addLayer("a", {
+        startData() { return {
+            unlocked: true,
+        }},
+        color: "green",
+        row: "side",
+        layerShown() {return true}, 
+        tooltip() { // Optional, tooltip displays when the layer is locked
+            return ("Accomplishments")
+        },
+        achievements: {
+            rows: 10,
+            cols: 4,
+                11: {
+                name: "Welcome to Rocket Tree",
+                done() { return player.points.gte(100) },
+                tooltip: "Reach 100m",
+            },
+		12: {
+                name: "20 rocket is not",
+                done() { return player.r.points.gte(20) },
+                tooltip: "Get 20 rocket power",
+            },
+		13: {
+                name: "Off to go",
+                done() { return player.points.gte(20000) },
+                tooltip: "Reach 20km",
+            },
+		14: {
+                name: "I joined vais",
+                done() { return player.points.gte(1e6) },
+                tooltip: "Reach 1,000km",
+            },
+        },
+        midsection: [
+            "achievements",
+        ]
+    }, 
+)
