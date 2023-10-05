@@ -40,7 +40,7 @@ addLayer("r", {
         description: "Rocket Power boost your distance gain.",
         cost: new Decimal(20),
         effect() {
-            return player[this.layer].points.add(1).pow(0.5)
+            return player[this.layer].points.add(1).pow(0.6)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
         },
@@ -49,17 +49,22 @@ addLayer("r", {
         description: "Rocket Power boost your distance gain.",
         cost: new Decimal(300),
         effect() {
-            return player[this.layer].points.add(1).pow(0.5)
+            return player[this.layer].points.add(1).pow(0.7)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
+	14: {
+        title: "Booster",
+	description: "x10 more distance",
+	cost: new Decimal(1000),
+	},
     },
 })
 addLayer("a", {
         startData() { return {
             unlocked: true,
         }},
-        color: "green",
+        color: "lime",
         row: "side",
         layerShown() {return true}, 
         tooltip() { // Optional, tooltip displays when the layer is locked
