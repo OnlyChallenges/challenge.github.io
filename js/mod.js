@@ -57,15 +57,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<br/>",
-        () => player.points < 1000 * 1 ? "<br/>" :
-	          player.points < 1000 * 1000 * 1 ?          `equivalent to ${format(player.points.div(1000))} kilometers traveled` :
-	          player.points < 1e6 * 1000 * 1 ?           `equivalent to ${format(player.points.div(1000 * 1000))} megameters traveled` :
+	"Reach 100,000,000 rocket power to reach the endgame!",
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("10^^1.79e308"))
+	return player.r.points.gte(new Decimal(1e8))
 }
 
 
