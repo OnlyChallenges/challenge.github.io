@@ -58,9 +58,9 @@ function addedPlayerData() { return {
 // Display extra things at the top of the page
 var displayThings = [
 	"<br/>",
-    () => player.points < 1000 * 1 ? "<br/>" :
-	  player.points < 1000 * 1000 * 1 ?          `equivalent to ${format(player.points.div(1000))} kilometers traveled` :
-	  player.points < 1e6 * 1000 * 1 ?        `equivalent to ${format(player.points.div(1e6))} megameters traveled` :
+        () => player.points < 1000 * 1 ? "<br/>" :
+	          player.points < 1000 * 1000 * 1 ?          `equivalent to ${format(player.points.div(1000))} kilometers traveled` :
+	          player.points < 1e6 * 1000 * 1 ?           `equivalent to ${format(player.points.div(1000 * 1000))} megameters traveled` :
 ]
 
 // Determines when the game "ends"
