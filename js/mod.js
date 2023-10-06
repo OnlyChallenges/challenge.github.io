@@ -13,13 +13,17 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1 Rocket",
-	name: "The Start",
+	num: "0.2 Year",
+	name: "YFN update!",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.1</h3><br>
-		- Added the first layer, rocket piwer.<br>
+        <h3>v0.2 Year</h3><br>
+		- Added the second layer, yfn.<br>
+		- Added an upgrade.<br>
+		- Endgame: 1,000 YFN.<br>
+	<h3>v0.1 Rocket</h3><br>
+		- Added the first layer, rocket power.<br>
 		- Added an upgrade.<br>
 		- Endgame: 100,000,000 Rocket Power.`
 
@@ -48,6 +52,7 @@ function getPointGen() {
         if (hasUpgrade('r', 12)) gain = gain.times(upgradeEffect('r', 12))
 	if (hasUpgrade('r', 13)) gain = gain.times(upgradeEffect('r', 13))
 	if (hasUpgrade('r', 14)) gain = gain.times(10)
+	if (hasUpgrade('y', 11)) gain = gain.times(upgradeEffect('y', 11))
 	return gain
 }
 
@@ -57,12 +62,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Reach 100,000,000 rocket power to reach the endgame!",
+	"Reach 1,000 yfn to reach the endgame!",
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.r.points.gte(new Decimal(1e8))
+	return player.y.points.gte(new Decimal(1000))
 }
 
 
