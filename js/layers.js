@@ -107,10 +107,10 @@ addLayer("y", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#FDFDFD",
+    color: "#00FFFF",
     requires: new Decimal(1e8), // Can be a function that takes requirement increases into account
     resource: "yfn", // Name of prestige currency
-    baseResource: "rocket power", // Name of resource prestige is based on
+    baseResource: "rockek power", // Name of resource prestige is based on
     baseAmount() {return player.r.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
@@ -121,7 +121,7 @@ addLayer("y", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
