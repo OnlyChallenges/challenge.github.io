@@ -71,7 +71,7 @@ addLayer("a", {
             return ("Accomplishments")
         },
         achievements: {
-            rows: 10,
+            rows: 2,
             cols: 4,
                 11: {
                 name: "Welcome to Rocket Tree",
@@ -93,6 +93,26 @@ addLayer("a", {
                 done() { return player.points.gte(1e6) },
                 tooltip: "Reach 1,000km",
             },
+		21: {
+		name: "1 year ago...",
+		done() { return player.y.unlocked },
+		tooltip: "Perform a YFN",
+	    },
+		22: {
+		name: "Time Travel?",
+		done() { return player.y.points.gte(10) },
+		tooltip: "Get 10 YFN",
+	    },
+		23: {
+		name: "IC 1011",
+		done() { return player.points.gte(1e20) },
+		tooltip: "Travel 10,000+ ly",
+	    },
+		24: {
+		name: "Now in 3023",
+		done() { return player.y.points.gte(1000) },
+		tooltip: "Get 1,000 YFN",
+	    }
         },
         midsection: [
             "achievements",
