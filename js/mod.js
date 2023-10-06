@@ -13,11 +13,15 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2 Year",
-	name: "YFN update!",
+	num: "0.2.1 Bug Fix",
+	name: "YFN update 0.2.1",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+        <h3>v0.2.1 Bug Fix</h3><br>
+		- Added a row of accomplishments, yfn.<br>
+		- Changed yfn to lime.<br>
+		- Endgame: 5,000 YFN.<br>
         <h3>v0.2 Year</h3><br>
 		- Added the second layer, yfn.<br>
 		- Added an upgrade.<br>
@@ -62,12 +66,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Reach 1,000 yfn to reach the endgame!",
+	"Reach 5,000 yfn to reach the endgame!",
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.y.points.gte(new Decimal(1000))
+	return player.y.points.gte(new Decimal(5000))
 }
 
 
