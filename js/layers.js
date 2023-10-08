@@ -27,8 +27,8 @@ addLayer("r", {
     layerShown(){return true},
 	infoboxes: {
         lore: {
-            title: "Rocket",
-            body: `<img src="Rocket.png" width="500"><br>
+            title: "The Rocket",
+            body: `<img src="images (3).jpeg" width="500"><br>
             You:<q>Huh? What is this place?</q><br>
             ???:<q>Oh great, you finally woke up. I thought I have to clean up another corpse again.</q><br>
             You:<q>What's all this corpse cleaning and me being teleported to another world about?</q><br>
