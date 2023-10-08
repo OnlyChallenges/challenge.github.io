@@ -143,7 +143,7 @@ addLayer("y", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#808080",
+    color: "lime",
     requires: new Decimal(1e8), // Can be a function that takes requirement increases into account
     resource: "yfn", // Name of prestige currency
     branches: ["r"],
@@ -162,7 +162,7 @@ addLayer("y", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true},
+    layerShown(){return hasUpgrade("r",14)||player.y.unlocked},
  upgrades: {
         11: {
         title: "Yet another layer",
