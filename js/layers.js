@@ -25,6 +25,22 @@ addLayer("r", {
         {key: "r", description: "R: Reset for rocket power", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
+	infoboxes: {
+        lore: {
+            title: "Rocket",
+            body: `<img src="Rocket.png" width="500"><br>
+            You:<q>Huh? What is this place?</q><br>
+            ???:<q>Oh great, you finally woke up. I thought I have to clean up another corpse again.</q><br>
+            You:<q>What's all this corpse cleaning and me being teleported to another world about?</q><br>
+            ???:<q>So you did not belong to this world?</q><br>
+            You:<q>I was at my home having some sleep after grinding an incremental game and next thing I know, I am here.</q><br>
+            ???:<q>I see... Having numbers go up is what we do here as well!</q><br>
+            You:<q>Really?</q><br>
+            ???:<q>Yes! My name is Chal, and I'm have to do basically every chore in this place...</q><br>
+            You:<q>Oh, I'm sorry to hear.</q><br>
+            Chal:<q>I can try helping you go back to your world, but before that you need to accumulate a lot of Challenge Power first. Try getting some by clearing these challenges first!`,
+        },
+    },
  upgrades: {
         11: {
         title: "You Gotta Start Somewhere",
