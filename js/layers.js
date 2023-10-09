@@ -29,16 +29,16 @@ addLayer("r", {
         lore: {
             title: "The Rocket",
             body: `<img src="images (3).jpeg" width="500"><br>
-            You:<q>Huh? What is this place?</q><br>
-            ???:<q>Oh great, you finally woke up. I thought I have to clean up another corpse again.</q><br>
-            You:<q>What's all this corpse cleaning and me being teleported to another world about?</q><br>
+            Anon:<q>Huh? What is this place?</q><br>
+            Luca12:<q>Oh great, you finally woke up. I thought I have to clean up another corpse again.</q><br>
+            Anon:<q>What's all this corpse cleaning and me being teleported to another world about?</q><br>
             ???:<q>So you did not belong to this world?</q><br>
-            You:<q>I was at my home having some sleep after grinding an incremental game and next thing I know, I am here.</q><br>
-            ???:<q>I see... Having numbers go up is what we do here as well!</q><br>
-            You:<q>Really?</q><br>
-            ???:<q>Yes! My name is Chal, and I'm have to do basically every chore in this place...</q><br>
+            Anon:<q>I was at my home having some sleep after grinding an incremental game and next thing I know, I am here.</q><br>
+            2048-4097:<q>I see... Having numbers go up is what we do here as well!</q><br>
+            2048-4097:<q>Really?</q><br>
+            Luca12:<q>Yes! My name is LiceNice, and I'm have to do basically every chore in this place...</q><br>
             You:<q>Oh, I'm sorry to hear.</q><br>
-            Chal:<q>I can try helping you go back to your world, but before that you need to accumulate a lot of Challenge Power first. Try getting some by clearing these challenges first!`,
+            LiceNice:<q>I can try helping you go back to your world, but before that you need to accumulate a lot of meters first. Try getting some by buying these upgrades first!`,
         },
     },
  upgrades: {
@@ -147,7 +147,7 @@ addLayer("y", {
     requires: new Decimal(1e8), // Can be a function that takes requirement increases into account
     resource: "yfn", // Name of prestige currency
     branches: ["r"],
-    baseResource: "rockek power", // Name of resource prestige is based on
+    baseResource: "rocket power", // Name of resource prestige is based on
     baseAmount() {return player.r.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
@@ -170,6 +170,15 @@ addLayer("y", {
         cost: new Decimal(1),
         effect() {
             return player[this.layer].points.add(1).pow(0.5)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        }
+	12: {
+        title: "Aluminium Energy",
+        description: "YFN boost your distance gain.",
+        cost: new Decimal(5000),
+        effect() {
+            return player[this.layer].points.add(1).pow(0.7)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         }
