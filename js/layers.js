@@ -172,7 +172,7 @@ addLayer("y", {
             return player[this.layer].points.add(1).pow(0.5)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-        }
+        },
 	12: {
         title: "Rocket Tree bug fix",
         description: "YFN boost your distance gain.",
