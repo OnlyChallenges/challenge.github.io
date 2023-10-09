@@ -174,7 +174,7 @@ addLayer("y", {
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         }
 	12: {
-        title: "Aluminium Energy",
+        title: "Rocket Tree bug fix",
         description: "YFN boost your distance gain.",
         cost: new Decimal(5000),
         effect() {
