@@ -8,16 +8,21 @@ let modInfo = {
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (20), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 3,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2.1 Bug Fix",
-	name: "YFN update 0.2.1",
+	num: "0.3α Sacrifice",
+	name: "Sacrifice Alpha",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+        <h3>v0.3α Saceifice</h3><br>
+		- Added infoboxes, rocket power.<br>
+		- Added an upgrade.<br>
+                - Changed 1 to 3 offline limit.<br>
+		- Endgame: 1e30 YFN.<br>
         <h3>v0.2.1 Bug Fix</h3><br>
 		- Added a row of accomplishments, yfn.<br>
 		- Changed yfn to lime.<br>
