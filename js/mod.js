@@ -72,8 +72,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Reach 1e30 yfn to reach the endgame!",
-	"Welcome to the Rocket Tree!"
+	"Reach 1e30 yfn to reach the endgame!"
 ]
 
 // Determines when the game "ends"
