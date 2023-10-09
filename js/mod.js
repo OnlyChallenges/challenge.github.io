@@ -62,6 +62,7 @@ function getPointGen() {
 	if (hasUpgrade('r', 13)) gain = gain.times(upgradeEffect('r', 13))
 	if (hasUpgrade('r', 14)) gain = gain.times(10)
 	if (hasUpgrade('y', 11)) gain = gain.times(upgradeEffect('y', 11))
+	if (hasUpgrade('y', 12)) gain = gain.times(upgradeEffect('y', 12))
 	return gain
 }
 
@@ -71,12 +72,13 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Reach 5,000 yfn to reach the endgame!",
+	"Reach 1e30 yfn to reach the endgame!",
+	"Welcome to the Rocket Tree!"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.y.points.gte(new Decimal(5000))
+	return player.y.points.gte(new Decimal(1e30))
 }
 
 
