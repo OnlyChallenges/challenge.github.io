@@ -183,6 +183,19 @@ addLayer("y", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return hasUpgrade("r",14)||player.y.unlocked},
+	infoboxes: {
+        lore: {
+            title: "YFN 0.3",
+            body: `Chal: <q>Excellent Job! This is the only upgrades, challenges and milestones I can give you, but you got a number of meters from them.</q><br>
+            Anon: <q>Hey, this feels really like an incremental game! It's a little challenge heavy, but numbers still go up.</q><br>
+            LiceNice: <q>OK, follow me to another challenge maker, and you might get enough power to go back home!</q><br>
+            ...<br>
+            <img src="Universe-2.png" width="500"><br>
+            fg5: <q>Oi Chal. Never saw that person next to you before.</q><br>
+            LiceNice: <q>Well this person came from another dimension. That would explain...</q><br>
+            fg5: <q>Dimensional warp? Are you just making up bullcrap again? The kingdom punishes you to do all the heavy work for a reason...`,
+	    },
+     },
  upgrades: {
         11: {
         title: "Yet another layer",
