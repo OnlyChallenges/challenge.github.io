@@ -57,14 +57,13 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Reach Unsure"
+	"Testing"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
 	return player.points.gte(new Decimal(1000))
 }
-
 
 
 // Less important things beyond this point!
