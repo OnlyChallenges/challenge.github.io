@@ -185,34 +185,30 @@ addLayer("y", {
    }
 })
 addLayer("s", {
-name: "sacrifice",
-symbol: "S",
-position: 0,
-    startData() { return {                  // startData is a function that returns default data for a layer. 
-        unlocked: false,                     // You can add more variables here to add them to your layer.
-        points: new Decimal(0),             // "points" is the internal name for the main resource of the layer.
+    name: "sacrifice", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "S", // This appears on the layer's node. Default is the id with the first letter capitalized
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    startData() { return {
+        unlocked: false,
+		points: new Decimal(0),
     }},
-
-    color: "gold",                       // The color for this layer, which affects many elements.
-    resource: "sacrifice points",            // The name of this layer's main prestige resource.
-    row: 2,                                 // The row this layer is on (0 is the first row).
-
-    baseResource: "yfn",   // The name of the resource your prestige gain is based on.
-    branches: ["y"]
-    baseAmount() { return player.y.points },  // A function to return the current amount of baseResource.
-    requires: new Decimal(1.5e30),              // The amount of the base needed to  gain 1 of the prestige currency                                            // Also the amount required to unlock the laye
-    type: "normal",                         // Determines the formula used for calculating prestige currency.
-    exponent: 0.7,                          // "normal" prestige gain is (currency^exponent).
-
-    gainMult() {                            // Returns your multiplier to your gain of the prestige resource.
-        return new Decimal(1)               // Factor in any bonuses multiplying gain here.
+    color: "gold",
+    requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
+    resource: "sacrifice points", // Name of prestige currency
+    baseResource: "yfn", // Name of resource prestige is based on
+    baseAmount() {return player.y.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0.5, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        return mult
     },
-    gainExp() {                             // Returns the exponent to your gain of the prestige resource.
+    gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-
-    layerShown() { return player.y.points.gte(new Decimal(1e30))||player.s.unlocked},          // Returns a bool for if this layer's node should be visible in the tre
- upgrades: {
-        // Look in the upgrades docs to see what goes here!
-    },
+    row: 0, // Row the layer is in on the tree (0 is the first row)
+    hotkeys: [
+        {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+    ],
+    layerShown(){return hasUpgrade("y",12)||player.s.unlocked},
 })
