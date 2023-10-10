@@ -13,11 +13,15 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.3α Sacrifice",
-	name: "Sacrifice Alpha",
+	num: "0.3 Sacrifice",
+	name: "The Sacrifice",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+        <h3>v0.3 Sacrifice</h3><br>
+	        - Added a row of accomplishments.<br>
+	        - Added the third layer, sacrifice.<br>
+	        - Endgame: 1,000,000 SP.<br>
         <h3>v0.3α Saceifice</h3><br>
 		- Added infoboxes, rocket power.<br>
 		- Added an upgrade.<br>
@@ -72,12 +76,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Reach 1e30 yfn to reach the endgame!"
+	"Reach 1,000,000 SP to reach the endgame!"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.y.points.gte(new Decimal(1e30))
+	return player.s.points.gte(new Decimal(1e6))
 }
 
 
