@@ -46,7 +46,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            return player[this.layer].points.add(1).pow(0.4).mult(player.c.points/1)
+            return player[this.layer].points.add(1).pow(0.4).mult(1.1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
         },
