@@ -1,44 +1,27 @@
 let modInfo = {
 	name: "The Experimental Tree",
-	id: "Acythe3",
-	author: "Ozvali",
+	id: "experiments",
+	author: "Acythe3",
 	pointsName: "infects",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (20), // Used for hard resets and new players
-	offlineLimit: 3,  // In hours
+	offlineLimit: 5,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.3 Sacrifice",
-	name: "The Sacrifice",
+	num: "0.1 Crystals",
+	name: "Crystals",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-        <h3>v0.3 Sacrifice</h3><br>
-	        - Added a row of accomplishments.<br>
-	        - Added the third layer, sacrifice.<br>
-	        - Endgame: 1,000,000 SP.<br>
-        <h3>v0.3α Saceifice</h3><br>
-		- Added infoboxes, rocket power.<br>
-		- Added an upgrade.<br>
-                - Changed 1 to 3 offline limit.<br>
-		- Endgame: 1e30 YFN.<br>
-        <h3>v0.2.1 Bug Fix</h3><br>
-		- Added a row of accomplishments, yfn.<br>
-		- Changed yfn to lime.<br>
-		- Endgame: 5,000 YFN.<br>
-        <h3>v0.2 Year</h3><br>
-		- Added the second layer, yfn.<br>
-		- Added an upgrade.<br>
-		- Endgame: 1,000 YFN.<br>
-	<h3>v0.1 Rocket</h3><br>
-		- Added the first layer, rocket power.<br>
-		- Added an upgrade.<br>
-		- Endgame: 100,000,000 Rocket Power.`
+        <h3>v0.1 Crystals</h3><br>
+	        - Added 2 Upgrades <br>
+	        - Added the first layer, Crystals.<br>
+	        - Endgame: None.<br>`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
