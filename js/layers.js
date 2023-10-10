@@ -1,18 +1,18 @@
-addLayer("r", {
-    name: "Rocket Power", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "R", // This appears on the layer's node. Default is the id with the first letter capitalized
+addLayer("c", {
+    name: "Crystals", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "C", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#FDFDFD",
+    color: "#FC5BDC",
     requires: new Decimal(20), // Can be a function that takes requirement increases into account
-    resource: "rocket power", // Name of prestige currency
-    baseResource: "meters traveled", // Name of resource prestige is based on
+    resource: "crystals", // Name of prestige currency
+    baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.5, // Prestige currency exponent
+    exponent: 0.35, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -22,29 +22,19 @@ addLayer("r", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "r", description: "R: Reset for rocket power", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "c", description: "C: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
 	infoboxes: {
         lore: {
-            title: "The Rocket",
-            body: `<img src="images (3).jpeg" width="500"><br>
-            Anon:<q>Huh? What is this place?</q><br>
-            Luca12:<q>Oh great, you finally woke up. I thought I have to clean up another corpse again.</q><br>
-            Anon:<q>What's all this corpse cleaning and me being teleported to another world about?</q><br>
-            ???:<q>So you did not belong to this world?</q><br>
-            Anon:<q>I was at my home having some sleep after grinding an incremental game and next thing I know, I am here.</q><br>
-            2048-4097:<q>I see... Having numbers go up is what we do here as well!</q><br>
-            2048-4097:<q>Really?</q><br>
-            Luca12:<q>Yes! My name is LiceNice, and I'm have to do basically every chore in this place...</q><br>
-            You:<q>Oh, I'm sorry to hear.</q><br>
-            LiceNice:<q>I can try helping you go back to your world, but before that you need to accumulate a lot of meters first. Try getting some by buying these upgrades first!`,
+            title: "Crystals",
+            body: `Wait...There's only Crystals?`,
         },
     },
  upgrades: {
         11: {
-        title: "You Gotta Start Somewhere",
-        description: "Rocket Power boost your distance gain.",
+        title: "Touching Crystals",
+        description: "Crystals boosts infects",
         cost: new Decimal(1),
         effect() {
             return player[this.layer].points.add(1).pow(0.5)

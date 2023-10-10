@@ -1,7 +1,7 @@
 let modInfo = {
 	name: "The Rocket Tree",
-	id: "spaceonic2",
-	author: "Secret1000",
+	id: "Acythe3",
+	author: "Ozvali",
 	pointsName: "meters traveled",
 	modFiles: ["layers.js", "tree.js"],
 
