@@ -32,6 +32,7 @@ addLayer("c", {
         },
     },
  upgrades: {
+    rows: 1.
         11: {
         title: "Touching Crystals",
         description: "Crystals boosts infects slightly",
@@ -41,6 +42,7 @@ addLayer("c", {
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
+
 	12: {
 	title: "Submerge the Crystals",
         description: "Crystals boosts infects",
@@ -49,6 +51,9 @@ addLayer("c", {
             return player[this.layer].points.add(1.5).pow(0.4)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
+        },
+        unlocked(){
+            return hasUpgrade("c", 11) || hasUnlockedPast("c")
         },
 	13: {
 	title: "Reformation",
@@ -59,15 +64,24 @@ addLayer("c", {
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
+        unlocked(){
+            return hasUpgrade("c", 12) || hasUnlockedPast("c")
+        },
 	14: {
         title: "Crystalization",
 	description: "Crystals made Experiments more mad, Infects are 3x faster",
 	cost: new Decimal(50),
+    unlocked(){
+        return hasUpgrade("c", 13) || hasUnlockedPast("c")
+    },
     },
     15: {
         title: "Experimental Changes",
     description: "Experiments are now stronger, Infects are 1.5x faster",
     cost: new Decimal(250),
+    unlocked(){
+        return hasUpgrade("c", 14) || hasUnlockedPast("c")
+    },
     },
     },
 })
