@@ -44,12 +44,10 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-	if (hasUpgrade('r', 11)) gain = gain.times(upgradeEffect('r', 11))
-        if (hasUpgrade('r', 12)) gain = gain.times(upgradeEffect('r', 12))
-	if (hasUpgrade('r', 13)) gain = gain.times(upgradeEffect('r', 13))
-	if (hasUpgrade('r', 14)) gain = gain.times(10)
-	if (hasUpgrade('y', 11)) gain = gain.times(upgradeEffect('y', 11))
-	if (hasUpgrade('y', 12)) gain = gain.times(upgradeEffect('y', 12))
+	if (hasUpgrade('c', 11)) gain = gain.times(upgradeEffect('c', 11))
+        if (hasUpgrade('c', 12)) gain = gain.times(upgradeEffect('c', 12))
+	if (hasUpgrade('c', 13)) gain = gain.times(upgradeEffect('c', 13))
+	if (hasUpgrade('c', 14)) gain = gain.times(10)
 	return gain
 }
 
@@ -59,7 +57,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Reach 1,000,000 SP to reach the endgame!"
+	"Reach Unsure"
 ]
 
 // Determines when the game "ends"
