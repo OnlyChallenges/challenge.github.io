@@ -28,7 +28,7 @@ addLayer("c", {
 	infoboxes: {
         lore: {
             title: "Crystals",
-            body: `Wait...There's only Crystals?`,
+            body: `Crystals hurt people which would infect them`,
         },
     },
  upgrades: {
