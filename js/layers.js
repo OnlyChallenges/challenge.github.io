@@ -44,16 +44,16 @@ addLayer("c", {
 	12: {
 	title: "20 rockets are not",
         description: "Rocket Power boost your distance gain.",
-        cost: new Decimal(20),
+        cost: new Decimal(5),
         effect() {
-            return player[this.layer].points.add(1).pow(0.6)
+            return player[this.layer].points.add(1).pow(0.4).mult('c'/1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
         },
 	13: {
 	title: "Half Life 3 Confirmed",
         description: "Rocket Power boost your distance gain.",
-        cost: new Decimal(300),
+        cost: new Decimal(25),
         effect() {
             return player[this.layer].points.add(1).pow(0.7)
         },
