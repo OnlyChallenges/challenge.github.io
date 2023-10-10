@@ -51,18 +51,18 @@ addLayer("c", {
         effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
         },
 	13: {
-	title: "Half Life 3 Confirmed",
-        description: "Rocket Power boost your distance gain.",
-        cost: new Decimal(25),
+	title: "Reformation",
+        description: "Crystals boosts Crystals",
+        cost: new Decimal(15),
         effect() {
-            return player[this.layer].points.add(1).pow(0.7)
+            return player[this.layer].c.points.add(1.2).pow(0.2)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
 	14: {
-        title: "Booster",
-	description: "x10 more distance",
-	cost: new Decimal(1000),
+        title: "Crystalization",
+	description: "x2 Infects",
+	cost: new Decimal(50),
 	},
     },
 })
