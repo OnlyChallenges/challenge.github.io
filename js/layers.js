@@ -34,10 +34,10 @@ addLayer("c", {
  upgrades: {
         11: {
         title: "Touching Crystals",
-        description: "Crystals boosts infects",
+        description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            return player[this.layer].points.add(1).pow(0.5)
+            return player[this.layer].points.add(1).pow(0.2)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
