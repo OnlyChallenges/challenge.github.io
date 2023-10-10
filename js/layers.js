@@ -46,16 +46,16 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            return player[this.layer].points.add(1).pow(0.4)
+            return player[this.layer].points.add(1.5).pow(0.4)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
         },
 	13: {
 	title: "Reformation",
-        description: "Crystals boosts Crystals",
+        description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            return player[this.layer].c.points.add(1.2).pow(0.2)
+            return player[this.layer].points.add(1.2).pow(0.3)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
