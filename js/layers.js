@@ -190,7 +190,7 @@ addLayer("y", {
             Anon: <q>Hey, this feels really like an incremental game! It's a little challenge heavy, but numbers still go up.</q><br>
             LiceNice: <q>OK, follow me to another challenge maker, and you might get enough power to go back home!</q><br>
             ...<br>
-            <img src="Universe-2.png" width="500"><br>
+            <img src="Universe-2.jpg" width="500"><br>
             fg5: <q>Oi Chal. Never saw that person next to you before.</q><br>
             LiceNice: <q>Well this person came from another dimension. That would explain...</q><br>
             fg5: <q>Dimensional warp? Are you just making up bullcrap again? The kingdom punishes you to do all the heavy work for a reason...`,
@@ -254,4 +254,13 @@ addLayer("s", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return hasUpgrade("y",12)||player.s.unlocked},
+	clickables: {
+        11: {
+            title: "Hold to gain yfn",
+            display: "(Mobile QoL)",
+            onClick() {if(canReset("y")) doReset("y")},
+            onHold() {if(canReset("y")) doReset("y")},
+            canClick() {return true},
+        },
+    },
 })
