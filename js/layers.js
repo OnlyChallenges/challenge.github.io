@@ -32,9 +32,10 @@ addLayer("c", {
         },
     },
  upgrades: {
-    rows: 1.
-        11: {
-        title: "Touching Crystals",
+    rows: 3,
+    cols: 5,
+    11: {
+    title: "Touching Crystals",
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
@@ -42,7 +43,9 @@ addLayer("c", {
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
-
+        unlocked(){
+            return player.c.points.gte(0) || hasUnlockedPast("c")
+        },
 	12: {
 	title: "Submerge the Crystals",
         description: "Crystals boosts infects",
