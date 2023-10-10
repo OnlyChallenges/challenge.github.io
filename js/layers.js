@@ -42,8 +42,8 @@ addLayer("c", {
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
 	12: {
-	title: "20 rockets are not",
-        description: "Rocket Power boost your distance gain.",
+	title: "Submerge the Crystals",
+        description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
             return player[this.layer].points.add(1).pow(0.4).mult('c'/1)
