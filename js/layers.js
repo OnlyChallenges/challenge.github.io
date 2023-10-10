@@ -61,9 +61,14 @@ addLayer("c", {
         },
 	14: {
         title: "Crystalization",
-	description: "x2 Infects",
+	description: "x3 Infects",
 	cost: new Decimal(50),
-	},
+    },
+    15: {
+        title: "Experimental Changes",
+    description: "Experiments are now stronger, Touching Crystals' is now 2x stronger",
+    cost: new Decimal(100),
+    },
     },
 })
 addLayer("a", {
