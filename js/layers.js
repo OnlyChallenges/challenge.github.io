@@ -196,6 +196,15 @@ addLayer("y", {
             fg5: <q>Dimensional warp? Are you just making up bullcrap again? The kingdom punishes you to do all the heavy work for a reason...`,
 	    },
      },
+	clickables: {
+        11: {
+            title: "Hold to gain rocket power",
+            display: "(Mobile QoL)",
+            onClick() {if(canReset("r")) doReset("r")},
+            onHold() {if(canReset("r")) doReset("r")},
+            canClick() {return true},
+        },
+    },
  upgrades: {
         11: {
         title: "Yet another layer",
