@@ -87,7 +87,7 @@ addLayer("a", {
             return ("Accomplishments")
         },
         achievements: {
-            rows: 2,
+            rows: 3,
             cols: 4,
                 11: {
                 name: "Welcome to Rocket Tree",
@@ -128,6 +128,26 @@ addLayer("a", {
 		name: "Now in 3023",
 		done() { return player.y.points.gte(1000) },
 		tooltip: "Get 1,000 YFN",
+	    },
+		31: {
+	        name: "1e140 uni?",
+		done() { return player.points.gte(1e150) },
+		tooltip: "Travel 1.00e140 uni",
+	    },
+		32: {
+		name: "Off to SACRIFICE!",
+		done() {return player.s.unlocked},
+		tooltip: "Sacrifice for first time.",
+	    },
+		33: {
+		name: "Sacrifice 2",
+		done() {return player.s.points.gte(100)},
+		tooltip: "Get 100 SP.",
+	    },
+		34: {
+		name: "Sacrifice 3",
+		done() {return player.s.points.gte(1e4)},
+		tooltip: "Get 10,000 SP.",
 	    }
         },
         midsection: [
@@ -195,6 +215,7 @@ addLayer("s", {
     color: "gold",
     requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
     resource: "sacrifice points", // Name of prestige currency
+    branches: ["y"],
     baseResource: "yfn", // Name of resource prestige is based on
     baseAmount() {return player.y.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -206,7 +227,7 @@ addLayer("s", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 2, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
