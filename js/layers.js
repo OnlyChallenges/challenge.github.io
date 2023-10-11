@@ -87,6 +87,19 @@ addLayer("c", {
     },
                 },
             },
+    21: {
+        title: "Pre-Permafrost",
+        description: "Crystals boosts Points",
+        cost: new Decimal(4500),
+        effect() {
+            return player[this.layer].points.add(1.5).pow(0.625)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+        unlocked(){
+            return completeChallenge("c", 11)
+        },
+
 challenges: { 
     11: {
         name: "Permafrost",
