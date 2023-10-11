@@ -90,25 +90,19 @@ addLayer("c", {
 challenges: { 
     11: {
         name: "Permafrost",
-        challengeDescription: "Permafrost is starting to get weaker from the heat! 'Reformation' doesn't do anything",
+        challengeDescription: "Permafrost is starting to get weaker from the heat! Infects are divided by pi*pi",
         rewardDescription: "Infects are increased by 5x",
         rewardEffect(){
                 player[this.layer].points.times(5)
         },
         goal(){
-            let init = Decimal(1000)
-            let factor = getChallengeFactor(challengeCompletions("c", 11))
-            return init.pow(factor)
+            player.points.gte(1e5)
         },
         unlocked(){
                 return hasUpgrade("c", 15)
         },
-        onEnter(){
-                if (hasUpgrade("c", 13)) gain = gain.times(1)
         },
         currencyInternalName: "infects", 
-        completionLimit: 1
-    },
 },
 })
 
