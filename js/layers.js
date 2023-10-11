@@ -94,6 +94,7 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("c", 15)
         },
+    },
 challenges: { 
     11: {
         name: "Permafrost",
