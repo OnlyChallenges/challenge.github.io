@@ -59,6 +59,8 @@ function getPointGen() {
 	if (hasUpgrade('c', 14)) gain = gain.times(3)
 	if (hasUpgrade('c', 15)) gain = gain.times(1.5)
 	if (hasUpgrade('c', 21)) gain = gain.times(2.33)
+	if (hasUpgrade('c', 22)) gain = gain.times(upgradeEffect('c',22))
+	if (hasUpgrade('c', 23)) gain = gain.times(upgradeEffect('c',23))
 	if (inChallenge("c",11)) gain = gain.div(Math.PI+Math.PI)
 	if (completeChallenge("c",11)) gain = gain.times(5)
 	return gain

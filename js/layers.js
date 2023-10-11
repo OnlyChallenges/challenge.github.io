@@ -94,25 +94,33 @@ addLayer("c", {
             return hasUpgrade("c", 15)
         },
     },
- },
-challenges: { 
-    11: {
-        name: "Permafrost",
-        challengeDescription: "Permafrost is starting to get weaker from the heat! Infects are divided by pi*pi",
-        rewardDescription: "Infects are increased by 5x",
-        rewardEffect(){
-                player[this.layer].points.times(5)
-        },
-        goal(){
-            new Decimal(10000)
-        },
-        unlocked(){
-                return hasUpgrade("c", 15)
-        },
-        }, 
-},
-})
+	22: {
+        title: "Frosticality",
+            description: "Permafrosting can lead to Frosticality-- infects are boosted based on crystals",
+            cost: new Decimal(7250),
+            effect() {
+                return player[this.layer].points.add(1.2).pow(0.45)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+            },
+            unlocked(){
+                return hasUpgrade("c", 21)
+            },
+	23: {
+        title: "Beelusion",
+            description: "There's Honey Crystals around the corner-- infects are boosted based on infects",
+            cost: new Decimal(7250),
+            effect() {
+                return player[this.resource].points.pow(0.2)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+            },
+            unlocked(){
+                return hasUpgrade("c", 22)
+            },
 
+     },
+ })
 
 addLayer("a", {
         startData() { return {
