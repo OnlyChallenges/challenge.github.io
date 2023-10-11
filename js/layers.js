@@ -88,7 +88,7 @@ addLayer("c", {
             },
         },
     },
-challenges, { 
+challenges: { 
     11: {
         name: "Permafrost",
         challengeDescription() {return "Permafrost is starting to get weaker from the heat! 'Reformation' doesn't do anything"},
