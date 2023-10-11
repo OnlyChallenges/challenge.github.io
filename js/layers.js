@@ -90,8 +90,8 @@ addLayer("c", {
 challenges: { 
     11: {
         name: "Permafrost",
-        challengeDescription() {return "Permafrost is starting to get weaker from the heat! 'Reformation' doesn't do anything"},
-        rewardDescription() {"Infects are increased by 5x"},
+        challengeDescription: "Permafrost is starting to get weaker from the heat! 'Reformation' doesn't do anything",
+        rewardDescription: "Infects are increased by 5x",
         rewardEffect(){
                 player[this.layer].points.times(5)
         },
