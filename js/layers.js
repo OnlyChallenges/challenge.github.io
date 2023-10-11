@@ -84,10 +84,9 @@ addLayer("c", {
     cost: new Decimal(250),
     unlocked(){
         return hasUpgrade("c", 14)
+    },
                 },
             },
-        },
-    },
 challenges: { 
     11: {
         name: "Permafrost",
@@ -107,6 +106,7 @@ challenges: {
         },
         currencyInternalName: "infects", 
     },
+},
 })
 
 
