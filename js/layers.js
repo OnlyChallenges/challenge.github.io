@@ -97,9 +97,8 @@ addLayer("c", {
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         unlocked(){
-            return completeChallenge("c", 11)
+            return hasUpgrade("c", 15)
         },
-
 challenges: { 
     11: {
         name: "Permafrost",
