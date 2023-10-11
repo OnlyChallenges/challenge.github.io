@@ -107,11 +107,11 @@ addLayer("c", {
                 return hasUpgrade("c", 21)
             },
 	23: {
-        title: "Beelusion",
-            description: "There's Honey Crystals around the corner-- infects are boosted based on infects",
+        title: "Bee-lusion",
+            description: "There's Honey Crystals around the corner-- infects are increased",
             cost: new Decimal(7250),
             effect() {
-                return player[this.resource].points.pow(0.2)
+                return player[this.layer].points.pow(0.2)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
