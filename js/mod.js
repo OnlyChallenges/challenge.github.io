@@ -7,17 +7,21 @@ let modInfo = {
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (20), // Used for hard resets and new players
+	initialStartPoints: new Decimal (5), // Used for hard resets and new players
 	offlineLimit: 5,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.1v",
-	name: "The Facility",
+	num: "0.1.2",
+	name: "Crystals Reunited",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+		<h3>v0.1.2 Crystals Reunited</h3><br>
+			- Added 2 New Rows of Upgrades <br>
+			- Endgame: 10,000,000 Infects
+
 		<h3>v0.1.1 The Facility</h3><br>
 			- Added 3 Upgrades <br>
 			- Added some...lore.<br>
@@ -63,12 +67,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Testing 1"
+	"Endgame: 10,000,000 Infects"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal(1000))
+	return player.points.gte(new Decimal(1e7))
 }
 
 

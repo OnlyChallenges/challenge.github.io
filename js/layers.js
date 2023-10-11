@@ -87,6 +87,29 @@ addLayer("c", {
     },
     },
     },
+}
+    challenges: {
+        rows: 1,
+        cols: 2,
+        11: {
+            name: "Permafrost",
+            challengeDescription: "Permafrost is starting to get weaker from the heat!",
+            rewardDescription: "Infects are increased by 5x",
+            rewardEffect(){
+                    gain.times(5)
+            },
+            goal(){
+                    let init = Decimal(100)
+                    let factor = getChallengeFactor(challengeCompletions("c", 11))
+                    return init.pow(factor)
+            },
+            unlocked(){
+                    return hasUpgrade("c", 15)
+            },
+            currencyInternalName: "infects",
+            completionLimit: 1,
+        
+    },
 })
 addLayer("a", {
         startData() { return {
