@@ -96,7 +96,9 @@ challenges: {
                 player[this.layer].points.times(5)
         },
         goal(){
-            player.points.gte(15000)
+            let init = Decimal(1000)
+            let factor = getChallengeFactor(challengeCompletions("c", 11))
+            return init.pow(factor)
         },
         unlocked(){
                 return hasUpgrade("c", 15)
@@ -105,6 +107,7 @@ challenges: {
                 if (hasUpgrade("c", 13)) gain = gain.times(1)
         },
         currencyInternalName: "infects", 
+        completionLimit: 1
     },
 },
 })
