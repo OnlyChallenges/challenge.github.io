@@ -92,7 +92,7 @@ addLayer("c", {
         description: "Crystals boosts Points",
         cost: new Decimal(4500),
         effect() {
-            return player[this.layer].points.add(1.5).pow(0.625)
+            return player[this.layer].points.add(1.5).pow(0.6)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
