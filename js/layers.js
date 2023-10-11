@@ -99,7 +99,7 @@ addLayer("c", {
             description: "Permafrosting can lead to Frosticality-- infects are boosted based on crystals",
             cost: new Decimal(7250),
             effect() {
-                return player[this.layer].points.add(1.2).pow(0.45)
+                return player[this.layer].points.add(1).pow(0.12)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
@@ -109,17 +109,36 @@ addLayer("c", {
 	23: {
         title: "Bee-lusion",
             description: "There's Honey Crystals around the corner-- infects are increased",
-            cost: new Decimal(7250),
+            cost: new Decimal(24500),
             effect() {
-                return player[this.layer].points.add(1.5).pow(0.6)
+                return player[this.layer].points.add(1).pow(0.1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
             unlocked(){
                 return hasUpgrade("c", 22)
             },
-
+	24: {
+        title: "Frozen Crystals",
+            description: "The Crystals has frozen scientists in place-- infects are slightly increased",
+            cost: new Decimal(350000),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.08)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+            },
+            unlocked(){
+                return hasUpgrade("c", 23)
+            },
+    25: {
+        title: "Crystalized Dragons",
+        description: "Influcational has occured on them, throwing crystals at others-- infects gain is 6.5x!",
+        cost: new Decimal(1.75e8),
+        unlocked(){
+            return hasUpgrade("c", 15)
+        },
      },
+ },
  })
 
 addLayer("a", {
