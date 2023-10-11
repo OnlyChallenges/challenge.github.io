@@ -97,7 +97,7 @@ addLayer("c", {
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         unlocked(){
-            return completeChallengeChallenge("c", 11)
+            return completeChallenge("c", 11)
         },
 
 challenges: { 
