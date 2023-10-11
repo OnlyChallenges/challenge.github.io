@@ -59,6 +59,7 @@ function getPointGen() {
 	if (hasUpgrade('c', 14)) gain = gain.times(3)
 	if (hasUpgrade('c', 15)) gain = gain.times(1.5)
 	if (inChallenge("c",11)) gain = gain.div(Math.PI+Math.PI)
+	if (completeChallenge("c",11)) gain = gain.times(5)
 	return gain
 }
 
