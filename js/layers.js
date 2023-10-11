@@ -86,7 +86,6 @@ addLayer("c", {
         return hasUpgrade("c", 14)
     },
                 },
-            },
     21: {
         title: "Solarfrost",
         description: "Permafrost learned fire control, infects are 2.33x faster",
@@ -95,6 +94,7 @@ addLayer("c", {
             return hasUpgrade("c", 15)
         },
     },
+ },
 challenges: { 
     11: {
         name: "Permafrost",
