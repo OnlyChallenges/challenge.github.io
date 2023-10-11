@@ -87,7 +87,7 @@ addLayer("c", {
     },
     },
     },
-}
+},
     challenges: {
         rows: 1,
         cols: 2,
@@ -96,7 +96,7 @@ addLayer("c", {
             challengeDescription: "Permafrost is starting to get weaker from the heat!",
             rewardDescription: "Infects are increased by 5x",
             rewardEffect(){
-                    gain.times(5)
+                    player[this.layer].points.times(5)
             },
             goal(){
                     let init = Decimal(100)
