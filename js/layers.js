@@ -96,7 +96,7 @@ challenges: {
                 player[this.layer].points.times(5)
         },
         goal(){
-            player.points.gte(1e5)
+            new Decimal(10000)
         },
         unlocked(){
                 return hasUpgrade("c", 15)
