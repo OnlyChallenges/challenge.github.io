@@ -88,14 +88,9 @@ addLayer("c", {
                 },
             },
     21: {
-        title: "Pre-Permafrost",
-        description: "Crystals boosts Points",
+        title: "Solarfrost",
+        description: "Permafrost learned fire control, infects are 2.33x faster",
         cost: new Decimal(4500),
-        effect() {
-            return player[this.layer].points.add(1.5)
-        },
-        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-        },
         unlocked(){
             return hasUpgrade("c", 15)
         },
