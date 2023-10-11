@@ -96,13 +96,12 @@ challenges: {
                 player[this.layer].points.times(5)
         },
         goal(){
-            player[this.layer].points = (5000)
+            return player.points.gte(15000)
         },
         unlocked(){
                 return hasUpgrade("c", 15)
         },
         onEnter(){
-                player.c.points = (0)
                 if (hasUpgrade("c", 13)) gain = gain.times(1)
         },
         currencyInternalName: "infects", 
