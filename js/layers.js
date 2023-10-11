@@ -84,33 +84,32 @@ addLayer("c", {
     cost: new Decimal(250),
     unlocked(){
         return hasUpgrade("c", 14)
-    },
-    },
-    },
-},
-    challenges: {
-        rows: 1,
-        cols: 2,
-        11: {
-            name: "Permafrost",
-            challengeDescription: "Permafrost is starting to get weaker from the heat!",
-            rewardDescription: "Infects are increased by 5x",
-            rewardEffect(){
-                    player[this.layer].points.times(5)
+                },
             },
-            goal(){
-                    let init = Decimal(100)
-                    let factor = getChallengeFactor(challengeCompletions("c", 11))
-                    return init.pow(factor)
-            },
-            unlocked(){
-                    return hasUpgrade("c", 15)
-            },
-            currencyInternalName: "infects",
-            completionLimit: 1,
-        
+        },
+    },
+challenges, { 
+    11: {
+        name: "Permafrost",
+        challengeDescription() {return "Permafrost is starting to get weaker from the heat! 'Reformation' doesn't do anything"},
+        rewardDescription() {"Infects are increased by 5x"},
+        rewardEffect(){
+                player[this.layer].points.times(5)
+        },
+        goal(){
+                new Decimal(500)
+        },
+        unlocked(){
+                return hasUpgrade("c", 15)
+        },
+        onEnter(){
+                if (hasUpgrade("c", 13)) gain = gain.times(1)
+        },
+        currencyInternalName: "infects", 
     },
 })
+
+
 addLayer("a", {
         startData() { return {
             unlocked: true,
