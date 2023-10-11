@@ -101,8 +101,7 @@ challenges: {
         unlocked(){
                 return hasUpgrade("c", 15)
         },
-        },
-        currencyInternalName: "infects", 
+        }, 
 },
 })
 
