@@ -40,7 +40,7 @@ addLayer("c", {
         },
     },
     softcap() {
-        let value = player.points.gte(1e6);
+        new Decimal(1e6);
         return value;
       },
       softcapPower() {
