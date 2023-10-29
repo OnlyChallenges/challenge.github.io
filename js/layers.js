@@ -89,7 +89,7 @@ addLayer("c", {
     21: {
         title: "Solarfrost",
         description: "Permafrost learned fire control, infects are 3.5x faster",
-        cost: new Decimal(4500),
+        cost: new Decimal(1250),
         unlocked(){
             return hasUpgrade("c", 15)
         },
@@ -97,7 +97,7 @@ addLayer("c", {
 	22: {
         title: "Frosticality",
             description: "Permafrosting can lead to Frosticality-- infects are boosted based on crystals",
-            cost: new Decimal(7250),
+            cost: new Decimal(4400),
             effect() {
                 return player[this.layer].points.add(1).pow(0.12)
             },
@@ -109,7 +109,7 @@ addLayer("c", {
 	23: {
         title: "Bee-lusion",
             description: "There's Honey Crystals around the corner-- infects are increased",
-            cost: new Decimal(24500),
+            cost: new Decimal(12345),
             effect() {
                 return player[this.layer].points.add(1).pow(0.11)
             },
@@ -121,7 +121,7 @@ addLayer("c", {
 	24: {
         title: "Frozen Crystals",
             description: "The Crystals has frozen scientists in place-- infects are slightly increased",
-            cost: new Decimal(350000),
+            cost: new Decimal(75000),
             effect() {
                 return player[this.layer].points.add(1).pow(0.08)
             },
