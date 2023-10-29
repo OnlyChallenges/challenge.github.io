@@ -137,7 +137,7 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("c", 24)
         },
-     },
+    },
     31: {
         title: "Crystalmania",
         description: "They're Everywhere! Infects Gain is 5x!",
@@ -145,6 +145,7 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("c", 25)
         },
+    },
     32: {
         title: "Nyko's Transformation",
         description: "Nyko has gotten smarter...Crystals boosts Infects.",
@@ -152,7 +153,6 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("E", 13)
         },
-    },
     },
  },
  })
