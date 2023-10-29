@@ -12,7 +12,7 @@ addLayer("c", {
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.55, // Prestige currency exponent
+    exponent: 0.65, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -205,7 +205,7 @@ addLayer("E", {
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.75, // Prestige currency exponent
+    exponent: 0.33, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -226,18 +226,21 @@ addLayer("E", {
     },
  upgrades: {
     rows: 2,
-    cols: 2,
+    cols: 5,
     11: {
-    title: "Dark Wolf",
-        description: "Dark Wolf is boosting Infects Significantly",
+        title: "Nyko",
+        description: "The first of the Experiments...Boost Infect Gain by 9.5x",
         cost: new Decimal(1),
-        effect() {
-            return player[this.layer].points.add(2.5).pow(0.13)
-        },
-        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-        },
-        unlocked(){
-            return player.E.points.gte(0)
-        },
+    },
+    12: {
+        title: "Abys",
+        description: "Squid...Boost Infect Gain by 13x",
+        cost: new Decimal(5),
+    },
+    13: {
+        title: "Wintear",
+        description: "Poisonity...Boost Infect Gain by 3x",
+        cost: new Decimal(30),
+    }
  },
  })
