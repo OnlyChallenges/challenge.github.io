@@ -1,61 +1,33 @@
+
 // ************ Themes ************
-var themes = ["default","e205color1", "aqua"]
 
-var colors = {
-	default: {
-		1: "#ffffff",//Branch color 1
-		2: "#bfbfbf",//Branch color 2
-		3: "#7f7f7f",//Branch color 3
-		color: "#dfdfdf",
-		points: "#ffffff",
-		locked: "#bf8f8f",
-		background: "#0f0f0f",
-		background_tooltip: "rgba(0, 0, 0, 0.75)",
-	},
-	e205color1: {
-		1: "#8f1810",
-		2: "#a1271f",
-		3: "#732a25",
-		color: "#a35d71",
-		points: "#3529ba",
-		locked: "#4b4a4f",
-		background: "#360707",
-		background_tooltip: "rgba(77, 13, 31, 0.75)",
-	},
-	aqua: {
-		1: "#bfdfff",
-		2: "#8fa7bf",
-		3: "#5f6f7f",
-		color: "#bfdfff",
-		points: "#dfefff",
-		locked: "#c4a7b3",
-		background: "#001f3f",
-		background_tooltip: "rgba(0, 15, 31, 0.75)",
-	},
+const themes = {
+	0: ["Default", "#0f0f0f", "#000000b0", "#dfdfdf", "#ffffff", "#bf8f8f"],
+	1: ["Aqua", "#001f3f", "#000f1fb0", "#bfdfff", "#dfefff", "#c4a7b3"],
+	2: ["E205 Color 1", "#360707", "#434a05", "#140c57", "#cf9b9b", "#6e6868"],
+	3: ["E205 Color 2", "#072e36", "#054a14", "#140c57", "#cf9b9b", "#6e6868"],
 }
+const colors = {
+	0: { 1: "#ffffff", 2: "#ffffffbf", 3: "#ffffff7f", },
+	1: { 1: "#bfdfff", 2: "#bfdfffbf", 3: "#bfdfff7f", },
+	2: { 1: "#abefb0", 2: "#abefb0bf", 3: "#abefb07f", },
+	3: { 1: "#ff73fd", 2: "#ff73fdbf", 3: "#ff73fd7f", },
+}
+
 function changeTheme() {
-
-	colors_theme = colors[options.theme || "default"];
-	document.body.style.setProperty('--background', colors_theme["background"]);
-	document.body.style.setProperty('--background_tooltip', colors_theme["background_tooltip"]);
-	document.body.style.setProperty('--color', colors_theme["color"]);
-	document.body.style.setProperty('--points', colors_theme["points"]);
-	document.body.style.setProperty("--locked", colors_theme["locked"]);
-}
-function getThemeName() {
-	return options.theme? options.theme : "default";
+	colors_theme = colors[meta.options.theme] || colors[0]
+	document.body.style.setProperty('--background', themes[meta.options.theme] ? themes[meta.options.theme][1] : "#0f0f0f")
+	document.body.style.setProperty('--background_tooltip', themes[meta.options.theme] ? themes[meta.options.theme][2] : "#000000b0")
+	document.body.style.setProperty('--color', themes[meta.options.theme] ? themes[meta.options.theme][3] : "#dfdfdf")
+	document.body.style.setProperty('--points', themes[meta.options.theme] ? themes[meta.options.theme][4] : "#ffffff")
+	document.body.style.setProperty("--locked", themes[meta.options.theme] ? themes[meta.options.theme][5] : "#bf8f8f")
 }
 
 function switchTheme() {
-	let index = themes.indexOf(options.theme)
-	if (options.theme === null || index >= themes.length-1 || index < 0) {
-		options.theme = themes[0];
-	}
-	else {
-		index ++;
-		options.theme = themes[index];
-		options.theme = themes[2];
-	}
-	changeTheme();
-	resizeCanvas();
+	meta.options.theme = themes[+meta.options.theme + 1] ? +meta.options.theme + 1 : 0
+	changeTheme()
+}
+
+function getThemeName() {
+	return meta.options.theme && themes[meta.options.theme] ? themes[meta.options.theme][0] : "Default"
 }
