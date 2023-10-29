@@ -111,7 +111,7 @@ addLayer("c", {
             description: "There's Honey Crystals around the corner-- infects are increased",
             cost: new Decimal(24500),
             effect() {
-                return player[this.layer].points.add(1).mult(0.3)
+                return player[this.layer].points.add(1).mult(1.02)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
