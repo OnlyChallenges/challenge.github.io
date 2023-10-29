@@ -179,7 +179,7 @@ addLayer("c", {
     33: {
         title: "Abys' Swimming I",
         description: "Abys is getting faster in the pool...Crystals boosts Infects.",
-        cost: new Decimal(1.5e13),
+        cost: new Decimal(7.25e16),
         unlocked(){
             return hasUpgrade("E", 21) && hasUpgrade("c", 32);
         },
@@ -192,7 +192,7 @@ addLayer("c", {
      34: {
         title: "Moss' Plantful Spread",
         description: "Plants are growing and are infecting others. Crystals boosts Infects",
-        cost: new Decimal(1.5e13),
+        cost: new Decimal(9.99e17),
         unlocked(){
             return hasUpgrade("E", 23) && hasUpgrade("c", 33);
         },
