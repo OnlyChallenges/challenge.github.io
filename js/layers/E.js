@@ -29,7 +29,7 @@ addLayer("E", {
    effectBase() {
     let base = new Decimal(1)
     if (hasUpgrade ('E', 22)) base = base.add(upgradeEffect('E', 23))
-    if (hasUpgrade ('f', 25)) base = base.add(upgradeEffect('f', 25)) 
+    if (hasUpgrade ('E', 25)) base = base.add(upgradeEffect('E', 25)) 
     return base
 },
     effectDescription() {
