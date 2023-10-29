@@ -149,7 +149,7 @@ addLayer("c", {
     32: {
         title: "Nyko's Transformation",
         description: "Nyko has gotten smarter...Crystals boosts Infects.",
-        cost: new Decimal(5e10),
+        cost: new Decimal(2.5e10),
         effect() {
             return player[this.layer].points.add(1.5).pow(0.07)
         },
