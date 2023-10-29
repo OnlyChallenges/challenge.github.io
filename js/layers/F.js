@@ -20,6 +20,15 @@ addLayer("F", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+    effect() {
+        let eff = player.F.points.add(1).pow(0.32)
+        if (hasUpgrade("F",14)) eff = eff.add(2.5)
+        return eff
+    },
+    effectDescription() {
+        dis = "which boosts crystals gain by "+ format(tmp.E.effect) +"x"
+        return dis
+    },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "F", description: "E: reset for Fusions", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -51,6 +60,11 @@ addLayer("F", {
         title: "Fusion 3",
         description: "What in the hell...Boost Infect Gain by 60x",
         cost: new Decimal(80),
-    }
+    },
+    13: {
+        title: "Fusion 4",
+        description: "There's too many of them...Boosts Fusion Effect by 2.5x",
+        cost: new Decimal(250),
+    },
  },
  })
