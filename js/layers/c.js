@@ -44,7 +44,7 @@ addLayer("c", {
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
-            let text = `${format(upgradeEffect(this.layer, this.id))} ${capped}x`;
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
         unlocked(){
@@ -60,7 +60,7 @@ addLayer("c", {
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(50) ? "(Capped)" : "";
-            let text = `${format(upgradeEffect(this.layer, this.id))} ${capped}x`;
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
         unlocked(){
@@ -76,7 +76,7 @@ addLayer("c", {
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
-            let text = `${format(upgradeEffect(this.layer, this.id))} ${cappedx}`;
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
         unlocked(){
