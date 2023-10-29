@@ -159,5 +159,17 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("E", 13)
         },
+    33: {
+        title: "Abys' Swimming Increaser I",
+        description: "Abys is getting faster in the pool...Infects boosts Crystals!?",
+        cost: new Decimal(1.5e14),
+        effect(){
+            return player.points.pow(0.1).add(1)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        unlocked(){
+            return hasUpgrade("E", 21)
+        },
     },
  })
