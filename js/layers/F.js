@@ -61,7 +61,7 @@ addLayer("F", {
         description: "What in the hell...Boost Infect Gain by 60x",
         cost: new Decimal(80),
     },
-    13: {
+    14: {
         title: "Fusion 4",
         description: "There's too many of them...Boosts Fusion Effect by 2.5x",
         cost: new Decimal(250),
