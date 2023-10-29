@@ -165,23 +165,23 @@ addLayer("c", {
     },
     32: {
         title: "Nyko's Transformation",
-        description: "Nyko has gotten smarter...Infects boosts Crystals.",
+        description: "Nyko has gotten smarter...Infects boosts Infects.",
         cost: new Decimal(2.5e13),
         unlocked(){
             return hasUpgrade("E", 13) && hasUpgrade("c", 31);
         },
         effect() {
-            return player.points.add(1).pow(0.011)
+            return player.points.add(1).log15().pow(0.5).add(1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
     },
 
     33: {
         title: "Abys' Swimming Increaser I",
-        description: "Abys is getting faster in the pool...Infects boosts Infects.",
-        cost: new Decimal(1.5e15),
+        description: "Abys is getting faster in the pool...Infects boosts Crystals.",
+        cost: new Decimal(1.5e13),
         unlocked(){
-            return hasUpgrade("E", 21)
+            return hasUpgrade("E", 21) && hasUpgrade("c", 32);
         },
         effect(){
             return player.c.points.pow(0.02).add(1)
