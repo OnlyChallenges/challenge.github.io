@@ -31,6 +31,9 @@ addLayer("E", {
             body: `Experiments would cause harmful infections towards people turning into themselves.`,
         },
     },
+    layerShown() {
+        return hasUpgrade("c", 25);
+      },
  upgrades: {
     rows: 2,
     cols: 5,

@@ -31,6 +31,9 @@ addLayer("F", {
             body: `Experiments and Fusions aren't a good combination.`,
         },
     },
+    layerShown() {
+        return hasUpgrade("E", 22);
+      },
  upgrades: {
     rows: 2,
     cols: 5,
