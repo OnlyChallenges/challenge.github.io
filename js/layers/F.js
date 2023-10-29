@@ -21,9 +21,9 @@ addLayer("F", {
         return new Decimal(1)
     },
     effect() {
-        let eff = player.F.points.add(1).pow(0.32)
-        if (hasUpgrade("F",14)) eff = eff.add(2.5)
-        return eff
+        let eff1 = player.F.points.add(1).pow(0.32)
+        if (hasUpgrade("F",14)) eff1 = eff1.add(2.5)
+        return eff1
     },
     effectDescription() {
         dis = "which boosts crystals gain by "+ format(tmp.E.effect) +"x"

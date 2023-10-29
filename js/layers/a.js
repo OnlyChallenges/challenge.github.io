@@ -46,6 +46,11 @@ addLayer("a", {
                 done() { return hasUpgrade("E", 15) },
                 tooltip: "Get 'Aida' from Experiments",
             },
+        22: {
+                name: "Crystal^2",
+                done() { return eff=10 },
+                tooltip: "Get Experiment Effect to 10x",
+            },
         },
     }, 
 )
