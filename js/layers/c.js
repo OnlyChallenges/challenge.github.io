@@ -110,40 +110,43 @@ addLayer("c", {
     },
 	22: {
         title: "Frosticality",
-            description: "Permafrosting can lead to Frosticality-- infects are boosted based on crystals",
-            cost: new Decimal(4400),
-            effect() {
-                return player[this.layer].points.add(1).pow(0.072)
-            },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-            },
-            unlocked(){
-                return hasUpgrade("c", 21)
-            },
+        description: "Permafrosting can lead to Frosticality-- infects are boosted based on crystals",
+        cost: new Decimal(4400),
+        unlocked(){
+            return hasUpgrade("c", 21)
+        },
+        effect() {
+            return player[this.layer].points.add(1).pow(0.072)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+
 	23: {
         title: "Bee-lusion",
             description: "There's Honey Crystals around the corner-- infects are increased",
             cost: new Decimal(12345),
+            unlocked(){
+                return hasUpgrade("c", 22)
+            },
             effect() {
                 return player[this.layer].points.add(1).pow(0.062)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
-            unlocked(){
-                return hasUpgrade("c", 22)
-            },
+
 	24: {
         title: "Frozen Crystals",
             description: "The Crystals has frozen scientists in place-- infects are slightly increased",
             cost: new Decimal(75000),
+            unlocked(){
+                return hasUpgrade("c", 23)
+            },
             effect() {
                 return player[this.layer].points.add(1).pow(0.05)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
-            unlocked(){
-                return hasUpgrade("c", 23)
-            },
+
     25: {
         title: "Crystalized Dragons",
         description: "Influcational has occured on them, throwing crystals at others-- infects gain is 6.5x!",
@@ -164,25 +167,27 @@ addLayer("c", {
         title: "Nyko's Transformation",
         description: "Nyko has gotten smarter...Crystals boosts Infects.",
         cost: new Decimal(2.5e10),
+        unlocked(){
+            return hasUpgrade("E", 13)
+        },
         effect() {
             return player[this.layer].points.add(1.5).pow(0.04)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
-        unlocked(){
-            return hasUpgrade("E", 13)
-        },
+
     33: {
         title: "Abys' Swimming Increaser I",
         description: "Abys is getting faster in the pool...Infects boosts Crystals!?",
         cost: new Decimal(1.5e14),
+        unlocked(){
+            return hasUpgrade("E", 21)
+        },
         effect(){
             return player.points.pow(0.02).add(1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
-        unlocked(){
-            return hasUpgrade("E", 21)
-        },
+
      },
  })
