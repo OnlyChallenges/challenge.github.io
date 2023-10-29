@@ -171,7 +171,7 @@ addLayer("c", {
             return hasUpgrade("E", 13) && hasUpgrade("c", 31);
         },
         effect() {
-            return player.points.add(1).log15().pow(0.5).add(1)
+            return player.points.add(1).log10().pow(0.5).add(1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
     },
