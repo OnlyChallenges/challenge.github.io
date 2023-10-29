@@ -12,7 +12,7 @@ addLayer("E", {
     baseResource: "crystals", // Name of resource prestige is based on
     baseAmount() {return player["c"].points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.62, // Prestige currency exponent
+    exponent: 0.14, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -21,7 +21,7 @@ addLayer("E", {
         return new Decimal(1)
     },
     effect() {
-        let eff = player["c"].points.add(1).pow(0.15)
+        let eff = player.E.points.add(1).pow(0.22)
         if (hasUpgrade("E",23)) eff = eff.add(1.2)
         return eff
     },
