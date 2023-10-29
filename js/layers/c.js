@@ -164,7 +164,7 @@ addLayer("c", {
         description: "Abys is getting faster in the pool...Infects boosts Crystals!?",
         cost: new Decimal(1.5e14),
         effect(){
-            return player.points.pow(0.1).add(1)
+            return player.points.pow(0.02).add(1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },

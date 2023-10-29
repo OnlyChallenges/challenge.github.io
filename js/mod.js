@@ -22,7 +22,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
 			- Added 2 Upgrades in Crystals<br>
 			- Added 2 Updates in Experiments (E)<br>
 			- Balanced 2 Updates in Crystals<br><br>
-			
+
 		<h3>v0.1.3</h3><br>
 			- Added 1 more Upgrade in Crystals<br>
 			- Added Experiments (E)<br>
@@ -77,6 +77,7 @@ function getPointGen() {
 	if (hasUpgrade('c', 25)) gain = gain.times(6.5)
 	if (hasUpgrade('c', 31)) gain = gain.times(5)
 	if (hasUpgrade('c', 32)) gain = gain.times(upgradeEffect('c',32))
+	if (hasUpgrade('c', 33)) gain = gain.times(upgradeEffect('c',33))
 	if (hasUpgrade('E', 11)) gain = gain.times(9.5)
 	if (hasUpgrade('E', 12)) gain = gain.times(13)
 	if (hasUpgrade('E', 13)) gain = gain.times(3)
