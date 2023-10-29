@@ -43,6 +43,13 @@ addLayer("F", {
     layerShown() {
         return hasUpgrade("E", 22);
       },
+milestones: {
+        11: {
+            requirementDescription: "3 fusions",
+            effectDescription: "Keep Crystal Upgrades on Reset",
+            done() { return player.F.points.gte(3) },
+        },
+    },
  upgrades: {
     rows: 2,
     cols: 5,

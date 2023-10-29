@@ -25,6 +25,11 @@ addLayer("c", {
     hotkeys: [
         {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    doReset(resettingLayer) {
+        let keep = [];
+        if (hasMilestone ('F', 11) && resettingLayer=="F") keep.push("upgrades")
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, keep)
+    },
     layerShown(){return true},
 	infoboxes: {
         lore: {

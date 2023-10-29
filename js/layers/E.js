@@ -34,6 +34,11 @@ addLayer("E", {
     hotkeys: [
         {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    doReset(resettingLayer) {
+        let keep = [];
+        if (hasMilestone ('E', 11) && resettingLayer=="E") keep.push("upgrades")
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, keep)
+    },
     layerShown(){return true},
 	infoboxes: {
         lore: {
@@ -44,6 +49,13 @@ addLayer("E", {
     layerShown() {
         return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1);
       },
+milestones: {
+        11: {
+            requirementDescription: "10,000 Experiments",
+            effectDescription: "Keep Crystal Upgrades on Reset",
+            done() { return player.E.points.gte(10000) },
+        },
+    },
  upgrades: {
     rows: 2,
     cols: 5,
