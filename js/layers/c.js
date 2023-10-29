@@ -158,7 +158,7 @@ addLayer("c", {
     31: {
         title: "Crystalmania",
         description: "They're Everywhere! Infects Gain is 5x!",
-        cost: new Decimal(1.25e7),
+        cost: new Decimal(1.25e6),
         unlocked(){
             return hasUpgrade("c", 25)
         },
