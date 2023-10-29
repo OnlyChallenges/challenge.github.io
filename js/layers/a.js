@@ -2,7 +2,7 @@ addLayer("a", {
         startData() { return {
             unlocked: true,
         }},
-        color: "lime",
+        color: "cyan",
         row: "side",
         layerShown() {return true}, 
         tooltip() { // Optional, tooltip displays when the layer is locked
@@ -10,11 +10,11 @@ addLayer("a", {
         },
         achievements: {
             rows: 1,
-            cols: 4,
-                11: {
-                name: "Experiments",
-                done() { return player.points.gte(100) },
-                tooltip: "Infect 100 people",
+            cols: 5,
+        11: {
+                name: "The Outbreak",
+                done() { return player.points.gte(15) },
+                tooltip: "Infect 15 people",
             },
 		12: {
                 name: "Infected Crystals",
@@ -30,6 +30,11 @@ addLayer("a", {
                 name: "Crystals are Merging",
                 done() { return player.c.points.gte(1000) },
                 tooltip: "Get 1,000 Crystals",
+            },
+        15: {
+                name: "The First Experiment",
+                done() { return player.E.points.gte(1) },
+                tooltip: "Get the first experiment",
             },
         },
         midsection: [
