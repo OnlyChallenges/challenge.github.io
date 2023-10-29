@@ -40,8 +40,8 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            let value = 1;
-            value = value.add(player[this.layer].total.max(1).add(1.3).pow(0.08)).max(1).min(500);
+            let value1 = 1;
+            value = value1.add(player[this.layer].total.max(1).add(1.3).pow(0.08)).max(1).min(500);
             return value;
         },
         effectDisplay() {
@@ -58,8 +58,8 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            let value = 1;
-            value = value.add(player[this.layer].total.max(1).add(1.45).pow(0.12)).max(1).min(25);
+            let value1 = 1;
+            value = value1.add(player[this.layer].total.max(1).add(1.45).pow(0.12)).max(1).min(25);
             return value;
         },
         effectDisplay() {
@@ -76,8 +76,8 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            let value = 1;
-            value = value.add(player[this.layer].total.max(1).add(1.5).pow(0.12)).max(1).min(75);
+            let value1 = 1;
+            value = value1.add(player[this.layer].total.max(1).add(1.5).pow(0.12)).max(1).min(75);
             return value;
         },
         effectDisplay() {
