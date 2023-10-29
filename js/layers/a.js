@@ -56,6 +56,11 @@ addLayer("a", {
                 done() { return player.c.points.gte(1e20) },
                 tooltip: "Achieve 1e20 Crystals."
             },
+        24: {
+                name: "Combination",
+                done() { return player.F.points.gte(1) },
+                tooltip: "Achieve 1 Fusion Point."
+            },
         },
     }, 
 )

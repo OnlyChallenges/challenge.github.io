@@ -177,7 +177,7 @@ addLayer("c", {
     },
 
     33: {
-        title: "Abys' Swimming Increaser I",
+        title: "Abys' Swimming I",
         description: "Abys is getting faster in the pool...Crystals boosts Infects.",
         cost: new Decimal(1.5e13),
         unlocked(){
@@ -187,6 +187,23 @@ addLayer("c", {
             return player.c.points.pow(0.02).add(1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+     },
+
+     34: {
+        title: "Moss' Plantful Spread",
+        description: "Plants are growing and are infecting others. Crystals boosts Infects",
+        cost: new Decimal(1.5e13),
+        unlocked(){
+            return hasUpgrade("E", 23) && hasUpgrade("c", 33);
+        },
+        effect() {
+            return (player[this.layer].total.max(1).add(1.3).pow(0.055)).max(1).min(25);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
      },
  },
  })
