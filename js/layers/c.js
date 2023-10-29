@@ -173,6 +173,7 @@ addLayer("c", {
         effect() {
             return player.points.add(1).pow(0.011)
         },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
     },
 
     33: {
@@ -185,6 +186,7 @@ addLayer("c", {
         effect(){
             return player.points.pow(0.02).add(1)
         },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
      },
  },
  })
