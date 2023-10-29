@@ -24,11 +24,10 @@ addLayer("E", {
     effect() {
         let eff = (player.E.points.max(1).add(1).pow(0.2)).max(1).min(50)
         eff = eff.times(tmp.E.effectBase)
-        eff = eff.add(1)
         return eff
     },
     effectDescription() {
-        dis = "which boost infect gain by "+format(tmp.E.effect)+"x"
+        dis = "which boosting infect gain by "+format(tmp.E.effect)+"x"
         return dis
     },
     effectBase() {

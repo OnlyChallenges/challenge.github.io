@@ -116,17 +116,20 @@ addLayer("c", {
     },
 	22: {
         title: "Frosticality",
-        description: "Permafrosting can lead to Frosticality-- infects are boosted based on crystals",
+        description: "Permafrosting can lead to Frosticality-- Infects boosts Crystals",
         cost: new Decimal(4400),
         unlocked(){
             return hasUpgrade("c", 21)
         },
         effect() {
-            return player[this.layer].points.add(1).pow(0.072)
+            return (player.points.max(1).add(1).log(10).pow(0.048)).max(1).min(25)
         },
-        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        effectDisplay(){
+        let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+        let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+        return text;
         },
-
+    },
 	23: {
         title: "Bee-lusion",
             description: "There's Honey Crystals around the corner-- infects are increased",
