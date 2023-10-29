@@ -21,14 +21,14 @@ addLayer("P", {
         return new Decimal(1)
     },
     effect() {
-        let eff = player.P.points.add(1).pow(0.5)
-        return eff
+        let eff2 = player.points.add(1).pow(0.4)
+        return eff2
     },
     effectDescription() {
-        dis = "which boosts crystals gain by "+ format(tmp.E.effect) +"x"
+        dis = "which boosts infects gain by "+ format(tmp.P.effect) +"x"
         return dis
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "p: reset for powers", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
