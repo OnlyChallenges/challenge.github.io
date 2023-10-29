@@ -21,7 +21,7 @@ addLayer("E", {
         return new Decimal(1)
     },
     effect() {
-        let eff = player.E.points.add(1).pow(0.22)
+        let eff = player.c.points.add(1).pow(0.22)
         if (hasUpgrade("E",23)) eff = eff.add(1.2)
         return eff
     },
@@ -62,7 +62,7 @@ addLayer("E", {
     13: {
         title: "Wintear",
         description: "Poisonity...Boost Infect Gain by 3x",
-        cost: new Decimal(30),
+        cost: new Decimal(25),
         unlocked(){
             return hasUpgrade("E", 12)
         },
@@ -70,7 +70,7 @@ addLayer("E", {
     14: {
         title: "Vixtra",
         description: "Something Glitchy...Boost Infect Gain by 5x",
-        cost: new Decimal(60),
+        cost: new Decimal(66),
         unlocked(){
             return hasUpgrade("E", 13)
         },
@@ -78,7 +78,7 @@ addLayer("E", {
     15: {
         title: "Aida",
         description: "A damn bat...Boost Infect Gain by 6.5x",
-        cost: new Decimal(150),
+        cost: new Decimal(100),
         unlocked(){
             return hasUpgrade("E", 14)
         },
@@ -86,7 +86,7 @@ addLayer("E", {
     21: {
         title: "Snapper",
         description: "Goober...Boost Infect Gain by 4x",
-        cost: new Decimal(300),
+        cost: new Decimal(250),
         unlocked(){
             return hasUpgrade("E", 15)
         },
@@ -94,7 +94,7 @@ addLayer("E", {
     22: {
         title: "Honeycomb",
         description: "Stingers are real...Infects boosts Experiments slighly",
-        cost: new Decimal(1250),
+        cost: new Decimal(666),
         effect(){
             return player["c"].points.add(1.5).pow(0.04)
         },
