@@ -187,11 +187,14 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("E", 21)
         },
-        effect(){
-            return player["c"].points.pow(0.02).add(1)
+        effect() {
+            return (player["c"].points.total.max(1).add(1).pow(0.025)).max(1).min(30);
         },
-        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(30) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
         },
-
+        },
      },
  })
