@@ -151,7 +151,7 @@ addLayer("c", {
         description: "Nyko has gotten smarter...Crystals boosts Infects.",
         cost: new Decimal(5e10),
         effect() {
-            return player[this.layer].points.add(1.5).pow(0.12)
+            return player[this.layer].points.add(1.5).pow(0.07)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
