@@ -39,6 +39,15 @@ addLayer("c", {
             body: `Crystals hurt people which would infect them`,
         },
     },
+    softcap() {
+        let value = player.points.gte(1e6);
+        return value;
+      },
+      softcapPower() {
+        let power = player.points.pow(0.05);
+
+        return power;
+      },
  upgrades: {
     rows: 4,
     cols: 5,
