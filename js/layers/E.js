@@ -21,7 +21,7 @@ addLayer("E", {
         return new Decimal(1)
     },
     effect() {
-        let eff = player.points.add(1).pow(0.15)
+        let eff = player.E.points.add(1).pow(0.15)
         if (hasUpgrade("E",23)) eff = eff.add(1.2)
         return eff
     },
