@@ -47,9 +47,14 @@ addLayer("a", {
                 tooltip: "Get 'Aida' from Experiments",
             },
         22: {
+                name: "Experimental Growth",
+                done() { return player.E.points.gte(1000) },
+                tooltip: "Get 1,000 Experiments on your side.",
+            },
+        23: {
                 name: "Crystal^2",
-                done() { return eff=10 },
-                tooltip: "Get Experiment Effect to 10x",
+                done() { return player.c.points.gte(1e20) },
+                tooltip: "Achieve 1e20 Crystals."
             },
         },
     }, 
