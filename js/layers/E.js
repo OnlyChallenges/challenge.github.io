@@ -15,10 +15,25 @@ addLayer("E", {
     exponent: 0.23, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('E', 21)) mult = mult.times(upgradeEffect('E',21))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
+    },
+    effect() {
+        let eff = (player.E.points.max(1).add(1).pow(0.2)).max(1).min(50)
+        eff = eff.times(tmp.E.effectBase)
+        eff = eff.add(1)
+        return eff
+    },
+    effectDescription() {
+        dis = "which boost infect gain by "+format(tmp.E.effect)+"x"
+        return dis
+    },
+    effectBase() {
+        let base = new Decimal(1)
+        return base
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
@@ -83,8 +98,16 @@ milestones: {
     },
     21: {
         title: "Snapper",
-        description: "Goober...Boost Infect Gain by 4x",
+        description: "Boosts Experiment Gain by Infects",
         cost: new Decimal(250),
+        effect(){
+            return (player.points.plus(1).log10().pow(0.25).plus(1)).max(1).min(7.5)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
         unlocked(){
             return hasUpgrade("E", 15)
         },
