@@ -171,12 +171,7 @@ addLayer("c", {
             return hasUpgrade("E", 13)
         },
         effect() {
-            return (player.c.points.total.max(1).add(1).pow(0.04)).max(1).min(15);
-        },
-        effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(15) ? "(Capped)" : "";
-            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
-            return text;
+            return player.points.add(1).pow(0.011)
         },
     },
 
@@ -187,14 +182,9 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("E", 21)
         },
-        effect() {
-            return (player.c.points.total.max(1).add(1).pow(0.025)).max(1).min(30);
-        },
-        effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(30) ? "(Capped)" : "";
-            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
-            return text;
-        },
+        effect(){
+            return player.points.pow(0.02).add(1)
         },
      },
+ },
  })
