@@ -22,10 +22,16 @@ addLayer("E", {
     },
     effect() {
         let eff = player.E.points.add(1).pow(0.23)
-        if (hasUpgrade("E",23)) eff = eff.add(1.7).pow(1.15)
-        if (hasUpgrade("E",25)) eff = eff.add(1.3).pow(1.2)
+        eff = eff.times(tmp.E.effectBase)
+        if (hasUpgrade('E', 23)) eff = eff.add(10)
         return eff
-    },
+   },
+   effectBase() {
+    let base = new Decimal(1)
+    if (hasUpgrade ('E', 22)) base = base.add(upgradeEffect('E', 23))
+    if (hasUpgrade ('f', 25)) base = base.add(upgradeEffect('f', 25)) 
+    return base
+},
     effectDescription() {
         dis = "which boosts infect gain by "+ format(tmp.E.effect) +"x"
         return dis
@@ -101,19 +107,18 @@ milestones: {
     },
     22: {
         title: "Honeycomb",
-        description: "Stingers are real...Experiments boosts Crystals.",
+        description: "Add to Experiment Base by 1.35.",
         cost: new Decimal(666),
         effect(){
-            return player.E.points.add(1.5).pow(0.035)
+            return player.E.points.add(1.35)
         },
-        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
             return hasUpgrade("E", 21)
         },
     },
     23: {
         title: "Moss",
-        description: "Moss does create some crystals...Moss increased Experiment Effect Base gain by 1.7x & 1.15^",
+        description: "Moss does create some crystals...Add 10 Experiment Effects",
         cost: new Decimal(2250),
         unlocked(){
             return hasUpgrade("E", 22)
@@ -133,8 +138,11 @@ milestones: {
     },
     25: {
         title: "Frostical",
-        description: "Increased experiment Effect Base gain by 1.3x & 1.2^",
+        description: "Increased experiment Effect Base by 1.4",
         cost: new Decimal(15000),
+        effect(){
+            return player.E.points.add(1.4)
+        },
         unlocked(){
             return hasUpgrade("E", 24)
         },
