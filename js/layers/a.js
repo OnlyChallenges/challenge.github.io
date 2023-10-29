@@ -32,9 +32,19 @@ addLayer("a", {
                 tooltip: "Get 1,000 Crystals",
             },
         15: {
+                name: "Crystals are becoming maniacs",
+                done() { return hasUpgrade("c", 31) },
+                tooltip: "Get the 'Crystalmania' upgrade",        
+            },
+        21: {
                 name: "The First Experiment",
                 done() { return player.E.points.gte(1) },
                 tooltip: "Get the first experiment",
+            },
+        22: {
+                name: "The Flying Bat",
+                done() { return hasUpgrade("E", 15) },
+                tooltip: "Get 'Aida' from Experiments",
             },
         },
     }, 
