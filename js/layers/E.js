@@ -32,7 +32,7 @@ addLayer("E", {
         },
     },
     layerShown() {
-        return hasUpgrade("c", 25);
+        return hasUpgrade("c", 25) || hasUpgrade("E",11);
       },
  upgrades: {
     rows: 2,
