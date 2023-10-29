@@ -39,7 +39,7 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            return player[this.layer].points.add(1.2).pow(0.25)
+            return player[this.layer].points.add(1.2).pow(0.15)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
@@ -51,7 +51,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            return player[this.layer].points.add(1.5).pow(0.4)
+            return player[this.layer].points.add(1.5).pow(0.14)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
         },
@@ -63,7 +63,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            return player[this.layer].points.add(1.2).pow(0.3)
+            return player[this.layer].points.add(1.2).pow(0.17)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
@@ -111,7 +111,7 @@ addLayer("c", {
             description: "There's Honey Crystals around the corner-- infects are increased",
             cost: new Decimal(24500),
             effect() {
-                return player[this.layer].points.add(1).pow(0.1)
+                return player[this.layer].points.add(1).mult(0.3)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
