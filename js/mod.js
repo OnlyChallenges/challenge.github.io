@@ -13,17 +13,25 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.4a",
-	name: "Crystals Reunited",
+	num: "0.1.5",
+	name: "Experimental Growth",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
-		<h3>v0.1.4</h3><br>
+		<h3>v0.1.5: Experimental Growth</h3><br>
+			- Added 6 Upgrades in Crystals<br>
+			- Added 4 Upgrades in Experiments (E)<br>
+			- Added Softcaps to the first three upgrades in Crystals<br>
+			- Fixed Upgrades appearing and not being hidden.<br>
+			- Fixed Layers not being Hidden & not in the correct row.<br>
+			- Endgame: 1e22 Infects<br><br>
+
+		<h3>v0.1.4: Experiments are forming</h3><br>
 			- Added 2 Upgrades in Crystals<br>
 			- Added 2 Updates in Experiments (E)<br>
 			- Balanced 2 Updates in Crystals<br><br>
 
-		<h3>v0.1.3</h3><br>
+		<h3>v0.1.3: New Layers?</h3><br>
 			- Added 1 more Upgrade in Crystals<br>
 			- Added Experiments (E)<br>
 			- Added Fusions (F)<br>
@@ -93,12 +101,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: 1e20 Infects"
+	"Endgame: 1e22 Infects"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal(1e20))
+	return player.points.gte(new Decimal(1e22))
 }
 
 
