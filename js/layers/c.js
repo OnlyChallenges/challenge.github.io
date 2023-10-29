@@ -40,10 +40,12 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            return player[this.layer].points.total.max(1).add(1.7).pow(0.08).min(100)
+            let value = 1;
+            value = value.add(player[this.layer].total.max(1).add(1.3).pow(0.08)).max(1).min(500);
+            return value;
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(500) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -56,10 +58,12 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            return player[this.layer].points.total.max(1).add(1.3).pow(0.14).min(50)
+            let value = 1;
+            value = value.add(player[this.layer].total.max(1).add(1.45).pow(0.12)).max(1).min(25);
+            return value;
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(50) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -72,10 +76,12 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            return player[this.layer].points.total.max(1).add(1.6).pow(0.15).min(100)
+            let value = 1;
+            value = value.add(player[this.layer].total.max(1).add(1.5).pow(0.12)).max(1).min(75);
+            return value;
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(75) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
