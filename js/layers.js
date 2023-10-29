@@ -111,7 +111,7 @@ addLayer("c", {
             description: "There's Honey Crystals around the corner-- infects are increased",
             cost: new Decimal(24500),
             effect() {
-                return player[this.layer].points.add(1).mult(1.02)
+                return player[this.layer].points.add(1).pow(1.2)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
@@ -135,9 +135,17 @@ addLayer("c", {
         description: "Influcational has occured on them, throwing crystals at others-- infects gain is 6.5x!",
         cost: new Decimal(1.75e8),
         unlocked(){
-            return hasUpgrade("c", 15)
+            return hasUpgrade("c", 24)
         },
      },
+    31: {
+        title: "Crystalmania",
+        description: "They're Everywhere! Infects Gain is 5x!",
+        cost: new Decimal(5e9),
+        unlocked(){
+            return hasUpgrade("c", 25)
+        },
+    },
  },
  })
 
