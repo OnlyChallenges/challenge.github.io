@@ -171,7 +171,7 @@ addLayer("c", {
             return hasUpgrade("E", 13)
         },
         effect() {
-            return player.points.add(1).pow(0.011)
+            return player.c.points.add(1).pow(0.011)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
     },
@@ -184,7 +184,7 @@ addLayer("c", {
             return hasUpgrade("E", 21)
         },
         effect(){
-            return player.points.pow(0.02).add(1)
+            return player.c.points.pow(0.02).add(1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
      },
