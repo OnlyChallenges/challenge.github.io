@@ -13,11 +13,17 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.6",
-	name: "New Experiments",
+	num: "0.1.7",
+	name: "Theme & Compression",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+		<h3>v0.1.7: Theme & Compression<br>
+			- Added 1 Crystal Upgrade<br>
+			- Changed Crystal Formula Expo (.92^ -> .85^)<br>
+			- Added a Milestone in Experiments<br>
+			- Added a Milestone in Fusions<br><br>
+
 		<h3>v0.1.6: New Experiments</h3><br>
 			- Added 3 Experiment Upgrades<br>
 			- Added an Effect Buff to Experiments<br>
