@@ -3,7 +3,7 @@ let modInfo = {
 	id: "experiments",
 	author: "Acythe",
 	pointsName: "infects",
-	modFiles: ["layers.js", "tree.js"],
+	modFiles: ["a.js", "c.js", "E.js", "m.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -13,14 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.2",
+	num: "0.1.3",
 	name: "Crystals Reunited",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 		<h3>v0.1.2 Crystals Reunited</h3><br>
 			- Added 2 New Rows of Upgrades <br>
-			- Endgame: 10,000,000 Infects
+			- Endgame: 10,000,000 Infects<br>
 
 		<h3>v0.1.1 The Facility</h3><br>
 			- Added 3 Upgrades <br>
