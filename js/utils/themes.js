@@ -16,7 +16,7 @@ var colors = {
 		1: "#8f1810",
 		2: "#a1271f",
 		3: "#732a25",
-		color: "#a13d0b",
+		color: "#a35d71",
 		points: "#3529ba",
 		locked: "#4b4a4f",
 		background: "#663241",
@@ -54,7 +54,7 @@ function switchTheme() {
 	else {
 		index ++;
 		options.theme = themes[index];
-		options.theme = themes[1];
+		options.theme = themes[2];
 	}
 	changeTheme();
 	resizeCanvas();
