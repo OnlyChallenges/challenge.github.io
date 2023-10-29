@@ -37,8 +37,5 @@ addLayer("a", {
                 tooltip: "Get the first experiment",
             },
         },
-        midsection: [
-            "achievements",
-        ]
     }, 
 )
