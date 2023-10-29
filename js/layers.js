@@ -133,7 +133,7 @@ addLayer("c", {
     25: {
         title: "Crystalized Dragons",
         description: "Influcational has occured on them, throwing crystals at others-- infects gain is 6.5x!",
-        cost: new Decimal(1.75e8),
+        cost: new Decimal(250000),
         unlocked(){
             return hasUpgrade("c", 24)
         },
@@ -141,7 +141,7 @@ addLayer("c", {
     31: {
         title: "Crystalmania",
         description: "They're Everywhere! Infects Gain is 5x!",
-        cost: new Decimal(5e9),
+        cost: new Decimal(1.25e7),
         unlocked(){
             return hasUpgrade("c", 25)
         },
