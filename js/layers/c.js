@@ -178,7 +178,7 @@ addLayer("c", {
 
     33: {
         title: "Abys' Swimming Increaser I",
-        description: "Abys is getting faster in the pool...Infects boosts Crystals.",
+        description: "Abys is getting faster in the pool...Crystals boosts Infects.",
         cost: new Decimal(1.5e13),
         unlocked(){
             return hasUpgrade("E", 21) && hasUpgrade("c", 32);
