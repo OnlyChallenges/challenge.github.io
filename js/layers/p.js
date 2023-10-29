@@ -6,8 +6,8 @@ addLayer("P", {
         unlocked: false,
 		points: new Decimal(0),
     }},
-    color: "#BA473F",
-    requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
+    color: "#EBD638",
+    requires: new Decimal(1e45), // Can be a function that takes requirement increases into account
     resource: "powers", // Name of prestige currency
     baseResource: "crystals", // Name of resource prestige is based on
     baseAmount() {return player["c"].points}, // Get the current amount of baseResource

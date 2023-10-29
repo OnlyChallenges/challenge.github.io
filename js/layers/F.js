@@ -6,9 +6,9 @@ addLayer("F", {
         unlocked: false,
 		points: new Decimal(0),
     }},
-    color: "#BA233F",
+    color: "#325CA8",
     requires: new Decimal(1e25), // Can be a function that takes requirement increases into account
-    resource: "experiments", // Name of prestige currency
+    resource: "fusion", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
