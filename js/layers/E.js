@@ -21,7 +21,7 @@ addLayer("E", {
         return new Decimal(1)
     },
     effect() {
-        let eff = player.E.points.add(1).pow(0.26)
+        let eff = player.E.points.add(1).pow(0.23)
         if (hasUpgrade("E",23)) eff = eff.add(1.7)
         return eff
     },
@@ -93,10 +93,10 @@ addLayer("E", {
     },
     22: {
         title: "Honeycomb",
-        description: "Stingers are real...Infects boosts Experiments slighly",
+        description: "Stingers are real...Experiments boosts Crystals.",
         cost: new Decimal(666),
         effect(){
-            return player["c"].points.add(1.5).pow(0.04)
+            return player.E.points.add(1.5).pow(0.035)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
@@ -106,7 +106,7 @@ addLayer("E", {
     23: {
         title: "Moss",
         description: "Moss does create some crystals...Moss increased Experiment Effect Base gain by 1.7x",
-        cost: new Decimal(4500),
+        cost: new Decimal(2250),
         unlocked(){
             return hasUpgrade("E", 22)
         },
