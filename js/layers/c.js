@@ -39,14 +39,6 @@ addLayer("c", {
             body: `Crystals hurt people which would infect them`,
         },
     },
-    softcap() {
-    new Decimal(1e6), new Decimal(0.5);
-      },
-      softcapPower() {
-        let power = player.points.pow(0.05);
-
-        return power;
-      },
  upgrades: {
     rows: 4,
     cols: 5,
