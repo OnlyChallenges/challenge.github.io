@@ -107,10 +107,10 @@ milestones: {
     },
     23: {
         title: "Moss",
-        description: "Moss creates Moss...Infects increase Infects.",
+        description: "Moss creates Moss...Experiments increase Infects.",
         cost: new Decimal(1500),
         effect() {
-            return player[this.layer].points.add(1).pow(0.048)
+            return player[this.layer].points.add(1).pow(0.06)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
