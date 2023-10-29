@@ -26,7 +26,7 @@ addLayer("E", {
         return eff
     },
     effectDescription() {
-        dis = "which boosts infect gain by "+ format(tmp.E.effect) +"x"
+        dis = "which boosts crystals gain by "+ format(tmp.E.effect) +"x"
         return dis
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
