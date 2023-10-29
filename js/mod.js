@@ -18,7 +18,7 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
-		<h3>v0.1.7: Theme & Compression<br>
+		<h3>v0.1.7: Theme & Compression<h3><br>
 			- Added 1 Crystal Upgrade.<br>
 			- Changed Crystal Formula Expo (.92^ -> .85^).<br>
 			- Added a Milestone in Experiments.<br>
