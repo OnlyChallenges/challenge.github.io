@@ -46,6 +46,6 @@ else {
 	options.theme = themes[index];
 	options.theme = themes[1];
 }
+}
 changeTheme();
 resizeCanvas();
-}

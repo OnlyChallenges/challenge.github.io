@@ -88,8 +88,8 @@ milestones: {
         },
     },
     15: {
-        title: "Aida",
-        description: "A damn bat...Boost Infect Gain by 6.5x",
+        title: "Somby",
+        description: "Boost Infect Gain by 6.5x",
         cost: new Decimal(100),
         unlocked(){
             return hasUpgrade("E", 14)
@@ -128,8 +128,8 @@ milestones: {
         },
     },
     23: {
-        title: "Moss",
-        description: "Moss creates Moss...Experiments increase Infects.",
+        title: "Azure",
+        description: "Azuring Lures...Experiments increase Infects.",
         cost: new Decimal(1500),
         effect() {
             return player[this.layer].points.add(1).pow(0.06)
