@@ -105,10 +105,22 @@ addLayer("E", {
     },
     23: {
         title: "Moss",
-        description: "Moss does create some crystals...Moss increased Experiment Effect Base gain by 1.2x",
+        description: "Moss does create some crystals...Moss increased Experiment Effect Base gain by 1.7x",
         cost: new Decimal(4500),
         unlocked(){
             return hasUpgrade("E", 22)
+        },
+    },
+    24: {
+        title: "Experiment Surge",
+        description: "Infects boosts Infects",
+        cost: new Decimal(10000),
+        effect(){
+            return player.points.plus(1).log10().pow(0.55).plus(1)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        unlocked(){
+            return hasUpgrade("E", 23)
         },
     },
  },

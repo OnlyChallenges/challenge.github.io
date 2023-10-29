@@ -168,7 +168,7 @@ addLayer("c", {
         description: "Nyko has gotten smarter...Infects boosts Crystals.",
         cost: new Decimal(2.5e13),
         unlocked(){
-            return hasUpgrade("E", 13) & hasUpgrade("c", 31);
+            return hasUpgrade("E", 13) && hasUpgrade("c", 31);
         },
         effect() {
             return player.points.add(1).pow(0.011)
