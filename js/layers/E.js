@@ -10,7 +10,7 @@ addLayer("E", {
     requires: new Decimal(1e10), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
-    baseAmount() {return player.points}, // Get the current amount of baseResource
+    baseAmount() {return player["c"].points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.33, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -83,6 +83,10 @@ addLayer("E", {
         title: "Honeycomb",
         description: "Stingers are real...Infects boosts Experiments slighly",
         cost: new Decimal(1250),
+        effect(){
+            return player["a"].points.pow(0.04).add(1.5)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
             return hasUpgrade("E", 21)
         },
