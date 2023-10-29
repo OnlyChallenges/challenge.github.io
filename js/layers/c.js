@@ -40,7 +40,7 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            return player[this.layer].points.add(1.2).pow(0.15)
+            return player[this.layer].points.add(1.2).pow(0.048)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
@@ -52,7 +52,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            return player[this.layer].points.add(1.5).pow(0.14)
+            return player[this.layer].points.add(1.5).pow(0.062)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
         },
@@ -64,7 +64,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            return player[this.layer].points.add(1.2).pow(0.17).max(100)
+            return player[this.layer].points.add(1.2).pow(0.11).max(100)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
@@ -100,7 +100,7 @@ addLayer("c", {
             description: "Permafrosting can lead to Frosticality-- infects are boosted based on crystals",
             cost: new Decimal(4400),
             effect() {
-                return player[this.layer].points.add(1).pow(0.12)
+                return player[this.layer].points.add(1).pow(0.072)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
@@ -112,7 +112,7 @@ addLayer("c", {
             description: "There's Honey Crystals around the corner-- infects are increased",
             cost: new Decimal(12345),
             effect() {
-                return player[this.layer].points.add(1).pow(0.11)
+                return player[this.layer].points.add(1).pow(0.062)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
@@ -124,7 +124,7 @@ addLayer("c", {
             description: "The Crystals has frozen scientists in place-- infects are slightly increased",
             cost: new Decimal(75000),
             effect() {
-                return player[this.layer].points.add(1).pow(0.08)
+                return player[this.layer].points.add(1).pow(0.05)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
@@ -152,7 +152,7 @@ addLayer("c", {
         description: "Nyko has gotten smarter...Crystals boosts Infects.",
         cost: new Decimal(2.5e10),
         effect() {
-            return player[this.layer].points.add(1.5).pow(0.07)
+            return player[this.layer].points.add(1.5).pow(0.04)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
