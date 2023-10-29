@@ -40,9 +40,7 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            let boost = 1;
-            value = boost.add(player[this.layer].total.max(1).add(1.3).pow(0.08)).max(1).min(500);
-            return value;
+            return (player[this.layer].total.max(1).add(1.3).pow(0.08)).max(1).min(500);
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(500) ? "(Capped)" : "";
@@ -58,9 +56,8 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            let boost = 1;
-            value = boost.add(player[this.layer].total.max(1).add(1.45).pow(0.12)).max(1).min(25);
-            return value;
+            return (player[this.layer].total.max(1).add(1.45).pow(0.12)).max(1).min(25);
+
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
@@ -76,9 +73,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            let boost = 1;
-            value = boost.add(player[this.layer].total.max(1).add(1.25).pow(0.14)).max(1).min(150);
-            return value;
+            return (player[this.layer].total.max(1).add(1.25).pow(0.14)).max(1).min(150);
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(75) ? "(Capped)" : "";
