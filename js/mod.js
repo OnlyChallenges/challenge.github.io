@@ -18,6 +18,13 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+		<h3>v0.1.3 Experiments & Fusions</h3><br>
+			- Added 1 more Upgrade in Crystals<br>
+			- Added Experiments (E)<br>
+			- Added Fusions (F)<br>
+			- Added 3 Experiment Upgrades<br>
+			- Added 3 Fusions Upgrades<br>
+
 		<h3>v0.1.2 Crystals Reunited</h3><br>
 			- Added 2 New Rows of Upgrades <br>
 			- Endgame: 10,000,000 Infects<br>
