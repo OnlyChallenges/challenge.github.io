@@ -1,23 +1,31 @@
 let modInfo = {
 	name: "The Experimental Tree",
 	id: "experiments",
-	author: "Acythe",
+	author: "Ozvali",
 	pointsName: "infects",
 	modFiles: ["layers/a.js", "layers/E.js", "layers/c.js", "layers/F.js", "tree.js"],
 
-	discordName: "",
-	discordLink: "",
+	discordName: "E205 Discord Server",
+	discordLink: "https://discord.gg/experiment-205",
 	initialStartPoints: new Decimal (5), // Used for hard resets and new players
 	offlineLimit: 5,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.5",
-	name: "Experimental Growth",
+	num: "0.1.6",
+	name: "New Experiments",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+		<h3>v0.1.6: New Experiments</h3><br>
+			- Added 3 Experiment Upgrades<br>
+			- Added an Effect Buff to Experiments<br>
+			- Added 2 Crystal Upgrades<br>
+			- Added 1 Fusion Upgrade<br>
+			- Fixed Upgrades being Visible Again<br>
+			- Fixed minor inflation at 'Aida'<br><br>
+
 		<h3>v0.1.5: Experimental Growth</h3><br>
 			- Added 6 Upgrades in Crystals<br>
 			- Added 4 Upgrades in Experiments (E)<br>
