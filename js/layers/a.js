@@ -9,7 +9,7 @@ addLayer("a", {
             return ("Accomplishments")
         },
         achievements: {
-            rows: 1,
+            rows: 5,
             cols: 5,
         11: {
                 name: "The Outbreak",
