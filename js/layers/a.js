@@ -10,7 +10,7 @@ addLayer("a", {
         },
         achievements: {
             rows: 5,
-            cols: 5,
+            cols: 6,
         11: {
                 name: "The Outbreak",
                 done() { return player.points.gte(15) },
@@ -36,12 +36,12 @@ addLayer("a", {
                 done() { return hasUpgrade("c", 31) },
                 tooltip: "Get the 'Crystalmania' upgrade",        
             },
-        21: {
+        16: {
                 name: "The First Experiment",
                 done() { return player.E.points.gte(1) },
                 tooltip: "Get the first experiment",
             },
-        22: {
+        21: {
                 name: "The Flying Bat",
                 done() { return hasUpgrade("E", 15) },
                 tooltip: "Get 'Aida' from Experiments",
