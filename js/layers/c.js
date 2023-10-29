@@ -40,9 +40,12 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            return player[this.layer].points.add(1.2).pow(0.048)
+            return player[this.layer].points.add(1.2).pow(0.011).min(0).max(100)
         },
-        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
         },
         unlocked(){
             return player.c.points.gte(0)
@@ -52,9 +55,12 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            return player[this.layer].points.add(1.5).pow(0.062)
+            return player[this.layer].points.add(1.5).pow(0.013).min(0).max(50)
         },
-        effectDisplay() { return format(upgradeEffect(this.layer, 12))+"x" }, // Add formatting to the effect
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
         },
         unlocked(){
             return hasUpgrade("c", 11)
@@ -64,7 +70,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            return player[this.layer].points.add(1.2).pow(0.11).max(100)
+            return player[this.layer].points.add(1.2).pow(0.11).min(0).max(100)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
