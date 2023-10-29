@@ -12,6 +12,16 @@ var colors = {
 		background: "#0f0f0f",
 		background_tooltip: "rgba(0, 0, 0, 0.75)",
 	},
+	e205color1: {
+		1: "#8f1810",
+		2: "#a1271f",
+		3: "#732a25",
+		color: "#a13d0b",
+		points: "#3529ba",
+		locked: "#4b4a4f",
+		background: "#663241",
+		background_tooltip: "rgba(0, 15, 31, 0.75)",
+	},
 	aqua: {
 		1: "#bfdfff",
 		2: "#8fa7bf",
