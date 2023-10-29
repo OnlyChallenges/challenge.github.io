@@ -80,7 +80,7 @@ addLayer("c", {
     },
     15: {
         title: "Experimental Changes",
-    description: "Experiments are now stronger, Infects are 1.5x faster",
+    description: "Experiments are now stronger, Infects are 4.5x faster",
     cost: new Decimal(250),
     unlocked(){
         return hasUpgrade("c", 14)
@@ -88,7 +88,7 @@ addLayer("c", {
     },
     21: {
         title: "Solarfrost",
-        description: "Permafrost learned fire control, infects are 2.33x faster",
+        description: "Permafrost learned fire control, infects are 3.5x faster",
         cost: new Decimal(4500),
         unlocked(){
             return hasUpgrade("c", 15)
