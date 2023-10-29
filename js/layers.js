@@ -85,7 +85,7 @@ addLayer("c", {
     unlocked(){
         return hasUpgrade("c", 14)
     },
-                },
+    },
     21: {
         title: "Solarfrost",
         description: "Permafrost learned fire control, infects are 2.33x faster",
