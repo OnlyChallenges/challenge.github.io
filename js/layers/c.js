@@ -87,7 +87,7 @@ addLayer("c", {
 	14: {
         title: "Crystalization",
 	    description: "Crystals made Experiments more mad, Infects are 3x faster",
-	    cost: new Decimal(50),
+	    cost: new Decimal(35),
         unlocked(){
             return hasUpgrade("c", 13)
         },
@@ -95,7 +95,7 @@ addLayer("c", {
     15: {
         title: "Experimental Changes",
         description: "Experiments are now stronger, Infects are 4.5x faster",
-        cost: new Decimal(250),
+        cost: new Decimal(175),
         unlocked(){
             return hasUpgrade("c", 14)
         },
@@ -158,7 +158,7 @@ addLayer("c", {
     31: {
         title: "Crystalmania",
         description: "They're Everywhere! Infects Gain is 5x!",
-        cost: new Decimal(1.25e6),
+        cost: new Decimal(7.5e6),
         unlocked(){
             return hasUpgrade("c", 25)
         },

@@ -41,7 +41,7 @@ addLayer("E", {
         },
     },
     layerShown() {
-        return hasUpgrade("c", 25) || hasUpgrade("E",11);
+        return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1);
       },
  upgrades: {
     rows: 2,
