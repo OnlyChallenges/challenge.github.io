@@ -91,10 +91,15 @@ milestones: {
     },
     22: {
         title: "Honeycomb",
-        description: "Add to Experiment Base by 1.35.",
+        description: "Stingers are infecting many...Infects increase Infects slightly.",
         cost: new Decimal(666),
         effect(){
-            return player.E.points.add(1.35)
+            return (player.points.plus(1).log10().pow(0.35).plus(1)).max(1).min(25)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
         },
         unlocked(){
             return hasUpgrade("E", 21)
@@ -102,8 +107,12 @@ milestones: {
     },
     23: {
         title: "Moss",
-        description: "Moss does create some crystals...Add 10 Experiment Effects",
-        cost: new Decimal(2250),
+        description: "Moss creates Moss...Infects increase Infects.",
+        cost: new Decimal(1500),
+        effect() {
+            return player[this.layer].points.add(1).pow(0.048)
+        },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
             return hasUpgrade("E", 22)
         },
