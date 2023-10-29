@@ -1,11 +1,37 @@
 
 // ************ Themes ************
 
-const themes = {
-	0: ["Default", "#0f0f0f", "#000000b0", "#dfdfdf", "#ffffff", "#bf8f8f"],
-	1: ["Aqua", "#001f3f", "#000f1fb0", "#bfdfff", "#dfefff", "#c4a7b3"],
-	2: ["E205 Color 1", "#360707", "#434a05", "#140c57", "#cf9b9b", "#6e6868"],
-	3: ["E205 Color 2", "#072e36", "#054a14", "#140c57", "#cf9b9b", "#6e6868"],
+var colors = {
+	default: {
+		1: "#ffffff",//Branch color 1
+		2: "#bfbfbf",//Branch color 2
+		3: "#7f7f7f",//Branch color 3
+		color: "#dfdfdf",
+		points: "#ffffff",
+		locked: "#bf8f8f",
+		background: "#0f0f0f",
+		background_tooltip: "rgba(0, 0, 0, 0.75)",
+	},
+	e205color1: {
+		1: "#8f1810",
+		2: "#a1271f",
+		3: "#732a25",
+		color: "#a35d71",
+		points: "#3529ba",
+		locked: "#4b4a4f",
+		background: "#663241",
+		background_tooltip: "rgba(77, 13, 31, 0.75)",
+	},
+	aqua: {
+		1: "#bfdfff",
+		2: "#8fa7bf",
+		3: "#5f6f7f",
+		color: "#bfdfff",
+		points: "#dfefff",
+		locked: "#c4a7b3",
+		background: "#001f3f",
+		background_tooltip: "rgba(0, 15, 31, 0.75)",
+	},
 }
 const colors = {
 	0: { 1: "#ffffff", 2: "#ffffffbf", 3: "#ffffff7f", },
@@ -23,11 +49,19 @@ function changeTheme() {
 	document.body.style.setProperty("--locked", themes[meta.options.theme] ? themes[meta.options.theme][5] : "#bf8f8f")
 }
 
-function switchTheme() {
-	meta.options.theme = themes[+meta.options.theme + 1] ? +meta.options.theme + 1 : 0
-	changeTheme()
-}
-
 function getThemeName() {
-	return meta.options.theme && themes[meta.options.theme] ? themes[meta.options.theme][0] : "Default"
+	return options.theme? options.theme : "default";
+}
+function switchTheme() {
+let index = themes.indexOf(options.theme)
+if (options.theme === null || index >= themes.length-1 || index < 0) {
+	options.theme = themes[0];
+}
+else {
+	index ++;
+	options.theme = themes[index];
+	options.theme = themes[1];
+}
+changeTheme();
+resizeCanvas();
 }
