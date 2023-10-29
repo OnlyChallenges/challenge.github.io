@@ -1,5 +1,6 @@
 
 // ************ Themes ************
+var themes = ["default", "E205"]
 
 var colors = {
 	default: {
