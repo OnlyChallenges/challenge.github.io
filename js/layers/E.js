@@ -21,12 +21,12 @@ addLayer("E", {
         return new Decimal(1)
     },
     effect() {
-        let eff = player.E.points.add(1).pow(0.15)
-        if (hasUpgrade("E",23)) eff = eff.add(1.2)
+        let eff = player.E.points.add(1).pow(0.23)
+        if (hasUpgrade("E",23)) eff = eff.add(1.7)
         return eff
     },
     effectDescription() {
-        dis = "which boosts crystal gain by "+ format(tmp.E.effect) +"x"
+        dis = "which boosts infect gain by "+ format(tmp.E.effect) +"x"
         return dis
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
