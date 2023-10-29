@@ -12,7 +12,7 @@ addLayer("c", {
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 1.14, // Prestige currency exponent
+    exponent: .94, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -56,11 +56,11 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            return (player[this.layer].total.max(1).add(1.45).pow(0.25)).max(1).min(25);
+            return (player[this.layer].total.max(1).add(1.45).pow(0.25)).max(1).min(33.33);
 
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(33.33) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -73,10 +73,10 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            return (player[this.layer].total.max(1).add(1.66).pow(0.24)).max(1).min(150);
+            return (player[this.layer].total.max(1).add(1.66).pow(0.24)).max(1).min(50);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(75) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(50) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
