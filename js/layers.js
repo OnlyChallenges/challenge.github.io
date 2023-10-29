@@ -12,7 +12,7 @@ addLayer("c", {
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.62, // Prestige currency exponent
+    exponent: 0.55, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -197,18 +197,15 @@ addLayer("E", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
-		points: new Decimal(1e10),
+		points: new Decimal(0),
     }},
-    unlocked(){
-        return hasUpgrade('c', 31)
-    },
-    color: "#AC5BDC",
+    color: "#BF233F",
     requires: new Decimal(1e10), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.15, // Prestige currency exponent
+    exponent: 0.75, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -216,15 +213,15 @@ addLayer("E", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "c", description: "C: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "E", description: "E: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
 	infoboxes: {
         lore: {
-            title: "Crystals",
-            body: `Crystals hurt people which would infect them`,
+            title: "Experiments",
+            body: `Experiments would cause harmful infections towards people turning into themselves.`,
         },
     },
  upgrades: {
