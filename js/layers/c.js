@@ -23,7 +23,7 @@ addLayer("c", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     branches: ['E', 'F'],
     hotkeys: [
-        {key: "c", description: "C: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
 	infoboxes: {
@@ -33,7 +33,7 @@ addLayer("c", {
         },
     },
  upgrades: {
-    rows: 3,
+    rows: 4,
     cols: 5,
     11: {
         title: "Touching Crystals",

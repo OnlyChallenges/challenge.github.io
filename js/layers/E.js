@@ -31,7 +31,7 @@ addLayer("E", {
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "E", description: "E: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
 	infoboxes: {
