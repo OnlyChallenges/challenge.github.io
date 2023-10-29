@@ -150,7 +150,7 @@ addLayer("c", {
         description: "Nyko has gotten smarter...Crystals boosts Infects.",
         cost: new Decimal(5e10),
         unlocked(){
-            return hasUpgrade("E", 3)
+            return hasUpgrade("E", 13)
         },
     },
     },

@@ -48,6 +48,14 @@ addLayer("E", {
         title: "Wintear",
         description: "Poisonity...Boost Infect Gain by 3x",
         cost: new Decimal(30),
-    }
+    },
+    14: {
+        title: "Vixtra",
+        description: "Something Glitchy...Boost Infect Gain by 5x",
+        cost: new Decimal(1000),
+        unlocked(){
+            return hasUpgrade("c", 32)
+        },
+    },
  },
  })
