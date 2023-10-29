@@ -40,8 +40,8 @@ addLayer("c", {
         },
     },
     softcap() {
-        new Decimal(1e6);
-        return value;
+        eff= (eff, new Decimal(1e6), new Decimal(0.5));
+        return eff
       },
       softcapPower() {
         let power = player.points.pow(0.05);
