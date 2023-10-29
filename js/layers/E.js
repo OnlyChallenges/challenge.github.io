@@ -20,22 +20,6 @@ addLayer("E", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    effect() {
-        let eff = player.E.points.add(1).pow(0.23)
-        eff = eff.times(tmp.E.effectBase)
-        if (hasUpgrade('E', 23)) eff = eff.add(10)
-        return eff
-   },
-   effectBase() {
-    let base = new Decimal(1)
-    if (hasUpgrade ('E', 22)) base = base.add(upgradeEffect('E', 23))
-    if (hasUpgrade ('E', 25)) base = base.add(upgradeEffect('E', 25)) 
-    return base
-},
-    effectDescription() {
-        dis = "which boosts infect gain by "+ format(tmp.E.effect) +"x"
-        return dis
-    },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -138,10 +122,15 @@ milestones: {
     },
     25: {
         title: "Frostical",
-        description: "Increased experiment Effect Base by 1.4",
+        description: "Infects Boosts Infects^2",
         cost: new Decimal(15000),
         effect(){
-            return player.E.points.add(1.4)
+            return (player.points.plus(1).log10().pow(0.75).plus(1)).max(1).min(500)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(500) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
         },
         unlocked(){
             return hasUpgrade("E", 24)
