@@ -40,7 +40,7 @@ addLayer("P", {
         },
     },
     layerShown() {
-        return player.points.gte(1e25);
+        return player.points.gte(1e25) && hasUpgrade('F', 11);
       },
  upgrades: {
     rows: 1,

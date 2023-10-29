@@ -34,11 +34,6 @@ addLayer("E", {
     hotkeys: [
         {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    doReset(resettingLayer) {
-        let keep = [];
-        if (hasMilestone ('E', 11) && resettingLayer=="E") keep.push("upgrades")
-        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, keep)
-    },
     layerShown(){return true},
 	infoboxes: {
         lore: {
