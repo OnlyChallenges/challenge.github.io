@@ -36,7 +36,7 @@ addLayer("c", {
     rows: 3,
     cols: 5,
     11: {
-    title: "Touching Crystals",
+        title: "Touching Crystals",
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
@@ -52,7 +52,7 @@ addLayer("c", {
         },
     },
 	12: {
-	title: "Submerge the Crystals",
+	    title: "Submerge the Crystals",
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
@@ -68,7 +68,7 @@ addLayer("c", {
         },
     },
 	13: {
-	title: "Reformation",
+	    title: "Reformation",
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
@@ -85,19 +85,19 @@ addLayer("c", {
     },
 	14: {
         title: "Crystalization",
-	description: "Crystals made Experiments more mad, Infects are 3x faster",
-	cost: new Decimal(50),
-    unlocked(){
-        return hasUpgrade("c", 13)
-    },
+	    description: "Crystals made Experiments more mad, Infects are 3x faster",
+	    cost: new Decimal(50),
+        unlocked(){
+            return hasUpgrade("c", 13)
+        },
     },
     15: {
         title: "Experimental Changes",
-    description: "Experiments are now stronger, Infects are 4.5x faster",
-    cost: new Decimal(250),
-    unlocked(){
-        return hasUpgrade("c", 14)
-    },
+        description: "Experiments are now stronger, Infects are 4.5x faster",
+        cost: new Decimal(250),
+        unlocked(){
+            return hasUpgrade("c", 14)
+        },
     },
     21: {
         title: "Solarfrost",

@@ -58,7 +58,7 @@ addLayer("E", {
     14: {
         title: "Vixtra",
         description: "Something Glitchy...Boost Infect Gain by 5x",
-        cost: new Decimal(175),
+        cost: new Decimal(60),
         unlocked(){
             return hasUpgrade("E", 13)
         },
@@ -66,7 +66,7 @@ addLayer("E", {
     15: {
         title: "Aida",
         description: "A damn bat...Boost Infect Gain by 6.5x",
-        cost: new Decimal(500),
+        cost: new Decimal(150),
         unlocked(){
             return hasUpgrade("E", 14)
         },
@@ -74,9 +74,17 @@ addLayer("E", {
     21: {
         title: "Snapper",
         description: "Goober...Boost Infect Gain by 4x",
-        cost: new Decimal(1400),
+        cost: new Decimal(300),
         unlocked(){
             return hasUpgrade("E", 15)
+        },
+    },
+    22: {
+        title: "Honeycomb",
+        description: "Stingers are real...Infects boosts Experiments slighly",
+        cost: new Decimal(1250),
+        unlocked(){
+            return hasUpgrade("E", 21)
         },
     },
  },
