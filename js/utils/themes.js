@@ -25,14 +25,14 @@ var colors = {
 }
 
 function changeTheme() {
-	colors_theme = colors[meta.options.theme] || colors[0]
-	document.body.style.setProperty('--background', themes[meta.options.theme] ? themes[meta.options.theme][1] : "#0f0f0f")
-	document.body.style.setProperty('--background_tooltip', themes[meta.options.theme] ? themes[meta.options.theme][2] : "#000000b0")
-	document.body.style.setProperty('--color', themes[meta.options.theme] ? themes[meta.options.theme][3] : "#dfdfdf")
-	document.body.style.setProperty('--points', themes[meta.options.theme] ? themes[meta.options.theme][4] : "#ffffff")
-	document.body.style.setProperty("--locked", themes[meta.options.theme] ? themes[meta.options.theme][5] : "#bf8f8f")
-}
 
+	colors_theme = colors[options.theme || "default"];
+	document.body.style.setProperty('--background', colors_theme["background"]);
+	document.body.style.setProperty('--background_tooltip', colors_theme["background_tooltip"]);
+	document.body.style.setProperty('--color', colors_theme["color"]);
+	document.body.style.setProperty('--points', colors_theme["points"]);
+	document.body.style.setProperty("--locked", colors_theme["locked"]);
+	}
 function getThemeName() {
 	return options.theme? options.theme : "default";
 }
