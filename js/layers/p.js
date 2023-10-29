@@ -7,10 +7,10 @@ addLayer("P", {
 		points: new Decimal(0),
     }},
     color: "#EBD638",
-    requires: new Decimal(1e45), // Can be a function that takes requirement increases into account
+    requires: new Decimal(6.66e66), // Can be a function that takes requirement increases into account
     resource: "powers", // Name of prestige currency
-    baseResource: "crystals", // Name of resource prestige is based on
-    baseAmount() {return player["c"].points}, // Get the current amount of baseResource
+    baseResource: "infects", // Name of resource prestige is based on
+    baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.15, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses

@@ -19,9 +19,10 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br><br>
 		<h3>v0.1.7: Theme & Compression<br>
-			- Added 1 Crystal Upgrade<br>
-			- Changed Crystal Formula Expo (.92^ -> .85^)<br>
-			- Added a Milestone in Experiments<br>
+			- Added 1 Crystal Upgrade.<br>
+			- Changed Crystal Formula Expo (.92^ -> .85^).<br>
+			- Added a Milestone in Experiments.<br>
+			- Pushed Fusion Layer to e30 Infects instead of e25 Infects.<br>
 			- Added a Milestone in Fusions<br><br>
 
 		<h3>v0.1.6: New Experiments</h3><br>
@@ -42,7 +43,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
 
 		<h3>v0.1.4: Experiments are forming</h3><br>
 			- Added 2 Upgrades in Crystals<br>
-			- Added 2 Updates in Experiments (E)<br>
+			- Added 2 Upgrades in Experiments (E)<br>
 			- Balanced 2 Updates in Crystals<br><br>
 
 		<h3>v0.1.3: New Layers?</h3><br>
