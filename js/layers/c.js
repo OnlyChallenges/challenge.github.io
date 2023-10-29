@@ -21,6 +21,7 @@ addLayer("c", {
         return new Decimal(1)
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
+    branches: ['E', 'F'],
     hotkeys: [
         {key: "c", description: "C: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
@@ -63,7 +64,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            return player[this.layer].points.add(1.2).pow(0.17)
+            return player[this.layer].points.add(1.2).pow(0.17).max(100)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
