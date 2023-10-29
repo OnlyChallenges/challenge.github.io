@@ -12,7 +12,7 @@ var colors = {
 		background: "#0f0f0f",
 		background_tooltip: "rgba(0, 0, 0, 0.75)",
 	},
-	e205color1: {
+	E205: {
 		1: "#8f1810",
 		2: "#a1271f",
 		3: "#732a25",
@@ -22,22 +22,6 @@ var colors = {
 		background: "#663241",
 		background_tooltip: "rgba(77, 13, 31, 0.75)",
 	},
-	aqua: {
-		1: "#bfdfff",
-		2: "#8fa7bf",
-		3: "#5f6f7f",
-		color: "#bfdfff",
-		points: "#dfefff",
-		locked: "#c4a7b3",
-		background: "#001f3f",
-		background_tooltip: "rgba(0, 15, 31, 0.75)",
-	},
-}
-const colors = {
-	0: { 1: "#ffffff", 2: "#ffffffbf", 3: "#ffffff7f", },
-	1: { 1: "#bfdfff", 2: "#bfdfffbf", 3: "#bfdfff7f", },
-	2: { 1: "#abefb0", 2: "#abefb0bf", 3: "#abefb07f", },
-	3: { 1: "#ff73fd", 2: "#ff73fdbf", 3: "#ff73fd7f", },
 }
 
 function changeTheme() {
