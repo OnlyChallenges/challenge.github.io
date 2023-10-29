@@ -201,7 +201,7 @@ addLayer("E", {
     }},
     unlocked(){
         return hasUpgrade('c', 31)
-    }
+    },
     color: "#AC5BDC",
     requires: new Decimal(1e10), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency
