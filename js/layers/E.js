@@ -43,18 +43,40 @@ addLayer("E", {
         title: "Abys",
         description: "Squid...Boost Infect Gain by 13x",
         cost: new Decimal(5),
+        unlocked(){
+            return hasUpgrade("E", 11)
+        },
     },
     13: {
         title: "Wintear",
         description: "Poisonity...Boost Infect Gain by 3x",
         cost: new Decimal(30),
+        unlocked(){
+            return hasUpgrade("E", 12)
+        },
     },
     14: {
         title: "Vixtra",
         description: "Something Glitchy...Boost Infect Gain by 5x",
         cost: new Decimal(1000),
         unlocked(){
-            return hasUpgrade("c", 32)
+            return hasUpgrade("E", 13)
+        },
+    },
+    15: {
+        title: "Aida",
+        description: "A damn bat...Boost Infect Gain by 6.5x",
+        cost: new Decimal(12500),
+        unlocked(){
+            return hasUpgrade("E", 14)
+        },
+    },
+    21: {
+        title: "Snapper",
+        description: "Goober...Boost Infect Gain by 4x",
+        cost: new Decimal(150000),
+        unlocked(){
+            return hasUpgrade("E", 15)
         },
     },
  },
