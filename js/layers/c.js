@@ -44,12 +44,13 @@ addLayer("c", {
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
-            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            let text = `${format(upgradeEffect(this.layer, this.id))} ${capped}x`;
             return text;
         },
         unlocked(){
             return player.c.points.gte(0)
         },
+    },
 	12: {
 	title: "Submerge the Crystals",
         description: "Crystals boosts infects",
@@ -58,13 +59,14 @@ addLayer("c", {
             return player[this.layer].points.add(1.5).pow(0.013).min(0).max(50)
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
-            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            let capped = upgradeEffect(this.layer, this.id).gte(50) ? "(Capped)" : "";
+            let text = `${format(upgradeEffect(this.layer, this.id))} ${capped}x`;
             return text;
         },
         unlocked(){
             return hasUpgrade("c", 11)
         },
+    },
 	13: {
 	title: "Reformation",
         description: "Crystals boosts infects",
@@ -72,11 +74,15 @@ addLayer("c", {
         effect() {
             return player[this.layer].points.add(1.2).pow(0.11).min(0).max(100)
         },
-        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
+            let text = `${format(upgradeEffect(this.layer, this.id))} ${cappedx}`;
+            return text;
         },
         unlocked(){
             return hasUpgrade("c", 12)
         },
+    },
 	14: {
         title: "Crystalization",
 	description: "Crystals made Experiments more mad, Infects are 3x faster",
@@ -177,7 +183,5 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("E", 21)
         },
-    },
-    },
- },
+     },
  })
