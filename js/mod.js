@@ -17,24 +17,24 @@ let VERSION = {
 	name: "Crystals Reunited",
 }
 
-let changelog = `<h3>Changelog:</h3><br><br>
-		<h2>v0.1.3</h2><br>
+let changelog = `<h1>Changelog:</h1><br><br>
+		<h3>v0.1.3</h3><br>
 			- Added 1 more Upgrade in Crystals<br>
 			- Added Experiments (E)<br>
 			- Added Fusions (F)<br>
 			- Added 3 Experiment Upgrades<br>
 			- Added 3 Fusions Upgrades<br><br>
 
-		<h2>v0.1.2 Crystals Reunited</h2><br>
+		<h3>v0.1.2 Crystals Reunited</h3><br>
 			- Added 2 New Rows of Upgrades <br>
 			- Endgame: 10,000,000 Infects<br><br>
 
-		<h2>v0.1.1 The Facility</h2><br>
+		<h3>v0.1.1 The Facility</h3><br>
 			- Added 3 Upgrades <br>
 			- Added some...lore.<br>
 			- Endgame: None Currently<br><br>
 
-        <h3>v0.1 Crystals</h3><br>
+        <h2>v0.1 Crystals</h2><br>
 	        - Added 2 Upgrades <br>
 	        - Added the first layer, Crystals.<br>
 	        - Endgame: None.<br>`
