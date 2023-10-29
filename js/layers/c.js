@@ -123,7 +123,7 @@ addLayer("c", {
             return hasUpgrade("c", 21)
         },
         effect() {
-            return (player.points.max(1).add(1).log(10).pow(0.048)).max(1).min(25)
+            return (player.points.max(1).add(1).log10().pow(0.45)).max(1).min(25)
         },
         effectDisplay(){
         let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
