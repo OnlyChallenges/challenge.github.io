@@ -110,7 +110,7 @@ addLayer("c", {
         description: "Permafrost learned fire control, infects are 3.5x faster",
         cost: new Decimal(1250),
         unlocked(){
-            return hasUpgrade("c", 15) || hasUpgrade("c", 14);
+            return hasUpgrade("c", 15)
         },
     },
 	22: {
@@ -123,7 +123,7 @@ addLayer("c", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
             unlocked(){
-                return hasUpgrade("c", 21) || hasUpgrade("c", 15);
+                return hasUpgrade("c", 21)
             },
 	23: {
         title: "Bee-lusion",
@@ -135,7 +135,7 @@ addLayer("c", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
             unlocked(){
-                return hasUpgrade("c", 22) || hasUpgrade("c", 21);
+                return hasUpgrade("c", 22)
             },
 	24: {
         title: "Frozen Crystals",
@@ -147,14 +147,14 @@ addLayer("c", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
             unlocked(){
-                return hasUpgrade("c", 23) || hasUpgrade("c", 22);
+                return hasUpgrade("c", 23)
             },
     25: {
         title: "Crystalized Dragons",
         description: "Influcational has occured on them, throwing crystals at others-- infects gain is 6.5x!",
         cost: new Decimal(250000),
         unlocked(){
-            return hasUpgrade("c", 24) || hasUpgrade("c", 23);
+            return hasUpgrade("c", 24)
         },
     },
     31: {
@@ -162,7 +162,7 @@ addLayer("c", {
         description: "They're Everywhere! Infects Gain is 5x!",
         cost: new Decimal(1.25e7),
         unlocked(){
-            return hasUpgrade("c", 25) || hasUpgrade("c", 24);
+            return hasUpgrade("c", 25)
         },
     },
     32: {
@@ -175,7 +175,7 @@ addLayer("c", {
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         unlocked(){
-            return hasUpgrade("E", 13) || hasUpgrade("c", 25);
+            return hasUpgrade("E", 13)
         },
     33: {
         title: "Abys' Swimming Increaser I",
@@ -187,7 +187,7 @@ addLayer("c", {
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         unlocked(){
-            return hasUpgrade("E", 21) || hasUpgrade("E", 13);
+            return hasUpgrade("E", 21)
         },
      },
  })
