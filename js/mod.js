@@ -18,6 +18,11 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+		<h3>v0.1.4</h3><br>
+			- Added 2 Upgrades in Crystals<br>
+			- Added 2 Updates in Experiments (E)<br>
+			- Balanced 2 Updates in Crystals<br><br>
+			
 		<h3>v0.1.3</h3><br>
 			- Added 1 more Upgrade in Crystals<br>
 			- Added Experiments (E)<br>
@@ -87,12 +92,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: 10,000,000 Infects"
+	"Endgame: 1e20 Infects"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal(1e13))
+	return player.points.gte(new Decimal(1e20))
 }
 
 
