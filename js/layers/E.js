@@ -84,7 +84,7 @@ addLayer("E", {
         description: "Stingers are real...Infects boosts Experiments slighly",
         cost: new Decimal(1250),
         effect(){
-            return player["a"].points.pow(0.04).add(1.5)
+            return player["c"].points.add(1.5).pow(0.04)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
