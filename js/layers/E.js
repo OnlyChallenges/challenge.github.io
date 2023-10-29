@@ -23,7 +23,7 @@ addLayer("E", {
     effect() {
         let eff = player.E.points.add(1).pow(0.23)
         if (hasUpgrade("E",23)) eff = eff.add(1.7)
-        if (hasUpgrade("E",23)) eff = eff.pow(0.1)
+        if (hasUpgrade("E",23)) eff = eff.pow(1.15)
         return eff
     },
     effectDescription() {
@@ -106,7 +106,7 @@ addLayer("E", {
     },
     23: {
         title: "Moss",
-        description: "Moss does create some crystals...Moss increased Experiment Effect Base gain by 1.7x & 1.1^",
+        description: "Moss does create some crystals...Moss increased Experiment Effect Base gain by 1.7x & 1.15^",
         cost: new Decimal(2250),
         unlocked(){
             return hasUpgrade("E", 22)
