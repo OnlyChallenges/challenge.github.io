@@ -22,8 +22,8 @@ addLayer("E", {
     },
     effect() {
         let eff = player.E.points.add(1).pow(0.23)
-        if (hasUpgrade("E",23)) eff = eff.add(1.7)
-        if (hasUpgrade("E",23)) eff = eff.pow(1.15)
+        if (hasUpgrade("E",23)) eff = eff.add(1.7).pow(1.15)
+        if (hasUpgrade("E",25)) eff = eff.add(1.3).pow(1.2)
         return eff
     },
     effectDescription() {
@@ -122,6 +122,14 @@ addLayer("E", {
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
             return hasUpgrade("E", 23)
+        },
+    },
+    25: {
+        title: "Frostical",
+        description: "Increased experiment Effect Base gain by 1.3x & 1.2^",
+        cost: new Decimal(15000),
+        unlocked(){
+            return hasUpgrade("E", 24)
         },
     },
  },
