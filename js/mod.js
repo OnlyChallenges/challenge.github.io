@@ -23,7 +23,8 @@ let changelog = `<h1>Changelog:</h1><br><br>
 			- Changed Crystal Formula Expo (.92^ -> .85^).<br>
 			- Added a Milestone in Experiments.<br>
 			- Pushed Fusion Layer to e30 Infects instead of e25 Infects.<br>
-			- Added a Milestone in Fusions<br><br>
+			- Added a Milestone in Fusions<br>
+			- Endgame: 1.33e27 Infects<br><br>
 
 		<h3>v0.1.6: New Experiments</h3><br>
 			- Added 3 Experiment Upgrades<br>
