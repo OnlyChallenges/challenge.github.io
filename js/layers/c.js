@@ -159,5 +159,4 @@ addLayer("c", {
             return hasUpgrade("E", 13)
         },
     },
- },
  })
