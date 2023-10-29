@@ -20,6 +20,14 @@ addLayer("E", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+    effect() {
+        let eff = player["c"].points.add(1).pow(0.13)
+        return eff
+    },
+    effectDescription() {
+        dis = ", which boosts infect gain by "+format(eff)+"x"
+        return dis
+    },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "E", description: "E: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
