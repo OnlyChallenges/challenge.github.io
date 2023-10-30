@@ -38,6 +38,9 @@ addLayer("E", {
         if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
         return base
     },
+    passiveGeneration() {
+        return hasMilestone ('v', 2)?.15:0
+    },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -54,9 +57,14 @@ addLayer("E", {
       },
 milestones: {
         11: {
-            requirementDescription: "2,500 Experiments",
+            requirementDescription: "100 Experiments",
             effectDescription: "Keep Crystal Upgrades on Reset",
-            done() { return player.E.points.gte(2500) },
+            done() { return player.E.points.gte(100) },
+        },
+        12: {
+            requirementDescription: "250 Experiments",
+            effectDescription: "Passively Gain 15% Crystals/sec",
+            done() { return player.E.points.gte(250) },
         },
     },
  upgrades: {
