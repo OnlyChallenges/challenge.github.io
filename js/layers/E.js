@@ -18,7 +18,9 @@ addLayer("E", {
         if (hasUpgrade('E', 21)) mult = mult.times(upgradeEffect('E',21))
         if (hasUpgrade('E', 23)) mult = mult.times(4)
         if (hasUpgrade('E', 26)) mult = mult.times(upgradeEffect('E',26))
-        if (inChallenge('E', 11)) mult = mult.times(50)
+        if (inChallenge('E', 11)) mult = mult.times(20)
+        if (inChallenge('E', 12)) mult = mult.times(50)
+        if (hasChallenge('E',12)) mult = mult.times(5)
         return mult
     },
     gainExp() {
@@ -89,7 +91,7 @@ challenges: {
             Infect gain is divided by 1e13,
             and Experiment Gain is multiplied by 50!`,
             goalDescription: "1e8 Crystals",
-            rewardDescription: "Tenfold your Infects",
+            rewardDescription: "5x Crystal & Experiment Gain",
             canComplete: function() {return player.c.points.gte(1e8)},
             unlocked() {return hasUpgrade('c', 42)},
         },
