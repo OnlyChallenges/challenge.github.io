@@ -20,7 +20,7 @@ addLayer("E", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-        if (hasUpgrade('E', 24)) exp = exp.add(1.2)
+        if (hasUpgrade('E', 24)) exp = exp.add(1.075)
         return exp
     },
     effect() {
@@ -137,7 +137,7 @@ milestones: {
     },
     23: {
         title: "Azure",
-        description: "Experiment gain is now (Everything)^1.15",
+        description: "Experiment gain is now ^1.075",
         cost: new Decimal(1250),
         unlocked(){
             return hasUpgrade("E", 22)
@@ -146,24 +146,28 @@ milestones: {
     24: {
         title: "Experiment Surge",
         description: "Infects boosts Infects",
-        cost: new Decimal(6942),
+        cost: new Decimal(1800),
         effect(){
-            return player.points.plus(1).log10().pow(0.55).plus(1)
+            return (player.points.plus(1).log10().pow(0.75).plus(1)).max(1).min(150)
         },
-        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(150) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
         unlocked(){
             return hasUpgrade("E", 23)
         },
     },
     25: {
         title: "Frostical",
-        description: "Infects Boosts Infects^2",
-        cost: new Decimal(15000),
+        description: "Infects Boosts Crystal Gain",
+        cost: new Decimal(4250),
         effect(){
-            return (player.points.plus(1).log10().pow(0.75).plus(1)).max(1).min(500)
+            return (player.points.plus(1).log10().pow(0.45)).max(1).min(10)
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(500) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
