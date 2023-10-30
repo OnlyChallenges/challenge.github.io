@@ -19,7 +19,7 @@ addLayer("E", {
         if (hasUpgrade('E', 23)) mult = mult.times(4)
         if (hasUpgrade('E', 26)) mult = mult.times(upgradeEffect('E',26))
         if (inChallenge('E', 11)) mult = mult.times(20)
-        if (inChallenge('E', 12)) mult = mult.times(50)
+        if (inChallenge('E', 12)) mult = mult.div(1e99)
         if (hasChallenge('E',12)) mult = mult.times(5)
         return mult
     },
@@ -89,7 +89,7 @@ challenges: {
             Someone made Immunity against the infection!
             Crystal gain is divided by 40,
             Infect gain is divided by 8e12,
-            and Experiment Gain is multiplied by 50!`,
+            and Experiment Gain is divided by 1e99!`,
             goalDescription: "1 Infect",
             rewardDescription: "5x Crystal & Experiment Gain",
             canComplete: function() {return player.points.gte(1)},
@@ -277,7 +277,7 @@ challenges: {
         description: "Infects & Experiments boosts Crystals",
         cost: new Decimal(1e7),
         effect(){
-            return (player.points.plus(0.82).log10().pow(0.56)).max(1).min(75) && (player.E.points.plus(0.88).log10().pow(0.52)).max(1).min(75)
+            return (player.points.plus(0.82).log10().pow(0.56)).max(1).min(75) + (player.E.points.plus(0.88).log10().pow(0.52)).max(1).min(75)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(75) ? "(Capped)" : "";
