@@ -29,7 +29,7 @@ addLayer("E", {
         return eff
     },
     effectDescription() {
-        dis = "which boosting infect gain by "+format(tmp.E.eff)+"x"
+        dis = "which boosting infect gain by "+format(tmp.E.effect)+"x"
         return dis
     },
     effectBase() {
