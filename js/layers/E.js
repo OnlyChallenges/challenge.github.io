@@ -20,7 +20,7 @@ addLayer("E", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-        if (hasUpgrade('E', 24)) exp = exp.add(upgradeEffect('E',21))
+        if (hasUpgrade('E', 24)) exp = exp.add(1.2)
         return exp
     },
     effect() {
@@ -88,7 +88,7 @@ milestones: {
         description: "Increase Experiment Effect Base by infects",
         cost: new Decimal(50),
         effect() {
-            return player.points.add(1.136).log10().pow(0.032)
+            return player.points.add(1.136).log10().pow(0.06)
         },
         effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id)) },
         unlocked(){
@@ -111,7 +111,7 @@ milestones: {
             return (player.points.plus(1).log10().pow(0.25).plus(1)).max(1).min(7.5)
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(7.5) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -138,11 +138,7 @@ milestones: {
     23: {
         title: "Azure",
         description: "Experiment gain is now (Everything)^1.15",
-        cost: new Decimal(1500),
-        effect() {
-            return player.points.add(1.15)
-        },
-        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        cost: new Decimal(1250),
         unlocked(){
             return hasUpgrade("E", 22)
         },
