@@ -181,7 +181,7 @@ addLayer("c", {
     32: {
         title: "Transformations",
         description: "Infects boosts Infects slightly.",
-        cost: new Decimal(2.5e13),
+        cost: new Decimal(3.14e11),
         unlocked(){
             return hasUpgrade("E", 12) && hasUpgrade("c", 31);
         },
@@ -194,9 +194,9 @@ addLayer("c", {
     33: {
         title: "Snorkeling",
         description: "Abys is getting faster in the pool...Crystals boosts Infects.",
-        cost: new Decimal(2.33e15),
+        cost: new Decimal(2.24e14),
         unlocked(){
-            return hasUpgrade("E", 13) && hasUpgrade("c", 32);
+            return hasUpgrade("E", 15) && hasUpgrade("c", 32);
         },
         effect(){
             return player.c.points.pow(0.02).add(1)

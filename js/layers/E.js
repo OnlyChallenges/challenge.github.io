@@ -24,7 +24,7 @@ addLayer("E", {
         return exp
     },
     effect() {
-        let eff = (player.E.points.max(1).add(1).pow(0.2)).max(1).min(50)
+        let eff = (player.E.points.max(1).add(1).pow(0.26)).max(1).min(50)
         eff = eff.times(tmp.E.effectBase)
         return eff
     },
