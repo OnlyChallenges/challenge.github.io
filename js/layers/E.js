@@ -54,14 +54,14 @@ addLayer("E", {
       },
 milestones: {
         11: {
-            requirementDescription: "100 Experiments",
+            requirementDescription: "200 Experiments",
             effectDescription: "Keep Crystal Upgrades on Reset",
-            done() { return player.E.points.gte(100) },
+            done() { return player.E.points.gte(200) },
         },
         12: {
-            requirementDescription: "250 Experiments",
+            requirementDescription: "1,000 Experiments",
             effectDescription: "Passively Gain 15% Crystals/sec",
-            done() { return player.E.points.gte(250) },
+            done() { return player.E.points.gte(1000) },
         },
     },
  upgrades: {
@@ -139,7 +139,7 @@ milestones: {
     21: {
         title: "Snapper",
         description: "Boosts Experiment Gain by Infects",
-        cost: new Decimal(120),
+        cost: new Decimal(180),
         effect(){
             return (player.points.plus(1).log10().pow(0.25).plus(1)).max(1).min(7.5)
         },
@@ -155,7 +155,7 @@ milestones: {
     22: {
         title: "Honeycomb",
         description: "Stingers are infecting many...Infects increase Infects slightly.",
-        cost: new Decimal(250),
+        cost: new Decimal(730),
         effect(){
             return (player.points.plus(1).log10().pow(0.35).plus(1)).max(1).min(25)
         },
@@ -171,7 +171,7 @@ milestones: {
     23: {
         title: "Azure",
         description: "Experiment gain is now ^1.005",
-        cost: new Decimal(750),
+        cost: new Decimal(1520),
         unlocked(){
             return hasUpgrade("E", 22)
         },
@@ -179,7 +179,7 @@ milestones: {
     24: {
         title: "Experiment Surge",
         description: "Infects boosts Infects",
-        cost: new Decimal(1600),
+        cost: new Decimal(2400),
         effect(){
             return (player.points.plus(1).log10().pow(0.75).plus(1)).max(1).min(150)
         },
@@ -195,7 +195,7 @@ milestones: {
     25: {
         title: "Frostical",
         description: "Infects Boosts Crystal Gain",
-        cost: new Decimal(3000),
+        cost: new Decimal(4900),
         effect(){
             return (player.points.plus(1).log10().pow(0.45)).max(1).min(10)
         },
