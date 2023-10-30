@@ -44,7 +44,7 @@ addLayer("c", {
         return (gainMult.pow(gainExp))
     },
     boostDisplay(){
-        boost = "You are getting an boost of "+format(tmp.c.getBoost)+"x" 
+        boost = "You are getting an Crystal boost of "+format(tmp.c.getBoost)+"x" 
         return boost
     },
     layerShown(){return true},
