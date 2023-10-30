@@ -3,7 +3,7 @@ let modInfo = {
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles: ["layers/a.js", "layers/E.js", "layers/c.js", "layers/F.js", "layers/p.js", "tree.js"],
+	modFiles: ["layers/a.js", "layers/E.js", "layers/c.js", "layers/F.js", "tree.js"],
 
 	discordName: "E205 Discord Server",
 	discordLink: "https://discord.gg/experiment-205",
@@ -13,16 +13,27 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.10",
-	name: "Kryptox's Group",
+	num: "0.2",
+	name: "Challenging Approach",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 		<h2>vx.y.z.a</h2><br>
-		<h3>x = major update</h3><br>
-		<h3>y = minor update</h3><br>
-		<h3>z = very minor update</h3><br>
-		<h3>a = bug/mechanic fixes</h3><br><br>
+		>x = major update><br>
+		y = minor update<br>
+		z = very minor update<br>
+		a = bug/mechanic fixes<br><br>
+
+		<h2>v0.2 Challenging Approach</h2><br>
+		- Added 7 Experiment Upgrades<br>
+		- Added 4 Crystal Upgrades<br>
+		- Added 2 Experiment Challenges<br>
+		- Added 2 Achievements<br>
+		- Changed Experiment Base again<br>
+		- Changed the 1st Challenge Requirement from 1e9 Crystals > 5e9 Crystals<br>
+		- Changed Log Formula's on multiple Upgrades<br>
+		- Fixed Experiment Gain Bug<br>
+		- Endgame: 1e27 Infects<br><br>
 
 		<h3>v0.1.10 Kryptox's Group</h3><br>
 			- Added 2 Experiment Upgrades<br>
@@ -146,6 +157,7 @@ function getPointGen() {
 	if (hasUpgrade('c', 33)) gain = gain.times(upgradeEffect('c',33))
 	if (hasUpgrade('c', 34)) gain = gain.times(upgradeEffect('c',34))
 	if (hasUpgrade('c', 35)) gain = gain.times(upgradeEffect('c',35))
+	if (hasUpgrade('c', 42)) gain = gain.times(upgradeEffect('c',42))
 	// E Upgrades
 	if (hasUpgrade('E', 11)) gain = gain.times(8.7)
 	if (hasUpgrade('E', 12)) gain = gain.times(10)
@@ -155,6 +167,8 @@ function getPointGen() {
 	if (hasUpgrade('E', 22)) gain = gain.times(upgradeEffect('E',22))
 	if (hasUpgrade('E', 24)) gain = gain.times(upgradeEffect('E',24))
 	if (hasUpgrade('E', 25)) gain = gain.times(upgradeEffect('E',25))
+	if (hasUpgrade('E', 31)) gain = gain.times(upgradeEffect('E',31))
+	if (hasUpgrade('E', 33)) gain = gain.times(upgradeEffect('E',33))
 	// F Upgrades
 	if (hasUpgrade('F', 11)) gain = gain.times(50)
 	if (hasUpgrade('F', 12)) gain = gain.times(33.33)
@@ -163,6 +177,7 @@ function getPointGen() {
 	if (player.E.unlocked) gain = gain.times(tmp.E.effect)
 	// Challenges
 	if (inChallenge('E', 11)) gain = gain.div(1e10)
+	if (inChallenge('E', 12)) gain = gain.div(1e13)
 	if (hasChallenge('E',11)) gain = gain.times(10)
 	return gain
 }
@@ -173,12 +188,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: 4.99e25 Infects"
+	"Endgame: 1e27 Infects"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal(4.99e25))
+	return player.points.gte(new Decimal(1e27))
 }
 
 

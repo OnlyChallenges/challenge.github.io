@@ -17,6 +17,7 @@ addLayer("E", {
         mult = new Decimal(1)
         if (hasUpgrade('E', 21)) mult = mult.times(upgradeEffect('E',21))
         if (hasUpgrade('E', 23)) mult = mult.times(4)
+        if (hasUpgrade('E', 26)) mult = mult.times(upgradeEffect('E',26))
         if (inChallenge('E', 11)) mult = mult.times(50)
         return mult
     },
@@ -37,6 +38,7 @@ addLayer("E", {
         let base = new Decimal(1)
         if (hasUpgrade ('E', 13)) base = base.add(0.3)
         if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
+        if (hasUpgrade ('E', 34)) base = base.add(1.314)
         return base
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
@@ -76,8 +78,20 @@ challenges: {
             and Experiment Gain is multiplied by 20!`,
             goalDescription: "5e9 Crystals",
             rewardDescription: "Tenfold your Infects",
-            canComplete: function() {return player.c.points.gte(1e9)},
+            canComplete: function() {return player.c.points.gte(5e9)},
             unlocked() {return hasUpgrade('E', 26)},
+        },
+        12: {
+            name: "Outbreak",
+            challengeDescription: `
+            Outbreak as occured, making the Experiments slower! 
+            Crystal gain is divided by 40,
+            Infect gain is divided by 1e13,
+            and Experiment Gain is multiplied by 50!`,
+            goalDescription: "1e8 Crystals",
+            rewardDescription: "Tenfold your Infects",
+            canComplete: function() {return player.c.points.gte(1e8)},
+            unlocked() {return hasUpgrade('c', 42)},
         },
 },
  upgrades: {
@@ -245,7 +259,7 @@ challenges: {
         description: "Experiments boosts Infects",
         cost: new Decimal(250000),
         effect(){
-            return (player.points.plus(0.86).log10().pow(0.56)).max(1).min(25)
+            return (player.E.points.plus(0.86).log10().pow(0.56)).max(1).min(25)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
@@ -254,6 +268,46 @@ challenges: {
         },
         unlocked(){
             return hasChallenge("E", 11)
+        },
+    },
+    32: {
+        title: "Malachite",
+        description: "Infects & Experiments boosts Crystals",
+        cost: new Decimal(1e7),
+        effect(){
+            return (player.points.plus(0.82).log10().pow(0.56)).max(1).min(75) && (player.E.points.plus(0.88).log10().pow(0.52)).max(1).min(75)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(75) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        unlocked(){
+            return hasChallenge("E", 12) && hasUpgrade("E", 31)
+        },
+    },
+    33: {
+        title: "Voiskral",
+        description: "Crystals Boosts Infects",
+        cost: new Decimal(1e7),
+        effect(){
+            return (player.c.points.plus(0.77).log10().pow(0.62)).max(1).min(15)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(15) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        unlocked(){
+            return hasUpgrade("E", 32)
+        },
+    },
+    34: {
+        title: "Honeydiver",
+        description: "Increase the Experiment Effect Base by 1.π",
+        cost: new Decimal(1e7),
+        unlocked(){
+            return hasUpgrade("E", 33)
         },
     },
  },

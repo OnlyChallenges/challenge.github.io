@@ -19,9 +19,10 @@ addLayer("c", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('c', 22)) mult = mult.times(upgradeEffect('c',22))
-        if (hasUpgrade('E', 15)) mult = mult.times(upgradeEffect('E',15))
+        if (hasUpgrade('c', 41)) mult = mult.times(upgradeEffect('c',41))
         if (hasUpgrade('E', 16)) mult = mult.times(upgradeEffect('E',16))
         if (hasUpgrade('E', 25)) mult = mult.times(upgradeEffect('E',25))
+        if (hasUpgrade('E', 32)) mult = mult.times(upgradeEffect('E',32))
         if (inChallenge('E', 11)) mult = mult.div(12.5)
         return mult
     },
@@ -29,7 +30,7 @@ addLayer("c", {
         return new Decimal(1)
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    branches: ['P','E','F'],
+    branches: ['E','F'],
     hotkeys: [
         {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
@@ -133,7 +134,7 @@ addLayer("c", {
             return hasUpgrade("c", 21)
         },
         effect() {
-            return (player.points.max(1).add(1).log10().pow(0.45)).max(1).min(25)
+            return (player.points.max(1).add(1).log10().pow(0.45)).max(1).min(5)
         },
         effectDisplay(){
         let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
@@ -149,7 +150,7 @@ addLayer("c", {
                 return hasUpgrade("c", 22)
             },
             effect() {
-                return player[this.layer].points.add(1).pow(0.062)
+                return player[this.layer].points.add(1).pow(0.058)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
@@ -244,7 +245,7 @@ addLayer("c", {
     41: {
         title: "Crystal Synergy",
         description: "Crystals can boost Crystals",
-        cost: new Decimal(3.88e24),
+        cost: new Decimal(3.14e21),
         unlocked(){
             return hasUpgrade("E", 31) && hasUpgrade("c", 35);
         },
@@ -253,6 +254,22 @@ addLayer("c", {
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(7) ? "(Crystal capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+    },
+    42: {
+        title: "Infect Synergy",
+        description: "Infects boosts Infects",
+        cost: new Decimal(1e23),
+        unlocked(){
+            return hasUpgrade("c", 41);
+        },
+        effect() {
+            return (player.c.points.add(0.62).log10(2).pow(0.6)).max(1).min(100);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
