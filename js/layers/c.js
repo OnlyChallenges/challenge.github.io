@@ -37,6 +37,9 @@ addLayer("c", {
         if (hasMilestone ('E', 11) && resettingLayer=="E") keep.push("upgrades")
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, keep)
     },
+    passiveGeneration() {
+        return hasMilestone ('E', 2)?.15:0
+    },
     layerShown(){return true},
 	infoboxes: {
         lore: {
