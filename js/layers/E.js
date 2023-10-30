@@ -46,7 +46,7 @@ addLayer("E", {
 	infoboxes: {
         lore: {
             title: "Experiments",
-            body: `Experiments would cause harmful infections towards people turning into themselves.`,
+            body: `Experiments would cause harmful infections towards people turning into themselves. There are some Upgrades in Experiments that will unlock some Upgrades in Crystals, so make sure you're going back and forth!`,
         },
     },
     layerShown() {
@@ -65,8 +65,8 @@ milestones: {
         },
     },
  upgrades: {
-    rows: 2,
-    cols: 5,
+    rows: 3,
+    cols: 6,
     11: {
         title: "Nyko",
         description: "The first of the Experiments...Boost Infect Gain by 8.7x",
@@ -118,6 +118,22 @@ milestones: {
         },
         unlocked(){
             return hasUpgrade("E", 14)
+        },
+    },
+    16:{
+        title: "Kryptox",
+        description: "Experiments Boosts Crystals & Infects by log10(infects)",
+        cost: new Decimal(76),
+        effect(){
+            return (player.points.plus(0.32).log10(player.points).pow(0.66).plus(1)).max(1).min(5)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(4.5) ? "(Kryptox Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        unlocked(){
+            return hasUpgrade("E", 15)
         },
     },
     21: {
