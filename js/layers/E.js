@@ -84,15 +84,15 @@ challenges: {
             unlocked() {return hasUpgrade('E', 26)},
         },
         12: {
-            name: "Outbreak",
+            name: "Immunity",
             challengeDescription: `
-            Outbreak as occured, making the Experiments slower! 
+            Someone made Immunity against the infection!
             Crystal gain is divided by 40,
-            Infect gain is divided by 1e13,
+            Infect gain is divided by 8e12,
             and Experiment Gain is multiplied by 50!`,
-            goalDescription: "1e8 Crystals",
+            goalDescription: "1 Infect",
             rewardDescription: "5x Crystal & Experiment Gain",
-            canComplete: function() {return player.c.points.gte(1e8)},
+            canComplete: function() {return player.points.gte(1)},
             unlocked() {return hasUpgrade('c', 42)},
         },
 },
