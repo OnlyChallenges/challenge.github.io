@@ -86,7 +86,7 @@ milestones: {
         description: "Increase Experiment Effect Base by infects",
         cost: new Decimal(50),
         effect() {
-            return player.points.add(1).log10().pow(0.03).add(1)
+            return player.points.add(1.136).log10().pow(0.032)
         },
         effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id)) },
         unlocked(){
