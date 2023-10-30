@@ -7,7 +7,7 @@ addLayer("E", {
 		points: new Decimal(0),
     }},
     color: "#BF233F",
-    requires: new Decimal(4.5e7), // Can be a function that takes requirement increases into account
+    requires: new Decimal(1.25e8), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency
     baseResource: "crystals", // Name of resource prestige is based on
     baseAmount() {return player["c"].points}, // Get the current amount of baseResource
@@ -64,13 +64,13 @@ milestones: {
     cols: 5,
     11: {
         title: "Nyko",
-        description: "The first of the Experiments...Boost Infect Gain by 9.5x",
+        description: "The first of the Experiments...Boost Infect Gain by 8.7x",
         cost: new Decimal(1),
     },
     12: {
         title: "Abys",
-        description: "Squid...Boost Infect Gain by 13x",
-        cost: new Decimal(5),
+        description: "Squid...Boost Infect Gain by 10x",
+        cost: new Decimal(3),
         unlocked(){
             return hasUpgrade("E", 11)
         },
@@ -78,7 +78,7 @@ milestones: {
     13: {
         title: "Wintear",
         description: "Add 0.3 to the Experiment Effect Base",
-        cost: new Decimal(25),
+        cost: new Decimal(15),
         unlocked(){
             return hasUpgrade("E", 12)
         },
@@ -86,7 +86,7 @@ milestones: {
     14: {
         title: "Vixtra",
         description: "Increase Experiment Effect Base by infects",
-        cost: new Decimal(50),
+        cost: new Decimal(33),
         effect() {
             return player.points.add(1.136).log10().pow(0.06)
         },
@@ -98,7 +98,7 @@ milestones: {
     15: {
         title: "Somby",
         description: "Boost Infect Gain by 6.5x",
-        cost: new Decimal(100),
+        cost: new Decimal(75),
         unlocked(){
             return hasUpgrade("E", 14)
         },
@@ -106,7 +106,7 @@ milestones: {
     21: {
         title: "Snapper",
         description: "Boosts Experiment Gain by Infects",
-        cost: new Decimal(135),
+        cost: new Decimal(115),
         effect(){
             return (player.points.plus(1).log10().pow(0.25).plus(1)).max(1).min(7.5)
         },

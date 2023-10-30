@@ -139,7 +139,7 @@ addLayer("c", {
 	23: {
         title: "Bee-lusion",
             description: "There's Honey Crystals around the corner-- infects are increased",
-            cost: new Decimal(12345),
+            cost: new Decimal(25000),
             unlocked(){
                 return hasUpgrade("c", 22)
             },
@@ -152,7 +152,7 @@ addLayer("c", {
 	24: {
         title: "Frozen Crystals",
             description: "The Crystals has frozen scientists in place-- infects are slightly increased",
-            cost: new Decimal(75000),
+            cost: new Decimal(304500),
             unlocked(){
                 return hasUpgrade("c", 23)
             },
@@ -163,16 +163,16 @@ addLayer("c", {
             },
 
     25: {
-        title: "Crystalized Dragons",
-        description: "Influcational has occured on them, throwing crystals at others-- infects gain is 6.5x!",
-        cost: new Decimal(250000),
+        title: "Crystalized",
+        description: "Influcational has occured-- infects gain is 4.2x!",
+        cost: new Decimal(1.46e6),
         unlocked(){
             return hasUpgrade("c", 24)
         },
     },
     31: {
         title: "Crystalmania",
-        description: "They're Everywhere! Infects Gain is 5x!",
+        description: "They're Everywhere! Infects Gain is 2.5x!",
         cost: new Decimal(7.5e6),
         unlocked(){
             return hasUpgrade("c", 25)
