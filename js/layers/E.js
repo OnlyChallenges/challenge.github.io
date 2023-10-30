@@ -20,7 +20,7 @@ addLayer("E", {
     },
     gainExp() {
         exp = new Decimal(1)
-        if (hasUpgrade('E', 23)) exp = exp.add(1.005)
+        if (hasUpgrade('E', 23)) exp = exp.add(1.0005)
         return exp
     },
     effect() {
