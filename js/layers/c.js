@@ -39,13 +39,6 @@ addLayer("c", {
     passiveGeneration() {
         return hasMilestone ('E', 2)?.15:0
     },
-    getBoost() {
-        return (gainMult.pow(gainExp))
-    },
-    boostDisplay(){
-        boost = "You are getting an Crystal boost of "+format(tmp.c.getBoost)+"x" 
-        return boost
-    },
     layerShown(){return true},
 	infoboxes: {
         lore: {
