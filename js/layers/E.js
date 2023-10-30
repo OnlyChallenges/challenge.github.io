@@ -67,8 +67,9 @@ milestones: {
 challenges: {
         11: {
             name: "Nyko's Challenge I",
-            challengeDescription: "Nyko challenges you to a fight! Fight for your life! Crystal & Point gain is divided by 10",
-            goalDescription: "Tenfold your Infect Gain",
+            challengeDescription: "Nyko challenges you to a fight! Fight for your life! Crystal & Point gain is divided by 1e20",
+            goalDescription: "500,000 Crystals",
+            rewardDescription: "Tenfold your Infects",
             canComplete: function() {return player.c.points.gte(500000)},
             unlocked() {return hasUpgrade('E', 26)},
         },
