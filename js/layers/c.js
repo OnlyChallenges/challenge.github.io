@@ -216,10 +216,10 @@ addLayer("c", {
             return hasUpgrade("E", 22) && hasUpgrade("c", 33);
         },
         effect() {
-            return (player[this.layer].total.max(1).add(1.3).pow(0.073)).max(1).min(14.5);
+            return (player[this.layer].total.max(1).add(1.3).pow(0.065)).max(1).min(14.5);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Layer Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(14.5) ? "(Layer Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
