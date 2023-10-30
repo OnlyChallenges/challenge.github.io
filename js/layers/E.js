@@ -70,10 +70,6 @@ challenges: {
             challengeDescription: "Nyko challenges you to a fight! Fight for your life! Crystal & Point gain is divided by 10",
             canComplete: function() {return player.c.points.gte(500000)},
             unlocked() {return hasUpgrade('E', 26)},
-            baseAmount() {return player.c.points},
-            baseName: " Crystals",
-            requirement() {return thisChallengeRequirement(this)},
-            goalDescription() {return challengeGoalDescription(this.layer, this.id)},
         },
 },
  upgrades: {
