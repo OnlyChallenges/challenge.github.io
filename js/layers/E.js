@@ -20,7 +20,7 @@ addLayer("E", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-        if (hasUpgrade('E', 23)) exp = exp.add(1.075)
+        if (hasUpgrade('E', 23)) exp = exp.add(1.005)
         return exp
     },
     effect() {
@@ -137,7 +137,7 @@ milestones: {
     },
     23: {
         title: "Azure",
-        description: "Experiment gain is now ^1.075",
+        description: "Experiment gain is now ^1.005",
         cost: new Decimal(750),
         unlocked(){
             return hasUpgrade("E", 22)
