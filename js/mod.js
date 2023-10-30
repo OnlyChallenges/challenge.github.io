@@ -110,6 +110,7 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+	// C Upgrades
 	if (hasUpgrade('c', 11)) gain = gain.times(upgradeEffect('c', 11))
     if (hasUpgrade('c', 12)) gain = gain.times(upgradeEffect('c', 12))
 	if (hasUpgrade('c', 13)) gain = gain.times(upgradeEffect('c', 13))
@@ -123,18 +124,20 @@ function getPointGen() {
 	if (hasUpgrade('c', 31)) gain = gain.times(2.5)
 	if (hasUpgrade('c', 32)) gain = gain.times(upgradeEffect('c',32))
 	if (hasUpgrade('c', 33)) gain = gain.times(upgradeEffect('c',33))
+	// E Upgrades
 	if (hasUpgrade('E', 11)) gain = gain.times(8.7)
 	if (hasUpgrade('E', 12)) gain = gain.times(10)
 	if (hasUpgrade('E', 14)) gain = gain.times(5)
 	if (hasUpgrade('E', 15)) gain = gain.times(6.5)
-
 	if (hasUpgrade('E', 22)) gain = gain.times(upgradeEffect('E',22))
 	if (hasUpgrade('E', 24)) gain = gain.times(upgradeEffect('E',24))
 	if (hasUpgrade('E', 25)) gain = gain.times(upgradeEffect('E',25))
+	// F Upgrades
 	if (hasUpgrade('F', 11)) gain = gain.times(50)
 	if (hasUpgrade('F', 12)) gain = gain.times(33.33)
 	if (hasUpgrade('F', 13)) gain = gain.times(60)
-	if (player.E.unlocked) gain = gain.times(tmp.E.effect)
+	// Layer Effects
+	if (player.E.unlocked && player.E.points.gte(1)) gain = gain.times(tmp.E.effect)
 	return gain
 }
 
