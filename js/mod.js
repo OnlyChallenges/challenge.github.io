@@ -24,7 +24,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
 		<h4>z = very minor update</h4><br>
 		<h4>a = bug/mechanic fixes</h4><br><br>
 
-		<h4>v0.1.8+</h4><br>
+		<h4>v0.1.8.1</h4><br>
 			- Decreased Infect Gain on 5 Upgrades to make the game more stable.<br>
 			- Fixed base gain being overpowered.<br>
 			- Changed 'Azure' - ^1.075 -> ^1.005.<br>
