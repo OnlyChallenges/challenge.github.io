@@ -153,7 +153,7 @@ addLayer("c", {
 
 	24: {
         title: "Freezlity",
-            description: "The Crystals are -5°C-- infects are slightly increased",
+            description: "The Crystals are -5°C, infects are slightly increased",
             cost: new Decimal(304500),
             unlocked(){
                 return hasUpgrade("c", 23)
