@@ -67,7 +67,7 @@ milestones: {
 challenges: {
         11: {
             name: "Nyko's Challenge I",
-            challengeDescription: "Nyko challenges you to a fight! Fight for your life! Crystal & Point gain is divided by 1e20",
+            challengeDescription: "Nyko challenges you to a fight! Fight for your life! Crystal is divided by 10 & Point gain is divided by 5e9",
             goalDescription: "500,000 Crystals",
             rewardDescription: "Tenfold your Infects",
             canComplete: function() {return player.c.points.gte(500000)},
@@ -225,8 +225,29 @@ challenges: {
         effect(){
             return (player.points.plus(0.86).log10().pow(0.23)).max(1).min(10)
         },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
         unlocked(){
-            return hasUpgrade("E", 24)
+            return hasUpgrade("E", 25)
+        },
+    },
+    27: {
+        title: "Wenyi",
+        description: "Experiments boosts Infects",
+        cost: new Decimal(250000),
+        effect(){
+            return (player.points.plus(0.86).log10().pow(0.56)).max(1).min(25)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        unlocked(){
+            return hasChallenge("E", 11)
         },
     },
  },
