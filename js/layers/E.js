@@ -17,6 +17,7 @@ addLayer("E", {
         mult = new Decimal(1)
         if (hasUpgrade('E', 21)) mult = mult.times(upgradeEffect('E',21))
         if (hasUpgrade('E', 23)) mult = mult.times(4)
+        if (inChallenge('E', 11)) mult = mult.mult(50)
         return mult
     },
     gainExp() {
@@ -59,18 +60,23 @@ milestones: {
             done() { return player.E.points.gte(200) },
         },
         12: {
-            requirementDescription: "1,000 Experiments",
+            requirementDescription: "2,750 Experiments",
             effectDescription: "Passively Gain 15% Crystals/sec",
-            done() { return player.E.points.gte(1000) },
+            done() { return player.E.points.gte(2750) },
         },
     },
 challenges: {
         11: {
-            name: "Nyko's Challenge I",
-            challengeDescription: "Nyko challenges you to a fight! Fight for your life! Crystal is divided by 10 & Point gain is divided by 5e9",
-            goalDescription: "500,000 Crystals",
+            name: "Experiment Brawl",
+            challengeDescription: `
+            The Experiments are ganging up on you!
+            They're using everything they got!
+            Crystal gain is divided by 10,
+            Infect gain is divided by 5e9,
+            and Experiment Gain is multiplied by 20!`,
+            goalDescription: "5e9 Crystals",
             rewardDescription: "Tenfold your Infects",
-            canComplete: function() {return player.c.points.gte(500000)},
+            canComplete: function() {return player.c.points.gte(1e9)},
             unlocked() {return hasUpgrade('E', 26)},
         },
 },
@@ -234,7 +240,7 @@ challenges: {
             return hasUpgrade("E", 25)
         },
     },
-    27: {
+    31: {
         title: "Wenyi",
         description: "Experiments boosts Infects",
         cost: new Decimal(250000),
