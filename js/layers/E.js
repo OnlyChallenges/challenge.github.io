@@ -19,7 +19,9 @@ addLayer("E", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        exp = new Decimal(1)
+        if (hasUpgrade('E', 24)) exp = exp.add(upgradeEffect('E',21))
+        return exp
     },
     effect() {
         let eff = (player.E.points.max(1).add(1).pow(0.2)).max(1).min(50)
@@ -135,10 +137,10 @@ milestones: {
     },
     23: {
         title: "Azure",
-        description: "Azuring Lures...Experiments increase Infects.",
+        description: "Experiment gain is now (Everything)^1.15",
         cost: new Decimal(1500),
         effect() {
-            return player[this.layer].points.add(1).pow(0.06)
+            return player.points.add(1.15)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
