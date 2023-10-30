@@ -52,10 +52,10 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            return (player[this.layer].total.max(1).add(1.3).pow(0.137)).max(1).min(2500);
+            return (player[this.layer].total.max(1).add(1.3).pow(0.152)).max(1).min(142);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(2500) ? "(Capped so late?)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(142) ? "(Capped so late?)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -88,7 +88,7 @@ addLayer("c", {
             return (player[this.layer].total.max(1).add(1.66).pow(0.24)).max(1).min(74.62);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(50) ? "(Capped again)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(74.62) ? "(Capped again)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
