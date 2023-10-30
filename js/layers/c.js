@@ -5,13 +5,12 @@ addLayer("c", {
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
+        best: new Decimal(0),
+        total: new Decimal(0),
     }},
     color: "#FC7BDC",
     requires:
-    new Decimal(5),    // Can be a function that takes requirement increases into account
-    total: new Decimal(0), // Total of this currency earned
-    best: new Decimal(0), // Best ammount of this currency earned
-    
+    new Decimal(5),    // Can be a function that takes requirement increases into account    
     resource: "crystals", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
