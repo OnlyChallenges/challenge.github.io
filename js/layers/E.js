@@ -15,6 +15,7 @@ addLayer("E", {
     exponent: 0.23, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('E', 15)) mult = mult.times(upgradeEffect('E',15))
         if (hasUpgrade('E', 21)) mult = mult.times(upgradeEffect('E',21))
         return mult
     },
@@ -104,7 +105,7 @@ milestones: {
     21: {
         title: "Snapper",
         description: "Boosts Experiment Gain by Infects",
-        cost: new Decimal(250),
+        cost: new Decimal(135),
         effect(){
             return (player.points.plus(1).log10().pow(0.25).plus(1)).max(1).min(7.5)
         },
@@ -120,7 +121,7 @@ milestones: {
     22: {
         title: "Honeycomb",
         description: "Stingers are infecting many...Infects increase Infects slightly.",
-        cost: new Decimal(666),
+        cost: new Decimal(250),
         effect(){
             return (player.points.plus(1).log10().pow(0.35).plus(1)).max(1).min(25)
         },
