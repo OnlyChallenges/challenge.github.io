@@ -68,6 +68,7 @@ challenges: {
         11: {
             name: "Nyko's Challenge I",
             challengeDescription: "Nyko challenges you to a fight! Fight for your life! Crystal & Point gain is divided by 10",
+            goalDescription: "Tenfold your Infect Gain",
             canComplete: function() {return player.c.points.gte(500000)},
             unlocked() {return hasUpgrade('E', 26)},
         },
