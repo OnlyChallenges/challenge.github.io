@@ -149,7 +149,7 @@ milestones: {
             return text;
         },
         unlocked(){
-            return hasUpgrade("E", 15)
+            return hasUpgrade("E", 16)
         },
     },
     22: {
