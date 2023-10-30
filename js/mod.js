@@ -7,7 +7,7 @@ let modInfo = {
 
 	discordName: "E205 Discord Server",
 	discordLink: "https://discord.gg/experiment-205",
-	initialStartPoints: new Decimal (5), // Used for hard resets and new players
+	initialStartPoints: new Decimal (0), // Used for hard resets and new players
 	offlineLimit: 5,  // In hours
 }
 
