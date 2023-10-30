@@ -42,9 +42,9 @@ addLayer("a", {
                 tooltip: "Get the first experiment",
             },
         21: {
-                name: "The Flying Bat",
+                name: "Somby's Hope",
                 done() { return hasUpgrade("E", 15) },
-                tooltip: "Get 'Aida' from Experiments",
+                tooltip: "Get 'Somby' from Experiments",
             },
         22: {
                 name: "Experimental Growth",
@@ -57,7 +57,7 @@ addLayer("a", {
                 tooltip: "Achieve 1e20 Crystals."
             },
         24: {
-                name: "Combination",
+                name: "Combination WIP",
                 done() { return player.F.points.gte(1) },
                 tooltip: "Achieve 1 Fusion Point."
             },
