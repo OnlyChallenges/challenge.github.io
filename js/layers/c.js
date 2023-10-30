@@ -40,6 +40,12 @@ addLayer("c", {
     passiveGeneration() {
         return hasMilestone ('E', 2)?.15:0
     },
+    getBoost() {
+        return (gainExp.gainMult)
+    },
+    boostDisplay(){
+        { return "You are getting an boost of"+(format.getBoost)+"x" }
+    },
     layerShown(){return true},
 	infoboxes: {
         lore: {
