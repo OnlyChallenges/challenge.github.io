@@ -122,10 +122,10 @@ milestones: {
     },
     16:{
         title: "Kryptox",
-        description: "Experiments Boosts Crystals & Infects by log10(infects)",
+        description: "Experiments Boosts Crystals & Infects.",
         cost: new Decimal(76),
         effect(){
-            return (player.points.plus(0.32).log10(player.points).pow(0.66).plus(1)).max(1).min(5)
+            return (player.E.points.plus(0.7).log10().pow(0.16).plus(1)).max(1).min(5)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(4.5) ? "(Kryptox Capped)" : "";
