@@ -7,7 +7,7 @@ var colors = {
 		1: "#ffffff",//Branch color 1
 		2: "#bfbfbf",//Branch color 2
 		3: "#7f7f7f",//Branch color 3
-		color: "#fabbb6",
+		color: "#ffffff",
 		points: "#ffffff",
 		locked: "#bf8f8f",
 		background: "#0f0f0f",
