@@ -48,7 +48,7 @@ addLayer("c", {
     rows: 4,
     cols: 5,
     11: {
-        title: "Touching Crystals",
+        title: "Feelings",
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
@@ -64,7 +64,7 @@ addLayer("c", {
         },
     },
 	12: {
-	    title: "Submerge the Crystals",
+	    title: "Submergance",
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
@@ -105,7 +105,7 @@ addLayer("c", {
         },
     },
     15: {
-        title: "Experimental Changes",
+        title: "Strength",
         description: "Experiments are now stronger, Infects are 4.5x faster",
         cost: new Decimal(175),
         unlocked(){
@@ -113,7 +113,7 @@ addLayer("c", {
         },
     },
     21: {
-        title: "Solarfrost",
+        title: "Permacold",
         description: "Permafrost learned fire control, infects are 3.5x faster",
         cost: new Decimal(1250),
         unlocked(){
@@ -137,7 +137,7 @@ addLayer("c", {
         },
     },
 	23: {
-        title: "Bee-lusion",
+        title: "Beelusion",
             description: "There's Honey Crystals around the corner-- infects are increased",
             cost: new Decimal(25000),
             unlocked(){
@@ -150,8 +150,8 @@ addLayer("c", {
             },
 
 	24: {
-        title: "Frozen Crystals",
-            description: "The Crystals has frozen scientists in place-- infects are slightly increased",
+        title: "Freezlity",
+            description: "The Crystals are -5°C-- infects are slightly increased",
             cost: new Decimal(304500),
             unlocked(){
                 return hasUpgrade("c", 23)
@@ -173,30 +173,30 @@ addLayer("c", {
     31: {
         title: "Crystalmania",
         description: "They're Everywhere! Infects Gain is 2.5x!",
-        cost: new Decimal(7.5e6),
+        cost: new Decimal(1.24e7),
         unlocked(){
             return hasUpgrade("c", 25)
         },
     },
     32: {
-        title: "Nyko's Transformation",
-        description: "Nyko has gotten smarter...Infects boosts Infects.",
+        title: "Transformations",
+        description: "Infects boosts Infects slightly.",
         cost: new Decimal(2.5e13),
         unlocked(){
-            return hasUpgrade("E", 13) && hasUpgrade("c", 31);
+            return hasUpgrade("E", 12) && hasUpgrade("c", 31);
         },
         effect() {
-            return player.points.add(1).log10().pow(0.5).add(1)
+            return player.points.add(1).log10().pow(0.35).add(1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
     },
 
     33: {
-        title: "Abys' Swimming I",
+        title: "Snorkeling",
         description: "Abys is getting faster in the pool...Crystals boosts Infects.",
-        cost: new Decimal(7.25e16),
+        cost: new Decimal(2.33e15),
         unlocked(){
-            return hasUpgrade("E", 21) && hasUpgrade("c", 32);
+            return hasUpgrade("E", 13) && hasUpgrade("c", 32);
         },
         effect(){
             return player.c.points.pow(0.02).add(1)
@@ -205,8 +205,8 @@ addLayer("c", {
      },
 
      34: {
-        title: "Moss' Plantful Spread",
-        description: "Plants are growing and are infecting others. Crystals boosts Infects",
+        title: "Layering",
+        description: "Crystals are layering over each other...Crystals boosts Infects",
         cost: new Decimal(9.99e17),
         unlocked(){
             return hasUpgrade("E", 23) && hasUpgrade("c", 33);
@@ -222,3 +222,4 @@ addLayer("c", {
      },
  },
  })
+
