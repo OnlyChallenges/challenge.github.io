@@ -64,6 +64,18 @@ milestones: {
             done() { return player.E.points.gte(1000) },
         },
     },
+challenges: {
+        11: {
+            name: "Nyko's Challenge I",
+            challengeDescription: "Nyko challenges you to a fight! Fight for your life! Crystal & Point gain is divided by 10",
+            canComplete: function() {return player.c.points.gte(500000)},
+            unlocked() {return hasUpgrade('E', 26)},
+            baseAmount() {return player.c.points},
+            baseName: " Crystals",
+            requirement() {return thisChallengeRequirement(this)},
+            goalDescription() {return challengeGoalDescription(this.layer, this.id)},
+        },
+},
  upgrades: {
     rows: 3,
     cols: 6,
@@ -179,7 +191,7 @@ milestones: {
     24: {
         title: "Experiment Surge",
         description: "Infects boosts Infects",
-        cost: new Decimal(2400),
+        cost: new Decimal(6400),
         effect(){
             return (player.points.plus(1).log10().pow(0.75).plus(1)).max(1).min(150)
         },
@@ -195,7 +207,7 @@ milestones: {
     25: {
         title: "Frostical",
         description: "Infects Boosts Crystal Gain",
-        cost: new Decimal(4900),
+        cost: new Decimal(16600),
         effect(){
             return (player.points.plus(1).log10().pow(0.45)).max(1).min(10)
         },
@@ -203,6 +215,17 @@ milestones: {
             let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
+        },
+        unlocked(){
+            return hasUpgrade("E", 24)
+        },
+    },
+    26: {
+        title: "Syral",
+        description: "Infects Boosts Experiment Gain & Unlock a Challenge!",
+        cost: new Decimal(69420),
+        effect(){
+            return (player.points.plus(0.86).log10().pow(0.23)).max(1).min(10)
         },
         unlocked(){
             return hasUpgrade("E", 24)
