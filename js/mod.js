@@ -20,11 +20,11 @@ let VERSION = {
 let changelog = `<h1>Changelog:</h1><br>
 		<h2>vx.y.z.a</h2><br>
 		<h3>x = major update</h3><br>
-		<h4>y = minor update</h4><br>
-		<h4>z = very minor update</h4><br>
-		<h4>a = bug/mechanic fixes</h4><br><br>
+		<h3>y = minor update</h3><br>
+		<h3>z = very minor update</h3><br>
+		<h3>a = bug/mechanic fixes</h3><br><br>
 
-		<h4>v0.1.8.1</h4><br>
+		<h3>v0.1.8.1</h3><br>
 			- Decreased Infect Gain on 5 Upgrades to make the game more stable.<br>
 			- Fixed base gain being overpowered.<br>
 			- Changed 'Azure' - ^1.075 -> ^1.005.<br>
