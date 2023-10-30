@@ -22,7 +22,7 @@ addLayer("c", {
         if (hasUpgrade('E', 15)) mult = mult.times(upgradeEffect('E',15))
         if (hasUpgrade('E', 16)) mult = mult.times(upgradeEffect('E',16))
         if (hasUpgrade('E', 25)) mult = mult.times(upgradeEffect('E',25))
-        if (inChallenge('E', 11)) mult = mult.div(10)
+        if (inChallenge('E', 11)) mult = mult.div(12.5)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -217,7 +217,7 @@ addLayer("c", {
             return hasUpgrade("E", 22) && hasUpgrade("c", 33);
         },
         effect() {
-            return (player[this.layer].total.max(1).add(1.3).log10().pow(0.065)).max(1).min(14.5);
+            return (player[this.layer].total.max(1).add(1.3).log10.pow(0.065)).max(1).min(14.5);
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(14.5) ? "(Layer Capped)" : "";

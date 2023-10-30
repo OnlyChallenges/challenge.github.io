@@ -17,7 +17,7 @@ addLayer("E", {
         mult = new Decimal(1)
         if (hasUpgrade('E', 21)) mult = mult.times(upgradeEffect('E',21))
         if (hasUpgrade('E', 23)) mult = mult.times(4)
-        if (inChallenge('E', 11)) mult = mult.mult(50)
+        if (inChallenge('E', 11)) mult = mult.times(50)
         return mult
     },
     gainExp() {
@@ -67,12 +67,12 @@ milestones: {
     },
 challenges: {
         11: {
-            name: "Experiment Brawl",
+            name: "Experimental Brawl",
             challengeDescription: `
             The Experiments are ganging up on you!
             They're using everything they got!
-            Crystal gain is divided by 10,
-            Infect gain is divided by 5e9,
+            Crystal gain is divided by 12.5,
+            Infect gain is divided by 1e10,
             and Experiment Gain is multiplied by 20!`,
             goalDescription: "5e9 Crystals",
             rewardDescription: "Tenfold your Infects",
