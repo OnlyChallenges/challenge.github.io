@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.9",
-	name: "Passive Crystals",
+	num: "0.1.10",
+	name: "Kryptox's Group",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +23,18 @@ let changelog = `<h1>Changelog:</h1><br>
 		<h3>y = minor update</h3><br>
 		<h3>z = very minor update</h3><br>
 		<h3>a = bug/mechanic fixes</h3><br><br>
+
+		<h3>v0.1.10 Kryptox's Group</h3><br>
+			- Added 2 Experiment Upgrades<br>
+			- Added 3 Crystal Upgrades<br>
+			- Added Softcaps, some of them with funny names.<br>
+			- Changed Achievement Tooltips<br>
+			- Changed some Upgrade Effects to balance infects more.<br>
+			- Fixed Milestone Passive Bug<br>
+			- Changed Log Formulas to make the game balanced.<br>
+			- Fixed E205 Theme Again<br>
+			- Endgame: 4.99e25 Infects<br><br>
+
 
 		<h3>v0.1.9: Passive Crystals</h3><br>
 			- Added Total & Best to Crystals to see progres!!<br>
@@ -156,12 +168,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: 2.66e24 Infects"
+	"Endgame: 4.99e25 Infects"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal(2.66e24))
+	return player.points.gte(new Decimal(4.99e25))
 }
 
 
