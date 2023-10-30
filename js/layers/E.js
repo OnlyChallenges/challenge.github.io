@@ -33,6 +33,7 @@ addLayer("E", {
     effectBase() {
         let base = new Decimal(1)
         if (hasUpgrade ('E', 13)) base = base.add(0.3)
+        if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
         return base
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
@@ -82,8 +83,12 @@ milestones: {
     },
     14: {
         title: "Vixtra",
-        description: "Something Glitchy...Boost Infect Gain by 5x",
-        cost: new Decimal(66),
+        description: "Increase Experiment Effect Base by infects",
+        cost: new Decimal(50),
+        effect() {
+            return player.points.add(1).log10().pow(0.03).add(1)
+        },
+        effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id)) },
         unlocked(){
             return hasUpgrade("E", 13)
         },
