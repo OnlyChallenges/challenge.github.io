@@ -90,20 +90,32 @@ milestones: {
     },
     14: {
         title: "Vixtra",
-        description: "Increase Experiment Effect Base by infects",
+        description: "Increase Experiment Effect Base by infects & 5x Infects",
         cost: new Decimal(33),
         effect() {
-            return player.points.add(1.136).log10().pow(0.06)
+            return (player.points.add(1.136).log10().pow(0.067)).max(1).min(3.14)
         },
-        effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id)) },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(3.14) ? "(Base Capped)" : "";
+            let text = `+${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
         unlocked(){
             return hasUpgrade("E", 13)
         },
     },
     15: {
         title: "Somby",
-        description: "Boost Infect Gain by 6.5x",
-        cost: new Decimal(75),
+        description: "Crystals are boosted by Infects & πx Infects",
+        cost: new Decimal(55),
+        effect(){
+            return (player.points.plus(0.86).log10(2).pow(0.25).plus(1)).max(1).min(4.5)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(4.5) ? "(Crystal Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
         unlocked(){
             return hasUpgrade("E", 14)
         },
@@ -111,7 +123,7 @@ milestones: {
     21: {
         title: "Snapper",
         description: "Boosts Experiment Gain by Infects",
-        cost: new Decimal(115),
+        cost: new Decimal(120),
         effect(){
             return (player.points.plus(1).log10().pow(0.25).plus(1)).max(1).min(7.5)
         },
