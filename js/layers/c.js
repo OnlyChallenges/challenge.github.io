@@ -41,10 +41,10 @@ addLayer("c", {
         return hasMilestone ('E', 2)?.15:0
     },
     getBoost() {
-        return (gainExp.gainMult)
+        return (gainMult.pow(gainExp))
     },
     boostDisplay(){
-        { return "You are getting an boost of"+(format.getBoost)+"x" }
+        { return "You are getting an boost of"+format(tmp.c.getBoost)+"x" }
     },
     layerShown(){return true},
 	infoboxes: {
