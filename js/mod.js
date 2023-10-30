@@ -13,11 +13,23 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.8",
+	num: "0.1.8.1",
 	name: "Experimental Push",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+		<h2>vx.y.z.a</h2><br>
+		<h3>x = major update</h3><br>
+		<h4>y = minor update</h4><br>
+		<h4>z = very minor update</h4><br>
+		<h4>a = bug/mechanic fixes</h4><br><br>
+
+		<h4>v0.1.8+</h4><br>
+			- Decreased Infect Gain on 5 Upgrades to make the game more stable.<br>
+			- Fixed base gain being overpowered.<br>
+			- Changed 'Azure' - ^1.075 -> ^1.005.<br>
+			- Endgame Changed to 2.66e24 Infects instead of 1.33e27 Infects. <br><br>
+
 		<h3>v0.1.8: Experimental Push</h3><br>
 			- Added 2 Experiment Upgrades.<br>
 			- Changed Experiment Upgrade Effects.<br>
@@ -132,12 +144,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: 1.33e27 Infects"
+	"Endgame: 2.66e24 Infects"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal(1.33e27))
+	return player.points.gte(new Decimal(2.66e24))
 }
 
 
