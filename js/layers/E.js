@@ -16,11 +16,11 @@ addLayer("E", {
     gainMult() {
         mult = new Decimal(1)
         if (hasUpgrade('E', 21)) mult = mult.times(upgradeEffect('E',21))
+        if (hasUpgrade('E', 23)) mult = mult.times(4)
         return mult
     },
     gainExp() {
         exp = new Decimal(1)
-        if (hasUpgrade('E', 23)) exp = exp.add(1.0005)
         return exp
     },
     effect() {
@@ -170,7 +170,7 @@ milestones: {
     },
     23: {
         title: "Azure",
-        description: "Experiment gain is now ^1.005",
+        description: "Azure can duplicate into 4 clones of themself, 4x Experiment Gain!",
         cost: new Decimal(1520),
         unlocked(){
             return hasUpgrade("E", 22)
