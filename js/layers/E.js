@@ -32,6 +32,7 @@ addLayer("E", {
     },
     effectBase() {
         let base = new Decimal(1)
+        if (hasUpgrade ('E', 13)) base = base.add(0.3)
         return base
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
@@ -73,7 +74,7 @@ milestones: {
     },
     13: {
         title: "Wintear",
-        description: "Poisonity...Boost Infect Gain by 3x",
+        description: "Add 0.3 to the Experiment Effect Base",
         cost: new Decimal(25),
         unlocked(){
             return hasUpgrade("E", 12)
