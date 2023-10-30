@@ -20,7 +20,7 @@ addLayer("E", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         exp = new Decimal(1)
-        if (hasUpgrade('E', 24)) exp = exp.add(1.075)
+        if (hasUpgrade('E', 23)) exp = exp.add(1.075)
         return exp
     },
     effect() {
@@ -54,9 +54,9 @@ addLayer("E", {
       },
 milestones: {
         11: {
-            requirementDescription: "10,000 Experiments",
+            requirementDescription: "2,500 Experiments",
             effectDescription: "Keep Crystal Upgrades on Reset",
-            done() { return player.E.points.gte(10000) },
+            done() { return player.E.points.gte(2500) },
         },
     },
  upgrades: {
@@ -138,7 +138,7 @@ milestones: {
     23: {
         title: "Azure",
         description: "Experiment gain is now ^1.075",
-        cost: new Decimal(1250),
+        cost: new Decimal(750),
         unlocked(){
             return hasUpgrade("E", 22)
         },
@@ -146,7 +146,7 @@ milestones: {
     24: {
         title: "Experiment Surge",
         description: "Infects boosts Infects",
-        cost: new Decimal(1800),
+        cost: new Decimal(1600),
         effect(){
             return (player.points.plus(1).log10().pow(0.75).plus(1)).max(1).min(150)
         },
@@ -162,7 +162,7 @@ milestones: {
     25: {
         title: "Frostical",
         description: "Infects Boosts Crystal Gain",
-        cost: new Decimal(4250),
+        cost: new Decimal(3000),
         effect(){
             return (player.points.plus(1).log10().pow(0.45)).max(1).min(10)
         },

@@ -13,11 +13,20 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.7",
-	name: "Theme & Compression",
+	num: "0.1.8",
+	name: "Experimental Push",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+		<h3>v0.1.8: Experimental Push</h3><br>
+			- Added 2 Experiment Upgrades.<br>
+			- Changed Experiment Upgrade Effects.<br>
+			- Added Experiment Upgrade Effect Base & Exp<br>
+			- Readded Fusions but has 4 upgrades. (Can't reach currently)<br>
+			- Fixed 'E205' Theme.<br>
+			- Fixed 2 Achievements.<br>
+			- Added an Achievement.<br><br>
+
 		<h3>v0.1.7: Theme & Compression</h3><br>
 			- Added 1 Crystal Upgrade.<br>
 			- Changed Crystal Formula Expo (.92^ -> .85^).<br>
@@ -108,7 +117,6 @@ function getPointGen() {
 	if (hasUpgrade('E', 15)) gain = gain.times(6.5)
 
 	if (hasUpgrade('E', 22)) gain = gain.times(upgradeEffect('E',22))
-	if (hasUpgrade('E', 23)) gain = gain.times(upgradeEffect('E',23))
 	if (hasUpgrade('E', 24)) gain = gain.times(upgradeEffect('E',24))
 	if (hasUpgrade('E', 25)) gain = gain.times(upgradeEffect('E',25))
 	if (hasUpgrade('F', 11)) gain = gain.times(50)
