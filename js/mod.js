@@ -17,7 +17,7 @@ let VERSION = {
 	name: "Experimental Push",
 }
 
-let changelog = `<h1>Changelog:</h1><br><br>
+let changelog = `<h1>Changelog:</h1><br>
 		<h2>vx.y.z.a</h2><br>
 		<h3>x = major update</h3><br>
 		<h4>y = minor update</h4><br>
