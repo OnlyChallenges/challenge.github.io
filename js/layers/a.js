@@ -54,9 +54,19 @@ addLayer("a", {
         23: {
                 name: "Crystal^2",
                 done() { return player.c.points.gte(1e20) },
-                tooltip: "Achieve 1e20 Crystals."
+                tooltip: "Achieve 1e20 Crystals.",
             },
         24: {
+                name: "Brawlful Victory",
+                done() { return hasChallenge("E", 11) },
+                tooltip: "Complete 'Experimental Brawl' Challenge",
+            },
+        25: {
+                name: "Test",
+                done() { return hasUpgrade("c", 45) },
+                tooltip: "Test",
+            },
+        31: {
                 name: "Combination WIP",
                 done() { return player.F.points.gte(1) },
                 tooltip: "Achieve 1 Fusion Point."

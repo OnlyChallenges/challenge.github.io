@@ -241,6 +241,22 @@ addLayer("c", {
             return text;
         },
     },
+    41: {
+        title: "Crystal Synergy",
+        description: "Crystals can boost Crystals",
+        cost: new Decimal(3.88e24),
+        unlocked(){
+            return hasUpgrade("E", 31) && hasUpgrade("c", 35);
+        },
+        effect() {
+            return (player.c.points.add(1.22).log10().pow(0.585)).max(1).min(7);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(7) ? "(Crystal capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+    },
  },
  })
 
