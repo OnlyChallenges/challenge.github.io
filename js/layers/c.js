@@ -52,10 +52,10 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            return (player[this.layer].total.max(1).add(1.3).pow(0.14)).max(1).min(2500);
+            return (player[this.layer].total.max(1).add(1.3).pow(0.137)).max(1).min(2500);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(2500) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(2500) ? "(Capped so late?)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -85,10 +85,10 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            return (player[this.layer].total.max(1).add(1.66).pow(0.24)).max(1).min(50);
+            return (player[this.layer].total.max(1).add(1.66).pow(0.24)).max(1).min(74.62);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(50) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(50) ? "(Capped again)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -164,7 +164,7 @@ addLayer("c", {
 
     25: {
         title: "Crystalized",
-        description: "Influcational has occured-- infects gain is 4.2x!",
+        description: "Influcations has occured-- infects gain is 4.2x!",
         cost: new Decimal(1.46e6),
         unlocked(){
             return hasUpgrade("c", 24)
