@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.8.1",
-	name: "Experimental Push",
+	num: "0.1.9",
+	name: "Passive Crystals",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +23,14 @@ let changelog = `<h1>Changelog:</h1><br>
 		<h3>y = minor update</h3><br>
 		<h3>z = very minor update</h3><br>
 		<h3>a = bug/mechanic fixes</h3><br><br>
+
+		<h3>v0.1.9: Passive Crystals</h3><br>
+			- Added Total & Best to Crystals to see progres!!<br>
+			- Fixed some Caps on Crystals (They aren't changing, deal with it.)<br>
+			- Experiment effect has been increased (^0.22 -> ^0.28).<br>
+			- Added 2 New Upgrades<br>
+			- Changed 40% of Upgrade Names<br>
+			- Added a new Milestone in Experiments!<br><br>
 
 		<h3>v0.1.8.1</h3><br>
 			- Decreased Infect Gain on 5 Upgrades to make the game more stable.<br>
