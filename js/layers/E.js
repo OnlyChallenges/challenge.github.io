@@ -65,7 +65,7 @@ addLayer("E", {
       },
 milestones: {
         11: {
-            requirementDescription: "200 Experiments",
+            requirementDescription: "333 Experiments",
             effectDescription() {
                 let text = "Keep the first three rows of Crystal Upgrades on Reset";
                 if (inChallenge("E", 11)) text = "Keep the first three rows of Crystal Upgrades on Reset (DISABLED)";
@@ -74,7 +74,7 @@ milestones: {
             done() { return player.E.points.gte(200) },
         },
         12: {
-            requirementDescription: "4,500 Experiments",
+            requirementDescription: "10,000 Experiments",
             effectDescription() {
                 let text = "Passively Gain 15% Crystals/sec";
                 if (inChallenge("E", 11)) text = "Passively Gain 15% Crystals/sec (DISABLED)";
@@ -83,19 +83,19 @@ milestones: {
             done() { return player.E.points.gte(4500) },
         },
         13: {
-            requirementDescription: "25,000,000 Experiments",
+            requirementDescription: "63,000,000 Experiments",
             effectDescription: "Passively Gain 1% Experiments/sec",
-            done() { return player.E.points.gte(25000000) },
+            done() { return player.E.points.gte(63000000) },
             unlocked(){
                 return hasUpgrade('c', 43)
             },
         },
         14: {
-            requirementDescription: "125,000,000 Experiments",
+            requirementDescription: "250,000,000 Experiments and 'Salt Crystals'",
             effectDescription: "Keep the 4th row of Crystal Upgrades",
-            done() { return player.E.points.gte(125000000) },
+            done() { return player.E.points.gte(250000000) && hasUpgrade('c',44) },
             unlocked(){
-                return hasUpgrade('c', 44) && hasMilestone('E',13) 
+                return hasMilestone('E',13) 
             },
         },
     },
