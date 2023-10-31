@@ -175,6 +175,7 @@ function getPointGen() {
 	if (hasUpgrade('F', 13)) gain = gain.times(60)
 	// Layer Effects
 	if (player.E.unlocked) gain = gain.times(tmp.E.effect)
+	if (player.F.unlocked) gain = gain.times(tmp.F.effect)
 	// Challenges
 	if (inChallenge('E', 11)) gain = gain.div(1e10)
 	if (inChallenge('E', 12)) gain = gain.div(8e12)

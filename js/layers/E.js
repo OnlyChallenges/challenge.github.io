@@ -28,7 +28,7 @@ addLayer("E", {
         return exp
     },
     effect() {
-        let eff = (player.E.points.max(1).add(1).pow(0.26)).max(1).min(100)
+        let eff = player.E.points.add(1).pow(0.26)
         eff = eff.times(tmp.E.effectBase)
         return eff
     },
@@ -44,6 +44,7 @@ addLayer("E", {
         return base
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
+    branches: ['F'],
     hotkeys: [
         {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
@@ -72,9 +73,9 @@ milestones: {
             done() { return player.E.points.gte(4500) },
         },
         13: {
-            requirementDescription: "150,000,000 Experiments",
+            requirementDescription: "25,000,000 Experiments",
             effectDescription: "Passively Gain 1% Experiments/sec",
-            done() { return player.E.points.gte(150000000) },
+            done() { return player.E.points.gte(25000000) },
             unlocked(){
                 return hasUpgrade('c', 43)
             },

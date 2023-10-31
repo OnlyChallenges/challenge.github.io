@@ -1,18 +1,18 @@
 addLayer("F", {
     name: "Fusions", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "F", // This appears on the layer's node. Default is the id with the first letter capitalized
-    position: 2, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
     }},
     color: "#325CA8",
-    requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
-    resource: "fusion", // Name of prestige currency
+    requires: new Decimal(3.33e33), // Can be a function that takes requirement increases into account
+    resource: "fusions", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.87, // Prestige currency exponent
+    exponent: 0.38, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -21,7 +21,7 @@ addLayer("F", {
         return new Decimal(1)
     },
     effect() {
-        let eff1 = player["c"].points.add(1).pow(0.35)
+        let eff1 = player.F.points.add(1.3).pow(0.35)
         if (hasUpgrade("F",14)) eff1 = eff1.add(2.5)
         return eff1
     },
@@ -29,15 +29,15 @@ addLayer("F", {
         dis = "which boosts infects gain by "+ format(tmp.F.effect) +"x"
         return dis
     },
-    row: 1, // Row the layer is in on the tree (0 is the first row)
+    row: 2, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "F", description: "E: reset for Fusions", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "f", description: "f: reset for Fusions", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
 	infoboxes: {
         lore: {
             title: "Fusions",
-            body: `Experiments and Fusions aren't a good combination.`,
+            body: `Fusions aren't a very good combination...`,
         },
     },
     layerShown() {
@@ -54,24 +54,33 @@ milestones: {
     rows: 2,
     cols: 5,
     11: {
-        title: "Fusion 1",
+        title: "Ayko",
         description: "This is stupidly cursed...Boost Infect Gain by 50x",
         cost: new Decimal(1),
     },
     12: {
-        title: "Fusion 2",
+        title: "",
         description: "What Am I even looking at...Boost Infect Gain by 33.33x",
-        cost: new Decimal(15),
+        cost: new Decimal(3),
+        unlocked(){
+            return hasUpgrade('F',11)
+        },
     },
     13: {
         title: "Fusion 3",
         description: "What in the hell...Boost Infect Gain by 60x",
-        cost: new Decimal(80),
+        cost: new Decimal(6),
+        unlocked(){
+            return hasUpgrade('F',12)
+        },
     },
     14: {
         title: "Fusion 4",
         description: "There's too many of them...Boosts Fusion Effect by 2.5x",
-        cost: new Decimal(250),
+        cost: new Decimal(9),
+        unlocked(){
+            return hasUpgrade('F',13)
+        },
     },
  },
  })

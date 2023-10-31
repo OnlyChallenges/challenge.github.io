@@ -33,7 +33,7 @@ addLayer("c", {
         return new Decimal(1)
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    branches: ['E','F'],
+    branches: ['E'],
     hotkeys: [
         {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
@@ -269,7 +269,7 @@ addLayer("c", {
             return hasUpgrade("c", 41);
         },
         effect() {
-            return (player.c.points.add(0.62).log10(2).pow(0.6)).max(1).min(100);
+            return (player.points.add(0.62).log10(2).pow(0.6)).max(1).min(100);
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
@@ -280,7 +280,7 @@ addLayer("c", {
     43: {
         title: "Crystaling Crystals",
         description: "Crystals boosts itself & Unlock the next Experiment Milestone!",
-        cost: new Decimal(1e23),
+        cost: new Decimal(5.5e25),
         unlocked(){
             return hasUpgrade("c", 42) && hasUpgrade("E", 34);
         },
@@ -293,6 +293,30 @@ addLayer("c", {
             return text;
         },
     },
- },
+	44: {
+        title: "Salt Crystals",
+            description: "Salty Crystals...Intresting...Boost Crystals by Experiments",
+            cost: new Decimal(3.44e27),
+            unlocked(){
+                return hasMilestone("E", 13) && hasUpgrade("c", 43);
+            },
+            effect() {
+                return player.E.points.add(1).pow(0.027)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+    },
+    44: {
+        title: "Fusion Crystals?",
+            description: "Let's start something... fusiony? Shall we? Boost Infects by Infects + 10",
+            cost: new Decimal(25000),
+            unlocked(){
+                return hasUpgrade("c", 44);
+            },
+            effect() {
+                return player.E.points.add(11).pow(0.014)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+    },
+    },
  })
 
