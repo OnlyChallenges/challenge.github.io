@@ -41,6 +41,7 @@ addLayer("c", {
         let keep = [];
         if (hasMilestone ('F', 11) && resettingLayer=="F") keep.push("upgrades")
         if (hasMilestone ('E', 11) && resettingLayer=="E") keep.player.c.upgrades.push(11, 12, 13, 14, 15, 21, 22, 23, 24, 25, 31, 32, 33, 34, 35)
+        if (hasMilestone ('E', 14) && resettingLayer=="E") keep.player.c.upgrades.push(41, 42, 43, 44, 45)
         if (inChallenge('E',11)) return false
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, keep)
         return keep

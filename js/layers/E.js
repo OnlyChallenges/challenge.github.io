@@ -90,6 +90,14 @@ milestones: {
                 return hasUpgrade('c', 43)
             },
         },
+        14: {
+            requirementDescription: "125,000,000 Experiments",
+            effectDescription: "Keep the 4th row of Crystal Upgrades",
+            done() { return player.E.points.gte(125000000) },
+            unlocked(){
+                return hasUpgrade('c', 44) && hasMilestone('E',13) 
+            },
+        },
     },
 challenges: {
         11: {
