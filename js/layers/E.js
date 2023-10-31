@@ -279,6 +279,7 @@ challenges: {
         effect(){
             return (((player.points.plus(0.80).log10().pow(0.33))) + (player.E.points.plus(1).log10().pow(0.55)))
         },
+        effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
             return hasChallenge("E", 12) && hasUpgrade("E", 31)
         },
