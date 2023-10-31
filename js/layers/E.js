@@ -80,7 +80,6 @@ milestones: {
                 if (inChallenge("E", 11)) text = "Passively Gain 15% Crystals/sec (DISABLED)";
                 return text;
               },
-            effectDescription: "Passively Gain 15% Crystals/sec",
             done() { return player.E.points.gte(4500) },
         },
         13: {
