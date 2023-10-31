@@ -77,7 +77,7 @@ addLayer("a", {
                 tooltip: "Achieve 1 Fusion Point."
             },
         32: {
-                name: "Fusions makes everything better",
+                name: "Avali (mfer is unimmune fr..)",
                 done() { return inChallenge('E', 12) && player.points.gte(100) },
                 tooltip: "Get 100 Infects in 'Immunity'"
             },
