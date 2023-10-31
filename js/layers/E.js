@@ -20,6 +20,7 @@ addLayer("E", {
         if (hasUpgrade('E', 21)) mult = mult.times(upgradeEffect('E',21))
         if (hasUpgrade('E', 23)) mult = mult.times(4)
         if (hasUpgrade('E', 26)) mult = mult.times(upgradeEffect('E',26))
+        if (hasUpgrade('c', 42)) mult = mult.times(upgradeEffect('c',42))
         if (inChallenge('E', 11)) mult = mult.times(20)
         if (inChallenge('E', 12)) mult = mult.div(1e99)
         if (hasChallenge('E',12)) mult = mult.times(5)

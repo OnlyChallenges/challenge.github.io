@@ -265,14 +265,14 @@ addLayer("c", {
         },
     },
     42: {
-        title: "Infect Synergy",
-        description: "Infects boosts Infects",
+        title: "Experimental Infects Synergy",
+        description: "Infects boosts Experiments",
         cost: new Decimal(1e23),
         unlocked(){
             return hasUpgrade("c", 41);
         },
         effect() {
-            return (player.points.add(0.62).log10(2).pow(0.6)).max(1).min(100);
+            return (player.points.add(0.62).log10(2).pow(0.45)).max(1).min(100);
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
