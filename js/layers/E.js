@@ -56,7 +56,10 @@ addLayer("E", {
         },
     },
     passiveGeneration() {
-        return hasMilestone('E', 13)?.01:0
+        let value1 = Decimal(0);
+        if (hasMilestone('E', 13)) value1 = value1.add(0.15)
+        if (inChallenge('E',11)) return false;
+        return value1
     },
     layerShown() {
         return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
@@ -64,11 +67,20 @@ addLayer("E", {
 milestones: {
         11: {
             requirementDescription: "200 Experiments",
-            effectDescription: "Keep Crystal Upgrades on Reset",
+            effectDescription() {
+                let text = "Keep Crystal Upgrades on Reset";
+                if (inChallenge("E", 11)) text = "Keep Crystal Upgrades on Reset (DISABLED)";
+                return text;
+              },
             done() { return player.E.points.gte(200) },
         },
         12: {
             requirementDescription: "4,500 Experiments",
+            effectDescription() {
+                let text = "Passively Gain 15% Crystals/sec";
+                if (inChallenge("E", 11)) text = "Passively Gain 15% Crystals/sec (DISABLED)";
+                return text;
+              },
             effectDescription: "Passively Gain 15% Crystals/sec",
             done() { return player.E.points.gte(4500) },
         },
@@ -87,6 +99,7 @@ challenges: {
             challengeDescription: `
             The Experiments are ganging up on you!
             They're using everything they got!
+            Some Milestones are Disabled!
             Crystal gain is divided by 12.5,
             Infect gain is divided by 1e10,
             and Experiment Gain is multiplied by 20!`,

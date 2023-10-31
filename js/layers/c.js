@@ -41,6 +41,7 @@ addLayer("c", {
         let keep = [];
         if (hasMilestone ('F', 11) && resettingLayer=="F") keep.push("upgrades")
         if (hasMilestone ('E', 11) && resettingLayer=="E") keep.push("upgrades")
+        if (inChallenge('E',11)) layerDataReset("c")
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, keep)
     },
     passiveGeneration() {
