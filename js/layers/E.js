@@ -257,7 +257,7 @@ challenges: {
         description: "Infects Boosts Crystal Gain",
         cost: new Decimal(16600),
         effect(){
-            return (player.points.plus(1).log10().pow(0.45)).max(1).min(10)
+            return (player.points.plus(0.85).log10().pow(0.45)).max(1).min(10)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
@@ -273,7 +273,7 @@ challenges: {
         description: "Infects Boosts Experiment Gain & Unlock a Challenge!",
         cost: new Decimal(69420),
         effect(){
-            return (player.points.plus(0.97).log10().pow(0.42)).max(1).min(10)
+            return (player.points.plus(0.56).log10().pow(0.55)).max(1).min(10)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
@@ -289,7 +289,7 @@ challenges: {
         description: "Experiments boosts Infects",
         cost: new Decimal(250000),
         effect(){
-            return (player.E.points.plus(0.86).log10().pow(0.56)).max(1).min(25)
+            return (player.E.points.plus(0.74).log10().pow(0.56)).max(1).min(25)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
@@ -305,7 +305,7 @@ challenges: {
         description: "Infects & Experiments boosts Crystals",
         cost: new Decimal(1e7),
         effect(){
-            return (((player.points.plus(0.80).log10().pow(0.42))) + (player.E.points.plus(1).log10().pow(0.55)))
+            return (((player.points.plus(0.54).log10().pow(0.42))) + (player.E.points.plus(1).log10().pow(0.55)))
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
@@ -317,7 +317,7 @@ challenges: {
         description: "Crystals Boosts Infects",
         cost: new Decimal(6.3e7),
         effect(){
-            return (player.c.points.plus(1.2).log10().pow(0.77)).max(1).min(20)
+            return (player.c.points.plus(0.29).log10().pow(0.77)).max(1).min(20)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(20) ? "(Capped)" : "";
