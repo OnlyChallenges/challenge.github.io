@@ -91,7 +91,7 @@ addLayer("a", {
                 done() { return hasMilestone('F', 12) },
                 tooltip: 
                 `
-                Get the First Fusion Milestone!
+                Get the Second Fusion Milestone!
                 Reward: 1.333x Experiments
                 `
             },
