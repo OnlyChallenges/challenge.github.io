@@ -346,13 +346,13 @@ challenges: {
         description(){
         let text
         text = "Increase Infect Gain by 100x"
-        if (hasUpgrade("E", 35)) text = "Divide Infect Gain by 2x"
+        if (hasUpgrade("E", 35)) text = "YOU REALLY THOUGHT FOXNAY IS REAL? Divide Infect Gain by 2.5x"
         return text
         },
-        cost: new Decimal(1.9e8),
+        cost: new Decimal(3.5e8),
         unlocked(){
             return hasUpgrade("E", 34)
         },
     },
  },
- })
+ })             
