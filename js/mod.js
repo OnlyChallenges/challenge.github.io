@@ -197,12 +197,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: 1e27 Infects"
+	"Endgame: 2 Fusions"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal(1e27))
+	return player.F.points.gte(2)
 }
 
 
