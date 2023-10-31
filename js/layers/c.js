@@ -24,7 +24,7 @@ addLayer("c", {
         if (hasUpgrade('E', 16)) mult = mult.times(upgradeEffect('E',16))
         if (hasUpgrade('E', 25)) mult = mult.times(upgradeEffect('E',25))
         if (hasUpgrade('E', 32)) mult = mult.times(upgradeEffect('E',32))
-        if (inChallenge('E', 11)) mult = mult.div(12.5)
+        if (inChallenge('E', 11)) mult = mult.div(7)
         if (inChallenge('E', 12)) mult = mult.div(40)
         if (hasChallenge('E',12)) mult = mult.times(5)
         return mult
