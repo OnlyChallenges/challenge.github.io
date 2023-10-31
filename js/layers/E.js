@@ -54,6 +54,9 @@ addLayer("E", {
             body: `Experiments would cause harmful infections towards people turning into themselves. There are some Upgrades in Experiments that will unlock some Upgrades in Crystals, so make sure you're going back and forth!`,
         },
     },
+    passiveGeneration() {
+        return hasMilestone('E', 13)?.01:0
+    },
     layerShown() {
         return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1);
       },
@@ -64,9 +67,17 @@ milestones: {
             done() { return player.E.points.gte(200) },
         },
         12: {
-            requirementDescription: "2,750 Experiments",
+            requirementDescription: "4,500 Experiments",
             effectDescription: "Passively Gain 15% Crystals/sec",
-            done() { return player.E.points.gte(2750) },
+            done() { return player.E.points.gte(4500) },
+        },
+        13: {
+            requirementDescription: "150,000,000 Experiments",
+            effectDescription: "Passively Gain 1% Experiments/sec",
+            done() { return player.E.points.gte(150000000) },
+            unlocked(){
+                return hasUpgrade('c', 43)
+            },
         },
     },
 challenges: {
@@ -86,7 +97,7 @@ challenges: {
         12: {
             name: "Immunity",
             challengeDescription: `
-            Someone made Immunity against the infection!
+            Someone made an vaccination against the infection!
             Crystal gain is divided by 40,
             Infect gain is divided by 8e12,
             and Experiment Gain is divided by 1e99!`,

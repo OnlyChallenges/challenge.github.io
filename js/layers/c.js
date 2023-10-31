@@ -279,7 +279,7 @@ addLayer("c", {
     },
     43: {
         title: "Crystaling Crystals",
-        description: "Crystals boosts itself",
+        description: "Crystals boosts itself & Unlock the next Experiment Milestone!",
         cost: new Decimal(1e23),
         unlocked(){
             return hasUpgrade("c", 42) && hasUpgrade("E", 34);
