@@ -6,7 +6,7 @@ addLayer("F", {
         unlocked: false,
 		points: new Decimal(0),
     }},
-    color: "#325CA8",
+    color: "#322CA8",
     requires: new Decimal(3.33e33), // Can be a function that takes requirement increases into account
     resource: "fusions", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
@@ -59,7 +59,7 @@ milestones: {
         cost: new Decimal(1),
     },
     12: {
-        title: "",
+        title: "Fusion 2",
         description: "What Am I even looking at...Boost Infect Gain by 33.33x",
         cost: new Decimal(3),
         unlocked(){

@@ -61,7 +61,7 @@ addLayer("c", {
         description: "Crystals boosts infects slightly",
         cost: new Decimal(1),
         effect() {
-            return (player[this.layer].total.max(1).add(1.3).pow(0.152)).max(1).min(142);
+            return (player.c.points.max(1).add(1.3).pow(0.152)).max(1).min(142);
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(142) ? "(Capped so late?)" : "";
@@ -77,7 +77,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(5),
         effect() {
-            return (player[this.layer].total.max(1).add(1.45).pow(0.25)).max(1).min(33.33);
+            return (player.c.points.max(1).add(1.45).pow(0.25)).max(1).min(33.33);
 
         },
         effectDisplay() {
@@ -94,7 +94,7 @@ addLayer("c", {
         description: "Crystals boosts infects",
         cost: new Decimal(15),
         effect() {
-            return (player[this.layer].total.max(1).add(1.66).pow(0.24)).max(1).min(74.62);
+            return (player.c.points.max(1).add(1.66).pow(0.24)).max(1).min(74.62);
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(74.62) ? "(Capped again)" : "";
@@ -153,7 +153,7 @@ addLayer("c", {
                 return hasUpgrade("c", 22)
             },
             effect() {
-                return player[this.layer].points.add(1).pow(0.058)
+                return player.points.add(1).pow(0.058)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
@@ -166,7 +166,7 @@ addLayer("c", {
                 return hasUpgrade("c", 23)
             },
             effect() {
-                return player[this.layer].points.add(1).pow(0.05)
+                return player.points.add(1).pow(0.05)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
@@ -221,7 +221,7 @@ addLayer("c", {
             return hasUpgrade("E", 22) && hasUpgrade("c", 33);
         },
         effect() {
-            return (player[this.layer].total.max(1).add(1.33).log10().pow(0.076)).max(1).min(14.5);
+            return (player.c.points.max(1).add(1.33).log10().pow(0.076)).max(1).min(14.5);
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(14.5) ? "(Layer Capped)" : "";
@@ -313,9 +313,13 @@ addLayer("c", {
                 return hasUpgrade("c", 44);
             },
             effect() {
-                return player.E.points.add(11).pow(0.014)
+                return (player.points.max(1).add(11).pow(0.014)).max(1).min(120);
             },
-            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(120) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
     },
     },
  })
