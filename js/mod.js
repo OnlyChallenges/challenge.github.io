@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2.1",
+	num: "0.2.1.1",
 	name: "Fusions are near",
 }
 
@@ -23,6 +23,13 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h3>v0.2.1.1</h3><br>
+			- Fixed 'Experimental Brawl' being significantly impossible to progress (Infect /1e10 > Infect /1e6)<br>
+			- Fixed 'Experimental Brawl' Milestone Disability<br>
+			- Fixed Keeping Upgrades after leaving 'Experimental Brawl'<br>
+			- Fixed Fusion Effect<br>
+			- Fixed 2 Achievements.<br><br>
 
 		<h3>v0.2.1 Fusions are near</h3><br>
 			- Added 4 Crystal Upgrades<br>
