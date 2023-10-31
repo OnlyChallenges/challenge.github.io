@@ -315,7 +315,7 @@ challenges: {
     33: {
         title: "Voiskral",
         description: "Crystals Boosts Infects",
-        cost: new Decimal(1e7),
+        cost: new Decimal(6.3e7),
         effect(){
             return (player.c.points.plus(0.77).log10().pow(0.62)).max(1).min(15)
         },
@@ -331,9 +331,27 @@ challenges: {
     34: {
         title: "Honeydiver",
         description: "Increase the Experiment Effect Base by 1.π",
-        cost: new Decimal(1e7),
+        cost: new Decimal(1.9e8),
         unlocked(){
             return hasUpgrade("E", 33)
+        },
+    },
+    35: {
+        title(){
+        let text
+        text = "Foxnay"
+        if (hasUpgrade("E", 35)) text = "Fake Foxnay"
+        return text
+        },
+        description(){
+        let text
+        text = "Increase Infect Gain by 100x"
+        if (hasUpgrade("E", 35)) text = "Divide Infect Gain by 2x"
+        return text
+        },
+        cost: new Decimal(1.9e8),
+        unlocked(){
+            return hasUpgrade("E", 34)
         },
     },
  },
