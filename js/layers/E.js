@@ -87,7 +87,7 @@ milestones: {
             effectDescription: "Passively Gain 1% Experiments/sec",
             done() { return player.E.points.gte(63000000) },
             unlocked(){
-                return hasUpgrade('c', 43) || hasMilestone('E',13)
+                return hasUpgrade('c', 43) || hasUpgrade('E',34)
             },
         },
         14: {
