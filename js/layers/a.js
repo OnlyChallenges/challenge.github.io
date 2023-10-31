@@ -62,14 +62,24 @@ addLayer("a", {
                 tooltip: "Complete 'Experimental Brawl' Challenge",
             },
         25: {
-                name: "Test",
-                done() { return hasUpgrade("c", 45) },
-                tooltip: "Test",
+                name: "Salty Enough?",
+                done() { return hasUpgrade("c", 44) },
+                tooltip: "Get 'Salt Crystals' from Crystals",
+            },
+        26: {
+                name: "What, why?",
+                done() { return inChallenge('E', 12) && player.c.points.gte(1) },
+                tooltip: "Get 1 Crystal in 'Immunity'",
             },
         31: {
-                name: "Combination WIP",
+                name: "Combination",
                 done() { return player.F.points.gte(1) },
                 tooltip: "Achieve 1 Fusion Point."
+            },
+        32: {
+                name: "Fusions makes everything better",
+                done() { return inChallenge('E', 12) && player.points.gte(100) },
+                tooltip: "Get 100 Infects in 'Immunity'"
             },
         },
     }, 
