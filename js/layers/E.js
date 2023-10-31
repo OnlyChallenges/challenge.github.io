@@ -59,7 +59,7 @@ addLayer("E", {
         return hasMilestone('E', 13)?.01:0
     },
     layerShown() {
-        return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1);
+        return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
       },
 milestones: {
         11: {

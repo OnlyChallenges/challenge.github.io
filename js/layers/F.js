@@ -41,7 +41,7 @@ addLayer("F", {
         },
     },
     layerShown() {
-        return hasUpgrade("E", 22);
+        return hasUpgrade("E", 22) || player.F.unlocked;
       },
 milestones: {
         11: {
