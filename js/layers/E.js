@@ -71,7 +71,7 @@ milestones: {
                 if (inChallenge("E", 11)) text = "Keep the first three rows of Crystal Upgrades on Reset";
                 return text;
               },
-            done() { return player.E.points.gte(200) },
+            done() { return player.E.points.gte(333) },
         },
         12: {
             requirementDescription: "10,000 Experiments",
@@ -80,7 +80,7 @@ milestones: {
                 if (inChallenge("E", 11)) text = "Passively Gain 15% Crystals/sec (DISABLED)";
                 return text;
               },
-            done() { return player.E.points.gte(4500) },
+            done() { return player.E.points.gte(10000) },
         },
         13: {
             requirementDescription: "63,000,000 Experiments",
