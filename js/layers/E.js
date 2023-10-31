@@ -359,7 +359,7 @@ challenges: {
         description: "Goon...Increase Crystal Gain by 105x",
         cost: new Decimal(1e12),
         unlocked(){
-            return hasUpgrade("E", 35) && layer.F.unlocked
+            return hasUpgrade("E", 35) && player.F.unlocked
         },
     },
  },zz
