@@ -20,6 +20,7 @@ addLayer("c", {
         mult = new Decimal(1)
         if (hasUpgrade('c', 22)) mult = mult.times(upgradeEffect('c',22))
         if (hasUpgrade('c', 41)) mult = mult.times(upgradeEffect('c',41))
+        if (hasUpgrade('c', 43)) mult = mult.times(upgradeEffect('c',43))
         if (hasUpgrade('E', 16)) mult = mult.times(upgradeEffect('E',16))
         if (hasUpgrade('E', 25)) mult = mult.times(upgradeEffect('E',25))
         if (hasUpgrade('E', 32)) mult = mult.times(upgradeEffect('E',32))
@@ -284,10 +285,10 @@ addLayer("c", {
             return hasUpgrade("c", 42) && hasUpgrade("E", 34);
         },
         effect() {
-            return (player.c.points.add(0.62).log10(2).pow(0.6)).max(1).min(100);
+            return (player.c.points.add(0.62).log10(1.2).pow(0.4)).max(1).min(6);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(6) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
