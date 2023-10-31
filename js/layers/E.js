@@ -121,7 +121,7 @@ challenges: {
             goalDescription: "1 Infect",
             rewardDescription: "5x Crystal & Experiment Gain",
             canComplete: function() {return player.points.gte(1)},
-            unlocked() {return hasUpgrade('c', 42)},
+            unlocked() {return hasUpgrade('c', 42) || inChallenge('E',12)},
         },
 },
  upgrades: {
