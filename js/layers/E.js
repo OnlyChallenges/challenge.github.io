@@ -309,7 +309,7 @@ challenges: {
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
-            return hasChallenge("E", 12) && hasUpgrade("E", 31)
+            return hasChallenge("E", 12) && hasUpgrade("E", 31) || hasUpgrade("E",32)
         },
     },
     33: {
