@@ -330,8 +330,7 @@ challenges: {
     },
     34: {
         title: "Honeydiver",
-        description: "Increase the Experiment Effect Base by π
-        ",
+        description: "Increase the Experiment Effect Base by π",
         cost: new Decimal(1.9e8),
         unlocked(){
             return hasUpgrade("E", 33)
