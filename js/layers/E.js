@@ -305,7 +305,7 @@ challenges: {
         description: "Infects & Experiments boosts Crystals",
         cost: new Decimal(1e7),
         effect(){
-            return (((player.points.plus(0.80).log10().pow(0.33))) + (player.E.points.plus(1).log10().pow(0.55)))
+            return (((player.points.plus(0.80).log10().pow(0.42))) + (player.E.points.plus(1).log10().pow(0.55)))
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
@@ -317,7 +317,7 @@ challenges: {
         description: "Crystals Boosts Infects",
         cost: new Decimal(6.3e7),
         effect(){
-            return (player.c.points.plus(0.77).log10().pow(0.62)).max(1).min(15)
+            return (player.c.points.plus(0.93).log10().pow(0.62)).max(1).min(15)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(15) ? "(Capped)" : "";
