@@ -354,5 +354,14 @@ challenges: {
             return hasUpgrade("E", 34)
         },
     },
- },
+    36: {
+        title: "Goon",
+        description: "Goon...Increase Crystal Gain based on {ArcaneLevel+1}",
+        cost: new Decimal(1e12),
+        effectDisplay() { return format("105x")},
+        unlocked(){
+            return hasUpgrade("E", 35) && layer.F.unlocked
+        },
+    },
+ },zz
  })             
