@@ -276,6 +276,22 @@ addLayer("c", {
             return text;
         },
     },
+    43: {
+        title: "Crystaling Crystals",
+        description: "Crystals boosts itself",
+        cost: new Decimal(1e23),
+        unlocked(){
+            return hasUpgrade("c", 42) && hasUpgrade("E", 34);
+        },
+        effect() {
+            return (player.c.points.add(0.62).log10(2).pow(0.6)).max(1).min(100);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(100) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+    },
  },
  })
 
