@@ -133,7 +133,7 @@ challenges: {
         },
 },
  upgrades: {
-    rows: 3,
+    rows: 4,
     cols: 6,
     11: {
         title: "Nyko",
