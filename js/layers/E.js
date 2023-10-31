@@ -58,7 +58,6 @@ addLayer("E", {
     passiveGeneration() {
         let value1 = new Decimal(0);
         if (hasMilestone('E', 13)) value1 = value1.add(0.15)
-        if (inChallenge('E',11)) return false;
         return value1
     },
     layerShown() {

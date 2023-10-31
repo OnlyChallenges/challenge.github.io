@@ -41,11 +41,14 @@ addLayer("c", {
         let keep = [];
         if (hasMilestone ('F', 11) && resettingLayer=="F") keep.push("upgrades")
         if (hasMilestone ('E', 11) && resettingLayer=="E") keep.push("upgrades")
-        if (inChallenge('E',11)) layerDataReset("c")
+        if (!inChallenge('E',11)) keep = false
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, keep)
     },
     passiveGeneration() {
-        return hasMilestone ('E', 12)?.15:0
+        let value1 = new Decimal(0);
+        if (hasMilestone('E', 12)) value1 = value1.add(0.15)
+        if (inChallenge('E',11)) return false
+        return value1
     },
     layerShown(){return true},
 	infoboxes: {
