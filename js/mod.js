@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2",
-	name: "Challenging Approach",
+	num: "0.2.1",
+	name: "Fusions are near",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -24,16 +24,24 @@ let changelog = `<h1>Changelog:</h1><br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
 
+		<h3>v0.2.1 Fusions are near</h3><br>
+			- Added 4 Crystal Upgrades<br>
+			- Added 3 Experiment Upgrades<br>
+			- Added an Experiment Challenge & Milestone<br>
+			- Fixed some upgrades being inflated somehow<br>
+			- Balanced Crystals & Experiments<br>
+			- Endgame: 2 Fusions<br><br>
+
 		<h2>v0.2 Challenging Approach</h2><br>
-		- Added 7 Experiment Upgrades<br>
-		- Added 4 Crystal Upgrades<br>
-		- Added 2 Experiment Challenges<br>
-		- Added 2 Achievements<br>
-		- Changed Experiment Base again<br>
-		- Changed the 1st Challenge Requirement from 1e9 Crystals > 5e9 Crystals<br>
-		- Changed Log Formula's on multiple Upgrades<br>
-		- Fixed Experiment Gain Bug<br>
-		- Endgame: 1e27 Infects<br><br>
+			- Added 7 Experiment Upgrades<br>
+			- Added 4 Crystal Upgrades<br>
+			- Added 2 Experiment Challenges<br>
+			- Added 2 Achievements<br>
+			- Changed Experiment Base again<br>
+			- Changed the 1st Challenge Requirement from 1e9 Crystals > 5e9 Crystals<br>
+			- Changed Log Formula's on multiple Upgrades<br>
+			- Fixed Experiment Gain Bug<br>
+			- Endgame: 1e27 Infects<br><br>
 
 		<h3>v0.1.10 Kryptox's Group</h3><br>
 			- Added 2 Experiment Upgrades<br>

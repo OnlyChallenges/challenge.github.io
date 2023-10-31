@@ -305,7 +305,7 @@ addLayer("c", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
     },
-    44: {
+    45: {
         title: "Fusion Crystals?",
             description: "Let's start something... fusiony? Shall we? Boost Infects by Infects + 10",
             cost: new Decimal(25000),
