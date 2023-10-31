@@ -68,7 +68,7 @@ milestones: {
             requirementDescription: "333 Experiments",
             effectDescription() {
                 let text = "Keep the first three rows of Crystal Upgrades on Reset";
-                if (inChallenge("E", 11)) text = "Keep the first three rows of Crystal Upgrades on Reset (DISABLED)";
+                if (inChallenge("E", 11)) text = "Keep the first three rows of Crystal Upgrades on Reset";
                 return text;
               },
             done() { return player.E.points.gte(200) },
