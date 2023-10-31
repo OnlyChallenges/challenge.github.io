@@ -5,6 +5,8 @@ addLayer("E", {
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
+        best: new Decimal(0),
+        total: new Decimal(0),
     }},
     color: "#BF233F",
     requires: new Decimal(1.25e8), // Can be a function that takes requirement increases into account
@@ -21,6 +23,7 @@ addLayer("E", {
         if (inChallenge('E', 11)) mult = mult.times(20)
         if (inChallenge('E', 12)) mult = mult.div(1e99)
         if (hasChallenge('E',12)) mult = mult.times(5)
+        if (hasUpgrade('F', 12)) mult = mult.times(3.33)
         return mult
     },
     gainExp() {
@@ -42,6 +45,10 @@ addLayer("E", {
         if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
         if (hasUpgrade ('E', 34)) base = base.add(3.14)
         return base
+    },
+    doReset(resettingLayer) {
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        if (hasMilestone ('F', 11) && resettingLayer=="F") player.E.upgrades.push("11","12","13","14","15","16") && player.E.challenges.push("11")
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     branches: ['F'],

@@ -5,6 +5,7 @@ addLayer("F", {
     startData() { return {
         unlocked: false,
 		points: new Decimal(0),
+        best: new Decimal(0),
     }},
     color: "#322CA8",
     requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
@@ -21,7 +22,7 @@ addLayer("F", {
         return new Decimal(1)
     },
     effect() {
-        let eff1 = player.F.points.add(1.3).pow(0.35)
+        let eff1 = player.F.points.add(1.3).pow(0.488)
         if (hasUpgrade("F",14)) eff1 = eff1.add(2.5)
         return eff1
     },
@@ -46,8 +47,8 @@ addLayer("F", {
 milestones: {
         11: {
             requirementDescription: "3 fusions",
-            effectDescription: "Keep Crystal Upgrades on Reset",
-            done() { return player.F.points.gte(3) },
+            effectDescription: "Keep 1st Row of Experiment Upgrades & 'Experiment Brawl'",
+            done() { return player.F.points.gte(3)},
         },
     },
  upgrades: {
@@ -60,7 +61,7 @@ milestones: {
     },
     12: {
         title: "Fusion 2",
-        description: "What Am I even looking at...Boost Infect Gain by 33.33x",
+        description: "What Am I even looking at...Boost Experiment Gain by 3.33x",
         cost: new Decimal(3),
         unlocked(){
             return hasUpgrade('F',11)

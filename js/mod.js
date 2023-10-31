@@ -193,7 +193,6 @@ function getPointGen() {
 		
 	// F Upgrades
 	if (hasUpgrade('F', 11)) gain = gain.times(50)
-	if (hasUpgrade('F', 12)) gain = gain.times(33.33)
 	if (hasUpgrade('F', 13)) gain = gain.times(60)
 	// Layer Effects
 	if (player.E.unlocked) gain = gain.times(tmp.E.effect)
