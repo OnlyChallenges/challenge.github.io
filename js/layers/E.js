@@ -106,7 +106,7 @@ challenges: {
             The Experiments are ganging up on you!<br>
             They're using everything they got!<br>
             Some Milestones are Disabled!<br>
-            Crystal /7, Infect /1e6, Experiment *20.`,
+            Crystal /7, Infect /1.99e10, Experiment *20.`,
             goalDescription: "5e9 Crystals",
             rewardDescription: "Tenfold your Infects",
             canComplete: function() {return player.c.points.gte(5e9)},

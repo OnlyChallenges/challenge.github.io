@@ -197,7 +197,7 @@ function getPointGen() {
 	if (player.E.unlocked) gain = gain.times(tmp.E.effect)
 	if (player.F.unlocked) gain = gain.times(tmp.F.effect)
 	// Challenges
-	if (inChallenge('E', 11)) gain = gain.div(1e6)
+	if (inChallenge('E', 11)) gain = gain.div(2.33e10)
 	if (inChallenge('E', 12)) gain = gain.div(8e12)
 	if (hasChallenge('E',11)) gain = gain.times(10)
 	return gain
