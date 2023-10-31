@@ -41,8 +41,9 @@ addLayer("c", {
         let keep = [];
         if (hasMilestone ('F', 11) && resettingLayer=="F") keep.push("upgrades")
         if (hasMilestone ('E', 11) && resettingLayer=="E") keep.push("upgrades")
-        if (!inChallenge('E',11)) keep = false
+        if (inChallenge('E',11)) return false
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, keep)
+        return keep
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
