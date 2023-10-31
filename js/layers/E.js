@@ -277,7 +277,7 @@ challenges: {
         description: "Infects & Experiments boosts Crystals",
         cost: new Decimal(1e7),
         effect(){
-            return (((player.points.plus(0.82).log10().pow(0.56))) + (player.E.points.plus(0.88).log10().pow(0.52))).max(1).min(75)
+            return (((player.points.plus(0.82).log10().pow(0.56).max(1))) + (player.E.points.plus(0.88).log10().pow(0.52).max(1))).max(1).min(75)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(75) ? "(Capped)" : "";
