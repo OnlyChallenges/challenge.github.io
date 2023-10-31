@@ -32,7 +32,8 @@ let changelog = `<h1>Changelog:</h1><br>
 			- Fixed 2 Achievements.<br>
 			- v0.2.1.1+<br>
 			- Patched 'Experimental Brawl' Bug<br>
-			- Fixed Keeping Row 3 Upgrades that makes 'Experimental Brawl' Start impossible to run<br><br>
+			- Fixed Keeping Row 3 Upgrades that makes 'Experimental Brawl' Start impossible to run<br>
+			- Refixed Keep Row 3 Upgrades after 'Experimental Brawl' again<br>
 
 		<h3>v0.2.1 Fusions are near</h3><br>
 			- Added 4 Crystal Upgrades<br>
