@@ -36,7 +36,7 @@ let changelog = `<h1>Changelog:</h1><br>
 		- Fixed 3 Challenge Breaks<br>
 		- FIxed 'Keep Upgrade' Milestones<br>
 		- Fixed Challenge Reward & Description Effects<br>
-		- Adjusted Fusion Gain (^0.88 > ^0.425)<br>
+		- Adjusted Fusion Gain (^0.425 > ^0.21)<br>
 		- Changed 13 Experiment Upgrade Effects or Names<br>
 		- Endgame: Experiment Upgrade 46<br><br>
 
