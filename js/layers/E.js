@@ -95,12 +95,10 @@ challenges: {
         11: {
             name: "Experimental Brawl",
             challengeDescription: `
-            The Experiments are ganging up on you!
-            They're using everything they got!
-            Some Milestones are Disabled!
-            Crystal gain is divided by 12.5,
-            Infect gain is divided by 1e10,
-            and Experiment Gain is multiplied by 20!`,
+            The Experiments are ganging up on you!<br>
+            They're using everything they got!<br>
+            Some Milestones are Disabled!<br>
+            Crystal /12.5, Infect /1e10, Experiment *20.`,
             goalDescription: "5e9 Crystals",
             rewardDescription: "Tenfold your Infects",
             canComplete: function() {return player.c.points.gte(5e9)},
@@ -109,10 +107,9 @@ challenges: {
         12: {
             name: "Immunity",
             challengeDescription: `
-            Someone made an vaccination against the infection!
-            Crystal gain is divided by 40,
-            Infect gain is divided by 8e12,
-            and Experiment Gain is divided by 1e99!`,
+            Someone made an vaccination against the infection!<br>
+            Crystal /40, Infect /8e12,<br>
+            Experiment /1e99!`,
             goalDescription: "1 Infect",
             rewardDescription: "5x Crystal & Experiment Gain",
             canComplete: function() {return player.points.gte(1)},
