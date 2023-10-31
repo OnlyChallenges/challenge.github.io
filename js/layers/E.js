@@ -40,7 +40,7 @@ addLayer("E", {
         let base = new Decimal(1)
         if (hasUpgrade ('E', 13)) base = base.add(0.3)
         if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
-        if (hasUpgrade ('E', 34)) base = base.add(1.314)
+        if (hasUpgrade ('E', 34)) base = base.add(3.14)
         return base
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
@@ -87,7 +87,7 @@ milestones: {
             effectDescription: "Passively Gain 1% Experiments/sec",
             done() { return player.E.points.gte(63000000) },
             unlocked(){
-                return hasUpgrade('c', 43)
+                return hasUpgrade('c', 43) || hasMilestone('E',13)
             },
         },
         14: {
@@ -273,7 +273,7 @@ challenges: {
         description: "Infects Boosts Experiment Gain & Unlock a Challenge!",
         cost: new Decimal(69420),
         effect(){
-            return (player.points.plus(0.86).log10().pow(0.23)).max(1).min(10)
+            return (player.points.plus(0.97).log10().pow(0.42)).max(1).min(10)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
@@ -317,10 +317,10 @@ challenges: {
         description: "Crystals Boosts Infects",
         cost: new Decimal(6.3e7),
         effect(){
-            return (player.c.points.plus(0.93).log10().pow(0.62)).max(1).min(15)
+            return (player.c.points.plus(1.2).log10().pow(0.77)).max(1).min(20)
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(15) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(20) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -330,7 +330,8 @@ challenges: {
     },
     34: {
         title: "Honeydiver",
-        description: "Increase the Experiment Effect Base by 1.π",
+        description: "Increase the Experiment Effect Base by π
+        ",
         cost: new Decimal(1.9e8),
         unlocked(){
             return hasUpgrade("E", 33)
