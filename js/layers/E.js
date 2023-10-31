@@ -317,10 +317,10 @@ challenges: {
         description: "Crystals Boosts Infects",
         cost: new Decimal(6.3e7),
         effect(){
-            return (player.c.points.plus(0.29).log10().pow(0.77)).max(1).min(20)
+            return (player.c.points.plus(0.29).log10().pow(0.77)).max(1).min(50)
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(20) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(50) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
