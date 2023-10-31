@@ -369,5 +369,5 @@ challenges: {
             return hasUpgrade("E", 35) && player.F.unlocked
         },
     },
- },zz
+ },
  })             
