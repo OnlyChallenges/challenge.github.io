@@ -314,7 +314,7 @@ addLayer("c", {
     45: {
         title: "Fusion Crystals?",
             description: "Let's start something... fusiony? Shall we? Boost Infects by Infects + 10",
-            cost: new Decimal(25000),
+            cost: new Decimal(1e29),
             unlocked(){
                 return hasUpgrade("c", 44);
             },

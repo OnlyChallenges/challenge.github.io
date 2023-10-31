@@ -365,7 +365,7 @@ challenges: {
     36: {
         title: "Goon",
         description: "Goon...Increase Crystal Gain by 105x",
-        cost: new Decimal(1e12),
+        cost: new Decimal(1e14),
         unlocked(){
             return hasUpgrade("E", 35) && player.F.unlocked
         },
@@ -373,7 +373,7 @@ challenges: {
     41: {
         title: "Vixy",
         description: "Increase Fusions based on Infects",
-        cost: new Decimal(2.34e9),
+        cost: new Decimal(2.34e10),
         effect(){
             return (player.E.points.plus(1.2).log10().pow(0.13)).max(1).min(5)
         },
@@ -389,7 +389,7 @@ challenges: {
     42: {
         title: "Lucial",
         description: "Increase Infects based on Infects",
-        cost: new Decimal(2.34e9),
+        cost: new Decimal(1.7e11),
         effect(){
             return (player.points.plus(1.3).log10().pow(0.55)).max(1).min(263)
         },
@@ -405,7 +405,7 @@ challenges: {
     43: {
         title: "M#92olp(",
         description: "Increase Crystals by Crystals",
-        cost: new Decimal(1.35e10),
+        cost: new Decimal(7.22e11),
         effect(){
             return (player.c.points.plus(1.1).log10().pow(0.24)).max(1).min(20)
         },
@@ -421,7 +421,7 @@ challenges: {
     44: {
         title: "Morgan",
         description: "Increase Experiments by Experiments (Inflation...?)",
-        cost: new Decimal(8.3e10),
+        cost: new Decimal(3.13e12),
         effect(){
             return (player.c.points.plus(1).log10().pow(0.205)).max(1).min(13)
         },
@@ -437,7 +437,7 @@ challenges: {
     45: {
         title: "Lohikaarme",
         description: "Boost Experiment Base Significantly",
-        cost: new Decimal(2.3e11),
+        cost: new Decimal(1.3e13),
         effect(){
             return player.c.points.plus(1).log10().pow(0.13)
         },
