@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.2.1.1+",
-	name: "Fusions are near",
+	num: "0.3",
+	name: "Beginning of Combinations",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +23,22 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h2>v0.3 Beginning of Combinations</h2><br>
+		- Added 1 Crystal Upgrade<br>
+		- Added 9 Experiment Upgrades<br>
+		- Readded 4 Fusion Upgrades<br>
+		- Added Another Fusion Milestones<br>
+		- Added 4 Achievements<br>
+		- Added Fusion Effect<br>
+		- Fixed Fusion Inflation<br>
+		- Fixed 8 Softcaps<br>
+		- Fixed 3 Challenge Breaks<br>
+		- FIxed 'Keep Upgrade' Milestones<br>
+		- Fixed Challenge Reward & Description Effects<br>
+		- Adjusted Fusion Gain (^0.88 > ^0.425)<br>
+		- Changed 13 Experiment Upgrade Effects or Names<br>
+		- Endgame: Experiment Upgrade 46<br><br>
 
 		<h3>v0.2.1.1</h3><br>
 			- Fixed 'Experimental Brawl' being significantly impossible to progress (Infect /1e10 > Infect /1e6)<br>
@@ -189,7 +205,8 @@ function getPointGen() {
 	if (hasUpgrade('E', 31)) gain = gain.times(upgradeEffect('E',31))
 	if (hasUpgrade('E', 33)) gain = gain.times(upgradeEffect('E',33))
 	if (hasUpgrade('E', 35)) gain = gain.div(2.5)		
-		
+	if (hasUpgrade('E', 42)) gain = gain.times(upgradeEffect('E',42))
+	if (hasUpgrade('E', 46)) gain = gain.times(1.5)	
 	// F Upgrades
 	if (hasUpgrade('F', 11)) gain = gain.times(50)
 	if (hasUpgrade('F', 13)) gain = gain.times(60)

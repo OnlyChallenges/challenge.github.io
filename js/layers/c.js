@@ -24,10 +24,12 @@ addLayer("c", {
         if (hasUpgrade('E', 16)) mult = mult.times(upgradeEffect('E',16))
         if (hasUpgrade('E', 25)) mult = mult.times(upgradeEffect('E',25))
         if (hasUpgrade('E', 32)) mult = mult.times(upgradeEffect('E',32))
+        if (hasUpgrade('E', 43)) mult = mult.times(upgradeEffect('E',43))
         if (inChallenge('E', 11)) mult = mult.div(8)
         if (inChallenge('E', 12)) mult = mult.div(40)
         if (hasChallenge('E',12)) mult = mult.times(5)
         if (hasUpgrade('E', 36)) mult = mult.times(105)	
+        if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -42,6 +44,7 @@ addLayer("c", {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
         if (hasMilestone ('E', 11) && resettingLayer=="E") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35")
         if (hasMilestone ('E', 14) && resettingLayer=="E") player.c.upgrades.push("41", "42", "43", "44", "45")
+        if (hasMilestone ('F', 11) && resettingLayer=="F") player.E.upgrades.push("11","12","13","14","15","16")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);

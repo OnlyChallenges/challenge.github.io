@@ -13,9 +13,11 @@ addLayer("F", {
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.73, // Prestige currency exponent
+    exponent: 0.425, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade("E",41)) mult = mult.times(upgradeEffect("E", 41))
+        if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -46,9 +48,14 @@ addLayer("F", {
       },
 milestones: {
         11: {
-            requirementDescription: "3 fusions",
-            effectDescription: "Keep 1st Row of Experiment Upgrades & 'Experiment Brawl'",
-            done() { return player.F.points.gte(3)},
+            requirementDescription: "2 fusions",
+            effectDescription: "Keep 1st Row of Experiment Upgrades",
+            done() { return player.F.points.gte(2)},
+        },
+        12: {
+            requirementDescription: "5 fusions",
+            effectDescription: "Unlock the next row of Experiment Upgrades",
+            done() { return player.F.points.gte(5)},
         },
     },
  upgrades: {
@@ -56,11 +63,11 @@ milestones: {
     cols: 5,
     11: {
         title: "Ayko",
-        description: "This is stupidly cursed...Boost Infect Gain by 50x",
+        description: "This is stupidly cursed...Boost Crystal gain by 7.5x",
         cost: new Decimal(1),
     },
     12: {
-        title: "Fusion 2",
+        title: "Cytra",
         description: "What Am I even looking at...Boost Experiment Gain by 3.33x",
         cost: new Decimal(3),
         unlocked(){
@@ -68,7 +75,7 @@ milestones: {
         },
     },
     13: {
-        title: "Fusion 3",
+        title: "Sombtox",
         description: "What in the hell...Boost Infect Gain by 60x",
         cost: new Decimal(6),
         unlocked(){

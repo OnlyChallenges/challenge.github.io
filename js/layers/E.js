@@ -24,7 +24,10 @@ addLayer("E", {
         if (inChallenge('E', 11)) mult = mult.times(20)
         if (inChallenge('E', 12)) mult = mult.div(1e99)
         if (hasChallenge('E',12)) mult = mult.times(5)
+        if (hasUpgrade('E', 44)) mult = mult.times(upgradeEffect('E',44))
         if (hasUpgrade('F', 12)) mult = mult.times(3.33)
+        if (hasAchievement('a', 34)) mult = mult.times(1.33)
+        if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         return mult
     },
     gainExp() {
@@ -45,11 +48,8 @@ addLayer("E", {
         if (hasUpgrade ('E', 13)) base = base.add(0.3)
         if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
         if (hasUpgrade ('E', 34)) base = base.add(3.14)
+        if (hasUpgrade ('E', 45)) base = base.add(upgradeEffect('E',45))
         return base
-    },
-    doReset(resettingLayer) {
-        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
-        if (hasMilestone ('F', 11) && resettingLayer=="F") player.E.upgrades.push("11","12","13","14","15","16") && player.E.challenges.push("11")
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     branches: ['F'],
@@ -149,7 +149,7 @@ challenges: {
         },
     },
     13: {
-        title: "Wintear",
+        title: "Cyberruin",
         description: "Add 0.3 to the Experiment Effect Base",
         cost: new Decimal(15),
         unlocked(){
@@ -354,7 +354,7 @@ challenges: {
         description(){
         let text
         text = "Increase Infect Gain by 100x"
-        if (hasUpgrade("E", 35)) text = "YOU REALLY THOUGHT FOXNAY IS REAL? Divide Infect Gain by 2.5x"
+        if (hasUpgrade("E", 35)) text = "Wait what... Divide Infect Gain by 2.5x"
         return text
         },
         cost: new Decimal(3.5e8),
@@ -368,6 +368,90 @@ challenges: {
         cost: new Decimal(1e12),
         unlocked(){
             return hasUpgrade("E", 35) && player.F.unlocked
+        },
+    },
+    41: {
+        title: "Vixy",
+        description: "Increase Fusions based on Infects",
+        cost: new Decimal(2.34e9),
+        effect(){
+            return (player.E.points.plus(1.2).log10().pow(0.13)).max(1).min(5)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(5) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        unlocked(){
+            return hasMilestone("F", 12)
+        },
+    },
+    42: {
+        title: "Lucial",
+        description: "Increase Infects based on Infects",
+        cost: new Decimal(2.34e9),
+        effect(){
+            return (player.points.plus(1.3).log10().pow(0.55)).max(1).min(263)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(263) ? "(Capped randomly)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        unlocked(){
+            return hasUpgrade("E", 41)
+        },
+    },
+    43: {
+        title: "M#92olp(",
+        description: "Increase Crystals by Crystals",
+        cost: new Decimal(1.35e10),
+        effect(){
+            return (player.c.points.plus(1.1).log10().pow(0.24)).max(1).min(20)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(20) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        unlocked(){
+            return hasUpgrade("E", 42)
+        },
+    },
+    44: {
+        title: "Morgan",
+        description: "Increase Experiments by Experiments (Inflation...?)",
+        cost: new Decimal(8.3e10),
+        effect(){
+            return (player.c.points.plus(1).log10().pow(0.205)).max(1).min(13)
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(13) ? "(Not yet!)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        unlocked(){
+            return hasUpgrade("E", 43)
+        },
+    },
+    45: {
+        title: "Lohikaarme",
+        description: "Boost Experiment Base Significantly",
+        cost: new Decimal(2.3e11),
+        effect(){
+            return player.c.points.plus(1).log10().pow(0.13)
+        },
+        effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id)) },
+        unlocked(){
+            return hasUpgrade("E", 44)
+        },
+    },
+    46: {
+        title: "Nichir",
+        description: "Times All Resources by 1.5",
+        cost: new Decimal(6.66e11),
+        unlocked(){
+            return hasUpgrade("E", 45)
         },
     },
  },

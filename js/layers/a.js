@@ -77,9 +77,28 @@ addLayer("a", {
                 tooltip: "Achieve 1 Fusion Point."
             },
         32: {
-                name: "Avali (mfer is unimmune fr..)",
-                done() { return inChallenge('E', 12) && player.points.gte(100) },
-                tooltip: "Get 100 Infects in 'Immunity'"
+                name: "Avali",
+                done() { return inChallenge('E', 12) && player.points.gte(1e9) },
+                tooltip: "Get 1e9 Infects in 'Immunity'"
+            },
+        33: {
+                name: "Experiment Upgrades?",
+                done() { return hasMilestone('F', 11) },
+                tooltip: "Get the First Fusion Milestone!"
+            },
+        34: {
+                name: "More Upgrades!?",
+                done() { return hasMilestone('F', 12) },
+                tooltip: 
+                `
+                Get the First Fusion Milestone!
+                Reward: 1.333x Experiments
+                `
+            },
+        35: {
+                name: "Wait isn't he a human...",
+                done() { return hasUpgrade('E', 36) },
+                tooltip: "Get 'Goon' Upgrade"
             },
         },
     }, 
