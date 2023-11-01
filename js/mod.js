@@ -8,13 +8,13 @@ let modInfo = {
 	discordName: "E205 Discord Server",
 	discordLink: "https://discord.gg/experiment-205",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players
-	offlineLimit: 5,  // In hours
+	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.3.1+",
-	name: "Beginning of Combinations",
+	num: "0.3.2",
+	name: "Rebalancing the Balance",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +23,16 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+<h3>v0.3.2 Rebalancing the Balance </h3><br>
+  - Adjusted Crystal Gain by a tad bit to prevent inflation (Even though Crystals are higher than Infects).<br>
+  - Added 2 Crystal Upgrades<br>
+  - Added 2 Fusion Milestones<br>
+  - Added 1 Experiment Challenge<br>
+  - Rescaled 2 Upgrades in Crystals<br>
+  - Rescaled 3 Upgrades in Experiments<br>
+  - Max Offline Time is now 1 Hour instead of 5 Hours (Prevents upgrade skipping for later)<br>
+  - Endgame: 7,500 Fusions<br><br>
 
 		<h3>v0.3.1+ Rebalances!?!</h3><br>
 		- Adjusted Fusion Gain to make it actually balanced (^0.21 > ^0.111)<br>
