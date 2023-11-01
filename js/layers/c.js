@@ -61,7 +61,7 @@ addLayer("c", {
         },
     },
  upgrades: {
-    rows: 4,
+    rows: 5,
     cols: 5,
     11: {
         title: "Feelings",
@@ -337,7 +337,7 @@ addLayer("c", {
             },
             description(){
             let text
-            text = "Increase Infect Gain by 1e10x with another Infect Boost!"
+            text = "Increase Infect Gain by 1e10x with another Crystal Boost!"
             if (hasUpgrade("c", 51)) text = "Increase Infect Gain at an stable ammount..."
             return text
             },
@@ -349,7 +349,7 @@ addLayer("c", {
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text
         },
-            cost: new Decimal(1e50),
+            cost: new Decimal(1e44),
         unlocked(){
             return hasMilestone("F", 13)
         },
