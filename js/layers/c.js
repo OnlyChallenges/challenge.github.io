@@ -354,6 +354,32 @@ addLayer("c", {
             return hasMilestone("F", 13)
         },
     },
+    52: {
+        title(){
+            let text
+            text = "Crystal the Crystals"
+            if (hasUpgrade("c", 52)) text = "Only Crystals"
+            return text
+            },
+            description(){
+            let text
+            text = "Crystal gain is now ^1.1 with an Infect Boost!"
+            if (hasUpgrade("c", 52)) text = "Not how this works! Experiment Gain is boosted by Crystals."
+            return text
+            },
+            effect(){
+                return (player.c.points.plus(1).log10().pow(0.333)).max(1).min(12.5)
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(12.5) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text
+        },
+            cost: new Decimal(1.66e45),
+        unlocked(){
+            return hasUpgrade("c", 51)
+        },
+    },
     },
  })
 
