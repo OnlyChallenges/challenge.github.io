@@ -328,6 +328,32 @@ addLayer("c", {
                 return text;
             },
     },
+    51: {
+        title(){
+            let text
+            text = "Crystalation"
+            if (hasUpgrade("c", 51)) text = "Uncrystalation"
+            return text
+            },
+            description(){
+            let text
+            text = "Increase Infect Gain by 1e10x with another Infect Boost!"
+            if (hasUpgrade("c", 51)) text = "Increase Infect Gain at an stable ammount..."
+            return text
+            },
+            effect(){
+                return (player.points.plus(1).log10().pow(0.35).plus(1)).max(1).min(25)
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text
+        },
+            cost: new Decimal(1e50),
+        unlocked(){
+            return hasMilestone("F", 13)
+        },
+    },
     },
  })
 

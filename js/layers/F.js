@@ -55,15 +55,27 @@ addLayer("F", {
       },
 milestones: {
         11: {
-            requirementDescription: "2 fusions",
+            requirementDescription: "2 Fusions",
             effectDescription: "Keep 1st Row of Experiment Upgrades",
             done() { return player.F.points.gte(2)},
         },
         12: {
-            requirementDescription: "5 fusions",
+            requirementDescription: "5 Fusions",
             effectDescription: "Unlock the next row of Experiment Upgrades",
             done() { return player.F.points.gte(5)},
         },
+        13: {
+            requirementDescription: "650 Fusions",
+            effectDescription: "Unlock the another row of Crystal Upgrades...",
+            done() { return player.F.points.gte(650)},
+            unlocked() {return hasUpgrade('F', 16) || player.F.points.gte(300)},
+        },
+        14: {
+            requirementDescription: "10,000 Fusions",
+            effectDescription: "Unlock an Experiment Challenge!",
+            done() { return player.F.points.gte(10000)},
+            unlocked() {return hasUpgrade('c', 53) || player.F.points.gte(3500)},
+        }
     },
  upgrades: {
     rows: 2,
@@ -99,7 +111,7 @@ milestones: {
     },
     15: {
         title: "Honzure",
-        description: "Have the Fusion Effect change Crystals also!",
+        description: "Have the Fusion Effect effect Crystals also!",
         cost: new Decimal(45),
         unlocked(){
             return hasUpgrade('F',14)
