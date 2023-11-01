@@ -363,9 +363,19 @@ challenges: {
         },
     },
     36: {
-        title: "Goon",
-        description: "Goon...Increase Crystal Gain by 105x",
-        cost: new Decimal(1e14),
+        title(){
+            let text
+            text = "Goon"
+            if (hasUpgrade("E", 35)) text = "Not so Goon"
+            return text
+            },
+            description(){
+            let text
+            text = "Increase Crystal Gain by 100x"
+            if (hasUpgrade("E", 35)) text = "Increase Crystal Gain by 7.5x (not 105 wth)"
+            return text
+            },
+            cost: new Decimal(7.5e13),
         unlocked(){
             return hasUpgrade("E", 35) && player.F.unlocked
         },
@@ -383,15 +393,15 @@ challenges: {
             return text;
         },
         unlocked(){
-            return hasMilestone("F", 12)
+            return hasMilestone("F", 12) && hasUpgrade("E",35)
         },
     },
     42: {
         title: "Lucial",
         description: "Increase Infects based on Infects",
-        cost: new Decimal(1.7e11),
+        cost: new Decimal(1e11),
         effect(){
-            return (player.points.plus(1.3).log10().pow(0.55)).max(1).min(263)
+            return (player.points.plus(1.3).log10().pow(0.6)).max(1).min(263)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(263) ? "(Capped randomly)" : "";
@@ -405,7 +415,7 @@ challenges: {
     43: {
         title: "M#92olp(",
         description: "Increase Crystals by Crystals",
-        cost: new Decimal(7.22e11),
+        cost: new Decimal(4.5e11),
         effect(){
             return (player.c.points.plus(1.1).log10().pow(0.24)).max(1).min(20)
         },
@@ -421,9 +431,9 @@ challenges: {
     44: {
         title: "Morgan",
         description: "Increase Experiments by Experiments (Inflation...?)",
-        cost: new Decimal(3.13e12),
+        cost: new Decimal(9.2e11),
         effect(){
-            return (player.c.points.plus(1).log10().pow(0.205)).max(1).min(13)
+            return (player.c.points.plus(1).log10().pow(0.25)).max(1).min(13)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(13) ? "(Not yet!)" : "";
@@ -437,9 +447,9 @@ challenges: {
     45: {
         title: "Lohikaarme",
         description: "Boost Experiment Base Significantly",
-        cost: new Decimal(1.3e13),
+        cost: new Decimal(3.5e12),
         effect(){
-            return player.c.points.plus(1).log10().pow(0.13)
+            return player.c.points.plus(1).log10().pow(0.4)
         },
         effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id)) },
         unlocked(){
@@ -449,7 +459,7 @@ challenges: {
     46: {
         title: "Nichir",
         description: "Times All Resources by 1.5",
-        cost: new Decimal(6.66e11),
+        cost: new Decimal(1e13),
         unlocked(){
             return hasUpgrade("E", 45)
         },
