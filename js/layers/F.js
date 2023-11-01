@@ -26,10 +26,17 @@ addLayer("F", {
     effect() {
         let eff1 = player.F.points.add(1.3).pow(0.488)
         if (hasUpgrade("F",14)) eff1 = eff1.add(2.5)
+        eff1 = eff1.times(tmp.F.effectBase)
         return eff1
+    },
+    effectBase() {
+        let base = new Decimal(1)
+        if (hasUpgrade("F",16)) base = base.add(1)
+        return base
     },
     effectDescription() {
         dis = "which boosts infects gain by "+ format(tmp.F.effect) +"x"
+        if (hasUpgrade("F", 15)) dis = "which boosts infects & crystal gain by "+ format(tmp.F.effect) +"x";
         return dis
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
@@ -60,7 +67,7 @@ milestones: {
     },
  upgrades: {
     rows: 2,
-    cols: 5,
+    cols: 6,
     11: {
         title: "Ayko",
         description: "This is stupidly cursed...Boost Crystal gain by 7.5x",
@@ -88,6 +95,22 @@ milestones: {
         cost: new Decimal(9),
         unlocked(){
             return hasUpgrade('F',13)
+        },
+    },
+    15: {
+        title: "Fusion 5_Effect 1",
+        description: "Have the Fusion Effect change Crystals also!",
+        cost: new Decimal(45),
+        unlocked(){
+            return hasUpgrade('F',14)
+        },
+    },
+    16: {
+        title: "Fusion 5_Effect 2",
+        description: "Double the Fusion Effect!",
+        cost: new Decimal(140),
+        unlocked(){
+            return hasUpgrade('F',15)
         },
     },
  },
