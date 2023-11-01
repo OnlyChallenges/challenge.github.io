@@ -366,13 +366,13 @@ challenges: {
         title(){
             let text
             text = "Goon"
-            if (hasUpgrade("E", 35)) text = "Not so Goon"
+            if (hasUpgrade("E", 36)) text = "Not so Goon"
             return text
             },
             description(){
             let text
             text = "Increase Crystal Gain by 100x"
-            if (hasUpgrade("E", 35)) text = "Increase Crystal Gain by 7.5x (not 105 wth)"
+            if (hasUpgrade("E", 36)) text = "Increase Crystal Gain by 7.5x (not 105 wth)"
             return text
             },
             cost: new Decimal(7.5e13),
