@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.3",
+	num: "0.3.1+",
 	name: "Beginning of Combinations",
 }
 
@@ -23,6 +23,18 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h3>v0.3.1+ Rebalances!?!</h3><br>
+		- Adjusted Fusion Gain to make it actually balanced (^0.21 > ^0.111)<br>
+		- Adjusted Experiment Gain by a 'small' ammount (^0.245 > ^0.23)<br>
+		- Adjusted the 'Goon' Upgrade to avoid Inflation<br>
+		- Fixed the 'Vixy' Upgrade showing after Fusion Reset without the required Milestone & Upgrade<br>
+		- Added 2 Experiment Upgrades<br>
+		- Fixed multiple formula's on Pre-Fusion Upgrades<br>
+		- Fixed 3 Crystal Upgrades<br>
+		- Fixed 'Fusion Crystals' Cost (250,000 Crystals [lmao] > 1e29 Crystals)<br>
+		- Fixed the Newest Experiment Upgrades cost given from '5 Fusion' Milestone to be significantly lower.<br>
+		- Endgame: 50 Fusions<br><br>
 
 		<h2>v0.3 Beginning of Combinations</h2><br>
 		- Added 1 Crystal Upgrade<br>
