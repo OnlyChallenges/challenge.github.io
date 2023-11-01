@@ -243,7 +243,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.E.points.gte(50)
+	return player.F.points.gte(50)
 }
 
 
