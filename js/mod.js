@@ -238,12 +238,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: Experiment Upgrade 46"
+	"Endgame: 50 Fusions"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return hasUpgrade("E",46)
+	return player.E.points.gte(50)
 }
 
 
