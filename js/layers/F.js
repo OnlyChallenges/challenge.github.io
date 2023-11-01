@@ -71,7 +71,7 @@ milestones: {
                 if (hasMilestone("F", 13)) text = "Unlock the next row of Crystal Upgrades... Can we get something new??";
                 return text;
               },
-            done() { return player.F.points.gte(650)},
+            done() { return player.F.points.gte(300)},
             unlocked() {return hasUpgrade('F', 16) || player.F.points.gte(300)},
         },
         14: {
