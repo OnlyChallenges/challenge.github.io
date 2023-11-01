@@ -433,7 +433,7 @@ challenges: {
         description: "Increase Experiments by Experiments (Inflation...?)",
         cost: new Decimal(9.2e11),
         effect(){
-            return (player.c.points.plus(1).log10().pow(0.25)).max(1).min(13)
+            return (player.c.points.plus(1).log10().pow(0.33)).max(1).min(13)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(13) ? "(Not yet!)" : "";
@@ -449,7 +449,7 @@ challenges: {
         description: "Boost Experiment Base Significantly",
         cost: new Decimal(3.5e12),
         effect(){
-            return player.c.points.plus(1).log10().pow(0.4)
+            return player.c.points.plus(1).log10().pow(0.45)
         },
         effectDisplay() { return "+"+format(upgradeEffect(this.layer, this.id)) },
         unlocked(){

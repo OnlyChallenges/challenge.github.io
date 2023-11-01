@@ -66,13 +66,24 @@ milestones: {
         },
         13: {
             requirementDescription: "650 Fusions",
-            effectDescription: "Unlock the another row of Crystal Upgrades...",
+            effectDescription() {
+                let text = "Unlock the next row of Crystal Upgrades";
+                if (hasMilestone("F", 13)) text = "Unlock the next row of Crystal Upgrades... Can we get something new??";
+                return text;
+              },
             done() { return player.F.points.gte(650)},
             unlocked() {return hasUpgrade('F', 16) || player.F.points.gte(300)},
         },
         14: {
             requirementDescription: "10,000 Fusions",
-            effectDescription: "Unlock an Experiment Challenge!",
+            effectDescription() {
+                let text = "Another Challenge? (Experiments)";
+                if (hasMilestone("F", 14)) text =
+                `Another Challenge? (Experiments).
+                Give us more Fusion stuff you jerk...
+                It's annoying to go back and forth y'know.`;
+                return text;
+              },
             done() { return player.F.points.gte(10000)},
             unlocked() {return hasUpgrade('c', 53) || player.F.points.gte(3500)},
         }
