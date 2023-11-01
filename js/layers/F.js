@@ -90,7 +90,7 @@ milestones: {
         },
     },
     14: {
-        title: "Fusion 4",
+        title: "Snapko",
         description: "There's too many of them...Boosts Fusion Effect by 2.5x",
         cost: new Decimal(9),
         unlocked(){
@@ -98,7 +98,7 @@ milestones: {
         },
     },
     15: {
-        title: "Fusion 5_Effect 1",
+        title: "Honzure",
         description: "Have the Fusion Effect change Crystals also!",
         cost: new Decimal(45),
         unlocked(){
@@ -106,7 +106,7 @@ milestones: {
         },
     },
     16: {
-        title: "Fusion 5_Effect 2",
+        title: "Kryruin",
         description: "Double the Fusion Effect!",
         cost: new Decimal(140),
         unlocked(){
