@@ -249,12 +249,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: 50 Fusions"
+	"Endgame: 7,500 Fusions"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.F.points.gte(50)
+	return player.F.points.gte(7500)
 }
 
 
