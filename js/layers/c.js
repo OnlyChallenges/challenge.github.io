@@ -166,7 +166,7 @@ addLayer("c", {
                 return player.points.add(1).pow(0.058)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-            },
+        },
 
 	24: {
         title: "Freezlity",
@@ -401,6 +401,36 @@ addLayer("c", {
                 return hasUpgrade("c", 52)
             },
     },
+    54: {
+        title(){
+            let text
+            text = "Reforming the Infectors"
+            if (hasUpgrade("c", 54)) text = "Reforming the Reforming Infectors"
+            return text
+            },
+            description(){
+            let text
+            text = "Fusion Effect is now ^2"
+            if (hasUpgrade("c", 54)) text = "Ok I was kidding at a small degree, instead it's ^1.075 (enjoy)"
+            return text
+            },
+            cost: new Decimal(1e48),
+        unlocked(){
+            return hasUpgrade("c", 53)
+        },
+    55: {
+            title: "Lusionist",
+                description: "Beelusion again? Infects boosts Infects",
+                cost: new Decimal(1.77e49),
+                unlocked(){
+                    return hasUpgrade("c", 54)
+                },
+                effect() {
+                    return player.points.add(1).pow(0.033)
+                },
+                effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+            },
+},
     },
  })
 
