@@ -263,10 +263,10 @@ addLayer("c", {
             return hasUpgrade("E", 31) && hasUpgrade("c", 35);
         },
         effect() {
-            return (player.c.points.add(1.22).log10().pow(0.585)).max(1).min(7);
+            return (player.c.points.add(1).log10().pow(0.45)).max(1).min(15);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(7) ? "(Crystal capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(15) ? "(Crystal capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -311,7 +311,7 @@ addLayer("c", {
                 return hasMilestone("E", 13) && hasUpgrade("c", 43);
             },
             effect() {
-                return player.E.points.add(1).pow(0.027)
+                return player.E.points.add(1).pow(0.034)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
     },
@@ -323,10 +323,10 @@ addLayer("c", {
                 return hasUpgrade("c", 44);
             },
             effect() {
-                return (player.points.max(1).add(11).pow(0.062)).max(1).min(120);
+                return (player.points.max(1).add(11).pow(0.067)).max(1).min(130);
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(120) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(130) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
