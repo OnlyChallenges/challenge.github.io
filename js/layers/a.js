@@ -107,7 +107,7 @@ addLayer("a", {
             },
         41: {
                 name: "A Murder has occured...",
-                done() { return player.c.points(1e60)},
+                done() { return player.points(1e20)},
                 tooltip: "Get the first Kill..."
             },
         },
