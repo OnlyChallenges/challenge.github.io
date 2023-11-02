@@ -27,6 +27,7 @@ addLayer("F", {
         let eff1 = player.F.points.add(1.3).pow(0.488)
         if (hasUpgrade("F",14)) eff1 = eff1.add(2.5)
         if (inChallenge('E', 14)) eff1 = eff1.div(10)
+        if (hasUpgrade ('c', 54)) eff1 = eff1.pow(1.075)
         eff1 = eff1.times(tmp.F.effectBase)
         return eff1
     },
@@ -77,17 +78,28 @@ milestones: {
             unlocked() {return hasUpgrade('F', 16) || player.F.points.gte(300)},
         },
         14: {
-            requirementDescription: "6,000 Fusions",
+            requirementDescription: "1,000 Fusions",
             effectDescription() {
                 let text = "Another Challenge? (Experiments)";
                 if (hasMilestone("F", 14)) text =
+                `Keep the 5th row of Crystal Upgrades & the 2nd, 3rd, and 4th row of Experiment Upgrades`;
+                return text;
+              },
+            done() { return player.F.points.gte(1000)},
+            unlocked() {return hasUpgrade('c', 55) || player.F.points.gte(300)},
+        },
+        15: {
+            requirementDescription: "6,000 Fusions",
+            effectDescription() {
+                let text = "Another Challenge? (Experiments)";
+                if (hasMilestone("F", 15)) text =
                 `Another Challenge? (Experiments).
                 Give us more Fusion stuff you jerk...
                 It's annoying to go back and forth y'know.`;
                 return text;
               },
             done() { return player.F.points.gte(6000)},
-            unlocked() {return hasUpgrade('c', 53) || player.F.points.gte(3500)},
+            unlocked() {return hasUpgrade('c', 56) || player.F.points.gte(3500)},
         }
     },
  upgrades: {

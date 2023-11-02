@@ -52,7 +52,6 @@ addLayer("E", {
         if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
         if (hasUpgrade ('E', 34)) base = base.add(3.14)
         if (hasUpgrade ('E', 45)) base = base.add(upgradeEffect('E',45))
-        if (hasUpgrade ('c', 54)) base = base.pow(1.075)
         return base
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
@@ -144,7 +143,7 @@ challenges: {
             goalDescription: "1 Experiment",
             rewardDescription: "Unlock a new layer & Fusion Upgrade.",
             canComplete: function() {return player.E.points.gte(1)},
-            unlocked() {return hasMilestone('F', 14) || inChallenge('E',13) || hasChallenge('E',13)},
+            unlocked() {return hasMilestone('F', 15) || inChallenge('E',13) || hasChallenge('E',13)},
         },
 },
  upgrades: {
