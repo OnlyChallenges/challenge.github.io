@@ -207,10 +207,10 @@ challenges: {
         description: "Experiments Boosts Crystals & Infects.",
         cost: new Decimal(76),
         effect(){
-            return (player.E.points.plus(0.7).log10().pow(0.16).plus(1)).max(1).min(5)
+            return (player.E.points.plus(0.7).log10().pow(0.23).plus(1)).max(1).min(7)
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(4.5) ? "(Kryptox Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(7) ? "(Kryptox Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
