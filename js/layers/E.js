@@ -17,18 +17,25 @@ addLayer("E", {
     exponent: 0.23, // Prestige currency exponent
     gainMult() {
         mult = new Decimal(1)
+        // C Upgrades (# Order)
+        if (hasUpgrade('c', 42)) mult = mult.times(upgradeEffect('c',42))
+        if (hasUpgrade('c', 52)) mult = mult.times(upgradeEffect('c',52))
+        // E Upgrades (# Order)
         if (hasUpgrade('E', 21)) mult = mult.times(upgradeEffect('E',21))
         if (hasUpgrade('E', 23)) mult = mult.times(4)
         if (hasUpgrade('E', 26)) mult = mult.times(upgradeEffect('E',26))
-        if (hasUpgrade('c', 42)) mult = mult.times(upgradeEffect('c',42))
-        if (hasUpgrade('c', 52)) mult = mult.times(upgradeEffect('c',52))
+        if (hasUpgrade('E', 44)) mult = mult.times(upgradeEffect('E',44))
+        if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
+        // F Upgrades (# Order)
+        if (hasUpgrade('F', 12)) mult = mult.times(3.33)
+        // inChallenge Effects (Lowest Layer - # Order)
         if (inChallenge('E', 11)) mult = mult.times(20)
         if (inChallenge('E', 12)) mult = mult.div(1e99)
+        // hasChallenge Effects (Lowest Layer - # Order)
         if (hasChallenge('E',12)) mult = mult.times(5)
-        if (hasUpgrade('E', 44)) mult = mult.times(upgradeEffect('E',44))
-        if (hasUpgrade('F', 12)) mult = mult.times(3.33)
+        // Achievement Effects
         if (hasAchievement('a', 34)) mult = mult.times(1.33)
-        if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
+
         return mult
     },
     gainExp() {

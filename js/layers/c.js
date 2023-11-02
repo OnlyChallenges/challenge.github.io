@@ -29,6 +29,8 @@ addLayer("c", {
         if (hasUpgrade('E', 36)) mult = mult.times(105)	
         if (hasUpgrade('E', 43)) mult = mult.times(upgradeEffect('E',43))
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
+        // F Upgrade Effects (# Order)
+        if (hasUpgrade('F', 11)) mult = mult.times(7.5)
         // inChallenge Effects (Lowest Layer - # Order)
         if (inChallenge('E', 11)) mult = mult.div(8)
         if (inChallenge('E', 12)) mult = mult.div(40)
