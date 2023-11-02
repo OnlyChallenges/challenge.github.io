@@ -264,7 +264,7 @@ function addedPlayerData() { return {
 var displayThings = [
 	"Endgame: Completing Experiment Challenge 'Entization'",
 	"Fangame of Experiment-205",
-	"You are on: E205-v.2"
+	"You are on: E205-test_v.1.5"
 ]
 
 // Determines when the game "ends"
