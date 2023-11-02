@@ -35,7 +35,9 @@ addLayer("c", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        pow = new Decimal(1)
+        if (hasUpgrade('c', 53)) pow = pow.add(.01)
+        return pow
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     branches: ['E'],
@@ -380,6 +382,24 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("c", 51)
         },
+    },
+        53: {
+            title(){
+                let text
+                text = "Crystal Infectors"
+                if (hasUpgrade("c", 53)) text = "Infect Crystalors"
+                return text
+                },
+                description(){
+                let text
+                text = "Crystal gain is now ^1.5"
+                if (hasUpgrade("c", 53)) text = "Kidding! Crystals gain is now ^1.01. Hey...Be happy it's some power and not another multiplier."
+                return text
+                },
+                cost: new Decimal(3.5e46),
+            unlocked(){
+                return hasUpgrade("c", 52)
+            },
     },
     },
  })
