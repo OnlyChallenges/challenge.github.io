@@ -118,9 +118,9 @@ challenges: {
             They're using everything they got!<br>
             Some Milestones are Disabled!<br>
             Crystal /7, Infect /5e9, Experiment *20.`,
-            goalDescription: "100,000 Crystals",
+            goalDescription: "1,500,000 Crystals",
             rewardDescription: "Tenfold your Infects",
-            canComplete: function() {return player.c.points.gte(100000)},
+            canComplete: function() {return player.c.points.gte(1500000)},
             unlocked() {return hasUpgrade('E', 26)},
         },
         12: {
