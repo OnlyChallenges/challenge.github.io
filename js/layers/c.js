@@ -289,13 +289,13 @@ addLayer("c", {
     },
     43: {
         title: "Crystaling Crystals",
-        description: "Crystals boosts itself & Unlock the next Experiment Milestone!",
+        description: "Crystals boosts itself",
         cost: new Decimal(5.5e25),
         unlocked(){
             return hasUpgrade("c", 42) && hasUpgrade("E", 34);
         },
         effect() {
-            return (player.c.points.add(0.62).log10(1.2).pow(0.4)).max(1).min(6);
+            return (player.c.points.add(0.65).log10(1.2).pow(0.4)).max(1).min(6);
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(6) ? "(Capped)" : "";
