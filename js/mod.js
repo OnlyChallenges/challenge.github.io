@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.3.3",
+	num: "0.3.3_1",
 	name: "Someone Deadly",
 }
 
@@ -31,6 +31,7 @@ let changelog = `<h1>Changelog:</h1><br>
 			- Fixed Fusion Effect being too overpowered after 1,000 Fusions<br>
 			- Fixed Fusion Effect only affecting Crystals after the 5th Upgrade in Fusions<br>
 			- Added Another Layer (v0.4 Log lol)<br>
+			- Nice Enough to change 'Experimental Brawl' to 100,000 Crystals instead of 5,000,000,000 Crystals :3
 			- Endgame: Completing Experiment Challenge "Entization"<br><br>
 
 
