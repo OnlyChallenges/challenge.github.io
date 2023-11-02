@@ -26,12 +26,14 @@ addLayer("F", {
     effect() {
         let eff1 = player.F.points.add(1.3).pow(0.488)
         if (hasUpgrade("F",14)) eff1 = eff1.add(2.5)
+        if (inChallenge('E', 14)) eff1 = eff1.div(10)
         eff1 = eff1.times(tmp.F.effectBase)
         return eff1
     },
     effectBase() {
         let base = new Decimal(1)
         if (hasUpgrade("F",16)) base = base.add(1)
+        
         return base
     },
     effectDescription() {
@@ -130,10 +132,18 @@ milestones: {
     },
     16: {
         title: "Kryruin",
-        description: "Double the Fusion Effect!",
+        description: "Double and a half the Fusion Effect!",
         cost: new Decimal(140),
         unlocked(){
             return hasUpgrade('F',15)
+        },
+    },
+    21: {
+        title: "Frostral",
+        description: "Triple the Experiment Effect!",
+        cost: new Decimal(270),
+        unlocked(){
+            return hasUpgrade('F',16)
         },
     },
  },

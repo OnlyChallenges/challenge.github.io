@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.3.2",
-	name: "Rebalancing the Balance",
+	num: "0.3.3",
+	name: "Someone Deadly",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -24,43 +24,53 @@ let changelog = `<h1>Changelog:</h1><br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
 
-<h3>v0.3.2 Rebalancing the Balance </h3><br>
-  - Adjusted Crystal Gain by a tad bit to prevent inflation (Even though Crystals are higher than Infects).<br>
-  - Added 2 Crystal Upgrades<br>
-  - Added 2 Fusion Milestones<br>
-  - Added 1 Experiment Challenge<br>
-  - Rescaled 2 Upgrades in Crystals<br>
-  - Rescaled 3 Upgrades in Experiments<br>
-  - Max Offline Time is now 1 Hour instead of 5 Hours (Prevents upgrade skipping for later)<br>
-  - Endgame: 7,500 Fusions<br><br>
+		<h3>v0.3.3 Someone Deadly </h3><br>
+			- Added 2 Fusion Upgrades<br>
+			- Changed the 3rd Experiment Challenge Formula & Effects<br>
+			- Readjusted Crystals & Experiment to be more balanced Pre-Fusion<br>
+			- Fixed Fusion Effect being too overpowered after 1,000 Fusions<br>
+			- Fixed Fusion Effect only affecting Crystals after the 5th Upgrade in Fusions<br>
+			- Added Another Layer (v0.4 Log lol)<br>
+			- Endgame: Completing Experiment Challenge "Entization"<br><br>
+
+
+		<h3>v0.3.2 Rebalancing the Balance </h3><br>
+			- Adjusted Crystal Gain by a tad bit to prevent inflation (Even though Crystals are higher than Infects).<br>
+			- Added 2 Crystal Upgrades<br>
+			- Added 2 Fusion Milestones<br>
+			- Added 1 Experiment Challenge<br>
+			- Rescaled 2 Upgrades in Crystals<br>
+			- Rescaled 3 Upgrades in Experiments<br>
+			- Max Offline Time is now 1 Hour instead of 5 Hours (Prevents upgrade skipping for later)<br>
+		    - Endgame: 7,500 Fusions<br><br>
 
 		<h3>v0.3.1+ Rebalances!?!</h3><br>
-		- Adjusted Fusion Gain to make it actually balanced (^0.21 > ^0.111)<br>
-		- Adjusted Experiment Gain by a 'small' ammount (^0.245 > ^0.23)<br>
-		- Adjusted the 'Goon' Upgrade to avoid Inflation<br>
-		- Fixed the 'Vixy' Upgrade showing after Fusion Reset without the required Milestone & Upgrade<br>
-		- Added 2 Experiment Upgrades<br>
-		- Fixed multiple formula's on Pre-Fusion Upgrades<br>
-		- Fixed 3 Crystal Upgrades<br>
-		- Fixed 'Fusion Crystals' Cost (250,000 Crystals [lmao] > 1e29 Crystals)<br>
-		- Fixed the Newest Experiment Upgrades cost given from '5 Fusion' Milestone to be significantly lower.<br>
-		- Endgame: 50 Fusions<br><br>
+			- Adjusted Fusion Gain to make it actually balanced (^0.21 > ^0.111)<br>
+			- Adjusted Experiment Gain by a 'small' ammount (^0.245 > ^0.23)<br>
+			- Adjusted the 'Goon' Upgrade to avoid Inflation<br>
+			- Fixed the 'Vixy' Upgrade showing after Fusion Reset without the required Milestone & Upgrade<br>
+			- Added 2 Experiment Upgrades<br>
+			- Fixed multiple formula's on Pre-Fusion Upgrades<br>
+			- Fixed 3 Crystal Upgrades<br>
+			- Fixed 'Fusion Crystals' Cost (250,000 Crystals [lmao] > 1e29 Crystals)<br>
+			- Fixed the Newest Experiment Upgrades cost given from '5 Fusion' Milestone to be significantly lower.<br>
+			- Endgame: 50 Fusions<br><br>
 
 		<h2>v0.3 Beginning of Combinations</h2><br>
-		- Added 1 Crystal Upgrade<br>
-		- Added 9 Experiment Upgrades<br>
-		- Readded 4 Fusion Upgrades<br>
-		- Added Another Fusion Milestones<br>
-		- Added 4 Achievements<br>
-		- Added Fusion Effect<br>
-		- Fixed Fusion Inflation<br>
-		- Fixed 8 Softcaps<br>
-		- Fixed 3 Challenge Breaks<br>
-		- FIxed 'Keep Upgrade' Milestones<br>
-		- Fixed Challenge Reward & Description Effects<br>
-		- Adjusted Fusion Gain (^0.425 > ^0.21)<br>
-		- Changed 13 Experiment Upgrade Effects or Names<br>
-		- Endgame: Experiment Upgrade 46<br><br>
+			- Added 1 Crystal Upgrade<br>
+			- Added 9 Experiment Upgrades<br>
+			- Readded 4 Fusion Upgrades<br>
+			- Added Another Fusion Milestones<br>
+			- Added 4 Achievements<br>
+			- Added Fusion Effect<br>
+			- Fixed Fusion Inflation<br>
+			- Fixed 8 Softcaps<br>
+			- Fixed 3 Challenge Breaks<br>
+			- FIxed 'Keep Upgrade' Milestones<br>
+			- Fixed Challenge Reward & Description Effects<br>
+			- Adjusted Fusion Gain (^0.425 > ^0.21)<br>
+			- Changed 13 Experiment Upgrade Effects or Names<br>
+			- Endgame: Experiment Upgrade 46<br><br>
 
 		<h3>v0.2.1.1</h3><br>
 			- Fixed 'Experimental Brawl' being significantly impossible to progress (Infect /1e10 > Infect /1e6)<br>
@@ -239,6 +249,7 @@ function getPointGen() {
 	// Challenges
 	if (inChallenge('E', 11)) gain = gain.div(5e9)
 	if (inChallenge('E', 12)) gain = gain.div(8e12)
+	if (inChallenge('E', 14)) gain = gain.div(1e17)
 	if (hasChallenge('E',11)) gain = gain.times(10)
 	return gain
 }
@@ -249,12 +260,12 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: 7,500 Fusions"
+	"Endgame: Completing Experiment Challenge 'Entization'"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.F.points.gte(7500)
+	return hasChallenge('E',13)
 }
 
 

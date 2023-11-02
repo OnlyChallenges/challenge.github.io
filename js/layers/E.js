@@ -37,6 +37,8 @@ addLayer("E", {
     },
     effect() {
         let eff = player.E.points.add(1).pow(0.26)
+        if (inChallenge('E', 14)) eff = eff.div(10)
+        if (hasUpgrade("F",21)) eff1 = eff1.times(3)
         eff = eff.times(tmp.E.effectBase)
         return eff
     },
@@ -131,6 +133,17 @@ challenges: {
             rewardDescription: "5x Crystal & Experiment Gain",
             canComplete: function() {return player.points.gte(1)},
             unlocked() {return hasUpgrade('c', 42) || inChallenge('E',12) || hasChallenge('E',12)},
+        },
+        13: {
+            name: "Entization",
+            challengeDescription: `
+            Is it just me or is there whisling down the hall?<br>
+            Crystal /1e8, Infect /1e17,<br>
+            Fusion & Experiment Effect /10`,
+            goalDescription: "1 Experiment",
+            rewardDescription: "Unlock a new layer & Fusion Upgrade.",
+            canComplete: function() {return player.E.points.gte(1)},
+            unlocked() {return hasMilestone('F', 14) || inChallenge('E',13) || hasChallenge('E',13)},
         },
 },
  upgrades: {

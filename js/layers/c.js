@@ -27,6 +27,7 @@ addLayer("c", {
         if (hasUpgrade('E', 43)) mult = mult.times(upgradeEffect('E',43))
         if (inChallenge('E', 11)) mult = mult.div(8)
         if (inChallenge('E', 12)) mult = mult.div(40)
+        if (inChallenge('E', 14)) mult = mult.div(1e8)
         if (hasChallenge('E',12)) mult = mult.times(5)
         if (hasUpgrade('E', 36)) mult = mult.times(105)	
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
@@ -180,7 +181,7 @@ addLayer("c", {
 
     25: {
         title: "Crystalized",
-        description: "Influcations has occured-- infects gain is 4.2x!",
+        description: "Influcations has occured-- infects gain is 2.2x!",
         cost: new Decimal(1.46e6),
         unlocked(){
             return hasUpgrade("c", 24)
