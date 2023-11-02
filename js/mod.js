@@ -262,7 +262,9 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: Completing Experiment Challenge 'Entization'"
+	"Endgame: Completing Experiment Challenge 'Entization'",
+	"Fangame of Experiment-205",
+	"You have been playing for :" + format(timePlayed)
 ]
 
 // Determines when the game "ends"

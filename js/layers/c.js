@@ -18,19 +18,24 @@ addLayer("c", {
     exponent: .85, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        // C Upgrade Effects (# Order)
         if (hasUpgrade('c', 22)) mult = mult.times(upgradeEffect('c',22))
         if (hasUpgrade('c', 41)) mult = mult.times(upgradeEffect('c',41))
         if (hasUpgrade('c', 43)) mult = mult.times(upgradeEffect('c',43))
+        // E Upgrade Effects (# Order)
         if (hasUpgrade('E', 16)) mult = mult.times(upgradeEffect('E',16))
         if (hasUpgrade('E', 25)) mult = mult.times(upgradeEffect('E',25))
         if (hasUpgrade('E', 32)) mult = mult.times(upgradeEffect('E',32))
+        if (hasUpgrade('E', 36)) mult = mult.times(105)	
         if (hasUpgrade('E', 43)) mult = mult.times(upgradeEffect('E',43))
+        if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
+        // inChallenge Effects (Lowest Layer - # Order)
         if (inChallenge('E', 11)) mult = mult.div(8)
         if (inChallenge('E', 12)) mult = mult.div(40)
         if (inChallenge('E', 14)) mult = mult.div(1e8)
+        // hasChallenge Effects (Lowest Layer - # Order)
         if (hasChallenge('E',12)) mult = mult.times(5)
-        if (hasUpgrade('E', 36)) mult = mult.times(105)	
-        if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
+        // Layer Effects (Lowest Layer)
         if (hasUpgrade('F', 15)) mult = mult.times(tmp.F.effect)
         return mult
     },
