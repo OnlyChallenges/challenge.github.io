@@ -94,12 +94,9 @@ milestones: {
             done() { return player.E.points.gte(10000) },
         },
         13: {
-            requirementDescription: "63,000,000 Experiments",
+            requirementDescription: "25,000,000 Experiments",
             effectDescription: "Passively Gain 1% Experiments/sec",
-            done() { return player.E.points.gte(63000000) },
-            unlocked(){
-                return hasUpgrade('c', 43) || hasUpgrade('E',34)
-            },
+            done() { return player.E.points.gte(25000000) },
         },
         14: {
             requirementDescription: "250,000,000 Experiments and 'Salt Crystals'",
