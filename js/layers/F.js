@@ -80,9 +80,9 @@ milestones: {
         14: {
             requirementDescription: "1,000 Fusions",
             effectDescription() {
-                let text = "Another Challenge? (Experiments)";
+                let text = "Keep the 5th row of Crystal Upgrades & the 2nd, 3rd, and 4th row of Experiment Upgrades";
                 if (hasMilestone("F", 14)) text =
-                `Keep the 5th row of Crystal Upgrades & the 2nd, 3rd, and 4th row of Experiment Upgrades`;
+                `I'll help you out a bit; Keep all Crystal Upgrades & Experiment Upgrades on reset`;
                 return text;
               },
             done() { return player.F.points.gte(1000)},
