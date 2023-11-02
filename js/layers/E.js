@@ -327,7 +327,7 @@ challenges: {
         description: "Infects & Experiments boosts Crystals",
         cost: new Decimal(1e7),
         effect(){
-            return (((player.points.plus(0.54).log10().pow(0.42))) + (player.E.points.plus(1).log10().pow(0.55)))
+            return (((player.points.plus(0.1).log10().pow(0.455))) + (player.E.points.plus(1).log10().pow(0.55)))
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
