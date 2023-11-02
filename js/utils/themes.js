@@ -1,49 +1,21 @@
-
 // ************ Themes ************
-var themes = ["default", "E205"]
-
-var colors = {
-	default: {
-		1: "#ffffff",//Branch color 1
-		2: "#bfbfbf",//Branch color 2
-		3: "#7f7f7f",//Branch color 3
-		color: "#ffffff",
-		points: "#ffffff",
-		locked: "#bf8f8f",
-		background: "#0f0f0f",
-		background_tooltip: "rgba(0, 0, 0, 0.75)",
-	},
-	E205: {
-		1: "#8f1810",
-		2: "#a1271f",
-		3: "#732a25",
-		color: "#f0c2c0",
-		points: "#6ba9e8",
-		locked: "#4c4d4f",
-		background: "#663241",
-		background_tooltip: "rgba(77, 13, 31, 0.75)",
-	},
-}
+var themes = ["E205"];
+let displayNames = ["E205"];
 
 function changeTheme() {
-
-	colors_theme = colors[options.theme || "default"];
-	document.body.style.setProperty('--background', colors_theme["background"]);
-	document.body.style.setProperty('--background_tooltip', colors_theme["background_tooltip"]);
-	document.body.style.setProperty('--color', colors_theme["color"]);
-	document.body.style.setProperty('--points', colors_theme["points"]);
-	document.body.style.setProperty("--locked", colors_theme["locked"]);
+	document.body.classList = "theme-default " + "theme-" + options.theme;
 }
 function getThemeName() {
-	return options.theme? options.theme : "default";
+	let index = themes.indexOf(options.theme || "E205");
+	return displayNames[index];
 }
 
 function switchTheme() {
 	let index = themes.indexOf(options.theme)
+
 	if (options.theme === null || index >= themes.length-1 || index < 0) {
 		options.theme = themes[0];
-	}
-	else {
+	} else {
 		index ++;
 		options.theme = themes[index];
 		options.theme = themes[1];
