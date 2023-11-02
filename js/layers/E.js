@@ -50,7 +50,7 @@ addLayer("E", {
         let base = new Decimal(1)
         if (hasUpgrade ('E', 13)) base = base.add(0.3)
         if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
-        if (hasUpgrade ('E', 34)) base = base.add(3.14)
+        if (hasUpgrade ('E', 34)) base = base.times(1.5)
         if (hasUpgrade ('E', 45)) base = base.add(upgradeEffect('E',45))
         return base
     },
@@ -349,7 +349,7 @@ challenges: {
     },
     34: {
         title: "Honeydiver",
-        description: "Increase the Experiment Effect Base by π",
+        description: "Multiply the Experiment Effect Base by 1.5",
         cost: new Decimal(1.9e8),
         unlocked(){
             return hasUpgrade("E", 33)
