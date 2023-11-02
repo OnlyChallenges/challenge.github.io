@@ -38,7 +38,7 @@ addLayer("E", {
     effect() {
         let eff = player.E.points.add(1).pow(0.26)
         if (inChallenge('E', 14)) eff = eff.div(10)
-        if (hasUpgrade("F",21)) eff1 = eff1.times(3)
+        if (hasUpgrade("F",21)) eff = eff.times(3)
         eff = eff.times(tmp.E.effectBase)
         return eff
     },
