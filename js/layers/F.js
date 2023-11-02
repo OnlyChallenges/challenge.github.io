@@ -99,7 +99,7 @@ milestones: {
                 return text;
               },
             done() { return player.F.points.gte(6000)},
-            unlocked() {return hasUpgrade('c', 56) || player.F.points.gte(3500)},
+            unlocked() {return hasMilestone('F', 14) || player.F.points.gte(3500)},
         }
     },
  upgrades: {
