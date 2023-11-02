@@ -264,7 +264,7 @@ function addedPlayerData() { return {
 var displayThings = [
 	"Endgame: Completing Experiment Challenge 'Entization'",
 	"Fangame of Experiment-205",
-	"You have been playing for :{{ formatTime(player.timePlayed) }}"
+	"You are on: E205-v.2"
 ]
 
 // Determines when the game "ends"
