@@ -78,28 +78,17 @@ milestones: {
             unlocked() {return hasUpgrade('F', 16) || player.F.points.gte(300)},
         },
         14: {
-            requirementDescription: "1,000 Fusions",
-            effectDescription() {
-                let text = "Keep the 5th row of Crystal Upgrades & the 2nd, 3rd, and 4th row of Experiment Upgrades";
-                if (hasMilestone("F", 14)) text =
-                `I'll help you out a bit; Keep all Crystal Upgrades & Experiment Upgrades on reset`;
-                return text;
-              },
-            done() { return player.F.points.gte(1000)},
-            unlocked() {return hasUpgrade('c', 55) || player.F.points.gte(300)},
-        },
-        15: {
-            requirementDescription: "6,000 Fusions",
+            requirementDescription: "2,000 Fusions",
             effectDescription() {
                 let text = "Another Challenge? (Experiments)";
-                if (hasMilestone("F", 15)) text =
+                if (hasMilestone("F", 14)) text =
                 `Another Challenge? (Experiments).
                 Give us more Fusion stuff you jerk...
                 It's annoying to go back and forth y'know.`;
                 return text;
               },
-            done() { return player.F.points.gte(6000)},
-            unlocked() {return hasMilestone('F', 14) || player.F.points.gte(3500)},
+            done() { return player.F.points.gte(2000)},
+            unlocked() {return hasUpgrade('c', 56) || player.F.points.gte(1500)},
         }
     },
  upgrades: {
