@@ -66,7 +66,7 @@ addLayer("F", {
 milestones: {
         11: {
             requirementDescription: "2 Fusions",
-            effectDescription: "Keep 1st Row of Experiment Upgrades",
+            effectDescription: "Keep the 1st Row of Experiment Upgrades",
             done() { return player.F.points.gte(2)},
         },
         12: {
@@ -103,12 +103,12 @@ milestones: {
     cols: 6,
     11: {
         title: "Ayko",
-        description: "This is stupidly cursed...Boost Crystal gain by 7.5x",
+        description: "Nyko & Abys...Boost Crystal gain by 7.5x",
         cost: new Decimal(1),
     },
     12: {
         title: "Cytra",
-        description: "What Am I even looking at...Boost Experiment Gain by 3.33x",
+        description: "Cyberruin & Vixtra...Boost Experiment Gain by 3.33x",
         cost: new Decimal(3),
         unlocked(){
             return hasUpgrade('F',11)
@@ -116,7 +116,7 @@ milestones: {
     },
     13: {
         title: "Sombtox",
-        description: "What in the hell...Boost Infect Gain by 60x",
+        description: "Somby & Kryptox...Boost Infect Gain by 60x",
         cost: new Decimal(6),
         unlocked(){
             return hasUpgrade('F',12)
