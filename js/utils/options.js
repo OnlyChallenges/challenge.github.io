@@ -6,7 +6,7 @@ function getStartOptions() {
 	return {
 		autosave: true,
 		msDisplay: "always",
-		theme: "default",
+		theme: "E205",
 		hqTree: false,
 		offlineProd: true,
 		hideChallenges: false,
