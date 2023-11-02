@@ -62,12 +62,12 @@ addLayer("a", {
                 tooltip: "Complete 'Experimental Brawl' Challenge",
             },
         25: {
-                name: "Salty Enough?",
+                name: "Saltiness isn't enough",
                 done() { return hasUpgrade("c", 44) },
                 tooltip: "Get 'Salt Crystals' from Crystals",
             },
         26: {
-                name: "What, why?",
+                name: "Crystalized Immunity",
                 done() { return inChallenge('E', 12) && player.c.points.gte(1) },
                 tooltip: "Get 1 Crystal in 'Immunity'",
             },
@@ -82,12 +82,12 @@ addLayer("a", {
                 tooltip: "Get 1e9 Infects in 'Immunity'"
             },
         33: {
-                name: "Experiment Upgrades?",
+                name: "Avali the Availing.",
                 done() { return hasMilestone('F', 11) },
                 tooltip: "Get the First Fusion Milestone!"
             },
         34: {
-                name: "More Upgrades!?",
+                name: "Fusioning the Fusions!?",
                 done() { return hasMilestone('F', 12) },
                 tooltip: 
                 `
@@ -100,6 +100,16 @@ addLayer("a", {
                 done() { return hasUpgrade('E', 36) },
                 tooltip: "Get 'Goon' Upgrade"
             },
+        36: {
+                name: "The First Strike",
+                done() { return hasChallenge('E',13)},
+                tooltip: "Complete 'Entization'"
+            },
+        41: {
+                name: "A Murder has occured...",
+                done() { return player.points(1e100)},
+                tooltip: "Get the first Kill..."
+        },
         },
     }, 
 )
