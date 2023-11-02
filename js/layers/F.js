@@ -50,7 +50,14 @@ addLayer("F", {
 	infoboxes: {
         lore: {
             title: "Fusions",
-            body: `Fusions aren't a very good combination...`,
+            body: 
+            `This section is completely fanmade - This Section isn't balanced yet with Crystals & Experiments!<br> 
+            Full Section will be updated on E205-test_v.2!<br><br>
+            ???: I heard there's something roaming down there...<br>
+            ???: What do you mean?<br>
+            ???: Like some pipe taping...like someone's putting duct tape on them...<br>
+            ???: Oh really? Well I'm not that scared of it.<br>
+            - There was distant yelling behind them... -`,
         },
     },
     layerShown() {
