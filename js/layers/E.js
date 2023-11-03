@@ -78,6 +78,7 @@ addLayer("E", {
         if (hasMilestone('E', 15)) value1 = value1.add(0.49)
         return value1
     },
+    layerShown(){return true},
 milestones: {
         11: {
             requirementDescription: "333 Experiments",
