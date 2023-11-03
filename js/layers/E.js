@@ -494,9 +494,11 @@ challenges: {
             buttonStyle() { return { 'color': '#BF233F' } },
             content:
                 [
-                    ["microtabs", "main", { 'border-width': '0px' }],
-                ]
-
+                 "upgrades",
+                 "milestones",
+                 "challenges",
+                 "clickables",
+                ],
         },
  tabFormat: [
     ["microtabs", "stuff", { 'border-width': '0px' }],
