@@ -13,16 +13,29 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.3.3_2+",
-	name: "Someone Deadly",
+	num: "0.4",
+	name: "Bloody Facility",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-		<h2>vx.y.z.a</h2><br>
+		<h2>vx.y.z_a</h2><br>
 		x = major update<br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+
+		<h2>v0.4 Bloody Facility </h2><br>
+			- Added Kills (Another Layer that will Reset Experiments & Crystals but not Fusions!)<br>
+			- Changed 2 Upgrades<br>
+			- Changed UI Layout<br>
+			- Crystals & Experiment Layer's are balanced before Fusion<br>
+			- Fusion is getting more attention. Added Lore to the Fusion Layer<br>
+			- Fixed Multiple things to Balance all of the Layers<br>
+			- Added 1 Crystal Upgrade<br>
+			- Experiment Milestone 1 will automatically buy the next 3 hidden upgrades in Crystals (to make it easier for you :3)<br>
+			- Fixed 'Experimental Brawl' & 'Immunity' to be more balanced and more of an active-playstyle.<br>
+			- Endgame: 1 Kill(s)<br><br>
 
 		<h3>v0.3.3 Someone Deadly </h3><br>
 			- Added 2 Fusion Upgrades<br>
@@ -31,7 +44,7 @@ let changelog = `<h1>Changelog:</h1><br>
 			- Fixed Fusion Effect being too overpowered after 1,000 Fusions<br>
 			- Fixed Fusion Effect only affecting Crystals after the 5th Upgrade in Fusions<br>
 			- Added Another Layer (v0.4 Log lol)<br>
-			- Nice Enough to change 'Experimental Brawl' to 1,500,000 Crystals instead of 5,000,000,000 Crystals :3
+			- Nice Enough to change 'Experimental Brawl' to 1,500,000 Crystals instead of 5,000,000,000 Crystals :3<br>
 			- Endgame: Completing Experiment Challenge "Entization"<br><br>
 
 
@@ -261,7 +274,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: Completing Experiment Challenge 'Entization'",
+	"Endgame: 1 Kill",
 	"Fangame of Experiment-205",
 	"You are on: E205-test_v.1.5"
 ]
