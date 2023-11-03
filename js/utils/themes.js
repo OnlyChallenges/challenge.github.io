@@ -1,6 +1,6 @@
 // ************ Themes ************
-var themes = ["E205", "E205_test"];
-let displayNames = ["E205", "E205_test"];
+var themes = ["E205", "E205_outside"];
+let displayNames = ["Inside", "Outside"];
 
 function changeTheme() {
 	document.body.classList = "theme-default " + "theme-" + options.theme;
