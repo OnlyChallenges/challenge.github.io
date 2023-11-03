@@ -57,7 +57,7 @@ addLayer("F", {
             ???: What?<br>
             ???: I heard something.<br>
             ???: What do you mean?<br>
-            ???: Like...like someone's putting duct tape on them...<br>
+            ???: Like...like someone's putting duct tape on the something...<br>
             ???: Oh... really? Well I'm not that scared of it. It's just tap-<br>
             - There was distant yelling ... -<br>
             ???: Oh...-<br>
