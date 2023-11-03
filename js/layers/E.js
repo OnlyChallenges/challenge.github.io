@@ -494,10 +494,9 @@ challenges: {
             buttonStyle() { return { 'color': '#BF233F' } },
             content:
                 [
-                 "upgrades",
-                 "milestones",
-                 "challenges",
-                 "clickables",
+                 ["upgrades"],
+                 ["milestones"],
+                 ["challenges"],
                 ],
         },
  tabFormat: [
