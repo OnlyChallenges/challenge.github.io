@@ -74,7 +74,6 @@ addLayer("c", {
             body: `Crystals hurt people which would infect them. The main problem of Infects...`,
         },
     },
-    branches: ["E"],
  upgrades: {
     rows: 5,
     cols: 5,

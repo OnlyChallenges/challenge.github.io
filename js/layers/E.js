@@ -65,7 +65,6 @@ addLayer("E", {
     hotkeys: [
         {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    branches: ["F"],
     layerShown(){return true},
 	infoboxes: {
         lore: {
