@@ -118,8 +118,8 @@ milestones: {
         cost: new Decimal(1),
     },
     12: {
-        title: "Cytra",
-        description: "Cyberruin & Vixtra...Boost Experiment Gain by 3.33x",
+        title: "Cyberus",
+        description: "Cyberruin & Virus...Boost Experiment Gain by 3.33x",
         cost: new Decimal(3),
         unlocked(){
             return hasUpgrade('F',11)
