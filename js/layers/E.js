@@ -7,7 +7,8 @@ addLayer("E", {
 		points: new Decimal(0),
         best: new Decimal(0),
         total: new Decimal(0),
-    }},
+    }
+    },
     color: "#BF233F",
     requires: new Decimal(1.25e8), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency
@@ -489,6 +490,6 @@ challenges: {
  },  
 layerShown() {
     return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
-    ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}];      
+    return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>"     
   },
  })             
