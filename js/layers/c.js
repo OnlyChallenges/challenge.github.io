@@ -9,6 +9,11 @@ addLayer("c", {
         total: new Decimal(0),
     }},
     color: "#FC7BDC",
+    nodeStyle() {
+        return {
+            background: (player.c.unlocked || canReset("c")) ? ((player.grad && !player.oldStyle) ? "radial-gradient(linear, #FA7BDC 0%, #736db0 100%)" : "#FA7BDC") : "#9dd2fa",
+        }
+    },
     requires:
     new Decimal(5),    // Can be a function that takes requirement increases into account    
     resource: "crystals", // Name of prestige currency
@@ -69,6 +74,7 @@ addLayer("c", {
             body: `Crystals hurt people which would infect them. The main problem of Infects...`,
         },
     },
+    branches: ["E"],
  upgrades: {
     rows: 5,
     cols: 5,

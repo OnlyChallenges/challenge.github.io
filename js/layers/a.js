@@ -2,7 +2,7 @@ addLayer("a", {
         startData() { return {
             unlocked: true,
         }},
-        color: "cyan",
+        color: "#543d85",
         row: "side",
         layerShown() {return true}, 
         tooltip() { // Optional, tooltip displays when the layer is locked
