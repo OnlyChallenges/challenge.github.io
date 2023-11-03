@@ -11,7 +11,7 @@ addLayer("c", {
     color: "#FC7BDC",
     nodeStyle() {
         return {
-            background: (player.c.unlocked || canReset("c")) ? ((player.grad && !player.oldStyle) ? "radial-gradient(linear, #FA7BDC 0%, #736db0 100%)" : "#FA7BDC") : "#9dd2fa",
+            background: (player.c.unlocked || canReset("c")) ? ((player.grad && !player.oldStyle) ? "radial-gradient(circle, #FA7BDC 0%, #736db0 100%)" : "#FA7BDC") : "#9dd2fa",
         }
     },
     requires:
