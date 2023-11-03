@@ -486,35 +486,9 @@ challenges: {
             return hasUpgrade("E", 45)
         },
     },
- },
- microtabs: {
-    stuff: {
-        "Main": {
-            unlocked() { return true },
-            buttonStyle() { return { 'color': '#BF233F' } },
-            content:
-                [
-                 ["blank", "25px"],
-                 ["milestone", 11],
-                 ["milestone", 12],
-                 ["milestone", 13],
-                 ["milestone", 14],
-                 ["milestone", 15],
-                 ["row", [["upgrades", 11], ["upgrades", 12], ["upgrades", 13], ["upgrades", 14], ["upgrades", 15], ["upgrades", 16]]],
-                 ["row", [["upgrades", 21], ["upgrades", 22], ["upgrades", 23], ["upgrades", 24], ["upgrades", 25], ["upgrades", 26]]],
-                 ["row", [["upgrades", 31], ["upgrades", 32], ["upgrades", 33], ["upgrades", 34], ["upgrades", 35], ["upgrades", 36]]],
-                 ["row", [["upgrades", 41], ["upgrades", 42], ["upgrades", 43], ["upgrades", 44], ["upgrades", 45], ["upgrades", 46]]],
-                 ["blank", "25px"],
-                 ["row", [["challenges", 11], ["challenges", 12]]],
-                 ["row", [["challenges", 21]]],
-                ],
-        },
- tabFormat: [
-    ["microtabs", "stuff", { 'border-width': '0px' }],
-    ["blank", "25px"],
-    ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}],        
-],
+ },  
 layerShown() {
     return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
+    ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}];      
   },
  })             
