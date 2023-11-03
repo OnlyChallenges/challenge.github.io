@@ -7,7 +7,8 @@ addLayer("E", {
 		points: new Decimal(0),
         best: new Decimal(0),
         total: new Decimal(0),
-    }},
+    }
+    },
     color: "#BF233F",
     requires: new Decimal(1.25e8), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency
@@ -65,7 +66,6 @@ addLayer("E", {
     hotkeys: [
         {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true},
 	infoboxes: {
         lore: {
             title: "Experiments",
@@ -78,9 +78,7 @@ addLayer("E", {
         if (hasMilestone('E', 15)) value1 = value1.add(0.49)
         return value1
     },
-    layerShown() {
-        return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
-      },
+    layerShown(){return true},
 milestones: {
         11: {
             requirementDescription: "333 Experiments",
@@ -146,7 +144,7 @@ challenges: {
             canComplete: function() {return player.points.gte(1)},
             unlocked() {return hasUpgrade('c', 42) || inChallenge('E',12) || hasChallenge('E',12)},
         },
-        13: {
+        21: {
             name: "Entization",
             challengeDescription: `
             Is it just me or is there whisling down the hall?<br>
@@ -183,7 +181,7 @@ challenges: {
         },
     },
     14: {
-        title: "Vixtra",
+        title: "Lovebeast",
         description: "Increase Experiment Effect Base by infects & 5x Infects",
         cost: new Decimal(33),
         effect() {
@@ -407,7 +405,7 @@ challenges: {
         },
     },
     41: {
-        title: "Vixy",
+        title: "Virus",
         description: "Increase Fusions based on Infects",
         cost: new Decimal(2.34e10),
         effect(){
@@ -490,10 +488,8 @@ challenges: {
             return hasUpgrade("E", 45)
         },
     },
-    tabFormat: [
-        ["microtabs", "stuff", { 'border-width': '0px' }],
-        ["blank", "25px"],
-        ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}],
-    ],
- },
+ },  
+layerShown() {
+    return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
+    },
  })             

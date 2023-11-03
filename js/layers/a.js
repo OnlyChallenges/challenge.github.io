@@ -148,10 +148,20 @@ addLayer("a", {
                 tooltip: "Complete 'Entization'"
             },
         41: {
-                name: "A Murder has occured...",
+                name: "Added a Bomb",
                 done() { return player.points.gte(1e100)},
-                tooltip: "Get the first Kill..."
+                tooltip: 
+                `:Explosion: <br>
+                (Get 1e100 Crystals)<br>
+                Reward: 1.69x Experiments`
             },
+        42: {
+                name: "First Kill",
+                done() { return player.points.gte(1e150)},
+                tooltip: 
+                `Get the First Kill Point`
+            },
+            
         },
     },
 )

@@ -64,9 +64,10 @@ addLayer("F", {
             - There was distant yelling ... -<br>
             ???: Oh...-<br>
             ???: Well I guess it's just two people yelling about the pipes leaking...<br>
-            ???: I can see why, what's the point of putting duct tape on pipes...
+            ???: I can see why, what's the point of putting duct tape on pipes...<br><br>
             
-            <In a later Upgrade you'll see one of the names...>`
+            - In a later Upgrade you'll see one of the names and more lore.. -`
+            return text
             },
         },
     },
@@ -117,8 +118,8 @@ milestones: {
         cost: new Decimal(1),
     },
     12: {
-        title: "Cytra",
-        description: "Cyberruin & Vixtra...Boost Experiment Gain by 3.33x",
+        title: "Cyberus",
+        description: "Cyberruin & Virus...Boost Experiment Gain by 3.33x",
         cost: new Decimal(3),
         unlocked(){
             return hasUpgrade('F',11)
