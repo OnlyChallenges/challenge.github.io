@@ -62,7 +62,6 @@ addLayer("E", {
         return base
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    branches: ['F'],
     hotkeys: [
         {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],

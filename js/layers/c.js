@@ -47,7 +47,6 @@ addLayer("c", {
         return pow
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    branches: ['E'],
     hotkeys: [
         {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
