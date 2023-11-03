@@ -181,7 +181,7 @@ challenges: {
         },
     },
     14: {
-        title: "Vixtra",
+        title: "Lovebeast",
         description: "Increase Experiment Effect Base by infects & 5x Infects",
         cost: new Decimal(33),
         effect() {
@@ -405,7 +405,7 @@ challenges: {
         },
     },
     41: {
-        title: "Vixy",
+        title: "Virus",
         description: "Increase Fusions based on Infects",
         cost: new Decimal(2.34e10),
         effect(){
