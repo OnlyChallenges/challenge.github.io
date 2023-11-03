@@ -8,10 +8,15 @@ addLayer("c", {
         best: new Decimal(0),
         total: new Decimal(0),
     }},
-    color: "#FC7BDC",
+    color: "#FA7BDC",
     nodeStyle() {
         return {
             background: (player.c.unlocked || canReset("c")) ? ((player.grad && !player.oldStyle) ? "radial-gradient(circle, #FA7BDC 0%, #736db0 100%)" : "#FA7BDC") : "#9dd2fa",
+        }
+    },
+    componentStyle: {
+        background(){
+            return (player.c.unlocked || canReset("c")) ? ((player.grad && !player.oldStyle) ? "radial-gradient(circle, #FA7BDC 0%, #736db0 100%)" : "#FA2CDC") : "#9dd2fa"
         }
     },
     requires:
