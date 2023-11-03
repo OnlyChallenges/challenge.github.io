@@ -7,6 +7,7 @@ addLayer("c", {
 		points: new Decimal(0),
         best: new Decimal(0),
         total: new Decimal(0),
+        music: "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>"
     }},
     color: "#FA7BDC",
     nodeStyle() {return {

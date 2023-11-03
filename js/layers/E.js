@@ -490,6 +490,5 @@ challenges: {
  },  
 layerShown() {
     return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
-    return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>"     
-  },
+    },
  })             
