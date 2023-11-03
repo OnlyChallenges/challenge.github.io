@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.4.1",
+	num: "0.4.1.1",
 	name: "Checks, Saves, and Balancing",
 }
 
@@ -30,6 +30,11 @@ let changelog = `<h1>Changelog:</h1><br>
 			- Breaking News: Experiment Milestone 13 was 15% E/sec and not 1% E/sec...<br>
 			- Added Another Experiment Milestone to improve Breaking News of that Breaking News!<br>
 			- Fixed 3 Upgrades having a higher Scale than the other one.<br><br>
+			- v0.4.1.1:<br>
+			- Changed the 'Foxnay' Upgrade a bit<br>
+			- Added 2 Achievement Effects for Pre-Fusion & During-Fusion<br>
+			- Fixed 2 Experiment Upgrades<br>
+			- Fixed 1 Experiment Milestone<br><br>
 
 		<h2>v0.4 Bloody Facility </h2><br>
 			- Added Kills (Another Layer that will Reset Experiments & Crystals but not Fusions!)<br>
@@ -258,7 +263,7 @@ function getPointGen() {
 	if (hasUpgrade('E', 25)) gain = gain.times(upgradeEffect('E',25))
 	if (hasUpgrade('E', 31)) gain = gain.times(upgradeEffect('E',31))
 	if (hasUpgrade('E', 33)) gain = gain.times(upgradeEffect('E',33))
-	if (hasUpgrade('E', 35)) gain = gain.div(2.5)		
+	if (hasUpgrade('E', 35)) gain = gain.div(1.25)		
 	if (hasUpgrade('E', 42)) gain = gain.times(upgradeEffect('E',42))
 	if (hasUpgrade('E', 46)) gain = gain.times(1.5)	
 	// F Upgrades
@@ -271,6 +276,8 @@ function getPointGen() {
 	if (inChallenge('E', 12)) gain = gain.div(8e12)
 	if (inChallenge('E', 13)) gain = gain.div(1e17)
 	if (hasChallenge('E',11)) gain = gain.times(10)
+	// Achievement Effects
+	if (hasAchievement('a', 26)) gain = gain.times(2.5)
 	return gain
 }
 

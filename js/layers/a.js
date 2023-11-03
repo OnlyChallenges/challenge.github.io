@@ -108,7 +108,10 @@ addLayer("a", {
         26: {
                 name: "Crystalized Immunity",
                 done() { return inChallenge('E', 12) && player.c.points.gte(1) },
-                tooltip: "Get 1 Crystal in 'Immunity'",
+                tooltip: `
+                Get 1 Crystal in 'Immunity'<br>
+                Reward: 2.5x Infects
+                `,
             },
         31: {
                 name: "Combination",

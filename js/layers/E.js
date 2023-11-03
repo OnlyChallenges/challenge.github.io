@@ -380,7 +380,7 @@ challenges: {
         description(){
         let text
         text = "Increase Infect Gain by 100x"
-        if (hasUpgrade("E", 35)) text = "Wait what... Divide Infect Gain by 2.5x"
+        if (hasUpgrade("E", 35)) text = "Wait what... Divide Infect Gain by 1.25x"
         return text
         },
         cost: new Decimal(3.5e8),
