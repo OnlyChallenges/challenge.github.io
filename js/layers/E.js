@@ -142,7 +142,7 @@ challenges: {
             canComplete: function() {return player.points.gte(1)},
             unlocked() {return hasUpgrade('c', 42) || inChallenge('E',12) || hasChallenge('E',12)},
         },
-        13: {
+        21: {
             name: "Entization",
             challengeDescription: `
             Is it just me or is there whisling down the hall?<br>
@@ -494,9 +494,19 @@ challenges: {
             buttonStyle() { return { 'color': '#BF233F' } },
             content:
                 [
-                 ["upgrades"],
-                 ["milestones"],
-                 ["challenges"],
+                 ["blank", "25px"],
+                 ["milestone", 11],
+                 ["milestone", 12],
+                 ["milestone", 13],
+                 ["milestone", 14],
+                 ["milestone", 15],
+                 ["row", [["upgrades", 11], ["upgrades", 12], ["upgrades", 13], ["upgrades", 14], ["upgrades", 15], ["upgrades", 16]]],
+                 ["row", [["upgrades", 21], ["upgrades", 22], ["upgrades", 23], ["upgrades", 24], ["upgrades", 25], ["upgrades", 26]]],
+                 ["row", [["upgrades", 31], ["upgrades", 32], ["upgrades", 33], ["upgrades", 34], ["upgrades", 35], ["upgrades", 36]]],
+                 ["row", [["upgrades", 41], ["upgrades", 42], ["upgrades", 43], ["upgrades", 44], ["upgrades", 45], ["upgrades", 46]]],
+                 ["blank", "25px"],
+                 ["row", [["challenges", 11], ["challenges", 12]]],
+                 ["row", [["challenges", 21]]],
                 ],
         },
  tabFormat: [
