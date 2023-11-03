@@ -53,11 +53,16 @@ addLayer("F", {
             body: 
             `This section is completely fanmade - This Section isn't balanced yet with Crystals & Experiments!<br> 
             Full Section will be updated on E205-test_v.2!<br><br>
-            ???: I heard there's something roaming down there...<br>
+            ???: I heard something...<br>
+            ???: What?<br>
+            ???: I heard something.<br>
             ???: What do you mean?<br>
-            ???: Like some pipe taping...like someone's putting duct tape on them...<br>
-            ???: Oh really? Well I'm not that scared of it.<br>
-            - There was distant yelling behind them... -`,
+            ???: Like...like someone's putting duct tape on them...<br>
+            ???: Oh... really? Well I'm not that scared of it. It's just tap-<br>
+            - There was distant yelling ... -<br>
+            ???: Oh...-<br>
+            ???: Well I guess it's just two people yelling about the pipes leaking...<br>
+            ???: I can see why, what's the point of putting duct tape on pipes...`,
         },
     },
     layerShown() {
