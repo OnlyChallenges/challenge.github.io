@@ -9,16 +9,9 @@ addLayer("c", {
         total: new Decimal(0),
     }},
     color: "#FA7BDC",
-    nodeStyle() {
-        return {
-            background: (player.c.unlocked || canReset("c")) ? ((player.grad && !player.oldStyle) ? "radial-gradient(circle, #FA7BDC 0%, #736db0 100%)" : "#FA7BDC") : "#9dd2fa",
-        }
-    },
-    componentStyle: {
-        background(){
-            return (player.c.unlocked || canReset("c")) ? ((player.grad && !player.oldStyle) ? "radial-gradient(circle, #FA7BDC 0%, #736db0 100%)" : "#FA2CDC") : "#9dd2fa"
-        }
-    },
+    nodeStyle() {return {
+        "background-color": ((player.c.unlocked||canReset("c"))?"#FA7BDC":"#bf8f8f"),
+    }},
     requires:
     new Decimal(5),    // Can be a function that takes requirement increases into account    
     resource: "crystals", // Name of prestige currency
