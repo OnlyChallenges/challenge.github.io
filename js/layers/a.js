@@ -8,6 +8,43 @@ addLayer("a", {
         tooltip() { // Optional, tooltip displays when the layer is locked
             return ("Accomplishments")
         },
+        tabFormat: {
+            "Achievements": {
+                content: [
+                    "achievements",
+                    "blank",
+                    ],
+            },
+            "Savebank": {
+                content: [
+                    ["clickables", [1, 2, 3]],
+                ],
+            },
+        },
+        11: {
+            title: "Crystals",
+            display: "Layer Finished Pre-Experiments",
+            canClick: true,
+            onClick() {
+                if(!confirm("Your current progress will not be saved!")) return;
+                importSave("")
+            },
+            style() {return{
+                'background-color': tmp.c.color,
+            }},
+        },
+        12: {
+            title: "Experiments",
+            display: "Layer Finished Pre-Fusions",
+            canClick: true,
+            onClick() {
+                if(!confirm("Your current progress will not be saved!")) return;
+                importSave("")
+            },
+            style() {return{
+                'background-color': tmp.E.color,
+            }},
+        },
         achievements: {
             rows: 5,
             cols: 6,
@@ -111,5 +148,5 @@ addLayer("a", {
                 tooltip: "Get the first Kill..."
             },
         },
-    }, 
+    },
 )

@@ -50,19 +50,24 @@ addLayer("F", {
 	infoboxes: {
         lore: {
             title: "Fusions",
-            body: 
+            body() {
+            let text 
+            text = 
             `This section is completely fanmade - This Section isn't balanced yet with Crystals & Experiments!<br> 
             Full Section will be updated on E205-test_v.2!<br><br>
             ???: I heard something...<br>
             ???: What?<br>
             ???: I heard something.<br>
             ???: What do you mean?<br>
-            ???: Like...like someone's putting duct tape on the something...<br>
-            ???: Oh... really? Well I'm not that scared of it. It's just tap-<br>
+            ???: Like...like someone's putting duct tape on something...<br>
+            ???: Oh... really? Well... I'm not scared of it. It's just tap-<br>
             - There was distant yelling ... -<br>
             ???: Oh...-<br>
             ???: Well I guess it's just two people yelling about the pipes leaking...<br>
-            ???: I can see why, what's the point of putting duct tape on pipes...`,
+            ???: I can see why, what's the point of putting duct tape on pipes...
+            
+            <In a later Upgrade you'll see one of the names...>`
+            },
         },
     },
     layerShown() {
