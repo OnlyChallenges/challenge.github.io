@@ -81,9 +81,6 @@ addLayer("E", {
     layerShown() {
         return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
       },
-      tabFormat: [
-        ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}],
-    ],
 milestones: {
         11: {
             requirementDescription: "333 Experiments",
@@ -493,6 +490,8 @@ challenges: {
             return hasUpgrade("E", 45)
         },
     },
-
+    tabFormat: [
+        ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}],
+    ],
  },
  })             
