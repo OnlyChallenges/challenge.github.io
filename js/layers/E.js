@@ -78,6 +78,11 @@ addLayer("E", {
         if (hasMilestone('E', 15)) value1 = value1.add(0.49)
         return value1
     },
+    tabFormat: [
+        ["microtabs", "stuff", { 'border-width': '0px' }],
+        ["blank", "25px"],
+        ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}],
+    ],
     layerShown() {
         return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
       },
@@ -490,10 +495,6 @@ challenges: {
             return hasUpgrade("E", 45)
         },
     },
-    tabFormat: [
-        ["microtabs", "stuff", { 'border-width': '0px' }],
-        ["blank", "25px"],
-        ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}],
-    ],
+
  },
  })             
