@@ -15,10 +15,6 @@ function switchTheme() {
 
 	if (options.theme === null || index >= themes.length-1 || index < 0) {
 		options.theme = themes[0];
-	} else {
-		index ++;
-		options.theme = themes[index];
-		options.theme = themes[1];
 	}
 	changeTheme();
 	resizeCanvas();
