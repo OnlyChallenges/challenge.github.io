@@ -487,7 +487,20 @@ challenges: {
         },
     },
  },
+ microtabs: {
+    stuff: {
+        "Main": {
+            unlocked() { return true },
+            buttonStyle() { return { 'color': '#BF233F' } },
+            content:
+                [
+                    ["microtabs", "main", { 'border-width': '0px' }],
+                ]
+
+        },
  tabFormat: [
+    ["microtabs", "stuff", { 'border-width': '0px' }],
+    ["blank", "25px"],
     ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}],        
 ],
 layerShown() {
