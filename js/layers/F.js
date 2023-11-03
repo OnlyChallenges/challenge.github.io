@@ -66,7 +66,8 @@ addLayer("F", {
             ???: Well I guess it's just two people yelling about the pipes leaking...<br>
             ???: I can see why, what's the point of putting duct tape on pipes...
             
-            <In a later Upgrade you'll see one of the names...>`
+            <In a later Upgrade you'll see one of the names and more lore..>`
+            return text
             },
         },
     },

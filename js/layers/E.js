@@ -8,9 +8,6 @@ addLayer("E", {
         best: new Decimal(0),
         total: new Decimal(0),
     }},
-    tabFormat: [
-        ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}],        
-    ],
     color: "#BF233F",
     requires: new Decimal(1.25e8), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency
@@ -68,7 +65,6 @@ addLayer("E", {
     hotkeys: [
         {key: "e", description: "e: reset for Experiments", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true},
 	infoboxes: {
         lore: {
             title: "Experiments",
@@ -81,9 +77,6 @@ addLayer("E", {
         if (hasMilestone('E', 15)) value1 = value1.add(0.49)
         return value1
     },
-    layerShown() {
-        return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
-      },
 milestones: {
         11: {
             requirementDescription: "333 Experiments",
@@ -494,4 +487,10 @@ challenges: {
         },
     },
  },
+ tabFormat: [
+    ["raw-html", function () { return options.musicToggle ? "<audio controls autoplay loop hidden><source src=music/Icarus.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>" : ""}],        
+],
+layerShown() {
+    return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
+  },
  })             
