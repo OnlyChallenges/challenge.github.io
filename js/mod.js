@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.4",
-	name: "Bloody Facility",
+	num: "0.4.1",
+	name: "Checks, Saves, and Balancing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -24,6 +24,12 @@ let changelog = `<h1>Changelog:</h1><br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
 
+		<h3>v0.4.1 Checks, Saves, and Balancing </h3><br>
+			- Added A Savebank to Pre-Fusions (ongod?)<br>
+			- Added Another Experiment Milestone to help with the During-Fusion Upgrades<br>
+			- Breaking News: Experiment Milestone 13 was 15% E/sec and not 1% E/sec...<br>
+			- Added Another Experiment Milestone to improve Breaking News of that Breaking News!<br>
+			- Fixed 3 Upgrades having a higher Scale than the other one.<br><br>
 
 		<h2>v0.4 Bloody Facility </h2><br>
 			- Added Kills (Another Layer that will Reset Experiments & Crystals but not Fusions!)<br>

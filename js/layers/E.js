@@ -74,7 +74,8 @@ addLayer("E", {
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
-        if (hasMilestone('E', 13)) value1 = value1.add(0.15)
+        if (hasMilestone('E', 13)) value1 = value1.add(0.01)
+        if (hasMilestone('E', 15)) value1 = value1.add(0.49)
         return value1
     },
     layerShown() {
@@ -110,6 +111,14 @@ milestones: {
             done() { return player.E.points.gte(250000000) && hasUpgrade('c',44) },
             unlocked(){
                 return hasMilestone('E',13) 
+            },
+        },
+        15: {
+            requirementDescription: "1e11 Experiments and 7 Fusions",
+            effectDescription: "Passively Gain 50% Experiments/sec & 35% Crystals/sec",
+            done() { return player.E.points.gte(1e11) && player.F.points.gte(7) },
+            unlocked(){
+                return hasMilestone('E',14) 
             },
         },
     },
