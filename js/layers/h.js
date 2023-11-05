@@ -38,6 +38,7 @@ addLayer("H", {
     hotkeys: [
         {key: "h", description: "h: reset for Humans", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    layerShown() {return true},
     layerShown() {
         return hasChallenge("E", 21) || player.H.points.gte(1) || player.H.unlocked;
         },
