@@ -435,6 +435,7 @@ addLayer("c", {
         unlocked(){
             return hasUpgrade("c", 53)
         },
+    },
     55: {
             title: "Lusionist",
                 description: "Beelusion again? Infects boosts Infects",
@@ -448,6 +449,5 @@ addLayer("c", {
                 effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
             },
 },
-    },
  })
 
