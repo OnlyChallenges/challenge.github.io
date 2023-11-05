@@ -60,7 +60,7 @@ addLayer("c", {
         if (hasMilestone ('E', 11) && resettingLayer=="E") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35")
         if (hasMilestone ('E', 14) && resettingLayer=="E") player.c.upgrades.push("41", "42", "43", "44", "45")
         if (hasMilestone ('F', 11) && resettingLayer=="F") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
-        if (hasMilestone ('F', 12) && resettingLayer=="F") layerDataReset("E", ["challenges"])
+        if (hasMilestone ('F', 12) && resettingLayer=="F") player.E.push("challenges", 11, 12)
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
