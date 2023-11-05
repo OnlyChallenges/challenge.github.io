@@ -274,7 +274,7 @@ function getPointGen() {
 	// Challenges
 	if (inChallenge('E', 11)) gain = gain.div(5e9)
 	if (inChallenge('E', 12)) gain = gain.div(8e12)
-	if (inChallenge('E', 21)) gain = gain.div(1e20)
+	if (inChallenge('E', 21)) gain = gain.div(1e18)
 	if (hasChallenge('E',11)) gain = gain.times(10)
 	// Achievement Effects
 	if (hasAchievement('a', 26)) gain = gain.times(2.5)
