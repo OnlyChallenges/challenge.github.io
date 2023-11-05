@@ -141,7 +141,7 @@ addLayer("a", {
                 `
             },
         35: {
-                name(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> He's an experiment.</h4>`:"Wait...is he a human?"},
+                name(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> He's an experiment.</h4>`:"Wait...isn't he a human?"},
                 done() { return hasUpgrade('E', 36) },
                 tooltip(){return hasAchievement("a", 35)?`<h4 style='color: darkred; text-shadow: blue 1.75px 1.75px 10px;'> Get the 'Goon' Upgrade<br> Reward: There's no going back.</h4>`:"Get the 'Goon' Upgrade"}
             },

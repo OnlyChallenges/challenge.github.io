@@ -59,10 +59,12 @@ addLayer("c", {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
         if (hasMilestone ('E', 11) && resettingLayer=="E") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35")
         if (hasMilestone ('E', 14) && resettingLayer=="E") player.c.upgrades.push("41", "42", "43", "44", "45")
+        if (hasMilestone ('E', 16) && resettingLayer=="E") player.c.upgrades.push("51", "52", "53", "54", "55")
         if (hasMilestone ('F', 11) && resettingLayer=="F") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
         if (hasMilestone ('F', 14) && resettingLayer=="E") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46")
         if (hasMilestone ('F', 12) && resettingLayer=="F") player.E.milestones.push("11", "12", "13", "14")
         if (hasUpgrade ('F', 16) && resettingLayer=="F") player.E.milestones.push("15")
+        if (hasUpgrade ('F', 22) && resettingLayer=="F") player.E.milestones.push("16")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
@@ -367,9 +369,9 @@ addLayer("c", {
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text
         },
-            cost: new Decimal(1e44),
+            cost: new Decimal(6.5e39),
         unlocked(){
-            return hasMilestone("F", 13)
+            return hasMilestone("F", 13) || hasUpgrade("c",45)
         },
     },
     52: {
@@ -393,7 +395,7 @@ addLayer("c", {
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text
         },
-            cost: new Decimal(1.66e45),
+            cost: new Decimal(1e41),
         unlocked(){
             return hasUpgrade("c", 51)
         },
@@ -411,7 +413,7 @@ addLayer("c", {
                 if (hasUpgrade("c", 53)) text = "Kidding! Crystals gain is now ^1.01. Hey...Be happy it's some power and not another multiplier."
                 return text
                 },
-                cost: new Decimal(3.5e46),
+                cost: new Decimal(5.2e41),
             unlocked(){
                 return hasUpgrade("c", 52)
             },
@@ -436,7 +438,7 @@ addLayer("c", {
     55: {
             title: "Lusionist",
                 description: "Beelusion again? Infects boosts Infects",
-                cost: new Decimal(1.77e49),
+                cost: new Decimal(1.33e43),
                 unlocked(){
                     return hasUpgrade("c", 54)
                 },

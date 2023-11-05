@@ -148,6 +148,14 @@ milestones: {
                 return hasMilestone('E',14) 
             },
         },
+        16: {
+            requirementDescription: "1e15 Experiments and 60 Fusions",
+            effectDescription: "Keep the 5th row of Crystal Upgrades",
+            done() { return player.E.points.gte(1e15) && player.F.points.gte(60) },
+            unlocked(){
+                return hasMilestone('E',15)
+            }
+        },
     },
 challenges: {
         11: {

@@ -111,7 +111,7 @@ milestones: {
                 return text;
               },
             done() { return player.F.points.gte(100)},
-            unlocked() {return hasUpgrade('c', 56) || player.F.points.gte(135)},
+            unlocked() {return hasUpgrade('c', 55) || player.F.points.gte(135)},
         }
     },
  upgrades: {
@@ -168,6 +168,14 @@ milestones: {
         cost: new Decimal(17),
         unlocked(){
             return hasUpgrade('F',16)
+        },
+    },
+    22: {
+        title: "Frostral",
+        description: "Quadtruple the Experiment Effects",
+        cost: new Decimal(45),
+        unlocked(){
+            return hasUpgrade('F',22)
         },
     },
  },
