@@ -140,7 +140,7 @@ milestones: {
             effectDescription(){
                 let text
                 text = `Passively Gain 50% Experiments/sec & 35% Crystals/sec.`
-                if (hasMilestone("E",15)) text = `Passively Gain 50% Experiments/sec & 35% Crystals/sec.<br> You get to keep this Milestone!`
+                if (hasMilestone("E",15)) text = `Passively Gain 50% Experiments/sec & 35% Crystals/sec.<br> You get to keep this Milestone if you have 'Kryruin'!`
                 return text
             },
             done() { return player.E.points.gte(1e11) && player.F.points.gte(7) },
