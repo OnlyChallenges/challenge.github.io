@@ -82,9 +82,12 @@ addLayer("E", {
     tabFormat: {
         "Main":{
             content: [
-                ["lore",
-                "display-text", () => "You have " + colored("E", format(player.E.points)) + "experiments , which is boosting infect gain by " + format(tmp.E.effect) + "x"],
+                "infoboxes",
+                ["display-text", () => "You have " + colored("E", format(player.E.points)) + "experiments , which is boosting infect gain by " + format(tmp.E.effect) + "x"],
                 "prestige-button",
+                "best",
+                "total",
+                "blank",
                 "milestones",
                 "blank",
                 "upgrades",
