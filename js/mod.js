@@ -305,14 +305,14 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"Endgame: 1 Kill",
+	"<a>Endgame: 2 Humans</a>",
 	"Fangame of Experiment-205",
 	"You are on: E205-test_v.1.5"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return hasChallenge('E',13)
+	return player.H.points.gte(2)
 }
 
 
