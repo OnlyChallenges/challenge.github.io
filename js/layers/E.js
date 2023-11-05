@@ -83,11 +83,11 @@ addLayer("E", {
         "Main":{
             content: [
                 ["infoboxes", "lore"],
-                ["display-text", () => "You have " + colored("E", format(player.E.points)) + " Experiments , which is boosting infect gain by " + format(tmp.E.effect) + "x"],
+                ["display-text", () => "You have " + colored("E", format(player.E.points)) + " Experiments, which is boosting infect gain by " + format(tmp.E.effect) + "x"],
                 "prestige-button",
                 "blank",
-                ["display-text", () => "You have a total of " + format(player.E.total) + "Experiments."],
-                ["display-text", () => "You have a best of " + format(player.E.best) + "Experiments."],
+                ["display-text", () => "You have a total of " + format(player.E.total) + " Experiments."],
+                ["display-text", () => "You have a best of " + format(player.E.best) + " Experiments."],
                 "blank",
                 "milestones",
                 "blank",
@@ -96,7 +96,7 @@ addLayer("E", {
         },
         "Challenges": {
             content: [
-                ["display-text", () => "You have " + colored("E", format(player.E.points)) + "experiments , which is boosting infect gain by " + format(tmp.E.effect) + "x"],
+                ["display-text", () => "You have " + colored("E", format(player.E.points)) + " Experiments, which is boosting infect gain by " + format(tmp.E.effect) + "x"],
                 "prestige-button",
                 "blank",
                 "challenges",
