@@ -121,7 +121,7 @@ addLayer("a", {
         32: {
                 name(){
                 let text
-                text = "Avali"
+                text = "Vaccinations against the Infection"
                 if (hasAchievement('a',32)) text = `There is no such thing as "+ " <small>colored("a", "Immunity")</small>`;
                 return text
                 },
