@@ -44,6 +44,7 @@ addLayer("c", {
         if (hasChallenge('E',12)) mult = mult.times(5)
         // Layer Effects (Lowest Layer)
         if (hasUpgrade('F', 15)) mult = mult.times(tmp.F.effect)
+        if (player.H.unlocked) mult = mult.times(tmp.H.effect)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

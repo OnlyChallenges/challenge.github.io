@@ -31,7 +31,7 @@ addLayer("H", {
         return base
     },
     effectDescription() {
-        dis = "which boosts experiment gain by "+ format(tmp.H.effect) +"x"
+        dis = "which boosts Infects, Experiments, and Crystal gain by "+ format(tmp.H.effect) +"x"
         return dis
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)

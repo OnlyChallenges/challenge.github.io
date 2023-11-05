@@ -34,6 +34,8 @@ addLayer("E", {
         if (inChallenge('E', 12)) mult = mult.div(1e99)
         // hasChallenge Effects (Lowest Layer - # Order)
         if (hasChallenge('E',12)) mult = mult.times(5)
+        // Layer Effects
+        if (player.H.unlocked) mult = mult.times(tmp.H.effect)
         // Achievement Effects
         if (hasAchievement('a', 34)) mult = mult.times(1.33)
 
