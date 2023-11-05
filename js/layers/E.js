@@ -189,7 +189,7 @@ challenges: {
             name: "Entization",
             challengeDescription: `
             Is it just me or is there whisling down the hall?<br>
-            Crystal /1e10, Infect /1e18,<br>
+            Crystal /30, Infect /1e18,<br>
             Fusion & Experiment Effect /10`,
             goalDescription: "1 Crystal",
             rewardDescription: "Unlock a new layer",
