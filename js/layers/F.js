@@ -88,26 +88,29 @@ milestones: {
             done() { return player.F.points.gte(5)},
         },
         13: {
-            requirementDescription: "25 Fusions",
+            requirementDescription: "20 Fusions",
             effectDescription() {
                 let text = "Unlock the next row of Crystal Upgrades";
                 if (hasMilestone("F", 13)) text = "Unlock the next row of Crystal Upgrades... Can we get something new??";
                 return text;
               },
-            done() { return player.F.points.gte(300)},
+            done() { return player.F.points.gte(20)},
             unlocked() {return hasUpgrade('F', 16) || player.F.points.gte(12)},
         },
         14: {
-            requirementDescription: "250 Fusions",
+            requirementDescription: "100 Fusions",
             effectDescription() {
-                let text = "Another Challenge? (Experiments)";
+                let text = 
+                `Keep the 4th Row of Experiment Upgrades (And 'Goon')<br>
+                Another Challenge? (Experiments)`;
                 if (hasMilestone("F", 14)) text =
-                `Another Challenge? (Experiments).
-                Give us more Fusion stuff you jerk...
+                `Keep the 4th Row of Experiment Upgrades<br>
+                Another Challenge? (Experiments).<br>
+                Give us more Fusion stuff you jerk...<br>
                 It's annoying to go back and forth y'know.`;
                 return text;
               },
-            done() { return player.F.points.gte(2000)},
+            done() { return player.F.points.gte(100)},
             unlocked() {return hasUpgrade('c', 56) || player.F.points.gte(135)},
         }
     },
@@ -146,7 +149,7 @@ milestones: {
     15: {
         title: "Honzure",
         description: "Have the Fusion Effect effect Crystals also!",
-        cost: new Decimal(45),
+        cost: new Decimal(11),
         unlocked(){
             return hasUpgrade('F',14)
         },
@@ -154,7 +157,7 @@ milestones: {
     16: {
         title: "Kryruin",
         description: "Double and a half the Fusion Effect!",
-        cost: new Decimal(140),
+        cost: new Decimal(13),
         unlocked(){
             return hasUpgrade('F',15)
         },
@@ -162,7 +165,7 @@ milestones: {
     21: {
         title: "Frostral",
         description: "Triple the Experiment Effect!",
-        cost: new Decimal(270),
+        cost: new Decimal(17),
         unlocked(){
             return hasUpgrade('F',16)
         },
