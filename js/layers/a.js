@@ -119,7 +119,7 @@ addLayer("a", {
                 tooltip: "Achieve 1 Fusion Point."
             },
         32: {
-                name(){return hasAchievement("a", 32)?"<h3 style='color: darkred:red font-size: 1em; text-shadow: cyan:blue 0px 0px 10px;</h3>'Vaccinations are fake":"Vaccinations against the Infection"},
+                name(){return hasAchievement("a", 32)?"<h3 style='color: darkred:red; font-size: 1em; text-shadow: cyan:blue 1px 1px 10px;</h3>'Vaccinations are fake":"Vaccinations against the Infection"},
                 done() { return inChallenge('E', 12) && player.points.gte(5e12) },
                 tooltip: `
                 Get 5e12 Infects in 'Immunity'<br>
