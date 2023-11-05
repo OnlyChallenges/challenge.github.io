@@ -156,7 +156,7 @@ milestones: {
     },
     16: {
         title: "Kryruin",
-        description: "Double and a half the Fusion Effect!",
+        description: "Double and a half the Fusion Effect & keep Experiment Milestone 15!",
         cost: new Decimal(13),
         unlocked(){
             return hasUpgrade('F',15)
