@@ -175,7 +175,7 @@ challenges: {
             Crystal /1e8, Infect /1e17,<br>
             Fusion & Experiment Effect /10`,
             goalDescription: "1 Crystal",
-            rewardDescription: "Unlock a new layer & Fusion Upgrade.",
+            rewardDescription: "Unlock a new layer",
             canComplete: function() {return player.c.points.gte(1)},
             unlocked() {return hasMilestone('F', 14) || inChallenge('E',13) || hasChallenge('E',13)},
         },
