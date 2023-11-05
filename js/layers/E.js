@@ -80,15 +80,23 @@ addLayer("E", {
     },
     layerShown(){return true},
     tabFormat: {
-        "Main": {
+        "Main":{
             content: [
+                ["infoboxes",
+                "display-text", () => "You have " + colored("E", format(player.E.points)) + ", which is boosting infect gain by " + format(tmp.E.effect)],
+                "prestige-button",
+                "milestones",
                 "blank",
-                ],
+                "upgrades",
+            ]
         },
         "Challenges": {
             content: [
+                ["display-text", () => "You have " + colored("E", format(player.E.points)) + ", which is boosting infect gain by " + format(tmp.E.effect)],
+                "prestige-button",
+                "blank",
                 "challenges",
-            ],
+            ]
         },
     },
 milestones: {
