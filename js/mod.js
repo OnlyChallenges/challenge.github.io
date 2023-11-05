@@ -278,6 +278,7 @@ function getPointGen() {
 	if (hasChallenge('E',11)) gain = gain.times(10)
 	// Achievement Effects
 	if (hasAchievement('a', 26)) gain = gain.times(2.5)
+	if (hasAchievement('a', 32)) gain = gain.times(2.5)
 	return gain
 }
 

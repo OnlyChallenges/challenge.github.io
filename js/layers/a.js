@@ -119,12 +119,20 @@ addLayer("a", {
                 tooltip: "Achieve 1 Fusion Point."
             },
         32: {
-                name: "Avali",
-                done() { return inChallenge('E', 12) && player.points.gte(1e9) },
-                tooltip: "Get 1e9 Infects in 'Immunity'"
+                name(){
+                let text
+                text = "Avali"
+                if (hasAchievement('a',32)) text = `There is no such thing as "+ " <small>colored("a", "Immunity")</small>`;
+                return text
+                },
+                done() { return inChallenge('E', 12) && player.points.gte(8e16) },
+                tooltip: `
+                Get 8e16 Infects in 'Immunity'<br>
+                Reward: 2.5x Infects & Crystals
+                `
             },
         33: {
-                name: "Avali the Availing.",
+                name: "Avali",
                 done() { return hasMilestone('F', 11) },
                 tooltip: "Get the First Fusion Milestone!"
             },

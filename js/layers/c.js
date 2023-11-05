@@ -35,10 +35,11 @@ addLayer("c", {
         // F Upgrade Effects (# Order)
         if (hasUpgrade('F', 11)) mult = mult.times(7.5)
         // Achievement Effects
+    	if (hasAchievement('a', 32)) mult = mult.times(2.5)
         // inChallenge Effects (Lowest Layer - # Order)
         if (inChallenge('E', 11)) mult = mult.div(8)
         if (inChallenge('E', 12)) mult = mult.div(40)
-        if (inChallenge('E', 14)) mult = mult.div(1e8)
+        if (inChallenge('E', 21)) mult = mult.div(1e8)
         // hasChallenge Effects (Lowest Layer - # Order)
         if (hasChallenge('E',12)) mult = mult.times(5)
         // Layer Effects (Lowest Layer)
@@ -284,7 +285,7 @@ addLayer("c", {
     },
     42: {
         title: "Experimental Infects Synergy",
-        description: "Infects boosts Experiments",
+        description: "Infects boosts Experiments, Unlock another Experiment Challenge!",
         cost: new Decimal(1e23),
         unlocked(){
             return hasUpgrade("c", 41);
