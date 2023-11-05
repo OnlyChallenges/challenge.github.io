@@ -3,7 +3,7 @@ let modInfo = {
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles: ["layers/a.js", "layers/E.js", "layers/c.js", "layers/F.js", "tree.js"],
+	modFiles: ["layers/a.js", "layers/E.js", "layers/c.js", "layers/F.js", "layers/h.js", "tree.js"],
 
 	discordName: "E205 Discord Server",
 	discordLink: "https://discord.gg/experiment-205",
@@ -274,7 +274,7 @@ function getPointGen() {
 	// Challenges
 	if (inChallenge('E', 11)) gain = gain.div(5e9)
 	if (inChallenge('E', 12)) gain = gain.div(8e12)
-	if (inChallenge('E', 21)) gain = gain.div(1e17)
+	if (inChallenge('E', 21)) gain = gain.div(1e20)
 	if (hasChallenge('E',11)) gain = gain.times(10)
 	// Achievement Effects
 	if (hasAchievement('a', 26)) gain = gain.times(2.5)

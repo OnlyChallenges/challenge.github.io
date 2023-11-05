@@ -39,7 +39,7 @@ addLayer("c", {
         // inChallenge Effects (Lowest Layer - # Order)
         if (inChallenge('E', 11)) mult = mult.div(8)
         if (inChallenge('E', 12)) mult = mult.div(40)
-        if (inChallenge('E', 21)) mult = mult.div(1e8)
+        if (inChallenge('E', 21)) mult = mult.div(1e10)
         // hasChallenge Effects (Lowest Layer - # Order)
         if (hasChallenge('E',12)) mult = mult.times(5)
         // Layer Effects (Lowest Layer)
