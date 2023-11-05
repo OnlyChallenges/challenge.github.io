@@ -175,7 +175,7 @@ milestones: {
         description: "Quadtruple the Experiment Effects",
         cost: new Decimal(45),
         unlocked(){
-            return hasUpgrade('F',22)
+            return hasUpgrade('F',21)
         },
     },
  },

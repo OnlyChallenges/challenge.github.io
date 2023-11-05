@@ -371,7 +371,7 @@ addLayer("c", {
         },
             cost: new Decimal(6.5e39),
         unlocked(){
-            return hasMilestone("F", 13) || hasUpgrade("c",45)
+            return hasMilestone("F", 13) && hasUpgrade("c",45)
         },
     },
     52: {

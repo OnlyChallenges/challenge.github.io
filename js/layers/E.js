@@ -47,6 +47,7 @@ addLayer("E", {
         let eff = player.E.points.add(1).pow(0.26)
         if (inChallenge('E', 21)) eff = eff.div(10)
         if (hasUpgrade('F',21)) eff = eff.times(3)
+        if (hasUpgrade('F',22)) eff = eff.times(4)
         eff = eff.times(tmp.E.effectBase)
         return eff
     },
@@ -60,6 +61,7 @@ addLayer("E", {
         if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
         if (hasUpgrade ('E', 34)) base = base.times(1.5)
         if (hasUpgrade ('E', 45)) base = base.add(upgradeEffect('E',45))
+        
         return base
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
