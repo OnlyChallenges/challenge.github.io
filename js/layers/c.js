@@ -431,7 +431,7 @@ addLayer("c", {
             if (hasUpgrade("c", 54)) text = "Ok I was kidding at a small degree, instead it's ^1.075 (enjoy)"
             return text
             },
-            cost: new Decimal(1e48),
+            cost: new Decimal(1e42),
         unlocked(){
             return hasUpgrade("c", 53)
         },
