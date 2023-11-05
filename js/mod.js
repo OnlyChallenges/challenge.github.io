@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.4.1.1",
-	name: "Checks, Saves, and Balancing",
+	num: "0.5_4",
+	name: "The First Living Soul",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +23,22 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h2>v0.5 The First Living Soul </h2><br>
+			- Changed Kill > Humans<br>
+			- Added 16 Total Upgrades<br>
+			- Added 3 Total Milestones<br>
+			- Changed Costs, Effects, and Buffs on all Layers<br>
+			- Added more Lore in Humans<br>
+			- Balanced Up-to Fusions<br>
+			- Experiment Milestone 5 & Experiment Challenge 3 is Balanced now<br>
+			- Crystal Upgrade 55 broke, causing fixture on js<br>
+			- Fixed Achievements<br>
+			- Added Some Effects to Achievements<br>
+			- Added Text Change to some Achievements<br>
+			- Added 2 Keep Milestones<br>
+			- Changed more Stuff<br>
+			- Endgame: 2 Humans<br><br>
 
 		<h3>v0.4.1 Checks, Saves, and Balancing </h3><br>
 			- Added A Savebank to Pre-Fusions (ongod?)<br>

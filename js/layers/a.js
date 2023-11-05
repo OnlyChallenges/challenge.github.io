@@ -147,22 +147,20 @@ addLayer("a", {
             },
         36: {
                 name: "The First Strike",
-                done() { return hasChallenge('E',13)},
+                done() { return hasChallenge('E',21)},
                 tooltip: "Complete 'Entization'"
             },
         41: {
-                name: "Added a Bomb",
-                done() { return player.points.gte(1e100)},
+                name: "That's a lot of Fusions!",
+                done() { return player.F.points.gte(1000)},
                 tooltip: 
-                `:Explosion: <br>
-                (Get 1e100 Crystals)<br>
+                `Get 1,000 Fusions
                 Reward: 1.69x Experiments`
             },
         42: {
-                name: "First Kill",
-                done() { return player.points.gte(1e150)},
-                tooltip: 
-                `Get the First Kill Point`
+            name(){return hasAchievement("a", 42)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> The First Human.</h4>`:"The First Kill"},
+            done() { return player.H.points.gte(1) },
+            tooltip(){return hasAchievement("a", 42)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> The First Human now exists<br> Reward: There's a Human, accept that.</h4>`:"Get the First Kill"}
             },
             
         },
