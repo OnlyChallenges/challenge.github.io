@@ -38,6 +38,26 @@ addLayer("H", {
     hotkeys: [
         {key: "h", description: "h: reset for Humans", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    infoboxes: {
+        lore: {
+            title: "Humans (v0.5 Update)",
+            body() {
+            let text 
+            text = 
+            `This section is completely fanmade - This Section isn't balanced yet with Crystals & Experiments!<br> 
+            Full Section will be updated on E205-test_v.2!<br><br>
+            
+            ???: Did you hear about the rainbow lighted baton...?<br>
+            ???: Where did you hear that from...<br>
+            ???: Some creepy person in a darkended corner of the hall.<br>
+            ???: Why would you listen to a person that would tell you something false..<br>
+            ???: No look!<br>
+            - They pull out something -<br>
+            ???: What the f-`
+            return text
+            },
+        },
+    },
     layerShown() {return true},
     layerShown() {
         return hasChallenge("E", 21) || player.H.points.gte(1) || player.H.unlocked;

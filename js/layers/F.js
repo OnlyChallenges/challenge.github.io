@@ -53,8 +53,7 @@ addLayer("F", {
             body() {
             let text 
             text = 
-            `This section is completely fanmade - This Section isn't balanced yet with Crystals & Experiments!<br> 
-            Full Section will be updated on E205-test_v.2!<br><br>
+            `This section is completely fanmade...<br><br>
             ???: I heard something...<br>
             ???: What?<br>
             ???: I heard something.<br>
