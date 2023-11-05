@@ -122,7 +122,7 @@ addLayer("a", {
                 name(){
                 let text
                 text = "Vaccinations against the Infection"
-                if (hasAchievement('a',32)) text = "There is no such thing as "+ colored("a", "Vaccinations");
+                if (hasAchievement('a',32)) text = "There is no such thing as "+ `<h4>colored("a", "Vaccinations")</h4>`;
                 return text
                 },
                 done() { return inChallenge('E', 12) && player.points.gte(8e16) },
