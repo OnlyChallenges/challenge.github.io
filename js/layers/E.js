@@ -79,6 +79,18 @@ addLayer("E", {
         return value1
     },
     layerShown(){return true},
+    tabFormat: {
+        "Main": {
+            content: [
+                "blank",
+                ],
+        },
+        "Challenges": {
+            content: [
+                "challenges",
+            ],
+        },
+    },
 milestones: {
         11: {
             requirementDescription: "333 Experiments",
