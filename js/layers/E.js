@@ -191,9 +191,9 @@ challenges: {
             Is it just me or is there whisling down the hall?<br>
             Crystal /30, Infect /1e18,<br>
             Fusion & Experiment Effect /10`,
-            goalDescription: "1 Crystal",
+            goalDescription: "1e18 Crystals",
             rewardDescription: "Unlock a new layer",
-            canComplete: function() {return player.c.points.gte(1)},
+            canComplete: function() {return player.c.points.gte(1e18)},
             unlocked() {return hasMilestone('F', 14) || inChallenge('E',13) || hasChallenge('E',13)},
         },
 },
