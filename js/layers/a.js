@@ -120,9 +120,9 @@ addLayer("a", {
             },
         32: {
                 name(){return hasAchievement("a", 32)?"<h3 style='color: darkred:red font-size: 1em; text-shadow: 0px 0px 10px;>'Vaccinations are fake":"Vaccinations against the Infection"},
-                done() { return inChallenge('E', 12) && player.points.gte(8e16) },
+                done() { return inChallenge('E', 12) && player.points.gte(5e12) },
                 tooltip: `
-                Get 8e16 Infects in 'Immunity'<br>
+                Get 5e12 Infects in 'Immunity'<br>
                 Reward: 2.5x Infects & Crystals
                 `
             },
