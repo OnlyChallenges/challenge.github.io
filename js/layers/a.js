@@ -119,12 +119,7 @@ addLayer("a", {
                 tooltip: "Achieve 1 Fusion Point."
             },
         32: {
-                name(){
-                let text
-                text = "Vaccinations against the Infection"
-                if (hasAchievement('a',32)) text = "There is no such thing as "+ `<h4>colored("a", "Vaccinations")</h4>`;
-                return text
-                },
+                name(){return hasAchievement("a", 32)?"<h3 style='color: zdarkred:red"+" font-size: 1em; text-shadow:"+"Vaccinations are fake":"Vaccinations against the Infection"},
                 done() { return inChallenge('E', 12) && player.points.gte(8e16) },
                 tooltip: `
                 Get 8e16 Infects in 'Immunity'<br>
