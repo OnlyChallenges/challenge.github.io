@@ -64,8 +64,8 @@ addLayer("H", {
                 ["infobox", "lore1"],
                 ["display-text", () => "You have " + colored("H", format(player.H.points)) + " Humans<br> Which boosts Infects, Experiments, and Crystal gain by " + format(tmp.H.effect) + "x"],
                 "prestige-button",
-                "blank",
                 ["display-text", () => "You have " + format(player.points) + " Infects."],
+                "blank",
                 ["display-text", () => "You have a best of " + format(player.H.best) + " Humans."],
                 "milestones",
                 "blank",
@@ -74,7 +74,7 @@ addLayer("H", {
         },
         "Challenges": {
             content: [
-                ["display-text", () => "You have " + colored("E", format(player.H.points)) + " Humans,<br> which boosts Infects, Experiments, and Crystal gain by " + format(tmp.H.effect) + "x"],
+                ["display-text", () => "You have " + colored("H", format(player.H.points)) + " Humans<br> Which boosts Infects, Experiments, and Crystal gain by " + format(tmp.H.effect) + "x"],
                 "prestige-button",
                 "blank",
                 ["display-text", () => "You have " + format(player.points) + " Infects."],
