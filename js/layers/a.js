@@ -180,6 +180,13 @@ addLayer("a", {
                 Reward: 3x Experiments`
             }, 
         44: {
+                name: "Infects^2",
+                done() { return player.points.gte(1e60)},
+                tooltip: 
+                `Get 1e60 Infects
+                Reward: 2.66x Humans Effect`
+            }, 
+        45: {
                 name: "Infected Rooms",
                 done() { return player.R.points.gte(1)},
                 tooltip: 
