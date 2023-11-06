@@ -177,11 +177,11 @@ milestones: {
         },
     },
     23: {
-        title: "Wenie",
+        title: "Wenite",
         description: "5x the Experiment Effect",
         cost: new Decimal(740),
         unlocked(){
-            return hasUpgrade('H',15)
+            return hasMilestone('H',14) && hasUpgrade('F',22)
         },
     },
     24: {

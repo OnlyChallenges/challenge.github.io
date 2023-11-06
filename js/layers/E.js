@@ -60,6 +60,7 @@ addLayer("E", {
         if (hasUpgrade ('E', 14)) base = base.add(upgradeEffect('E',14))
         if (hasUpgrade ('E', 34)) base = base.times(1.5)
         if (hasUpgrade ('E', 45)) base = base.add(upgradeEffect('E',45))
+        if (hasUpgrade ('F', 23)) base = base.times(5)
         
         return base
     },

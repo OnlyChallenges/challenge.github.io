@@ -16,19 +16,20 @@ addLayer("H", {
     exponent: 0.6, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasUpgrade('H', 15)) gain = gain.times(upgradeEffect('H',15))
+        if (hasUpgrade('H', 15)) mult = mult.times(upgradeEffect('H',15))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
     effect() {
-        let eff2 = player.H.points.add(1).pow(0.465)
+        let eff2 = player.H.points.add(1).pow(0.26)
         eff2 = eff2.times(tmp.H.effectBase)
         return eff2
     },
     effectBase() {
-        let base = new Decimal(1) 
+        let base = new Decimal(1)
+        if (hasUpgrade ('F', 24)) base = base.add(2) 
         return base
     },
     effectDescription() {
@@ -90,6 +91,14 @@ milestones: {
                 return text;
               },
             done() { return player.H.points.gte(75) && hasMilestone('H', 12) },
+        },
+        14: {
+        requirementDescription: "5,000 Humans",
+        effectDescription() {
+            let text = "Unlocked more unbalanced fusion upgrades";
+            return text;
+          },
+        done() { return player.H.points.gte(5000) && hasMilestone('H', 13) },
         },
     },
 upgrades: {
@@ -164,7 +173,7 @@ upgrades: {
             description: "Humans boosts itself",
             cost: new Decimal(465),
             effect() {
-                return (player.H.points.max(1).add(1).pow(0.22)).max(1).min(3.7);
+                return (player.H.points.max(1).add(1).pow(0.12)).max(1).min(3.7);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(3.7) ? "(Capped)" : "";
