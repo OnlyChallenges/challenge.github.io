@@ -16,10 +16,10 @@ addLayer("R", {
     exponent: 0.1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (player.R.points.gte(1)) mult = mult.div(2)
-        if (player.R.points.gte(2)) mult = mult.div(3)
-        if (player.R.points.gte(3)) mult = mult.div(6)
-        if (player.R.points.gte(4)) mult = mult.div(14)
+        if (player.R.points = 1) mult = mult.div(2)
+        if (player.R.points = 2) mult = mult.div(3)
+        if (player.R.points = 3) mult = mult.div(6)
+        if (player.R.points = 4) mult = mult.div(14)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -57,5 +57,41 @@ addLayer("R", {
     layerShown() {return true},
     layerShown() {
         return hasUpgrade("H", 25) || player.R.points.gte(1) || player.R.unlocked;
+    },
+upgrades: {
+        rows: 1,
+        cols: 6,
+        11: {
+            title: "Pool Zone",
+            description: "Rooms boosts Fusions & Humans",
+            cost: new Decimal(1),
+            effect() {
+                return (player.E.points.max(1).add(1).pow(1.2)).max(1).min(25);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return player.R.points.gte(0)
+            },
+        },
+        12: {
+            title: "Elevator",
+            description: "Humans boosts Fusions significantly",
+            cost: new Decimal(1),
+            effect() {
+                return (player.E.points.max(1).add(1).pow(0.2)).max(1).min(63);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(63) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('R', 11)
+            },
+        },
     },
 })
