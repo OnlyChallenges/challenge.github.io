@@ -134,7 +134,7 @@ addLayer("a", {
         32: {
                 name(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "Vaccines are fake!" - Some Karen</h4>`:"Vaccinations against the Infection"},
                 done() { return player.points.gte(5e30) },
-                tooltip(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "There is no such thing as Vaccinations.<br> Get 1e30 Infects normally.<br> Reward: 2.5x Infects & Crystals"</h4>`:"Get 1e30 in 'Immunity'"},
+                tooltip(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> The 2033 Virus is fake and y'all are just fake - Some 2033 Karen <br> Get 1e30 Infects normally.<br> Reward: 2.5x Infects & Crystals</h4>`:"Get 1e30 in 'Immunity'"},
             },
         33: {
                 name: "Avali",
@@ -158,7 +158,7 @@ addLayer("a", {
         36: {
                 name(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> No Challenging Battles</h4>`:"The First Strike"},
                 done() { return player.c.points(1e38) },
-                tooltip(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> You seriously think I'm giving a challenge this earlier...?<br> Reward: 3x Infects</h4>`:"Complete the first Experiment Challenge and get 1e38 Crystals!"}
+                tooltip(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> You seriously think I'm giving a challenge this early...?<br> Reward: 3x Infects</h4>`:"Complete the first Experiment Challenge and get 1e38 Crystals!"}
             },
         41: {
                 name: "That's a lot of Fusions!",
