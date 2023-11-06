@@ -52,6 +52,7 @@ addLayer("E", {
         let eff = player.E.points.add(1).pow(0.26)
         if (hasUpgrade('F',21)) eff = eff.times(3)
         if (hasUpgrade('F',22)) eff = eff.times(4)
+        if (hasUpgrade('H',32)) eff = eff.times(upgradeEffect('H',32))
         eff = eff.times(tmp.E.effectBase)
         return eff
     },

@@ -272,5 +272,69 @@ upgrades: {
                 return hasUpgrade('H',24)
             },
         },
+        31: {
+            title: "Watering Eyes",
+            description: "Quadtruple the Room Effect",
+            cost: new Decimal(1.5e14),
+            unlocked(){
+                return hasMilestone('R', 11) && hasUpgrade('H', 25)
+            },
+        },
+        32: {
+            title: "Slowing Down",
+            description: "Fusions boosts Experiment Effect",
+            cost: new Decimal(1.5e14),
+            effect() {
+                return (player.F.points.max(1).add(1).pow(0.047)).max(1).min(500);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(500) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H',31)
+            },
+        },
+        33: {
+            title: "Vision",
+            description: "Boost Crystal Gain by Humans",
+            cost: new Decimal(1.2e15),
+            effect() {
+                return (player.H.points.max(1).add(1).pow(0.066)).max(1).min(444.44);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(444.44) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H',32)
+            },
+        },
+        34: {
+            title: "Colorization",
+            description: "Crystals are boosted by Crystals",
+            cost: new Decimal(1.74e16),
+            effect() {
+                return (player.c.points.max(1).add(1).pow(0.028)).max(1).min(222.22);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(222.22) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H',33)
+            },
+        },
+        35: {
+            title: "Weaponization",
+            description: "15x Infects & Unlock a new Layer",
+            cost: new Decimal(1e18),
+            unlocked(){
+                return hasUpgrade('H',34)
+            },
+        },
     },
 })   

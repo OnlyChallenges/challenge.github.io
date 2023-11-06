@@ -37,6 +37,8 @@ addLayer("c", {
         // H Upgrade Effects (# Order)
     	if (hasUpgrade('H', 14)) mult = mult.times(upgradeEffect('H',14))
         if (hasUpgrade('H', 22)) mult = mult.times(upgradeEffect('H',22))
+        if (hasUpgrade('H', 33)) mult = mult.times(upgradeEffect('H',33))
+        if (hasUpgrade('H', 34)) mult = mult.times(upgradeEffect('H',34))
         // Achievement Effects
     	if (hasAchievement('a', 32)) mult = mult.times(2.5)
         // Layer Effects (Lowest Layer)
