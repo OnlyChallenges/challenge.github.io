@@ -62,7 +62,7 @@ addLayer("H", {
         "Main":{
             content: [
                 ["infobox", "lore1"],
-                ["display-text", () => "You have " + colored("E", format(player.H.points)) + " Humans,<br> which boosts Infects, Experiments, and Crystal gain by " + format(tmp.H.effect) + "x"],
+                ["display-text", () => "You have " + colored("H", format(player.H.points)) + " Humans<br> Which boosts Infects, Experiments, and Crystal gain by " + format(tmp.H.effect) + "x"],
                 "prestige-button",
                 "blank",
                 ["display-text", () => "You have a best of " + format(player.H.best) + " Experiments."],
@@ -136,7 +136,7 @@ upgrades: {
             description: "Experiment Boosts Infects",
             cost: new Decimal(1),
             effect() {
-                return (player.E.points.max(1).add(1).pow(0.19)).max(1).min(25);
+                return (player.E.points.max(1).add(1).pow(0.033)).max(1).min(25);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
@@ -152,7 +152,7 @@ upgrades: {
             description: "Crystals Boosts Infects",
             cost: new Decimal(6),
             effect() {
-                return (player.c.points.max(1).add(1).pow(0.094)).max(1).min(30);
+                return (player.c.points.max(1).add(1).pow(0.014)).max(1).min(30);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(30) ? "(Capped)" : "";
