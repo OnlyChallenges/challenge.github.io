@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.5.1",
-	name: "The First Living Soul",
+	num: "1.0",
+	name: "The True Beginning",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +23,28 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+
+<h1>v1.0 The True Beginning </h1><br>
+   - Added Rooms.<br>
+   - Added 8 Fusion Upgrades.<br>
+   - Added 10 Human Upgrades.<br>
+   - Added 5 Human Milestones.<br>
+   - Added 3 Fusion Milestones.<br>
+   - Fixed Keeping Function.<br>
+   - Rebalanced all Functions & Formulas.<br>
+   - Rebalanced Humans going to e100 to early.<br>
+   - Changed Rooms to be Static rather than Normal to make better formulas for later.<br>
+   - Added Cos, Sine, and Ln Formulas.<br>
+   - Added 7 Achievements.<br>
+   - Fixed Multiple Bugs causing either; Crashes, incorrect formulas, or failure to keep.<br>
+   - Fixed 7 Fusion Upgrades having Custom Experiment Names.<br>
+   - Fixed 2 Fusion Upgrads having Actual Experiment Names.<br>
+   - Removed Challenges for Experiments & Humans.<br>
+   - Rooms will have lore in v1.1!<br><br>
+   
+
+
 
 		<h2>v0.5 The First Living Soul </h2><br>
 			- Changed Kill > Humans<br>
