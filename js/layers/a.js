@@ -100,8 +100,8 @@ addLayer("a", {
             },
         22: {
                 name: "Experimental Growth",
-                done() { return player.E.points.gte(1000) },
-                tooltip: "Get 1,000 Experiments on your side.",
+                done() { return player.E.points.gte(100) },
+                tooltip: "Get 100 Experiments on your side.",
             },
         23: {
                 name: "Crystal^2",
@@ -109,9 +109,9 @@ addLayer("a", {
                 tooltip: "Achieve 1e20 Crystals.",
             },
         24: {
-                name: "Brawlful Victory",
-                done() { return hasChallenge("E", 11) },
-                tooltip: "Complete 'Experimental Brawl' Challenge",
+                name: "Autoduplicate the Experiments",
+                done() { return hasMilestone("E", 12) },
+                tooltip: "Get the 2nd Experiment Milestone",
             },
         25: {
                 name: "Saltiness isn't enough",
@@ -119,10 +119,10 @@ addLayer("a", {
                 tooltip: "Get 'Salt Crystals' from Crystals",
             },
         26: {
-                name: "Crystalized Immunity",
-                done() { return inChallenge('E', 12) && player.c.points.gte(1) },
+                name: "The Beginning of Experimental Life",
+                done() { return player.E.points.gte(400000000) },
                 tooltip: `
-                Get 1 Crystal in 'Immunity'<br>
+                Get 100,000,000 Experiments<br>
                 Reward: 2.5x Infects
                 `,
             },
@@ -133,11 +133,8 @@ addLayer("a", {
             },
         32: {
                 name(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "Vaccines are fake!" - Some Karen</h4>`:"Vaccinations against the Infection"},
-                done() { return inChallenge('E', 12) && player.points.gte(5e12) },
-                tooltip: `
-                Get 5e12 Infects in 'Immunity'<br>
-                Reward: 2.5x Infects & Crystals
-                `
+                done() { return player.points.gte(5e30) },
+                tooltip(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "There is no such thing as Vaccinations.<br> Get 1e30 Infects normally.<br> Reward: 2.5x Infects & Crystals"</h4>`:"Get 1e30 in 'Immunity'"},
             },
         33: {
                 name: "Avali",
@@ -156,24 +153,24 @@ addLayer("a", {
         35: {
                 name(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> He's an experiment.</h4>`:"Wait...isn't he a human?"},
                 done() { return hasUpgrade('E', 36) },
-                tooltip(){return hasAchievement("a", 35)?`<h4 style='color: darkred; text-shadow: blue 1.75px 1.75px 10px;'> Get the 'Goon' Upgrade<br> Reward: There's no going back.</h4>`:"Get the 'Goon' Upgrade"}
+                tooltip(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> Get the 'Goon' Upgrade<br> Reward: There's no going back.</h4>`:"Get the 'Goon' Upgrade"}
             },
         36: {
-                name: "The First Strike",
-                done() { return hasChallenge('E',21)},
-                tooltip: "Complete 'Entization'"
+                name(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> No Challenging Battles</h4>`:"The First Strike"},
+                done() { return player.c.points(1e38) },
+                tooltip(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> You seriously think I'm giving a challenge this earlier...?<br> Reward: 3x Infects</h4>`:"Complete the first Experiment Challenge and get 1e38 Crystals!"}
             },
         41: {
                 name: "That's a lot of Fusions!",
-                done() { return player.F.points.gte(1000)},
+                done() { return player.F.points.gte(500)},
                 tooltip: 
-                `Get 1,000 Fusions
+                `Get 500 Fusions
                 Reward: 1.69x Experiments`
             },
         42: {
             name(){return hasAchievement("a", 42)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> The First Human.</h4>`:"The First Kill"},
             done() { return player.H.points.gte(1) },
-            tooltip(){return hasAchievement("a", 42)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> The First Human now exists<br> Reward: There's a Human, accept that.</h4>`:"Get the First Kill"}
+            tooltip(){return hasAchievement("a", 42)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> The First Human now exists<br> Reward: 2.3333x Fusions.</h4>`:"Get the First Kill"}
             },
             
         },

@@ -18,6 +18,7 @@ addLayer("F", {
         mult = new Decimal(1)
         if (hasUpgrade("E",41)) mult = mult.times(upgradeEffect("E", 41))
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
+        if (hasAchievement('a', 42)) mult = mult.times(2.33333)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
