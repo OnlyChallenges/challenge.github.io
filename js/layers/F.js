@@ -28,8 +28,8 @@ addLayer("F", {
     effect() {
         let eff1 = player.F.points.add(1.3).pow(0.488)
         if (hasUpgrade("F",14)) eff1 = eff1.add(2.5)
-        if (hasUpgrade ('c', 54)) eff1 = eff1.times(3.5)
-        if (hasChallenge('H', 11)) eff1 = eff.times(3)
+        if (hasUpgrade('c', 54)) eff1 = eff1.times(3.5)
+        if (hasMilestone('H', 15)) eff1 = eff1.times(2)
         eff1 = eff1.times(tmp.F.effectBase)
         return eff1
     },
@@ -200,7 +200,39 @@ milestones: {
         description: "Triple the Human Effect",
         cost: new Decimal(1640),
         unlocked(){
-            return hasUpgrade('H',15)
+            return hasUpgrade('F', 23) 
+        },
+    },
+    25: {
+        title: "Sydiver",
+        description: "Fusions boosts Infects",
+        effect() {
+            return (player.F.points.max(1).add(1).pow(0.13)).max(1).min(22);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(22) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        cost: new Decimal(75000),
+        unlocked(){
+            return hasMilestone('H',15) && hasUpgrade('F',24)
+        },
+    },
+    26: {
+        title: "Honeyruin",
+        description: "Infects boosts Experiments",
+        effect() {
+            return (player.F.points.max(1).add(1).pow(0.0078)).max(1).min(47);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(47) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        cost: new Decimal(165000),
+        unlocked(){
+            return hasUpgrade('F',26)
         },
     },
  },

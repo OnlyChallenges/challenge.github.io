@@ -70,7 +70,6 @@ milestones: {
             requirementDescription: "5 Humans",
             effectDescription() {
                 let text = "Keep Crystal Upgrades on Reset";
-                if (inChallenge("H", 11)) text = "Keep Crystal Upgrades on Reset (DISABLED)";
                 return text;
               },
             done() { return player.H.points.gte(5) },
@@ -79,7 +78,6 @@ milestones: {
             requirementDescription: "30 Humans",
             effectDescription() {
                 let text = "Passively gain 10x Experiments";
-                if (inChallenge("H", 11)) text = "Passively gain 10x Experiments (DISABLED)";
                 return text;
               },
             done() { return player.H.points.gte(30) },
@@ -87,7 +85,7 @@ milestones: {
         13: {
             requirementDescription: "75 Humans",
             effectDescription() {
-                let text = "Keep everything like in Fusions (Except Experiment Challenges)";
+                let text = "Keep everything like in Fusions";
                 return text;
               },
             done() { return player.H.points.gte(75) && hasMilestone('H', 12) },
@@ -99,6 +97,14 @@ milestones: {
                 return text;
               },
         done() { return player.H.points.gte(5000) && hasMilestone('H', 13) },
+        },
+        15: {
+            requirementDescription: "1e10 Humans",
+            effectDescription() {
+                let text = "Unlock 2 more Fusion Upgrades & 2x Fusion Effect!";
+                return text;
+              },
+        done() { return player.H.points.gte(1e10) && hasMilestone('H', 14) },
         },
     },
 upgrades: {

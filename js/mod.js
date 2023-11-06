@@ -292,12 +292,6 @@ function getPointGen() {
 	if (player.E.unlocked) gain = gain.times(tmp.E.effect)
 	if (player.F.unlocked) gain = gain.times(tmp.F.effect)
 	if (player.H.unlocked) gain = gain.times(tmp.H.effect)
-	// Challenges
-	if (inChallenge('E', 11)) gain = gain.div(5e9)
-	if (inChallenge('E', 12)) gain = gain.div(8e12)
-	if (inChallenge('E', 21)) gain = gain.div(1e18)
-	if (hasChallenge('E',11)) gain = gain.times(10)
-	if (inChallenge('H', 11)) gain = gain.div(1e15)
 	// Achievement Effects
 	if (hasAchievement('a', 26)) gain = gain.times(2.5)
 	if (hasAchievement('a', 32)) gain = gain.times(2.5)
