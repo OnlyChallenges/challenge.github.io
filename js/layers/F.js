@@ -223,10 +223,10 @@ milestones: {
         title: "Honeyruin",
         description: "Infects boosts Experiments",
         effect() {
-            return (player.points.max(1).add(1).pow(0.006)).max(1).min(47);
+            return (player.points.max(1).add(1).pow(0.0225)).max(1).min(106);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(47) ? "(Capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(106) ? "(Capped)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
