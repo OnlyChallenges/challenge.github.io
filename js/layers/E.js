@@ -83,7 +83,7 @@ addLayer("E", {
         let value1 = new Decimal(0);
         if (hasMilestone('E', 13)) value1 = value1.add(0.01)
         if (hasMilestone('E', 15)) value1 = value1.add(0.49)
-        if (hasMilestone('h', 12)) value1 = value1.add(9.5)
+        if (hasMilestone('H', 12)) value1 = value1.add(9.5)
         if (inChallenge('H', 11)) return false
         return value1
     },
