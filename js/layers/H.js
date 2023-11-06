@@ -99,12 +99,12 @@ milestones: {
         done() { return player.H.points.gte(5000) && hasMilestone('H', 13) },
         },
         15: {
-            requirementDescription: "1e10 Humans",
+            requirementDescription: "6.5e9 Humans",
             effectDescription() {
                 let text = "Unlock 2 more Fusion Upgrades & 2x Fusion Effect!";
                 return text;
               },
-        done() { return player.H.points.gte(1e10) && hasMilestone('H', 14) },
+        done() { return player.H.points.gte(6.5e9) && hasMilestone('H', 14) },
         },
     },
 upgrades: {
