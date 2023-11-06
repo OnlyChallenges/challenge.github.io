@@ -57,7 +57,7 @@ addLayer("c", {
         {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     doReset(resettingLayer) {
-        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, "challenges")
         if (hasMilestone ('E', 11) && resettingLayer=="E") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35")
         if (hasMilestone ('E', 14) && resettingLayer=="E") player.c.upgrades.push("41", "42", "43", "44", "45")
         if (hasMilestone ('E', 16) && resettingLayer=="E") player.c.upgrades.push("51", "52", "53", "54", "55")
