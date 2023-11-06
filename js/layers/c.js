@@ -33,7 +33,7 @@ addLayer("c", {
         if (hasUpgrade('E', 43)) mult = mult.times(upgradeEffect('E',43))
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         // F Upgrade Effects (# Order)
-        if (hasUpgrade('F', 11)) mult = mult.times(7.5)
+        if (hasUpgrade('F', 11)) mult = mult.times(12.5)
         // H Upgrade Effects (# Order)
     	if (hasUpgrade('H', 14)) gain = gain.times(upgradeEffect('H',14))
         if (hasUpgrade('H', 22)) gain = gain.times(upgradeEffect('H',22))
@@ -432,7 +432,7 @@ addLayer("c", {
             description(){
             let text
             text = "Fusion Effect is now ^2"
-            if (hasUpgrade("c", 54)) text = "Ok I was kidding at a small degree, instead it's ^1.075 (enjoy)"
+            if (hasUpgrade("c", 54)) text = "Times Fusion Effect by 3.5x!"
             return text
             },
             cost: new Decimal(1e42),

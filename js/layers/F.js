@@ -26,10 +26,9 @@ addLayer("F", {
     effect() {
         let eff1 = player.F.points.add(1.3).pow(0.488)
         if (hasUpgrade("F",14)) eff1 = eff1.add(2.5)
-        if (hasUpgrade ('c', 54)) eff1 = eff1.pow(1.075)
+        if (hasUpgrade ('c', 54)) eff1 = eff1.times(3.5)
         if (hasChallenge('H', 11)) eff1 = eff.times(3)
         eff1 = eff1.times(tmp.F.effectBase)
-        if (inChallenge('H', 11)) eff1 = 1
         return eff1
     },
     effectBase() {
@@ -101,11 +100,9 @@ milestones: {
             requirementDescription: "100 Fusions",
             effectDescription() {
                 let text = 
-                `Keep the 4th Row of Experiment Upgrades (And 'Goon')<br>
-                Another Challenge? (Experiments)`;
+                `Keep the 4th Row of Experiment Upgrades (And 'Goon')`;
                 if (hasMilestone("F", 14)) text =
                 `Keep the 4th Row of Experiment Upgrades<br>
-                Another Challenge? (Experiments).<br>
                 Give us more Fusion stuff you jerk...<br>
                 It's annoying to go back and forth y'know.`;
                 return text;
@@ -119,7 +116,7 @@ milestones: {
     cols: 6,
     11: {
         title: "Ayko",
-        description: "Nyko & Abys...Boost Crystal gain by 7.5x",
+        description: "Nyko & Abys...Boost Crystal gain by 12.5x",
         cost: new Decimal(1),
     },
     12: {
