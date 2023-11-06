@@ -24,7 +24,7 @@ addLayer("H", {
     },
     effect() {
         let eff2 = player.H.points.add(1).pow(0.26)
-        if (hasAchievement ('a', 45)) base = base.times(2.66) 
+        if (hasAchievement ('a', 45)) eff2 = eff2.times(2.66) 
         eff2 = eff2.times(tmp.H.effectBase)
         return eff2
     },
