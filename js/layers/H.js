@@ -31,6 +31,7 @@ addLayer("H", {
     effectBase() {
         let base = new Decimal(1)
         if (hasUpgrade ('F', 24)) base = base.add(2) 
+        if (hasUpgrade('R', 12)) base = base.times(upgradeEffect('R',12))
         return base
     },
     effectDescription() {

@@ -13,7 +13,7 @@ addLayer("R", {
     baseResource: "experiments", // Name of resource prestige is based on
     baseAmount() {return player.E.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.1, // Prestige currency exponent
+    exponent: 0.25, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (player.R.points.gte(1)) mult = mult.div(2)
@@ -64,10 +64,10 @@ upgrades: {
         cols: 6,
         11: {
             title: "Pool Zone",
-            description: "Rooms boosts Fusions & Humans",
+            description: "Rooms boosts Fusions & Humans Effects",
             cost: new Decimal(1),
             effect() {
-                return (player.E.points.max(1).add(1).pow(1.2)).max(1).min(25);
+                return (player.R.points.max(1).add(1).pow(1.4)).max(1).min(25);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
@@ -83,7 +83,7 @@ upgrades: {
             description: "Humans boosts Fusions significantly",
             cost: new Decimal(1),
             effect() {
-                return (player.E.points.max(1).add(1).pow(0.2)).max(1).min(63);
+                return (player.H.points.max(1).add(1).pow(0.2)).max(1).min(63);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(63) ? "(Capped)" : "";

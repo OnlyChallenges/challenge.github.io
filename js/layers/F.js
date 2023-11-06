@@ -20,6 +20,7 @@ addLayer("F", {
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         if (hasAchievement('a', 42)) mult = mult.times(2.33333)
         if (hasUpgrade('H', 24)) mult = mult.times(upgradeEffect('H',24))
+        if (hasUpgrade('R', 12)) mult = mult.times(upgradeEffect('R',12))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -36,6 +37,7 @@ addLayer("F", {
     effectBase() {
         let base = new Decimal(1)
         if (hasUpgrade("F",16)) base = base.add(1)
+        if (hasUpgrade('R', 12)) base = base.times(upgradeEffect('R',12))
         
         return base
     },
