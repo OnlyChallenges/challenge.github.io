@@ -35,8 +35,11 @@ addLayer("E", {
         if (hasUpgrade('H', 25)) mult = mult.times(upgradeEffect('H',25))
         // Layer Effects
         if (player.H.unlocked) mult = mult.times(tmp.H.effect)
+        if (player.R.unlocked) mult = mult.times(tmp.R.effect)
         // Achievement Effects
         if (hasAchievement('a', 34)) mult = mult.times(1.33)
+        if (hasAchievement('a', 41)) mult = mult.times(1.69)
+        if (hasAchievement('a', 44)) mult = mult.times(3)
 
         return mult
     },

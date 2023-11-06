@@ -172,7 +172,19 @@ addLayer("a", {
             done() { return player.H.points.gte(1) },
             tooltip(){return hasAchievement("a", 42)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> The First Human now exists<br> Reward: 2.3333x Fusions.</h4>`:"Get the First Kill"}
             },
-            
+        43: {
+                name: "Populated Growth",
+                done() { return player.H.points.gte(8.15e9)},
+                tooltip: 
+                `Get 8.15 Billion Humans
+                Reward: 3x Experiments`
+            }, 
+        44: {
+                name: "Infected Rooms",
+                done() { return player.R.points.gte(1)},
+                tooltip: 
+                `Get 1 Room`
+            },        
         },
     },
 )

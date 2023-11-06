@@ -62,7 +62,7 @@ addLayer("H", {
     },
     layerShown() {return true},
     layerShown() {
-        return hasChallenge("E", 21) || player.H.points.gte(1) || player.H.unlocked;
+        return hasUpgrade("F", 22) || player.H.points.gte(1) || player.H.unlocked;
         }, 
 
 milestones: {
