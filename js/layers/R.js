@@ -16,7 +16,7 @@ addLayer("R", {
     exponent: 0.25, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (player.R.points.gte(1)) mult = mult.div(2)
+        if (player.R.points.gte(1) || hasUpgrade('R', 11)) mult = mult.div(2)
         if (player.R.points.gte(2)) mult = mult.div(3)
         if (player.R.points.gte(3)) mult = mult.div(6)
         if (player.R.points.gte(4)) mult = mult.div(14)
@@ -83,7 +83,7 @@ upgrades: {
             description: "Humans boosts Fusions significantly",
             cost: new Decimal(1),
             effect() {
-                return (player.H.points.max(1).add(1).pow(0.2)).max(1).min(63);
+                return (player.H.points.max(1).add(1).pow(0.03)).max(1).min(63);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(63) ? "(Capped)" : "";
