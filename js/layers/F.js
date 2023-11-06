@@ -116,12 +116,12 @@ milestones: {
             requirementDescription: "1e53 Infects and 5,000 Fusions",
             effectDescription() {
                 let text = 
-                `Keep Everything in the previous layers<br> and unlock a couple more human upgrades`;
+                `Unlock a couple more human upgrades`;
                 return text;
               },
             done() { return player.points.gte(1e53) && player.F.points.gte(5000)},
             unlocked() {return hasMilestone('F', 14)},
-        }
+        },
     },
  upgrades: {
     rows: 2,

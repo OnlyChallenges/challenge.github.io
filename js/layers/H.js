@@ -93,11 +93,11 @@ milestones: {
             done() { return player.H.points.gte(75) && hasMilestone('H', 12) },
         },
         14: {
-        requirementDescription: "5,000 Humans",
-        effectDescription() {
-            let text = "Unlocked more unbalanced fusion upgrades";
-            return text;
-          },
+            requirementDescription: "5,000 Humans",
+            effectDescription() {
+                let text = "Unlock more unbalanced fusion upgrades";
+                return text;
+              },
         done() { return player.H.points.gte(5000) && hasMilestone('H', 13) },
         },
     },
