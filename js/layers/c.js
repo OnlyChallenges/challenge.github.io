@@ -57,25 +57,23 @@ addLayer("c", {
         {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     doReset(resettingLayer) {
-        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
-        if (hasMilestone ('E', 11) && resettingLayer=="E") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35");
-        if (hasMilestone ('E', 14) && resettingLayer=="E") player.c.upgrades.push("41", "42", "43", "44", "45");
-        if (hasMilestone ('E', 16) && resettingLayer=="E") player.c.upgrades.push("51", "52", "53", "54", "55");
-        if (hasMilestone ('F', 11) && resettingLayer=="F") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35");
-        if (hasMilestone ('F', 14) && resettingLayer=="E") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46");
-        if (hasMilestone ('F', 12) && resettingLayer=="F") player.E.milestones.push("11", "12", "13", "14");
-        if (hasUpgrade ('F', 16) && resettingLayer=="F") player.E.milestones.push("15");
-        if (hasUpgrade ('F', 22) && resettingLayer=="F") player.E.milestones.push("16");
-        // Human Milestone;
-        if (hasMilestone ('H', 11) && resettingLayer=="c") player.c.push("upgrades");
-        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35");
-        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46");
-        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("11", "12", "13", "14");
-        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("15");
-        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("16");
-        let keptChallenges = [];
-        if (hasMilestone('H', 13)) keptChallenges.push(11, 12, 13);
-        player[this.layer].challenges.push(...keptChallenges);
+        if (layers[resettingLayer].row <= this.row) return
+        if (hasMilestone ('E', 11) && resettingLayer=="E") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35")
+        if (hasMilestone ('E', 14) && resettingLayer=="E") player.c.upgrades.push("41", "42", "43", "44", "45")
+        if (hasMilestone ('E', 16) && resettingLayer=="E") player.c.upgrades.push("51", "52", "53", "54", "55")
+        if (hasMilestone ('F', 11) && resettingLayer=="F") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
+        if (hasMilestone ('F', 14) && resettingLayer=="E") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46")
+        if (hasMilestone ('F', 12) && resettingLayer=="F") player.E.milestones.push("11", "12", "13", "14")
+        if (hasUpgrade ('F', 16) && resettingLayer=="F") player.E.milestones.push("15")
+        if (hasUpgrade ('F', 22) && resettingLayer=="F") player.E.milestones.push("16")
+        // Human Milestone
+        if (hasMilestone ('H', 11) && resettingLayer=="c") player.c.push("upgrades")
+        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
+        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46")
+        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("11", "12", "13", "14")
+        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("15")
+        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("16")
+        if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.challenges.push("11")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
