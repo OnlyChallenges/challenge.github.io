@@ -49,7 +49,8 @@ addLayer("R", {
             let text 
             text = 
             `Welcome to Rooms! This is the layer that will release the v1.0_test of the game!<br>
-            The more Rooms you get, the more it divides the requirement.`
+            The more Rooms you get, the more it divides the requirement.
+            Luckily, Fusions & Humans doesn't reset anything, so this is basically a side-layer but with high imporantance!`
             return text
             },
         },
