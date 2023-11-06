@@ -29,7 +29,7 @@ addLayer("c", {
         if (hasUpgrade('E', 16)) mult = mult.times(upgradeEffect('E',16))
         if (hasUpgrade('E', 25)) mult = mult.times(upgradeEffect('E',25))
         if (hasUpgrade('E', 32)) mult = mult.times(upgradeEffect('E',32))
-        if (hasUpgrade('E', 36)) mult = mult.times(105)	
+        if (hasUpgrade('E', 36)) mult = mult.times(7.5)	
         if (hasUpgrade('E', 43)) mult = mult.times(upgradeEffect('E',43))
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         // F Upgrade Effects (# Order)
@@ -451,7 +451,7 @@ addLayer("c", {
     55: {
             title: "Lusionist",
                 description: "Beelusion again? Infects boosts Infects",
-                cost: new Decimal(1.33e43),
+                cost: new Decimal(3.44e42),
                 unlocked(){
                     return hasUpgrade("c", 54)
                 },
