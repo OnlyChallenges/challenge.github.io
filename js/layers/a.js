@@ -134,7 +134,7 @@ addLayer("a", {
         32: {
                 name(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "Vaccines are fake!" - Some Karen</h4>`:"Vaccinations against the Infection"},
                 done() { return player.points.gte(5e30) },
-                tooltip(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> The 2033 Virus is fake and y'all are just fake - Some 2033 Karen <br> Get 1e30 Infects normally.<br> Reward: 2.5x Infects & Crystals</h4>`:"Get 1e30 in 'Immunity'"},
+                tooltip(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "The 2033 Virus is fake and y'all are just fake fakers" - Some 2033 Karen <br> Get 1e30 Infects normally.<br> Reward: 2.5x Infects & Crystals</h4>`:"Get 1e30 in 'Immunity'"},
             },
         33: {
                 name: "Avali",
