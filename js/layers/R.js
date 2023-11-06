@@ -12,19 +12,21 @@ addLayer("R", {
     resource: "rooms", // Name of prestige currency
     baseResource: "experiments", // Name of resource prestige is based on
     baseAmount() {return player.E.points}, // Get the current amount of baseResource
-    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (player.R.points.gte(1)) mult = mult.div(2)
         if (player.R.points.gte(2)) mult = mult.div(3)
+        if (player.R.points.gte(3)) mult = mult.div(6)
+        if (player.R.points.gte(4)) mult = mult.div(14)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
     effect() {
-        let eff3 = player.R.points.add(1).pow(1.25)
+        let eff3 = player.R.points.add(1).pow(1.75)
         eff3 = eff3.times(tmp.R.effectBase)
         return eff3
     },
