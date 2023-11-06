@@ -164,7 +164,7 @@ upgrades: {
             description: "Humans boosts itself",
             cost: new Decimal(65),
             effect() {
-                return (player.H.points.max(1).add(1).pow(0.177)).max(1).min(3.7);
+                return (player.H.points.max(1).add(1).pow(0.22)).max(1).min(3.7);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(3.7) ? "(Capped)" : "";
