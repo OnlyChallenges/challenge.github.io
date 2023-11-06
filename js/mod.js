@@ -41,7 +41,8 @@ let changelog = `<h1>Changelog:</h1><br>
    - Fixed 7 Fusion Upgrades having Custom Experiment Names.<br>
    - Fixed 2 Fusion Upgrads having Actual Experiment Names.<br>
    - Removed Challenges for Experiments & Humans.<br>
-   - Rooms will have lore in v1.1!<br><br>
+   - Rooms will have lore in v1.1!<br>
+   - Endgame: 1 Room<br><br>
    
 
 
@@ -328,14 +329,14 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 2 Humans</a>",
+	"<a>Endgame: 1 Room</a>",
 	"Fangame of Experiment-205",
-	"You are on: E205-test_v.1.5"
+	"You are on: E205-test_v.2"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.H.points.gte(2)
+	return player.R.points.gte(1)
 }
 
 
