@@ -92,20 +92,6 @@ milestones: {
             done() { return player.H.points.gte(75) && hasMilestone('H', 12) },
         },
     },
-challenges: {
-        11: {
-            name: "First Stance",
-            challengeDescription: `
-            They're scared and weak against them<br>
-            But they presist against them.<br>
-            Some Milestones are Disabled!<br>
-            Crystal /1e15, Infect /1e15, Fusion & Experiment Effects are Disabled.`,
-            goalDescription: "1 Crystals",
-            rewardDescription: "Triple Fusion Effect!",
-            canComplete: function() {return player.c.points.gte(1)},
-            unlocked() {return player.H.points.gte(0)},
-        },
-    },
 upgrades: {
         rows: 5,
         cols: 5,

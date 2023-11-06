@@ -39,12 +39,6 @@ addLayer("c", {
         if (hasUpgrade('H', 22)) gain = gain.times(upgradeEffect('H',22))
         // Achievement Effects
     	if (hasAchievement('a', 32)) mult = mult.times(2.5)
-        // inChallenge Effects (Lowest Layer - # Order)
-        if (inChallenge('E', 11)) mult = mult.div(8)
-        if (inChallenge('E', 12)) mult = mult.div(40)
-        if (inChallenge('E', 21)) mult = mult.div(30)
-        // hasChallenge Effects (Lowest Layer - # Order)
-        if (hasChallenge('E',12)) mult = mult.times(5)
         // Layer Effects (Lowest Layer)
         if (hasUpgrade('F', 15)) mult = mult.times(tmp.F.effect)
         if (player.H.unlocked) mult = mult.times(tmp.H.effect)
@@ -60,7 +54,7 @@ addLayer("c", {
         {key: "c", description: "c: reset for Crystals", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     doReset(resettingLayer) {
-        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer, "challenges")
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
         if (hasMilestone ('E', 11) && resettingLayer=="E") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35")
         if (hasMilestone ('E', 14) && resettingLayer=="E") player.c.upgrades.push("41", "42", "43", "44", "45")
         if (hasMilestone ('E', 16) && resettingLayer=="E") player.c.upgrades.push("51", "52", "53", "54", "55")
@@ -81,8 +75,6 @@ addLayer("c", {
         let value1 = new Decimal(0);
         if (hasMilestone('E', 12)) value1 = value1.add(0.15)
         if (hasMilestone('E', 15)) value1 = value1.add(0.20)
-        if (inChallenge('E',11)) return false
-        if (inChallenge('H', 11)) return false
         return value1
     },
     layerShown(){return true},
@@ -302,7 +294,7 @@ addLayer("c", {
     },
     42: {
         title: "Experimental Infects Synergy",
-        description: "Infects boosts Experiments, Unlock another Experiment Challenge!",
+        description: "Infects boosts Experiments",
         cost: new Decimal(1e23),
         unlocked(){
             return hasUpgrade("c", 41);

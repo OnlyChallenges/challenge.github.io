@@ -31,11 +31,6 @@ addLayer("E", {
         if (hasUpgrade('F', 12)) mult = mult.times(3.33)
         // H Upgrades (# Order)
     	if (hasUpgrade('H', 11)) mult = mult.times(upgradeEffect('H',11))
-        // inChallenge Effects (Lowest Layer - # Order)
-        if (inChallenge('E', 11)) mult = mult.times(20)
-        if (inChallenge('E', 12)) mult = mult.div(1e99)
-        // hasChallenge Effects (Lowest Layer - # Order)
-        if (hasChallenge('E',12)) mult = mult.times(5)
         // Layer Effects
         if (player.H.unlocked) mult = mult.times(tmp.H.effect)
         // Achievement Effects
@@ -49,11 +44,9 @@ addLayer("E", {
     },
     effect() {
         let eff = player.E.points.add(1).pow(0.26)
-        if (inChallenge('E', 21)) eff = eff.div(10)
         if (hasUpgrade('F',21)) eff = eff.times(3)
         if (hasUpgrade('F',22)) eff = eff.times(4)
         eff = eff.times(tmp.E.effectBase)
-        if (inChallenge('H', 11)) eff = 1
         return eff
     },
     effectDescription() {
@@ -90,20 +83,12 @@ addLayer("E", {
 milestones: {
         11: {
             requirementDescription: "333 Experiments",
-            effectDescription() {
-                let text = "Keep the first three rows of Crystal Upgrades on Reset";
-                if (inChallenge("E", 11)) text = "Keep the first three rows of Crystal Upgrades on Reset";
-                return text;
-              },
+            effectDescription: "Keep the first three rows of Crystal Upgrades on Reset",
             done() { return player.E.points.gte(333) },
         },
         12: {
             requirementDescription: "10,000 Experiments",
-            effectDescription() {
-                let text = "Passively Gain 15% Crystals/sec";
-                if (inChallenge("E", 11)) text = "Passively Gain 15% Crystals/sec (DISABLED)";
-                return text;
-              },
+            effectDescription: "Passively Gain 15% Crystals/sec",
             done() { return player.E.points.gte(10000) },
         },
         13: {
@@ -141,42 +126,6 @@ milestones: {
             }
         },
     },
-challenges: {
-        11: {
-            name: "Experimental Brawl",
-            challengeDescription: `
-            The Experiments are ganging up on you!<br>
-            They're using everything they got!<br>
-            Some Milestones are Disabled!<br>
-            Crystal /7, Infect /5e9, Experiment *20.`,
-            goalDescription: "1,500,000 Crystals",
-            rewardDescription: "Tenfold your Infects",
-            canComplete: function() {return player.c.points.gte(1500000)},
-            unlocked() {return hasUpgrade('E', 26)},
-        },
-        12: {
-            name: "Immunity",
-            challengeDescription: `
-            Someone made an vaccination against the infection!<br>
-            Crystal /40, Infect /8e12,<br>
-            Experiment /1e99!`,
-            goalDescription: "1 Infect",
-            rewardDescription: "5x Crystal & Experiment Gain",
-            canComplete: function() {return player.points.gte(1)},
-            unlocked() {return hasUpgrade('c', 42) || inChallenge('E',12) || hasChallenge('E',12)},
-        },
-        21: {
-            name: "Entization",
-            challengeDescription: `
-            Is it just me or is there whisling down the hall?<br>
-            Crystal /30, Infect /1e18,<br>
-            Fusion & Experiment Effect /10`,
-            goalDescription: "1e18 Crystals",
-            rewardDescription: "Unlock a new layer",
-            canComplete: function() {return player.c.points.gte(1e18)},
-            unlocked() {return hasMilestone('F', 14) || inChallenge('E',13) || hasChallenge('E',13)},
-        },
-},
  upgrades: {
     rows: 4,
     cols: 6,
@@ -323,7 +272,7 @@ challenges: {
     },
     26: {
         title: "Syral",
-        description: "Infects Boosts Experiment Gain & Unlock a Challenge!",
+        description: "Infects Boosts Experiment Gain",
         cost: new Decimal(69420),
         effect(){
             return (player.points.plus(0.56).log10().pow(0.55)).max(1).min(10)
@@ -350,7 +299,7 @@ challenges: {
             return text;
         },
         unlocked(){
-            return hasChallenge("E", 11)
+            return hasUpgrade('E', 26)
         },
     },
     32: {
@@ -362,7 +311,7 @@ challenges: {
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         unlocked(){
-            return hasChallenge("E", 12) && hasUpgrade("E", 31) || hasUpgrade("E",32)
+            return hasUpgrade("E", 31) || hasUpgrade("E",32)
         },
     },
     33: {
