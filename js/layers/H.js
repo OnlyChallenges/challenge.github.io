@@ -237,7 +237,7 @@ upgrades: {
             description: "Humans boosts Fusions",
             cost: new Decimal(3e8),
             effect() {
-                return (player.points.max(1).add(1).pow(0.03)).max(1).min(4.9);
+                return (player.H.points.max(1).add(1).pow(0.03)).max(1).min(4.9);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(4.9) ? "(Capped)" : "";
@@ -253,7 +253,7 @@ upgrades: {
             description: "Fusions boosts Experiments",
             cost: new Decimal(4.33e9),
             effect() {
-                return (player.points.max(1).add(1).pow(0.15)).max(1).min(8.2);
+                return (player.F.points.max(1).add(1).pow(0.15)).max(1).min(8.2);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(8.2) ? "(Capped)" : "";
@@ -261,7 +261,7 @@ upgrades: {
                 return text;
             },
             unlocked(){
-                return hasUpgrade('H',25)
+                return hasUpgrade('H',24)
             },
         },
     },

@@ -32,6 +32,7 @@ addLayer("E", {
         // H Upgrades (# Order)
     	if (hasUpgrade('H', 11)) mult = mult.times(upgradeEffect('H',11))
         if (hasUpgrade('H', 23)) mult = mult.times(upgradeEffect('H',23))
+        if (hasUpgrade('H', 25)) mult = mult.times(upgradeEffect('H',25))
         // Layer Effects
         if (player.H.unlocked) mult = mult.times(tmp.H.effect)
         // Achievement Effects

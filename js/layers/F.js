@@ -19,6 +19,7 @@ addLayer("F", {
         if (hasUpgrade("E",41)) mult = mult.times(upgradeEffect("E", 41))
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         if (hasAchievement('a', 42)) mult = mult.times(2.33333)
+        if (hasUpgrade('H', 24)) mult = mult.times(upgradeEffect('H',24))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -118,7 +119,7 @@ milestones: {
                 `Keep Everything in the previous layers<br> and unlock a couple more human upgrades`;
                 return text;
               },
-            done() { return player.points(1e53) && player.F.points.gte(5000)},
+            done() { return player.points.gte(1e53) && player.F.points.gte(5000)},
             unlocked() {return hasMilestone('F', 14)},
         }
     },
