@@ -177,9 +177,9 @@ milestones: {
         },
     },
     23: {
-        title: "Lovegen",
+        title: "Wenie",
         description: "5x the Experiment Effect",
-        cost: new Decimal(45),
+        cost: new Decimal(740),
         unlocked(){
             return hasUpgrade('H',15)
         },
@@ -187,7 +187,7 @@ milestones: {
     24: {
         title: "Morgana",
         description: "Triple the Human Effect",
-        cost: new Decimal(45),
+        cost: new Decimal(1640),
         unlocked(){
             return hasUpgrade('H',15)
         },
