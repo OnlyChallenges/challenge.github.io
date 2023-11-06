@@ -177,7 +177,7 @@ upgrades: {
         15: {
             title: "Realization",
             description: "Humans boosts itself",
-            cost: new Decimal(465),
+            cost: new Decimal(4650),
             effect() {
                 return (player.H.points.max(1).add(1).pow(0.12)).max(1).min(3.7);
             },
@@ -193,7 +193,7 @@ upgrades: {
         21: {
             title: "Experimental Battle",
             description: "Humans boosts infects significantly",
-            cost: new Decimal(1950),
+            cost: new Decimal(16000),
             effect() {
                 return (player.H.points.max(1).add(1).pow(0.444)).max(1).min(193);
             },
@@ -209,7 +209,7 @@ upgrades: {
         22: {
             title: "Scientific Research",
             description: "Infects boosts Crystals",
-            cost: new Decimal(450),
+            cost: new Decimal(666666),
             effect() {
                 return (player.points.max(1).add(1).pow(0.035)).max(1).min(193);
             },
@@ -225,7 +225,7 @@ upgrades: {
         23: {
             title: "Evolution",
             description: "Infects boosts Crystals & Experiments",
-            cost: new Decimal(1600),
+            cost: new Decimal(3500000),
             effect() {
                 return (player.points.max(1).add(1).pow(0.01)).max(1).min(62);
             },
@@ -257,7 +257,7 @@ upgrades: {
         25: {
             title: "Imagination",
             description: "Fusions boosts Experiments",
-            cost: new Decimal(4.33e9),
+            cost: new Decimal(2.13e9),
             effect() {
                 return (player.F.points.max(1).add(1).pow(0.15)).max(1).min(8.2);
             },

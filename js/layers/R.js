@@ -51,6 +51,6 @@ addLayer("R", {
     },
     layerShown() {return true},
     layerShown() {
-        return hasUpgrade("H", 22) || player.R.points.gte(1) || player.R.unlocked;
+        return hasUpgrade("H", 25) || player.R.points.gte(1) || player.R.unlocked;
     },
 })
