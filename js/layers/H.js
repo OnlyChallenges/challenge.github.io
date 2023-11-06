@@ -16,6 +16,7 @@ addLayer("H", {
     exponent: 0.56, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('H', 15)) gain = gain.times(upgradeEffect('H',15))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -138,6 +139,86 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('H', 11)
+            },
+        },
+        13: {
+            title: "Personific",
+            description: "Infects boosts Infects",
+            cost: new Decimal(26),
+            effect() {
+                return (player.points.max(1).add(1).pow(0.016)).max(1).min(40);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(40) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H', 12)
+            },
+        },
+        14: {
+            title: "Theory",
+            description: "Experiments boosts Crystals",
+            cost: new Decimal(26),
+            effect() {
+                return (player.E.points.max(1).add(1).pow(0.022)).max(1).min(24);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(24) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H', 13)
+            },
+        },
+        15: {
+            title: "Realization",
+            description: "Humans boosts itself",
+            cost: new Decimal(65),
+            effect() {
+                return (player.H.points.max(1).add(1).pow(0.177)).max(1).min(3.7);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(3.7) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H', 14)
+            },
+        },
+        21: {
+            title: "Experimental Battle",
+            description: "Humans boosts infects significantly",
+            cost: new Decimal(166),
+            effect() {
+                return (player.H.points.max(1).add(1).pow(0.444)).max(1).min(193);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(193) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H', 15)
+            },
+        },
+        22: {
+            title: "Scientific Research",
+            description: "Infects boosts Crystals",
+            cost: new Decimal(450),
+            effect() {
+                return (player.points.max(1).add(1).pow(0.035)).max(1).min(193);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(193) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H', 21)
             },
         },
     },

@@ -34,6 +34,9 @@ addLayer("c", {
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         // F Upgrade Effects (# Order)
         if (hasUpgrade('F', 11)) mult = mult.times(7.5)
+        // H Upgrade Effects (# Order)
+    	if (hasUpgrade('H', 14)) gain = gain.times(upgradeEffect('H',14))
+        if (hasUpgrade('H', 22)) gain = gain.times(upgradeEffect('H',22))
         // Achievement Effects
     	if (hasAchievement('a', 32)) mult = mult.times(2.5)
         // inChallenge Effects (Lowest Layer - # Order)
@@ -67,13 +70,12 @@ addLayer("c", {
         if (hasUpgrade ('F', 16) && resettingLayer=="F") player.E.milestones.push("15")
         if (hasUpgrade ('F', 22) && resettingLayer=="F") player.E.milestones.push("16")
         // Human Milestone
-        if (hasMilestone ('H', 11) && resettingLayer=="c") player.push("upgrades")
+        if (hasMilestone ('H', 11) && resettingLayer=="H") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
         if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
         if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46")
         if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("11", "12", "13", "14")
         if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("15")
         if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("16")
-        if (hasMilestone ('H', 13) && resettingLayer=="H") player.push("challenges")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
