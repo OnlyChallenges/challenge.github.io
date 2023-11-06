@@ -7,7 +7,7 @@ addLayer("R", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
-    color: "#c27ea6",
+    color: "#064526",
     requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
     resource: "rooms", // Name of prestige currency
     baseResource: "experiments", // Name of resource prestige is based on
@@ -16,6 +16,8 @@ addLayer("R", {
     exponent: 0.1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (player.R.points.gte(1)) mult = mult.div(2)
+        if (player.R.points.gte(2)) mult = mult.div(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -44,7 +46,8 @@ addLayer("R", {
             body() {
             let text 
             text = 
-            `Welcome to Rooms! This is the layer that will release the v1.0_test of the game!`
+            `Welcome to Rooms! This is the layer that will release the v1.0_test of the game!<br>
+            The more Rooms you get, the more it divides the requirement.`
             return text
             },
         },
