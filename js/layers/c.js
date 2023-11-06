@@ -73,7 +73,7 @@ addLayer("c", {
         if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("11", "12", "13", "14")
         if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("15")
         if (hasMilestone ('H', 13) && resettingLayer=="H") player.E.milestones.push("16")
-        if (hasMilestone ('H', 13) && resettingLayer=="F, H") player.push("challenges")
+        if (hasMilestone ('H', 13) && resettingLayer=="F, H") player.push(hasChallenge('E', 11) & hasChallenge('E', 12) & hasChallenge('E', 21))
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
