@@ -230,9 +230,9 @@ milestones: {
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
-        cost: new Decimal(165000),
+        cost: new Decimal(225000),
         unlocked(){
-            return hasUpgrade('F',26)
+            return hasUpgrade('F',25)
         },
     },
  },
