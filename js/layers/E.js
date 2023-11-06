@@ -87,31 +87,6 @@ addLayer("E", {
         return value1
     },
     layerShown(){return true},
-    tabFormat: {
-        "Main":{
-            content: [
-                ["infobox", "lore"],
-                ["display-text", () => "You have " + colored("E", format(player.E.points)) + " Experiments, which is boosting infect gain by " + format(tmp.E.effect) + "x"],
-                "prestige-button",
-                ["display-text", () => "You have " + format(player.points) + " Infects."],
-                "blank",
-                ["display-text", () => "You have a total of " + format(player.E.total) + " Experiments."],
-                ["display-text", () => "You have a best of " + format(player.E.best) + " Experiments."],
-                "milestones",
-                "blank",
-                "upgrades",
-            ]
-        },
-        "Challenges": {
-            content: [
-                ["display-text", () => "You have " + colored("E", format(player.E.points)) + " Experiments, which is boosting infect gain by " + format(tmp.E.effect) + "x"],
-                "prestige-button",
-                ["display-text", () => "You have " + format(player.points) + " Infects."],
-                "blank",
-                "challenges",
-            ]
-        },
-    },
 milestones: {
         11: {
             requirementDescription: "333 Experiments",

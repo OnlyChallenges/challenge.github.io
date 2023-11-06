@@ -58,30 +58,6 @@ addLayer("H", {
             },
         },
     },
-    tabFormat: {
-        "Main":{
-            content: [
-                ["infobox", "lore1"],
-                ["display-text", () => "You have " + colored("H", format(player.H.points)) + " Humans<br> Which boosts Infects, Experiments, and Crystal gain by " + format(tmp.H.effect) + "x"],
-                "prestige-button",
-                ["display-text", () => "You have " + format(player.points) + " Infects."],
-                "blank",
-                ["display-text", () => "You have a best of " + format(player.H.best) + " Humans."],
-                "milestones",
-                "blank",
-                "upgrades",
-            ]
-        },
-        "Challenges": {
-            content: [
-                ["display-text", () => "You have " + colored("H", format(player.H.points)) + " Humans<br> Which boosts Infects, Experiments, and Crystal gain by " + format(tmp.H.effect) + "x"],
-                "prestige-button",
-                "blank",
-                ["display-text", () => "You have " + format(player.points) + " Infects."],
-                "challenges",
-            ]
-        },
-    },
     layerShown() {return true},
     layerShown() {
         return hasChallenge("E", 21) || player.H.points.gte(1) || player.H.unlocked;
