@@ -23,7 +23,7 @@ addLayer("H", {
         return new Decimal(1)
     },
     effect() {
-        let eff2 = player.H.points.add(1).pow(0.215)
+        let eff2 = player.H.points.add(1).pow(0.465)
         eff2 = eff2.times(tmp.H.effectBase)
         return eff2
     },
@@ -205,6 +205,22 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('H', 21)
+            },
+        },
+        23: {
+            title: "Evolution",
+            description: "Infects boosts Crystals & Experiments",
+            cost: new Decimal(1600),
+            effect() {
+                return (player.points.max(1).add(1).pow(0.01)).max(1).min(62);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(62) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H', 22)
             },
         },
     },

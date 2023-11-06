@@ -169,11 +169,27 @@ milestones: {
         },
     },
     22: {
-        title: "Frostral",
+        title: "Lovegen",
         description: "Quadtruple the Experiment Effects",
         cost: new Decimal(45),
         unlocked(){
             return hasUpgrade('F',21)
+        },
+    },
+    23: {
+        title: "Lovegen",
+        description: "5x the Experiment Effect",
+        cost: new Decimal(45),
+        unlocked(){
+            return hasUpgrade('H',15)
+        },
+    },
+    24: {
+        title: "Morgana",
+        description: "Triple the Human Effect",
+        cost: new Decimal(45),
+        unlocked(){
+            return hasUpgrade('H',15)
         },
     },
  },
