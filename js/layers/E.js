@@ -29,6 +29,8 @@ addLayer("E", {
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         // F Upgrades (# Order)
         if (hasUpgrade('F', 12)) mult = mult.times(3.33)
+        // H Upgrades (# Order)
+    	if (hasUpgrade('H', 11)) mult = mult.times(upgradeEffect('H',11))
         // inChallenge Effects (Lowest Layer - # Order)
         if (inChallenge('E', 11)) mult = mult.times(20)
         if (inChallenge('E', 12)) mult = mult.div(1e99)
@@ -51,6 +53,7 @@ addLayer("E", {
         if (hasUpgrade('F',21)) eff = eff.times(3)
         if (hasUpgrade('F',22)) eff = eff.times(4)
         eff = eff.times(tmp.E.effectBase)
+        if (inChallenge('H', 11)) return false
         return eff
     },
     effectDescription() {
@@ -80,6 +83,8 @@ addLayer("E", {
         let value1 = new Decimal(0);
         if (hasMilestone('E', 13)) value1 = value1.add(0.01)
         if (hasMilestone('E', 15)) value1 = value1.add(0.49)
+        if (hasMilestone('h', 12)) value1 = value1.add(9.5)
+        if (inChallenge('H', 11)) return false
         return value1
     },
     layerShown(){return true},

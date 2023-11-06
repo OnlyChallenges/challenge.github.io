@@ -3,7 +3,7 @@ let modInfo = {
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles: ["layers/a.js", "layers/E.js", "layers/c.js", "layers/F.js", "layers/h.js", "tree.js"],
+	modFiles: ["layers/a.js", "layers/E.js", "layers/c.js", "layers/F.js", "layers/H.js", "tree.js"],
 
 	discordName: "E205 Discord Server",
 	discordLink: "https://discord.gg/experiment-205",
@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.5_4",
+	num: "0.5.1",
 	name: "The First Living Soul",
 }
 
@@ -284,6 +284,8 @@ function getPointGen() {
 	if (hasUpgrade('E', 46)) gain = gain.times(1.5)	
 	// F Upgrades
 	if (hasUpgrade('F', 13)) gain = gain.times(60)
+	// H Upgrades
+	if (hasUpgrade('H', 12)) gain = gain.times(upgradeEffect('H',12))
 	// Layer Effects
 	if (player.E.unlocked) gain = gain.times(tmp.E.effect)
 	if (player.F.unlocked) gain = gain.times(tmp.F.effect)
@@ -293,6 +295,7 @@ function getPointGen() {
 	if (inChallenge('E', 12)) gain = gain.div(8e12)
 	if (inChallenge('E', 21)) gain = gain.div(1e18)
 	if (hasChallenge('E',11)) gain = gain.times(10)
+	if (inChallenge('H', 11)) gain = gain.div(1e15)
 	// Achievement Effects
 	if (hasAchievement('a', 26)) gain = gain.times(2.5)
 	if (hasAchievement('a', 32)) gain = gain.times(2.5)

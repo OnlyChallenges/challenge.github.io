@@ -39,7 +39,7 @@ addLayer("H", {
         {key: "h", description: "h: reset for Humans", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     infoboxes: {
-        lore: {
+        lore1: {
             title: "Humans (v0.5 Update)",
             body() {
             let text 
@@ -58,8 +58,110 @@ addLayer("H", {
             },
         },
     },
+    tabFormat: {
+        "Main":{
+            content: [
+                ["infobox", "lore1"],
+                ["display-text", () => "You have " + colored("E", format(player.H.points)) + " Humans,<br> which boosts Infects, Experiments, and Crystal gain by " + format(tmp.H.effect) + "x"],
+                "prestige-button",
+                "blank",
+                ["display-text", () => "You have a best of " + format(player.H.best) + " Experiments."],
+                "blank",
+                "milestones",
+                "blank",
+                "upgrades",
+            ]
+        },
+        "Challenges": {
+            content: [
+                ["display-text", () => "You have " + colored("E", format(player.H.points)) + " Humans,<br> which boosts Infects, Experiments, and Crystal gain by " + format(tmp.H.effect) + "x"],
+                "prestige-button",
+                "blank",
+                "challenges",
+            ]
+        },
+    },
     layerShown() {return true},
     layerShown() {
         return hasChallenge("E", 21) || player.H.points.gte(1) || player.H.unlocked;
+        }, 
+
+milestones: {
+        11: {
+            requirementDescription: "5 Humans",
+            effectDescription() {
+                let text = "Keep Crystal Upgrades on Reset";
+                if (inChallenge("H", 11)) text = "Keep Crystal Upgrades on Reset (DISABLED)";
+                return text;
+              },
+            done() { return player.H.points.gte(5) },
         },
-     })   
+        12: {
+            requirementDescription: "30 Humans",
+            effectDescription() {
+                let text = "Passively gain 10x Experiments";
+                if (inChallenge("H", 11)) text = "Passively gain 10x Experiments (DISABLED)";
+                return text;
+              },
+            done() { return player.H.points.gte(30) },
+        },
+        13: {
+            requirementDescription: "75 Humans",
+            effectDescription() {
+                let text = "Keep everything like in Fusions (Except Experiment Challenges)";
+                return text;
+              },
+            done() { return player.H.points.gte(75) && hasMilestone('H', 12) },
+        },
+    },
+challenges: {
+        11: {
+            name: "First Stance",
+            challengeDescription: `
+            They're scared and weak against them<br>
+            But they presist against them.<br>
+            Some Milestones are Disabled!<br>
+            Crystal /1e15, Infect /1e15, Fusion & Experiment Effects are Disabled.`,
+            goalDescription: "1 Crystals",
+            rewardDescription: "Triple Fusion Effect!",
+            canComplete: function() {return player.c.points.gte(1)},
+            unlocked() {return player.H.points.gte(0)},
+        },
+    },
+upgrades: {
+        rows: 5,
+        cols: 5,
+        11: {
+            title: "Emotions",
+            description: "Experiment Boosts Infects",
+            cost: new Decimal(1),
+            effect() {
+                return (player.E.points.max(1).add(1).pow(0.19)).max(1).min(25);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return player.H.points.gte(0)
+            },
+        },
+        12: {
+            title: "Anxiety",
+            description: "Crystals Boosts Infects",
+            cost: new Decimal(6),
+            effect() {
+                return (player.c.points.max(1).add(1).pow(0.094)).max(1).min(30);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(30) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('H', 11)
+            },
+        },
+    },
+})   
