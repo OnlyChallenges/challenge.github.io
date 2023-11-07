@@ -18,6 +18,7 @@ addLayer("H", {
         mult = new Decimal(1)
         if (hasUpgrade('F', 31)) mult = mult.times(upgradeEffect('F',31))
         if (hasUpgrade('H', 15)) mult = mult.times(upgradeEffect('H',15))
+        if (hasUpgrade('R', 13)) mult = mult.times(upgradeEffect('R',13))
         if (player.W.unlocked) mult = mult.times(tmp.W.effect)
         if (hasMilestone('W', 11)) mult = mult.times(2.2)
         if (hasMilestone('W', 13)) mult = mult.times(upgradeEffect('W',13))
