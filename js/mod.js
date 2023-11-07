@@ -358,13 +358,7 @@ var displayThings = [
 	"Fangame of Experiment-205",
 	"You are on: E205-test_v.2"
 ]
-if (player.devSpeed>=1.01) displayThings = [
-	"<a>Endgame: 4 Weapons</a>",
-	"Fangame of Experiment-205",
-	"You are on: E205-test_v.2",
-	"You seriously think I'll let you increase your devSpeed?",
-	"Reset your devSpeed back to 1 to keep playing."
-]
+
 
 // Determines when the game "ends"
 function isEndgame() {
