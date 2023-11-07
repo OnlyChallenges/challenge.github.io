@@ -288,7 +288,7 @@ upgrades: {
         32: {
             title: "Slowing Down",
             description: "Fusions boosts Experiment Effect",
-            cost: new Decimal(1.5e14),
+            cost: new Decimal(3e15),
             effect() {
                 return (player.F.points.max(1).add(1).pow(0.047)).max(1).min(500);
             },
@@ -304,7 +304,7 @@ upgrades: {
         33: {
             title: "Vision",
             description: "Boost Crystal Gain by Humans",
-            cost: new Decimal(1.2e15),
+            cost: new Decimal(1.25e16),
             effect() {
                 return (player.H.points.max(1).add(1).pow(0.066)).max(1).min(444.44);
             },
@@ -320,7 +320,7 @@ upgrades: {
         34: {
             title: "Colorization",
             description: "Crystals are boosted by Crystals",
-            cost: new Decimal(1.74e16),
+            cost: new Decimal(8.4e16),
             effect() {
                 return (player.c.points.max(1).add(1).pow(0.028)).max(1).min(222.22);
             },
