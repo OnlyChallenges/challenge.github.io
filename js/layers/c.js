@@ -46,6 +46,7 @@ addLayer("c", {
         // Layer Effects (Lowest Layer)
         if (hasUpgrade('F', 15)) mult = mult.times(tmp.F.effect)
         if (player.H.unlocked) mult = mult.times(tmp.H.effect)
+        if (player.R.unlocked) mult = mult.times(tmp.R.effect)
         if (player.W.unlocked) mult = mult.times(tmp.W.effect)
         return mult
     },
