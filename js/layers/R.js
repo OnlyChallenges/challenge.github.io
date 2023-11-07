@@ -119,7 +119,7 @@ upgrades: {
             description: "Fusions boosts Humans significantly",
             cost: new Decimal(3),
             effect() {
-                return (player.F.points.max(1).add(1).pow(0.07)).max(1).min(222);
+                return (player.F.points.max(1).add(1).pow(0.122)).max(1).min(222);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(222) ? "(Capped)" : "";
