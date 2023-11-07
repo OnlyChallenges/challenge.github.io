@@ -96,7 +96,7 @@ upgrades: {
             description: "Increases Experiments by Experiments (More room gain...?)",
             cost: new Decimal(1),
             effect() {
-                return (player.E.points.max(1).add(1).pow(0.07)).max(1).min(111.11);
+                return (player.E.points.max(1).add(1).pow(0.06)).max(1).min(111.11);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(111.11) ? "(Capped)" : "";
