@@ -25,27 +25,45 @@ let changelog = `<h1>Changelog:</h1><br>
 		a = bug/mechanic fixes<br><br>
 
 
-<h1>v1.0 The True Beginning </h1><br>
-   - Added Rooms.<br>
-   - Added 8 Fusion Upgrades.<br>
-   - Added 10 Human Upgrades.<br>
-   - Added 5 Human Milestones.<br>
-   - Added 3 Fusion Milestones.<br>
-   - Fixed Keeping Function.<br>
-   - Rebalanced all Functions & Formulas.<br>
-   - Rebalanced Humans going to e100 to early.<br>
-   - Changed Rooms to be Static rather than Normal to make better formulas for later.<br>
-   - Added Cos, Sine, and Ln Formulas.<br>
-   - Added 7 Achievements.<br>
-   - Fixed Multiple Bugs causing either; Crashes, incorrect formulas, or failure to keep.<br>
-   - Fixed 7 Fusion Upgrades having Custom Experiment Names.<br>
-   - Fixed 2 Fusion Upgrads having Actual Experiment Names.<br>
-   - Removed Challenges for Experiments & Humans.<br>
-   - Rooms will have lore in v1.1!<br>
-   - Endgame: 1 Room<br><br>
-   
+		<h2>v1.1 The Battle Begins </h2><br>
+			- Added Weapons.<br>
+			- Added 6 Fusion Upgrades<br>
+			- Added 5 Human Upgrades<br>
+			- Added 3 Room Upgrades<br>
+			- Added 2 Room Milestones<br>
+			- Added 3 Weapon Upgrades<br>
+			- Added 2 Weapon Milestones (WIP)<br>
+			- Fixed 3 Upgrades not giving effects or nulling<br>
+			- Fixed 5 Milestones not giving effects<br>
+			- Fixed Weapons Layer Placement being on Row 3 rather than Row 2<br>
+			- Fixed Multiple Bugs causing errors upon buying a certain upgrade.<br>
+			- Fixed Room Gain going from 3 => 9 after buying the 3rd Room Upgrade.<br>
+			- Steady Capped Room Gain<br>
+			- Capped Multiple Upgrades to make the game balanced<br>
+			- Achievements will be added in v1.2!<br>
+			- Weapons now reset all previous layers.<br>
+			- Weapons will now buff all previous layers except rooms.<br>
+			- Some Weapon Upgrades will increase the game balancing making it easier to reach the Weapons Layer.<br>
+			- Endgame: 4 Weapons<br><br>
 
-
+		<h1>v1.0 The True Beginning </h1><br>
+  			- Added Rooms.<br>
+   			- Added 8 Fusion Upgrades.<br>
+   			- Added 10 Human Upgrades.<br>
+   			- Added 5 Human Milestones.<br>
+  			- Added 3 Fusion Milestones.<br>
+  			- Fixed Keeping Function.<br>
+   			- Rebalanced all Functions & Formulas.<br>
+   			- Rebalanced Humans going to e100 to early.<br>
+  			- Changed Rooms to be Static rather than Normal to make better formulas for later.<br>
+  			- Added Cos, Sine, and Ln Formulas.<br>
+   			- Added 7 Achievements.<br>
+   			- Fixed Multiple Bugs causing either; Crashes, incorrect formulas, or failure to keep.<br>
+   			- Fixed 7 Fusion Upgrades having Custom Experiment Names.<br>
+   			- Fixed 2 Fusion Upgrads having Actual Experiment Names.<br>
+   			- Removed Challenges for Experiments & Humans.<br>
+			- Rooms will have lore in v1.1!<br>
+ 			- Endgame: 1 Room<br><br>
 
 		<h2>v0.5 The First Living Soul </h2><br>
 			- Changed Kill > Humans<br>
@@ -334,14 +352,14 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 1 Room</a>",
+	"<a>Endgame: 4 Weapons</a>",
 	"Fangame of Experiment-205",
 	"You are on: E205-test_v.2"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.R.points.gte(1)
+	return player.W.points.gte(4)
 }
 
 
