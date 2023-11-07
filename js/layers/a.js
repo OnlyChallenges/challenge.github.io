@@ -168,7 +168,7 @@ addLayer("a", {
             },
         36: {
                 name(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> No Challenging Battles</h4>`:"The First Strike"},
-                done() { return player.c.points(1e38) },
+                done() { return player.c.points.gte(1e38) },
                 tooltip(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> You seriously think I'm giving a challenge this early...?<br> Reward: 3x Infects</h4>`:"Complete the first Experiment Challenge and get 1e38 Crystals!"}
             },
         41: {

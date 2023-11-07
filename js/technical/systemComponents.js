@@ -130,7 +130,7 @@ var systemComponents = {
         <h3>{{VERSION.withName}}</h3>
         <span v-if="modInfo.author">
             <br>
-            Made by {{modInfo.author}}	// Heavily Inspired by The Camellia Tree & The Rocket Tree
+            Made by {{modInfo.author}} / Acythe3  // Heavily Inspired by The Camellia Tree & The Plant Tree
         </span>
         <br>
         The Modding Tree <a v-bind:href="'https://github.com/Acamaeda/The-Modding-Tree/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum}}</a> by Acamaeda
