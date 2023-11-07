@@ -51,7 +51,7 @@ addLayer("c", {
         if (player.R.unlocked) mult = mult.times(tmp.R.effect)
         if (player.W.unlocked) mult = mult.times(tmp.W.effect)
         // Prevents Devspeed changes
-        if (player.devSpeed.gte(1.01)) mult = mult.div(1e300)
+        if (player.devSpeed>=1.01) mult = mult.div(1e300)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
