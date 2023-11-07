@@ -313,6 +313,8 @@ function getPointGen() {
 	if (hasUpgrade('H', 13)) gain = gain.times(upgradeEffect('H',13))
 	if (hasUpgrade('H', 21)) gain = gain.times(upgradeEffect('H',21))
 	if (hasUpgrade('H', 35)) gain = gain.times(15)
+	// All Milestones
+	if (hasMilestone('W', 11)) gain = gain.times(2.2)
 	// Layer Effects
 	if (player.E.unlocked) gain = gain.times(tmp.E.effect)
 	if (player.F.unlocked) gain = gain.times(tmp.F.effect)

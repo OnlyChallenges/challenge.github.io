@@ -13,7 +13,7 @@ addLayer("W", {
     baseResource: "crystals", // Name of resource prestige is based on
     baseAmount() {return player.c.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.33, // Prestige currency exponent
+    exponent: 0.05, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -57,7 +57,7 @@ milestones: {
         11: {
             requirementDescription: "1 Weapon",
             effectDescription() {
-                let text = "Multiply all previous layers by 2.2x";
+                let text = "Multiply all previous layers (Except Rooms) by 2.2x";
                 return text;
               },
             done() { return player.W.points.gte(1) },

@@ -36,6 +36,8 @@ addLayer("E", {
     	if (hasUpgrade('H', 11)) mult = mult.times(upgradeEffect('H',11))
         if (hasUpgrade('H', 23)) mult = mult.times(upgradeEffect('H',23))
         if (hasUpgrade('H', 25)) mult = mult.times(upgradeEffect('H',25))
+        // Milestone Effects
+        if (hasMilestone('W', 11)) mult = mult.times(2.2)
         // Layer Effects
         if (player.H.unlocked) mult = mult.times(tmp.H.effect)
         if (player.R.unlocked) mult = mult.times(tmp.R.effect)
