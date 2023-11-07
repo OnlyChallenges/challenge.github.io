@@ -116,18 +116,18 @@ upgrades: {
         },
         13: {
             title: "Testing Lab",
-            description: "Fusions boosts Humans significantly",
+            description: "Fusions boosts Humans significantly but rooms are pushed to 3",
             cost: new Decimal(3),
             effect() {
-                return (player.F.points.max(1).add(1).pow(0.122)).max(1).min(222);
+                return (player.F.points.max(1).add(1).pow(0.162)).max(1).min(1600);
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(222) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(1600) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
             unlocked(){
-                return hasUpgrade('W', 12)
+                return hasUpgrade('W', 12) && hasUpgrade('R', 12)
             },
         },
     },
