@@ -31,7 +31,7 @@ addLayer("W", {
         return base
     },
     effectDescription() {
-        dis = "which boosts all previous layers by "+ format(tmp.W.effect) +"x"
+        dis = "which boosts all previous layers (Except Rooms) by "+ format(tmp.W.effect) +"x"
         return dis
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)
