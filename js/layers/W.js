@@ -36,7 +36,7 @@ addLayer("W", {
     },
     row: 3, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "w", description: "w: reset for Humans", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "w", description: "w: reset for Weapons", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     infoboxes: {
         lore1: {

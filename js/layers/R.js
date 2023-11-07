@@ -41,7 +41,7 @@ addLayer("R", {
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "r", description: "r: reset for Humans", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "r", description: "r: reset for Rooms", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     infoboxes: {
         lore1: {
@@ -49,7 +49,7 @@ addLayer("R", {
             body() {
             let text 
             text = 
-            `Welcome to Rooms! This is the layer that will release the v1.0_test of the game!<br>
+            `Welcome to Rooms!<br>
             The more Rooms you get, the more it divides the requirement.
             Luckily, Fusions & Humans doesn't reset anything, so this is basically a side-layer but with high imporantance!`
             return text
