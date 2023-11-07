@@ -13,7 +13,7 @@ addLayer("W", {
     baseResource: "crystals", // Name of resource prestige is based on
     baseAmount() {return player.c.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.05, // Prestige currency exponent
+    exponent: 0.035, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -22,7 +22,7 @@ addLayer("W", {
         return new Decimal(1)
     },
     effect() {
-        let eff4 = player.W.points.add(1.1).pow(0.45)
+        let eff4 = player.W.points.add(1.1).pow(0.525)
         eff4 = eff4.times(tmp.W.effectBase)
         return eff4
     },
@@ -89,6 +89,38 @@ upgrades: {
             },
             unlocked(){
                 return player.W.points.gte(0)
+            },
+        },
+        12: {
+            title: "Crooked Bat",
+            description: "Increases Experiments by Experiments (More room gain...?)",
+            cost: new Decimal(1),
+            effect() {
+                return (player.E.points.max(1).add(1).pow(0.07)).max(1).min(111.11);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(111.11) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('W', 11)
+            },
+        },
+        13: {
+            title: "Baton",
+            description: "Infects boosts Fusion & Human Gain",
+            cost: new Decimal(2),
+            effect() {
+                return (player.points.max(1).add(1).pow(0.0055)).max(1).min(5);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(5) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('W', 12)
             },
         },
     },
