@@ -344,7 +344,7 @@ function getPointGen() {
 	if (hasAchievement('a', 32)) gain = gain.times(2.5)
 	if (hasAchievement('a', 36)) gain = gain.times(3)
 	// Prevents Devspeed changes
-	if (player.devSpeed>1.01) mult = mult.div(1e300)
+	if (player.devSpeed>1.01) gain = gain.div(1e300)
 	return gain
 }
 
