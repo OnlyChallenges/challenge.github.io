@@ -78,6 +78,9 @@ addLayer("c", {
         if (hasMilestone ('H', 13)) player.E.milestones.push("11", "12", "13", "14")
         if (hasMilestone ('H', 13)) player.E.milestones.push("15")
         if (hasMilestone ('H', 13)) player.E.milestones.push("16")
+        // Weapon Milestone
+        if (hasMilestone ('W', 12)) player.push("milestones")
+        if (hasMilestone ('W', 12)) player.push("upgrades")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);

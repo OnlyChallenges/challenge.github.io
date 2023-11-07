@@ -114,5 +114,21 @@ upgrades: {
                 return hasUpgrade('R', 11)
             },
         },
+        13: {
+            title: "Testing Lab",
+            description: "Fusions boosts Humans significantly",
+            cost: new Decimal(3),
+            effect() {
+                return (player.F.points.max(1).add(1).pow(0.07)).max(1).min(222);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(222) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('W', 12)
+            },
+        },
     },
 })
