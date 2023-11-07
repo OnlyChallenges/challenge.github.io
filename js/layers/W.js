@@ -7,13 +7,13 @@ addLayer("W", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
-    color: "#b5c4bd",
+    color: "#b5c3dd",
     requires: new Decimal(1e100), // Can be a function that takes requirement increases into account
     resource: "weapons", // Name of prestige currency
     baseResource: "crystals", // Name of resource prestige is based on
     baseAmount() {return player.c.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.45, // Prestige currency exponent
+    exponent: 0.33, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         return mult
@@ -51,7 +51,7 @@ addLayer("W", {
     },
     layerShown() {return true},
     layerShown() {
-        return hasUpgrade("H", 35) || player.W.points.gte(1) || player.W.unlocked;
+        return hasUpgrade("F", 36) || player.W.points.gte(1) || player.W.unlocked;
     },
 milestones: {
         11: {

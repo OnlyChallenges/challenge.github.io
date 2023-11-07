@@ -30,6 +30,8 @@ addLayer("E", {
         // F Upgrades (# Order)
         if (hasUpgrade('F', 12)) mult = mult.times(3.33)
         if (hasUpgrade('F', 26)) mult = mult.times(upgradeEffect('F',26))
+        if (hasUpgrade('F', 32)) mult = mult.times(upgradeEffect('F',32))
+        if (hasUpgrade('F', 33)) mult = mult.times(upgradeEffect('F',33))
         // H Upgrades (# Order)
     	if (hasUpgrade('H', 11)) mult = mult.times(upgradeEffect('H',11))
         if (hasUpgrade('H', 23)) mult = mult.times(upgradeEffect('H',23))
@@ -37,6 +39,7 @@ addLayer("E", {
         // Layer Effects
         if (player.H.unlocked) mult = mult.times(tmp.H.effect)
         if (player.R.unlocked) mult = mult.times(tmp.R.effect)
+        if (player.W.unlocked) mult = mult.times(tmp.W.effect)
         // Achievement Effects
         if (hasAchievement('a', 34)) mult = mult.times(1.33)
         if (hasAchievement('a', 41)) mult = mult.times(1.69)
@@ -53,6 +56,7 @@ addLayer("E", {
         if (hasUpgrade('F',21)) eff = eff.times(3)
         if (hasUpgrade('F',22)) eff = eff.times(4)
         if (hasUpgrade('H',32)) eff = eff.times(upgradeEffect('H',32))
+        if (hasUpgrade('F',35)) eff = eff.times(4)
         eff = eff.times(tmp.E.effectBase)
         return eff
     },

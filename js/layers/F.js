@@ -21,6 +21,8 @@ addLayer("F", {
         if (hasAchievement('a', 42)) mult = mult.times(2.33333)
         if (hasUpgrade('H', 24)) mult = mult.times(upgradeEffect('H',24))
         if (hasUpgrade('R', 12)) mult = mult.times(upgradeEffect('R',12))
+        if (hasUpgrade('F', 34)) mult = mult.times(upgradeEffect('F',34))
+        if (player.W.unlocked) mult = mult.times(tmp.W.effect)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -126,7 +128,7 @@ milestones: {
         },
     },
  upgrades: {
-    rows: 2,
+    rows: 3,
     cols: 6,
     11: {
         title: "Ayko",
@@ -235,6 +237,86 @@ milestones: {
         cost: new Decimal(225000),
         unlocked(){
             return hasUpgrade('F',25)
+        },
+    },
+    31: {
+        title: "Morgus",
+        description: "Experiments boosts Humans",
+        effect() {
+            return (player.E.points.max(1).add(1).pow(0.0135)).max(1).min(50);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(50) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        cost: new Decimal(5000000),
+        unlocked(){
+            return hasMilestone('R',12) && hasUpgrade('F', 26)
+        },
+    },
+    32: {
+        title: "Morgus",
+        description: "Crystals boosts Experiments",
+        effect() {
+            return (player.c.points.max(1).add(1).pow(0.0112)).max(1).min(70);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(70) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        cost: new Decimal(12000000),
+        unlocked(){
+            return hasUpgrade('F', 31)
+        },
+    },
+    33: {
+        title: "Lovevirus",
+        description: "Infects boosts Crystals & Experiments",
+        effect() {
+            return (player.points.max(1).add(1).pow(0.009)).max(1).min(17);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(17) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        cost: new Decimal(60000000),
+        unlocked(){
+            return hasUpgrade('F', 32)
+        },
+    },
+    34: {
+        title: "Nybeast",
+        description: "Experiments boosts Fusions & Crystals",
+        effect() {
+            return (player.E.points.max(1).add(1).pow(0.0188)).max(1).min(44);
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(44) ? "(Capped)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
+        cost: new Decimal(130000000),
+        unlocked(){
+            return hasUpgrade('F', 33)
+        },
+    },
+    35: {
+        title: "Abikaarme",
+        description: "Quadtruple the Experiment Effect",
+        cost: new Decimal(666666666),
+        unlocked(){
+            return hasUpgrade('F', 34)
+        },
+    },
+    36: {
+        title: "Weaponizing",
+        description: "Unlock the next layer",
+        cost: new Decimal(1.5e9),
+        unlocked(){
+            return hasUpgrade('F', 35)
         },
     },
  },

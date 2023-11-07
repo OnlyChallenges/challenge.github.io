@@ -34,6 +34,8 @@ addLayer("c", {
         if (hasUpgrade('E', 46)) mult = mult.times(1.5)	
         // F Upgrade Effects (# Order)
         if (hasUpgrade('F', 11)) mult = mult.times(12.5)
+        if (hasUpgrade('F', 33)) mult = mult.times(upgradeEffect('F',33))
+        if (hasUpgrade('F', 34)) mult = mult.times(upgradeEffect('F',34))
         // H Upgrade Effects (# Order)
     	if (hasUpgrade('H', 14)) mult = mult.times(upgradeEffect('H',14))
         if (hasUpgrade('H', 22)) mult = mult.times(upgradeEffect('H',22))
@@ -44,6 +46,7 @@ addLayer("c", {
         // Layer Effects (Lowest Layer)
         if (hasUpgrade('F', 15)) mult = mult.times(tmp.F.effect)
         if (player.H.unlocked) mult = mult.times(tmp.H.effect)
+        if (player.W.unlocked) mult = mult.times(tmp.W.effect)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

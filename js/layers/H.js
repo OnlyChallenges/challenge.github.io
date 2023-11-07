@@ -16,7 +16,9 @@ addLayer("H", {
     exponent: 0.6, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('F', 31)) mult = mult.times(upgradeEffect('F',31))
         if (hasUpgrade('H', 15)) mult = mult.times(upgradeEffect('H',15))
+        if (player.W.unlocked) mult = mult.times(tmp.W.effect)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -330,7 +332,7 @@ upgrades: {
         },
         35: {
             title: "Weaponization",
-            description: "15x Infects & Unlock a new Layer",
+            description: "15x Infects",
             cost: new Decimal(1e18),
             unlocked(){
                 return hasUpgrade('H',34)
