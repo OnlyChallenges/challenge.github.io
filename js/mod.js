@@ -5,15 +5,15 @@ let modInfo = {
 	pointsName: "infects",
 	modFiles: ["layers/a.js", "layers/E.js", "layers/c.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "tree.js"],
 
-	discordName: "E205 Discord Server",
-	discordLink: "https://discord.gg/experiment-205",
+	discordName: "The Modding Tree Discord Server",
+	discordLink: "https://discord.com/invite/F3xveHV",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.1",
+	num: "1.1_rollout",
 	name: "The Battle Begins",
 }
 
@@ -354,9 +354,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 4 Weapons</a>",
-	"Fangame of Experiment-205",
-	"You are on: E205-test_v.2"
+	"<a>Endgame: 4 Weapons</a>"
 ]
 
 

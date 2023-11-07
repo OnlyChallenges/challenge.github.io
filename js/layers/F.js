@@ -242,7 +242,7 @@ milestones: {
         },
     },
     31: {
-        title: "Morgus",
+        title: "Maluze",
         description: "Experiments boosts Humans",
         effect() {
             return (player.E.points.max(1).add(1).pow(0.0135)).max(1).min(50);
