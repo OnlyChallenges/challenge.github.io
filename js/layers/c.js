@@ -78,12 +78,12 @@ addLayer("c", {
         if (hasUpgrade ('F', 16) && resettingLayer == "F") player.E.milestones.push("15")
         if (hasUpgrade ('F', 22) && resettingLayer == "F") player.E.milestones.push("16")
         // Human Milestone
-        if (hasMilestone ('H', 11) && resettingLayer == "H, R") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
-        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
-        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46")
-        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.milestones.push("11", "12", "13", "14")
-        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.milestones.push("15")
-        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.milestones.push("16")
+        if (hasMilestone ('H', 11) && resettingLayer == "H") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
+        if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
+        if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46")
+        if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("11", "12", "13", "14")
+        if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("15")
+        if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("16")
         // Weapon Milestone
         if (hasMilestone ('W', 12)) player.push("milestones")
         if (hasMilestone ('W', 12)) player.push("upgrades")
