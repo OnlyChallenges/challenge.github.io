@@ -85,11 +85,12 @@ addLayer("c", {
         if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("15")
         if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("16")
         // Room Milestone (To Prevent ResettingLayer)
-        if (hasMilestone ('R', 11)) player.push("milestones")
-        if (hasMilestone ('R', 11)) player.push("upgrades")
+        if (hasMilestone ('R', 11)) player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
+        if (hasMilestone ('R', 11)) player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35","36","41","42","43","44","45","46")
+        if (hasMilestone ('H', 13)) player.E.milestones.push("11", "12", "13", "14", "15", "16")
         // Weapon Milestone
-        if (hasMilestone ('W', 12)) player.push("milestones")
-        if (hasMilestone ('W', 12)) player.push("upgrades")
+        if (hasMilestone ('W', 12)) push("milestones")
+        if (hasMilestone ('W', 12)) push("upgrades")
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
