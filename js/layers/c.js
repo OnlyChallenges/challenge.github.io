@@ -84,6 +84,9 @@ addLayer("c", {
         if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("11", "12", "13", "14")
         if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("15")
         if (hasMilestone ('H', 13) && resettingLayer == "H") player.E.milestones.push("16")
+        // Room Milestone (To Prevent ResettingLayer)
+        if (hasMilestone ('R', 11)) player.push("milestones")
+        if (hasMilestone ('R', 11)) player.push("upgrades")
         // Weapon Milestone
         if (hasMilestone ('W', 12)) player.push("milestones")
         if (hasMilestone ('W', 12)) player.push("upgrades")
