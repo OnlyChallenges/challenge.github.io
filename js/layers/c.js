@@ -167,7 +167,7 @@ addLayer("c", {
     },
     21: {
         title: "Permacold",
-        description: "Infects 3.5x faster '(Copy pasta again??)",
+        description: "Infects 3.5x faster (Copy pasta again??)",
         cost: new Decimal(1250),
         unlocked(){
             return hasUpgrade("c", 15)
