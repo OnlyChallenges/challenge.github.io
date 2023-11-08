@@ -98,7 +98,7 @@ addLayer("E", {
 milestones: {
         11: {
             requirementDescription: "333 Experiments",
-            effectDescription: `Keep the first three rows of Crystal Upgrades on Reset`,
+            effectDescription: `Keep the first three rows of Crystal Upgrades on Reset<br> (Except for 'Layering' & 'Double Layering')`,
             done() { return player.E.points.gte(333) },
         },
         12: {
@@ -247,7 +247,7 @@ milestones: {
     },
     23: {
         title: "Azure",
-        description: "Azure can duplicate into 4 clones of themself, 4x Experiment Gain!",
+        description: "Azure can duplicate into 4 clones of themself, 4x Experiment Gain! Keep 'Layering' & 'Double Layering'",
         cost: new Decimal(1520),
         unlocked(){
             return hasUpgrade("E", 22)
