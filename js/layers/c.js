@@ -135,13 +135,13 @@ addLayer("c", {
     },
 	13: {
 	    title: "Reformation",
-        description: "Crystals boosts infects",
+        description: "Crystals boosts infects (copypasta)",
         cost: new Decimal(15),
         effect() {
-            return (player.c.points.max(1).add(1.66).pow(0.24)).max(1).min(74.62);
+            return (player.c.points.max(1).add(1.67).pow(0.24)).max(1).min(77);
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(74.62) ? "(Capped again)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(77) ? "(Capped again)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -151,7 +151,7 @@ addLayer("c", {
     },
 	14: {
         title: "Crystalization",
-	    description: "Crystals made Experiments more mad, Infects are 3x faster",
+	    description: "Crystals are having smaller Crystals inside of themselves-- Infects are 3x faster",
 	    cost: new Decimal(35),
         unlocked(){
             return hasUpgrade("c", 13)
@@ -159,7 +159,7 @@ addLayer("c", {
     },
     15: {
         title: "Strength",
-        description: "Experiments are now stronger, Infects are 4.5x faster",
+        description: "Infects are 4.5x faster",
         cost: new Decimal(175),
         unlocked(){
             return hasUpgrade("c", 14)
@@ -167,7 +167,7 @@ addLayer("c", {
     },
     21: {
         title: "Permacold",
-        description: "Permafrost learned fire control, infects are 3.5x faster",
+        description: "Infects 3.5x faster '(Copy pasta again??)",
         cost: new Decimal(1250),
         unlocked(){
             return hasUpgrade("c", 15)
@@ -191,7 +191,7 @@ addLayer("c", {
     },
 	23: {
         title: "Beelusion",
-            description: "There's Honey Crystals around the corner-- infects are increased",
+            description: "There's Honey Crystals around the corner-- infects boosts itself",
             cost: new Decimal(25000),
             unlocked(){
                 return hasUpgrade("c", 22)
@@ -217,15 +217,15 @@ addLayer("c", {
 
     25: {
         title: "Crystalized",
-        description: "Influcations has occured-- infects gain is 2.2x!",
+        description: "Influcations are occuring-- infects gain is 2.2x!",
         cost: new Decimal(1.46e6),
         unlocked(){
             return hasUpgrade("c", 24)
-        },
+      },
     },
     31: {
         title: "Crystalmania",
-        description: "They're Everywhere! Infects Gain is 2.5x!",
+        description: "They're Everywhere! Infects Gain is 2.5x! (Are we done yet?)",
         cost: new Decimal(1.24e7),
         unlocked(){
             return hasUpgrade("c", 25)
