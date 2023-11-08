@@ -204,9 +204,9 @@ addLayer("a", {
                 `Get 1 Room`
             },        
         46: {
-            name(){return hasAchievement("a", 46)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'>Cheating? Naw I don't think so.</h4>`:"   "},
+            name(){return hasAchievement("a", 46)`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'>I Knew you were going to do that.</h4>`},
             done() { return player.devSpeed>=1.01 },
-            tooltip(){return hasAchievement("a", 46)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> Nuh uh, not allowing it...<br>So your Infects & Crystal gain is /1e300 until you've set your devSpeed back or under 1 - Some Karen</h4>`:"  "},
+            tooltip(){return hasAchievement("a", 46)`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> You're going to play fairly!<br>So your Infects & Crystal gain is /1e300 until you've set your devSpeed back or under 1.<br> You've found a secret achievement that will never go away!</h4>`},
             unlocked(){return player.devSpeed>=1.01 || hasAchievement("a", 46)},
             },
         },
