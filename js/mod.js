@@ -25,16 +25,16 @@ let changelog = `<h1>Changelog:</h1><br>
 		a = bug/mechanic fixes<br><br>
 
 		<h3>v1.1.1</h3><br>
-			- Fixed Experiment Milestone 1 giving 2 Upgrades that weren't unlocked yet. (Subsited with a Upgrade.)
-			- Added 2 Weapon Upgrades that will make Crystal Upgrades more useful.
-			- Fixed Rooms breaking past the 3rd Room Upgrade
-			- Fixed All Fusion & Human Milestones to have the same effects.
-			- Humans now will not reset Crystal Upgrades if you get a Room.
-			- Secret Achievement has been fixed again.
-			- Fixed 2 Achievements giving the wrong Reward effect.
-			- Fixed 4 Crystal Upgrades giving faulty or weak effects. 
-			- Thank you to a lot of players for playtesting this!
-			- Endgame: 7 Weapons
+			- Fixed Experiment Milestone 1 giving 2 Upgrades that weren't unlocked yet. (Subsited with a Upgrade.)<br>
+			- Added 2 Weapon Upgrades that will make Crystal Upgrades more useful.<br>
+			- Fixed Rooms breaking past the 3rd Room Upgrade<br>
+			- Fixed All Fusion & Human Milestones to have the same effects.<br>
+			- Humans now will not reset Crystal Upgrades if you get a Room.<br>
+			- Secret Achievement has been fixed again.<br>
+			- Fixed 2 Achievements giving the wrong Reward effect.<br>
+			- Fixed 4 Crystal Upgrades giving faulty or weak effects. <br>
+			- Thank you to a lot of players for playtesting this!<br>
+			- Endgame: 7 Weapons<br><br>
 
 
 		<h2>v1.1 The Battle Begins </h2><br>
