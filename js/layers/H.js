@@ -100,7 +100,7 @@ milestones: {
         14: {
             requirementDescription: "5,000 Humans",
             effectDescription() {
-                let text = "Unlock more unbalanced fusion upgrades";
+                let text = "Unlock more unbalanced(?) fusion upgrades";
                 return text;
               },
         done() { return player.H.points.gte(5000) && hasMilestone('H', 13) },

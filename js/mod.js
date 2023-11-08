@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.1_rollout_1",
+	num: "1.1.1_rollout",
 	name: "The Battle Begins",
 }
 
@@ -23,6 +23,18 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h3>v1.1.1</h3><br>
+			- Fixed Experiment Milestone 1 giving 2 Upgrades that weren't unlocked yet. (Subsited with a Upgrade.)
+			- Added 2 Weapon Upgrades that will make Crystal Upgrades more useful.
+			- Fixed Rooms breaking past the 3rd Room Upgrade
+			- Fixed All Fusion & Human Milestones to have the same effects.
+			- Humans now will not reset Crystal Upgrades if you get a Room.
+			- Secret Achievement has been fixed again.
+			- Fixed 2 Achievements giving the wrong Reward effect.
+			- Fixed 4 Crystal Upgrades giving faulty or weak effects. 
+			- Thank you to a lot of players for playtesting this!
+			- Endgame: 7 Weapons
 
 
 		<h2>v1.1 The Battle Begins </h2><br>
@@ -354,13 +366,13 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 4 Weapons</a>"
+	"<a>Endgame: 7 Weapons</a>"
 ]
 
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.W.points.gte(4)
+	return player.W.points.gte(7)
 }
 
 

@@ -123,5 +123,21 @@ upgrades: {
                 return hasUpgrade('W', 12)
             },
         },
+        14: {
+            title: "Knife",
+            description: "Change 'Reformation' completely",
+            cost: new Decimal(2),
+            unlocked(){
+                return hasUpgrade('W', 13)
+            },
+        },
+        15: {
+            title: "Pipe",
+            description: "Change 'Layering' & 'Double Layering' completely",
+            cost: new Decimal(3),
+            unlocked(){
+                return hasUpgrade('W', 14)
+            },
+        },
     },
 })

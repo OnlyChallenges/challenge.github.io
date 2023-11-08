@@ -41,6 +41,8 @@ addLayer("c", {
         if (hasUpgrade('H', 22)) mult = mult.times(upgradeEffect('H',22))
         if (hasUpgrade('H', 33)) mult = mult.times(upgradeEffect('H',33))
         if (hasUpgrade('H', 34)) mult = mult.times(upgradeEffect('H',34))
+        // Combo Upgrades | Upgrade Effect Increases
+        if (hasUpgrade('W', 15) && hasUpgrade('c', 34)) mult = mult.times(upgradeEffect('c', 34))
         // Milestone Effects
         if (hasMilestone('W', 11)) mult = mult.times(2.2)
         // Achievement Effects
@@ -69,18 +71,19 @@ addLayer("c", {
         if (hasUpgrade ('E', 23)) player.c.upgrades.push("34", "35")
         if (hasMilestone ('E', 14)) player.c.upgrades.push("41", "42", "43", "44", "45")
         if (hasMilestone ('E', 16)) player.c.upgrades.push("51", "52", "53", "54", "55")
+        if (hasUpgrade ('F', 22) && resettingLayer == "F") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
         if (hasMilestone ('F', 11) && resettingLayer == "F") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
         if (hasMilestone ('F', 14) && resettingLayer == "F") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46")
         if (hasMilestone ('F', 12) && resettingLayer == "F") player.E.milestones.push("11", "12", "13", "14")
         if (hasUpgrade ('F', 16) && resettingLayer == "F") player.E.milestones.push("15")
         if (hasUpgrade ('F', 22) && resettingLayer == "F") player.E.milestones.push("16")
         // Human Milestone
-        if (hasMilestone ('H', 11) && resettingLayer == "H") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
-        if (hasMilestone ('H', 13)) player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
-        if (hasMilestone ('H', 13)) player.E.upgrades.push("36","41", "42", "43", "44", "45", "46")
-        if (hasMilestone ('H', 13)) player.E.milestones.push("11", "12", "13", "14")
-        if (hasMilestone ('H', 13)) player.E.milestones.push("15")
-        if (hasMilestone ('H', 13)) player.E.milestones.push("16")
+        if (hasMilestone ('H', 11) && resettingLayer == "H, R") player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
+        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35")
+        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.upgrades.push("36","41", "42", "43", "44", "45", "46")
+        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.milestones.push("11", "12", "13", "14")
+        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.milestones.push("15")
+        if (hasMilestone ('H', 13) && resettingLayer == "H, R") player.E.milestones.push("16")
         // Weapon Milestone
         if (hasMilestone ('W', 12)) player.push("milestones")
         if (hasMilestone ('W', 12)) player.push("upgrades")
@@ -135,14 +138,25 @@ addLayer("c", {
         },
     },
 	13: {
-	    title: "Reformation",
-        description: "Crystals boosts infects (copypasta)",
+	    title(){
+            let title1 = "Reformation";
+            if(hasUpgrade("W", 14)) title1 = "Reformation+";
+            return title1
+        },
+        description(){ 
+            let desc = "Crystals boosts infects (copypasta)";
+            if(hasUpgrade("W", 14)) desc = "Crystals boosts Infects & Experiments (77x > 1300x Cap)";
+            return desc
+        },
         cost: new Decimal(15),
         effect() {
-            return (player.c.points.max(1).add(1.67).pow(0.24)).max(1).min(77);
+            let effect0 = (player.c.points.max(1).add(1.67).pow(0.24)).max(1).min(77);
+                if(hasUpgrade("W", 14)) effect0 = (player.c.points.max(1).add(1.1).pow(0.013).max(1).min(1300))
+            return effect0
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(77) ? "(Capped again)" : "";
+                if(hasUpgrade("W", 14)) capped = upgradeEffect(this.layer, this.id).gte(1300) ? "(Capped+)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
         },
@@ -259,35 +273,57 @@ addLayer("c", {
      },
 
     34: {
-        title: "Layering",
-        description: "Crystals are layering over each other...Crystals boosts Infects",
+        title(){
+            let title1 = "Layering";
+            if(hasUpgrade("W", 15)) title1 = "Layering+";
+            return title1
+        },
+        description(){ 
+            let desc = "Crystals are layering over each other...Crystals boosts infects";
+            if(hasUpgrade("W", 15)) desc = "Crystals are boosting themselves and Infects (14.5x > 620x Cap)";
+            return desc
+        },
         cost: new Decimal(9.99e17),
+        effect() {
+            let effect0 = (player.c.points.max(1).add(1.33).log10().pow(0.076)).max(1).min(14.5);
+                if(hasUpgrade("W", 15)) effect0 = (player.c.points.max(1).add(1.5).log10().pow(0.089).max(1).min(620))
+            return effect0
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(14.5) ? "(Capped)" : "";
+                if(hasUpgrade("W", 15)) capped = upgradeEffect(this.layer, this.id).gte(620) ? "(Capped+)" : "";
+            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+            return text;
+        },
         unlocked(){
             return hasUpgrade("E", 22) && hasUpgrade("c", 33);
         },
-        effect() {
-            return (player.c.points.max(1).add(1.33).log10().pow(0.076)).max(1).min(14.5);
-        },
-        effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(14.5) ? "(Layer Capped)" : "";
-            let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
-            return text;
-        },
      },
     35: {
-        title: "Double Layering",
-        description: "Crystals are layering again?...Experiments boosts Infects",
-        cost: new Decimal(3.88e19),
-        unlocked(){
-            return hasUpgrade("E", 23) && hasUpgrade("c", 34);
+        title(){
+            let title1 = "Double Layering";
+            if(hasUpgrade("W", 15)) title1 = "Layers...Layers...Layers.";
+            return title1
         },
+        description(){ 
+            let desc = "Crystals are layering again?...Experiments boosts Infects";
+            if(hasUpgrade("W", 15)) desc = "Crystals are layering again?...Experiments boosts Infects & Fusions (10x > 60x Cap)";
+            return desc
+        },
+        cost: new Decimal(3.88e19),
         effect() {
-            return (player.E.points.add(0.96).log10().pow(0.63)).max(1).min(10);
+            let effect0 = (player.E.points.max(1).add(0.96).log10().pow(0.63)).max(1).min(10);
+                if(hasUpgrade("W", 15)) effect0 = (player.E.points.max(1).add(1).pow(0.14).max(1).min(60))
+            return effect0
         },
         effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Layer^Layer capped)" : "";
+            let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
+                if(hasUpgrade("W", 15)) capped = upgradeEffect(this.layer, this.id).gte(60) ? "(Capped+)" : "";
             let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
             return text;
+        },
+        unlocked(){
+            return hasUpgrade("E", 23) && hasUpgrade("c", 34);
         },
     },
     41: {

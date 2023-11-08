@@ -25,6 +25,7 @@ addLayer("F", {
         if (player.W.unlocked) mult = mult.times(tmp.W.effect)
         if (hasMilestone('W', 11)) mult = mult.times(2.2)
         if (hasMilestone('W', 13)) mult = mult.times(upgradeEffect('W',13))
+        if (hasUpgrade('W', 15) && hasUpgrade('c', 35)) mult = mult.times(upgradeEffect('c', 35))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -73,7 +74,8 @@ addLayer("F", {
             ???: Well I guess it's just two people yelling about the pipes leaking...<br>
             ???: I can see why, what's the point of putting duct tape on pipes...<br><br>
             
-            - In a later Upgrade you'll see one of the names and more lore.. -`
+            - In a later Upgrade you'll see one of the names and more lore.. -<br>
+            v1.3_rollout...`
             return text
             },
         },
@@ -102,7 +104,7 @@ milestones: {
                 return text;
               },
             done() { return player.F.points.gte(20)},
-            unlocked() {return hasUpgrade('F', 16) || player.F.points.gte(12)},
+            unlocked() {return hasUpgrade('F', 12) || hasMilestone('F', 12)},
         },
         14: {
             requirementDescription: "100 Fusions",
@@ -111,18 +113,18 @@ milestones: {
                 `Keep the 4th Row of Experiment Upgrades (And 'Goon')`;
                 if (hasMilestone("F", 14)) text =
                 `Keep the 4th Row of Experiment Upgrades<br>
-                Give us more Fusion stuff you jerk...<br>
+                Give us more Fusion stuff you damn mod creator...<br>
                 It's annoying to go back and forth y'know.`;
                 return text;
               },
             done() { return player.F.points.gte(100)},
-            unlocked() {return hasUpgrade('c', 55) || player.F.points.gte(50)},
+            unlocked() {return hasUpgrade('F', 22) && hasMilestone('F', 13)},
         },
         15: {
             requirementDescription: "1e53 Infects and 5,000 Fusions",
             effectDescription() {
                 let text = 
-                `Unlock a couple more human upgrades`;
+                `Unlock a couple more human upgrades (took you forever?)`;
                 return text;
               },
             done() { return player.points.gte(1e53) && player.F.points.gte(5000)},
@@ -187,7 +189,7 @@ milestones: {
     },
     22: {
         title: "Lovegen",
-        description: "Quadtruple the Experiment Effects",
+        description: "Quadtruple the Experiment Effect & Keep Crystal Upgrades on Fusion Reset!",
         cost: new Decimal(45),
         unlocked(){
             return hasUpgrade('F',21)
