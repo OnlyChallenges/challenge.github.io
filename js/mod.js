@@ -33,7 +33,7 @@ let changelog = `<h1>Changelog:</h1><br>
 			- Fixed Keep Milestones Again...<br>
 			- Revamped 2 Crystal Upgrades.<br>
 			- Revamped 1 Human Upgrade.<br>
-			- Endgame: 8 Weapons<br>
+			- Endgame: 8 Weapons<br><br>
 
 
 		<h3>v1.1.1</h3><br>
