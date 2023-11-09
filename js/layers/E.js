@@ -387,7 +387,7 @@ milestones: {
             if (hasUpgrade("E", 36)) text = "Increase Crystal Gain by 7.5x (not 105 wth)"
             return text
             },
-            cost: new Decimal(7.5e13),
+            cost: new Decimal(8.33e9),
         unlocked(){
             return hasUpgrade("E", 35) && player.F.unlocked
         },
