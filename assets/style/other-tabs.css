@@ -22,7 +22,7 @@
 
 #info {
 	font-size: 20px;
-	color: white;
+	color: #2ccaff;
 	cursor: pointer;
 	width: 40px;
 	height: 40px;
@@ -47,8 +47,8 @@
 
 #version {
 	position: fixed;
-	bottom: 40px;
-	left: 60px;
+	bottom: 52.5px;
+	left: 10px;
 	text-align: center;
 	color: #2ccaff;
 	cursor: pointer;
@@ -62,7 +62,7 @@
 }
 
 a {
-	color: #007fff;
+	color: #3d92e8;
 	text-decoration-line: none;
 	cursor: pointer
 }
@@ -70,7 +70,7 @@ a {
 .link {
 	display: block;
 	font-size: 20px;
-	color: #41f5f5;
+	color: #43b7b7;
 	cursor: pointer;
 	font-family: "Lucida Console", "Courier New", monospace;
 	-webkit-text-stroke-width: 1px;
@@ -80,6 +80,6 @@ a {
 
 .link:hover {
 	transform: scale(1.2, 1.2);
-	text-shadow: 5px 0 10px #02f2f2,
-              -3px 0 12px #02f2f2;
+	text-shadow: 5px 0 10px #43b7b7,
+              -3px 0 12px #43b7b7;
 }
