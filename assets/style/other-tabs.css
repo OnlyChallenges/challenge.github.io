@@ -48,7 +48,7 @@
 #version {
 	position: fixed;
 	bottom: 2px;
-	left: 10px;
+	left: 1px;
 	text-align: center;
 	color: #2ccaff;
 	cursor: pointer;
