@@ -47,7 +47,7 @@
 
 #version {
 	position: fixed;
-	bottom: 8px;
+	bottom: 2px;
 	left: 10px;
 	text-align: center;
 	color: #2ccaff;
