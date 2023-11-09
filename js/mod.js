@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.1.2_stable",
+	num: "1.1.3_stable",
 	name: "Weapons, Weapons, Weapons!",
 }
 
@@ -23,6 +23,15 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+ <h3>v1.1.3_stable</h3><br>
+   - Added 2 Weapon Milestones<br>
+   - Pushed Crystal Upgrades on Fusion & Humans to be early.<br>
+   - Rooms will automatically make it easier to progress through Fusions & Humans.<br>
+   - Fixed CSS by a minor bit.<br>
+   - Fixed 3 Upgrades in Weapons being Faulty.<br>
+   - Decreased Goon Cost to make pre-fusions easier.<br><br>
+
 
 		<h3>v1.1.2_stable: Weapons, Weapons, Weapons!</h3><br>
 			- Added 2 Weapon Upgrades.<br>
