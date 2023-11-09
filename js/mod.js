@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.1.1_rollout",
-	name: "The Battle Begins",
+	num: "1.1.2_stable",
+	name: "Weapons, Weapons, Weapons!",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +23,18 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h3>v1.1.2_stable: Weapons, Weapons, Weapons!</h3><br>
+			- Added 2 Weapon Upgrades.<br>
+			- Added 1 Room Upgrade.<br>
+			- Changed Milestone, Upgrades, Achievements, and Version Looks.<br>
+			- Fixed Rooms becoming broken after reaching 3.<br>
+			- Fixed Humans Gain Formula.<br>
+			- Fixed Keep Milestones Again...<br>
+			- Revamped 2 Crystal Upgrades.<br>
+			- Revamped 1 Human Upgrade.<br>
+			- Endgame: 8 Weapons<br>
+
 
 		<h3>v1.1.1</h3><br>
 			- Fixed Experiment Milestone 1 giving 2 Upgrades that weren't unlocked yet. (Subsited with a Upgrade.)<br>
@@ -281,7 +293,7 @@ let changelog = `<h1>Changelog:</h1><br>
 	        - Added the first layer, Crystals.<br>
 	        - Endgame: None.<br>`
 
-let winText = `Uh oh, you've infected too many! Thanks for playing the 1st beta!`
+let winText = `You've reached the end! Thanks for playtesting!`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -366,13 +378,13 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 7 Weapons</a>"
+	"<a>Endgame: 8 Weapons</a>"
 ]
 
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.W.points.gte(7)
+	return player.W.points.gte(8)
 }
 
 
