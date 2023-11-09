@@ -143,7 +143,7 @@ milestones: {
     },
     12: {
         title: "Cyberus",
-        description: "Cyberruin & Virus...Boost Experiment Gain by 3.33x",
+        description: "Cyberruin & Virus...Boost Experiment Gain by 3.33x & Keep Crystal Upgrades on Fusion Reset!",
         cost: new Decimal(3),
         unlocked(){
             return hasUpgrade('F',11)
@@ -191,7 +191,7 @@ milestones: {
     },
     22: {
         title: "Lovegen",
-        description: "Quadtruple the Experiment Effect & Keep Crystal Upgrades on Fusion Reset!",
+        description: "Quadtruple the Experiment Effect",
         cost: new Decimal(45),
         unlocked(){
             return hasUpgrade('F',21)
