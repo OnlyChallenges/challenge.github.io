@@ -22,7 +22,7 @@ addLayer("W", {
         return new Decimal(1)
     },
     effect() {
-        let eff4 = player.W.points.add(1.1).pow(0.525)
+        let eff4 = player.W.points.add(1).pow(0.575)
         eff4 = eff4.times(tmp.W.effectBase)
         return eff4
     },
@@ -57,18 +57,28 @@ milestones: {
         11: {
             requirementDescription: "1 Weapon",
             effectDescription() {
-                let text = "Multiply all previous layers (Except Rooms) by 2.2x";
+                let text = 
+                `Multiply all previous layers (Except Rooms) by 2.2x<br>
+                Also Keep Everything from the previous layers.`;
                 return text;
               },
             done() { return player.W.points.gte(1) },
         },
         12: {
-            requirementDescription: "3 Weapons",
+            requirementDescription: "5 Weapons",
             effectDescription() {
-                let text = "Keep everything from the previous layers";
+                let text = "Quadtruple all Effects";
                 return text;
               },
-            done() { return player.W.points.gte(3) },
+            done() { return player.W.points.gte(5) },
+        },
+        13: {
+            requirementDescription: "100 Weapons",
+            effectDescription() {
+                let text = "Increase humans and fusion gain by " + format(player.W.points.add(1).pow(0.35)) +" (based on Weapons)";
+                return text;
+              },
+            done() { return player.W.points.gte(5) },
         },
 },
 

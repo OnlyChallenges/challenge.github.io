@@ -24,7 +24,8 @@ addLayer("F", {
         if (hasUpgrade('F', 34)) mult = mult.times(upgradeEffect('F',34))
         if (player.W.unlocked) mult = mult.times(tmp.W.effect)
         if (hasMilestone('W', 11)) mult = mult.times(2.2)
-        if (hasMilestone('W', 13)) mult = mult.times(upgradeEffect('W',13))
+        if (hasUpgrade('W', 13)) mult = mult.times(upgradeEffect('W',13))
+        if (hasMilestone('W', 13)) mult = mult.times(player.W.points.add(1).pow(0.35))
         if (hasUpgrade('W', 15) && hasUpgrade('c', 35)) mult = mult.times(upgradeEffect('c', 35))
         return mult
     },
@@ -36,6 +37,7 @@ addLayer("F", {
         if (hasUpgrade("F",14)) eff1 = eff1.add(2.5)
         if (hasUpgrade('c', 54)) eff1 = eff1.times(3.5)
         if (hasMilestone('H', 15)) eff1 = eff1.times(2)
+        if (hasMilestone('W', 12)) eff1 = eff1.times(4)
         eff1 = eff1.times(tmp.F.effectBase)
         return eff1
     },

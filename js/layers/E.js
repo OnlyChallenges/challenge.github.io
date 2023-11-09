@@ -62,6 +62,7 @@ addLayer("E", {
         if (hasUpgrade('F',22)) eff = eff.times(4)
         if (hasUpgrade('H',32)) eff = eff.times(upgradeEffect('H',32))
         if (hasUpgrade('F',35)) eff = eff.times(4)
+        if (hasMilestone('W', 12)) eff = eff.times(4)
         eff = eff.times(tmp.E.effectBase)
         return eff
     },
