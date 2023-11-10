@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.1.3_stable+1",
+	num: "1.1.3_stable+2",
 	name: "Weapons, Weapons, Weapons!",
 }
 
@@ -31,8 +31,10 @@ let changelog = `<h1>Changelog:</h1><br>
    			- Fixed CSS by a minor bit.<br>
    			- Fixed 3 Upgrades in Weapons being Faulty.<br>
 			- Rebalanced Experiment Costs & Effects<br>
+			-> Changed 'Snapper' and 'Somby' Effects significantly<br>
 			- Reordered 5 Achievements<br>
-   			- Decreased Goon Cost to make pre-fusions easier.<br><br>
+   			- Decreased Goon Cost to make pre-fusions easier.<br>
+			- Made Fusion Milestone 1 require 1 Fusion instead of 2 Fusions due to progression.<br><br>
 
 		<h3>v1.1.2_stable: Weapons, Weapons, Weapons!</h3><br>
 			- Added 2 Weapon Upgrades.<br>

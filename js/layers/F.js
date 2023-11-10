@@ -87,9 +87,9 @@ addLayer("F", {
       },
 milestones: {
         11: {
-            requirementDescription: "2 Fusions",
+            requirementDescription: "1 Fusions",
             effectDescription: "Keep the first 3 rows of Experiment Upgrades",
-            done() { return player.F.points.gte(2)},
+            done() { return player.F.points.gte(1)},
         },
         12: {
             requirementDescription: "5 Fusions",

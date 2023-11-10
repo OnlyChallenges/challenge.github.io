@@ -221,7 +221,7 @@ milestones: {
         description: "Boosts Experiment Gain by Infects",
         cost: new Decimal(180),
         effect(){
-            return (player.points.plus(1).log10().pow(0.25).plus(1)).max(1).min(7.5)
+            return (player.points.plus(1).pow(0.07).plus(1)).max(1).min(7.5)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(7.5) ? "(Capped)" : "";
@@ -277,7 +277,7 @@ milestones: {
         description: "Infects Boosts Crystal Gain",
         cost: new Decimal(16600),
         effect(){
-            return (player.points.plus(0.85).log10().pow(0.45)).max(1).min(10)
+            return (player.points.plus(1).log10().pow(0.5)).max(1).min(25)
         },
         effectDisplay() {
             let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
