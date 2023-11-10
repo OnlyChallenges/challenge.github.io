@@ -92,11 +92,11 @@ milestones: {
             done() { return player.F.points.gte(1)},
         },
         12: {
-            requirementDescription: "5 Fusions",
+            requirementDescription: "3 Fusions",
             effectDescription: `
             Unlock the next row of Experiment Upgrades<br>
             Keep the first 3 Experiment Milestones on Reset`,
-            done() { return player.F.points.gte(5)},
+            done() { return player.F.points.gte(3)},
         },
         13: {
             requirementDescription: "20 Fusions",
