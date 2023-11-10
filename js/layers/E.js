@@ -369,7 +369,7 @@ milestones: {
         if (hasUpgrade("E", 35)) text = "Wait what... Multiply Infect Gain by 1.25x"
         return text
         },
-        cost: new Decimal(1e8),
+        cost: new Decimal(66666665),
         unlocked(){
             return hasUpgrade("E", 34)
         },
