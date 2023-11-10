@@ -30,8 +30,8 @@ let changelog = `<h1>Changelog:</h1><br>
    			- Rooms will automatically make it easier to progress through Fusions & Humans.<br>
    			- Fixed CSS by a minor bit.<br>
    			- Fixed 3 Upgrades in Weapons being Faulty.<br>
-			- Rebalanced Experiment Costs & Effects
-			- Reordered 5 Achievements
+			- Rebalanced Experiment Costs & Effects<br>
+			- Reordered 5 Achievements<br>
    			- Decreased Goon Cost to make pre-fusions easier.<br><br>
 
 		<h3>v1.1.2_stable: Weapons, Weapons, Weapons!</h3><br>

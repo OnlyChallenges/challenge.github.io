@@ -351,7 +351,7 @@ milestones: {
     34: {
         title: "Honeydiver",
         description: "Multiply the Experiment Effect Base by 1.5",
-        cost: new Decimal(3e7),
+        cost: new Decimal(2.25e7),
         unlocked(){
             return hasUpgrade("E", 33)
         },
@@ -369,7 +369,7 @@ milestones: {
         if (hasUpgrade("E", 35)) text = "Wait what... Multiply Infect Gain by 1.25x"
         return text
         },
-        cost: new Decimal(3.5e8),
+        cost: new Decimal(1e8),
         unlocked(){
             return hasUpgrade("E", 34)
         },
