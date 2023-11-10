@@ -88,7 +88,7 @@ addLayer("F", {
 milestones: {
         11: {
             requirementDescription: "2 Fusions",
-            effectDescription: "Keep the first 3 rows of Experiment Upgrades except 'Goon'",
+            effectDescription: "Keep the first 3 rows of Experiment Upgrades",
             done() { return player.F.points.gte(2)},
         },
         12: {

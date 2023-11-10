@@ -323,7 +323,7 @@ milestones: {
     32: {
         title: "Malachite",
         description: "Infects & Experiments boosts Crystals",
-        cost: new Decimal(1e7),
+        cost: new Decimal(3.5e6),
         effect(){
             return (((player.points.plus(0.1).log10().pow(0.455))) + (player.E.points.plus(1).log10().pow(0.55)))
         },
@@ -335,7 +335,7 @@ milestones: {
     33: {
         title: "Voiskral",
         description: "Crystals Boosts Infects",
-        cost: new Decimal(6.3e7),
+        cost: new Decimal(1e7),
         effect(){
             return (player.c.points.plus(0.29).log10().pow(0.77)).max(1).min(50)
         },
@@ -351,7 +351,7 @@ milestones: {
     34: {
         title: "Honeydiver",
         description: "Multiply the Experiment Effect Base by 1.5",
-        cost: new Decimal(1.9e8),
+        cost: new Decimal(3e7),
         unlocked(){
             return hasUpgrade("E", 33)
         },
@@ -366,7 +366,7 @@ milestones: {
         description(){
         let text
         text = "Increase Infect Gain by 100x"
-        if (hasUpgrade("E", 35)) text = "Wait what... Divide Infect Gain by 1.25x"
+        if (hasUpgrade("E", 35)) text = "Wait what... Multiply Infect Gain by 1.25x"
         return text
         },
         cost: new Decimal(3.5e8),

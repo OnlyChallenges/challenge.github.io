@@ -138,21 +138,26 @@ addLayer("a", {
                 `,
             },
         31: {
+                name(){return hasAchievement("a", 31)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "Vaccines are fake!" - Some Karen</h4>`:"Vaccinations against the Infection"},
+                done() { return player.points.gte(1e30) },
+                tooltip(){return hasAchievement("a", 31)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "The 2033 Virus is fake and y'all are just fake fakers" - Some 2033 Karen <br> Get 1e30 Infects normally.<br> Reward: 2.5x Infects & Crystals</h4>`:"Get 1e30 in 'Immunity'"},
+            },
+        32: {
                 name: "Combination",
                 done() { return player.F.points.gte(1) },
                 tooltip: "Achieve 1 Fusion Point."
             },
-        32: {
-                name(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "Vaccines are fake!" - Some Karen</h4>`:"Vaccinations against the Infection"},
-                done() { return player.points.gte(5e30) },
-                tooltip(){return hasAchievement("a", 32)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> "The 2033 Virus is fake and y'all are just fake fakers" - Some 2033 Karen <br> Get 1e30 Infects normally.<br> Reward: 2.5x Infects & Crystals</h4>`:"Get 1e30 in 'Immunity'"},
-            },
         33: {
+                name(){return hasAchievement("a", 33)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> He's an experiment.</h4>`:"Wait...isn't he a human?"},
+                done() { return hasUpgrade('E', 36) },
+                tooltip(){return hasAchievement("a", 33)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> Get the 'Goon' Upgrade<br> Reward: There's no going back.</h4>`:"Get the 'Goon' Upgrade"}
+            },
+        34: {
                 name: "Avali",
                 done() { return hasMilestone('F', 11) },
                 tooltip: "Get the First Fusion Milestone!"
             },
-        34: {
+        35: {
                 name: "Fusioning the Fusions!?",
                 done() { return hasMilestone('F', 12) },
                 tooltip: 
@@ -160,11 +165,6 @@ addLayer("a", {
                 Get the Second Fusion Milestone!
                 Reward: 1.333x Experiments
                 `
-            },
-        35: {
-                name(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> He's an experiment.</h4>`:"Wait...isn't he a human?"},
-                done() { return hasUpgrade('E', 36) },
-                tooltip(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> Get the 'Goon' Upgrade<br> Reward: There's no going back.</h4>`:"Get the 'Goon' Upgrade"}
             },
         36: {
                 name(){return hasAchievement("a", 35)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> No Challenging Battles</h4>`:"The First Strike"},

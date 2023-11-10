@@ -13,7 +13,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.1.3_stable",
+	num: "1.1.3_stable+1",
 	name: "Weapons, Weapons, Weapons!",
 }
 
@@ -24,14 +24,15 @@ let changelog = `<h1>Changelog:</h1><br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
 
- <h3>v1.1.3_stable</h3><br>
-   - Added 2 Weapon Milestones<br>
-   - Pushed Crystal Upgrades on Fusion & Humans to be early.<br>
-   - Rooms will automatically make it easier to progress through Fusions & Humans.<br>
-   - Fixed CSS by a minor bit.<br>
-   - Fixed 3 Upgrades in Weapons being Faulty.<br>
-   - Decreased Goon Cost to make pre-fusions easier.<br><br>
-
+ 		<h3>v1.1.3_stable</h3><br>
+   			- Added 2 Weapon Milestones<br>
+   			- Pushed Crystal Upgrades on Fusion & Humans to be early.<br>
+   			- Rooms will automatically make it easier to progress through Fusions & Humans.<br>
+   			- Fixed CSS by a minor bit.<br>
+   			- Fixed 3 Upgrades in Weapons being Faulty.<br>
+			- Rebalanced Experiment Costs & Effects
+			- Reordered 5 Achievements
+   			- Decreased Goon Cost to make pre-fusions easier.<br><br>
 
 		<h3>v1.1.2_stable: Weapons, Weapons, Weapons!</h3><br>
 			- Added 2 Weapon Upgrades.<br>
@@ -353,7 +354,7 @@ function getPointGen() {
 	if (hasUpgrade('E', 25)) gain = gain.times(upgradeEffect('E',25))
 	if (hasUpgrade('E', 31)) gain = gain.times(upgradeEffect('E',31))
 	if (hasUpgrade('E', 33)) gain = gain.times(upgradeEffect('E',33))
-	if (hasUpgrade('E', 35)) gain = gain.div(1.25)		
+	if (hasUpgrade('E', 35)) gain = gain.times(1.25)		
 	if (hasUpgrade('E', 42)) gain = gain.times(upgradeEffect('E',42))
 	if (hasUpgrade('E', 46)) gain = gain.times(1.5)	
 	// F Upgrades
