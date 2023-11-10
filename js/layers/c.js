@@ -278,7 +278,7 @@ addLayer("c", {
             return hasUpgrade("E", 15) && hasUpgrade("c", 32);
         },
         effect(){
-            return player.c.points.pow(0.02).add(1)
+            return player.c.points.pow(0.025).add(1)
         },
         effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
      },
@@ -405,7 +405,7 @@ addLayer("c", {
                 return hasUpgrade("c", 44);
             },
             effect() {
-                return (player.points.max(1).add(11).pow(0.067)).max(1).min(130);
+                return (player.points.max(1).add(11).pow(0.077)).max(1).min(240);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(130) ? "(Capped)" : "";
