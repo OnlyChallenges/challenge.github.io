@@ -144,7 +144,7 @@ milestones: {
     12: {
         title: "Cyberus",
         description: "Cyberruin & Virus...Boost Experiment Gain by 3.33x & Keep Crystal Upgrades on Fusion Reset!",
-        cost: new Decimal(3),
+        cost: new Decimal(2),
         unlocked(){
             return hasUpgrade('F',11)
         },

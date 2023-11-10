@@ -408,7 +408,7 @@ addLayer("c", {
                 return (player.points.max(1).add(11).pow(0.077)).max(1).min(240);
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(130) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(240) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
