@@ -72,7 +72,7 @@ addLayer("c", {
         if (hasUpgrade ('E', 23)) player.c.upgrades.push("34", "35")
         if (hasMilestone ('E', 14)) player.c.upgrades.push("41", "42", "43", "44", "45")
         if (hasMilestone ('E', 16)) player.c.upgrades.push("51", "52", "53", "54", "55")
-        if (hasUpgrade ('F', 12) && (resettingLayer == "F" || resettingLayer == "E")) player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45","51", "52", "53", "54", "55")
+        if (hasUpgrade ('F', 12) && (resettingLayer == "F" || resettingLayer == "E")) player.c.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25", "31", "32", "33", "34", "35","41", "42", "43", "44", "45")
         if (hasMilestone ('F', 11) && resettingLayer == "F") player.E.upgrades.push("11","12","13","14","15","16","21","22","23","24","25","26","31","32","33","34","35","36")
         if (hasMilestone ('F', 14) && resettingLayer == "F") player.E.upgrades.push("41", "42", "43", "44", "45", "46")
         if (hasMilestone ('F', 12) && resettingLayer == "F") player.E.milestones.push("11", "12", "13", "14")
