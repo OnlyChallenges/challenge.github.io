@@ -387,13 +387,13 @@ addLayer("c", {
     },
 	44: {
         title: "Salt Crystals",
-            description: "Salty Crystals...Intresting...Boost Crystals by Experiments",
+            description: "Salty Crystals...Boost Crystals by Experiments",
             cost: new Decimal(3.44e27),
             unlocked(){
                 return hasMilestone("E", 13) && hasUpgrade("c", 43);
             },
             effect() {
-                return player.E.points.add(1).pow(0.034)
+                return player.E.points.add(1).pow(0.06)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
     },
