@@ -78,7 +78,7 @@ milestones: {
                 let text = "Increase humans and fusion gain by " + format(player.W.points.add(1).pow(0.35)) +" (based on Weapons)";
                 return text;
               },
-            done() { return player.W.points.gte(5) },
+            done() { return player.W.points.gte(100) },
         },
 },
 
