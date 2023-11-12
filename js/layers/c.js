@@ -298,7 +298,7 @@ addLayer("c", {
         cost: new Decimal(9.99e17),
         effect() {
             let effect0 = (player.c.points.max(1).add(0.8).log10().pow(0.076)).max(1).min(14.5);
-                if(hasUpgrade("W", 15)) effect0 = (player.c.points.max(1).add(1.5).log10().pow(0.089).max(1).min(620))
+                if(hasUpgrade("W", 15)) effect0 = (player.c.points.max(1).add(0.6).log10().pow(0.1).max(1).min(620))
             return effect0
         },
         effectDisplay() {
