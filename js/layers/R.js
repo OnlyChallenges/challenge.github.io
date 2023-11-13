@@ -57,8 +57,10 @@ addLayer("R", {
     },
     layerShown() {return true},
     layerShown() {
-        return hasUpgrade("H", 25) || player.R.points.gte(1) || player.R.unlocked;
-        if (hasUpgrade('R', 16)) return false;
+        let value = false
+        if (hasUpgrade("H", 25) || player.R.points.gte(1) || player.R.unlocked) value = true;
+        if (hasUpgrade('R', 16)) value = false;
+        return value
     },
 milestones: {
         11: {
@@ -165,9 +167,9 @@ upgrades: {
         16: {
             title: "Hallway C",
             description: "Infects boost infects...oh no...",
-            cost: new Decimal(20000),
+            cost: new Decimal(15000),
             effect() {
-                return (player.points.max(1).add(1.1).pow(0.5));
+                return (player.points.max(1).add(1.1).pow(1.5));
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(1e999) ? "(Capped)" : "";

@@ -481,7 +481,9 @@ milestones: {
     },
  },  
 layerShown() {
-    return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
-    if (hasUpgrade('R', 16)) return false;
+    let value = false
+    if (hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked) value = true;
+    if (hasUpgrade('R', 16)) value = false;
+    return value
     },
  })             

@@ -69,10 +69,11 @@ addLayer("H", {
             },
         },
     },
-    layerShown() {return true},
     layerShown() {
-        return hasUpgrade("F", 22) || player.H.points.gte(1) || player.H.unlocked;
-        if (hasUpgrade('R', 16)) return false;
+        let value = false
+        if (hasUpgrade("F", 22) || player.H.points.gte(1) || player.H.unlocked) value = true;
+        if (hasUpgrade('R', 16)) value = false;
+        return value
         }, 
 
 milestones: {
