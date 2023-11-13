@@ -39,6 +39,8 @@ addLayer("CT", {
         {key: "t", description: "T: reset for Collapsed Timelines", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown() {
-        if (player.points.gte(1e9999)) return true
+        let value = false
+        if (player.points.gte(1e9999) || player.CT.unlocked) value = true
+        return value
     },
 })

@@ -26,6 +26,8 @@ addLayer("FL", {
         {key: "l", description: "l: reset for Floors", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown() {
-        (player.CT.unlocked)
+        let value = false
+        if (player.CT.unlocked) value = true
+        return value
     },
 })
