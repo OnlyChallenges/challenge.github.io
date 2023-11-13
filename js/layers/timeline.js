@@ -31,7 +31,7 @@ addLayer("CT", {
         return base
     },
     effectDescription() {
-        dis = "which boosts ??? by "+ format(tmp.CT.effect) +"x"
+        dis = "which fixes the timeline..."
         return dis
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)

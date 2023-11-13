@@ -109,7 +109,7 @@ addLayer("c", {
     },
     layerShown(){    
     let value = true;
-    if (hasUpgrade('R', 16)) value = false
+    if (hasUpgrade('R', 16) || player.CT.unlocked) value = false
     return value
     },
 	infoboxes: {

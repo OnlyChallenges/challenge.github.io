@@ -59,7 +59,7 @@ addLayer("R", {
     layerShown() {
         let value = false
         if (hasUpgrade("H", 25) || player.R.points.gte(1) || player.R.unlocked) value = true;
-        if (hasUpgrade('R', 16)) value = false;
+        if (hasUpgrade('R', 16) || player.CT.unlocked) value = false;
         return value
     },
 milestones: {

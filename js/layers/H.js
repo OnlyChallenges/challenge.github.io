@@ -72,7 +72,7 @@ addLayer("H", {
     layerShown() {
         let value = false
         if (hasUpgrade("F", 22) || player.H.points.gte(1) || player.H.unlocked) value = true;
-        if (hasUpgrade('R', 16)) value = false;
+        if (hasUpgrade('R', 16) || player.CT.unlocked) value = false;
         return value
         }, 
 
