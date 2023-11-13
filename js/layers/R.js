@@ -14,11 +14,15 @@ addLayer("R", {
     baseAmount() {return player.E.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.046, // Prestige currency exponent
-    base() { // Calculate the multiplier for main currency from bonuses
+    gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('R', 14)) mult = mult.times(upgradeEffect('R', 14))
         if (hasUpgrade('R', 16)) mult = mult.times(upgradeEffect('R', 16))
         return mult
+    },
+    gainExp(){
+        base = new Decimal(1)
+        return base
     },
     effect() {
         let eff3 = player.R.points.add(1).pow(0.5)
