@@ -34,7 +34,7 @@ addLayer("EX", {
         if (hasUpgrade('FL', 14)) value = true
         return value
     },
-    milestones: {
+milestones: {
         11: {
             requirementDescription: "3 Explosives",
             effectDescription(){ 
@@ -46,7 +46,7 @@ addLayer("EX", {
             done() { return player.EX.points.gte(3)},
         },
     },
-    upgrades: {
+upgrades: {
         rows: 2,
         cols: 5,
         11: {
