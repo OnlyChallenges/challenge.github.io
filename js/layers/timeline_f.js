@@ -9,7 +9,7 @@ addLayer("FL", {
     }},
     color: "#9c422a",
     requires: new Decimal(250), // Can be a function that takes requirement increases into account
-    resource: "Collapsed Timelines", // Name of prestige currency
+    resource: "Floors", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -26,6 +26,6 @@ addLayer("FL", {
         {key: "l", description: "l: reset for Floors", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown() {
-        if (player.CT.unlocked) return true
+        (player.CT.unlocked)
     },
 })
