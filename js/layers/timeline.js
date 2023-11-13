@@ -50,6 +50,7 @@ milestones: {
                 let des
                 des = `Fix Everything`
                 if (player.CT.points.gte(1)) des = `Everything is gone...Unlock Floors instead.`
+                return des
             },
             done() { return player.CT.points.gte(1)},
         },
