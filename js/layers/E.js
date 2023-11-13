@@ -9,9 +9,7 @@ addLayer("E", {
         total: new Decimal(0),
     }
     },
-    locked(){
-        hasUpgrade('R', 16)
-    },
+
     color: "#BF233F",
     requires: new Decimal(1.25e8), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency
@@ -484,5 +482,6 @@ milestones: {
  },  
 layerShown() {
     return hasUpgrade("c", 25) || hasUpgrade("E", 11) || player.E.points.gte(1) || player.F.unlocked;
+    if (hasUpgrade('R', 16)) return false;
     },
  })             

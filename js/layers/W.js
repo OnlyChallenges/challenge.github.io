@@ -7,9 +7,6 @@ addLayer("W", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
-    locked(){
-        player.points.gte(ee100)
-    },
     color: "#b5c3dd",
     requires: new Decimal(1e100), // Can be a function that takes requirement increases into account
     resource: "weapons", // Name of prestige currency
@@ -55,6 +52,7 @@ addLayer("W", {
     layerShown() {return true},
     layerShown() {
         return hasUpgrade("F", 36) || player.W.points.gte(1) || player.W.unlocked;
+        if (player.points.gte(e999)) return false;
     },
 milestones: {
         11: {

@@ -7,9 +7,6 @@ addLayer("H", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
-    locked(){
-        hasUpgrade('R', 16)
-    },
     color: "#d19226",
     requires: new Decimal(1.22e42), // Can be a function that takes requirement increases into account
     resource: "humans", // Name of prestige currency
@@ -75,6 +72,7 @@ addLayer("H", {
     layerShown() {return true},
     layerShown() {
         return hasUpgrade("F", 22) || player.H.points.gte(1) || player.H.unlocked;
+        if (hasUpgrade('R', 16)) return false;
         }, 
 
 milestones: {

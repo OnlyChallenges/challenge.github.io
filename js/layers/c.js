@@ -8,9 +8,6 @@ addLayer("c", {
         best: new Decimal(0),
         total: new Decimal(0),
     }},
-    locked(){
-        hasUpgrade('R', 16)
-    },
     color: "#FA7BDC",
     nodeStyle() {return {
         "background-color": ((player.c.unlocked||canReset("c"))?"#FA7BDC":"#bf8f8f"),
@@ -110,7 +107,11 @@ addLayer("c", {
         if (hasMilestone('E', 15)) value1 = value1.add(0.20)
         return value1
     },
-    layerShown(){return true},
+    layerShown(){    
+    let value = true;
+    if (hasUpgrade('R', 16)) value = false
+    return value
+    },
 	infoboxes: {
         lore: {
             title: "Crystals",

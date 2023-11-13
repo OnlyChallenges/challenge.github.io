@@ -7,9 +7,6 @@ addLayer("R", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
-    locked(){
-        hasUpgrade('R', 16)
-    },
     color: "#064526",
     requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
     resource: "rooms", // Name of prestige currency
@@ -61,6 +58,7 @@ addLayer("R", {
     layerShown() {return true},
     layerShown() {
         return hasUpgrade("H", 25) || player.R.points.gte(1) || player.R.unlocked;
+        if (hasUpgrade('R', 16)) return false;
     },
 milestones: {
         11: {

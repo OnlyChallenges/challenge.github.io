@@ -7,9 +7,6 @@ addLayer("F", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
-    locked(){
-        hasUpgrade('R', 16)
-    },
     color: "#322CA8",
     requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
     resource: "fusions", // Name of prestige currency
@@ -86,7 +83,8 @@ addLayer("F", {
         },
     },
     layerShown() {
-        return hasUpgrade("c", 45) || player.F.unlocked;
+        return hasUpgrade("c", 45) || player.F.unlocked;    
+            if (hasUpgrade('R', 16)) return false;
       },
 milestones: {
         11: {
