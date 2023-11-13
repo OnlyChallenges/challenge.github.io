@@ -9,6 +9,9 @@ addLayer("E", {
         total: new Decimal(0),
     }
     },
+    locked(){
+        hasUpgrade('R', 16)
+    },
     color: "#BF233F",
     requires: new Decimal(1.25e8), // Can be a function that takes requirement increases into account
     resource: "experiments", // Name of prestige currency

@@ -7,6 +7,9 @@ addLayer("F", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
+    locked(){
+        hasUpgrade('R', 16)
+    },
     color: "#322CA8",
     requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
     resource: "fusions", // Name of prestige currency

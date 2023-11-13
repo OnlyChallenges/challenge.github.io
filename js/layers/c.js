@@ -8,6 +8,9 @@ addLayer("c", {
         best: new Decimal(0),
         total: new Decimal(0),
     }},
+    locked(){
+        hasUpgrade('R', 16)
+    },
     color: "#FA7BDC",
     nodeStyle() {return {
         "background-color": ((player.c.unlocked||canReset("c"))?"#FA7BDC":"#bf8f8f"),

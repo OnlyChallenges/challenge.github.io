@@ -7,6 +7,9 @@ addLayer("W", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
+    locked(){
+        player.points.gte(ee100)
+    },
     color: "#b5c3dd",
     requires: new Decimal(1e100), // Can be a function that takes requirement increases into account
     resource: "weapons", // Name of prestige currency

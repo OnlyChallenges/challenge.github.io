@@ -7,6 +7,9 @@ addLayer("R", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
+    locked(){
+        hasUpgrade('R', 16)
+    },
     color: "#064526",
     requires: new Decimal(1e30), // Can be a function that takes requirement increases into account
     resource: "rooms", // Name of prestige currency
@@ -164,13 +167,13 @@ upgrades: {
         },
         16: {
             title: "Hallway C",
-            description: "Rooms boosts itself & Keep the first row of Room Upgrades",
+            description: "Infects boost everything",
             cost: new Decimal(3000),
             effect() {
-                return (player.R.points.max(1).add(1.1).pow(0.2)).max(1).min(20);
+                return (player.points.max(1).add(1.1).pow(0.5));
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(20) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(e999) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
