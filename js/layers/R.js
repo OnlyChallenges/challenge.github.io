@@ -170,7 +170,7 @@ upgrades: {
                 return (player.points.max(1).add(1.1).pow(0.5));
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(e999) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(1e999) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
