@@ -3,11 +3,7 @@ let modInfo = {
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles(){
-		let files = ["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_f.js", "tree.js"]
-	if (player.CT.unlocked) files = ["layers/a.js", "layers/timeline.js", "layers/timeline_f.js", "tree.js"]
-	return files 
-},
+	modFiles:["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_f.js", "tree.js"],
 	discordName: "The Modding Tree Discord Server",
 	discordLink: "https://discord.com/invite/F3xveHV",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players
