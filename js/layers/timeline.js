@@ -8,7 +8,7 @@ addLayer("CT", {
         best: new Decimal(0),
     }},
     color: "#ea3add",
-    requires: new Decimal(1e1500), // Can be a function that takes requirement increases into account
+    requires: new Decimal(1e999), // Can be a function that takes requirement increases into account
     resource: "Collapsed Timelines", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
