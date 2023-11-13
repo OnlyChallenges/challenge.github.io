@@ -3,8 +3,7 @@ let modInfo = {
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles: ["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "tree.js"],
-
+	modFiles: ["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "tree.js"],
 	discordName: "The Modding Tree Discord Server",
 	discordLink: "https://discord.com/invite/F3xveHV",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players

@@ -52,7 +52,7 @@ addLayer("W", {
     layerShown() {return true},
     layerShown() {
         return hasUpgrade("F", 36) || player.W.points.gte(1) || player.W.unlocked;
-        if (player.points.gte(e999)) return false;
+        if (player.points.gte(1e999)) return false;
     },
 milestones: {
         11: {
