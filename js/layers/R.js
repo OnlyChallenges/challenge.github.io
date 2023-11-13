@@ -20,7 +20,6 @@ addLayer("R", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('R', 14)) mult = mult.times(upgradeEffect('R', 14))
-        if (hasUpgrade('R', 16)) mult = mult.times(upgradeEffect('R', 16))
         return mult
     },
     gainExp(){
@@ -167,7 +166,7 @@ upgrades: {
         },
         16: {
             title: "Hallway C",
-            description: "Infects boost everything",
+            description: "Infects boost infects...oh no...",
             cost: new Decimal(3000),
             effect() {
                 return (player.points.max(1).add(1.1).pow(0.5));
