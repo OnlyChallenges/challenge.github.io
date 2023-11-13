@@ -165,7 +165,7 @@ upgrades: {
         16: {
             title: "Hallway C",
             description: "Infects boost infects...oh no...",
-            cost: new Decimal(3000),
+            cost: new Decimal(20000),
             effect() {
                 return (player.points.max(1).add(1.1).pow(0.5));
             },
@@ -175,7 +175,7 @@ upgrades: {
                 return text;
             },
             unlocked(){
-                return hasUpgrade('R', 15)
+                return hasMilestone('W', 13)
             },
         },
     },
