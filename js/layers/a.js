@@ -202,11 +202,16 @@ addLayer("a", {
                 done() { return player.R.points.gte(1)},
                 tooltip: 
                 `Get 1 Room`
-            },        
+            },   
         46: {
-            name(){return hasAchievement("a", 46)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'>I Knew you were going to do that.</h4>`: "I knew you were going to do that."},
+            name(){return hasAchievement("a", 46)?`<h4 style='color: purple; text-shadow: darkred 1.75px 1.75px 10px;'>You've Collapsed the timeline! Skipping ahead 3 years...</h4>`: "Is this the end?"},
+            done() { return player.CT.points.gte(1) },
+            tooltip(){return hasAchievement("a", 46)?`<h4 style='color: purple; text-shadow: darkred 1.75px 1.75px 10px;'> Uh oh...You've collapsed the timeline!</h4>`:"Get the 6th Room Upgrade"},
+            },
+        56: {
+            name(){return hasAchievement("a", 56)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'>I Knew you were going to do that.</h4>`: "I knew you were going to do that."},
             done() { return player.devSpeed>=1.01 },
-            tooltip(){return hasAchievement("a", 46)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> You're going to play fairly!<br>So your Infects & Crystal gain is /1e300 until you've set your devSpeed back or under 1.<br> You've found a secret achievement that will never go away!</h4>`:"  "},
+            tooltip(){return hasAchievement("a", 56)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> You're going to play fairly!<br>So your Infects & Crystal gain is /1e300 until you've set your devSpeed back or under 1.<br> You've found a secret achievement that will never go away!</h4>`:"  "},
             unlocked(){return player.devSpeed>=1.01 || hasAchievement("a", 46)},
             },
         },

@@ -43,4 +43,15 @@ addLayer("CT", {
         if (player.points.gte(1e9999) || player.CT.unlocked) value = true
         return value
     },
+milestones: {
+        11: {
+            requirementDescription: "1 Collapsed Timelines (It's all gone)",
+            effectDescription(){ 
+                let des
+                des = `Fix Everything`
+                if (player.CT.points.gte(1)) des = `Everything is gone...Unlock Floors instead.`
+            },
+            done() { return player.CT.points.gte(1)},
+        },
+    },
 })
