@@ -26,12 +26,14 @@ let changelog = `<h1>Changelog:</h1><br>
 
 		<h3>v1.1.4_stable</h3><br>
 			- Added 2 Room Upgrades<br>
-			- Removed Room Softcapped but decreased the Room Effect significantly<br>
-			- Changed Weapon Formula<br>
+			- Removed Room Softcap but decreased the Room Effect significantly<br>
+			- Changed Room Formula (^0.05 > ^0.046)<br>
+			- Changed Weapon Formula (^0.03 > ^0.025)<br> 
 			- Fixed Weapon Milestone<br>
 			- Fixed 3 Crystal Upgrades<br>
 			- Fixed 2 Experiment Upgrades<br>
-			- Fixed 2 Room Upgrades being Inflated<br><br>
+			- Fixed 2 Room Upgrades being Inflated<br>
+			- Fixed 4 Room Upgrades not giving effects<br><br>
 
  		<h3>v1.1.3_stable</h3><br>
    			- Added 2 Weapon Milestones<br>

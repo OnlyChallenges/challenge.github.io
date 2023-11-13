@@ -13,9 +13,11 @@ addLayer("R", {
     baseResource: "experiments", // Name of resource prestige is based on
     baseAmount() {return player.E.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.05, // Prestige currency exponent
+    exponent: 0.046, // Prestige currency exponent
     base() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('R', 14)) mult = mult.times(upgradeEffect('R', 14))
+        if (hasUpgrade('R', 16)) mult = mult.times(upgradeEffect('R', 16))
         return mult
     },
     effect() {
@@ -127,9 +129,9 @@ upgrades: {
         14: {
             title: "Hallway A",
             description: "Weapons boosts Rooms significantly",
-            cost: new Decimal(100),
+            cost: new Decimal(400),
             effect() {
-                return (player.W.points.max(1).add(1).pow(0.1)).max(1).min(500);
+                return (player.W.points.max(1).add(1).pow(0.3)).max(1).min(500);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(500) ? "(Capped)" : "";
@@ -143,7 +145,7 @@ upgrades: {
         15: {
             title: "Hallway B",
             description: "Inflate Experiment gain based on Crystals",
-            cost: new Decimal(600),
+            cost: new Decimal(1200),
             effect() {
                 return (player.c.points.max(1).add(1).pow(0.11)).max(1).min(7.77e7);
             },
@@ -153,13 +155,13 @@ upgrades: {
                 return text;
             },
             unlocked(){
-                return hasUpgrade('R', 15)
+                return hasUpgrade('R', 14)
             },
         },
         16: {
             title: "Hallway C",
-            description: "Rooms boosts itself",
-            cost: new Decimal(1000),
+            description: "Rooms boosts itself & Keep the first row of Room Upgrades",
+            cost: new Decimal(3000),
             effect() {
                 return (player.R.points.max(1).add(1.1).pow(0.2)).max(1).min(20);
             },
