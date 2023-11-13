@@ -151,7 +151,7 @@ upgrades: {
             description: "Inflate Experiment gain based on Crystals",
             cost: new Decimal(1200),
             effect() {
-                return (player.c.points.max(1).add(1).pow(0.005)).max(1).min(7.77e7);
+                return (player.c.points.max(1).add(1).pow(0.012)).max(1).min(7.77e7);
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(7.77e7) ? "(Capped)" : "";
