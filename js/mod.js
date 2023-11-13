@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.1.3_stable+4",
-	name: "Weapons, Weapons, Weapons!",
+	num: "1.1.4_stable",
+	name: " ",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -23,6 +23,15 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h3>v1.1.4_stable</h3><br>
+			- Added 2 Room Upgrades<br>
+			- Removed Room Softcapped but decreased the Room Effect significantly<br>
+			- Changed Weapon Formula<br>
+			- Fixed Weapon Milestone<br>
+			- Fixed 3 Crystal Upgrades<br>
+			- Fixed 2 Experiment Upgrades<br>
+			- Fixed 2 Room Upgrades being Inflated<br><br>
 
  		<h3>v1.1.3_stable</h3><br>
    			- Added 2 Weapon Milestones<br>

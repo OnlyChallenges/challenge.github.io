@@ -12,18 +12,14 @@ addLayer("R", {
     resource: "rooms", // Name of prestige currency
     baseResource: "experiments", // Name of resource prestige is based on
     baseAmount() {return player.E.points}, // Get the current amount of baseResource
-    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.05, // Prestige currency exponent
     base() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (player.R.points.gte(1) || hasUpgrade('R', 13)) mult = mult.div(2)
-        if (player.R.points.gte(2) || hasUpgrade('R', 13)) mult = mult.div(3)
-        if (player.R.points.gte(3) || hasUpgrade('R', 13)) mult = mult.div(6)
-        if (player.R.points.gte(4)) mult = mult.div(4)
         return mult
     },
     effect() {
-        let eff3 = player.R.points.add(1).pow(1.75)
+        let eff3 = player.R.points.add(1).pow(0.5)
         if (hasUpgrade('H', 31)) eff3 = eff3.times(4)
         if (hasMilestone('W', 12)) eff3 = eff3.times(4)
         eff3 = eff3.times(tmp.R.effectBase)
@@ -78,17 +74,17 @@ milestones: {
 },
 
 upgrades: {
-        rows: 1,
+        rows: 2,
         cols: 6,
         11: {
             title: "Pool Zone",
             description: "Rooms boosts Fusions & Humans Effects",
             cost: new Decimal(1),
             effect() {
-                return (player.R.points.max(1).add(1).pow(1.4)).max(1).min(25);
+                return (player.R.points.max(1).add(1).pow(1.4)).max(1).min(75);
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(75) ? "(Capped)" : "";
                 let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
                 return text;
             },
@@ -114,7 +110,7 @@ upgrades: {
         },
         13: {
             title: "Testing Lab",
-            description: "Fusions boosts Humans significantly but rooms are pushed to 3",
+            description: "Fusions boosts Humans significantly ",
             cost: new Decimal(3),
             effect() {
                 return (player.F.points.max(1).add(1).pow(0.162)).max(1).min(1600);
@@ -126,6 +122,54 @@ upgrades: {
             },
             unlocked(){
                 return hasUpgrade('W', 12) && hasUpgrade('R', 12)
+            },
+        },
+        14: {
+            title: "Hallway A",
+            description: "Weapons boosts Rooms significantly",
+            cost: new Decimal(100),
+            effect() {
+                return (player.W.points.max(1).add(1).pow(0.1)).max(1).min(500);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(500) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('R', 13)
+            },
+        },
+        15: {
+            title: "Hallway B",
+            description: "Inflate Experiment gain based on Crystals",
+            cost: new Decimal(600),
+            effect() {
+                return (player.c.points.max(1).add(1).pow(0.11)).max(1).min(7.77e7);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(7.77e7) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('R', 15)
+            },
+        },
+        16: {
+            title: "Hallway C",
+            description: "Rooms boosts itself",
+            cost: new Decimal(1000),
+            effect() {
+                return (player.R.points.max(1).add(1.1).pow(0.2)).max(1).min(20);
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(20) ? "(Capped)" : "";
+                let text = `x${format(upgradeEffect(this.layer, this.id))} ${capped}`;
+                return text;
+            },
+            unlocked(){
+                return hasUpgrade('R', 15)
             },
         },
     },

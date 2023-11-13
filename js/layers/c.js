@@ -163,7 +163,7 @@ addLayer("c", {
         cost: new Decimal(15),
         effect() {
             let effect0 = (player.c.points.max(1).add(1.67).pow(0.24)).max(1).min(77);
-                if(hasUpgrade("W", 14)) effect0 = (player.c.points.max(1).add(1.1).pow(0.013).max(1).min(1300))
+                if(hasUpgrade("W", 14)) effect0 = (player.c.points.max(1).add(1.5).pow(0.026).max(1).min(1300))
             return effect0
         },
         effectDisplay() {
@@ -292,13 +292,13 @@ addLayer("c", {
         },
         description(){ 
             let desc = "Crystals are layering over each other...Crystals boosts infects";
-            if(hasUpgrade("W", 15)) desc = "Crystals are boosting themselves and Infects (14.5x > 620x Cap)";
+            if(hasUpgrade("W", 15)) desc = "Crystals are boosting themselves and Infects (3x > 620x Cap)";
             return desc
         },
         cost: new Decimal(9.99e17),
         effect() {
-            let effect0 = (player.c.points.max(1).add(0.8).log10().pow(0.076)).max(1).min(14.5);
-                if(hasUpgrade("W", 15)) effect0 = (player.c.points.max(1).add(0.6).log10().pow(0.1).max(1).min(620))
+            let effect0 = (player.c.points.max(1).add(0.8).log10().pow(0.076)).max(1).min(3);
+                if(hasUpgrade("W", 15)) effect0 = (player.c.points.max(1).add(0.44).log10().pow(0.33)).max(1).min(620)
             return effect0
         },
         effectDisplay() {
@@ -319,13 +319,13 @@ addLayer("c", {
         },
         description(){ 
             let desc = "Crystals are layering again?...Experiments boosts Infects";
-            if(hasUpgrade("W", 15)) desc = "Crystals are layering again?...Experiments boosts Infects & Fusions (10x > 60x Cap)";
+            if(hasUpgrade("W", 15)) desc = "Crystals are layering again?...Experiments boosts Infects & Fusions (10x > 120x Cap)";
             return desc
         },
         cost: new Decimal(3.88e19),
         effect() {
             let effect0 = (player.E.points.max(1).add(0.96).log10().pow(0.63)).max(1).min(10);
-                if(hasUpgrade("W", 15)) effect0 = (player.E.points.max(1).add(1).pow(0.14).max(1).min(60))
+                if(hasUpgrade("W", 15)) effect0 = (player.E.points.max(1).add(0.5).pow(0.14)).max(1).min(120)
             return effect0
         },
         effectDisplay() {
