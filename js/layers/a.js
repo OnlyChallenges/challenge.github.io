@@ -8,10 +8,17 @@ addLayer("a", {
         tooltip() { // Optional, tooltip displays when the layer is locked
             return ("Accomplishments")
         },
+        infoboxes: {
+            achievement_details: {
+            title: "Achievements",
+            body: `test goes hard`,
+            },
+            },
         tabFormat: {
             "Achievements": {
                 content: [
                     "achievements",
+                    ["infobox","achievement_details"],
                     "blank",
                     ],
             },
