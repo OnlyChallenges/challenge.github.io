@@ -419,7 +419,7 @@ var displayThings = [
 	"<a>Endgame: 8 Weapons</a>",
 	"You are in: The beginning"
 ]
-if (player.CT.unlocked) var displayThings = ["<a>Endgame: 1 Explosive</a>", "You are in: Timeline 2"]
+if (player.CT.unlocked) displayThings = ["<a>Endgame: 1 Explosive</a>", "You are in: Timeline 2"]
 
 
 // Determines when the game "ends"
