@@ -60,7 +60,8 @@ challenges: {
             name: "Explosive Floors",
             challengeDescription: 
             `Explosives are now becoming required on more floors!<br>
-            Infect gain is divided by 2.5`,
+            Infect gain is divided by 2.5<br>
+            To counter the Infect Gain, Floor Upgrade Effects are changed slightly!`,
             canComplete: function() {return player.EX.points.gte(1)},
             goalDescription: "1 Explosive",
             rewardDescription: "Triple Floor Gain",
