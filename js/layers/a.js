@@ -17,8 +17,9 @@ addLayer("a", {
         tabFormat: {
             "Achievements": {
                 content: [
-                    "achievements",
                     ["infobox","achievement_details"],
+                    "blank",
+                    "achievements",
                     "blank",
                     ],
             },
