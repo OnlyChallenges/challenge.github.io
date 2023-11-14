@@ -8,10 +8,10 @@ addLayer("EX", {
         best: new Decimal(0),
     }},
     color: "#7dee99",
-    requires: new Decimal(1000), // Can be a function that takes requirement increases into account
+    requires: new Decimal(15000), // Can be a function that takes requirement increases into account
     resource: "Explosives", // Name of prestige currency
-    baseResource: "Floors", // Name of resource prestige is based on
-    baseAmount() {return player.FL.points}, // Get the current amount of baseResource
+    baseResource: "infects", // Name of resource prestige is based on
+    baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.75, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -20,6 +20,9 @@ addLayer("EX", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
+    },
+    doReset(resettingLayer) {
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
