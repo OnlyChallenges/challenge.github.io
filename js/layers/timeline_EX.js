@@ -68,5 +68,29 @@ upgrades: {
                 return player.FL.points.gte(0)
             },
         },
+        12: {
+            title: "Semi-Minor Explosive",
+            description: "Infects boosts itself (Cap is 2000x)",
+            cost: new Decimal(1),
+            effect() {
+                return (player.points.max(1).add(1.5).pow(0.14)).max(1).min(2000);
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade('EX', 11)
+            },
+        },
+        13: {
+            title: "Semi-Minor Explosive",
+            description: "Infects boosts Explosives (Cap is 60x)",
+            cost: new Decimal(1),
+            effect() {
+                return (player.points.max(1).add(1.3).pow(0.09)).max(1).min(60);
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade('EX', 12)
+            },
+        },
     },
 })

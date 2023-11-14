@@ -416,8 +416,10 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 8 Weapons</a>"
+	"<a>Endgame: 8 Weapons</a>",
+	"You are in: The beginning"
 ]
+if (player.CT.unlocked) var displayThings = ["<a>Endgame: 1 Explosive</a>", "You are in: Timeline 2"]
 
 
 // Determines when the game "ends"
