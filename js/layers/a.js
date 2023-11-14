@@ -11,7 +11,7 @@ addLayer("a", {
         infoboxes: {
             achievement_details: {
             title: "Achievements",
-            body: `test goes hard`,
+            body: `Whoa, some achievements...`,
             },
             },
         tabFormat: {
