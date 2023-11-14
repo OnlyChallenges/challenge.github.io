@@ -395,6 +395,13 @@ function getPointGen() {
 	if (hasAchievement('a', 36)) gain = gain.times(3)
 	// Prevents Devspeed changes
 	if (player.devSpeed>=1.01) gain = gain.div(1e300)
+
+
+	// ~~~~~~~~~~~~~~~Chapter 2 - 1st Collapsed Timeline~~~~~~~~~~~~~~~~~~~~~~~
+
+	if (hasUpgrade('FL', 12)) gain = gain.times(upgradeEffect('FL', 12))
+
+
 	return gain
 }
 

@@ -45,7 +45,7 @@ addLayer("FL", {
             description: "Floors boosts Floors (Cap is 300x)",
             cost: new Decimal(1),
             effect() {
-                return (player.FL.points.max(1).add(1.22).pow(0.1)).max(1).min(300);
+                return (player.FL.points.max(1).add(1.22).pow(0.15)).max(1).min(300);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
