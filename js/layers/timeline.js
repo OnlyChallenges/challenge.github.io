@@ -65,7 +65,7 @@ challenges: {
             goalDescription: "1 Explosive",
             rewardDescription: "Triple Floor Gain",
             unlocked(){
-                return hasMilestone('EX', 11)
+                return hasMilestone('EX', 11) || inChallenge('CT', 11) || hasChallenge('CT', 11)
             },
         },
     },
