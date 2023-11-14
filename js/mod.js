@@ -404,6 +404,8 @@ function getPointGen() {
 	if (hasUpgrade('FL', 12)) gain = gain.times(upgradeEffect('FL', 12))
 
 	// EX Upgrades (# Order)
+if (hasUpgrade('EX', 11)) gain = gain.times(upgradeEffect('EX', 11))
+if (hasUpgrade('EX', 12)) gain = gain.times(upgradeEffect('EX', 12))
 
 	// Challenges (# Order)
 	if (inChallenge('CT', 11)) gain = gain.div(2.5)
