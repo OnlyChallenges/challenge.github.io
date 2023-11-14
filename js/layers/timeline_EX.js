@@ -8,7 +8,11 @@ addLayer("EX", {
         best: new Decimal(0),
     }},
     color: "#7dee99",
-    requires: new Decimal(15000), // Can be a function that takes requirement increases into account
+    requires(){ 
+        let requirement = new Decimal(15000);
+        if (inChallenge('CT', 11)) requirement = new Decimal(1500);
+        return requirement
+    },
     resource: "Explosives", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
