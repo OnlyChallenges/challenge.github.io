@@ -9,7 +9,7 @@ addLayer("EX", {
     }},
     color: "#7dee99",
     requires(){ 
-        let requirement = new Decimal(15000);
+        let requirement = new Decimal(6000);
         if (inChallenge('CT', 11)) requirement = new Decimal(1500);
         return requirement
     },
