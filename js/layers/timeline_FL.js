@@ -63,8 +63,8 @@ addLayer("FL", {
             description: "Floors boosts Infects (Cap is 800x)",
             cost: new Decimal(7),
             effect() {
-                let effect1 = (player.FL.points.max(1).add(1).pow(0.13)).max(1).min(800);
-                if (inChallenge('CT', 11)) effect1 = (player.FL.points.max(1).add(1.2).pow(0.21)).max(1).min(800);
+                let effect1 = (player.FL.points.max(1).add(1).pow(0.19)).max(1).min(800);
+                if (inChallenge('CT', 11)) effect1 = (player.FL.points.max(1).add(1.2).pow(0.26)).max(1).min(800);
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
