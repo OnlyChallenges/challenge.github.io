@@ -55,4 +55,18 @@ milestones: {
             done() { return player.CT.points.gte(1)},
         },
     },
+challenges: {
+        11: {
+            name: "Explosive Floors",
+            challengeDescription: 
+            `Explosives are now becoming required on more floors!<br>
+            Infect gain is divided by 2.5`,
+            canComplete: function() {return player.EX.points.gte(1)},
+            goalDescription: "1 Explosive",
+            rewardDescription: "Triple Floor Gain",
+            unlocked(){
+                return hasMilestone('EX', 11)
+            },
+        },
+    },
 })

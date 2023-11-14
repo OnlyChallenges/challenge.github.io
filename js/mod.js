@@ -399,9 +399,14 @@ function getPointGen() {
 
 	// ~~~~~~~~~~~~~~~Chapter 2 - 1st Collapsed Timeline~~~~~~~~~~~~~~~~~~~~~~~
 
+
+	// FL Upgrades (# Order)
 	if (hasUpgrade('FL', 12)) gain = gain.times(upgradeEffect('FL', 12))
 
+	// EX Upgrades (# Order)
 
+	// Challenges (# Order)
+	if (inChallenge('CT', 11)) gain = gain.div(2.5)
 	return gain
 }
 
