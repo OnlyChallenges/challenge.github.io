@@ -18,6 +18,7 @@ addLayer("FL", {
         mult = new Decimal(1)
         if (hasUpgrade('FL', 11)) mult = mult.times(upgradeEffect('FL', 11))
         if (hasUpgrade('FL', 13)) mult = mult.times(upgradeEffect('FL', 13))
+        if (hasUpgrade('FL', 14)) mult = mult.times(upgradeEffect('FL', 14))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -83,7 +84,7 @@ addLayer("FL", {
             description: "Infects boosts Floors (Cap is 1930x) & Unlock a new Layer (Explosives)",
             cost: new Decimal(295),
             effect() {
-                return (player.points.max(1).add(1).pow(0.02)).max(1).min(1930);
+                return (player.points.max(1).add(1.2).pow(0.06)).max(1).min(1930);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
