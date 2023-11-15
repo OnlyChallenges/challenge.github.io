@@ -27,6 +27,7 @@ addLayer("FL", {
     },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        if (inChallenge('CT', 11)) player.EX.milestones.push('11')
     },
     passiveGeneration() {
         let value1 = new Decimal(0);

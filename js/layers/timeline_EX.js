@@ -39,7 +39,7 @@ if (hasUpgrade('EX', 13)) mult = mult.times(upgradeEffect('EX', 13))
     ],
     layerShown() {
         let value = false
-        if (hasUpgrade('FL', 14)) value = true
+        if (hasUpgrade('FL', 14) || inChallenge('CT', 11)) value = true
         return value
     },
 milestones: {
