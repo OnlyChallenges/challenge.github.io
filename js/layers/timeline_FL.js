@@ -99,5 +99,29 @@ addLayer("FL", {
                 return hasUpgrade('FL', 13)
             },
         },
+        21: {
+            title: "50,000th Floor",
+            description: "Floors boosts Infects & Explosives (Cap is 95x)",
+            cost: new Decimal(50000),
+            effect() {
+                return (player.FL.points.max(1).add(1.3).pow(0.075)).max(1).min(95);
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade('FL', 14) && hasChallenge('CT', 11)
+            },
+        },
+        22: {
+            title: "650,000th Floor",
+            description: "Divided Explosive Requirement based on Infects (Cap is /39)",
+            cost: new Decimal(50000),
+            effect() {
+                return (player.points.max(1).add(1.1).pow(0.0555)).max(1).min(39);
+            },
+            effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
+            unlocked(){
+                return hasUpgrade('FL', 21)
+            },
+        },
     },
 })

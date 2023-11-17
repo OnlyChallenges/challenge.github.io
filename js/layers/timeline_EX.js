@@ -7,10 +7,14 @@ addLayer("EX", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
-    color: "#7dee99",
+    color(){ 
+        let color = `#7dee99`
+        if (inChallenge('CT', 11)) color = `#21ee22`
+    },
     requires(){ 
         let requirement = new Decimal(6000);
         if (inChallenge('CT', 11)) requirement = new Decimal(1500);
+        if (hasUpgrade('FL', 22)) requirement = requirement.div(upgradeEffect('FL', 22))
         return requirement
     },
     resource: "Explosives", // Name of prestige currency
@@ -20,7 +24,7 @@ addLayer("EX", {
     exponent: 0.75, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-if (hasUpgrade('EX', 13)) mult = mult.times(upgradeEffect('EX', 13))
+        if (hasUpgrade('EX', 13)) mult = mult.times(upgradeEffect('EX', 13))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
