@@ -9,7 +9,7 @@ addLayer("EX", {
     }},
     color(){ 
         let color = `#7dee99`
-        if (inChallenge('CT', 11)) color = `#21ee22`
+        if (inChallenge('CT', 11)) color = `#a1ee22`
         return color
     },
     requires(){ 
@@ -26,6 +26,7 @@ addLayer("EX", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('EX', 13)) mult = mult.times(upgradeEffect('EX', 13))
+        if (hasUpgrade('FL', 21)) mult = mult.times(upgradeEffect('FL', 21))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
