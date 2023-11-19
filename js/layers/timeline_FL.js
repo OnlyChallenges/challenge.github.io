@@ -9,7 +9,6 @@ addLayer("FL", {
     }},
     color(){ 
         let color = `#9c422a`
-        if (inChallenge('CT', 11)) color = `#49aacc`
         return color
     },
     requires: new Decimal(150), // Can be a function that takes requirement increases into account

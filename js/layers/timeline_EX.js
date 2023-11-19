@@ -9,7 +9,6 @@ addLayer("EX", {
     }},
     color(){ 
         let color = `#7dee99`
-        if (inChallenge('CT', 11)) color = `#a1ee22`
         return color
     },
     requires(){ 
