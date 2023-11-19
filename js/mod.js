@@ -418,7 +418,9 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 1 Explosive - Timeline 2</a>"
+	`<a>Endgame: 1 Explosive - Timeline 2</a><br>
+	"You are currently in Timeline " + format(player.CT.points + 1)`
+	
 ]
 
 

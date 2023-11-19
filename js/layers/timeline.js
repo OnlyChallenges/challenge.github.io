@@ -10,7 +10,6 @@ addLayer("CT", {
     color(){ 
         let color = `#ea3add`
         if (inChallenge('CT', 11)) color = `#ed4046`
-        if (canComplete) color = `#c4b804`
         return color
     },
     requires: new Decimal("e1e50"), // Can be a function that takes requirement increases into account
@@ -36,7 +35,8 @@ addLayer("CT", {
         return base
     },
     effectDescription() {
-        dis = "which fixes the timeline..."
+        dis = "You are currently in Timeline " + format(player.CT.points + 1)
+        if (player.CT.points = 1) dis = "You are currently in Timeline " + format(player.CT.points + 1) + " which is much different then Timeline 1"
         return dis
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
