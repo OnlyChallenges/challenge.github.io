@@ -85,6 +85,7 @@ challenges: {
             canComplete: function() {return player.FL.points.gte(150000000)},
             goalDescription: "150,000,000 Floors",
             rewardDescription() { return "Explosive gain is multiplied by " + format(player.points.add(1).pow(0.05)) + "x"},
+            onExit(){doReset(resettingLayer) = false},
             unlocked(){
                 return hasMilestone('FL', 11) || inChallenge('CT', 12) || hasChallenge('CT', 12)
             },
