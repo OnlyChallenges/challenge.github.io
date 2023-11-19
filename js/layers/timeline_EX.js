@@ -117,7 +117,7 @@ upgrades: {
             description: "Infects boosts Floors & Explosives (Cap is 300x)...Unlock a Floor Milestone...",
             cost: new Decimal(65000),
             effect() {
-                return (player.EX.points.max(1).add(1).pow(0.13)).max(1).min(300);
+                return (player.points.max(1).add(1).pow(0.1)).max(1).min(300);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
