@@ -7,7 +7,12 @@ addLayer("CT", {
 		points: new Decimal(0),
         best: new Decimal(0),
     }},
-    color: "#ea3add",
+    color(){ 
+        let color = `#ea3add`
+        if (inChallenge('CT', 11)) color = `#ed4046`
+        if (canComplete('CT', 11)) color = `#c4b804`
+        return color
+    },
     requires: new Decimal("e1e50"), // Can be a function that takes requirement increases into account
     resource: "Collapsed Timelines", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
