@@ -14,7 +14,7 @@ addLayer("EX", {
     requires(){ 
         let requirement = new Decimal(6000);
         if (inChallenge('CT', 11)) requirement = new Decimal(1500);
-        if (inChallenge('CT', 12)) requirement = requirement.div(1.5)
+        if (inChallenge('CT', 12)) requirement = requirement.times(1.5)
         if (hasUpgrade('FL', 22)) requirement = requirement.div(upgradeEffect('FL', 22))
         return requirement
     },
