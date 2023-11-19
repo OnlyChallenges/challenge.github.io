@@ -84,7 +84,7 @@ challenges: {
             Floor Requirement is now 75 instead of 150!`,
             canComplete: function() {return player.FL.points.gte(150000000)},
             goalDescription: "150,000,000 Floors",
-            rewardDescription: "Explosive gain is multiplied by " + format(player.points.add(1).pow(0.05)) + "x",
+            rewardDescription() { return "Explosive gain is multiplied by " + format(player.points.add(1).pow(0.05)) + "x"},
             unlocked(){
                 return hasMilestone('FL', 11) || inChallenge('CT', 12) || hasChallenge('CT', 12)
             },
