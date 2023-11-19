@@ -36,7 +36,7 @@ addLayer("CT", {
     },
     effectDescription() {
         dis = "You are currently in Timeline 1"
-        if (player.CT.points = 1) dis = "You are currently in Timeline 2 which is much different then Timeline 1"
+        if (player.CT.points.gte(1)) dis = "You are currently in Timeline 2 which is much different then Timeline 1"
         return dis
     },
     row: 4, // Row the layer is in on the tree (0 is the first row)
