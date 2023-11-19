@@ -63,7 +63,7 @@ upgrades: {
         rows: 2,
         cols: 5,
         11: {
-            title: "Minor Explosive",
+            title: "Minor Explosive I",
             description: "Explosives boosts Infects (Cap is 4950x)",
             cost: new Decimal(1),
             effect() {
@@ -75,7 +75,7 @@ upgrades: {
             },
         },
         12: {
-            title: "Semi-Minor Explosive",
+            title: "Minor Explosive II",
             description: "Infects boosts itself (Cap is 2000x)",
             cost: new Decimal(1),
             effect() {
@@ -87,7 +87,7 @@ upgrades: {
             },
         },
         13: {
-            title: "Semi-Minor Explosive",
+            title: "Minor Explosive III",
             description: "Infects boosts Explosives (Cap is 60x)",
             cost: new Decimal(1),
             effect() {
@@ -96,6 +96,18 @@ upgrades: {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
                 return hasUpgrade('EX', 12)
+            },
+        },
+        14: {
+            title: "Minor Explosive IV",
+            description: "Explosives boosts Floors (Cap is 25x)",
+            cost: new Decimal(1750),
+            effect() {
+                return (player.EX.points.max(1).add(1.1).pow(0.13)).max(1).min(25);
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade('EX', 13) & hasUpgrade('FL', 22)
             },
         },
     },

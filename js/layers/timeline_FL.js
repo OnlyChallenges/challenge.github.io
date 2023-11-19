@@ -11,7 +11,11 @@ addLayer("FL", {
         let color = `#9c422a`
         return color
     },
-    requires: new Decimal(150), // Can be a function that takes requirement increases into account
+    requires(){ 
+        let requirement = new Decimal(150);
+        if (hasUpgrade('FL', 23)) requirement = requirement.div(upgradeEffect('FL', 23))
+        return requirement
+    },// Can be a function that takes requirement increases into account
     resource: "Floors", // Name of prestige currency
     baseResource: "infects", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -120,13 +124,25 @@ addLayer("FL", {
         22: {
             title: "650,000th Floor",
             description: "Divided Explosive Requirement based on Infects (Cap is /39)",
-            cost: new Decimal(50000),
+            cost: new Decimal(650000),
             effect() {
                 return (player.points.max(1).add(1.1).pow(0.0555)).max(1).min(39);
             },
             effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
             unlocked(){
                 return hasUpgrade('FL', 21)
+            },
+        },
+        23: {
+            title: "17,500,000,000th Floor",
+            description: "Divide Floor Requirement based on Explosives (Cap is /15)",
+            cost: new Decimal(17500000000),
+            effect() {
+                return (player.EX.points.max(1).add(1.1).pow(0.02)).max(1).min(15);
+            },
+            effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
+            unlocked(){
+                return hasUpgrade('FL', 22)
             },
         },
     },
