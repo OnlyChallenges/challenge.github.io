@@ -28,6 +28,7 @@ addLayer("FL", {
         if (hasUpgrade('FL', 13)) mult = mult.times(upgradeEffect('FL', 13))
         if (hasUpgrade('FL', 14)) mult = mult.times(upgradeEffect('FL', 14))
         if (hasUpgrade('EX', 14)) mult = mult.times(upgradeEffect('EX', 14))
+        if (hasUpgrade('EX', 15)) mult = mult.times(upgradeEffect('EX', 15))
         if (hasChallenge('CT', 11)) mult = mult.times(3)
         if (inChallenge('CT', 12)) mult = mult.times(3)
         return mult
@@ -65,10 +66,11 @@ addLayer("FL", {
             effectDescription(){ 
                 let des
                 des = `Are we at Pluto yet...`
-                if (player.FL.points.gte(1e11)) des = "Unlock another Collapsed Challenge & infects boosts itself by" + format(player.points.add(1).pow(0.07)) + "x"
+                if (player.FL.points.gte(1e11)) des = "Unlock another Collapsed Challenge & infects boosts itself (" + format(player.points.add(1).pow(0.07)) + "x)"
                 return des
             },
             done() { return player.FL.points.gte(1e11) || hasMilestone('FL', 11)},
+            unlocked(){ return hasUpgrade('EX', 15)}
         },
     },
     upgrades: {
