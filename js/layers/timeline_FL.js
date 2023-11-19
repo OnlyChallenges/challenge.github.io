@@ -26,11 +26,14 @@ addLayer("FL", {
         if (hasUpgrade('FL', 11)) mult = mult.times(upgradeEffect('FL', 11))
         if (hasUpgrade('FL', 13)) mult = mult.times(upgradeEffect('FL', 13))
         if (hasUpgrade('FL', 14)) mult = mult.times(upgradeEffect('FL', 14))
+        if (hasUpgrade('EX', 14)) mult = mult.times(upgradeEffect('EX', 14))
         if (hasChallenge('CT', 11)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        let exp = new Decimal(1)
+        if (hasUpgrade('FL', 24)) exp = exp.add(.3)
+        return exp
     },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
@@ -134,15 +137,23 @@ addLayer("FL", {
             },
         },
         23: {
-            title: "17,500,000,000th Floor",
+            title: "1,500,000,000th Floor",
             description: "Divide Floor Requirement based on Explosives (Cap is /15)",
-            cost: new Decimal(17500000000),
+            cost: new Decimal(1500000000),
             effect() {
                 return (player.EX.points.max(1).add(1.1).pow(0.02)).max(1).min(15);
             },
             effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
             unlocked(){
                 return hasUpgrade('FL', 22)
+            },
+        },
+        24: {
+            title: `9,500,000,000,<br>000,000,000th Floor`,
+            description: "Add a base of .3 to Floor Gain",
+            cost: new Decimal(9.5e18),
+            unlocked(){
+                return hasUpgrade('FL', 23)
             },
         },
     },
