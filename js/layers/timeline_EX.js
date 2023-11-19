@@ -14,6 +14,7 @@ addLayer("EX", {
     requires(){ 
         let requirement = new Decimal(6000);
         if (inChallenge('CT', 11)) requirement = new Decimal(1500);
+        if (inChallenge('CT', 12)) requirement = requirement.div.times(1.5)
         if (hasUpgrade('FL', 22)) requirement = requirement.div(upgradeEffect('FL', 22))
         return requirement
     },
@@ -108,6 +109,18 @@ upgrades: {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
                 return hasUpgrade('EX', 13) & hasUpgrade('FL', 22)
+            },
+        },
+        15: {
+            title: "Minor Explosive V",
+            description: "Infects boosts Floors & Explosives (Cap is 300x)...Unlock a Floor Milestone...",
+            cost: new Decimal(65000),
+            effect() {
+                return (player.EX.points.max(1).add(1).pow(0.13)).max(1).min(300);
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade('EX', 14) & hasUpgrade('FL', 23)
             },
         },
     },

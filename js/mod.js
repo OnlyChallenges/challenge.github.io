@@ -409,6 +409,8 @@ function getPointGen() {
 
 	// Challenges (# Order)
 	if (inChallenge('CT', 11)) gain = gain.div(2.5)
+	if (inChallenge('CT', 12)) gain = gain.div(4)
+	if (hasChallenge('CT', 12)) gain = gain.times(player.points.add(1).pow(0.05))
 	return gain
 }
 

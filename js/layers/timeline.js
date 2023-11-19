@@ -75,5 +75,19 @@ challenges: {
                 return hasMilestone('EX', 11) || inChallenge('CT', 11) || hasChallenge('CT', 11)
             },
         },
+        12: {
+            name: "Planetary Length",
+            challengeDescription: 
+            `Floors are going crazy high!<br>
+            Infect gain /4 & Explosive gain /1.5<br>
+            To counter the challenge debuffs, Floor Gain is 3x higher!<br>
+            Floor Requirement is now 75 instead of 150!`,
+            canComplete: function() {return player.FL.points.gte(150000000)},
+            goalDescription: "150,000,000 Floors",
+            rewardDescription: "Explosive gain is multiplied by " + format(player.points.add(1).pow(0.05)) + "x",
+            unlocked(){
+                return hasMilestone('FL', 11) || inChallenge('CT', 12) || hasChallenge('CT', 12)
+            },
+        },
     },
 })

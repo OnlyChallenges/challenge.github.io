@@ -13,6 +13,7 @@ addLayer("FL", {
     },
     requires(){ 
         let requirement = new Decimal(150);
+        if (inChallenge('CT', 12)) requirement = new Decimal(75);
         if (hasUpgrade('FL', 23)) requirement = requirement.div(upgradeEffect('FL', 23))
         return requirement
     },// Can be a function that takes requirement increases into account
@@ -28,6 +29,7 @@ addLayer("FL", {
         if (hasUpgrade('FL', 14)) mult = mult.times(upgradeEffect('FL', 14))
         if (hasUpgrade('EX', 14)) mult = mult.times(upgradeEffect('EX', 14))
         if (hasChallenge('CT', 11)) mult = mult.times(3)
+        if (inChallenge('CT', 12)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -38,6 +40,8 @@ addLayer("FL", {
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
         if (inChallenge('CT', 11)) player.EX.milestones.push('11')
+        if (inChallenge('CT', 12)) player.EX.milestones.push('11')
+        if (inChallenge('CT', 12)) player.FL.milestones.push('11')
         if (hasChallenge('CT', 11)) player.FL.upgrades.push('11', '12', '13', '14')
         if (hasChallenge('CT', 11)) player.EX.milestones.push('11')
         if (hasChallenge('CT', 11)) player.EX.upgrades.push('11', '12', '13')
@@ -54,6 +58,18 @@ addLayer("FL", {
         let value = false
         if (player.CT.unlocked) value = true
         return value
+    },
+    milestones: {
+        11: {
+            requirementDescription: "1e11 Floors",
+            effectDescription(){ 
+                let des
+                des = `Are we at Pluto yet...`
+                if (player.FL.points.gte(1e11)) des = "Unlock another Collapsed Challenge & infects boosts itself by" + format(player.points.add(1).pow(0.07)) + "x"
+                return des
+            },
+            done() { return player.FL.points.gte(1e11) || hasMilestone('FL', 11)},
+        },
     },
     upgrades: {
         rows: 3,
