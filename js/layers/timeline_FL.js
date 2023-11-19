@@ -43,9 +43,6 @@ addLayer("FL", {
         if (inChallenge('CT', 11)) player.EX.milestones.push('11')
         if (inChallenge('CT', 12)) player.EX.milestones.push('11')
         if (inChallenge('CT', 12)) player.FL.milestones.push('11')
-        if (hasChallenge('CT', 11)) player.FL.upgrades.push('11', '12', '13', '14')
-        if (hasChallenge('CT', 11)) player.EX.milestones.push('11')
-        if (hasChallenge('CT', 11)) player.EX.upgrades.push('11', '12', '13')
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
