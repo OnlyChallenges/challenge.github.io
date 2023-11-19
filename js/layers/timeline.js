@@ -10,7 +10,7 @@ addLayer("CT", {
     color(){ 
         let color = `#ea3add`
         if (inChallenge('CT', 11)) color = `#ed4046`
-        if (canComplete('CT', 11)) color = `#c4b804`
+        if (canComplete) color = `#c4b804`
         return color
     },
     requires: new Decimal("e1e50"), // Can be a function that takes requirement increases into account
