@@ -139,7 +139,8 @@ upgrades: {
         },
         22: {
             title: "Semi-Major Explosive II",
-            description: "Sine Floor gain",
+            description: "Increase Floor gain (hover)",
+            tooltip: "log(sin(infects))+2",
             cost: new Decimal(1.33e11),
             effect() {
                 return (player.points.max(1).log10().add(2).sin()).max(1).min(5);
