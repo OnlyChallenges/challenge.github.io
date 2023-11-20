@@ -69,8 +69,8 @@
 	border-color: rgba(0, 0, 0, 0.125);
 	color: rgba(0, 0, 0, 0.5);
 	width: 300px;
-	min-height: auto;
-	font-size: 15px;
+	height: 375px;
+	font-size: 14.5px;
 	border-radius: 33.33%;
 }
 

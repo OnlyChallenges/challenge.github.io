@@ -96,7 +96,6 @@ challenges: {
             name: "Universal Floors",
             challengeDescription: 
             `The Developers are preventing you from going farther than 1e30 Floors...<br>
-            Let's try something to break it :)<br>
             Infect gain /10, Explosive gain /2 & Floor gain *250<br>
             Some Upgrades are now buff'd higher<br>
             '50,000th Floor' & '650,000th Floor' Upgrade is higher.<br>
