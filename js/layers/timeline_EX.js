@@ -146,7 +146,7 @@ upgrades: {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
-                return hasUpgrade('EX', 22)
+                return hasUpgrade('EX', 21)
             },
         },
     },
