@@ -99,7 +99,7 @@ challenges: {
             Let's try something to break it :)<br>
             Infect gain /10, Explosive gain /2 & Floor gain *250<br>
             Some Upgrades are now buff'd higher<br>
-            '50,000th Floor' & '650,000th Floor' Upgrade is lower.<br>
+            '50,000th Floor' & '650,000th Floor' Upgrade is higher.<br>
             Floor Requirement is now 40 instead of 150!`,
             canComplete: function() {return player.FL.points.gte(1e30)},
             goalDescription: "1e30 Floors (Break the universe...)",
