@@ -138,14 +138,14 @@ addLayer("FL", {
             title(){ 
                 let title = "50,000th Floor"
                 if (inChallenge('CT', 12)) title = "10,000th Floor"
-                if (inChallenge('CT', 21)) title = "280,000th Floor"
+                if (inChallenge('CT', 21)) title = "2,800,000th Floor"
                 return title
             },
             description: "Floors boosts Infects & Explosives (Cap is 95x)",
             cost(){
                 let cost = new Decimal(50000)
                 if (inChallenge('CT', 12)) cost = new Decimal(10000)
-                if (inChallenge('CT', 21)) cost = new Decimal(280000)
+                if (inChallenge('CT', 21)) cost = new Decimal(2800000)
                 return cost
             },
             effect() {
@@ -163,11 +163,13 @@ addLayer("FL", {
             title(){
             let title = "650,000th Floor"
                 if (inChallenge('CT', 21)) title = "12,000,000th Floor"
+return title
             },
             description: "Divided Explosive Requirement based on Infects (Cap is /39)",
             cost(){ 
             let cost = new Decimal(650000)
                 if (inChallenge('CT', 21)) cost = new Decimal(12000000)
+return cost
             },
             effect() {
                 let effect = (player.points.max(1).add(1.1).pow(0.0555)).max(1).min(39);
