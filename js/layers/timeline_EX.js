@@ -143,7 +143,7 @@ upgrades: {
             tooltip: "Collapsed Timelines + (sin(2))",
             cost: new Decimal(1.33e11),
             effect() {
-                return (player.CT.points.sin(2));
+                return (player.CT.points.sin(player.EX.points));
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
