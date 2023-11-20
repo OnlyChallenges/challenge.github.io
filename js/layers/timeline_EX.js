@@ -58,7 +58,7 @@ milestones: {
                 if (player.EX.points.gte(3)) des = `Unlock a...Collapsed Timeline Challenge...?`
                 return des
             },
-            done() { return player.EX.points.gte(3)},
+            done() { return player.EX.points.gte(3) || hasMilestone('EX', 11)},
         },
     },
 upgrades: {

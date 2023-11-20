@@ -67,7 +67,7 @@ addLayer("FL", {
                 return des
             },
             done() { return player.FL.points.gte(1e11) || hasMilestone('FL', 11)},
-            unlocked(){ return hasUpgrade('EX', 15)}
+            unlocked(){ return hasUpgrade('EX', 15) || hasMilestone('FL', 11)}
         },
     },
     upgrades: {
