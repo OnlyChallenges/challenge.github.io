@@ -142,7 +142,7 @@ upgrades: {
             description: "Sine Floor gain",
             cost: new Decimal(1e9),
             effect() {
-                return (player.FL.points.log10().sine(5));
+                return (player.FL.points.log10().sin(5));
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
