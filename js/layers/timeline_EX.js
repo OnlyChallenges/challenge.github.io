@@ -140,7 +140,7 @@ upgrades: {
         22: {
             title: "Semi-Major Explosive II",
             description: "Increase Floor gain (hover)",
-            tooltip: "Collapsed Timelines + (sin(2))",
+            tooltip: "Collapsed Timelines + (sin(Explosives))",
             cost: new Decimal(1.33e11),
             effect() {
                 return (player.CT.points.sin(player.EX.points));
