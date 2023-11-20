@@ -28,6 +28,7 @@ addLayer("EX", {
         if (hasUpgrade('EX', 13)) mult = mult.times(upgradeEffect('EX', 13))
         if (hasUpgrade('FL', 21)) mult = mult.times(upgradeEffect('FL', 21))
         if (hasUpgrade('EX', 15)) mult = mult.times(upgradeEffect('EX', 15))
+        if (hasChallenge('CT', 12)) mult = mult.times(player.points.add(1).pow(0.05))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -122,6 +123,30 @@ upgrades: {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
                 return hasUpgrade('EX', 14) & hasUpgrade('FL', 23)
+            },
+        },
+        21: {
+            title: "Semi-Major Explosive I",
+            description: "Explosives boosts Floors & Infects (Cap is 60x)",
+            cost: new Decimal(1e9),
+            effect() {
+                return (player.EX.points.max(1).add(1.1).pow(0.12)).max(1).min(60);
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade('EX', 15) & hasChallenge('CT', 12)
+            },
+        },
+        22: {
+            title: "Semi-Major Explosive II",
+            description: "Sine Floor gain",
+            cost: new Decimal(1e9),
+            effect() {
+                return (player.FL.points.log10().sine(5));
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade('EX', 22)
             },
         },
     },
