@@ -165,7 +165,7 @@ addLayer("FL", {
                 if (inChallenge('CT', 21)) title = "12,000,000th Floor"
 return title
             },
-            description: "Divided Explosive Requirement based on Infects (Cap is /39)",
+            description: "Divide Explosive Requirement based on Infects (Cap is /39)",
             cost(){ 
             let cost = new Decimal(650000)
                 if (inChallenge('CT', 21)) cost = new Decimal(12000000)
