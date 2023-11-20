@@ -130,7 +130,7 @@ upgrades: {
             description: "Explosives boosts Floors & Infects (Cap is 60x)",
             cost: new Decimal(1e9),
             effect() {
-                return (player.EX.points.max(1).add(1.1).pow(0.12)).max(1).min(60);
+                return (player.EX.points.max(1).add(1.1).pow(0.08)).max(1).min(60);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
