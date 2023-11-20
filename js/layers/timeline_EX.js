@@ -55,7 +55,7 @@ milestones: {
             effectDescription(){ 
                 let des
                 des = `Explode, Explode, Explode!`
-                if (player.EX.points.gte(3)) des = `Unlock a...Collapsed Timeline Challenge...?`
+                if (player.EX.points.gte(3) || hasMilestone('EX', 11)) des = `Unlock a...Collapsed Timeline Challenge...?`
                 return des
             },
             done() { return player.EX.points.gte(3) || hasMilestone('EX', 11)},

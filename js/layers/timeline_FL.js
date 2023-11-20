@@ -63,7 +63,7 @@ addLayer("FL", {
             effectDescription(){ 
                 let des
                 des = `Are we at Pluto yet...`
-                if (player.FL.points.gte(1e11)) des = "Unlock another Collapsed Challenge & infects boosts itself (" + format(player.points.add(1).pow(0.07)) + "x)"
+                if (player.FL.points.gte(1e11) || hasMilestone('FL', 11)) des = "Unlock another Collapsed Challenge & infects boosts itself (" + format(player.points.add(1).pow(0.07)) + "x)"
                 return des
             },
             done() { return player.FL.points.gte(1e11) || hasMilestone('FL', 11)},
