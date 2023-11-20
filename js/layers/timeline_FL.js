@@ -94,6 +94,7 @@ addLayer("FL", {
             effect() {
                 let effect1 = (player.FL.points.max(1).add(1).pow(0.19)).max(1).min(800);
                 if (inChallenge('CT', 11)) effect1 = (player.FL.points.max(1).add(1.2).pow(0.26)).max(1).min(800);
+                if (inChallenge('CT', 12)) effect1 = (player.FL.points.max(1).add(1.5).pow(0.3)).max(1).min(800);
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
@@ -128,11 +129,21 @@ addLayer("FL", {
             },
         },
         21: {
-            title: "50,000th Floor",
+            title(){ 
+                let title = "50,000th Floor"
+                if (inChallenge('CT', 12)) title = "10,000th Floor"
+                return title
+            },
             description: "Floors boosts Infects & Explosives (Cap is 95x)",
-            cost: new Decimal(50000),
+            cost(){
+                let cost = new Decimal(50000)
+                if (inChallenge('CT', 12)) cost = new Decimal(10000)
+                return cost
+            },
             effect() {
-                return (player.FL.points.max(1).add(1.3).pow(0.075)).max(1).min(95);
+                let effect1 = (player.FL.points.max(1).add(1.3).pow(0.075)).max(1).min(95);
+                if (inChallenge('CT', 12)) effect1 = (player.FL.points.max(1).add(1.5).pow(0.08)).max(1).min(95);
+                return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
