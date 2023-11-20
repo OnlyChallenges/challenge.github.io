@@ -140,7 +140,7 @@ upgrades: {
         22: {
             title: "Semi-Major Explosive II",
             description: "Sine Floor gain",
-            cost: new Decimal(1e9),
+            cost: new Decimal(1.77e10),
             effect() {
                 return (player.FL.points.log10().sin(5));
             },
