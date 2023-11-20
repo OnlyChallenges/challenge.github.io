@@ -407,6 +407,8 @@ function getPointGen() {
 	if (hasUpgrade('EX', 11)) gain = gain.times(upgradeEffect('EX', 11))
 	if (hasUpgrade('EX', 12)) gain = gain.times(upgradeEffect('EX', 12))
 
+	// Milestones (# Order)
+	if (hasMilestone('FL', 11)) gain = gain.times(player.points.add(1).pow(0.07))
 	// Challenges (# Order)
 	if (inChallenge('CT', 11)) gain = gain.div(2.5)
 	if (inChallenge('CT', 12)) gain = gain.div(4)
