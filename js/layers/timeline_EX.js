@@ -143,7 +143,7 @@ upgrades: {
             tooltip: "(sin(infects))+2",
             cost: new Decimal(1.33e11),
             effect() {
-                return (player.points.sin(1)).add(2);
+                return (player.points.sin()).add(4);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
