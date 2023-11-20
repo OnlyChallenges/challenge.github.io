@@ -140,9 +140,9 @@ upgrades: {
         22: {
             title: "Semi-Major Explosive II",
             description: "Sine Floor gain",
-            cost: new Decimal(1.77e10),
+            cost: new Decimal(1.33e11),
             effect() {
-                return (player.points.log10().sin());
+                return (player.points.max(1).log10(2).sin()).max(1).min(5);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
