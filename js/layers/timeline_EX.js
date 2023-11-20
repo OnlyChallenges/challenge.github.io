@@ -15,6 +15,7 @@ addLayer("EX", {
         let requirement = new Decimal(6000);
         if (inChallenge('CT', 11)) requirement = new Decimal(1500);
         if (inChallenge('CT', 12)) requirement = requirement.times(1.5)
+        if (inChallenge('CT', 12)) requirement = requirement.times(2)
         if (hasUpgrade('FL', 22)) requirement = requirement.div(upgradeEffect('FL', 22))
         return requirement
     },
@@ -139,7 +140,7 @@ upgrades: {
         },
         22: {
             title: "Semi-Major Explosive II",
-            description: "Increase Floor gain (hover)",
+            description: "Increase Floor gain (hover) & Unlock the next challenge...",
             tooltip: "((Floors^0.1)*(log(100))^0.45",
             cost: new Decimal(1.33e11),
             effect() {

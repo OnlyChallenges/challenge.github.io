@@ -10,6 +10,8 @@ addLayer("CT", {
     color(){ 
         let color = `#ea3add`
         if (inChallenge('CT', 11)) color = `#ed4046`
+        if (inChallenge('CT', 12)) color = `#ed4046`
+        if (inChallenge('CT', 21)) color = `#ed4046`
         return color
     },
     requires: new Decimal("e1e50"), // Can be a function that takes requirement increases into account
@@ -88,6 +90,22 @@ challenges: {
             onExit(){doReset(resettingLayer) = false},
             unlocked(){
                 return hasMilestone('FL', 11) || inChallenge('CT', 12) || hasChallenge('CT', 12)
+            },
+        },
+        21: {
+            name: "Universal Floors",
+            challengeDescription: 
+            `The Developers are preventing you from going farther than 1e30 Floors...<br>
+            Let's try something to break it :)<br>
+            Infect gain /10, Explosive gain /2 & Floor gain *250<br>
+            Some Upgrades are now buff'd higher<br>
+            '50,000th Floor' & '650,000th Floor' Upgrade is lower.<br>
+            Floor Requirement is now 40 instead of 150!`,
+            canComplete: function() {return player.FL.points.gte(1e30)},
+            goalDescription: "1e30 Floors (Break the universe...)",
+            rewardDescription() { return "Floors boosts Infects & Unlock the next layer (" + format(player.FL.points.add(1).pow(0.066)) + "x)"},
+            unlocked(){
+                return hasUpgrade('EX', 22) || inChallenge('CT', 21) || hasChallenge('CT', 21)
             },
         },
     },

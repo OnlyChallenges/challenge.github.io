@@ -14,6 +14,7 @@ addLayer("FL", {
     requires(){ 
         let requirement = new Decimal(150);
         if (inChallenge('CT', 12)) requirement = new Decimal(75);
+        if (inChallenge('CT', 21)) requirement = new Decimal(40);
         if (hasUpgrade('FL', 23)) requirement = requirement.div(upgradeEffect('FL', 23))
         return requirement
     },// Can be a function that takes requirement increases into account
@@ -32,6 +33,7 @@ addLayer("FL", {
         if (hasUpgrade('EX', 21)) mult = mult.times(upgradeEffect('EX', 21))
         if (hasChallenge('CT', 11)) mult = mult.times(3)
         if (inChallenge('CT', 12)) mult = mult.times(3)
+        if (inChallenge('CT', 21)) mult = mult.times(250)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -44,6 +46,9 @@ addLayer("FL", {
         if (inChallenge('CT', 11)) player.EX.milestones.push('11')
         if (inChallenge('CT', 12)) player.EX.milestones.push('11')
         if (inChallenge('CT', 12)) player.FL.milestones.push('11')
+        if (inChallenge('CT', 21)) player.EX.milestones.push('11')
+        if (inChallenge('CT', 21)) player.FL.milestones.push('11')
+        if (inChallenge('CT', 21)) player.EX.upgrades.push('21')
     },
     passiveGeneration() {
         let value1 = new Decimal(0);
@@ -133,17 +138,20 @@ addLayer("FL", {
             title(){ 
                 let title = "50,000th Floor"
                 if (inChallenge('CT', 12)) title = "10,000th Floor"
+                if (inChallenge('CT', 21)) title = "280,000th Floor"
                 return title
             },
             description: "Floors boosts Infects & Explosives (Cap is 95x)",
             cost(){
                 let cost = new Decimal(50000)
                 if (inChallenge('CT', 12)) cost = new Decimal(10000)
+                if (inChallenge('CT', 21)) cost = new Decimal(280000)
                 return cost
             },
             effect() {
                 let effect1 = (player.FL.points.max(1).add(1.3).pow(0.075)).max(1).min(95);
                 if (inChallenge('CT', 12)) effect1 = (player.FL.points.max(1).add(1.5).pow(0.08)).max(1).min(95);
+                if (inChallenge('CT', 21)) effect1 = (player.FL.points.max(1).add(1.5).pow(0.1)).max(1).min(95);
                 return effect1
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
@@ -152,11 +160,19 @@ addLayer("FL", {
             },
         },
         22: {
-            title: "650,000th Floor",
+            title(){
+            let title = "650,000th Floor"
+                if (inChallenge('CT', 21)) title = "12,000,000th Floor"
+            },
             description: "Divided Explosive Requirement based on Infects (Cap is /39)",
-            cost: new Decimal(650000),
+            cost(){ 
+            let cost = new Decimal(650000)
+                if (inChallenge('CT', 21)) cost = new Decimal(12000000)
+            },
             effect() {
-                return (player.points.max(1).add(1.1).pow(0.0555)).max(1).min(39);
+                let effect = (player.points.max(1).add(1.1).pow(0.0555)).max(1).min(39);
+                if (inChallenge('CT', 21)) effect = (player.points.max(1).add(1.15).pow(0.07)).max(1).min(39);
+                return effect
             },
             effectDisplay() { return "/"+format(upgradeEffect(this.layer, this.id)) },
             unlocked(){
