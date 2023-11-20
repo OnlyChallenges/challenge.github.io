@@ -143,7 +143,7 @@ upgrades: {
             tooltip: "((Floors^0.03) + (sin(Explosives)))",
             cost: new Decimal(1.33e11),
             effect() {
-                return ((player.FL.points.pow(0.03)).sin(player.EX.points));
+                return ((player.FL.points.pow(0.03))).sin(player.EX.points);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
