@@ -142,7 +142,7 @@ upgrades: {
             description: "Sine Floor gain",
             cost: new Decimal(1.33e11),
             effect() {
-                return (player.points.max(1).log10(2).add(2).sin()).max(1).min(5);
+                return (player.points.max(1).log10().add(2).sin()).max(1).min(5);
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
