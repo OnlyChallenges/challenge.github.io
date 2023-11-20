@@ -79,8 +79,7 @@ challenges: {
             name: "Planetary Length",
             challengeDescription: 
             `Floors are going crazy high!<br>
-            Infect gain /4 & Explosive gain /1.5<br>
-            To counter the challenge debuffs, Floor Gain is 3x higher!<br>
+            Infect gain /4, Explosive gain /1.5 & Floor gain *3<br>
             Some Upgrades are now buff'd higher and '50,000th Floor' Upgrade is lower.<br>
             Floor Requirement is now 75 instead of 150!`,
             canComplete: function() {return player.FL.points.gte(150000000)},
