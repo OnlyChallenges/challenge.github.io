@@ -413,7 +413,7 @@ function getPointGen() {
 	// Challenges (# Order)
 	if (inChallenge('CT', 11)) gain = gain.div(2.5)
 	if (inChallenge('CT', 12)) gain = gain.div(4)
-	if (inChallenge('CT', 12)) gain = gain.div(10)
+	if (inChallenge('CT', 21)) gain = gain.div(10)
 	return gain
 }
 
