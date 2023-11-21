@@ -93,7 +93,7 @@ addLayer("a", {
     },
 
         achievements: {
-            rows: 5,
+            rows: 6,
             cols: 6,
         11: {
                 name: "The Outbreak",
@@ -229,12 +229,53 @@ addLayer("a", {
             done() { return player.CT.points.gte(1) },
             tooltip(){return hasAchievement("a", 46)?`<h4 style='color: purple; text-shadow: darkred 1.75px 1.75px 10px;'> Uh oh...You've collapsed the timeline!</h4>`:"Get the 6th Room Upgrade"},
             },
-        56: {
+        66: {
             name(){return hasAchievement("a", 56)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'>I Knew you were going to do that.</h4>`: "I knew you were going to do that."},
             done() { return player.devSpeed>=1.01 },
             tooltip(){return hasAchievement("a", 56)?`<h4 style='color: red; text-shadow: blue 1.75px 1.75px 10px;'> You're going to play fairly!<br>So your Infects & Crystal gain is /1e300 until you've set your devSpeed back or under 1.<br> You've found a secret achievement that will never go away!</h4>`:"  "},
             unlocked(){return player.devSpeed>=1.01 || hasAchievement("a", 56)},
             },
+        51: {
+            name: "Building Floors",
+             done() { return player.FL.points.gte(1)},
+             unlocked(){return hasAchievement('a', 46) },
+            tooltip: 
+            `Get 1 Floor...`
+            }, 
+        52: {
+            name: "Exploding Floors?",
+             done() { return player.EX.points.gte(1)},
+             unlocked(){return hasAchievement('a', 46) },
+            tooltip: 
+            `Get 1 Explosive...`
+            }, 
+        53: {
+            name(){return hasAchievement("a", 53)?`<h4 style='color: red; text-shadow: orange 1.75px 1.75px 10px;'>The First Challenge finally exists...</h4>`: "An Challenge?."},
+            done() { return hasChallenge('CT', 11) },
+            tooltip(){return hasAchievement("a", 53)?`<h4 style='color: red; text-shadow: orange 1.75px 1.75px 10px;'> You're going to play fairly!<br>Finally...We can finally get stuff done!</h4>`:"Complete the first challenge"},
+            unlocked(){return hasAchievement('a', 46) },
+            },
+        54: {
+            name: "Solar System Action",
+             done() { return hasChallenge('CT', 12)},
+             unlocked(){return hasAchievement('a', 46) },
+            tooltip: 
+            `Complete 'Planetary Length'.`
+            }, 
+        55: {
+            name: "Universal Collapse",
+             done() { return hasChallenge('CT', 21)},
+             unlocked(){return hasAchievement('a', 46) },
+            tooltip: 
+            `Complete 'Universal Floors'.`
+            }, 
+        56: {
+            name: "Contracting with the Devil",
+             done() { return player.SL.points.gte(1)},
+             unlocked(){return hasAchievement('a', 46) },
+            tooltip: 
+            `Get the first soul.`
+            }, 
         },
     },
 )
