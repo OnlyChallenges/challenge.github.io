@@ -252,7 +252,7 @@ addLayer("a", {
         53: {
             name(){return hasAchievement("a", 53)?`<h4 style='color: red; text-shadow: orange 1.75px 1.75px 10px;'>The First Challenge finally exists...</h4>`: "An Challenge?."},
             done() { return hasChallenge('CT', 11) },
-            tooltip(){return hasAchievement("a", 53)?`<h4 style='color: red; text-shadow: orange 1.75px 1.75px 10px;'> You're going to play fairly!<br>Finally...We can finally get stuff done!</h4>`:"Complete the first challenge"},
+            tooltip(){return hasAchievement("a", 53)?`<h4 style='color: red; text-shadow: orange 1.75px 1.75px 10px;'>Finally...We can finally get stuff done!</h4>`:"Complete the first challenge"},
             unlocked(){return hasAchievement('a', 46) },
             },
         54: {
