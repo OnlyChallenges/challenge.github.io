@@ -12,8 +12,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.2_unstable",
-	name: " ",
+	num: "2.0_betatest_1",
+	name: "Another World?",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
@@ -22,6 +22,17 @@ let changelog = `<h1>Changelog:</h1><br>
 		y = minor update<br>
 		z = very minor update<br>
 		a = bug/mechanic fixes<br><br>
+
+		<h1>v2.0: Another World?</h1><br>
+			- Added 4 Layers<br> 
+			- Added 6 Achievements<br> 
+			- Added Balancing Before Timeline 1<br> 
+			- Introducing Timeline 2 (Another World...)<br> 
+			- Added 3 Challenges<br> 
+			- Added Formula Balancing on Newer Content<br> 
+			- Fixed Multiple bugs<br> 
+			- Feedback is needed for slow'd gameplay...too fast gameplay...or unbalanced entirely...<br> 
+			- Endgame: 1 Soul - Timeline 2<br> <br> 
 
 		<h3>v1.1.4_stable</h3><br>
 			- Added 2 Room Upgrades<br>
@@ -425,14 +436,14 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"<a>Endgame: 1 Explosive - Timeline 2</a><br>"
+	"<a>Endgame: 1 Soul - Timeline 2</a><br>"
 	
 ]
 
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.W.points.gte(8)
+	return player.SL.points.gte(1)
 }
 
 
