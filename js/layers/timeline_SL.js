@@ -15,7 +15,7 @@ addLayer("SL", {
         "background": (player.SL.unlocked||canReset("SL"))?"radial-gradient(#403736, #7a6261)":"#bf8f8f" ,
     }},
     requires(){ 
-        let requirement = new Decimal(1e45);
+        let requirement = new Decimal(1e40);
         return requirement
     },
     resource: "Souls", // Name of prestige currency
