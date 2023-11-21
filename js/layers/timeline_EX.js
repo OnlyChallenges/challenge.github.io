@@ -30,6 +30,7 @@ addLayer("EX", {
         if (hasUpgrade('FL', 21)) mult = mult.times(upgradeEffect('FL', 21))
         if (hasUpgrade('EX', 15)) mult = mult.times(upgradeEffect('EX', 15))
         if (hasChallenge('CT', 12)) mult = mult.times(player.points.add(1).pow(0.05))
+        if (hasUpgrade('EX', 24)) mult = mult.times(upgradeEffect('EX', 24))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -149,6 +150,39 @@ upgrades: {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
             unlocked(){
                 return hasUpgrade('EX', 21)
+            },
+        },
+        23: {
+            title: "Semi-Major Explosive III",
+            description: "Increase infect gain baseed on formula on hover",
+            tooltip: "((Floors^0.05) + (Explosives^0.05))",
+            cost: new Decimal(1e16),
+            effect() {
+                return (player.FL.points.pow(0.05).add(player.EX.points.pow(0.05)));
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade('EX', 22) && hasChallenge('CT', 21)
+            },
+        },
+        24: {
+            title: "Semi-Major Explosive IV",
+            description: "Infects boosts Floors & Explosives (Cap is 150x)",
+            cost: new Decimal(3.14e17),
+            effect() {
+                return (player.points.max(1).add(1).pow(0.005)).max(1).min(150);
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked(){
+                return hasUpgrade('EX', 23)
+            },
+        },
+        25: {
+            title: "Semi-Major Explosive V",
+            description: "100x Floor Gain",
+            cost: new Decimal(7e19),
+            unlocked(){
+                return hasUpgrade('EX', 24)
             },
         },
     },

@@ -3,7 +3,7 @@ let modInfo = {
 	id: "experiments",
 	author: "Ozvali",
 	pointsName: "infects",
-	modFiles:["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "tree.js"],
+	modFiles:["layers/a.js", "layers/c.js", "layers/E.js", "layers/F.js", "layers/H.js", "layers/R.js", "layers/W.js", "layers/timeline.js", "layers/timeline_FL.js", "layers/timeline_EX.js", "layers/timeline_SL.js", "tree.js"],
 	discordName: "The Modding Tree Discord Server",
 	discordLink: "https://discord.com/invite/F3xveHV",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players
@@ -407,6 +407,7 @@ function getPointGen() {
 	if (hasUpgrade('EX', 11)) gain = gain.times(upgradeEffect('EX', 11))
 	if (hasUpgrade('EX', 12)) gain = gain.times(upgradeEffect('EX', 12))
 	if (hasUpgrade('EX', 21)) gain = gain.times(upgradeEffect('EX', 21))
+	if (hasUpgrade('EX', 23)) gain = gain.times(upgradeEffect('EX', 23))
 
 	// Milestones (# Order)
 	if (hasMilestone('FL', 11)) gain = gain.times(player.points.add(1).pow(0.07))
@@ -414,6 +415,7 @@ function getPointGen() {
 	if (inChallenge('CT', 11)) gain = gain.div(2.5)
 	if (inChallenge('CT', 12)) gain = gain.div(4)
 	if (inChallenge('CT', 21)) gain = gain.div(10)
+	if (hasChallenge('CT', 21)) gain = gain.times(player.FL.points.add(1).pow(0.066))
 	return gain
 }
 
