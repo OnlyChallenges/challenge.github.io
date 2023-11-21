@@ -34,7 +34,7 @@ addLayer("SL", {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },
     effect() {
-        let eff = player.SL.points.add(1).pow(0.27)
+        let eff = player.SL.points.add(1.25).pow(0.27)
         return eff
     },
     effectDescription() {
@@ -63,5 +63,13 @@ milestones: {
 upgrades: {
         rows: 2,
         cols: 5,
+        11: {
+            title: "Contract with the Infection",
+            description: "10x Floors & Explosives",
+            cost: new Decimal(1),
+            unlocked(){
+                return player.SL.points.gte(0)
+            },
+        },
     },
 })
