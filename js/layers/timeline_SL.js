@@ -65,7 +65,7 @@ upgrades: {
         cols: 5,
         11: {
             title: "Contract with the Infection",
-            description: "10x Floors & Explosives",
+            description: "3x Floors & Explosives",
             cost: new Decimal(1),
             unlocked(){
                 return player.SL.points.gte(0)

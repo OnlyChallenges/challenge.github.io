@@ -31,6 +31,7 @@ addLayer("EX", {
         if (hasUpgrade('EX', 15)) mult = mult.times(upgradeEffect('EX', 15))
         if (hasChallenge('CT', 12)) mult = mult.times(player.points.add(1).pow(0.05))
         if (hasUpgrade('EX', 24)) mult = mult.times(upgradeEffect('EX', 24))
+        if (hasUpgrade('SL', 11)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

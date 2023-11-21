@@ -32,6 +32,7 @@ addLayer("FL", {
         if (hasUpgrade('EX', 15)) mult = mult.times(upgradeEffect('EX', 15))
         if (hasUpgrade('EX', 21)) mult = mult.times(upgradeEffect('EX', 21))
         if (hasUpgrade('EX', 24)) mult = mult.times(upgradeEffect('EX', 24))
+        if (hasUpgrade('SL', 11)) mult = mult.times(3)
         if (hasChallenge('CT', 11)) mult = mult.times(3)
         if (inChallenge('CT', 12)) mult = mult.times(3)
         if (inChallenge('CT', 21)) mult = mult.times(250)
