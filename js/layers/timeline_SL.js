@@ -11,6 +11,9 @@ addLayer("SL", {
         let color = `#403736`
         return color
     },
+    nodeStyle() {return {
+        "background": (player.SL.unlocked||canReset("SL"))?"radial-gradient(#403736, #7a6261)":"#bf8f8f" ,
+    }},
     requires(){ 
         let requirement = new Decimal(1e45);
         return requirement
