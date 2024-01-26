@@ -9,7 +9,7 @@ addLayer("bP", {
     color: "#8ADC13",
     requires(){ 
         let requirement = new Decimal(10)
-        if (hasUpgrade('p', 12)) requirement = requirement.div(2.5)
+        if (hasUpgrade('bP', 12)) requirement = requirement.div(2.5)
         return requirement
     },
     resource: "buffed prestige points", // Name of prestige currency
@@ -25,11 +25,11 @@ addLayer("bP", {
         return new Decimal(1)
     },
     effect(){
-        let eff = player.bP.points.add(1).times(player.bP.points)
+        let eff = (player.bP.points.add(1).times(player.bP.points))
         return eff
     },
     effectDescription(){
-        let dis = "which boosts Prestige Points by "+ format(tmp.bP.effect)
+        let dis = "which boosts Prestige Points by "+ format(tmp.bP.effect)+"x"
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
@@ -40,7 +40,7 @@ addLayer("bP", {
         11: { 
             title: "5 Buff Prestige Points",
             description: "Keep Prestige Point Upgrades",
-            done() {return player.bP.points.gte(5) }
+            done() {return player.bP.points.gte(5) },
         },
     },
     upgrades: {
