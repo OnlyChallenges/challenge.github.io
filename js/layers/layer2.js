@@ -25,7 +25,7 @@ addLayer("bP", {
         return new Decimal(1)
     },
     effect(){
-        let eff = (player.bP.points.add(1).times(player.bP.points))
+        let eff = (player.bP.points.times(player.bP.points)).add(1)
         return eff
     },
     effectDescription(){
