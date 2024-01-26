@@ -7,7 +7,10 @@ addLayer("p", {
 		points: new Decimal(0),
     }},
     color: "#2BDC13",
-    requires: new Decimal(5), // Can be a function that takes requirement increases into account
+    requires(){ 
+        let requirement = new Decimal(5)
+        if (hasUpgrade('p', 12)) requirement = requirement.div(2.5)
+    },
     resource: "prestige points", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -24,5 +27,23 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+
+    upgrades: {
+        11: {
+            title: "Modern",
+            description: "Double point gain",
+            cost: new Decimal(2),
+        },
+        12: {
+            title: "Normality",
+            description: "/2.5 Prestige Point requirement",
+            cost: new Decimal(6),
+        },
+        13: {
+            title: "Difference",
+            description: "ten-fold point gain",
+            cost: new Decimal(10),
+        },
+    },
 })
