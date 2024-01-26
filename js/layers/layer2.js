@@ -1,55 +1,65 @@
-addLayer("p", {
+addLayer("bP", {
     name: "prestige", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "P", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "bP", // This appears on the layer's node. Default is the id with the first letter capitalized
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#2BDC13",
+    color: "#8ADC13",
     requires(){ 
-        let requirement = new Decimal(5)
+        let requirement = new Decimal(10)
         if (hasUpgrade('p', 12)) requirement = requirement.div(2.5)
         return requirement
     },
-    resource: "prestige points", // Name of prestige currency
-    baseResource: "points", // Name of resource prestige is based on
+    resource: "buffed prestige points", // Name of prestige currency
+    baseResource: "prestige points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.3, // Prestige currency exponent
+    exponent: 0.2, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        let mult = new Decimal(1)
-        if (player.bP.unlocked) mult = mult.times(tmp.bP.effect)
-        if (hasUpgrade('bP', 11)) mult = mult.times(2)
-        if (hasUpgrade('bP', 13)) mult = mult.times(10)
+        mult = new Decimal(1)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
+    },
+    effect(){
+        let eff = player.bF.points.add(1).times(player.bF.points)
+        return eff
+    },
+    effectDescription(){
+        let dis = "which boosts Prestige Points by "+ format(tmp.bF.effect)
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
-
+    milestones: {
+        11: { 
+            title: "5 Buff Prestige Points",
+            description: "Keep Prestige Point Upgrades",
+            done() {return player.bF.points.gte(5) }
+        },
+    },
     upgrades: {
         11: {
-            title: "Modern",
-            description: "Double point gain",
+            title: "Buff Modern",
+            description: "Double Prestige point gain",
             cost: new Decimal(2),
         },
         12: {
-            title: "Normality",
-            description: "/2.5 Prestige Point requirement",
+            title: "Buff Normality",
+            description: "/2.5 Buffed Prestige Point requirement",
             cost: new Decimal(6),
-            unlocked(){ return hasUpgrade('p', 11) },
+            unlocked(){ return hasUpgrade('bP', 11) },
         },
         13: {
-            title: "Difference",
-            description: "ten-fold point gain",
+            title: "Buff Difference",
+            description: "ten-fold Prestige point gain",
             cost: new Decimal(10),
-            unlocked(){ return hasUpgrade('p', 12) },
+            unlocked(){ return hasUpgrade('bP', 12) },
         },
     },
 })
