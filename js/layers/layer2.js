@@ -28,8 +28,8 @@ addLayer("bP", {
         let eff = (player.bP.points.times(player.bP.points)).add(1)
         return eff
     },
-    effectDescription(){
-        let dis = "which boosts Prestige Points by "+ format(tmp.bP.effect)+"x"
+    effectDescription() {
+        dis = "which boosting Prestige Point gain by "+format(tmp.bP.effect)+"x"
         return dis
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
