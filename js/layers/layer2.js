@@ -35,7 +35,7 @@ addLayer("bP", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true},
+    layerShown(){return hasUpgrade('p', 13) || player.bP.unlocked},
     milestones: {
         11: { 
             title: "5 Buff Prestige Points",
