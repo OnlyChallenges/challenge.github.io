@@ -30,6 +30,7 @@ addLayer("bP", {
     },
     effectDescription(){
         let dis = "which boosts Prestige Points by "+ format(tmp.bP.effect)+"x"
+        return dis
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
