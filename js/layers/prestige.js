@@ -39,11 +39,13 @@ addLayer("p", {
             title: "Normality",
             description: "/2.5 Prestige Point requirement",
             cost: new Decimal(6),
+            unlocked(){ return hasUpgrade('p', 11) },
         },
         13: {
             title: "Difference",
             description: "ten-fold point gain",
             cost: new Decimal(10),
+            unlocked(){ return hasUpgrade('p', 12) },
         },
     },
 })
