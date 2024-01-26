@@ -36,11 +36,11 @@ addLayer("bP", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return hasUpgrade('p', 13) || player.bP.unlocked},
-    milestones: {
-        11: { 
-            title: "5 Buff Prestige Points",
-            description: "Keep Prestige Point Upgrades",
-            done() {return player.bP.points.gte(5) },
+        milestones: {
+        11: {
+            requirementDescription: "5 Buff Prestige Points",
+            effectDescription: `Triple Point Gain`,
+            done() { return player.bP.points.gte(5) },
         },
     },
     upgrades: {
