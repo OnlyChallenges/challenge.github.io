@@ -14,7 +14,7 @@ addLayer("bP", {
     },
     resource: "buffed prestige points", // Name of prestige currency
     baseResource: "prestige points", // Name of resource prestige is based on
-    baseAmount() {return player.points}, // Get the current amount of baseResource
+    baseAmount() {return player.p.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.2, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
@@ -25,11 +25,11 @@ addLayer("bP", {
         return new Decimal(1)
     },
     effect(){
-        let eff = player.bF.points.add(1).times(player.bF.points)
+        let eff = player.bP.points.add(1).times(player.bP.points)
         return eff
     },
     effectDescription(){
-        let dis = "which boosts Prestige Points by "+ format(tmp.bF.effect)
+        let dis = "which boosts Prestige Points by "+ format(tmp.bP.effect)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
@@ -40,7 +40,7 @@ addLayer("bP", {
         11: { 
             title: "5 Buff Prestige Points",
             description: "Keep Prestige Point Upgrades",
-            done() {return player.bF.points.gte(5) }
+            done() {return player.bP.points.gte(5) }
         },
     },
     upgrades: {
