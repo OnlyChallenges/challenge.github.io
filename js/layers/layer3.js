@@ -35,6 +35,7 @@ addLayer("cP", {
         dis = "which boosts Buffed Prestige Point gain by "+format(tmp.cP.effect)+"x"
         return dis
     },
+    branches: ["dP"],
     row: 2, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "c", description: "c: Reset for community prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
