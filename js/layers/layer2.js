@@ -35,7 +35,7 @@ addLayer("bP", {
         dis = "which boosts Prestige Point gain by "+format(tmp.bP.effect)+"x"
         return dis
     },
-    branches: ["cP"],
+    branches: ["cP","b"],
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "b", description: "b: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
