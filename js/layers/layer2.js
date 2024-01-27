@@ -40,7 +40,7 @@ addLayer("bP", {
     branches: ["cP","b"],
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "b", description: "b: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "b", description: "b: Reset for buffed prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return hasUpgrade('p', 13) || player.bP.unlocked},
         milestones: {
