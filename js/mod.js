@@ -56,10 +56,15 @@ function addedPlayerData() { return {
 // Display extra things at the top of the page
 var displayThings = [
 	function(){
-		return formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP"
+		let prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P"
+ if (player.bP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP,"
+if (player.cP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP"
+return prestiges
 	},
  function(){
- return '0.7% done...'
+ let boosters = ""
+ if (player.b.unlocked) boosters = "Boosters: "+ formatWhole(player.b.points)+" B"
+return boosters
 },
 ]
 
