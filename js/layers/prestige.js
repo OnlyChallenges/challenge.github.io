@@ -33,14 +33,16 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
+    passiveGeneration(){
+        let passive = new Decimal(0)
+        if (hasMilestone('dP', 11)) passive = passive.add(0.1)
+        return passive
+    },
     layerShown(){return true},
 doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
         if (hasMilestone('cP', 11)) player.p.upgrades.push('11', '12', '13')
 },
-
-
-
     upgrades: {
         11: {
             title: "Modern",
