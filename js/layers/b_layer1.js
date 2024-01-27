@@ -11,7 +11,7 @@ addLayer("b", {
         let requirement = new Decimal(50)
         return requirement
     },
-    resources: "boosters", // Name of prestige currency
+    resource: "boosters", // Name of prestige currency
     baseResource: "buffed prestige points", // Name of resource prestige is based on
     baseAmount() {return player.bP.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
