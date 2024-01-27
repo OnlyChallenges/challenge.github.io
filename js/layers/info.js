@@ -4,7 +4,7 @@ addLayer("At", {
         }},
         color: "#2A87cF",
         row: "side",
-        tooltip: "Passives/Automation"
+        tooltip: "Passives/Automation",
         tabFormat: {
             "Automation": {
                 content: [
