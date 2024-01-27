@@ -32,6 +32,10 @@ addLayer("dP", {
         dis = "which boosts Community Prestige Point gain by "+format(tmp.dP.effect)+"x"
         return dis
     },
+    passiveGeneration(){
+        let passive = new Decimal(0)
+        return passive
+    },
     row: 3, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "d", description: "d: Reset for delta prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
