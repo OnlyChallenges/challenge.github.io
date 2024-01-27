@@ -40,7 +40,7 @@ addLayer("dP", {
         milestones: {
         11: {
             requirementDescription: "1 Delta Prestige Points",
-            effectDescription: `Keep Buffed Prestige Content on reset & passively gain 10% P Points and it'll ten-fold the effect every new (layer)P`,
+            effectDescription: `Keep content before Community Prestige Points on Delta Prestige Reset<br>Passively gain 10% P Points and it'll ten-fold the effect every new (layer)P`,
             done() { return player.dP.points.gte(1) },
         },
         12: {
