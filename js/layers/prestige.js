@@ -42,6 +42,8 @@ addLayer("p", {
 doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
         if (hasMilestone('cP', 11)) player.p.upgrades.push('11', '12', '13')
+        if (hasMilestone('dP', 11)) player.bP.upgrades.push('11', '12', '13')
+        if (hasMilestone('dP', 11)) player.bP.milestones.push('11')
 },
     upgrades: {
         11: {
