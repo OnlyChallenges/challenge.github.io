@@ -50,7 +50,7 @@ addLayer("dP", {
         },
         13: {
             requirementDescription: "12 Delta Prestige Points",
-            effectDescription: `Double Buffed Point Gain`,
+            effectDescription: `Double Buffed Prestige Point Gain`,
             done() { return player.dP.points.gte(12) },
         },
     },
