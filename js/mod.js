@@ -3,7 +3,7 @@ let modInfo = {
 	id: "normal",
 	author: "Ozvali",
 	pointsName: "points",
-	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js", "tree.js"],
+	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/b_layer1.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -46,6 +46,7 @@ function getPointGen() {
 	if (hasUpgrade('p', 11)) gain = gain.times(2)
 	if (hasUpgrade('p', 13)) gain = gain.times(10)
 if (hasMilestone('bP', 11)) gain = gain.times(3)
+if (player.b.unlocked) gain = gain.times(tmp.b.effect)
 	return gain
 }
 
