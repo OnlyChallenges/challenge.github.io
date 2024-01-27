@@ -19,6 +19,9 @@ addLayer("bP", {
     exponent: 0.2, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+        if (player.cP.unlocked) mult = mult.times(tmp.cP.effect)
+        if (hasUpgrade('cP', 11)) mult = mult.times(2)
+        if (hasUpgrade('cP', 13)) mult = mult.times(10)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -29,9 +32,10 @@ addLayer("bP", {
         return eff
     },
     effectDescription() {
-        dis = "which boosting Prestige Point gain by "+format(tmp.bP.effect)+"x"
+        dis = "which boosts Prestige Point gain by "+format(tmp.bP.effect)+"x"
         return dis
     },
+    branches: ["cP"],
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "b", description: "b: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
