@@ -59,6 +59,9 @@ var displayThings = [
 	function(){
 		return formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP"
 	},
+ function(){
+ return '0.7% done...'
+},
 ]
 
 // Determines when the game "ends"
