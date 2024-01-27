@@ -61,6 +61,7 @@ var displayThings = [
 		let prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P"
  if (player.bP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP,"
 if (player.cP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP"
+if (player.dP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP, " + formatWhole(player.dP.points)+" DP"
 return prestiges
 	},
  function(){
