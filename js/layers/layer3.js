@@ -35,6 +35,10 @@ addLayer("cP", {
         dis = "which boosts Buffed Prestige Point gain by "+format(tmp.cP.effect)+"x"
         return dis
     },
+    passiveGeneration(){
+        let passive = new Decimal(0)
+        return passive
+    },
     branches: ["dP"],
     row: 2, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
