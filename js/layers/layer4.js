@@ -75,7 +75,7 @@ addLayer("dP", {
             unlocked(){ return hasUpgrade('dP', 11) },
         },
         13: {
-            title: "Community Difference",
+            title: "Delta Difference",
             description: "Twenty-fold Community Prestige Point gain",
             cost: new Decimal(10),
             unlocked(){ return hasUpgrade('dP', 12) },
