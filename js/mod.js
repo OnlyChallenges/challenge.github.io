@@ -13,13 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.1",
+	name: "Normal Flattening",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Normal Stuff<br>
+	<h3>v0.1: Normal Flattening</h3><br>
+		- Added 8 Layers worth of <a>normal</a> content<br>
+ - <a>Endgame: 25 Flattened Prestige Points</a><br>
 `
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
@@ -58,6 +59,10 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
+function(){
+ let endgame = "<a>Endgame: 25 Flattened Prestige Points"
+return endgame
+},
 	function(){
 		let prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P"
  if (player.bP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP,"
@@ -77,7 +82,7 @@ return boosters
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+	return player.fP.points.gte(new Decimal(25))
 }
 
 
