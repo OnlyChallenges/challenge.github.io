@@ -55,7 +55,7 @@ addLayer("eP", {
         13: {
             requirementDescription: "12 Exterior Prestige Points",
             effectDescription: `Double Community Prestige Point Gain`,
-            done() { return player.dP.points.gte(12) },
+            done() { return player.eP.points.gte(12) },
         },
     },
     upgrades: {
