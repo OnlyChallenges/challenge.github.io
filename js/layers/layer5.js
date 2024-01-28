@@ -78,7 +78,7 @@ addLayer("eP", {
         },
         14: {
             title: "Exterior Association",
-            description: "Twenty-fold Community Prestige Point gain",
+            description: "Cent-fold Point gain",
             cost: new Decimal(15),
             unlocked(){ return hasUpgrade('dP', 13) },
         },
