@@ -49,6 +49,14 @@ addLayer("At", {
                     },
                     {}],
                     "blank",
+                    ["display-text",
+                    function() {
+                      let display = ""
+                      if (player.fP.unlocked) display = "FP Point Passive%: "+ format(tmp.fP.passiveGeneration.times(100))+"%"
+                      return display
+                    },
+                    {}],
+                    "blank",
                     ],
             },
           
