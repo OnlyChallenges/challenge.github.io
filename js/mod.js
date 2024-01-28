@@ -69,6 +69,7 @@ return prestiges
  function(){
  let boosters = ""
  if (player.b.unlocked) boosters = "Boosters: "+ formatWhole(player.b.points)+" B"
+ if (player.bB.unlocked) boosters = "Boosters: "+ formatWhole(player.b.points)+" B, " + formatWhole(player.bB.points)+" BB"
 return boosters
 },
 ]
