@@ -35,7 +35,8 @@ addLayer("p", {
     ],
     passiveGeneration(){
         let passive = new Decimal(0)
-        if (hasMilestone('dP', 11)) passive = passive.add(0.1)
+        if (hasMilestone('dP', 11)) passive = new Decimal(0.1)
+        if (hasMilestone('eP', 11)) passive = new Decimal(1)
         return passive
     },
     layerShown(){return true},
@@ -45,6 +46,11 @@ doReset(resettingLayer) {
         if (hasMilestone('dP', 11)) player.p.upgrades.push('11', '12', '13')
         if (hasMilestone('dP', 11)) player.bP.upgrades.push('11', '12', '13')
         if (hasMilestone('dP', 11)) player.bP.milestones.push('11')
+        if (hasMilestone('eP', 11)) player.p.upgrades.push('11', '12', '13')
+        if (hasMilestone('eP', 11)) player.bP.upgrades.push('11', '12', '13')
+        if (hasMilestone('eP', 11)) player.bP.milestones.push('11')
+        if (hasMilestone('eP', 11)) player.cP.upgrades.push('11', '12', '13')
+        if (hasMilestone('eP', 11)) player.cP.milestones.push('11', '12')
 },
     upgrades: {
         11: {
