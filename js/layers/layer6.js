@@ -77,7 +77,7 @@ addLayer("fP", {
         },
         13: {
             title: "Flattened Difference",
-            description: "Two-fold Exterior Prestige Point gain",
+            description: "Triple Exterior Prestige Point gain",
             cost: new Decimal(10),
             unlocked(){ return hasUpgrade('fP', 12) },
         },
