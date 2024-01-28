@@ -37,6 +37,8 @@ addLayer("b", {
         dis = "which boosts point gain by "+format(tmp.b.effect)+"x"
         return dis
     },
+    resetsNothing() { return hasMilestone('fP', 14) },
+    autoPrestige() { return hasMilestone('fP', 14) },
     branches: ['bB'],
     row: 2, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
