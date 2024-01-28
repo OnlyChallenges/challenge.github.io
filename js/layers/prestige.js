@@ -39,6 +39,7 @@ addLayer("p", {
         let passive = new Decimal(0)
         if (hasMilestone('dP', 11)) passive = new Decimal(0.1)
         if (hasMilestone('eP', 11)) passive = new Decimal(1)
+        if (hasMilestone('fP', 11)) passive = new Decimal(10)
         return passive
     },
     layerShown(){return true},
