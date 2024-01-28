@@ -54,6 +54,13 @@ doReset(resettingLayer) {
         if (hasMilestone('eP', 11)) player.bP.milestones.push('11')
         if (hasMilestone('eP', 11)) player.cP.upgrades.push('11', '12', '13')
         if (hasMilestone('eP', 11)) player.cP.milestones.push('11', '12')
+        if (hasMilestone('fP', 11)) player.p.upgrades.push('11', '12', '13')
+        if (hasMilestone('fP', 11)) player.bP.upgrades.push('11', '12', '13')
+        if (hasMilestone('fP', 11)) player.bP.milestones.push('11')
+        if (hasMilestone('fP', 11)) player.cP.upgrades.push('11', '12', '13')
+        if (hasMilestone('fP', 11)) player.cP.milestones.push('11', '12')
+        if (hasMilestone('fP', 11)) player.dP.upgrades.push('11', '12', '13')
+        if (hasMilestone('fP', 11)) player.dP.milestones.push('11', '12', '13')
 },
     upgrades: {
         11: {
