@@ -68,19 +68,19 @@ addLayer("eP", {
             title: "Exterior Normality",
             description: "/5 Exterior Prestige Point requirement",
             cost: new Decimal(6),
-            unlocked(){ return hasUpgrade('dP', 11) },
+            unlocked(){ return hasUpgrade('eP', 11) },
         },
         13: {
             title: "Exterior Difference",
             description: "Ten-fold Delta Prestige Point gain",
             cost: new Decimal(10),
-            unlocked(){ return hasUpgrade('dP', 12) },
+            unlocked(){ return hasUpgrade('eP', 12) },
         },
         14: {
             title: "Exterior Association",
             description: "Cent-fold Point gain",
             cost: new Decimal(15),
-            unlocked(){ return hasUpgrade('dP', 13) },
+            unlocked(){ return hasUpgrade('eP', 13) },
         },
     },
 })
