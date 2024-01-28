@@ -20,8 +20,8 @@ addLayer("eP", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         if (player.fP.unlocked) mult = mult.times(tmp.fP.effect)
-        if (hasUpgrade('fP', 11)) mult = mult.times(3)
-        if (hasUpgrade('fP', 13)) mult = mult.times(10)
+        if (hasUpgrade('fP', 11)) mult = mult.times(2)
+        if (hasUpgrade('fP', 13)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
