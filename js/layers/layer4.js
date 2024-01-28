@@ -39,6 +39,7 @@ addLayer("dP", {
         let passive = new Decimal(0)
         return passive
     },
+    branches: ['eP'],
     row: 3, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "d", description: "d: Reset for delta prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
