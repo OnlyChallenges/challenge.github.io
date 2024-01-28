@@ -6,7 +6,7 @@ addLayer("fP", {
         unlocked: false,
                 points: new Decimal(0),
     }},
-    color: "#a00091",
+    color: "#d9f0c7",
     requires(){ 
         let requirement = new Decimal(50)
         if (hasUpgrade('fP', 12)) requirement = requirement.div(1.5)
