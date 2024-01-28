@@ -25,12 +25,19 @@ addLayer("b", {
     },
     effect(){
         let eff = (player.b.points.times(player.b.points)).add(1)
+        eff = eff.times(tmp.bB.effectBase)
         return eff
     },
+    effectBase(){
+        let base = new Decimal(1)
+        if (player.bB.unlocked) base = base.times(tmp.bB.effect)
+        return base
+},
     effectDescription() {
         dis = "which boosts point gain by "+format(tmp.b.effect)+"x"
         return dis
     },
+    branches: ['bB'],
     row: 2, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "B", description: "shift + b: Reset for Boosters", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
