@@ -25,7 +25,7 @@ addLayer("b", {
     },
     effect(){
         let eff = (player.b.points.times(player.b.points)).add(1)
-        eff = eff.times(tmp.bB.effectBase)
+        eff = eff.times(tmp.b.effectBase)
         return eff
     },
     effectBase(){
