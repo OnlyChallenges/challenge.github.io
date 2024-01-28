@@ -44,5 +44,5 @@ addLayer("b", {
     hotkeys: [
         {key: "B", description: "shift + b: Reset for Boosters", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('cP', 13) || player.b.unlocked},  
+    layerShown(){return hasUpgrade('bP', 13) || player.b.unlocked || player.cP.unlocked},  
 })
