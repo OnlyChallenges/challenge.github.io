@@ -39,6 +39,7 @@ addLayer("eP", {
         let passive = new Decimal(0)
         return passive
     },
+    branches: ['fP'],
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "e", description: "e: Reset for exterior prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
