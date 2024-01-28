@@ -3,7 +3,7 @@ let modInfo = {
 	id: "normal",
 	author: "Ozvali",
 	pointsName: "points",
-	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js", "layers/info.js", "tree.js"],
+	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js", "layers/info.js","layers/layer5.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -47,6 +47,7 @@ function getPointGen() {
 	if (hasUpgrade('p', 13)) gain = gain.times(10)
 if (hasMilestone('bP', 11)) gain = gain.times(3)
 if (hasMilestone('dP', 12)) gain = gain.times(10)
+if (hasUpgrade('eP', 14)) gain = gain.times(100)
 if (player.b.unlocked) gain = gain.times(tmp.b.effect)
 	return gain
 }
@@ -62,6 +63,7 @@ var displayThings = [
  if (player.bP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP,"
 if (player.cP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP"
 if (player.dP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP, " + formatWhole(player.dP.points)+" DP"
+if (player.eP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP, " + formatWhole(player.dP.points)+" DP, " + formatWhole(player.eP.points)+" EP"
 return prestiges
 	},
  function(){
