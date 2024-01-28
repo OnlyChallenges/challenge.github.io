@@ -44,7 +44,7 @@ addLayer("eP", {
         milestones: {
         11: {
             requirementDescription: "1 Exterior Prestige Points",
-            effectDescription: `Keep content before Delta Prestige Points on Delta Prestige Reset<br>Passively gain 10% BP Points and it'll ten-fold the effect every new (layer)P`,
+            effectDescription: `Keep content before Delta Prestige Points on Exterior Prestige Reset<br>Passively gain 10% BP Points and it'll ten-fold the effect every new (layer)P`,
             done() { return player.eP.points.gte(1) },
         },
         12: {
@@ -66,7 +66,7 @@ addLayer("eP", {
         },
         12: {
             title: "Exterior Normality",
-            description: "/5 Delta Prestige Point requirement",
+            description: "/5 Exterior Prestige Point requirement",
             cost: new Decimal(6),
             unlocked(){ return hasUpgrade('dP', 11) },
         },
