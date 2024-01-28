@@ -25,7 +25,7 @@ addLayer("fP", {
         return new Decimal(1)
     },
     effect(){
-        let eff = (player.eP.points.add(1)).pow(0.48)
+        let eff = (player.fP.points.add(1)).pow(0.48)
         return eff
     },
     effectDescription() {
