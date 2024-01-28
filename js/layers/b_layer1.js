@@ -30,7 +30,7 @@ addLayer("b", {
     },
     effectBase(){
         let base = new Decimal(1)
-        if (player.bB.unlocked) base = base.times(tmp.bB.effect)
+        if (player.bB.unlocked) base = base.add(tmp.bB.effect)
         return base
 },
     effectDescription() {
