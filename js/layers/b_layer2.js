@@ -35,5 +35,5 @@ addLayer("bB", {
     hotkeys: [
         {key: "1", description: "Number Key 1: Reset for Buffed Boosters", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('dP', 13) || player.bB.unlocked},  
+    layerShown(){return hasUpgrade('dP', 13) || player.bB.unlocked || player.eP.unlocked},  
 })
