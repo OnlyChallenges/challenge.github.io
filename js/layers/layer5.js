@@ -40,7 +40,7 @@ addLayer("eP", {
     hotkeys: [
         {key: "e", description: "e: Reset for exterior prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('eP', 13) || player.eP.unlocked},
+    layerShown(){return hasUpgrade('dP', 13) || player.eP.unlocked},
         milestones: {
         11: {
             requirementDescription: "1 Exterior Prestige Points",
