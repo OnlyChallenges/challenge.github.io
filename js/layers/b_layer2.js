@@ -37,6 +37,7 @@ addLayer("bB", {
         dis = "which boosts Booster effect by "+format(tmp.bB.effect)+"x"
         return dis
     },
+    branches: ["cB"],
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "1", description: "Number Key 1: Reset for Buffed Boosters", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
