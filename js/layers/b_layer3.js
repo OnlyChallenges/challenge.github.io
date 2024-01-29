@@ -28,7 +28,7 @@ addLayer("cB", {
         return eff
     },
     effectDescription() {
-        dis = "which boosts Booster effect by "+format(tmp.cB.effect)+"x"
+        dis = "which boosts Buffed Booster effect by "+format(tmp.cB.effect)+"x"
         return dis
     },
     row: 6, // Row the layer is in on the tree (0 is the first row)
