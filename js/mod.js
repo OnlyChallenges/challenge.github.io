@@ -62,7 +62,7 @@ function addedPlayerData() { return {
 // Display extra things at the top of the page
 var displayThings = [
 function(){
- let endgame = "<a>Endgame: 50 Golden Points Prestige Points"
+ let endgame = "<a>Endgame: 50 Golden Prestige Points"
 return endgame
 },
 	function(){
