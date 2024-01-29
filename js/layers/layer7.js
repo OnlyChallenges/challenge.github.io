@@ -45,22 +45,22 @@ addLayer("gP", {
         11: {
             requirementDescription: "1 Golden Prestige Points",
             effectDescription: `Keep content before Flattened Prestige Points on Golden Prestige Reset<br>Passively gain 10% DP Points and it'll ten-fold the effect every new (layer)P`,
-            done() { return player.fP.points.gte(1) },
+            done() { return player.gP.points.gte(1) },
         },
         12: {
             requirementDescription: "5 Golden Prestige Points",
             effectDescription: `Triple Exterior Prestige Points & Ten-Fold Community Prestige Point Gain`,
-            done() { return player.fP.points.gte(5) },
+            done() { return player.gP.points.gte(5) },
         },
         13: {
             requirementDescription: "12 Golden Prestige Points",
             effectDescription: `Double Exterior Prestige Point Gain`,
-            done() { return player.fP.points.gte(12) },
+            done() { return player.gP.points.gte(12) },
         },
         14: {
             requirementDescription: "25 Golden Prestige Points",
             effectDescription: `Automate Buffed Boosters and they don't reset anything`,
-            done() { return player.fP.points.gte(25) },
+            done() { return player.gP.points.gte(25) },
         },
     },
     upgrades: {
@@ -73,25 +73,25 @@ addLayer("gP", {
             title: "Golden Normality",
             description: "/1.5 Golden Prestige Point requirement",
             cost: new Decimal(6),
-            unlocked(){ return hasUpgrade('fP', 11) },
+            unlocked(){ return hasUpgrade('gP', 11) },
         },
         13: {
             title: "Golden Difference",
             description: "Triple Flattened Prestige Point gain",
             cost: new Decimal(10),
-            unlocked(){ return hasUpgrade('fP', 12) },
+            unlocked(){ return hasUpgrade('gP', 12) },
         },
         14: {
             title: "Golden Association",
             description: "Ten-fold Buffed Prestige Point gain",
             cost: new Decimal(15),
-            unlocked(){ return hasUpgrade('fP', 13) },
+            unlocked(){ return hasUpgrade('gP', 13) },
         },
         15: {
             title: "Golden Luck",
             description: "Five-fold Community Prestige Point gain",
             cost: new Decimal(25),
-            unlocked(){ return hasUpgrade('fP', 14) },
+            unlocked(){ return hasUpgrade('gP', 14) },
         },
     },
 })
