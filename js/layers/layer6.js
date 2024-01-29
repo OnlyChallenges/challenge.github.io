@@ -19,6 +19,9 @@ addLayer("fP", {
     exponent: 0.4, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+        if (player.gP.unlocked) mult = mult.times(tmp.gP.effect)
+        if (hasUpgrade('gP', 11)) mult = mult.times(2)
+        if (hasUpgrade('gP', 13)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -36,6 +39,7 @@ addLayer("fP", {
         let passive = new Decimal(0)
         return passive
     },
+    branches: ["gP"],
     row: 5, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "f", description: "f: Reset for flattened prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -53,12 +57,12 @@ addLayer("fP", {
             done() { return player.fP.points.gte(5) },
         },
         13: {
-            requirementDescription: "12 Exterior Prestige Points",
+            requirementDescription: "12 Flattened Prestige Points",
             effectDescription: `Double Delta Prestige Point Gain`,
             done() { return player.fP.points.gte(12) },
         },
         14: {
-            requirementDescription: "25 Exterior Prestige Points",
+            requirementDescription: "25 Flattened Prestige Points",
             effectDescription: `Automate Boosters and they don't reset anything`,
             done() { return player.fP.points.gte(25) },
         },

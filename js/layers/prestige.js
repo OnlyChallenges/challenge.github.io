@@ -40,20 +40,24 @@ addLayer("p", {
         if (hasMilestone('dP', 11)) passive = new Decimal(0.1)
         if (hasMilestone('eP', 11)) passive = new Decimal(1)
         if (hasMilestone('fP', 11)) passive = new Decimal(10)
+        if (hasMilestone('gP', 11)) passive = new Decimal(100)
         return passive
     },
     layerShown(){return true},
 doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        // DP Keep
         if (hasMilestone('cP', 11)) player.p.upgrades.push('11', '12', '13')
         if (hasMilestone('dP', 11)) player.p.upgrades.push('11', '12', '13')
         if (hasMilestone('dP', 11)) player.bP.upgrades.push('11', '12', '13')
         if (hasMilestone('dP', 11)) player.bP.milestones.push('11')
+        // EP Keep
         if (hasMilestone('eP', 11)) player.p.upgrades.push('11', '12', '13')
         if (hasMilestone('eP', 11)) player.bP.upgrades.push('11', '12', '13')
         if (hasMilestone('eP', 11)) player.bP.milestones.push('11')
         if (hasMilestone('eP', 11)) player.cP.upgrades.push('11', '12', '13')
         if (hasMilestone('eP', 11)) player.cP.milestones.push('11', '12')
+        // FP Keep
         if (hasMilestone('fP', 11)) player.p.upgrades.push('11', '12', '13')
         if (hasMilestone('fP', 11)) player.bP.upgrades.push('11', '12', '13')
         if (hasMilestone('fP', 11)) player.bP.milestones.push('11')
@@ -61,6 +65,16 @@ doReset(resettingLayer) {
         if (hasMilestone('fP', 11)) player.cP.milestones.push('11', '12')
         if (hasMilestone('fP', 11)) player.dP.upgrades.push('11', '12', '13')
         if (hasMilestone('fP', 11)) player.dP.milestones.push('11', '12', '13')
+        // GP Keep
+        if (hasMilestone('gP', 11)) player.p.upgrades.push('11', '12', '13')
+        if (hasMilestone('gP', 11)) player.bP.upgrades.push('11', '12', '13')
+        if (hasMilestone('gP', 11)) player.bP.milestones.push('11')
+        if (hasMilestone('gP', 11)) player.cP.upgrades.push('11', '12', '13')
+        if (hasMilestone('gP', 11)) player.cP.milestones.push('11', '12')
+        if (hasMilestone('gP', 11)) player.dP.upgrades.push('11', '12', '13')
+        if (hasMilestone('gP', 11)) player.dP.milestones.push('11', '12', '13')
+        if (hasMilestone('gP', 11)) player.eP.upgrades.push('11', '12', '13', '14')
+        if (hasMilestone('gP', 11)) player.eP.milestones.push('11', '12', '13')
 },
     upgrades: {
         11: {

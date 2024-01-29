@@ -3,7 +3,7 @@ let modInfo = {
 	id: "normal",
 	author: "Ozvali",
 	pointsName: "points",
-	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js", "tree.js"],
+	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js","layers/layer7.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -13,11 +13,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
+	num: "0.1.1",
 	name: "Normal Flattening",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.1.1:</h3><br>
+	- Added Another Layer & Refixed 2 Milestones<br><br>
 	<h3>v0.1: Normal Flattening</h3><br>
 		- Added 8 Layers worth of <a>normal</a> content<br>
  - <a>Endgame: 25 Flattened Prestige Points</a><br>
@@ -60,7 +62,7 @@ function addedPlayerData() { return {
 // Display extra things at the top of the page
 var displayThings = [
 function(){
- let endgame = "<a>Endgame: 25 Flattened Prestige Points"
+ let endgame = "<a>Endgame: 50 Golden Points Prestige Points"
 return endgame
 },
 	function(){
@@ -70,6 +72,11 @@ if (player.cP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+
 if (player.dP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP, " + formatWhole(player.dP.points)+" DP"
 if (player.eP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP, " + formatWhole(player.dP.points)+" DP, " + formatWhole(player.eP.points)+" EP"
 if (player.fP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP, " + formatWhole(player.dP.points)+" DP, " + formatWhole(player.eP.points)+" EP, " + formatWhole(player.fP.points)+" FP"
+return prestiges
+	},
+	function(){
+		let prestiges = ""
+ if (player.gP.unlocked) prestiges = "Prestiges II: "+ formatWhole(player.gP.points)+" GP"
 return prestiges
 	},
  function(){
@@ -82,7 +89,7 @@ return boosters
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.fP.points.gte(new Decimal(25))
+	return player.gP.points.gte(new Decimal(50))
 }
 
 
