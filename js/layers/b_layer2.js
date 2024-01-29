@@ -25,7 +25,13 @@ addLayer("bB", {
     },
     effect(){
         let eff = (player.bB.points.times(player.bB.points)).add(3)
+        eff = eff.times(tmp.b.effectBase)
         return eff
+    },
+    effectBase(){
+        let base = new Decimal(1)
+        if (player.cB.unlocked) base = base.add(tmp.cB.effect)
+        return base
     },
     effectDescription() {
         dis = "which boosts Booster effect by "+format(tmp.bB.effect)+"x"

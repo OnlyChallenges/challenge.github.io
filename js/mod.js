@@ -3,7 +3,7 @@ let modInfo = {
 	id: "normal",
 	author: "Ozvali",
 	pointsName: "points",
-	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js","layers/layer7.js", "tree.js"],
+	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js","layers/layer7.js","layers/b_layer3.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -19,7 +19,7 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.1.1:</h3><br>
-	- Added Another Layer & Refixed 2 Milestones<br><br>
+	- Added 2 Layers & Refixed 2 Milestones<br><br>
 	<h3>v0.1: Normal Flattening</h3><br>
 		- Added 8 Layers worth of <a>normal</a> content<br>
  - <a>Endgame: 25 Flattened Prestige Points</a><br>
