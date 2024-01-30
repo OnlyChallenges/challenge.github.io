@@ -41,8 +41,6 @@ addLayer("g", {
         return base;
     },
     effect() {
-        if ((!unl(this.layer)))
-            return new Decimal(0);
         let eff = Decimal.pow(this.effBase(), player.g.points).sub(1).max(0);
         return eff;
     },
