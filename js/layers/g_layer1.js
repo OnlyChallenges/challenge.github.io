@@ -4,7 +4,7 @@ addLayer("g", {
     position: 0,
     color: "#a3d9a5",
     requires() {
-        return new Decimal()
+        return new Decimal(350000)
     },
     resource: "generators",
     baseResource: "delta prestige points",
