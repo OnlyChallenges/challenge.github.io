@@ -133,7 +133,7 @@ addLayer("PG", {
                     ["display-text",
                     function() {
                       let display = ""
-                      if (player.g.unlocked) display = "Generators Power (Gp): "+ formatWhole(player.g.power) + "(Gp Effect: " + format(tmp.g.powerEff)+"x Prestige Point Gain)"
+                      if (player.g.unlocked) display = "Generators Power (Gp): "+ format(player.g.power) + " (Gp Effect: " + format(tmp.g.powerEff)+"x Prestige Point Gain)"
                       return display
                     },
                     {}],
