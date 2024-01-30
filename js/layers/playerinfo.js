@@ -9,10 +9,18 @@ addLayer("PG", {
         "Prestiges": {
             content: [
                 "blank",
+                "blank",
+                ["display-text",
+                function() {
+                  let display = "Prestiges & How they work:<br> Every Row there will be an (letter)P; around 26 times...or more, each new row guarantee 1 new function to the new (letter)P and will bring up new content throughout the rows."
+                  return display
+                },
+                {}],
+                "blank",
                 ["display-text",
                 function() {
                   let display = ""
-                  if (player.p.unlocked) display = "Prestige Points (P): "+ format(tmp.p.points)
+                  if (player.p.unlocked) display = "Prestige Points (P): "+ formatWhole(player.p.points)
                   return display
                 },
                 {}],
@@ -20,7 +28,7 @@ addLayer("PG", {
                 ["display-text",
                 function() {
                 let display = ""
-                  if (player.bP.unlocked) display = "Buffed Prestige Points (bP): "+ format(tmp.bP.points)
+                  if (player.bP.unlocked) display = "Buffed Prestige Points (bP): "+ formatWhole(player.bP.points)
                   return display
                 },
                 {}],
@@ -28,7 +36,7 @@ addLayer("PG", {
                 ["display-text",
                 function() {
                   let display = ""
-                  if (player.cP.unlocked) display = "Community Prestige Points (cP): "+ format(tmp.cP.points)
+                  if (player.cP.unlocked) display = "Community Prestige Points (cP): "+ formatWhole(player.cP.points)
                   return display
                 },
                 {}],
@@ -36,7 +44,7 @@ addLayer("PG", {
                 ["display-text",
                 function() {
                   let display = ""
-                  if (player.dP.unlocked) display = "Delta Prestige Points (dP): "+ format(tmp.dP.points)
+                  if (player.dP.unlocked) display = "Delta Prestige Points (dP): "+ formatWhole(player.dP.points)
                   return display
                 },
                 {}],
@@ -44,7 +52,7 @@ addLayer("PG", {
                 ["display-text",
                 function() {
                   let display = ""
-                  if (player.eP.unlocked) display = "Exterior Prestige Points (eP): "+ format(tmp.eP.points)
+                  if (player.eP.unlocked) display = "Exterior Prestige Points (eP): "+ formatWhole(player.eP.points)
                   return display
                 },
                 {}],
@@ -52,7 +60,7 @@ addLayer("PG", {
                 ["display-text",
                 function() {
                   let display = ""
-                  if (player.fP.unlocked) display = "Flattened Prestige Points (fP): "+ format(tmp.fP.points)
+                  if (player.fP.unlocked) display = "Flattened Prestige Points (fP): "+ formatWhole(player.fP.points)
                   return display
                 },
                 {}],
@@ -60,7 +68,7 @@ addLayer("PG", {
                 ["display-text",
                 function() {
                   let display = ""
-                  if (player.gP.unlocked) display = "Golden Prestige Points (gP): "+ format(tmp.gP.points)
+                  if (player.gP.unlocked) display = "Golden Prestige Points (gP): "+ formatWhole(player.gP.points)
                   return display
                 },
                 {}],
@@ -69,11 +77,19 @@ addLayer("PG", {
             },
             "Boosters": {
                 content: [
+                  "blank",
+                  "blank",
+                  ["display-text",
+                  function() {
+                    let display = "Boosters & How they work:<br> Every 2 Row there will be an (letter)B; around 13 times...or more, each new (letter)B will boost the previous (letter)B and will become stronger and stronger for each (letter)B."
+                    return display
+                  },
+                  {}],
                     "blank",
                     ["display-text",
                     function() {
                       let display = ""
-                      if (player.b.unlocked) display = "Boosters (B): "+ format(tmp.b.points)
+                      if (player.b.unlocked) display = "Boosters (B): "+ formatWhole(points.b.points)
                       return display
                     },
                     {}],
@@ -81,7 +97,7 @@ addLayer("PG", {
                     ["display-text",
                     function() {
                     let display = ""
-                      if (player.bB.unlocked) display = "Buffed Boosters (bB): "+ format(tmp.bB.points)
+                      if (player.bB.unlocked) display = "Buffed Boosters (bB): "+ formatWhole(points.bB.points)
                       return display
                     },
                     {}],
@@ -89,7 +105,7 @@ addLayer("PG", {
                     ["display-text",
                     function() {
                       let display = ""
-                      if (player.cB.unlocked) display = "Community Boosters (cB): "+ format(tmp.cB.points)
+                      if (player.cB.unlocked) display = "Community Boosters (cB): "+ formatWhole(points.cB.points)
                       return display
                     },
                     {}],
@@ -98,11 +114,19 @@ addLayer("PG", {
             },
             "Generators": {
                 content: [
+                  "blank",
+                  "blank",
+                  ["display-text",
+                  function() {
+                    let display = "Generators & How they work:<br> Every 6 Rows there will be an (letter)G; around 4 times...or more, Each new (letter)G will have a new effect that will have another gain passively with another function each (letter)G."
+                    return display
+                  },
+                  {}],
                     "blank",
                     ["display-text",
                     function() {
                       let display = ""
-                      if (player.g.unlocked) display = "Generators (G): "+ format(tmp.g.points)
+                      if (player.g.unlocked) display = "Generators (G): "+ formatWhole(points.g.points)
                       return display
                     },
                     {}],
