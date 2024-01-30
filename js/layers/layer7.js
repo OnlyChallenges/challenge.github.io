@@ -59,7 +59,7 @@ addLayer("gP", {
         },
         14: {
             requirementDescription: "25 Golden Prestige Points",
-            effectDescription: `Automate Buffed Boosters and they don't reset anything`,
+            effectDescription: `Automate Buffed Boosters and have a better Buffed Prestige Points Effect`,
             done() { return player.gP.points.gte(25) },
         },
     },

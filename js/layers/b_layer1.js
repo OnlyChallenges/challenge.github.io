@@ -31,6 +31,7 @@ addLayer("b", {
     effectBase(){
         let base = new Decimal(1)
         if (player.bB.unlocked) base = base.add(tmp.bB.effect)
+        if (hasMilestone('fP', 14)) base = base.times(2.5)
         return base
 },
     effectDescription() {

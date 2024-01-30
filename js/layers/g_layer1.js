@@ -64,6 +64,9 @@ addLayer("g", {
     },
     powerExp() {
         let exp = new Decimal(1 / 3);
+        if (hasUpgrade('g', 11)) exp = new Decimal (7 / 16);
+        if (hasUpgrade('g', 12)) exp = new Decimal (1 / 2);
+        if (hasUpgrade('g', 13)) exp = new Decimal (3 / 4);
         return exp;
     },
     powerEff() {
@@ -78,5 +81,25 @@ addLayer("g", {
     , {}], "blank", ["display-text", function() {
         return 'Your best Generators is ' + formatWhole(player.g.best) + '<br>You have made a total of ' + formatWhole(player.g.total) + " Generators."
     }
-    , {}], "blank"],
+    , {}], "blank", "upgrades"],
+
+upgrades:{  
+    11: {
+        title: "Normal Generator I",
+        description: "Generator Power Effect is better",
+        cost: player.g.power(10000000),
+    },
+    12: {
+        title: "Normal Generator II",
+        description: "Generator Power Effect is better",
+        cost: player.g.power(1e20),
+        unlocked(){ return hasUpgrade('g', 11) },
+    },
+    13: {
+        title: "Normal Generator III",
+        description: "Generator Power Effect is better",
+        cost: player.g.power(1e50),
+        unlocked(){ return hasUpgrade('g', 12) },
+    },
+    },
 })

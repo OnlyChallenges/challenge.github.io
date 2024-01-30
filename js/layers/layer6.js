@@ -63,7 +63,7 @@ addLayer("fP", {
         },
         14: {
             requirementDescription: "25 Flattened Prestige Points",
-            effectDescription: `Automate Boosters and they don't reset anything`,
+            effectDescription: `Automate Boosters and Better Booster Effect`,
             done() { return player.fP.points.gte(25) },
         },
     },

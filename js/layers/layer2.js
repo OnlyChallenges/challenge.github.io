@@ -34,6 +34,7 @@ addLayer("bP", {
     },
     effect(){
         let eff = (player.bP.points.add(1)).pow(0.22)
+        if (hasMilestone('gP', 14)) eff = (player.bP.points.add(1)).pow(0.35)
         return eff
     },
     effectDescription() {
