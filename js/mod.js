@@ -65,20 +65,6 @@ function(){
  let endgame = "<a>Endgame: 50 Golden Prestige Points"
 return endgame
 },
-	function(){
-		let prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P"
- if (player.bP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP"
-if (player.cP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP"
-if (player.dP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP, " + formatWhole(player.dP.points)+" DP"
-if (player.eP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP, " + formatWhole(player.dP.points)+" DP, " + formatWhole(player.eP.points)+" EP"
-if (player.fP.unlocked) prestiges = "Prestiges: "+ formatWhole(player.p.points)+" P, " + formatWhole(player.bP.points)+" BP, " + formatWhole(player.cP.points)+" CP, " + formatWhole(player.dP.points)+" DP, " + formatWhole(player.eP.points)+" EP, " + formatWhole(player.fP.points)+" FP"
-return prestiges
-	},
-	function(){
-		let prestiges = ""
- if (player.gP.unlocked) prestiges = "Prestiges II: "+ formatWhole(player.gP.points)+" GP"
-return prestiges
-	},
  function(){
  let boosters = ""
  if (player.b.unlocked) boosters = "Boosters: "+ formatWhole(player.b.points)+" B"
