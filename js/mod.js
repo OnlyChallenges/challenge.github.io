@@ -23,7 +23,7 @@ let changelog = `<h1>Changelog:</h1><br>
 	- Moved All 'Prestige' and 'Booster' Content to Side-Layer (Also Info about the three types)<br>
 	- Fixed 4 Milestones<br>
 	- Adjusted 2 Milestones<br>
-	- Fixed 1st giving inflated points which caused the game into heavy inflation<br>
+	- Fixed 1st Buffed Booster giving inflated points which caused the game into heavy inflation<br>
 	- <a>Endgame: 50 Golden Prestige Points</a><br><br>
 	
 	<h3>v0.1: Normal Flattening</h3><br>
