@@ -89,7 +89,7 @@ addLayer("PG", {
                     ["display-text",
                     function() {
                       let display = ""
-                      if (player.b.unlocked) display = "Boosters (B): "+ formatWhole(points.b.points)
+                      if (player.b.unlocked) display = "Boosters (B): "+ formatWhole(player.b.points)
                       return display
                     },
                     {}],
@@ -97,7 +97,7 @@ addLayer("PG", {
                     ["display-text",
                     function() {
                     let display = ""
-                      if (player.bB.unlocked) display = "Buffed Boosters (bB): "+ formatWhole(points.bB.points)
+                      if (player.bB.unlocked) display = "Buffed Boosters (bB): "+ formatWhole(player.bB.points)
                       return display
                     },
                     {}],
@@ -105,7 +105,7 @@ addLayer("PG", {
                     ["display-text",
                     function() {
                       let display = ""
-                      if (player.cB.unlocked) display = "Community Boosters (cB): "+ formatWhole(points.cB.points)
+                      if (player.cB.unlocked) display = "Community Boosters (cB): "+ formatWhole(player.cB.points)
                       return display
                     },
                     {}],
@@ -126,7 +126,7 @@ addLayer("PG", {
                     ["display-text",
                     function() {
                       let display = ""
-                      if (player.g.unlocked) display = "Generators (G): "+ formatWhole(points.g.points)
+                      if (player.g.unlocked) display = "Generators (G): "+ formatWhole(player.g.points)
                       return display
                     },
                     {}],
