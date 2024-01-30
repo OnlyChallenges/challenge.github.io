@@ -41,6 +41,8 @@ addLayer("g", {
         return base;
     },
     effect() {
+        if (!unlocked(this.layer))
+            return new Decimal(0)
         let eff = Decimal.pow(this.effBase(), player.g.points).sub(1).max(0);
         return eff;
     },
@@ -65,7 +67,7 @@ addLayer("g", {
         return exp;
     },
     powerEff() {
-        if (!unl(this.layer))
+        if (!unlocked(this.layer))
             return new Decimal(1);
         return player.g.power.plus(1).pow(this.powerExp());
     },
