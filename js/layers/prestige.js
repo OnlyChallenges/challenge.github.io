@@ -25,6 +25,7 @@ addLayer("p", {
         if (hasMilestone('cP', 12)) mult = mult.times(3)
         if (hasMilestone('eP', 12)) mult = mult.times(10)
         if (hasUpgrade('fP', 14)) mult = mult.times(20)
+        if (player.g.unlocked) mult = mult.times(tmp.g.powerEff)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

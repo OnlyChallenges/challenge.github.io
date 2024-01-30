@@ -39,7 +39,7 @@ addLayer("fP", {
         let passive = new Decimal(0)
         return passive
     },
-    branches: ["gP"],
+    branches: ["gP",'g'],
     row: 5, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "f", description: "f: Reset for flattened prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
