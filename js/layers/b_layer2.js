@@ -37,6 +37,8 @@ addLayer("bB", {
         dis = "which boosts Booster effect by "+format(tmp.bB.effect)+"x"
         return dis
     },
+    resetsNothing() { return hasMilestone('gP', 14) },
+    autoPrestige() { return hasMilestone('gP', 14) },
     branches: ["cB"],
     row: 4, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
