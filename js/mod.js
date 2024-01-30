@@ -3,7 +3,7 @@ let modInfo = {
 	id: "normal",
 	author: "Ozvali",
 	pointsName: "points",
-	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js","layers/layer7.js","layers/b_layer3.js","layers/g_layer1.js", "tree.js"],
+	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js","layers/layer7.js","layers/b_layer3.js","layers/g_layer1.js", "layers/playerinfo.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -64,12 +64,6 @@ var displayThings = [
 function(){
  let endgame = "<a>Endgame: 50 Golden Prestige Points"
 return endgame
-},
- function(){
- let boosters = ""
- if (player.b.unlocked) boosters = "Boosters: "+ formatWhole(player.b.points)+" B"
- if (player.bB.unlocked) boosters = "Boosters: "+ formatWhole(player.b.points)+" B, " + formatWhole(player.bB.points)+" BB"
-return boosters
 },
 ]
 
