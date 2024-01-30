@@ -31,6 +31,7 @@ addLayer("cB", {
         dis = "which boosts Buffed Booster effect by "+format(tmp.cB.effect)+"x"
         return dis
     },
+    resetsNothing() { return player.cB.unlocked },
     row: 6, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "2", description: "Number Key 2: Reset for Community Boosters", onPress(){if (canReset(this.layer)) doReset(this.layer)}},

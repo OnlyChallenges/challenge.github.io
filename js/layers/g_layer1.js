@@ -71,6 +71,7 @@ addLayer("g", {
             return new Decimal(1);
         return player.g.power.plus(1).pow(this.powerExp());
     },
+    resetsNothing() { return player.g.unlocked },
     tabFormat: ["main-display", "prestige-button", "blank", ["display-text", function() {
         return 'You have ' + format(player.g.power) + ' Generator Power, which boosts Prestige Point generation by ' + format(tmp.g.powerEff) + 'x'
     }

@@ -57,6 +57,14 @@ addLayer("At", {
                     },
                     {}],
                     "blank",
+                    ["display-text",
+                    function() {
+                      let display = ""
+                      if (player.gP.unlocked) display = "GP Point Passive%: "+ format(tmp.gP.passiveGeneration.times(100))+"%"
+                      return display
+                    },
+                    {}],
+                    "blank",
                     ],
             },
           

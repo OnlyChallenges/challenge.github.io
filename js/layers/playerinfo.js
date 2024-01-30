@@ -81,7 +81,7 @@ addLayer("PG", {
                   "blank",
                   ["display-text",
                   function() {
-                    let display = "Boosters & How they work:<br> Every 2 Row there will be an (letter)B; around 13 times...or more, each new (letter)B will boost the previous (letter)B and will become stronger and stronger for each (letter)B."
+                    let display = "Boosters & How they work:<br> Every 2 Row there will be an (letter)B; around 13 times...or more, each new (letter)B will boost the previous (letter)B and will become stronger and stronger for each (letter)B. Also, ALL BOOSTERS WILL NOT RESET ANY PREVIOUS PROGRESS! (be happy)"
                     return display
                   },
                   {}],
@@ -118,7 +118,7 @@ addLayer("PG", {
                   "blank",
                   ["display-text",
                   function() {
-                    let display = "Generators & How they work:<br> Every 6 Rows there will be an (letter)G; around 4 times...or more, Each new (letter)G will have a new effect that will have another gain passively with another function each (letter)G."
+                    let display = "Generators & How they work:<br> Every 6 Rows there will be an (letter)G; around 4 times...or more, Each new (letter)G will have a new effect that will have another gain passively with another function each (letter)G.<br> Also, ALL GENERATORS WILL NOT RESET ANY PREVIOUS PROGRESS! (be happy)"
                     return display
                   },
                   {}],
