@@ -90,6 +90,7 @@ upgrades:{
         cost: new Decimal(1e7),
         currencyDisplayName: "Generator Power",
         currencyInternalName: "power",
+        currencyLayer: "g",
     },
     12: {
         title: "Normal Generator II",
@@ -97,6 +98,7 @@ upgrades:{
         cost: new Decimal(1e20),
         currencyDisplayName: "Generator Power",
         currencyInternalName: "power",
+        currencyLayer: "g",
         unlocked(){ return hasUpgrade('g', 11) },
     },
     13: {
@@ -105,6 +107,7 @@ upgrades:{
         cost: new Decimal(1e50),
         currencyDisplayName: "Generator Power",
         currencyInternalName: "power",
+        currencyLayer: "g",
         unlocked(){ return hasUpgrade('g', 12) },
     },
     },
