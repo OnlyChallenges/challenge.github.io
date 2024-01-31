@@ -31,7 +31,7 @@ addLayer("dB", {
         dis = "which boosts Community Booster effect by "+format(tmp.dB.effect)+"x"
         return dis
     },
-    resetsNothing() { return player.cB.unlocked },
+    resetsNothing() { return player.dB.unlocked },
     row: 8, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "3", description: "Number Key 3: Reset for Delta Boosters", onPress(){if (canReset(this.layer)) doReset(this.layer)}},

@@ -73,6 +73,22 @@ addLayer("PG", {
                 },
                 {}],
                 "blank",
+                ["display-text",
+                function() {
+                  let display = ""
+                  if (player.gP.unlocked) display = "Happy Prestige Points (hP): "+ formatWhole(player.hP.points)
+                  return display
+                },
+                {}],
+                "blank",
+                ["display-text",
+                function() {
+                  let display = ""
+                  if (player.gP.unlocked) display = "Interest Prestige Points (iP): "+ formatWhole(player.iP.points)
+                  return display
+                },
+                {}],
+                "blank",
                 ],
             },
             "Boosters": {
@@ -81,7 +97,7 @@ addLayer("PG", {
                   "blank",
                   ["display-text",
                   function() {
-                    let display = "Boosters & How they work:<br> Every 2 Row there will be an (letter)B; around 13 times...or more, each new (letter)B will boost the previous (letter)B and will become stronger and stronger for each (letter)B. Also, ALL BOOSTERS WILL NOT RESET ANY PREVIOUS PROGRESS! (be happy)"
+                    let display = "Boosters & How they work:<br> Every 2 Rows there will be an (letter)B; around 13 times...or more, each new (letter)B will boost the previous (letter)B and will become stronger and stronger for each (letter)B.<br> Also, ALL BOOSTERS WILL NOT RESET ANY PREVIOUS PROGRESS! (be happy)"
                     return display
                   },
                   {}],
@@ -106,6 +122,14 @@ addLayer("PG", {
                     function() {
                       let display = ""
                       if (player.cB.unlocked) display = "Community Boosters (cB): "+ formatWhole(player.cB.points)
+                      return display
+                    },
+                    {}],
+                    "blank",
+                    ["display-text",
+                    function() {
+                      let display = ""
+                      if (player.cB.unlocked) display = "Delta Boosters (dB): "+ formatWhole(player.dB.points)
                       return display
                     },
                     {}],

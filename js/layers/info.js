@@ -65,6 +65,22 @@ addLayer("At", {
                     },
                     {}],
                     "blank",
+                    ["display-text",
+                    function() {
+                      let display = ""
+                      if (player.gP.unlocked) display = "HP Point Passive%: "+ format(tmp.hP.passiveGeneration.times(100))+"%"
+                      return display
+                    },
+                    {}],
+                    "blank",
+                    ["display-text",
+                    function() {
+                      let display = ""
+                      if (player.gP.unlocked) display = "IP Point Passive%: "+ format(tmp.iP.passiveGeneration.times(100))+"%"
+                      return display
+                    },
+                    {}],
+                    "blank",
                     ],
             },
           
