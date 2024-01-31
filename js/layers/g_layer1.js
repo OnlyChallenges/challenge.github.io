@@ -84,7 +84,7 @@ addLayer("g", {
         return 'You have ' + format(player.g.power) + ' Generator Power, which boosts Prestige Point generation by ' + format(tmp.g.powerEff) + 'x'
     }
     , {}],["display-text", function() {
-        if (player.g.points.gte(50)) return 'Generator Cost is now scaled by ^'+ formatWhole(tmp.g.exponent)
+        if (player.g.points.gte(50)) return 'Generator Cost is now scaled by ^'+ format(tmp.g.exponent)
     }
     , {}], "blank", ["display-text", function() {
         return 'Your best Generators is ' + formatWhole(player.g.best) + '<br>You have made a total of ' + formatWhole(player.g.total) + " Generators."
