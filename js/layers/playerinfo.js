@@ -129,7 +129,7 @@ addLayer("PG", {
                     ["display-text",
                     function() {
                       let display = ""
-                      if (player.cB.unlocked) display = "Delta Boosters (dB): "+ formatWhole(player.dB.points)
+                      if (player.dB.unlocked) display = "Delta Boosters (dB): "+ formatWhole(player.dB.points)
                       return display
                     },
                     {}],
