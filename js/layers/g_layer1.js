@@ -13,7 +13,9 @@ addLayer("g", {
     },
     type: "static",
     exponent() {
-        return expo = new Decimal(1.1)
+        let expo = new Decimal(1.1)
+        if (player.g.points.gte(50)) expo = expo.add(player.g.points.div(250))
+        return expo
     },
     base() {
         return base = new Decimal(2.5)
@@ -80,6 +82,9 @@ addLayer("g", {
     resetsNothing() { return player.g.unlocked },
     tabFormat: ["main-display", "prestige-button", "blank", ["display-text", function() {
         return 'You have ' + format(player.g.power) + ' Generator Power, which boosts Prestige Point generation by ' + format(tmp.g.powerEff) + 'x'
+    }
+    , {}],["display-text", function() {
+        if (player.g.points.gte(50)) return 'Generator Cost is now scaled by ^'+ formatWhole(tmp.g.exponent)
     }
     , {}], "blank", ["display-text", function() {
         return 'Your best Generators is ' + formatWhole(player.g.best) + '<br>You have made a total of ' + formatWhole(player.g.total) + " Generators."
