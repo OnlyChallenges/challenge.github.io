@@ -36,5 +36,5 @@ addLayer("dB", {
     hotkeys: [
         {key: "3", description: "Number Key 3: Reset for Delta Boosters", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('hP', 16) || player.cB.unlocked},  
+    layerShown(){return hasUpgrade('hP', 16) || player.dB.unlocked},  
 })
