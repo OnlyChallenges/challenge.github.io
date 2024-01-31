@@ -9,6 +9,7 @@ addLayer("b", {
     color: "#4343de",
     requires(){ 
         let requirement = new Decimal(50)
+        if (hasMilestone('jP', 13)) requirement = requirement.minus(20)
         return requirement
     },
     resource: "boosters", // Name of prestige currency
