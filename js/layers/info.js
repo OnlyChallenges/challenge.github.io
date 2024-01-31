@@ -81,6 +81,14 @@ addLayer("At", {
                     },
                     {}],
                     "blank",
+                    ["display-text",
+                    function() {
+                      let display = ""
+                      if (player.jP.unlocked) display = "JP Point Passive%: "+ format(tmp.jP.passiveGeneration.times(100))+"%"
+                      return display
+                    },
+                    {}],
+                    "blank",
                     ],
             },
           

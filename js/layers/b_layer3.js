@@ -31,6 +31,7 @@ addLayer("cB", {
     effectBase(){
         let base = new Decimal(1)
         if (player.dB.unlocked) base = base.add(tmp.dB.effect)
+        if (hasUpgrade('jP', 21)) base = base.times(10)
         return base
     },
     effectDescription() {

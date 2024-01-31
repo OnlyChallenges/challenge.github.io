@@ -46,6 +46,7 @@ addLayer("g", {
         let eff = Decimal.pow(this.effBase(), player.g.points).sub(1).max(0);
         if (hasMilestone('gP', 14)) eff = eff.times(100)
         if (hasMilestone('iP', 14)) eff = eff.times(1500)
+        if (hasMilestone('jP', 14)) eff = eff.times(7500)
         return eff;
     },
     effectDescription() {

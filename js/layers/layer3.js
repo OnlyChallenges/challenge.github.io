@@ -46,6 +46,7 @@ addLayer("cP", {
         if (hasMilestone('gP', 11)) passive = new Decimal(1)
         if (hasMilestone('hP', 11)) passive = new Decimal(10)
         if (hasMilestone('iP', 11)) passive = new Decimal(100)
+        if (hasMilestone('jP', 11)) passive = new Decimal(1000)
         return passive
     },
     branches: ["dP"],

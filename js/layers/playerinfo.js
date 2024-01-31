@@ -89,6 +89,14 @@ addLayer("PG", {
                 },
                 {}],
                 "blank",
+                ["display-text",
+                function() {
+                  let display = ""
+                  if (player.jP.unlocked) display = "Juggling Prestige Points (jP): "+ formatWhole(player.jP.points)
+                  return display
+                },
+                {}],
+                "blank",
                 ],
             },
             "Boosters": {

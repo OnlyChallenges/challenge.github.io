@@ -26,6 +26,7 @@ addLayer("bP", {
         if (hasMilestone('dP', 13)) mult = mult.times(2)
         if (hasMilestone('fP', 12)) mult = mult.times(10)
         if (hasUpgrade('gP', 14)) mult = mult.times(10)
+        if (hasUpgrade('iP', 16)) mult = mult.pow(1.1)
         
         return mult
     },
@@ -48,6 +49,7 @@ addLayer("bP", {
         if (hasMilestone('gP', 11)) passive = new Decimal(10)
         if (hasMilestone('hP', 11)) passive = new Decimal(100)
         if (hasMilestone('iP', 11)) passive = new Decimal(1000)
+        if (hasMilestone('jP', 11)) passive = new Decimal(10000)
         return passive
     },
     branches: ["cP","b"],

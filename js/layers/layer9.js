@@ -19,6 +19,9 @@ addLayer("iP", {
     exponent: 0.45, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+        if (player.jP.unlocked) mult = mult.times(tmp.jP.effect)
+        if (hasUpgrade('jP', 11)) mult = mult.times(2)
+        if (hasUpgrade('jP', 13)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -36,6 +39,7 @@ addLayer("iP", {
         let passive = new Decimal(0)
         return passive
     },
+    branches: ["jP"],
     row: 8, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "i", description: "i: Reset for interest prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
