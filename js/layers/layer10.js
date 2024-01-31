@@ -78,7 +78,7 @@ addLayer("jP", {
             title: "Juggling Normality",
             description: "/3 Juggling Prestige Point requirement",
             cost: new Decimal(6),
-            unlocked(){ return hasUpgrade('iP', 11) },
+            unlocked(){ return hasUpgrade('jP', 11) },
         },
         13: {
             title: "Juggling Difference",
