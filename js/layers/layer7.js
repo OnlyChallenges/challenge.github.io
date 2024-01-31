@@ -43,7 +43,7 @@ addLayer("gP", {
     hotkeys: [
         {key: "g", description: "g: Reset for golden prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('fP', 13) || player.gP.unlocked},
+    layerShown(){return hasUpgrade('fP', 14) || player.gP.unlocked},
     milestones: {
         11: {
             requirementDescription: "1 Golden Prestige Points",

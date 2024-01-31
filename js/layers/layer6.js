@@ -46,7 +46,7 @@ addLayer("fP", {
     hotkeys: [
         {key: "f", description: "f: Reset for flattened prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('eP', 13) || player.fP.unlocked},
+    layerShown(){return hasUpgrade('eP', 14) || player.fP.unlocked},
         milestones: {
         11: {
             requirementDescription: "1 Flattened Prestige Points",

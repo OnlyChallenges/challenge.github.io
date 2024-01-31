@@ -40,7 +40,7 @@ addLayer("hP", {
     hotkeys: [
         {key: "h", description: "h: Reset for happy prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('gP', 13) || player.hP.unlocked},
+    layerShown(){return hasUpgrade('gP', 15) || player.hP.unlocked},
     milestones: {
         11: {
             requirementDescription: "1 Happy Prestige Points",
