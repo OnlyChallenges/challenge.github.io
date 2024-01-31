@@ -76,7 +76,7 @@ addLayer("PG", {
                 ["display-text",
                 function() {
                   let display = ""
-                  if (player.gP.unlocked) display = "Happy Prestige Points (hP): "+ formatWhole(player.hP.points)
+                  if (player.hP.unlocked) display = "Happy Prestige Points (hP): "+ formatWhole(player.hP.points)
                   return display
                 },
                 {}],
@@ -84,7 +84,7 @@ addLayer("PG", {
                 ["display-text",
                 function() {
                   let display = ""
-                  if (player.gP.unlocked) display = "Interest Prestige Points (iP): "+ formatWhole(player.iP.points)
+                  if (player.iP.unlocked) display = "Interest Prestige Points (iP): "+ formatWhole(player.iP.points)
                   return display
                 },
                 {}],
