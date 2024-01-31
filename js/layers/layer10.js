@@ -54,7 +54,7 @@ addLayer("jP", {
         },
         13: {
             requirementDescription: "12 Juggling Prestige Points",
-            effectDescription: `Double Happy Prestige Point Gain`,
+            effectDescription: `Double Happy Prestige Point Gain & Decrease Booster Requirement significantly`,
             done() { return player.jP.points.gte(12) },
         },
         14: {
