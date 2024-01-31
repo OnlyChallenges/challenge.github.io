@@ -14,7 +14,7 @@ addLayer("g", {
     type: "static",
     exponent() {
         let expo = new Decimal(1.1)
-        if (player.g.points.gte(50)) expo = expo.add(player.g.points.div(250))
+        if (player.g.points.gte(50)) expo = expo.add(player.g.points.div(550))
         return expo
     },
     base() {
