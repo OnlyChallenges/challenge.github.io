@@ -3,7 +3,7 @@ let modInfo = {
 	id: "normal",
 	author: "Ozvali",
 	pointsName: "points",
-	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js","layers/layer7.js","layers/b_layer3.js","layers/g_layer1.js", "layers/playerinfo.js","layers/layer8.js", "tree.js"],
+	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js","layers/layer7.js","layers/b_layer3.js","layers/g_layer1.js", "layers/playerinfo.js","layers/layer8.js","layers/layer9.js","layers/b_layer4.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",

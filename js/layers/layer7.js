@@ -19,8 +19,11 @@ addLayer("gP", {
     exponent: 0.45, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+        if (player.hP.unlocked) mult = mult.times(tmp.hP.effect)
         if (hasUpgrade('hP', 11)) mult = mult.times(2)
         if (hasUpgrade('hP', 13)) mult = mult.times(3)
+        if (hasMilestone('iP', 12)) mult = mult.times(2)
+        if (hasMilestone('iP', 13)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

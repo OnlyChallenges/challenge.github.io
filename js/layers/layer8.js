@@ -19,6 +19,9 @@ addLayer("hP", {
     exponent: 0.4, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+        if (player.iP.unlocked) mult = mult.times(tmp.iP.effect)
+        if (hasUpgrade('iP', 11)) mult = mult.times(2)
+        if (hasUpgrade('iP', 13)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -36,6 +39,7 @@ addLayer("hP", {
         let passive = new Decimal(0)
         return passive
     },
+    branches: ["iP"],
     row: 7, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "h", description: "h: Reset for happy prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},

@@ -25,6 +25,7 @@ addLayer("p", {
         if (hasMilestone('cP', 12)) mult = mult.times(3)
         if (hasMilestone('eP', 12)) mult = mult.times(10)
         if (hasUpgrade('fP', 14)) mult = mult.times(20)
+        if (hasUpgrade('iP', 16)) mult = mult.pow(1.1)
         if (player.g.unlocked) mult = mult.times(tmp.g.powerEff)
         return mult
     },
@@ -43,6 +44,7 @@ addLayer("p", {
         if (hasMilestone('fP', 11)) passive = new Decimal(10)
         if (hasMilestone('gP', 11)) passive = new Decimal(100)
         if (hasMilestone('hP', 11)) passive = new Decimal(1000)
+        if (hasMilestone('iP', 11)) passive = new Decimal(10000)
         return passive
     },
     layerShown(){return true},
@@ -89,6 +91,20 @@ doReset(resettingLayer) {
         if (hasMilestone('hP', 11)) player.eP.milestones.push('11', '12', '13')
         if (hasMilestone('hP', 11)) player.fP.upgrades.push('11', '12', '13', '14')
         if (hasMilestone('hP', 11)) player.fP.milestones.push('11', '12', '13', '14')
+        // IP Keep
+        if (hasMilestone('iP', 11)) player.p.upgrades.push('11', '12', '13')
+        if (hasMilestone('iP', 11)) player.bP.upgrades.push('11', '12', '13')
+        if (hasMilestone('iP', 11)) player.bP.milestones.push('11')
+        if (hasMilestone('iP', 11)) player.cP.upgrades.push('11', '12', '13')
+        if (hasMilestone('iP', 11)) player.cP.milestones.push('11', '12')
+        if (hasMilestone('iP', 11)) player.dP.upgrades.push('11', '12', '13')
+        if (hasMilestone('iP', 11)) player.dP.milestones.push('11', '12', '13')
+        if (hasMilestone('iP', 11)) player.eP.upgrades.push('11', '12', '13', '14')
+        if (hasMilestone('iP', 11)) player.eP.milestones.push('11', '12', '13')
+        if (hasMilestone('iP', 11)) player.fP.upgrades.push('11', '12', '13', '14')
+        if (hasMilestone('iP', 11)) player.fP.milestones.push('11', '12', '13', '14')
+        if (hasMilestone('iP', 11)) player.gP.upgrades.push('11', '12', '13', '14', '15')
+        if (hasMilestone('iP', 11)) player.gP.milestones.push('11', '12', '13', '14')
 },
     upgrades: {
         11: {

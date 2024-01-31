@@ -15,7 +15,7 @@ addLayer("cB", {
     baseResource: "buffed boosters", // Name of resource prestige is based on
     baseAmount() {return player.bB.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 2, // Prestige currency exponent
+    exponent: 1.2, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
@@ -25,13 +25,20 @@ addLayer("cB", {
     },
     effect(){
         let eff = (player.cB.points.times(player.cB.points)).add(4)
+        eff = eff.times(tmp.cB.effectBase)
         return eff
+    },
+    effectBase(){
+        let base = new Decimal(1)
+        if (player.dB.unlocked) base = base.add(tmp.dB.effect)
+        return base
     },
     effectDescription() {
         dis = "which boosts Buffed Booster effect by "+format(tmp.cB.effect)+"x"
         return dis
     },
     resetsNothing() { return player.cB.unlocked },
+    branches: ["dB"],
     row: 6, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "2", description: "Number Key 2: Reset for Community Boosters", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
