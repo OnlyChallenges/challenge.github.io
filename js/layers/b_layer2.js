@@ -8,7 +8,7 @@ addLayer("bB", {
     }},
     color: "#6a6ce6",
     requires(){ 
-        let requirement = new Decimal(3)
+        let requirement = new Decimal(2.5)
         return requirement
     },
     resource: "buffed boosters", // Name of prestige currency
