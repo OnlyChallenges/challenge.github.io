@@ -18,6 +18,12 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.1.2:</h3><br>
+	- Added 3 Layers<br>
+	- Fixed playerinfo.js without bugs on opening the Node<br>
+	- Fixed fP & gP slightly.<br>
+	- Added Generator Upgrades for later use.<br>
+	- <a>Endgame: 50 Interest Prestige Points</a><br><br>
 	<h3>v0.1.1:</h3><br>
 	- Added 3 Layers (Another Type of Layer)<br>
 	- Moved All 'Prestige' and 'Booster' Content to Side-Layer (Also Info about the three types)<br>
@@ -70,14 +76,14 @@ function addedPlayerData() { return {
 // Display extra things at the top of the page
 var displayThings = [
 function(){
- let endgame = "<a>Endgame: 50 Golden Prestige Points"
+ let endgame = "<a>Endgame: 50 Interest Prestige Points"
 return endgame
 },
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.gP.points.gte(new Decimal(50))
+	return player.iP.points.gte(new Decimal(50))
 }
 
 
