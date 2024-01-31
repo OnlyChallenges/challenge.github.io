@@ -42,6 +42,7 @@ addLayer("p", {
         if (hasMilestone('eP', 11)) passive = new Decimal(1)
         if (hasMilestone('fP', 11)) passive = new Decimal(10)
         if (hasMilestone('gP', 11)) passive = new Decimal(100)
+        if (hasMilestone('hP', 11)) passive = new Decimal(1000)
         return passive
     },
     layerShown(){return true},
@@ -76,6 +77,18 @@ doReset(resettingLayer) {
         if (hasMilestone('gP', 11)) player.dP.milestones.push('11', '12', '13')
         if (hasMilestone('gP', 11)) player.eP.upgrades.push('11', '12', '13', '14')
         if (hasMilestone('gP', 11)) player.eP.milestones.push('11', '12', '13')
+        // HP Keep
+        if (hasMilestone('hP', 11)) player.p.upgrades.push('11', '12', '13')
+        if (hasMilestone('hP', 11)) player.bP.upgrades.push('11', '12', '13')
+        if (hasMilestone('hP', 11)) player.bP.milestones.push('11')
+        if (hasMilestone('hP', 11)) player.cP.upgrades.push('11', '12', '13')
+        if (hasMilestone('hP', 11)) player.cP.milestones.push('11', '12')
+        if (hasMilestone('hP', 11)) player.dP.upgrades.push('11', '12', '13')
+        if (hasMilestone('hP', 11)) player.dP.milestones.push('11', '12', '13')
+        if (hasMilestone('hP', 11)) player.eP.upgrades.push('11', '12', '13', '14')
+        if (hasMilestone('hP', 11)) player.eP.milestones.push('11', '12', '13')
+        if (hasMilestone('hP', 11)) player.fP.upgrades.push('11', '12', '13', '14')
+        if (hasMilestone('hP', 11)) player.fP.milestones.push('11', '12', '13', '14')
 },
     upgrades: {
         11: {

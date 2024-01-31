@@ -26,6 +26,7 @@ addLayer("cP", {
         if (hasMilestone('eP', 13)) mult = mult.times(2)
         if (hasMilestone('gP', 12)) mult = mult.times(10)
         if (hasUpgrade('gP', 15)) mult = mult.times(5)
+        if (hasUpgrade('hP', 14)) mult = mult.times(10)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -43,6 +44,7 @@ addLayer("cP", {
         let passive = new Decimal(0)
         if (hasMilestone('fP', 11)) passive = new Decimal(0.1)
         if (hasMilestone('gP', 11)) passive = new Decimal(1)
+        if (hasMilestone('hP', 11)) passive = new Decimal(10)
         return passive
     },
     branches: ["dP"],

@@ -39,6 +39,7 @@ addLayer("eP", {
     },
     passiveGeneration(){
         let passive = new Decimal(0)
+        if (hasMilestone('hP', 11)) passive = new Decimal(0.1)
         return passive
     },
     branches: ['fP'],

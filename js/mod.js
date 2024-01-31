@@ -3,7 +3,7 @@ let modInfo = {
 	id: "normal",
 	author: "Ozvali",
 	pointsName: "points",
-	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js","layers/layer7.js","layers/b_layer3.js","layers/g_layer1.js", "layers/playerinfo.js", "tree.js"],
+	modFiles: ["layers/prestige.js","layers/layer2.js","layers/layer3.js","layers/layer4.js","layers/b_layer1.js","layers/b_layer2.js", "layers/info.js","layers/layer5.js","layers/layer6.js","layers/layer7.js","layers/b_layer3.js","layers/g_layer1.js", "layers/playerinfo.js","layers/layer8.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
@@ -58,6 +58,7 @@ if (hasMilestone('bP', 11)) gain = gain.times(3)
 if (hasMilestone('dP', 12)) gain = gain.times(10)
 if (hasUpgrade('eP', 14)) gain = gain.times(100)
 if (player.b.unlocked) gain = gain.times(tmp.b.effect)
+if (hasUpgrade('hP', 16)) gain = gain.pow(1.1)
 	return gain
 }
 

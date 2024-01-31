@@ -19,6 +19,8 @@ addLayer("gP", {
     exponent: 0.45, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
+        if (hasUpgrade('hP', 11)) mult = mult.times(2)
+        if (hasUpgrade('hP', 13)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -36,6 +38,7 @@ addLayer("gP", {
         let passive = new Decimal(0)
         return passive
     },
+    branches: ['hP'],
     row: 6, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "g", description: "g: Reset for golden prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
