@@ -21,7 +21,8 @@ let changelog = `<h1>Changelog:</h1><br>
  <h3>v0.1.3: Ascending Normality</h3><br>
  - Added Ascension...<br>
  - Fixed 3 Milestones<br>
- - Readjusted iP & cB slightly.<br>
+ - Readjusted iP & cB slightly<br>
+ - Added 3 Scalers<br>
  - <a> Endgame: 150 Ascension Points</a><br><br>
 	<h3>v0.1.2:</h3><br>
 	- Added 4 Layers<br>
