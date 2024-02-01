@@ -44,6 +44,7 @@ addLayer("fP", {
         let passive = new Decimal(0)
         if (hasMilestone('iP', 11)) passive = new Decimal(0.1)
         if (hasMilestone('jP', 11)) passive = new Decimal(1)
+        if (player.A.unlocked) passive = passive.plus(tmp.A.passiveEff.div(100))
         return passive
     },
     branches: ["gP",'g'],

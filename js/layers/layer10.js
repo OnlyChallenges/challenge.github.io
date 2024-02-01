@@ -35,6 +35,7 @@ addLayer("jP", {
     },
     passiveGeneration(){
         let passive = new Decimal(0)
+        if (player.A.unlocked) passive = passive.plus(tmp.A.passiveEff.div(100))
         return passive
     },
     row: 9, // Row the layer is in on the tree (0 is the first row)

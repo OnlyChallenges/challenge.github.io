@@ -49,6 +49,7 @@ addLayer("p", {
         if (hasMilestone('hP', 11)) passive = new Decimal(1000)
         if (hasMilestone('iP', 11)) passive = new Decimal(10000)
         if (hasMilestone('jP', 11)) passive = new Decimal(100000)
+        if (player.A.unlocked) passive = passive.plus(tmp.A.passiveEff.div(100))
         return passive
     },
     layerShown(){return true},

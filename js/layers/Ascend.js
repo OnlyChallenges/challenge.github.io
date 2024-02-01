@@ -65,14 +65,17 @@ addLayer("A", {
     automate() {},
     powerExp() {
         let exp = new Decimal(1 / 4);
+        if (hasUpgrade('A', 11)) exp = new Decimal(1 / 3);
         return exp;
     },
     passiveExp() {
         let exp = new Decimal(1 / 3);
+        if (hasUpgrade('A', 12)) exp = new Decimal(1 / 2);
         return exp;
     },
     boostExp() {
         let exp = new Decimal(1 / 7);
+        if (hasUpgrade('A', 13)) exp = new Decimal(1 / 5);
         return exp;
     },
     powerEff() {
@@ -91,7 +94,7 @@ addLayer("A", {
         return player.A.boost.plus(1).pow(this.boostExp());
     },
     tabFormat: ["main-display", "prestige-button", "blank", ["display-text", function() {
-        return 'You have ' + format(player.A.power) + ' Ascension Power, which boosts Prestige Point generation by ' + format(tmp.A.powerEff) + 'x'
+        return 'You have ' + format(player.A.power) + ' Ascension Power, which boosts Buffed Prestige Point generation by ' + format(tmp.A.powerEff) + 'x'
     }
     , {}],["display-text", function() {
         return 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +%' + format(tmp.A.passiveEff)
@@ -102,9 +105,34 @@ addLayer("A", {
     , {}], "blank", ["display-text", function() {
         return 'Your best Ascension Points is ' + formatWhole(player.A.best) + '<br>You have made a total of ' + formatWhole(player.A.total) + " Ascension Points."
     }
-    , {}], "blank"],
+    , {}], "blank", "upgrades"],
 
-
+    upgrades:{  
+        11: {
+            title: "Ascension Power Boost I",
+            description: "AP Effect is better",
+            cost: new Decimal(250),
+            currencyDisplayName: "Ascension Power",
+            currencyInternalName: "power",
+            currencyLayer: "A",
+        },
+        12: {
+            title: "Meta Power Boost I",
+            description: "MP Effect is better",
+            cost: new Decimal(1000),
+            currencyDisplayName: "Passive Power",
+            currencyInternalName: "passive",
+            currencyLayer: "a",
+        },
+        13: {
+            title: "Boost Power Boost I",
+            description: "BP Effect is better",
+            cost: new Decimal(2500),
+            currencyDisplayName: "Boost Power",
+            currencyInternalName: "boost",
+            currencyLayer: "A",
+        },
+        },
 
 
 

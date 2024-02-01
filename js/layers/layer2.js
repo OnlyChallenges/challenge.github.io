@@ -28,6 +28,7 @@ addLayer("bP", {
         if (hasUpgrade('gP', 14)) mult = mult.times(10)
         if (hasUpgrade('iP', 16)) mult = mult.pow(1.1)
         if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
+        if (player.A.unlocked) mult = mult.times(tmp.A.powerEff)
         
         return mult
     },
@@ -51,6 +52,7 @@ addLayer("bP", {
         if (hasMilestone('hP', 11)) passive = new Decimal(100)
         if (hasMilestone('iP', 11)) passive = new Decimal(1000)
         if (hasMilestone('jP', 11)) passive = new Decimal(10000)
+        if (player.A.unlocked) passive = passive.plus(tmp.A.passiveEff.div(100))
         return passive
     },
     branches: ["cP","b"],
