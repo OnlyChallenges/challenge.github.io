@@ -6,7 +6,7 @@ addLayer("A", {
     requires(){ 
         let requirement = new Decimal(150)
         let nerf = (player.A.points).pow(0.8)
-        if (player.A.points.gte(100)) nerf = (player.A.points.times(player.jP.points.pow(0.1))).pow(0.8)
+        if (player.A.points.gte(100) && player.jP.points.gte(1)) nerf = (player.A.points.times(player.jP.points.pow(0.1).add(1))).pow(0.8)
         if (player.A.points.gte(50)) requirement = requirement.times(nerf)
         return requirement
     },
