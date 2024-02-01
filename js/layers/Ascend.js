@@ -6,7 +6,8 @@ addLayer("A", {
     requires(){ 
         let requirement = new Decimal(150)
         let nerf = (player.A.points).pow(0.8)
-        if (player.A.points.gte(100) && player.jP.points.gte(1)) nerf = (player.A.points.times(player.jP.points.pow(0.1).add(1))).pow(0.8)
+        if (player.A.points.gte(100)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost)).pow(0.9)
+        if (player.A.points.gte(150)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(player.A.powerEff).times(player.A.passiveEff).times(player.A.boostEff)).pow(0.95)
         if (player.A.points.gte(50)) requirement = requirement.times(nerf)
         return requirement
     },
@@ -100,6 +101,8 @@ addLayer("A", {
     },
     tabFormat: ["main-display", "prestige-button",["display-text", function() {
         if (player.A.points.gte(50)) return 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x'
+        if (player.A.points.gte(100)) return 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*AP*MP*BP)^0.9)<br> Your own Generation is against you...'
+        if (player.A.points.gte(100)) return 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*(AP*MP*BP)*(APE*MPE*BPE))^0.95)<br> Your own Generation is truly against you...'
     }
     , {}], "blank", ["display-text", function() {
         return 'You have ' + format(player.A.power) + ' Ascension Power, which boosts Buffed Prestige Point generation by ' + format(tmp.A.powerEff) + 'x'
