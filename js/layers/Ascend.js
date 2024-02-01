@@ -78,17 +78,17 @@ addLayer("A", {
     powerEff() {
         if (!player.A.unlocked)
             return new Decimal(1);
-        return player.g.power.plus(1).pow(this.powerExp());
+        return player.A.power.plus(1).pow(this.powerExp());
     },
     passiveEff() {
         if (!player.A.unlocked)
             return new Decimal(1);
-        return player.g.passive.plus(1).pow(this.passiveExp());
+        return player.A.passive.plus(1).pow(this.passiveExp());
     },
     boostEff() {
         if (!player.A.unlocked)
             return new Decimal(1);
-        return player.g.boost.plus(1).pow(this.boostExp());
+        return player.A.boost.plus(1).pow(this.boostExp());
     },
     tabFormat: ["main-display", "prestige-button", "blank", ["display-text", function() {
         return 'You have ' + format(player.A.power) + ' Ascension Power, which boosts Prestige Point generation by ' + format(tmp.A.powerEff) + 'x'
