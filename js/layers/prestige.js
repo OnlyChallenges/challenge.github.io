@@ -29,6 +29,7 @@ addLayer("p", {
         if (player.g.unlocked) mult = mult.times(tmp.g.powerEff)
         if (player.jP.unlocked) mult = mult.times(tmp.jP.effect)
         if (hasMilestone('jP', 15)) mult = mult.times(1000000)
+        if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

@@ -22,6 +22,7 @@ addLayer("iP", {
         if (player.jP.unlocked) mult = mult.times(tmp.jP.effect)
         if (hasUpgrade('jP', 11)) mult = mult.times(2)
         if (hasUpgrade('jP', 13)) mult = mult.times(3)
+        if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

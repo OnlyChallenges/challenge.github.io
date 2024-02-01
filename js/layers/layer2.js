@@ -27,6 +27,7 @@ addLayer("bP", {
         if (hasMilestone('fP', 12)) mult = mult.times(10)
         if (hasUpgrade('gP', 14)) mult = mult.times(10)
         if (hasUpgrade('iP', 16)) mult = mult.pow(1.1)
+        if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
         
         return mult
     },
