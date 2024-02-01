@@ -40,7 +40,7 @@ addLayer("A", {
         return eff;
     },
     effBase() {
-        let base = new Decimal(2);
+        let base = new Decimal(1.2);
         return base;
     },
     update(diff) {
