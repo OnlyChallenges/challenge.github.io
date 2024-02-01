@@ -20,7 +20,7 @@ addLayer("A", {
         return new Decimal(1)
     },
     effectDescription() {
-        dis = "which are generating " + format(tmp.g.effect) + " Ascension Power/sec"
+        dis = "which are generating " + format(tmp.A.effect) + " Ascension Power/sec"
         return dis
     },
     passiveGeneration(){
