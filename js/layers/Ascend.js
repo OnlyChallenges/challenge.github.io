@@ -47,9 +47,9 @@ addLayer("A", {
         if (player.g.unlocked)
             player.g.power = player.g.power.plus(tmp.A.effect.times(diff));
         if (player.g.unlocked)
-            player.g.passive = player.g.passive.plus(tmp.A.effect.times(diff).div(2.7))
+            player.g.passive = player.g.passive.plus(tmp.A.effect.times(diff))
         if (player.g.unlocked)
-            player.g.boost = player.g.boost.plus(tmp.A.effect.times(diff).div(3.7))
+            player.g.boost = player.g.boost.plus(tmp.A.effect.times(diff))
     },
     startData() {
         return {
