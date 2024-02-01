@@ -7,7 +7,7 @@ addLayer("A", {
         let requirement = new Decimal(150)
         let nerf = (player.A.points).pow(0.8)
         if (player.A.points.gte(100)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost)).pow(0.9)
-        if (player.A.points.gte(150)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff)).pow(0.95)
+        if (player.A.points.gte(150)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e20)).pow(0.95)
         if (player.A.points.gte(50)) requirement = requirement.times(nerf)
         return requirement
     },
@@ -103,8 +103,8 @@ addLayer("A", {
     tabFormat: ["main-display", "prestige-button",["display-text", function() {
         let func = ""
         if (player.A.points.gte(50)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x'
-        if (player.A.points.gte(100)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*AP*MP*BP)^0.9)<br> Your own Generation is against you...'
-        if (player.A.points.gte(150)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*(AP*MP*BP)*(APE*MPE*BPE))^0.95)<br> Your own Generation is truly against you...'
+        if (player.A.points.gte(100)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*AP*MP*BP*)^0.9)<br> Your own Generation is against you...'
+        if (player.A.points.gte(150)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*(AP*MP*BP)*(APE*MPE*BPE)*1e20)^0.95)<br> Your own Generation is truly against you...'
         return func
     }
     , {}], "blank", ["display-text", function() {
