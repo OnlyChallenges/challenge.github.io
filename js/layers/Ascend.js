@@ -5,7 +5,7 @@ addLayer("A", {
     color: "#fc3535",
     requires(){ 
         let requirement = new Decimal(150)
-        let nerf = player.A.points.pow(0.8)
+        let nerf = (player.A.points).pow(0.8)
         if (player.A.points.gte(50)) requirement = requirement.times(nerf)
         return requirement
     },
