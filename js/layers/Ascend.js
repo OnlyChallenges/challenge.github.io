@@ -5,6 +5,7 @@ addLayer("A", {
     color: "#fc3535",
     requires(){ 
         let requirement = new Decimal(150)
+        if (player.A.points.gte(50)) requirement = requirement.times(player.A.points.pow(0.8))
         return requirement
     },
     resource: "Ascension points", // Name of prestige currency
@@ -95,7 +96,10 @@ addLayer("A", {
             return new Decimal(1);
         return player.A.boost.plus(1).pow(this.boostExp());
     },
-    tabFormat: ["main-display", "prestige-button", "blank", ["display-text", function() {
+    tabFormat: ["main-display", "prestige-button",["display-text", function() {
+        if (player.A.points.gte(50)) return 'Ascension Requirement is nerfed by ' + format(player.A.requirement.div(150)) + 'x'
+    }
+    , {}], "blank", ["display-text", function() {
         return 'You have ' + format(player.A.power) + ' Ascension Power, which boosts Buffed Prestige Point generation by ' + format(tmp.A.powerEff) + 'x'
     }
     , {}],["display-text", function() {
