@@ -122,7 +122,7 @@ addLayer("A", {
             cost: new Decimal(1000),
             currencyDisplayName: "Passive Power",
             currencyInternalName: "passive",
-            currencyLayer: "a",
+            currencyLayer: "A",
         },
         13: {
             title: "Boost Power Boost I",
