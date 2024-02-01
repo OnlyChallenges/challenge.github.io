@@ -13,11 +13,16 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.2",
-	name: "Normal Flattening",
+	num: "0.1.3",
+	name: "Ascending Normality",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+ <h3>v0.1.3: Ascending Normality</h3><br>
+ - Added Ascension...<br>
+ - Fixed 3 Milestones<br>
+ - Readjusted iP & cB slightly.<br>
+ - <a> Endgame: 150 Ascension Points</a><br><br>
 	<h3>v0.1.2:</h3><br>
 	- Added 4 Layers<br>
 	- Fixed playerinfo.js without bugs on opening the Node<br>
@@ -76,14 +81,14 @@ function addedPlayerData() { return {
 // Display extra things at the top of the page
 var displayThings = [
 function(){
- let endgame = "<a>Endgame: 70 Juggling Prestige Points"
+ let endgame = "<a>Endgame: 150 Ascension Points"
 return endgame
 },
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.jP.points.gte(new Decimal(50))
+	return player.A.points.gte(new Decimal(150))
 }
 
 
