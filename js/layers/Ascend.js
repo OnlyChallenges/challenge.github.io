@@ -47,9 +47,9 @@ addLayer("A", {
         if (player.g.unlocked)
             player.g.power = player.g.power.plus(tmp.A.effect.times(diff));
         if (player.g.unlocked)
-            player.g.passive = player.g.passive.plus(tmp.A.effect.times(diff));
+            player.g.passive = player.g.passive.plus(tmp.A.effect.times(2));
         if (player.g.unlocked)
-            player.g.boost = player.g.boost.plus(tmp.A.effect.times(diff));
+            player.g.boost = player.g.boost.plus(tmp.A.effect.times(3));
     },
     startData() {
         return {
@@ -62,6 +62,7 @@ addLayer("A", {
             boost: new Decimal(0),
         }
     },
+    automate() {},
     powerExp() {
         let exp = new Decimal(1 / 4);
         return exp;
