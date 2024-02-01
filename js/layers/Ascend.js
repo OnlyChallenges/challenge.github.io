@@ -98,7 +98,7 @@ addLayer("A", {
         return player.A.boost.plus(1).pow(this.boostExp());
     },
     tabFormat: ["main-display", "prestige-button",["display-text", function() {
-        if (player.A.points.gte(50)) return 'Ascension Requirement is nerfed by ' + format(player.A.requires.div(150)) + 'x'
+        if (player.A.points.gte(50)) return 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x'
     }
     , {}], "blank", ["display-text", function() {
         return 'You have ' + format(player.A.power) + ' Ascension Power, which boosts Buffed Prestige Point generation by ' + format(tmp.A.powerEff) + 'x'
