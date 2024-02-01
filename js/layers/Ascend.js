@@ -100,9 +100,11 @@ addLayer("A", {
         return player.A.boost.plus(1).pow(this.boostExp());
     },
     tabFormat: ["main-display", "prestige-button",["display-text", function() {
-        if (player.A.points.gte(50)) return 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x'
-        if (player.A.points.gte(100)) return 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*AP*MP*BP)^0.9)<br> Your own Generation is against you...'
-        if (player.A.points.gte(100)) return 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*(AP*MP*BP)*(APE*MPE*BPE))^0.95)<br> Your own Generation is truly against you...'
+        let func = ""
+        if (player.A.points.gte(50)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x'
+        if (player.A.points.gte(100)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*AP*MP*BP)^0.9)<br> Your own Generation is against you...'
+        if (player.A.points.gte(150)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*(AP*MP*BP)*(APE*MPE*BPE))^0.95)<br> Your own Generation is truly against you...'
+        return func
     }
     , {}], "blank", ["display-text", function() {
         return 'You have ' + format(player.A.power) + ' Ascension Power, which boosts Buffed Prestige Point generation by ' + format(tmp.A.powerEff) + 'x'
