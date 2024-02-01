@@ -19,10 +19,6 @@ addLayer("A", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
-    effect(){
-        let eff = (player.A.points.add(1)).pow(0.8)
-        return eff
-    },
     effectDescription() {
         dis = "which are generating " + format(tmp.g.effect) + " Ascension Power/sec"
         return dis
@@ -42,6 +38,10 @@ addLayer("A", {
             return new Decimal(0)
         let eff = Decimal.pow(this.effBase(), player.A.points).sub(1).max(0);
         return eff;
+    },
+    effBase() {
+        let base = new Decimal(2);
+        return base;
     },
     update(diff) {
         if (player.g.unlocked)
