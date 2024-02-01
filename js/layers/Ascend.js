@@ -70,7 +70,7 @@ addLayer("A", {
     powerExp() {
         let exp = new Decimal(1 / 4);
         if (hasUpgrade('A', 11)) exp = new Decimal(1 / 3);
-        if (hasUpgrade('A', 12)) exp = new Decimal(1 / 2);
+        if (hasUpgrade('A', 21)) exp = new Decimal(2 / 3);
         return exp;
     },
     passiveExp() {
@@ -82,6 +82,7 @@ addLayer("A", {
     boostExp() {
         let exp = new Decimal(1 / 4);
         if (hasUpgrade('A', 13)) exp = new Decimal(1 / 3);
+        if (hasUpgrade('A', 23)) exp = new Decimal(4 / 7);
         return exp;
     },
     powerEff() {
