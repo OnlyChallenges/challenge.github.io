@@ -11,7 +11,7 @@ addLayer("A", {
     baseResource: "juggling prestige points", // Name of resource prestige is based on
     baseAmount() {return player.jP.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.3, // Prestige currency exponent
+    exponent: 0.005, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         return mult
@@ -66,11 +66,13 @@ addLayer("A", {
     powerExp() {
         let exp = new Decimal(1 / 4);
         if (hasUpgrade('A', 11)) exp = new Decimal(1 / 3);
+        if (hasUpgrade('A', 12)) exp = new Decimal(1 / 2);
         return exp;
     },
     passiveExp() {
         let exp = new Decimal(1 / 3);
         if (hasUpgrade('A', 12)) exp = new Decimal(1 / 2);
+        if (hasUpgrade('A', 22)) exp = new Decimal(6 / 10);
         return exp;
     },
     boostExp() {
@@ -131,6 +133,33 @@ addLayer("A", {
             currencyDisplayName: "Boost Power",
             currencyInternalName: "boost",
             currencyLayer: "A",
+        },
+        21: {
+            title: "Ascension Power Boost II",
+            description: "AP Effect is better",
+            cost: new Decimal(450000),
+            currencyDisplayName: "Ascension Power",
+            currencyInternalName: "power",
+            currencyLayer: "A",
+            unlocked() {return hasUpgrade('A', 11)},
+        },
+        22: {
+            title: "Meta Power Boost II",
+            description: "MP Effect is better",
+            cost: new Decimal(3500000),
+            currencyDisplayName: "Passive Power",
+            currencyInternalName: "passive",
+            currencyLayer: "A",
+            unlocked() {return hasUpgrade('A', 12)},
+        },
+        23: {
+            title: "Boost Power Boost II",
+            description: "BP Effect is better",
+            cost: new Decimal(150000),
+            currencyDisplayName: "Boost Power",
+            currencyInternalName: "boost",
+            currencyLayer: "A",
+            unlocked() {return hasUpgrade('A', 13)},
         },
         },
 
