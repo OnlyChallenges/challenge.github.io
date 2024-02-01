@@ -47,9 +47,9 @@ addLayer("A", {
         if (player.A.unlocked)
             player.A.power = player.A.power.plus(tmp.A.effect.times(diff));
         if (player.A.unlocked)
-            player.A.passive = player.A.passive.plus(tmp.A.effect.times(diff));
+            player.A.passive = player.A.passive.plus(tmp.A.effect.times(diff).times(3));
         if (player.A.unlocked)
-            player.A.boost = player.A.boost.plus(tmp.A.effect.times(diff));
+            player.A.boost = player.A.boost.plus(tmp.A.effect.times(diff).div(5));
     },
     startData() {
         return {
@@ -68,7 +68,7 @@ addLayer("A", {
         return exp;
     },
     passiveExp() {
-        let exp = new Decimal(1 / 16);
+        let exp = new Decimal(1 / 3);
         return exp;
     },
     boostExp() {
@@ -94,7 +94,7 @@ addLayer("A", {
         return 'You have ' + format(player.A.power) + ' Ascension Power, which boosts Prestige Point generation by ' + format(tmp.A.powerEff) + 'x'
     }
     , {}],["display-text", function() {
-        return 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +% ' + format(tmp.A.passiveEff)
+        return 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +%' + format(tmp.A.passiveEff)
     }
     , {}],["display-text", function() {
         return 'You have ' + format(player.A.boost) + ' Boost Power, which boosts all previous layers (Except Boosters & Generators) by ' + format(tmp.A.boostEff) + 'x'
