@@ -44,12 +44,12 @@ addLayer("A", {
         return base;
     },
     update(diff) {
-        if (player.g.unlocked)
-            player.g.power = player.g.power.plus(tmp.A.effect.times(diff));
-        if (player.g.unlocked)
-            player.g.passive = player.g.passive.plus(tmp.A.effect.times(2));
-        if (player.g.unlocked)
-            player.g.boost = player.g.boost.plus(tmp.A.effect.times(3));
+        if (player.A.unlocked)
+            player.A.power = player.A.power.plus(tmp.A.effect.times(diff));
+        if (player.A.unlocked)
+            player.A.passive = player.A.passive.plus(tmp.A.effect.times(diff));
+        if (player.A.unlocked)
+            player.A.boost = player.A.boost.plus(tmp.A.effect.times(diff));
     },
     startData() {
         return {
