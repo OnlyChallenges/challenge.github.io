@@ -10,6 +10,7 @@ addLayer("bP", {
     requires(){ 
         let requirement = new Decimal(10)
         if (hasUpgrade('bP', 12)) requirement = requirement.div(2.5)
+        if (inChallenge('Ab', 11) && hasUpgrade('Ab', 24)) requirement = requirement.div(10)
         return requirement
     },
     resource: "buffed prestige points", // Name of prestige currency
@@ -31,6 +32,7 @@ addLayer("bP", {
         if (player.A.unlocked) mult = mult.times(tmp.A.powerEff)
         if (inChallenge('Ab', 11)) mult = mult.div(tmp.A.boostEff)
         if (inChallenge('Ab', 11)) mult = mult.pow(0.1)
+        if (inChallenge('Ab', 11) && hasUpgrade('Ab', 25)) mult = mult.times(100)
         
         return mult
     },
@@ -42,6 +44,7 @@ addLayer("bP", {
     effect(){
         let eff = (player.bP.points.add(1)).pow(0.22)
         if (hasMilestone('gP', 14)) eff = (player.bP.points.add(1)).pow(0.35)
+        if (inChallenge('Ab', 11) && hasUpgrade('Ab', 23)) eff = eff.times(7)
         return eff
     },
     effectDescription() {

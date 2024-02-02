@@ -10,6 +10,7 @@ addLayer("p", {
     requires(){ 
         let requirement = new Decimal(5)
         if (hasUpgrade('p', 12)) requirement = requirement.div(2.5)
+        if (inChallenge('Ab', 11) && hasUpgrade('Ab', 24)) requirement = requirement.div(10)
         return requirement
     },
     resource: "prestige points", // Name of prestige currency
@@ -32,6 +33,8 @@ addLayer("p", {
         if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
         if (inChallenge('Ab', 11)) mult = mult.div(tmp.A.boostEff)
         if (inChallenge('Ab', 11)) mult = mult.pow(0.1)
+        if (inChallenge('Ab', 11) && hasUpgrade('Ab', 21)) mult = mult.times(10)
+        if (inChallenge('Ab', 11) && hasUpgrade('Ab', 25)) mult = mult.times(100)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

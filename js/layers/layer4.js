@@ -31,6 +31,7 @@ addLayer("dP", {
         if (inChallenge('Ab', 11)) mult = mult.div(tmp.A.boostEff)
         if (hasUpgrade('Ab', 16)) mult = mult.times(1e15)
         if (inChallenge('Ab', 11)) mult = mult.pow(0.1)
+        if (inChallenge('Ab', 11) && hasUpgrade('Ab', 25)) mult = mult.times(100)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

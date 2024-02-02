@@ -50,9 +50,11 @@ addLayer("Ab", {
             Infect gain is now ^0.06 & P > iP gain is now ^0.1<br>
             Booster effect is significantly boosted<br>
             Passive Effect is removed from all (letter)P's<br>
-            Boost Power also has no effect inside the challenge & Ascension Power Effect is nerfed gravely<br>`,
+            Boost Power also has no effect inside the challenge & Ascension Power Effect is nerfed gravely<br>
+            Note: Ab Upgrades purchased in Ab1 Challenge will be kept but will not have an effect outside of the challenge.<br>`,
             canComplete: function() {return player.jP.points.gte(1)},
             goalDescription: "1 Juggling Prestige Point",
+            onExit() {layerDataReset('Ab')},
             rewardDescription: "^0.65 Ascension Requirement & ^1.2 Juggling Prestige Points",
             unlocked(){
                 let unlock = (hasUpgrade('Ab', 16) || inChallenge('Ab', 11) || hasChallenge('Ab', 11))
@@ -95,6 +97,59 @@ addLayer("Ab", {
             description: "Delta Prestige Point gain is signifcantly better",
             cost: new Decimal(3),
             unlocked() {return hasUpgrade('Ab', 15)},
+        },
+        21: {
+            title: "Pure Upgrade I",
+            description: "10x Prestige Point Gain",
+            cost: new Decimal(250),
+            currencyDisplayName: "Points",
+            currencyInternalName: "points",
+            unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 21)}
+        },
+        22: {
+            title: "Pure Upgrade II",
+            description: "^1.3 Point Gain",
+            cost: new Decimal(25),
+            currencyDisplayName: "Prestige Points",
+            currencyInternalName: "prestige points",
+            currencyLayer: 'P',
+            unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 22)}
+        },
+        23: {
+            title: "Pure Upgrade III",
+            description: "Buffed Prestige Effect is signifcantly greater",
+            cost: new Decimal(7),
+            currencyDisplayName: "BPrestige Points",
+            currencyInternalName: "buffed prestige points",
+            currencyLayer: 'bP',
+            unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 23)}
+        },
+        24: {
+            title: "Pure Upgrade IV",
+            description: "Lower P, bP, and cP Requirement cost significantly",
+            cost: new Decimal(3),
+            currencyDisplayName: "CPrestige Points",
+            currencyInternalName: "community prestige points",
+            currencyLayer: 'cP',
+            unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 24)}
+        },
+        25: {
+            title: "Pure Upgrade V",
+            description: "100x All P-Layers before fP",
+            cost: new Decimal(6),
+            currencyDisplayName: "DPrestige Points",
+            currencyInternalName: "delta prestige points",
+            currencyLayer: 'dP',
+            unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 25)}
+        },
+        26: {
+            title: "Pure Upgrade VI",
+            description: "10x fP, gP, hP, and iP",
+            cost: new Decimal(8),
+            currencyDisplayName: "FPrestige Points",
+            currencyInternalName: "flattened prestige points",
+            currencyLayer: 'fP',
+            unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 26)}
         },
         },
 })
