@@ -111,7 +111,7 @@ addLayer("Ab", {
             cost: new Decimal(25),
             currencyDisplayName: "Prestige Points",
             currencyInternalName: "prestige points",
-            currencyLayer: 'P',
+            currencyLayer: 'p',
             unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 22)}
         },
         23: {
