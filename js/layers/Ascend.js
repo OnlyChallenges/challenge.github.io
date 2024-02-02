@@ -33,6 +33,7 @@ addLayer("A", {
         let passive = new Decimal(0)
         return passive
     },
+    branches: ['Ab'],
     row: 10, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "A", description: "Shift + a: Reset for Ascension", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -74,6 +75,7 @@ addLayer("A", {
         if (hasUpgrade('A', 11)) exp = new Decimal(1 / 3);
         if (hasUpgrade('A', 21)) exp = new Decimal(2 / 3);
         if (hasUpgrade('A', 31)) exp = new Decimal(3 / 4);
+        if (hasUpgrade('Ab', 11)) exp = exp.add(0.4);
         return exp;
     },
     passiveExp() {

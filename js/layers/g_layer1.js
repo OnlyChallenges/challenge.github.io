@@ -72,6 +72,7 @@ addLayer("g", {
         if (hasUpgrade('g', 11)) exp = new Decimal (7 / 16);
         if (hasUpgrade('g', 12)) exp = new Decimal (1 / 2);
         if (hasUpgrade('g', 13)) exp = new Decimal (3 / 4);
+        if (hasUpgrade('Ab', 12)) exp = exp.add(0.47)
         return exp;
     },
     powerEff() {

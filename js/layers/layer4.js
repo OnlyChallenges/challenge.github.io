@@ -28,6 +28,7 @@ addLayer("dP", {
         if (hasUpgrade('hP', 15)) mult = mult.times(5)
         if (hasUpgrade('iP', 14)) mult = mult.times(10)
         if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
+        if (hasUpgrade('Ab', 16)) mult = mult.times(1e15)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

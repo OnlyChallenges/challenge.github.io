@@ -27,6 +27,7 @@ addLayer("b", {
     effect(){
         let eff = (player.b.points.times(player.b.points)).add(1)
         eff = eff.times(tmp.b.effectBase)
+        if (hasUpgrade('Ab', 15)) eff = eff.pow(1.2)
         return eff
     },
     effectBase(){

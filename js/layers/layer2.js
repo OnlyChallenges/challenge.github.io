@@ -33,7 +33,9 @@ addLayer("bP", {
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(1)
+        let exp = new Decimal(1)
+        if (hasUpgrade('Ab', 13)) exp = exp.add(0.15)
+        return exp
     },
     effect(){
         let eff = (player.bP.points.add(1)).pow(0.22)

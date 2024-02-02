@@ -71,6 +71,7 @@ if (hasMilestone('dP', 12)) gain = gain.times(10)
 if (hasUpgrade('eP', 14)) gain = gain.times(100)
 if (player.b.unlocked) gain = gain.times(tmp.b.effect)
 if (hasUpgrade('hP', 16)) gain = gain.pow(1.1)
+if (hasUpgrade('Ab', 14)) gain = gain.pow(1.2)
 if (hasMilestone('iP', 15)) gain = gain.times(1000000)
 	return gain
 }
