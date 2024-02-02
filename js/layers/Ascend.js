@@ -8,6 +8,8 @@ addLayer("A", {
         let nerf = (player.A.points).pow(0.8)
         if (player.A.points.gte(100)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost)).pow(0.9)
         if (player.A.points.gte(150)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e25)).pow(0.95)
+        if (player.A.points.gte(150)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e50)).pow(1.2)
+        if (player.A.points.gte(200)) requirement = requirement.times(nerf.times(nerf))
         if (player.A.points.gte(50)) requirement = requirement.times(nerf)
         return requirement
     },
@@ -71,18 +73,21 @@ addLayer("A", {
         let exp = new Decimal(1 / 4);
         if (hasUpgrade('A', 11)) exp = new Decimal(1 / 3);
         if (hasUpgrade('A', 21)) exp = new Decimal(2 / 3);
+        if (hasUpgrade('A', 31)) exp = new Decimal(3 / 4);
         return exp;
     },
     passiveExp() {
         let exp = new Decimal(1 / 3);
         if (hasUpgrade('A', 12)) exp = new Decimal(1 / 2);
         if (hasUpgrade('A', 22)) exp = new Decimal(6 / 10);
+        if (hasUpgrade('A', 32)) exp = new Decimal(7 / 10);
         return exp;
     },
     boostExp() {
         let exp = new Decimal(1 / 4);
         if (hasUpgrade('A', 13)) exp = new Decimal(1 / 3);
         if (hasUpgrade('A', 23)) exp = new Decimal(4 / 7);
+        if (hasUpgrade('A', 23)) exp = new Decimal(2 / 3);
         return exp;
     },
     powerEff() {
@@ -105,6 +110,7 @@ addLayer("A", {
         if (player.A.points.gte(50)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x'
         if (player.A.points.gte(100)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*AP*MP*BP*)^0.9)<br> Your own Generation is against you...'
         if (player.A.points.gte(150)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*(AP*MP*BP)*(APE*MPE*BPE)*1e25)^0.95)<br> Your own Generation is truly against you...'
+        if (player.A.points.gte(200)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x (((a*(AP*MP*BP)*(APE*MPE*BPE)*1e50)^1.2))^2<br> Your own Generation is truly against you...'
         return func
     }
     , {}], "blank", ["display-text", function() {
@@ -134,7 +140,7 @@ addLayer("A", {
             title: "Meta Power Boost I",
             description: "MP Effect is better",
             cost: new Decimal(1000),
-            currencyDisplayName: "Passive Power",
+            currencyDisplayName: "Meta Power",
             currencyInternalName: "passive",
             currencyLayer: "A",
         },
@@ -159,7 +165,7 @@ addLayer("A", {
             title: "Meta Power Boost II",
             description: "MP Effect is better",
             cost: new Decimal(3500000),
-            currencyDisplayName: "Passive Power",
+            currencyDisplayName: "Meta Power",
             currencyInternalName: "passive",
             currencyLayer: "A",
             unlocked() {return hasUpgrade('A', 12)},
@@ -172,6 +178,33 @@ addLayer("A", {
             currencyInternalName: "boost",
             currencyLayer: "A",
             unlocked() {return hasUpgrade('A', 13)},
+        },
+        31: {
+            title: "Ascension Power Boost II",
+            description: "AP Effect is better",
+            cost: new Decimal(5e13),
+            currencyDisplayName: "Ascension Power",
+            currencyInternalName: "power",
+            currencyLayer: "A",
+            unlocked() {return hasUpgrade('A', 21)},
+        },
+        32: {
+            title: "Meta Power Boost II",
+            description: "MP Effect is better",
+            cost: new Decimal(2e14),
+            currencyDisplayName: "Meta Power",
+            currencyInternalName: "passive",
+            currencyLayer: "A",
+            unlocked() {return hasUpgrade('A', 22)},
+        },
+        33: {
+            title: "Boost Power Boost II",
+            description: "BP Effect is better",
+            cost: new Decimal(1.2e13),
+            currencyDisplayName: "Boost Power",
+            currencyInternalName: "boost",
+            currencyLayer: "A",
+            unlocked() {return hasUpgrade('A', 23)},
         },
         },
 
