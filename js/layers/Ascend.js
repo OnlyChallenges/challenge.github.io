@@ -180,7 +180,7 @@ addLayer("A", {
             unlocked() {return hasUpgrade('A', 13)},
         },
         31: {
-            title: "Ascension Power Boost II",
+            title: "Ascension Power Boost III",
             description: "AP Effect is better",
             cost: new Decimal(5e13),
             currencyDisplayName: "Ascension Power",
@@ -189,7 +189,7 @@ addLayer("A", {
             unlocked() {return hasUpgrade('A', 21)},
         },
         32: {
-            title: "Meta Power Boost II",
+            title: "Meta Power Boost III",
             description: "MP Effect is better",
             cost: new Decimal(2e14),
             currencyDisplayName: "Meta Power",
@@ -198,7 +198,7 @@ addLayer("A", {
             unlocked() {return hasUpgrade('A', 22)},
         },
         33: {
-            title: "Boost Power Boost II",
+            title: "Boost Power Boost III",
             description: "BP Effect is better",
             cost: new Decimal(1.2e13),
             currencyDisplayName: "Boost Power",
