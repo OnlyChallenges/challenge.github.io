@@ -76,6 +76,7 @@ addLayer("A", {
         if (hasUpgrade('A', 21)) exp = new Decimal(2 / 3);
         if (hasUpgrade('A', 31)) exp = new Decimal(3 / 4);
         if (hasUpgrade('Ab', 11)) exp = exp.add(0.4);
+        if (inChallenge('Ab', 11)) exp = exp.minus(1.1)
         return exp;
     },
     passiveExp() {

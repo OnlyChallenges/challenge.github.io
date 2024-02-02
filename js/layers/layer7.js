@@ -25,6 +25,8 @@ addLayer("gP", {
         if (hasMilestone('iP', 12)) mult = mult.times(2)
         if (hasMilestone('iP', 13)) mult = mult.times(3)
         if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
+        if (inChallenge('Ab', 11)) mult = mult.div(tmp.A.boostEff)
+        if (inChallenge('Ab', 11)) mult = mult.pow(0.1)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

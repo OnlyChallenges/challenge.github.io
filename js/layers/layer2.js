@@ -29,6 +29,8 @@ addLayer("bP", {
         if (hasUpgrade('iP', 16)) mult = mult.pow(1.1)
         if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
         if (player.A.unlocked) mult = mult.times(tmp.A.powerEff)
+        if (inChallenge('Ab', 11)) mult = mult.div(tmp.A.boostEff)
+        if (inChallenge('Ab', 11)) mult = mult.pow(0.1)
         
         return mult
     },

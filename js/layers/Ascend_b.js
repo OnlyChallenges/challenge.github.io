@@ -47,9 +47,10 @@ addLayer("Ab", {
             name: "True Ascension",
             challengeDescription: 
             `Your now in purity...<br>
-            Infect gain is now ^0.2 & Prestige Point gain is now ^0.25<br>
-            Booster effect is significantly boosted
-            Passive Effect is removed from all (letter)P's`,
+            Infect gain is now ^0.06 & P > iP gain is now ^0.1<br>
+            Booster effect is significantly boosted<br>
+            Passive Effect is removed from all (letter)P's<br>
+            Boost Power also has no effect inside the challenge & Ascension Power Effect is nerfed gravely<br>`,
             canComplete: function() {return player.jP.points.gte(1)},
             goalDescription: "1 Juggling Prestige Point",
             rewardDescription: "^0.65 Ascension Requirement & ^1.2 Juggling Prestige Points",
