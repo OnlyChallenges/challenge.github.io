@@ -35,7 +35,7 @@ addLayer("A", {
     hotkeys: [
         {key: "A", description: "Shift + a: Reset for Ascension", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return hasUpgrade('jP', 17) || player.A.unlocked},
+    layerShown(){return hasUpgrade('jP', 21) || player.A.unlocked},
 
     effect() {
         if (!player.A.unlocked)
