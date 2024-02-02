@@ -8,7 +8,7 @@ addLayer("A", {
         let nerf = (player.A.points).pow(0.8)
         if (player.A.points.gte(100)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost)).pow(0.9)
         if (player.A.points.gte(150)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e25)).pow(0.95)
-        if (player.A.points.gte(150)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e50)).pow(1.2)
+        if (player.A.points.gte(200)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e50)).pow(1.2)
         if (player.A.points.gte(200)) requirement = requirement.times(nerf.times(nerf))
         if (player.A.points.gte(50)) requirement = requirement.times(nerf)
         return requirement
@@ -87,7 +87,7 @@ addLayer("A", {
         let exp = new Decimal(1 / 4);
         if (hasUpgrade('A', 13)) exp = new Decimal(1 / 3);
         if (hasUpgrade('A', 23)) exp = new Decimal(4 / 7);
-        if (hasUpgrade('A', 23)) exp = new Decimal(2 / 3);
+        if (hasUpgrade('A', 33)) exp = new Decimal(4 / 5);
         return exp;
     },
     powerEff() {
