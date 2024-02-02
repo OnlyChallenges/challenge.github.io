@@ -54,7 +54,6 @@ addLayer("Ab", {
             Note: Ab Upgrades purchased in Ab1 Challenge will be kept but will not have an effect outside of the challenge.<br>`,
             canComplete: function() {return player.jP.points.gte(1)},
             goalDescription: "1 Juggling Prestige Point",
-            onExit() {layerDataReset('Ab')},
             rewardDescription: "^0.65 Ascension Requirement & ^1.2 Juggling Prestige Points",
             unlocked(){
                 let unlock = (hasUpgrade('Ab', 16) || inChallenge('Ab', 11) || hasChallenge('Ab', 11))
