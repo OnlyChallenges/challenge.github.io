@@ -48,6 +48,7 @@ addLayer("eP", {
         if (hasMilestone('jP', 11)) passive = new Decimal(10)
         if (player.A.unlocked) passive = new Decimal(100)
         if (player.A.unlocked) passive = passive.plus(tmp.A.passiveEff.div(100))
+        if (inChallenge('Ab', 11)) passive = new Decimal(0)
         return passive
     },
     branches: ['fP'],

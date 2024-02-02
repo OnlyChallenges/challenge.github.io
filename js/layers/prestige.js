@@ -30,6 +30,7 @@ addLayer("p", {
         if (player.jP.unlocked) mult = mult.times(tmp.jP.effect)
         if (hasMilestone('jP', 15)) mult = mult.times(1000000)
         if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
+        if (inChallenge('Ab', 11)) mult = mult.pow(0.26)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -51,6 +52,7 @@ addLayer("p", {
         if (hasMilestone('jP', 11)) passive = new Decimal(100000)
         if (player.A.unlocked) passive = new Decimal(1000000)
         if (player.A.unlocked) passive = passive.plus(tmp.A.passiveEff.div(100))
+        if (inChallenge('Ab', 11)) passive = new Decimal(0)
         return passive
     },
     layerShown(){return true},
@@ -128,25 +130,25 @@ doReset(resettingLayer) {
         if (hasMilestone('jP', 11)) player.hP.upgrades.push('11', '12', '13', '14', '15', '16')
         if (hasMilestone('jP', 11)) player.hP.milestones.push('11', '12', '13', '14')
         // A KEEPING
-        if (hasUpgrade('A', 11)) player.p.upgrades.push('11', '12', '13')
-        if (hasUpgrade('A', 11)) player.bP.upgrades.push('11', '12', '13')
-        if (hasUpgrade('A', 11)) player.bP.milestones.push('11')
-        if (hasUpgrade('A', 11)) player.cP.upgrades.push('11', '12', '13')
-        if (hasUpgrade('A', 11)) player.cP.milestones.push('11', '12')
-        if (hasUpgrade('A', 11)) player.dP.upgrades.push('11', '12', '13')
-        if (hasUpgrade('A', 11)) player.dP.milestones.push('11', '12', '13')
-        if (hasUpgrade('A', 11)) player.eP.upgrades.push('11', '12', '13', '14')
-        if (hasUpgrade('A', 11)) player.eP.milestones.push('11', '12', '13')
-        if (hasUpgrade('A', 11)) player.fP.upgrades.push('11', '12', '13', '14')
-        if (hasUpgrade('A', 11)) player.fP.milestones.push('11', '12', '13', '14')
-        if (hasUpgrade('A', 11)) player.gP.upgrades.push('11', '12', '13', '14', '15')
-        if (hasUpgrade('A', 11)) player.gP.milestones.push('11', '12', '13', '14')
-        if (hasUpgrade('A', 11)) player.hP.upgrades.push('11', '12', '13', '14', '15', '16')
-        if (hasUpgrade('A', 11)) player.hP.milestones.push('11', '12', '13', '14')
-        if (hasUpgrade('A', 11)) player.iP.upgrades.push('11', '12', '13', '14', '15', '16')
-        if (hasUpgrade('A', 11)) player.iP.milestones.push('11', '12', '13', '14', '15')
-        if (hasUpgrade('A', 11)) player.jP.upgrades.push('11', '12', '13', '14', '15', '16', '21')
-        if (hasUpgrade('A', 11)) player.jP.milestones.push('11', '12', '13', '14', '15')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.p.upgrades.push('11', '12', '13')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.bP.upgrades.push('11', '12', '13')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.bP.milestones.push('11')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.cP.upgrades.push('11', '12', '13')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.cP.milestones.push('11', '12')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.dP.upgrades.push('11', '12', '13')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.dP.milestones.push('11', '12', '13')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.eP.upgrades.push('11', '12', '13', '14')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.eP.milestones.push('11', '12', '13')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.fP.upgrades.push('11', '12', '13', '14')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.fP.milestones.push('11', '12', '13', '14')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.gP.upgrades.push('11', '12', '13', '14', '15')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.gP.milestones.push('11', '12', '13', '14')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.hP.upgrades.push('11', '12', '13', '14', '15', '16')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.hP.milestones.push('11', '12', '13', '14')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.iP.upgrades.push('11', '12', '13', '14', '15', '16')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.iP.milestones.push('11', '12', '13', '14', '15')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.jP.upgrades.push('11', '12', '13', '14', '15', '16', '21')
+        if (hasUpgrade('A', 11) && resettingLayer == "A") player.jP.milestones.push('11', '12', '13', '14', '15')
 
 },
     upgrades: {

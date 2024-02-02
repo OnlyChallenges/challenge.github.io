@@ -39,6 +39,7 @@ addLayer("iP", {
     passiveGeneration(){
         let passive = new Decimal(0)
         if (player.A.unlocked) passive = passive.plus(tmp.A.passiveEff.div(100))
+        if (inChallenge('Ab', 11)) passive = new Decimal(0)
         return passive
     },
     branches: ["jP"],
