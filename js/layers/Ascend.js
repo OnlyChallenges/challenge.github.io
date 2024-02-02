@@ -119,8 +119,8 @@ addLayer("A", {
         return 'You have ' + format(player.A.power) + ' Ascension Power, which boosts Buffed Prestige Point generation by ' + format(tmp.A.powerEff) + 'x'
     }
     , {}],["display-text", function() {
-        let passive = 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +%' + format(tmp.A.passiveEff)
-        if (InChallenge('Ab', 11)) passive = 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +%0.00'
+        let passive = 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +%' + format(tmp.A.passiveEff);
+        if (inChallenge('Ab', 11)) passive = 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +%0.00';
         return passive
     }
     , {}],["display-text", function() {
