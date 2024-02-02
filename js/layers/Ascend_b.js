@@ -110,7 +110,7 @@ addLayer("Ab", {
             description: "^1.3 Point Gain",
             cost: new Decimal(25),
             currencyDisplayName: "Prestige Points",
-            currencyInternalName: "prestige points",
+            currencyInternalName: "points",
             currencyLayer: 'p',
             unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 22)}
         },
@@ -119,7 +119,7 @@ addLayer("Ab", {
             description: "Buffed Prestige Effect is signifcantly greater",
             cost: new Decimal(7),
             currencyDisplayName: "BPrestige Points",
-            currencyInternalName: "buffed prestige points",
+            currencyInternalName: "points",
             currencyLayer: 'bP',
             unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 23)}
         },
@@ -128,7 +128,7 @@ addLayer("Ab", {
             description: "Lower P, bP, and cP Requirement cost significantly",
             cost: new Decimal(3),
             currencyDisplayName: "CPrestige Points",
-            currencyInternalName: "community prestige points",
+            currencyInternalName: "points",
             currencyLayer: 'cP',
             unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 24)}
         },
@@ -137,7 +137,7 @@ addLayer("Ab", {
             description: "100x All P-Layers before fP",
             cost: new Decimal(6),
             currencyDisplayName: "DPrestige Points",
-            currencyInternalName: "delta prestige points",
+            currencyInternalName: "points",
             currencyLayer: 'dP',
             unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 25)}
         },
@@ -146,7 +146,7 @@ addLayer("Ab", {
             description: "10x fP, gP, hP, and iP",
             cost: new Decimal(8),
             currencyDisplayName: "FPrestige Points",
-            currencyInternalName: "flattened prestige points",
+            currencyInternalName: "points",
             currencyLayer: 'fP',
             unlocked() {return inChallenge('Ab', 11) || hasUpgrade('Ab', 26)}
         },
