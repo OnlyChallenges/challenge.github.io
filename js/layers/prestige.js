@@ -57,7 +57,7 @@ addLayer("p", {
         if (player.A.unlocked) passive = new Decimal(1000000)
         if (player.A.unlocked) passive = passive.plus(tmp.A.passiveEff.div(100))
         if (inChallenge('Ab', 11)) passive = passive.minus(tmp.A.passiveEff.div(100))
-        if (inChallenge('Ab', 11)) passive = passive.pow(0.3)
+        if (inChallenge('Ab', 11)) passive = passive.pow(0.2)
         return passive
     },
     layerShown(){return true},
