@@ -50,7 +50,7 @@ addLayer("Ab", {
             Point gain is now ^0.06 & P > iP gain is now ^0.1<br>
             Booster effect is significantly boosted<br>
             Passive Effect is removed from all (letter)P's<br>
-            ^0.2 Original Passive Effect<br>
+            ^0.07 Original Passive Effect<br>
             Boost Power also has no effect inside the challenge & Ascension Power Effect is nerfed gravely<br>
             Note: Ab Upgrades purchased in Ab1 Challenge will be kept but will not have an effect outside of the challenge.<br>`,
             canComplete: function() {return player.jP.points.gte(1)},
