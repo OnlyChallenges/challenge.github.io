@@ -22,6 +22,7 @@ addLayer("jP", {
         if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
         if (inChallenge('Ab', 11)) mult = mult.div(tmp.A.boostEff)
         if (inChallenge('Ab', 11)) mult = mult.pow(0.1)
+        if (hasChallenge('Ab', 11)) mult = mult.pow(1.2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
