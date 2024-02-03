@@ -47,7 +47,7 @@ addLayer("Ab", {
             name: "True Ascension",
             challengeDescription: 
             `Your now in purity...<br>
-            Infect gain is now ^0.06 & P > iP gain is now ^0.1<br>
+            Point gain is now ^0.06 & P > iP gain is now ^0.1<br>
             Booster effect is significantly boosted<br>
             Passive Effect is removed from all (letter)P's<br>
             Boost Power also has no effect inside the challenge & Ascension Power Effect is nerfed gravely<br>
