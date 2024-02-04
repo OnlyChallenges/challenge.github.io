@@ -78,6 +78,7 @@ addLayer("A", {
         if (hasUpgrade('A', 11)) exp = new Decimal(1 / 3);
         if (hasUpgrade('A', 21)) exp = new Decimal(2 / 3);
         if (hasUpgrade('A', 31)) exp = new Decimal(3 / 4);
+        if (hasUpgrade('A', 41)) exp = exp.add(0.25);
         if (hasUpgrade('Ab', 11)) exp = exp.add(0.4);
         if (inChallenge('Ab', 11) || inChallenge('Ab', 12)) exp = exp.minus(1.1)
         return exp;
@@ -87,6 +88,7 @@ addLayer("A", {
         if (hasUpgrade('A', 12)) exp = new Decimal(1 / 2);
         if (hasUpgrade('A', 22)) exp = new Decimal(6 / 10);
         if (hasUpgrade('A', 32)) exp = new Decimal(7 / 10);
+        if (hasUpgrade('A', 42)) exp = new Decimal(15 / 13);
         return exp;
     },
     boostExp() {
@@ -94,6 +96,7 @@ addLayer("A", {
         if (hasUpgrade('A', 13)) exp = new Decimal(1 / 3);
         if (hasUpgrade('A', 23)) exp = new Decimal(4 / 7);
         if (hasUpgrade('A', 33)) exp = new Decimal(4 / 5);
+        if (hasUpgrade('A', 43)) exp = new Decimal(14 / 15);
         return exp;
     },
     powerEff() {
