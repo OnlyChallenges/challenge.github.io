@@ -122,7 +122,7 @@ addLayer("A", {
         if (player.A.points.gte(150)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x ((a*(AP*MP*BP)*(APE*MPE*BPE)*1e25)^0.95)<br> Your own Generation is truly against you...'
         if (player.A.points.gte(200)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x (((a*(AP*MP*BP)*(APE*MPE*BPE)*1e50)^1.2))^2<br> Your own Generation is truly against you...'
         if (player.A.points.gte(250)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x<br> (((a*(AP*MP*BP)*(APE*MPE*BPE)*1e100)^1.6))^2<br>'
-        if (player.A.points.gte(300)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x<br> ((a*(AP*MP*BP)*(APE*MPE*BPE)*1e100)^1.6)^2)^log(a/1.6)<br>'
+        if (player.A.points.gte(300)) func = 'Ascension Requirement is nerfed by ' + format(tmp.A.requires.div(150)) + 'x<br> (((a*(AP*MP*BP)*(APE*MPE*BPE)*1e100)^1.6)^2)^log(a/1.6)<br>'
         return func
     }
     , {}], "blank", ["display-text", function() {
