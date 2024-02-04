@@ -61,6 +61,22 @@ addLayer("Ab", {
                 return unlock
             },
         },
+        12: {
+            name: "Unbalanced",
+            challengeDescription: 
+            `Someone didn't do this right...<br>
+            Point gain is now ^0.001 & P > iP gain is now ^0.05<br>
+            Passive Effect & Generation is removed from all (letter)P's<br>
+            Boost Power also has no effect inside the challenge & Ascension Power Effect is nerfed gravely<br>
+            <br>`,
+            canComplete: function() {return player.cP.points.gte(1)},
+            goalDescription: "1 Community Prestige Point",
+            rewardDescription: "^0.45 Ascension Requirement, ^1.3 Juggling Prestige Points, ^1.2 Generator Power Gain",
+            unlocked(){
+                let unlock = (hasChallenge('Ab', 11) || inChallenge('Ab', 12) || hasChallenge('Ab', 12))
+                return unlock
+            },
+        },
     },
     upgrades:{  
         11: {
