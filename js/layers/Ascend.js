@@ -241,7 +241,7 @@ addLayer("A", {
         43: {
             title: "Boost Power Boost IV",
             description: "BP Effect is better also automate DBoosters",
-            cost: new Decimal(1.5e11),
+            cost: new Decimal(7.5e21),
             currencyDisplayName: "Boost Power",
             currencyInternalName: "boost",
             currencyLayer: "A",
