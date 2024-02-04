@@ -12,7 +12,7 @@ addLayer("A", {
         if (player.A.points.gte(200)) requirement = requirement.times(nerf.times(nerf))
         if (player.A.points.gte(50)) requirement = requirement.times(nerf)
         if (hasChallenge('Ab', 11)) requirement = requirement.pow(0.65)
-        if (hasChallenge('Ab', 12)) requirement = requirement.pow(0.45)
+        if (hasChallenge('Ab', 12)) requirement = requirement.pow(0.37)
         return requirement
     },
     resource: "Ascension points", // Name of prestige currency
