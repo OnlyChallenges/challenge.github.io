@@ -76,7 +76,7 @@ if (hasMilestone('iP', 15)) gain = gain.times(1000000)
 if (inChallenge('Ab', 11)) gain = gain.pow(0.06)
 if (inChallenge('Ab', 12)) gain = gain.pow(0.001).minus(0.937)
 if (inChallenge('Ab', 21)) gain = gain.pow(0.001).minus(0.877)
-if (inChallenge('Ab', 21)) gain = gain.div(player.points.log10().add(1))
+if (inChallenge('Ab', 21) && player.points.gte(1.5)) gain = gain.div(player.points.log10().add(1))
 if (inChallenge('Ab', 11) && hasUpgrade('Ab', 22)) gain = gain.pow(1.3)
 	return gain
 }
