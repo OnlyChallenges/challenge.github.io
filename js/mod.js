@@ -7,7 +7,7 @@ let modInfo = {
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal (0), // Used for hard resets and new players
 	offlineLimit: 0.001,  // In hours
 }
 
@@ -74,7 +74,7 @@ if (hasUpgrade('hP', 16)) gain = gain.pow(1.1)
 if (hasUpgrade('Ab', 14)) gain = gain.pow(1.2)
 if (hasMilestone('iP', 15)) gain = gain.times(1000000)
 if (inChallenge('Ab', 11)) gain = gain.pow(0.06)
-if (inChallenge('Ab', 12)) gain = gain.pow(0.001)
+if (inChallenge('Ab', 12)) gain = gain.pow(0.001).minus(1)
 if (inChallenge('Ab', 11) && hasUpgrade('Ab', 22)) gain = gain.pow(1.3)
 	return gain
 }
