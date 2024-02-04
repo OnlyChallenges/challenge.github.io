@@ -18,7 +18,9 @@ addLayer("g", {
         return expo
     },
     base() {
-        return base = new Decimal(2.5)
+        let base = new Decimal(2.5)
+        if (hasChallenge('Ab', 12)) base = base.pow(1.2)
+        return base
     },
     gainMult() {
         let mult = new Decimal(1);
