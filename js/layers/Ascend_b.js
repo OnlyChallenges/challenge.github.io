@@ -65,7 +65,7 @@ addLayer("Ab", {
             name: "Unbalanced",
             challengeDescription: 
             `Someone didn't do this right...<br>
-            Point gain is now ^0.001 & P > iP gain is now ^0.05<br>
+            Point gain is now ^0.001 & P > cP gain is now ^0.05<br>
             Passive Effect & Generation is removed from all (letter)P's<br>
             Boost Power also has no effect inside the challenge & Ascension Power Effect is nerfed gravely<br>
             <br>`,
