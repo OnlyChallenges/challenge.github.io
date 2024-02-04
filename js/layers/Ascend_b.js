@@ -82,7 +82,7 @@ addLayer("Ab", {
             challengeDescription: 
             `Can you get points?<br>
             Point gain is now ^0.001 & P > bP gain is now ^0.05<br>
-            Passive Effect & Generation is removed from all (letter)P's<br>
+            Passive Effect & Generation is removed from P > eP<br>
             Boost Power also has no effect inside the challenge & Ascension Power Effect is nerfed gravely<br>
             Point gain nerfs itself...
             <br>`,
