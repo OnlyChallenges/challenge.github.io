@@ -11,7 +11,7 @@ addLayer("A", {
         if (player.A.points.gte(200)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e50)).pow(1.2)
         if (player.A.points.gte(250)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e100)).pow(1.6)
         if (player.A.points.gte(200)) requirement = requirement.times(nerf.times(nerf))
-        if (player.A.points.gte(300)) requirement = requirement.pow(log10(player.A.points).div(1.6))
+        if (player.A.points.gte(300)) requirement = requirement.pow(player.A.points.log10().div(1.6))
         if (player.A.points.gte(50)) requirement = requirement.times(nerf)
         if (hasChallenge('Ab', 11)) requirement = requirement.pow(0.65)
         if (hasChallenge('Ab', 12)) requirement = requirement.pow(0.37)
