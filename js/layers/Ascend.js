@@ -247,6 +247,15 @@ addLayer("A", {
             currencyLayer: "A",
             unlocked() {return (hasUpgrade('A', 33) && player.A.points.gte(250)) || hasUpgrade('A', 43)},
         },
+        51: {
+            title: "Generative Buff",
+            description: "1e30x Juggling Prestige Points",
+            cost: new Decimal(145),
+            currencyDisplayName: "Generators",
+            currencyInternalName: "points",
+            currencyLayer: "g",
+            unlocked() {return (hasUpgrade('A', 41) && hasUpgrade('A', 42) && hasUpgrade('A', 43))},
+        },
         },
 
 
