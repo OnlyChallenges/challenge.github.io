@@ -71,7 +71,7 @@ addLayer("Ab", {
             <br>`,
             canComplete: function() {return player.cP.points.gte(1)},
             goalDescription: "1 Community Prestige Point",
-            rewardDescription: "^0.45 Ascension Requirement, ^1.3 Juggling Prestige Points, ^1.2 Generator Power Gain",
+            rewardDescription: "^0.37 Ascension Requirement, ^1.3 Juggling Prestige Points, ^1.2 Generator Power Gain",
             unlocked(){
                 let unlock = (hasChallenge('Ab', 11) || inChallenge('Ab', 12) || hasChallenge('Ab', 12))
                 return unlock
