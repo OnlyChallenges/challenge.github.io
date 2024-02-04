@@ -77,7 +77,7 @@ addLayer("A", {
         if (hasUpgrade('A', 21)) exp = new Decimal(2 / 3);
         if (hasUpgrade('A', 31)) exp = new Decimal(3 / 4);
         if (hasUpgrade('Ab', 11)) exp = exp.add(0.4);
-        if (inChallenge('Ab', 11)) exp = exp.minus(1.1)
+        if (inChallenge('Ab', 11) || inChallenge('Ab', 12)) exp = exp.minus(1.1)
         return exp;
     },
     passiveExp() {
@@ -122,12 +122,12 @@ addLayer("A", {
     }
     , {}],["display-text", function() {
         let passive = 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +%' + format(tmp.A.passiveEff);
-        if (inChallenge('Ab', 11)) passive = 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +%0.00';
+        if (inChallenge('Ab', 11) || inChallenge('Ab', 12)) passive = 'You have ' + format(player.A.passive) + ' Meta Power, which boosts Passive Generation on all previous layers by +%0.00';
         return passive
     }
     , {}],["display-text", function() {
         let boost = 'You have ' + format(player.A.boost) + ' Boost Power, which boosts all previous layers (Except Boosters & Generators) by ' + format(tmp.A.boostEff) + 'x'
-        if (inChallenge('Ab', 11)) boost = 'You have ' + format(player.A.boost) + ' Boost Power, which boosts all previous layers (Except Boosters & Generators) by 1.00x'
+        if (inChallenge('Ab', 11) || inChallenge('Ab', 12)) boost = 'You have ' + format(player.A.boost) + ' Boost Power, which boosts all previous layers (Except Boosters & Generators) by 1.00x'
         return boost
     }
     , {}], "blank", ["display-text", function() {
