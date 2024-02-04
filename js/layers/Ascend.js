@@ -9,7 +9,7 @@ addLayer("A", {
         if (player.A.points.gte(100)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost)).pow(0.9)
         if (player.A.points.gte(150)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e25)).pow(0.95)
         if (player.A.points.gte(200)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e50)).pow(1.2)
-        if (player.A.points.gte(250)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e100)).pow(1.5)
+        if (player.A.points.gte(250)) nerf = (player.A.points.times(player.A.power).times(player.A.passive).times(player.A.boost).times(tmp.A.powerEff).times(tmp.A.passiveEff).times(tmp.A.boostEff).times(1e100)).pow(1.6)
         if (player.A.points.gte(200)) requirement = requirement.times(nerf.times(nerf))
         if (player.A.points.gte(50)) requirement = requirement.times(nerf)
         if (hasChallenge('Ab', 11)) requirement = requirement.pow(0.65)
