@@ -32,6 +32,7 @@ addLayer("dB", {
         return dis
     },
     resetsNothing() { return player.dB.unlocked },
+    autoPrestige() { return hasUpgrade('A', 43)},
     row: 8, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "3", description: "Number Key 3: Reset for Delta Boosters", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
