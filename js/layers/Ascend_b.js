@@ -77,6 +77,23 @@ addLayer("Ab", {
                 return unlock
             },
         },
+        21: {
+            name: "No Points gain?",
+            challengeDescription: 
+            `Can you get points?<br>
+            Point gain is now ^0.001 & P > bP gain is now ^0.05<br>
+            Passive Effect & Generation is removed from all (letter)P's<br>
+            Boost Power also has no effect inside the challenge & Ascension Power Effect is nerfed gravely<br>
+            Point gain nerfs itself...
+            <br>`,
+            canComplete: function() {return player.dP.points.gte(1)},
+            goalDescription: "1 Delta Prestige Point",
+            rewardDescription: "^0.7 Ascension Requirement, ^1.35 Juggling Prestige Points, ^0.3 Booster Requirement",
+            unlocked(){
+                let unlock = (player.A.points.gte(300) || inChallenge('Ab', 21) || hasChallenge('Ab', 21))
+                return unlock
+            },
+        },
     },
     upgrades:{  
         11: {
