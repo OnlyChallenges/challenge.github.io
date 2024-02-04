@@ -217,6 +217,33 @@ addLayer("A", {
             currencyLayer: "A",
             unlocked() {return hasUpgrade('A', 23)},
         },
+        41: {
+            title: "Ascension Power Boost IV",
+            description: "AP Effect is better also automate Generators",
+            cost: new Decimal(1e22),
+            currencyDisplayName: "Ascension Power",
+            currencyInternalName: "power",
+            currencyLayer: "A",
+            unlocked() {return (hasUpgrade('A', 31) && player.A.points.gte(250)) || hasUpgrade('A', 41)},
+        },
+        42: {
+            title: "Meta Power Boost IV",
+            description: "MP Effect is better also automate CBoosters",
+            cost: new Decimal(2e22),
+            currencyDisplayName: "Meta Power",
+            currencyInternalName: "passive",
+            currencyLayer: "A",
+            unlocked() {return (hasUpgrade('A', 32) && player.A.points.gte(250)) || hasUpgrade('A', 42)},
+        },
+        43: {
+            title: "Boost Power Boost IV",
+            description: "BP Effect is better also automate DBoosters",
+            cost: new Decimal(1.5e11),
+            currencyDisplayName: "Boost Power",
+            currencyInternalName: "boost",
+            currencyLayer: "A",
+            unlocked() {return (hasUpgrade('A', 33) && player.A.points.gte(250)) || hasUpgrade('A', 43)},
+        },
         },
 
 
