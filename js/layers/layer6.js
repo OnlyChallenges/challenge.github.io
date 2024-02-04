@@ -51,6 +51,7 @@ addLayer("fP", {
         if (player.A.unlocked) passive = passive.plus(tmp.A.passiveEff.div(100))
         if (inChallenge('Ab', 11)) passive = passive.minus(tmp.A.passiveEff.div(100))
         if (inChallenge('Ab', 11)) passive = passive.pow(0.07)
+        if (inChallenge('Ab', 12)) passive = new Decimal(0)
         return passive
     },
     branches: ["gP",'g'],
