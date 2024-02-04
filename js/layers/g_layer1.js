@@ -83,6 +83,7 @@ addLayer("g", {
         return player.g.power.plus(1).pow(this.powerExp());
     },
     resetsNothing() { return player.g.unlocked },
+    autoPrestige() { return hasUpgrade('A', 41)},
     tabFormat: ["main-display", "prestige-button", "blank", ["display-text", function() {
         return 'You have ' + format(player.g.power) + ' Generator Power, which boosts Prestige Point generation by ' + format(tmp.g.powerEff) + 'x'
     }
