@@ -24,6 +24,7 @@ addLayer("jP", {
         if (inChallenge('Ab', 11)) mult = mult.pow(0.1)
         if (hasChallenge('Ab', 11)) mult = mult.pow(1.2)
         if (hasChallenge('Ab', 12)) mult = mult.pow(1.3)
+        if (hasChallenge('Ab', 21)) mult = mult.pow(1.35)
         if (hasUpgrade('A', 51)) mult = mult.times(1e30)
         return mult
     },

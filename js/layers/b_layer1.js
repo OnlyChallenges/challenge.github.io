@@ -10,6 +10,7 @@ addLayer("b", {
     requires(){ 
         let requirement = new Decimal(50)
         if (hasMilestone('jP', 13)) requirement = requirement.minus(20)
+        if (hasChallenge('Ab', 21)) requirement = requirement.pow(0.3)
         return requirement
     },
     resource: "boosters", // Name of prestige currency
