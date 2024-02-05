@@ -98,7 +98,7 @@ addLayer("A", {
         if (hasUpgrade('A', 13)) exp = new Decimal(1 / 3);
         if (hasUpgrade('A', 23)) exp = new Decimal(4 / 7);
         if (hasUpgrade('A', 33)) exp = new Decimal(4 / 5);
-        if (hasUpgrade('A', 43)) exp = new Decimal(14 / 15);
+        if (hasUpgrade('A', 43)) exp = new Decimal(15.5 / 16);
         return exp;
     },
     powerEff() {
