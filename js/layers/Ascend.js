@@ -61,7 +61,7 @@ addLayer("A", {
         if (player.A.unlocked)
             player.A.passive = player.A.passive.plus(tmp.A.effect.times(diff).times(5));
         if (player.A.unlocked)
-            player.A.boost = player.A.boost.plus(tmp.A.effect.times(diff).div(2));
+            player.A.boost = player.A.boost.plus(tmp.A.effect.times(diff).div(1.3));
     },
     startData() {
         return {
