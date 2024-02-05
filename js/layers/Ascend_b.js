@@ -88,7 +88,7 @@ addLayer("Ab", {
             <br>`,
             canComplete: function() {return player.dP.points.gte(1)},
             goalDescription: "1 Delta Prestige Point",
-            rewardDescription: "^0.7 Ascension Requirement, ^1.35 Juggling Prestige Points, ^0.3 Booster Requirement",
+            rewardDescription: "^0.8 Ascension Requirement, ^1.35 Juggling Prestige Points, ^0.3 Booster Requirement",
             unlocked(){
                 let unlock = (player.A.points.gte(300) || inChallenge('Ab', 21) || hasChallenge('Ab', 21))
                 return unlock
