@@ -28,7 +28,7 @@ addLayer("dP", {
         if (hasUpgrade('hP', 15)) mult = mult.times(5)
         if (hasUpgrade('iP', 14)) mult = mult.times(10)
         if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
-        if (inChallenge('Ab', 11) || inChallenge('ab', 21)) mult = mult.div(tmp.A.boostEff)
+        if (inChallenge('Ab', 11) || inChallenge('Ab', 21)) mult = mult.div(tmp.A.boostEff)
         if (hasUpgrade('Ab', 16)) mult = mult.times(1e15)
         if (inChallenge('Ab', 11)) mult = mult.pow(0.1)
         if (inChallenge('Ab', 11) && hasUpgrade('Ab', 25)) mult = mult.times(100)
