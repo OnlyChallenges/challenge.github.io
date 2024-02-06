@@ -12,7 +12,7 @@ addLayer("PG", {
                 "blank",
                 ["display-text",
                 function() {
-                  let display = "Prestiges & How they work:<br> Every Row there will be an (letter)P; around 26 times...or more, each new row guarantee 1 new function to the new (letter)P and will bring up new content throughout the rows."
+                  let display = "Prestiges & How they work:<br> They reset previous stuff, Row 10 will unlock Ascension, Row 20 will unlock Trancension, Row 30 will unlock Rebirth, and so forth"
                   return display
                 },
                 {}],
@@ -180,5 +180,47 @@ addLayer("PG", {
                     "blank",
                 ],
             },
+            "Row 10-Specifics": {
+              content: [
+                "blank",
+                "blank",
+                ["display-text",
+                function() {
+                  let display = "Row 10-Specifics & How they work:<br> Every 10 Rows there will be Special-Layers that will help special upgrades, generations, and buffs for the previous 10 layers"
+                  return display
+                },
+                {}],
+                  "blank",
+                  ["display-text",
+                  function() {
+                    let display = ""
+                    if (player.A.unlocked) display = "Ascension (A): "+ formatWhole(player.A.points)
+                    return display
+                  },
+                  {}],
+                  ["display-text",
+                  function() {
+                    let display = ""
+                    if (player.A.unlocked) display = "Ascension Power (Ap): "+ format(player.A.power) + " (Ap Effect: " + format(tmp.A.powerEff)+"x Buffed Prestige Point Gain)"
+                    return display
+                  },
+                  {}],
+                  ["display-text",
+                  function() {
+                    let display = ""
+                    if (player.A.unlocked) display = "Meta Power (Mp): "+ format(player.A.passive) + " (Mp Effect: +" + format(tmp.A.passiveEff)+"% Passive Generation) [Before Ascension]"
+                    return display
+                  },
+                  {}],
+                  ["display-text",
+                  function() {
+                    let display = ""
+                    if (player.A.unlocked) display = "Boost Power (Bp): "+ format(player.A.boost) + " (Bp Effect: " + format(tmp.A.boostEff)+"x All Previous Layers) [Except Generators & Boosters]"
+                    return display
+                  },
+                  {}],
+                  "blank",
+              ],
+          },
     },
 })
