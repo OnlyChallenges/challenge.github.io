@@ -262,8 +262,14 @@ addLayer("A", {
             currencyLayer: "g",
             unlocked() {return (hasUpgrade('A', 41) && hasUpgrade('A', 42) && hasUpgrade('A', 43))},
         },
+        61: {
+            title: "Let's Continue",
+            description: "Unlock the next layer",
+            cost: new Decimal("1e450"),
+            currencyDisplayName: "Juggling Prestige Points",
+            currencyInternalName: "points",
+            currencyLayer: "jP",
+            unlocked() {return player.A.points.gte(350)},
         },
-
-
-
+        },
 })
