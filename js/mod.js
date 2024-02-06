@@ -47,7 +47,7 @@ function getPointGen() {
 	// In Challenge Effects
 	if (inChallenge('p', 11)) gain = gain.minus(0.5)
 	if (inChallenge('p', 12)) gain = gain.minus(1.4)
-	if (inChallenge('p', 13)) gain = gain.div(0.9)
+	if (inChallenge('p', 13)) gain = gain.div(1.2)
 	// Has Challenge Effects
 	if (hasChallenge('p', 11)) gain = gain.add(1)
 	if (hasChallenge('p', 12)) gain = gain.add(3)
