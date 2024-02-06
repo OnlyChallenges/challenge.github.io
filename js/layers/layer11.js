@@ -48,6 +48,11 @@ addLayer("kP", {
             done() { return player.kP.points.gte(1) },
         },
         12: {
+            requirementDescription: "3 Key Prestige Points",
+            effectDescription: `Ascension resets nothing, 100,000x Juggling Prestige Points`,
+            done() { return player.kP.points.gte(3) },
+        },
+        13: {
             requirementDescription: "5 Key Prestige Points",
             effectDescription: `Ascension Effect Base is increased by .1, Keep Ascension Challenges`,
             done() { return player.kP.points.gte(5) },
@@ -62,7 +67,7 @@ addLayer("kP", {
         12: {
             title: "Key Normality",
             description: "/5 Key Prestige Point requirement",
-            cost: new Decimal(6),
+            cost: new Decimal(3),
             unlocked(){ return hasUpgrade('kP', 11) },
         },
         13: {
