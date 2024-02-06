@@ -78,6 +78,7 @@ if (inChallenge('Ab', 12)) gain = gain.pow(0.001).minus(0.937)
 if (inChallenge('Ab', 21)) gain = gain.pow(0.005).minus(0.877)
 if (inChallenge('Ab', 21) && player.points.gte(1.5)) gain = gain.div(player.points.log10().add(1.1))
 if (inChallenge('Ab', 11) && hasUpgrade('Ab', 22)) gain = gain.pow(1.3)
+if (hasUpgrade('kP', 14)) gain = gain.pow(1.2)
 	return gain
 }
 
