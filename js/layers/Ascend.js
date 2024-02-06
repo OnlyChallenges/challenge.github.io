@@ -55,6 +55,7 @@ addLayer("A", {
     },
     effBase() {
         let base = new Decimal(1.2);
+        if (hasMilestone('kP', 12)) base = base.add(0.1);
         return base;
     },
     update(diff) {
@@ -77,6 +78,7 @@ addLayer("A", {
         }
     },
     automate() {},
+    autoPrestige() {return hasMilestone('kP', 11)},
     powerExp() {
         let exp = new Decimal(1 / 4);
         if (hasUpgrade('A', 11)) exp = new Decimal(1 / 3);
