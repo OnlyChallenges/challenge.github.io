@@ -160,6 +160,27 @@ doReset(resettingLayer) {
 if (hasMilestone('kP', 12)) player.Ab.challenges.push['12']
 if (hasMilestone('kP', 12)) player.Ab.challenges.push['21']
 
+  // KP Keeping
+        if (hasMilestone('kP', 11)) player.p.upgrades.push('11', '12', '13')
+        if (hasMilestone('kP', 11)) player.bP.upgrades.push('11', '12', '13')
+        if (hasMilestone('kP', 11)) player.bP.milestones.push('11')
+        if (hasMilestone('kP', 11)) player.cP.upgrades.push('11', '12', '13')
+        if (hasMilestone('kP', 11)) player.cP.milestones.push('11', '12')
+        if (hasMilestone('kP', 11)) player.dP.upgrades.push('11', '12', '13')
+        if (hasMilestone('kP', 11)) player.dP.milestones.push('11', '12', '13')
+        if (hasMilestone('kP', 11)) player.eP.upgrades.push('11', '12', '13', '14')
+        if (hasMilestone('kP', 11)) player.eP.milestones.push('11', '12', '13')
+        if (hasMilestone('kP', 11)) player.fP.upgrades.push('11', '12', '13', '14')
+        if (hasMilestone('kP', 11)) player.fP.milestones.push('11', '12', '13', '14')
+        if (hasMilestone('kP', 11)) player.gP.upgrades.push('11', '12', '13', '14', '15')
+        if (hasMilestone('kP', 11)) player.gP.milestones.push('11', '12', '13', '14')
+        if (hasMilestone('kP', 11)) player.hP.upgrades.push('11', '12', '13', '14', '15', '16')
+        if (hasMilestone('kP', 11)) player.hP.milestones.push('11', '12', '13', '14')
+        if (hasMilestone('kP', 11)) player.iP.upgrades.push('11', '12', '13', '14', '15', '16')
+        if (hasMilestone('kP', 11)) player.iP.milestones.push('11', '12', '13', '14', '15')
+        if (hasMilestone('kP', 11)) player.jP.upgrades.push('11', '12', '13', '14', '15', '16', '21')
+        if (hasMilestone('kP', 11)) player.jP.milestones.push('11', '12', '13', '14', '15')
+
 },
     upgrades: {
         11: {
