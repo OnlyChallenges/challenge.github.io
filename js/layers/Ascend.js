@@ -55,7 +55,7 @@ addLayer("A", {
     },
     effBase() {
         let base = new Decimal(1.2);
-        if (hasMilestone('kP', 12)) base = base.add(0.1);
+        if (hasMilestone('kP', 13)) base = base.add(0.1);
         return base;
     },
     update(diff) {
