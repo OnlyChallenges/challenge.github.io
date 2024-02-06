@@ -97,6 +97,14 @@ addLayer("PG", {
                 },
                 {}],
                 "blank",
+                ["display-text",
+                function() {
+                  let display = ""
+                  if (player.kP.unlocked) display = "Key Prestige Points (kP): "+ formatWhole(player.kP.points)
+                  return display
+                },
+                {}],
+                "blank",
                 ],
             },
             "Boosters": {

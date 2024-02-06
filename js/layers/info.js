@@ -89,6 +89,14 @@ addLayer("At", {
                     },
                     {}],
                     "blank",
+                    ["display-text",
+                    function() {
+                      let display = ""
+                      if (player.kP.unlocked) display = "KP Point Passive%: "+ format(tmp.kP.passiveGeneration.times(100))+"%"
+                      return display
+                    },
+                    {}],
+                    "blank",
                     ],
             },
           
