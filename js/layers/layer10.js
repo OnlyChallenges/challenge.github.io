@@ -45,6 +45,7 @@ addLayer("jP", {
         if (inChallenge('Ab', 11)) passive = new Decimal(0)
         return passive
     },
+    branches: ["kP"],
     row: 9, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "j", description: "j: Reset for juggling prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
