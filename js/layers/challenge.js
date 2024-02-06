@@ -41,12 +41,24 @@ addLayer("p", {
         12: {
             name: "Still the beginning",
             challengeDescription: 
-            `Point Gain is nerf'd by 1.6`,
-            canComplete: function() {return player.points.gte(30)},
-            goalDescription: "30 Points",
+            `Point Gain is nerf'd by 1.4`,
+            canComplete: function() {return player.points.gte(20)},
+            goalDescription: "20 Points",
             rewardDescription: "+3 Point Gain",
             unlocked(){
                 let unlock = (hasChallenge('p',11)|| inChallenge('p', 12) || hasChallenge('p', 12))
+                return unlock
+            },
+        },
+        12: {
+            name: "A little different",
+            challengeDescription: 
+            `/0.8 Point Gain`,
+            canComplete: function() {return player.points.gte(70)},
+            goalDescription: "70 Points",
+            rewardDescription: "+7 Point Gain",
+            unlocked(){
+                let unlock = (hasChallenge('p',12)|| inChallenge('p', 13) || hasChallenge('p', 13))
                 return unlock
             },
         },
