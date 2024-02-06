@@ -49,7 +49,7 @@ addLayer("kP", {
         },
         12: {
             requirementDescription: "5 Key Prestige Points",
-            effectDescription: `Ascension Effect Base is increased by .1`,
+            effectDescription: `Ascension Effect Base is increased by .1, Keep Ascension Challenges`,
             done() { return player.kP.points.gte(5) },
         },
     },
