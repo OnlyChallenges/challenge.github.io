@@ -40,7 +40,7 @@ addLayer("A", {
         let passive = new Decimal(0)
         return passive
     },
-    branches: ['Ab'],
+    branches: ['Ab','kP'],
     row: 10, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "A", description: "Shift + a: Reset for Ascension", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
