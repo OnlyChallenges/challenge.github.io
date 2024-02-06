@@ -20,10 +20,15 @@ addLayer("A", {
             },
         },
 achievements: {
-11: {
-        name: "Challenging Fate",
+    11: {
+        name: "Welcome to challenges",
         done() { return hasChallenge('p', 12) },
         tooltip: "Complete the 2nd Challenge<br>Reward: +2.5 Point Gain",
+    },
+    12: {
+        name: "Another Challenging Welcome!",
+        done() { return hasChallenge('p', 14) },
+        tooltip: "Complete the 4th Challenge<br>Reward: +8 Point Gain",
     },
 },
 })

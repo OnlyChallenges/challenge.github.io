@@ -25,7 +25,7 @@ addLayer("p", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
-    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.points) +" ("+ format(tmp.pointGen)+"/s)"},{}],"blank","challenges"],
+    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.points) +" points ("+ format(tmp.pointGen)+"/s)"},{}],"blank","challenges"],
     challenges: {
         11: {
             name: "The Beginning",
@@ -60,6 +60,18 @@ addLayer("p", {
             rewardDescription: "+7 Point Gain",
             unlocked(){
                 let unlock = (hasChallenge('p',12)|| inChallenge('p', 13) || hasChallenge('p', 13))
+                return unlock
+            },
+        },
+        14: {
+            name: "Harsh Nerf",
+            challengeDescription: 
+            `/0.3 Point Gain`,
+            canComplete: function() {return player.points.gte(130)},
+            goalDescription: "130 Points",
+            rewardDescription: "x2 Point Gain",
+            unlocked(){
+                let unlock = (hasChallenge('p',13)|| inChallenge('p', 14) || hasChallenge('p', 14))
                 return unlock
             },
         },
