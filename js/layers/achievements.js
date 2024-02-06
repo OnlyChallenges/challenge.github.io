@@ -9,6 +9,7 @@ addLayer("A", {
     row: "side", // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
     tabFormat: {
+            "Achievements":{
             content: [
                 "blank",
                 "blank",
@@ -16,6 +17,7 @@ addLayer("A", {
                 "achievements",
                 "blank",
                 ],
+            },
         },
 achievements: {
 11: {
