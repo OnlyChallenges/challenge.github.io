@@ -54,7 +54,7 @@ addLayer("p", {
         13: {
             name: "A little different",
             challengeDescription: 
-            `/0.8 Point Gain`,
+            `/1.2 Point Gain`,
             canComplete: function() {return player.points.gte(70)},
             goalDescription: "70 Points",
             rewardDescription: "+7 Point Gain",
@@ -66,7 +66,7 @@ addLayer("p", {
         14: {
             name: "Harsh Nerf",
             challengeDescription: 
-            `/0.3 Point Gain`,
+            `/1.7 Point Gain`,
             canComplete: function() {return player.points.gte(130)},
             goalDescription: "130 Points",
             rewardDescription: "x2 Point Gain",
