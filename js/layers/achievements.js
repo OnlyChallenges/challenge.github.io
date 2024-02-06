@@ -8,6 +8,15 @@ addLayer("A", {
     tooltip: "Achievements",
     row: "side", // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
+    tabFormat: {
+            content: [
+                "blank",
+                "blank",
+                "blank",
+                "achievements",
+                "blank",
+                ],
+        },
 achievements: {
 11: {
         name: "Challenging Fate",

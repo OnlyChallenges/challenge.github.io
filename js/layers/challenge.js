@@ -50,7 +50,7 @@ addLayer("p", {
                 return unlock
             },
         },
-        12: {
+        13: {
             name: "A little different",
             challengeDescription: 
             `/0.8 Point Gain`,
