@@ -40,6 +40,7 @@ addLayer("bP", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         let exp = new Decimal(1)
         if (hasUpgrade('Ab', 13)) exp = exp.add(0.15)
+        if (hasUpgrade('kP', 15)) exp = exp.add(0.3)
         return exp
     },
     effect(){
