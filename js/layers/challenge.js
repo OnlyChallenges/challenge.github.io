@@ -82,7 +82,7 @@ addLayer("p", {
             canComplete: function() {return player.points.gte(50)},
             goalDescription: "50 Points",
             rewardEffect() { return (player.p.points.pow(0.7).add(1))},
-            rewardDescription(){ return "Points are boosted by Prestige Points},
+            rewardDescription(){ return "Points are boosted by Prestige Points"},
             rewardDisplay(){return challengeEffect('p', 15)},
             unlocked(){
                 let unlock = (hasChallenge('p',14)|| inChallenge('p', 15) || hasChallenge('p', 15))
