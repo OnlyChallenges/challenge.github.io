@@ -63,6 +63,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
+	"My best advice is to go Single-Tab Mode"
 ]
 
 // Determines when the game "ends"
