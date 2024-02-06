@@ -20,6 +20,7 @@ addLayer("jP", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         let mult = new Decimal(1)
         if (player.A.unlocked) mult = mult.times(tmp.A.boostEff)
+        if (player.kP.unlocked) mult = mult.times(tmp.kP.effect)
         if (inChallenge('Ab', 11)) mult = mult.div(tmp.A.boostEff)
         if (inChallenge('Ab', 11)) mult = mult.pow(0.1)
         if (hasChallenge('Ab', 11)) mult = mult.pow(1.2)
