@@ -43,12 +43,6 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
-
-	// In Challenge Effects
-	if (inChallenge('p', 11)) gain = gain.minus(0.5)
-	if (inChallenge('p', 12)) gain = gain.minus(1.4)
-	if (inChallenge('p', 13)) gain = gain.times(0.8)
-	if (inChallenge('p', 14)) gain = gain.times(0.3)
 	// Has Challenge Effects
 	if (hasChallenge('p', 11)) gain = gain.add(1)
 	if (hasChallenge('p', 12)) gain = gain.add(3)
@@ -57,6 +51,11 @@ function getPointGen() {
 	// Achievement Effects
 	if (hasAchievement('A', 11)) gain = gain.add(2.5)
 	if (hasAchievement('A', 12)) gain = gain.add(8)
+	// In Challenge Effects
+	if (inChallenge('p', 11)) gain = gain.minus(0.5)
+	if (inChallenge('p', 12)) gain = gain.minus(1.4)
+	if (inChallenge('p', 13)) gain = gain.times(0.8)
+	if (inChallenge('p', 14)) gain = gain.times(0.3)
 	return gain
 }
 
