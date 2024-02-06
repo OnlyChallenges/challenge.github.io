@@ -25,7 +25,7 @@ addLayer("p", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
-    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.points) +"("+ format(player.getPointGen)+"/s)"},{}],"blank","challenges"],
+    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.points) +"("+ format(tmp.pointGen)+"/s)"},{}],"blank","challenges"],
     challenges: {
         11: {
             name: "The Beginning",
