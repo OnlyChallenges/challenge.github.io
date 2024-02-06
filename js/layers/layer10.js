@@ -26,6 +26,7 @@ addLayer("jP", {
         if (hasChallenge('Ab', 12)) mult = mult.pow(1.3)
         if (hasChallenge('Ab', 21)) mult = mult.pow(1.35)
         if (hasUpgrade('A', 51)) mult = mult.times(1e30)
+        if (hasUpgrade('kP', 11)) mult = mult.times(1e15)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
