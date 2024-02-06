@@ -24,5 +24,31 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    challenges: {
+        11: {
+            name: "The Beginning",
+            challengeDescription: 
+            `Point Gain is nerf'd by 0.5`,
+            canComplete: function() {return player.points.gte(10)},
+            goalDescription: "10 Points",
+            rewardDescription: "+1 Point Gain",
+            unlocked(){
+                let unlock = (player.p.unlocked || inChallenge('p', 11) || hasChallenge('p', 11))
+                return unlock
+            },
+        },
+        12: {
+            name: "Still the beginning",
+            challengeDescription: 
+            `Point Gain is nerf'd by 1.6`,
+            canComplete: function() {return player.points.gte(30)},
+            goalDescription: "30 Points",
+            rewardDescription: "+3 Point Gain",
+            unlocked(){
+                let unlock = (hasChallenge('p',11)|| inChallenge('p', 12) || hasChallenge('p', 12))
+                return unlock
+            },
+        },
+    },
 })

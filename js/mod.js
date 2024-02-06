@@ -3,11 +3,10 @@ let modInfo = {
 	id: "mymod",
 	author: "nobody",
 	pointsName: "points",
-	modFiles: ["layers.js", "tree.js"],
-
+	modFiles: ["layers/challenge.js", "tree.js"],
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal (1), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
@@ -43,6 +42,13 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+
+	// In Challenge Effects
+	if (inChallenge('p', 11)) gain = gain.minus(0.5)
+	if (inChallenge('p', 12)) gain = gain.minus(1.4)
+	// Has Challenge Effects
+	if (hasChallenge('p', 11)) gain = gain.add(1)
+	if (hasChallenge('p', 12)) gain = gain.minus(3)
 	return gain
 }
 
