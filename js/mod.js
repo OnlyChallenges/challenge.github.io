@@ -13,17 +13,25 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.3",
+	num: "0.1.4",
 	name: "Ascending Normality",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+ <h3>v0.1.4:</h3><br>
+ - Added 2 Layers<br>
+ - Added 4 Ascension Challenges<br>
+ - Refixed Balancing during Ascension Pre-150<br>
+ - Fixed Ascension Scaling<br>
+ - Refixed some formulas<br>
+ - Added Generator Scaler<br>
+ - <a>Endgame: 40 Key Prestige Points</a><br><br>
  <h3>v0.1.3: Ascending Normality</h3><br>
  - Added Ascension...<br>
  - Fixed 3 Milestones<br>
  - Readjusted iP & cB slightly<br>
  - Added 3 Scalers<br>
- - <a> Endgame: 150 Ascension Points</a><br><br>
+ - <a>Endgame: 150 Ascension Points</a><br><br>
 	<h3>v0.1.2:</h3><br>
 	- Added 4 Layers<br>
 	- Fixed playerinfo.js without bugs on opening the Node<br>
@@ -89,7 +97,7 @@ function addedPlayerData() { return {
 // Display extra things at the top of the page
 var displayThings = [
 function(){
- let endgame = "<a>Endgame: 150 Ascension Points"
+ let endgame = "<a>Endgame: 40 Key Prestige Points"
 return endgame
 },
 function(){
@@ -101,7 +109,7 @@ return cha
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.A.points.gte(new Decimal(150))
+	return player.kP.points.gte(new Decimal(40))
 }
 
 
