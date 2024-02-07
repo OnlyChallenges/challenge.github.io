@@ -5,7 +5,6 @@ addLayer("p", {
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
-  nerf: new Decimal(1),
     }},
     color: "#4BDC13",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
@@ -17,6 +16,7 @@ addLayer("p", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasAchievement('A', 13)) mult = mult.times(3)
+        if (hasChallenge('p', 18)) mult = mult.times(challengeEffect('p', 18))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -26,9 +26,6 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    update(diff) {
-   player.p.nerf=player.p.nerf.add(diff).div(5)    },
-
     layerShown(){return true},
     tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.points) +" points ("+ format(tmp.pointGen)+"/s)"},{}],"blank","challenges"],
     challenges: {
@@ -125,10 +122,10 @@ addLayer("p", {
 18: {
             name: "Logful Defense",
             challengeDescription(){
-            "^0.5 point gain, overtime; points will be nerf'd by an effect<br> Nerf Effect: /"+ format(player.p.nerf)},
+            "^0.5 point gain, overtime; points will be nerf'd by an effect<br> Nerf Effect: /"+ format(player.points.log10().add(1))},
             canComplete: function() {return player.points.gte(1000)},
             goalDescription: "1,000 Point(s)",
-            rewardEffect() { return (player.points.pow(0.18).add(1))},
+            rewardEffect() { return (player.p.points.pow(0.16).add(1))},
             rewardDescription(){ return "Prestige Points boosts itself"},
             rewardDisplay(){return format(challengeEffect('p', 18))+"x"},
             unlocked(){
