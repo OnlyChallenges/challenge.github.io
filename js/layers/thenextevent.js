@@ -15,6 +15,7 @@ addLayer("d", {
     exponent: 0.25, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasAchievement('A', 16)) mult = mult.add(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -60,6 +61,20 @@ addLayer("d", {
             rewardDescription: "3x Point Gain",
             unlocked(){
                 let unlock = (hasChallenge('d', 12) || inChallenge('d', 13) || hasChallenge('d', 13))
+                return unlock
+            },
+        },
+        14: {
+            name: "Confined Dust",
+            challengeDescription(){
+            return "Points are nerf'd by Prestige Points. <br>(Nerf Effect: /" + format(player.p.points.pow(0.8))+ ")"},
+            canComplete: function() {return player.p.points.gte(50)},
+            goalDescription: "50 Prestige Points",
+            rewardEffect() { return (player.d.points.pow(0.3).add(1))},
+            rewardDescription(){ return "Points are boosted by Dust"},
+            rewardDisplay(){return format(challengeEffect('d', 14))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('d', 13) || inChallenge('d', 14) || hasChallenge('d', 14))
                 return unlock
             },
         },

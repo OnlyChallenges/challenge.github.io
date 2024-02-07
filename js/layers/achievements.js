@@ -45,5 +45,10 @@ achievements: {
         done() { return hasChallenge('d', 11) },
         tooltip: "Complete the 1st Dust Challenge",
     },
+    16: {
+        name: "Hellish Dust",
+        done() { return hasChallenge('d', 14) },
+        tooltip: "Complete the 4th Dust Challenge<br>Reward: +2 Dust Gain",
+    },
 },
 })
