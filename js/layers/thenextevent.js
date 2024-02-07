@@ -51,5 +51,17 @@ addLayer("d", {
                 return unlock
             },
         },
+        13: {
+            name: "False Dust",
+            challengeDescription(){
+            return "Points boost Prestige Point Requirement, Can you catch up?<br>(Nerf Effect: " + format(player.points.pow(0.5))+ "x)"},
+            canComplete: function() {return player.p.points.gte(1)},
+            goalDescription: "1 Prestige Points",
+            rewardDescription: "3x Point Gain",
+            unlocked(){
+                let unlock = (hasChallenge('d', 12) || inChallenge('d', 12) || hasChallenge('d', 12))
+                return unlock
+            },
+        },
     },
 })
