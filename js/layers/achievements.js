@@ -35,5 +35,10 @@ achievements: {
         done() { return hasChallenge('p', 16) },
         tooltip: "Complete the 6th Challenge<br>Reward: x3 Prestige Point Gain",
     },
+    14: {
+        name: "^0.1 + log10(points) + /3+log10(points).. absurd",
+        done() { return hasChallenge('p', 19) },
+        tooltip: "Complete the 9th Challenge<br>Reward: Unlock the next layer",
+    },
 },
 })
