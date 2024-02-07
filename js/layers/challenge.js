@@ -118,5 +118,19 @@ addLayer("p", {
                 return unlock
             },
         },
+18: {
+            name: "Logful Defense",
+            challengeDescription: 
+            `^0.5 point gain, overtime; points will be nerf'd by an effect<br> Nerf Effect:`,
+            canComplete: function() {return player.points.gte(1000)},
+            goalDescription: "1,000 Point(s)",
+            rewardEffect() { return (player.points.pow(0.18).add(1))},
+            rewardDescription(){ return "Prestige Points boosts itself"},
+            rewardDisplay(){return format(challengeEffect('p', 18))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('p',18)|| inChallenge('p', 18) || hasChallenge('p', 18))
+                return unlock
+            },
+        },
     },
 })
