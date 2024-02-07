@@ -31,8 +31,8 @@ addLayer("d", {
             name: "Dusty Adventist",
             challengeDescription: 
             `x50 Prestige Point Requirement`,
-            canComplete: function() {return player.p.points.gte(5)},
-            goalDescription: "5 Prestige Points",
+            canComplete: function() {return player.p.points.gte(1000)},
+            goalDescription: "1000 Prestige Points",
             rewardDescription: "^1.1 Point Gain",
             unlocked(){
                 let unlock = (player.d.unlocked || inChallenge('d', 11) || hasChallenge('d', 11))
