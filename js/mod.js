@@ -3,7 +3,7 @@ let modInfo = {
 	id: "mymod",
 	author: "nobody",
 	pointsName: "points",
-	modFiles: ["layers/challenge.js","layers/achievements.js", "tree.js"],
+	modFiles: ["layers/challenge.js","layers/achievements.js","layers/thenextevent.js", "tree.js"],
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (1), // Used for hard resets and new players
@@ -51,6 +51,7 @@ function getPointGen() {
  if (hasChallenge('p', 15)) gain = gain.times(challengeEffect('p', 15))
 if (hasChallenge('p', 16)) gain = gain.times(challengeEffect('p', 16))
 if (hasChallenge('p', 17)) gain = gain.times(challengeEffect('p', 17))
+if (hasChallenge('d', 11)) gain = gain.pow(1.1)
 
 	// Achievement Effects
 	if (hasAchievement('A', 11)) gain = gain.add(2.5)
