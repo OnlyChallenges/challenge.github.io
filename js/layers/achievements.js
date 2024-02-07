@@ -40,5 +40,10 @@ achievements: {
         done() { return hasChallenge('p', 19) },
         tooltip: "Complete the 9th Challenge<br>Reward: Unlock the next layer",
     },
+    15: {
+        name: "Dusty Events",
+        done() { return hasChallenge('d', 11) },
+        tooltip: "Complete the 1st Dust Challenge",
+    },
 },
 })
