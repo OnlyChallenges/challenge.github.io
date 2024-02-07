@@ -72,7 +72,7 @@ function getPointGen() {
 	if (inChallenge('p', 19) && player.points.gte(1.1)) gain = gain.div(player.points.log10().add(3))
 	if (inChallenge('p', 19)) gain = gain.log10().max(0.36)
 	if (inChallenge('d', 12)) gain = gain.div(3)
-	if (inChallenge('d', 14)) gain = gain.div(player.p.points.pow(0.8))
+	if (inChallenge('d', 14)) gain = gain.div(player.p.points.pow(0.8).add(1))
 	return gain
 }
 
