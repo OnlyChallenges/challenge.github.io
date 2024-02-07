@@ -11,7 +11,7 @@ addLayer("p", {
         let req = new Decimal(10)
         if (inChallenge('d', 11)) req = req.times(50)
         if (inChallenge('d', 12)) req = req.times(5)
-        if (inChallenge('d', 13)) req = req.times(player.points.pow(0.6))
+        if (inChallenge('d', 13)) req = req.times(player.points.pow(0.95))
         return req
 }, 
 
