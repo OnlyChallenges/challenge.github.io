@@ -7,7 +7,12 @@ addLayer("p", {
 		points: new Decimal(0),
     }},
     color: "#4BDC13",
-    requires: new Decimal(10), // Can be a function that takes requirement increases into account
+    requires(){ 
+        let req = new Decimal(10)
+        if (inChallenge('d', 11)) req = req.times(50)
+}, 
+
+
     resource: "prestige points", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
