@@ -30,7 +30,7 @@ addLayer("d", {
         11: {
             name: "Dusty Adventist",
             challengeDescription: 
-            `x50 Prestige Point Requirement`,
+            `50x Prestige Point Requirement`,
             canComplete: function() {return player.p.points.gte(1000)},
             goalDescription: "1000 Prestige Points",
             rewardDescription: "^1.1 Point Gain",
@@ -42,9 +42,9 @@ addLayer("d", {
         12: {
             name: "Dust Logs",
             challengeDescription: 
-            `Log Point gain & 5x Prestige Points Requirements`,
-            canComplete: function() {return player.p.points.gte(50)},
-            goalDescription: "50 Prestige Points",
+            `/3 Point gain & 30x Prestige Points Requirement`,
+            canComplete: function() {return player.p.points.gte(400)},
+            goalDescription: "400 Prestige Points",
             rewardDescription: "3x Prestige Point Gain",
             unlocked(){
                 let unlock = (hasChallenge('d', 11) || inChallenge('d', 12) || hasChallenge('d', 12))

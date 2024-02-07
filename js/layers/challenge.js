@@ -131,9 +131,9 @@ addLayer("p", {
             name: "Logful Defense",
             challengeDescription(){
             return "^0.5 point gain, overtime; points will be nerf'd by an effect<br> Nerf Effect: /" + format(player.points.log10().add(1))},
-            canComplete: function() {return player.points.gte(1000)},
-            goalDescription: "1,000 Point(s)",
-            rewardEffect() { return (player.p.points.pow(0.16).add(1))},
+            canComplete: function() {return player.points.gte(300)},
+            goalDescription: "300 Point",
+            rewardEffect() { return (player.p.points.pow(0.18).add(1))},
             rewardDescription(){ return "Prestige Points boosts itself"},
             rewardDisplay(){return format(challengeEffect('p', 18))+"x"},
             unlocked(){
@@ -145,8 +145,8 @@ addLayer("p", {
             name: "Nerfic Effects",
             challengeDescription(){
             return "^0.1 point gain, overtime; points will be nerf'd by an effect; with that log point gain <br> (Nerf Effect: /" + format(player.points.log10().add(3)) + ")"},
-            canComplete: function() {return player.points.gte(25)},
-            goalDescription: "25 Point(s)",
+            canComplete: function() {return player.points.gte(10)},
+            goalDescription: "10 Point",
             rewardEffect() { return (player.points.pow(0.13).add(1))},
             rewardDescription(){ return "Points boosts itself again"},
             rewardDisplay(){return format(challengeEffect('p', 19))+"x"},
