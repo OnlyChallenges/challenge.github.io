@@ -78,5 +78,19 @@ addLayer("d", {
                 return unlock
             },
         },
+        15: {
+            name: "UnDusts",
+            challengeDescription(){
+            return "/100 Point Gain & multiple prestige point requirement based on points (Nerf Effect: " + format(player.points.pow(0.2).add(1)) + "x)"},
+            canComplete: function() {return player.p.points.gte(60)},
+            goalDescription: "60 Prestige Points",
+            rewardEffect() { return (player.points.pow(0.3).add(1))},
+            rewardDescription(){ return "Points boosts itself"},
+            rewardDisplay(){return format(challengeEffect('d', 15))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('d', 14) || inChallenge('d', 15) || hasChallenge('d', 15))
+                return unlock
+            },
+        },
     },
 })
