@@ -59,7 +59,7 @@ if (hasChallenge('p', 16)) gain = gain.times(challengeEffect('p', 16))
 	if (inChallenge('p', 13)) gain = gain.div(1.2)
 	if (inChallenge('p', 14)) gain = gain.div(1.7)
  if (inChallenge('p', 15)) gain = gain.log10()
- if (inChallenge('p', 16)) gain = gain.log10().log10().log10()
+ if (inChallenge('p', 16)) gain = gain.log10().log10().log10().max(0.01)
 	return gain
 }
 
