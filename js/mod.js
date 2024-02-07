@@ -66,6 +66,9 @@ if (hasChallenge('p', 17)) gain = gain.times(challengeEffect('p', 17))
 if (inChallenge('p', 17)) gain = gain.pow(0.25)
 if (inChallenge('p', 18)) gain = gain.pow(0.5)
 if (inChallenge('p', 18) && player.points.gte(1.1)) gain = gain.div(player.points.log10().add(1))
+if (inChallenge('p', 19)) gain = gain.pow(0.1)
+if (inChallenge('p', 19) && player.points.gte(1.1)) gain = gain.div(player.points.log10().add(3))
+if (inChallenge('p', 19)) gain = gain.log10()
 	return gain
 }
 
