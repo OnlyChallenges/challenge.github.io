@@ -25,7 +25,7 @@ addLayer("d", {
         {key: "d", description: "D: Reset for dust", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return hasAchievement('A', 14)},
-    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.p.points) +" prestige points (Point Gain: ("+ format(tmp.pointGen)+"/s)"},{}],"blank","challenges"],
+    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.p.points) +" prestige points (Point Gain: ["+ format(tmp.pointGen)+"/s)]"},{}],"blank","challenges"],
     challenges: {
         11: {
             name: "Dusty Adventist",
