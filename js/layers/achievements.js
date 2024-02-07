@@ -31,7 +31,7 @@ achievements: {
         tooltip: "Complete the 4th Challenge<br>Reward: +8 Point Gain",
     },
     13: {
-        name: "log(log(points))",
+        name: "log³(points)",
         done() { return hasChallenge('p', 16) },
         tooltip: "Complete the 6th Challenge<br>Reward: x3 Prestige Point Gain",
     },
