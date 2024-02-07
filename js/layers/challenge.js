@@ -132,7 +132,7 @@ addLayer("p", {
             rewardDescription(){ return "Prestige Points boosts itself"},
             rewardDisplay(){return format(challengeEffect('p', 18))+"x"},
             unlocked(){
-                let unlock = (hasChallenge('p',18)|| inChallenge('p', 18) || hasChallenge('p', 18))
+                let unlock = (hasChallenge('p',17)|| inChallenge('p', 18) || hasChallenge('p', 18))
                 return unlock
             },
         },
