@@ -10,6 +10,7 @@ addLayer("p", {
     requires(){ 
         let req = new Decimal(10)
         if (inChallenge('d', 11)) req = req.times(50)
+        if (inChallenge('d', 12)) req = req.times(30)
         return req
 }, 
 

@@ -25,7 +25,7 @@ addLayer("d", {
         {key: "d", description: "D: Reset for dust", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return hasAchievement('A', 14)},
-    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.p.points) +" prestige points (Point Gain: ["+ format(tmp.pointGen)+"/s)]"},{}],"blank","challenges"],
+    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.p.points) +" prestige points [Point Gain: ("+ format(tmp.pointGen)+"/s)]"},{}],"blank","challenges"],
     challenges: {
         11: {
             name: "Dusty Adventist",
@@ -36,6 +36,18 @@ addLayer("d", {
             rewardDescription: "^1.1 Point Gain",
             unlocked(){
                 let unlock = (player.d.unlocked || inChallenge('d', 11) || hasChallenge('d', 11))
+                return unlock
+            },
+        },
+        12: {
+            name: "Dust Logs",
+            challengeDescription: 
+            `Log Point gain & 30x Prestige Points`,
+            canComplete: function() {return player.p.points.gte(50)},
+            goalDescription: "50 Prestige Points",
+            rewardDescription: "3x Prestige Point Gain",
+            unlocked(){
+                let unlock = (hasChallenge('d', 11) || inChallenge('d', 12) || hasChallenge('d', 12))
                 return unlock
             },
         },
