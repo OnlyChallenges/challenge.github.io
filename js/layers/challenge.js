@@ -89,5 +89,19 @@ addLayer("p", {
                 return unlock
             },
         },
+16: {
+            name: "Logful Approach",
+            challengeDescription: 
+            `Double log point gain`,
+            canComplete: function() {return player.points.gte(2)},
+            goalDescription: "2 Points",
+            rewardEffect() { return (player.p.points.pow(0.17).add(1))},
+            rewardDescription(){ return "Points are boosted by Prestige Points again"},
+            rewardDisplay(){return (challengeEffect('p', 16).floor())+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('p',15)|| inChallenge('p', 16) || hasChallenge('p', 16))
+                return unlock
+            },
+        },
     },
 })
