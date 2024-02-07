@@ -42,7 +42,7 @@ addLayer("d", {
         12: {
             name: "Dust Logs",
             challengeDescription: 
-            `Log Point gain & 30x Prestige Points`,
+            `Log Point gain & 5x Prestige Points Requirements`,
             canComplete: function() {return player.p.points.gte(50)},
             goalDescription: "50 Prestige Points",
             rewardDescription: "3x Prestige Point Gain",
