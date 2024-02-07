@@ -26,7 +26,7 @@ addLayer("p", {
     hotkeys: [
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    function update(diff) {
+    update(diff) {
    player.p.nerf=player.p.nerf.add(diff).div(5)    },
 
     layerShown(){return true},
