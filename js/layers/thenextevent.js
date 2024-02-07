@@ -42,9 +42,9 @@ addLayer("d", {
         12: {
             name: "Dust Logs",
             challengeDescription: 
-            `/3 Point gain & 30x Prestige Points Requirement`,
-            canComplete: function() {return player.p.points.gte(400)},
-            goalDescription: "400 Prestige Points",
+            `/3 Point gain & 5x Prestige Points Requirement`,
+            canComplete: function() {return player.p.points.gte(100)},
+            goalDescription: "100 Prestige Points",
             rewardDescription: "3x Prestige Point Gain",
             unlocked(){
                 let unlock = (hasChallenge('d', 11) || inChallenge('d', 12) || hasChallenge('d', 12))
@@ -54,12 +54,12 @@ addLayer("d", {
         13: {
             name: "False Dust",
             challengeDescription(){
-            return "Points boost Prestige Point Requirement, Can you catch up?<br>(Nerf Effect: " + format(player.points.pow(0.5))+ "x)"},
+            return "Points boost Prestige Point Requirement, Can you catch up?<br>(Nerf Effect: " + format(player.points.pow(0.6))+ "x)"},
             canComplete: function() {return player.p.points.gte(1)},
             goalDescription: "1 Prestige Points",
             rewardDescription: "3x Point Gain",
             unlocked(){
-                let unlock = (hasChallenge('d', 12) || inChallenge('d', 12) || hasChallenge('d', 12))
+                let unlock = (hasChallenge('d', 12) || inChallenge('d', 13) || hasChallenge('d', 13))
                 return unlock
             },
         },
