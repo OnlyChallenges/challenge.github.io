@@ -105,8 +105,8 @@ addLayer("p", {
             name: "Logful Approach",
             challengeDescription: 
             `Triple log point gain`,
-            canComplete: function() {return player.points.gte(1)},
-            goalDescription: "1 Point(s)",
+            canComplete: function() {return player.points.gte(0.2)},
+            goalDescription: "0.2 Point(s)",
             rewardEffect() { return (player.p.points.pow(0.17).add(1))},
             rewardDescription(){ return "Points are boosted by Prestige Points again"},
             rewardDisplay(){return format(challengeEffect('p', 16))+"x"},
@@ -147,8 +147,8 @@ addLayer("p", {
             name: "Nerfic Effects",
             challengeDescription(){
             return "^0.1 point gain, overtime; points will be nerf'd by an effect; with that log point gain <br> (Nerf Effect: /" + format(player.points.log10().add(3)) + ")"},
-            canComplete: function() {return player.points.gte(10)},
-            goalDescription: "10 Points",
+            canComplete: function() {return player.points.gte(7)},
+            goalDescription: "7 Points",
             rewardEffect() { return (player.points.pow(0.13).add(1))},
             rewardDescription(){ return "Points boosts itself again"},
             rewardDisplay(){return format(challengeEffect('p', 19))+"x"},
