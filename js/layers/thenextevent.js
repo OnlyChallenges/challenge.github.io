@@ -67,7 +67,7 @@ addLayer("d", {
         14: {
             name: "Confined Dust",
             challengeDescription(){
-            return "Points are nerf'd by Prestige Points. <br>(Nerf Effect: /" + format(player.p.points.pow(0.8))+ ")"},
+            return "Points are nerf'd by Prestige Points. <br>(Nerf Effect: /" + format(player.p.points.pow(0.8).add(1))+ ")"},
             canComplete: function() {return player.p.points.gte(50)},
             goalDescription: "50 Prestige Points",
             rewardEffect() { return (player.d.points.pow(0.3).add(1))},
