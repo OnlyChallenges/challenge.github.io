@@ -94,13 +94,27 @@ addLayer("p", {
             name: "Logful Approach",
             challengeDescription: 
             `Triple log point gain`,
-            canComplete: function() {return player.points.gte(2)},
-            goalDescription: "2 Points",
+            canComplete: function() {return player.points.gte(1)},
+            goalDescription: "1 Point(s)",
             rewardEffect() { return (player.p.points.pow(0.17).add(1))},
             rewardDescription(){ return "Points are boosted by Prestige Points again"},
             rewardDisplay(){return format(challengeEffect('p', 16))+"x"},
             unlocked(){
                 let unlock = (hasChallenge('p',15)|| inChallenge('p', 16) || hasChallenge('p', 16))
+                return unlock
+            },
+        },
+17: {
+            name: "Powering Defense",
+            challengeDescription: 
+            `^0.25 point gain`,
+            canComplete: function() {return player.points.gte(50)},
+            goalDescription: "50 Point(s)",
+            rewardEffect() { return (player.points.pow(0.18).add(1))},
+            rewardDescription(){ return "Points boosts itself"},
+            rewardDisplay(){return format(challengeEffect('p', 17))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('p',16)|| inChallenge('p', 17) || hasChallenge('p', 17))
                 return unlock
             },
         },
