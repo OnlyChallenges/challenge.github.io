@@ -12,7 +12,6 @@ addLayer("p", {
         if (inChallenge('d', 11)) req = req.times(50)
         if (inChallenge('d', 12)) req = req.times(5)
         if (inChallenge('d', 13)) req = req.times(player.points.pow(0.7).add(1))
-        if (inChallenge('d', 15)) req = req.times(player.points.pow(0.2).add(1))
         return req
 }, 
 
