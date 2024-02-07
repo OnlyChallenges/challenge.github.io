@@ -143,8 +143,8 @@ addLayer("p", {
             name: "Nerfic Effects",
             challengeDescription(){
             return "^0.1 point gain, overtime; points will be nerf'd by an effect; with that log point gain <br> (Nerf Effect: /" + format(player.points.log10().add(3)) + ")"},
-            canComplete: function() {return player.points.gte(500)},
-            goalDescription: "500 Point(s)",
+            canComplete: function() {return player.points.gte(25)},
+            goalDescription: "25 Point(s)",
             rewardEffect() { return (player.points.pow(0.13).add(1))},
             rewardDescription(){ return "Points boosts itself again"},
             rewardDisplay(){return format(challengeEffect('p', 19))+"x"},
