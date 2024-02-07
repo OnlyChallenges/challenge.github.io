@@ -125,7 +125,7 @@ addLayer("p", {
 18: {
             name: "Logful Defense",
             challengeDescription(){
-            '^0.5 point gain, overtime; points will be nerf'd by an effect<br> Nerf Effect: /'+ format(player.p.nerf)},
+            "^0.5 point gain, overtime; points will be nerf'd by an effect<br> Nerf Effect: /"+ format(player.p.nerf)},
             canComplete: function() {return player.points.gte(1000)},
             goalDescription: "1,000 Point(s)",
             rewardEffect() { return (player.points.pow(0.18).add(1))},
