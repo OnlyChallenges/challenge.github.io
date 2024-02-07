@@ -25,6 +25,7 @@ addLayer("p", {
         mult = new Decimal(1)
         if (hasAchievement('A', 13)) mult = mult.times(3)
         if (hasChallenge('p', 18)) mult = mult.times(challengeEffect('p', 18))
+        if (hasChallenge('d', 12)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
