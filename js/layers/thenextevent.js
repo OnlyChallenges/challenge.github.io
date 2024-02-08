@@ -81,7 +81,7 @@ addLayer("d", {
         15: {
             name: "UnDusts",
             challengeDescription(){
-            return "/100 Point Gain & nerf point gain by points (Nerf Effect: /" + format(player.points.pow(0.15).add(1)) + ")"},
+            return "/75 Point Gain & nerf point gain by points (Nerf Effect: /" + format(player.points.pow(0.08).add(1)) + ")"},
             canComplete: function() {return hasChallenge('p', 11)},
             goalDescription: "Complete the 1st P-Challenge",
             rewardEffect() { return (player.points.pow(0.23).add(1))},
