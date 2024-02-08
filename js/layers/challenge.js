@@ -12,6 +12,7 @@ addLayer("p", {
         if (inChallenge('d', 11)) req = req.times(50)
         if (inChallenge('d', 12)) req = req.times(5)
         if (inChallenge('d', 13)) req = req.times(player.points.pow(0.7).add(1))
+        if (inChallenge('d', 16)) req = req.times(player.p.points.pow(0.1).add(1))
         return req
 }, 
 
@@ -30,6 +31,11 @@ addLayer("p", {
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
+    },
+    passiveGeneration(){
+        let passive = new Decimal(0)
+        if (inChallenge('d', 16)) passive = passive.minus(0.05)
+        return passive
     },
     branches: ["d"],
     row: 0, // Row the layer is in on the tree (0 is the first row)

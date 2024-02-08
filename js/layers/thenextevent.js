@@ -92,5 +92,19 @@ addLayer("d", {
                 return unlock
             },
         },
+        16: {
+            name: "No Prestige Points?",
+            challengeDescription(){
+            return "Prestige Points Nerf Itself, also lose 5% of Prestige Points a second (Nerf Effect: /" + format(player.p.points.pow(0.1).add(1)) + ")"},
+            canComplete: function() {return player.p.points.gte(50)},
+            goalDescription: "50 Prestige Points",
+            rewardEffect() { return (player.p.points.pow(0.19).add(1))},
+            rewardDescription(){ return "Prestige Points boosts Dust"},
+            rewardDisplay(){return format(challengeEffect('d', 16))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('d', 15) || inChallenge('d', 16) || hasChallenge('d', 16))
+                return unlock
+            },
+        },
     },
 })
