@@ -79,6 +79,7 @@ addLayer("A", {
     },
     automate() {},
     autoPrestige() {return hasMilestone('kP', 11)},
+    resetsNothing() {return hasMilestone('kP', 12)},
     powerExp() {
         let exp = new Decimal(1 / 4);
         if (hasUpgrade('A', 11)) exp = new Decimal(1 / 3);
