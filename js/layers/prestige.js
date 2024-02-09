@@ -156,9 +156,6 @@ doReset(resettingLayer) {
         if (hasUpgrade('A', 11) && resettingLayer == "A") player.iP.milestones.push('11', '12', '13', '14', '15')
         if (hasUpgrade('A', 11) && resettingLayer == "A") player.jP.upgrades.push('11', '12', '13', '14', '15', '16', '21')
         if (hasUpgrade('A', 11) && resettingLayer == "A") player.jP.milestones.push('11', '12', '13', '14', '15')
-        if (hasMilestone('kP', 13)) player.Ab.challenges.push['11']
-if (hasMilestone('kP', 13)) player.Ab.challenges.push['12']
-if (hasMilestone('kP', 13)) player.Ab.challenges.push['21']
 
   // KP Keeping
         if (hasMilestone('kP', 11)) player.p.upgrades.push('11', '12', '13')
