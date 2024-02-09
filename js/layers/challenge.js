@@ -34,7 +34,7 @@ addLayer("p", {
     },
     passiveGeneration(){
         let passive = new Decimal(0)
-        if (inChallenge('d', 16)) passive = passive.minus(0.05)
+        if (inChallenge('d', 16)) passive = passive.minus(0.3)
         return passive
     },
     branches: ["d"],
