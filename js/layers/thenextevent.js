@@ -117,8 +117,8 @@ addLayer("d", {
             name: "Screwing Dust",
             challengeDescription(){
             return "Divide Point gain based on Prestige Points, Dust Requirement is gravely increased (Nerf Effect: /" + format(player.p.points.pow(0.15).add(1)) + ")"},
-            canComplete: function() {return player.d.requires},
-            goalDescription: "Dust Requirement",
+            canComplete: function() {return player.p.points.gte(6835},
+            goalDescription: "Reach New Dust Requirement",
             rewardEffect() { return (player.d.points.pow(0.24).add(1))},
             rewardDescription(){ return "Dust boosts Prestige Points"},
             rewardDisplay(){return format(challengeEffect('d', 17))+"x"},
