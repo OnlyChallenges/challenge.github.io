@@ -7,7 +7,13 @@ addLayer("d", {
                 points: new Decimal(0),
     }},
     color: "#ACDC63",
-    requires: new Decimal(500), // Can be a function that takes requirement increases into account
+    requires(){ 
+        let req = new Decimal(500)
+        if (inChallenge('d', 17)) req = req.times(13.67)
+        return req
+},
+
+
     resource: "dust", // Name of prestige currency
     baseResource: "prestige points", // Name of resource prestige is based on
     baseAmount() {return player.p.points}, // Get the current amount of baseResource
@@ -16,6 +22,7 @@ addLayer("d", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasAchievement('A', 16)) mult = mult.add(2)
+        if (hasChallenge('d', 16)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -103,6 +110,20 @@ addLayer("d", {
             rewardDisplay(){return format(challengeEffect('d', 16))+"x"},
             unlocked(){
                 let unlock = (hasChallenge('d', 15) || inChallenge('d', 16) || hasChallenge('d', 16))
+                return unlock
+            },
+        },
+        17: {
+            name: "Screwing Dust",
+            challengeDescription(){
+            return "Divide Point gain based on Prestige Points, Dust Requirement is gravely increased (Nerf Effect: /" + format(player.p.points.pow(0.15).add(1)) + ")"},
+            canComplete: function() {return player.d.requires},
+            goalDescription: "Dust Requirement",
+            rewardEffect() { return (player.d.points.pow(0.24).add(1))},
+            rewardDescription(){ return "Dust boosts Prestige Points"},
+            rewardDisplay(){return format(challengeEffect('d', 17))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('d', 16) || inChallenge('d', 17) || hasChallenge('d', 17))
                 return unlock
             },
         },
