@@ -88,7 +88,7 @@ addLayer("d", {
         15: {
             name: "UnDusts",
             challengeDescription(){
-            return "/75 Point Gain & nerf point gain by points (Nerf Effect: /" + format(player.points.pow(0.08).add(1)) + ")"},
+            return "/75 Point Gain & nerf point gain by points<br>(Nerf Effect: /" + format(player.points.pow(0.08).add(1)) + ")"},
             canComplete: function() {return hasChallenge('p', 11)},
             goalDescription: "Complete the 1st P-Challenge",
             rewardEffect() { return (player.points.pow(0.23).add(1))},
@@ -102,7 +102,7 @@ addLayer("d", {
         16: {
             name: "No Prestige Points?",
             challengeDescription(){
-            return "Prestige Points Nerf Itself, also lose 30% of Prestige Points a second (Nerf Effect: /" + format(player.p.points.pow(0.1).add(1)) + ")"},
+            return "Prestige Points Nerf Itself, also lose 30% of Prestige Points based on Prestige Points on Reset<br> (Nerf Effect: /" + format(player.p.points.pow(0.1).add(1)) + ")"},
             canComplete: function() {return player.p.points.gte(15000)},
             goalDescription: "15,000 Prestige Points",
             rewardEffect() { return (player.p.points.pow(0.19).add(1))},
@@ -116,7 +116,7 @@ addLayer("d", {
         17: {
             name: "Screwing Dust",
             challengeDescription(){
-            return "Divide Point gain based on Prestige Points, Dust Requirement is gravely increased (Nerf Effect: /" + format(player.p.points.pow(0.15).add(1)) + ")"},
+            return "Divide Point gain based on Prestige Points, Dust Requirement is gravely increased<br> (Nerf Effect: /" + format(player.p.points.pow(0.15).add(1)) + ")"},
             canComplete: function() {return player.p.points.gte(6835)},
             goalDescription: "Reach New Dust Requirement",
             rewardEffect() { return (player.d.points.pow(0.24).add(1))},
