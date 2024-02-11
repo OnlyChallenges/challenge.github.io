@@ -127,7 +127,7 @@ addLayer("d", {
                 return unlock
             },
         },
-        17: {
+        18: {
             name: "Dusty Sandbox",
             challengeDescription(){
             return "All P-Challenges are unlocked; each complete P-Challenge nerfs point gain & Prestige Point gain<br> (Nerf Effect: /" + format((player.p.challenges.length.pow(0.8)).add(1)) + ")"},
