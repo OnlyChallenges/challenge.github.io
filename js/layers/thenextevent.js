@@ -130,12 +130,24 @@ addLayer("d", {
         18: {
             name: "Dusty Sandbox",
             challengeDescription(){
-            return "All P-Challenges are unlocked; each complete P-Challenge nerfs point gain & Prestige Point gain<br> (Nerf Effect: /" + format(new Decimal.pow(3, player.p.challenges.length).max(1)) + ')<br> You have completed ' + formatWhole(player.p.challenges.length) + ' P-Challenges'},
+            return "All P-Challenges are unlocked; each complete P-Challenge nerfs point gain & Prestige Point gain<br> (Nerf Effect: /" + format(new Decimal.pow(3, player.d.challenges[this.id].challengeLook).max(1)) + ')<br> You have completed ' + formatWhole(player.d.challenges[this.id].challengeLook) + ' P-Challenges'},
             canComplete: function() {return player.p.points.gte(1500)},
             goalDescription: "1,500 Prestige Points",
             rewardEffect() { return (player.points.pow(0.1).add(1))},
             rewardDescription(){ return "Points boosts itself"},
             rewardDisplay(){return format(challengeEffect('d', 18))+"x"},
+            challengeLook(){let look = new Decimal(0)
+            if (inChallenge('d', 18) && hasChallenge('p', 11)) look = look.add(1)
+            if (inChallenge('d', 18) && hasChallenge('p', 12)) look = look.add(1)
+            if (inChallenge('d', 18) && hasChallenge('p', 13)) look = look.add(1)
+            if (inChallenge('d', 18) && hasChallenge('p', 14)) look = look.add(1)
+            if (inChallenge('d', 18) && hasChallenge('p', 15)) look = look.add(1)
+            if (inChallenge('d', 18) && hasChallenge('p', 16)) look = look.add(1)
+            if (inChallenge('d', 18) && hasChallenge('p', 17)) look = look.add(1)
+            if (inChallenge('d', 18) && hasChallenge('p', 18)) look = look.add(1)
+            if (inChallenge('d', 18) && hasChallenge('p', 19)) look = look.add(1)
+            return look
+},
             unlocked(){
                 let unlock = (hasChallenge('d', 17) || inChallenge('d', 18) || hasChallenge('d', 18))
                 return unlock
