@@ -130,7 +130,7 @@ addLayer("d", {
         18: {
             name: "Dusty Sandbox",
             challengeDescription(){
-            return "All P-Challenges are unlocked; each complete P-Challenge nerfs point gain & Prestige Point gain<br> (Nerf Effect: /" + format(new Decimal.pow(3, player.d.challenges.length).max(1))},
+            return "All P-Challenges are unlocked; each complete P-Challenge nerfs point gain & Prestige Point gain<br> (Nerf Effect: /" + format(new Decimal.pow(3, player.p.challenges.length).max(1))},
             canComplete: function() {return player.p.points.gte(1500)},
             goalDescription: "1,500 Prestige Points",
             rewardEffect() { return (player.points.pow(0.1).add(1))},
