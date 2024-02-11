@@ -127,5 +127,19 @@ addLayer("d", {
                 return unlock
             },
         },
+        17: {
+            name: "Dusty Sandbox",
+            challengeDescription(){
+            return "All P-Challenges are unlocked; each complete P-Challenge nerfs point gain & Prestige Point gain<br> (Nerf Effect: /" + format((player.p.challenges.length).pow(0.8).add(1)) + ")"},
+            canComplete: function() {return player.p.points.gte(1500)},
+            goalDescription: "1,500 Prestige Points",
+            rewardEffect() { return (player.points.pow(0.1).add(1))},
+            rewardDescription(){ return "Points boosts itself"},
+            rewardDisplay(){return format(challengeEffect('d', 18))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('d', 17) || inChallenge('d', 18) || hasChallenge('d', 18))
+                return unlock
+            },
+        },
     },
 })
