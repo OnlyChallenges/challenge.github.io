@@ -66,7 +66,7 @@ addLayer("p", {
             goalDescription: "20 Points",
             rewardDescription: "+3 Point Gain",
             unlocked(){
-                let unlock = (hasChallenge('p',11)|| inChallenge('p', 12) || hasChallenge('p', 12))
+                let unlock = (hasChallenge('p',11)|| inChallenge('p', 12) || hasChallenge('p', 12) || inChallenge('d', 18))
                 return unlock
             },
         },
@@ -78,7 +78,7 @@ addLayer("p", {
             goalDescription: "70 Points",
             rewardDescription: "+7 Point Gain",
             unlocked(){
-                let unlock = (hasChallenge('p',12)|| inChallenge('p', 13) || hasChallenge('p', 13))
+                let unlock = (hasChallenge('p',12)|| inChallenge('p', 13) || hasChallenge('p', 13) || inChallenge('d', 18))
                 return unlock
             },
         },
@@ -90,7 +90,7 @@ addLayer("p", {
             goalDescription: "130 Points",
             rewardDescription: "x2 Point Gain",
             unlocked(){
-                let unlock = (hasChallenge('p',13)|| inChallenge('p', 14) || hasChallenge('p', 14))
+                let unlock = (hasChallenge('p',13)|| inChallenge('p', 14) || hasChallenge('p', 14) || inChallenge('d', 18))
                 return unlock
             },
         },
@@ -104,7 +104,7 @@ addLayer("p", {
             rewardDescription(){ return "Points are boosted by Prestige Points"},
             rewardDisplay(){return format(challengeEffect('p', 15))+"x"},
             unlocked(){
-                let unlock = (hasChallenge('p',14)|| inChallenge('p', 15) || hasChallenge('p', 15))
+                let unlock = (hasChallenge('p',14)|| inChallenge('p', 15) || hasChallenge('p', 15) || inChallenge('d', 18))
                 return unlock
             },
         },
@@ -118,7 +118,7 @@ addLayer("p", {
             rewardDescription(){ return "Points are boosted by Prestige Points again"},
             rewardDisplay(){return format(challengeEffect('p', 16))+"x"},
             unlocked(){
-                let unlock = (hasChallenge('p',15)|| inChallenge('p', 16) || hasChallenge('p', 16))
+                let unlock = (hasChallenge('p',15)|| inChallenge('p', 16) || hasChallenge('p', 16) || inChallenge('d', 18))
                 return unlock
             },
         },
@@ -132,7 +132,7 @@ addLayer("p", {
             rewardDescription(){ return "Points boosts itself"},
             rewardDisplay(){return format(challengeEffect('p', 17))+"x"},
             unlocked(){
-                let unlock = (hasChallenge('p',16)|| inChallenge('p', 17) || hasChallenge('p', 17))
+                let unlock = (hasChallenge('p',16)|| inChallenge('p', 17) || hasChallenge('p', 17) || inChallenge('d', 18))
                 return unlock
             },
         },
@@ -146,7 +146,7 @@ addLayer("p", {
             rewardDescription(){ return "Prestige Points boosts itself"},
             rewardDisplay(){return format(challengeEffect('p', 18))+"x"},
             unlocked(){
-                let unlock = (hasChallenge('p',17)|| inChallenge('p', 18) || hasChallenge('p', 18))
+                let unlock = (hasChallenge('p',17)|| inChallenge('p', 18) || hasChallenge('p', 18) || inChallenge('d', 18))
                 return unlock
             },
         },
@@ -160,7 +160,7 @@ addLayer("p", {
             rewardDescription(){ return "Points boosts itself again"},
             rewardDisplay(){return format(challengeEffect('p', 19))+"x"},
             unlocked(){
-                let unlock = (hasChallenge('p',18)|| inChallenge('p', 19) || hasChallenge('p', 19))
+                let unlock = (hasChallenge('p',18)|| inChallenge('p', 19) || hasChallenge('p', 19) || inChallenge('d', 18))
                 return unlock
             },
         },
