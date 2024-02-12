@@ -157,8 +157,8 @@ addLayer("d", {
             name: "Fine Dust",
             challengeDescription(){
             return "^0.7 Point Gain & 100x Prestige Point Requirement, simple right?"},
-            canComplete: function() {return player.p.points.gte(1000000)},
-            goalDescription: "1,000,000 Prestige Points",
+            canComplete: function() {return player.p.points.gte(30000)},
+            goalDescription: "30,000 Prestige Points",
             rewardEffect() { return (player.points.pow(0.3).add(1))},
             rewardDescription(){ return "Points boosts itself once again, also unlock the next layer"},
             rewardDisplay(){return format(challengeEffect('d', 19))+"x"},
