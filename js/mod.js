@@ -59,6 +59,7 @@ if (hasChallenge('d', 18)) gain = gain.times(player.points.pow(0.1).add(1))
 	// Achievement Effects
 	if (hasAchievement('A', 11)) gain = gain.add(2.5)
 	if (hasAchievement('A', 12)) gain = gain.add(8)
+	if (hasAchievement('A', 17)) gain = gain.times(50)
 
 	// In Challenge Effects
 	if (inChallenge('p', 11)) gain = gain.minus(0.5)

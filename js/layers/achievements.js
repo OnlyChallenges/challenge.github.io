@@ -50,5 +50,10 @@ achievements: {
         done() { return hasChallenge('d', 14) },
         tooltip: "Complete the 4th Dust Challenge<br>Reward: +2 Dust Gain",
     },
+    17: {
+        name: "Sandboxes are cool!",
+        done() { return hasChallenge('d', 18) },
+        tooltip: "Complete the 8th Dust Challenge<br>Reward: x50 Point Gain",
+    },
 },
 })
