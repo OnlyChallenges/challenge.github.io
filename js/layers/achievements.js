@@ -55,5 +55,59 @@ achievements: {
         done() { return hasChallenge('d', 18) },
         tooltip: "Complete the 8th Dust Challenge<br>Reward: x50 Point Gain",
     },
+    18: {
+        name: "Fine Tuning",
+        done() { return hasChallenge('d', 19) },
+        tooltip: "Complete the 9th Dust Challenge<br>Reward: Unlock the Next Row of Achievements :D",
+    },
+    // Row Two Locked from Achievement 18
+    21: {
+        name: "Urbanization",
+        done() { return player.points.gte(1e200) },
+        tooltip: "Complete the 2nd Urban Challenge",
+        unlocked() { return hasAchievement('A', 18) },
+    },
+    22: {
+        name: "Lucky Chance",
+        done() { return player.points.gte(1e200) },
+        tooltip: "Complete the 4th Urban Challenge<br>Reward: Double Dust Gain",
+        unlocked() { return hasAchievement('A', 18) },
+    },
+    23: {
+        name: "Unlucky Chance",
+        done() { return player.points.gte(1e200) },
+        tooltip: "Complete the 7th Urban Challenge<br>Reward: x4 Prestige Points",
+        unlocked() { return hasAchievement('A', 18) },
+    },
+    24: {
+        name: "Another Realm",
+        done() { return player.points.gte(1e200) },
+        tooltip: "Unlock the 4th Layer<br>Reward: x1,000,000 Point Gain",
+        unlocked() { return hasAchievement('A', 18) },
+    },
+    25: {
+        name: "2D to 3D!",
+        done() { return player.points.gte(1e200) },
+        tooltip: "Complete the 4th Dimensional Challenge<br>Reward: x25 Dust",
+        unlocked() { return hasAchievement('A', 18) },
+    },
+    26: {
+        name: "3D to 4D!",
+        done() { return player.points.gte(1e200) },
+        tooltip: "Complete the 7th Dimensional Challenge<br>Reward: x15,000 Prestige Points",
+        unlocked() { return hasAchievement('A', 18) },
+    },
+    27: {
+        name: "2nd Sandbox?",
+        done() { return player.points.gte(1e200) },
+        tooltip: "Complete the 9th Dimensional Challenge<br>Reward: x1e10 Point Gain",
+        unlocked() { return hasAchievement('A', 18) },
+    },
+    28: {
+        name: "Determined Challenges",
+        done() { return player.points.gte(1e200) },
+        tooltip: "Complete all Challenges in the 9th Dimensional Challenge<br>Reward: ^1.05 Point Gain",
+        unlocked() { return hasAchievement('A', 18) },
+    },
 },
 })

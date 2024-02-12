@@ -153,5 +153,19 @@ addLayer("d", {
                 return unlock
             },
         },
+        19: {
+            name: "Fine Dust",
+            challengeDescription(){
+            return "^0.7 Point Gain & 100x Prestige Point Requirement, simple right?"},
+            canComplete: function() {return player.p.points.gte(1000000)},
+            goalDescription: "1,000,000 Prestige Points",
+            rewardEffect() { return (player.points.pow(0.3).add(1))},
+            rewardDescription(){ return "Points boosts itself once again, also unlock the next layer"},
+            rewardDisplay(){return format(challengeEffect('d', 19))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('d', 18) || inChallenge('d', 19) || hasChallenge('d', 19))
+                return unlock
+            },
+        },
     },
 })
