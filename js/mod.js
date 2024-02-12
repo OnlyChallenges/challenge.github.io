@@ -78,7 +78,7 @@ if (hasChallenge('d', 18)) gain = gain.times(player.points.pow(0.1).add(1))
  if (inChallenge('d', 15)) gain = gain.div(75)
  if (inChallenge('d', 15)) gain = gain.div(player.points.pow(0.08).add(1))
  if (inChallenge('d', 17)) gain = gain.div(player.p.points.pow(0.7).add(1))
-        if (inChallenge('d', 18)) gain = gain.div(new Decimal.pow(3, tmp.d.challengeLook).max(1))
+        if (inChallenge('d', 18)) gain = gain.div(new Decimal.pow(3.72, tmp.d.challengeLook).max(1))
 	return gain
 }
 
