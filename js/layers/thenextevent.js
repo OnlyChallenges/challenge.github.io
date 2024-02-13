@@ -36,15 +36,15 @@ addLayer("d", {
     layerShown(){return hasAchievement('A', 14)},
     tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.p.points) +" prestige points [Point Gain: ("+ format(tmp.pointGen)+"/s)]"},{}],"blank","challenges"],
     challengeLook(){let look = new Decimal(0)
-        if (inChallenge('d', 18) && hasChallenge('p', 11)) look = look.add(1)
-        if (inChallenge('d', 18) && hasChallenge('p', 12)) look = look.add(1)
-        if (inChallenge('d', 18) && hasChallenge('p', 13)) look = look.add(1)
-        if (inChallenge('d', 18) && hasChallenge('p', 14)) look = look.add(1)
-        if (inChallenge('d', 18) && hasChallenge('p', 15)) look = look.add(1)
-        if (inChallenge('d', 18) && hasChallenge('p', 16)) look = look.add(1)
-        if (inChallenge('d', 18) && hasChallenge('p', 17)) look = look.add(1)
-        if (inChallenge('d', 18) && hasChallenge('p', 18)) look = look.add(1)
-        if (inChallenge('d', 18) && hasChallenge('p', 19)) look = look.add(1)
+        if (hasChallenge('p', 11)) look = look.add(1)
+        if (hasChallenge('p', 12)) look = look.add(1)
+        if (hasChallenge('p', 13)) look = look.add(1)
+        if (hasChallenge('p', 14)) look = look.add(1)
+        if (hasChallenge('p', 15)) look = look.add(1)
+        if (hasChallenge('p', 16)) look = look.add(1)
+        if (hasChallenge('p', 17)) look = look.add(1)
+        if (hasChallenge('p', 18)) look = look.add(1)
+        if (hasChallenge('p', 19)) look = look.add(1)
         return look
 },
     challenges: {
