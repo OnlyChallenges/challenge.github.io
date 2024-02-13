@@ -28,6 +28,7 @@ addLayer("d", {
     gainExp() { // Calculate the exponent on main currency from bonuses
         return new Decimal(1)
     },
+    branches: ["u"],
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "d", description: "D: Reset for dust", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
