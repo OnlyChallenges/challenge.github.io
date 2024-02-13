@@ -77,7 +77,7 @@ addLayer("u", {
             rewardDescription(){return "Every Challenge boosts point gain"},
             rewardDisplay(){return format(tmp.u.challengeLook.pow(0.4).max(1))},
             unlocked(){
-                let unlock = (player.u.unlocked || inChallenge('u', 11) || hasChallenge('u', 11))
+                let unlock = (hasChallenge('u', 11) || inChallenge('u', 12) || hasChallenge('u', 12))
                 return unlock
             },
         },
