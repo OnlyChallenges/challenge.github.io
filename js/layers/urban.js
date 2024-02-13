@@ -30,7 +30,7 @@ addLayer("u", {
         {key: "u", description: "U: Reset for urban", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return hasAchievement('A', 18)},
-    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "[Point Gain: ("+ format(tmp.pointGen)+"/s)]<br>" + "You have "+ format(player.d.points) +" dust<br" + "You have "+ format(player.p.points) +" prestige points" },{}],"blank","challenges"],
+    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "[Point Gain: ("+ format(tmp.pointGen)+"/s)]<br>" + "You have "+ format(player.d.points) +" dust<br>" + "You have "+ format(player.p.points) +" prestige points" },{}],"blank","challenges"],
     challengeLook(){let look = new Decimal(0)
         return look
 },
