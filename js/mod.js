@@ -56,6 +56,7 @@ function getPointGen() {
  if (hasChallenge('d', 15)) gain = gain.times(challengeEffect('d', 17))
 if (hasChallenge('d', 18)) gain = gain.times(challengeEffect('d', 18))
 	if (hasChallenge('d', 19)) gain = gain.times(challengeEffect('d', 19))
+	if (hasChallenge('u', 11)) gain = gain.times(50)
 
 	// Achievement Effects
 	if (hasAchievement('A', 11)) gain = gain.add(2.5)
@@ -82,6 +83,7 @@ if (hasChallenge('d', 18)) gain = gain.times(challengeEffect('d', 18))
 	if (inChallenge('d', 17)) gain = gain.div(player.p.points.pow(0.7).add(1))
     if (inChallenge('d', 18)) gain = gain.div(new Decimal.pow(3.72, tmp.d.challengeLook).max(1))
 	if (inChallenge('d', 19)) gain = gain.pow(0.7)
+	if (inChallenge('u', 11)) gain = gain.pow(1.5)
 	return gain
 }
 
