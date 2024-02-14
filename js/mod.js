@@ -133,9 +133,9 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	function(){if (inChallenge('u', 14)) return "<red>You will never be able to save everyone</red>"},
+	function(){if (inChallenge('u', 14)) return "<a>Your Population is Infected! <red>You will never be able to save everyone</red>"},
 	function(){if (inChallenge('u', 14)) return "Population: " + format(player.u.population)},
-	function(){if (inChallenge('u', 14)) return "If your Population drops under 0.5 before you can complete the challenge, you lose.<br>You will not NaN btw"}
+	function(){if (inChallenge('u', 14)) return "If your Population drops under 1 before you can complete the challenge;<br>You lose and will need to restart.<br><red>Can you save them all?</red>"}
 ]
 
 // Determines when the game "ends"
