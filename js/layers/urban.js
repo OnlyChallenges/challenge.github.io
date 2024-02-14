@@ -101,7 +101,7 @@ addLayer("u", {
         },
         14: {
             name: "Virus Spread",
-            challengeDescription(){return "The Population is dropping! Can you finish the challenge before it dropped to 0?<br> Population Boosts Point Gain<br> (Population Boost: " + format(player.u.population)+"x)" },
+            challengeDescription(){return "The Population is dropping! Can you finish the challenge before it drops to 1?<br> Population Boosts Point Gain<br> (Population Boost: " + format(player.u.population)+"x)" },
             canComplete: function() {return hasChallenge('d', 19)},
             goalDescription: "Complete Dust Challenge 9",
             rewardEffect() { return (player.u.points.pow(0.2).max(1))},
