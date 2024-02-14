@@ -75,13 +75,19 @@
 a {
 	color: #007fff;
 	text-decoration-line: none;
-	cursor: pointer
+	cursor: pointer;
 }
 
 red {
 	color: #7d0b1e;
 	text-decoration-line: none;
-	cursor: pointer
+	cursor: pointer;
+}
+
+logic {
+	color: #d896a3;
+	text-decoration-line: none;
+	cursor: pointer;
 }
 
 .link {
