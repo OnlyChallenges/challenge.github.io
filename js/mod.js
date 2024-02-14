@@ -16,7 +16,16 @@ let VERSION = {
 	name: "Wtf how many 0's are you adding?",
 }
 
-let changelog = `<h1>Changelog:</h1><br>
+let changelog = `<h1>Changelog:</h1><br><br>
+ <h3>v0.0.0.0.1.2a: Multipuzzle</h3><br>
+  - Refixed 3 Dust Challenges<br>
+  - Adjusted funcMat2 & added funcMat3<br>
+  - Added Reality Key to Urbans<br>
+  - Removed False Positivity<br>
+  <red>Rsljt ix lz zmrh yftuy ps yfp ajjtm.</red><br>
+  <red>Mysq noz alu kte yfp ywplnrj.</red><br>
+  <red>Jsc yts dogl stkpvft tmc eymt lnesa ac tmc ohq?</red><br>
+  <red>Dr fpp fgj osjj jseagjp vx cilfe pf ihj blyc?</red><br><br>
  <h3>v0.0.0.0.1.2:</h3><br>
   - Unknown Fate<br>
   - Urban Re-side Effects (Refix Boost of U-12 by 0.2)<br>
