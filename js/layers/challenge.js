@@ -129,7 +129,7 @@ addLayer("p", {
             `^0.25 point gain`,
             canComplete: function() {return player.points.gte(50)},
             goalDescription: "50 Point(s)",
-            rewardEffect() { return (player.points.pow(0.18).add(1))},
+            rewardEffect() { return (player.points.pow(0.07).add(1))},
             rewardDescription(){ return "Points boosts itself"},
             rewardDisplay(){return format(challengeEffect('p', 17))+"x"},
             unlocked(){
