@@ -62,9 +62,9 @@ achievements: {
     },
     // Row Two Locked from Achievement 18
     21: {
-        name: "Urbanization",
-        done() { return player.points.gte(1e200) },
-        tooltip: "Complete the 2nd Urban Challenge",
+        name: "Debuff? I don't think so!",
+        done() { return tmp.d.challengeLook.gte(9) && hasChallenge('d', 18)},
+        tooltip: "Complete All P-Challenges in the 8th Dust Challenge",
         unlocked() { return hasAchievement('A', 18) },
     },
     22: {
