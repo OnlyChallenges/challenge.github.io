@@ -123,6 +123,7 @@ function getPointGen() {
 	if (inChallenge('u', 11)) gain = gain.pow(1.5)
 	if (inChallenge('u', 12)) gain = gain.times(new Decimal.pow(2.77, tmp.u.challengeSafe).max(1))
 	if (inChallenge('u', 13)) gain = gain.pow(0.7)
+	if (inChallenge('u', 14)) gain = gain.times(player.p.population.max(0.0000001))
 	return gain
 }
 
@@ -132,7 +133,9 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"My best advice is to go Single-Tab Mode"
+	"My best advice is to go Single-Tab Mode",
+	function(){if (inChallenge('u', 14)) return "Population: " + format(player.u.population)},
+	function(){if (inChallenge('u', 14)) return "If your Population drops under 0.5 before you can complete the challenge, you lose.<br>You will not NaN btw"}
 ]
 
 // Determines when the game "ends"

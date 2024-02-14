@@ -5,6 +5,7 @@ addLayer("u", {
     startData() { return {
         unlocked: false,
                 points: new Decimal(0),
+                population: new Decimal(10000000),
     }},
     color: "#eb3474",
     requires(){ 
@@ -55,6 +56,10 @@ addLayer("u", {
     challengeLook(){let look = new Decimal(0)
         return look
 },
+    update(diff){
+        if (inChallenge('u', 14))
+        player.u.population = player.u.population.div(1.05)
+    },
     challenges: {
         11: {
             name: "Overpopulation",
@@ -91,6 +96,20 @@ addLayer("u", {
             rewardDisplay(){return format(challengeEffect('u', 13))+"x"},
             unlocked(){
                 let unlock = (hasChallenge('u', 12) || inChallenge('u', 13) || hasChallenge('u', 13))
+                return unlock
+            },
+        },
+        14: {
+            name: "Lowering Population (WIP)",
+            challengeDescription(){return "The Population is dropping! Can you finish the challenge before it dropped to 0?<br> Population Boosts Point Gain<br> (Population Boost: " + format(player.u.population)+"x)" },
+            canComplete: function() {return hasChallenge('d', 19)},
+            goalDescription: "Complete Dust Challenge 9",
+            rewardEffect() { return (player.u.points.pow(0.2).max(1))},
+            onExit(){return player.u.population = new Decimal(10000000)},
+            rewardDescription(){return "Urban boosts points slightly"},
+            rewardDisplay(){return format(challengeEffect('u', 14))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('u', 13) || inChallenge('u', 14) || hasChallenge('u', 14))
                 return unlock
             },
         },
