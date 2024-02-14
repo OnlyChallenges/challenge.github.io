@@ -133,7 +133,7 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	"My best advice is to go Single-Tab Mode",
+	function(){if (inChallenge('u', 14)) return "<red>You will never be able to save everyone</red>"},
 	function(){if (inChallenge('u', 14)) return "Population: " + format(player.u.population)},
 	function(){if (inChallenge('u', 14)) return "If your Population drops under 0.5 before you can complete the challenge, you lose.<br>You will not NaN btw"}
 ]
