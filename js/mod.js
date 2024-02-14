@@ -122,7 +122,7 @@ function getPointGen() {
 	if (inChallenge('d', 19)) gain = gain.pow(0.7)
 	if (inChallenge('u', 11)) gain = gain.pow(1.5)
 	if (inChallenge('u', 12)) gain = gain.times(new Decimal.pow(2.77, tmp.u.challengeSafe).max(1))
-	if (inChallenge('u', 13)) gain = gain.pow(0.2)
+	if (inChallenge('u', 13)) gain = gain.pow(0.7)
 	return gain
 }
 

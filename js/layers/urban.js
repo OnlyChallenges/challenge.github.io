@@ -83,7 +83,7 @@ addLayer("u", {
         },
         13: {
             name: "Urbanizing Difference",
-            challengeDescription(){return "^0.2 Point Gain, with that, times Prestige Points based on challenges completed (Boost Effect: "+format(new Decimal.pow(1.25, tmp.u.challengeSafe).max(1))+"x)"},
+            challengeDescription(){return "^0.7 Point Gain, with that, times Prestige Points based on challenges completed (Boost Effect: "+format(new Decimal.pow(1.77, tmp.u.challengeSafe).max(1))+"x)"},
             canComplete: function() {return player.d.points.gte(1000)},
             goalDescription: "1000 Dust",
             rewardEffect() { return (new Decimal.pow(1.2, tmp.u.challengeSafe).max(1))},
