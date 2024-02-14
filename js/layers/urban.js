@@ -70,12 +70,12 @@ addLayer("u", {
         },
         12: {
             name: "Challenging Growth",
-            challengeDescription(){return 
-            "Boosts Point gain based on how many challenges you have before Urban Challenges<br> (Boost Effect: "+format(new Decimal.pow(2.77, tmp.u.challengeLook).max(1))+"x)"},
+            challengeDescription(){return "Boosts Point gain based on how many challenges you have before Urban Challenges<br> (Boost Effect: "+format(new Decimal.pow(2.77, tmp.u.challengeLook).max(1))+"x)"},
             canComplete: function() {return player.points.gte(1e30)},
             goalDescription: "1e30 Points",
+            rewardEffect() { return (tmp.u.challengeLook.pow(0.4).max(1))},
             rewardDescription(){return "Every Challenge boosts point gain"},
-            rewardDisplay(){return format(tmp.u.challengeLook.pow(0.4).max(1))},
+            rewardDisplay(){return format(challengeEffect('u', 12))},
             unlocked(){
                 let unlock = (hasChallenge('u', 11) || inChallenge('u', 12) || hasChallenge('u', 12))
                 return unlock
