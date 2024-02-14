@@ -12,11 +12,18 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.0.0.1.1",
+	num: "0.0.0.0.1.2",
 	name: "Wtf how many 0's are you adding?",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+ <h3>v0.0.0.0.1.2:</h3><br>
+  - Unknown Fate<br>
+  - Urban Re-side Effects (Refix Boost of U-12 by 0.2)<br>
+  - Another Medium in D-17<br>
+  - Reduce FuncMet2 Formula Effect<br>
+  - Dust Base is increased by 0.07<br>
+  - <red>Understanding</red> <a>false</a> <red>positives</red> <a>in</a> <red>the</red> <a>community</a> <red>.</red><br><br>
  <h3>v0.0.0.0.1.1:</h3><br>
   - Companic Distress<br>
   - Added FuncMet1 & FuncMet2 for Dust & Urbans<br>
