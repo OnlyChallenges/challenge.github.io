@@ -78,6 +78,12 @@ a {
 	cursor: pointer
 }
 
+red {
+	color: #7d0b1e;
+	text-decoration-line: none;
+	cursor: pointer
+}
+
 .link {
 	display: block;
 	font-size: 20px;
