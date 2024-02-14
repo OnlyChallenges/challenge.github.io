@@ -100,7 +100,7 @@ addLayer("u", {
             },
         },
         14: {
-            name: "Lowering Population (WIP)",
+            name: "Virus Spread",
             challengeDescription(){return "The Population is dropping! Can you finish the challenge before it dropped to 0?<br> Population Boosts Point Gain<br> (Population Boost: " + format(player.u.population)+"x)" },
             canComplete: function() {return hasChallenge('d', 19)},
             goalDescription: "Complete Dust Challenge 9",
