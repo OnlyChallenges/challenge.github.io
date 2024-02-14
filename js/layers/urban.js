@@ -74,7 +74,7 @@ addLayer("u", {
             canComplete: function() {return player.points.gte(1e30)},
             goalDescription: "1e30 Points",
             rewardEffect() { return (tmp.u.challengeLook.pow(0.4).max(1))},
-            rewardDescription(){return "Every Challenge boosts point gain"},
+            rewardDescription(){return "Every Completed Challenge boosts point gain"},
             rewardDisplay(){return format(challengeEffect('u', 12))},
             unlocked(){
                 let unlock = (hasChallenge('u', 11) || inChallenge('u', 12) || hasChallenge('u', 12))
