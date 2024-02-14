@@ -143,7 +143,7 @@ addLayer("p", {
             return "^0.5 point gain, overtime; points will be nerf'd by an effect<br> Nerf Effect: /" + format(player.points.log10().add(1))},
             canComplete: function() {return player.points.gte(300)},
             goalDescription: "300 Points",
-            rewardEffect() { return (player.p.points.pow(0.18).add(1))},
+            rewardEffect() { return (player.p.points.pow(0.06).add(1))},
             rewardDescription(){ return "Prestige Points boosts itself"},
             rewardDisplay(){return format(challengeEffect('p', 18))+"x"},
             unlocked(){
