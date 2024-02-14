@@ -18,11 +18,12 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
  <h3>v0.0.0.0.1.1:</h3><br>
-  - Companic Distress
-  - Added FuncMet1 & FuncMet2 for Dust & Urbans
-  - Changed Refunc1 > chalLookSubj
-  - Fixed log³(points) formula to have a low-cap of 0.01/s
-  - Resubjectated 20 Challenges
+  - Companic Distress<br>
+  - Added FuncMet1 & FuncMet2 for Dust & Urbans<br>
+  - Changed Refunc1 > chalLookSubj<br>
+  - Fixed log³(points) formula to have a low-cap of 0.01/s<br>
+  - Resubjectated 20 Challenges<br>
+  - <red> You will never understand...</red> <a>will you?</a><br><br>
 	<h3>v0.0</h3><br>
 		- Flipping nothing bruh
 
