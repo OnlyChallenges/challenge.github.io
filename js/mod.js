@@ -12,11 +12,17 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.0.0.1",
+	num: "0.0.0.0.1.1",
 	name: "Wtf how many 0's are you adding?",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+ <h3>v0.0.0.0.1.1:</h3><br>
+  - Companic Distress
+  - Added FuncMet1 & FuncMet2 for Dust & Urbans
+  - Changed Refunc1 > chalLookSubj
+  - Fixed log³(points) formula to have a low-cap of 0.01/s
+  - Resubjectated 20 Challenges
 	<h3>v0.0</h3><br>
 		- Flipping nothing bruh
 
