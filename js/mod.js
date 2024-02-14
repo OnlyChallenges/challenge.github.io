@@ -12,11 +12,22 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.0.0.1.2",
+	num: "0.0.0.0.1.3",
 	name: "Wtf how many 0's are you adding?",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+ <h3>v0.0.0.0.1.3: Logicality</h3><br>
+  - Added 2 Urban Challenges<br>
+  - Inflative Difference?<br>
+  - Refixed Dust Formula<br>
+  - Added <a>Logicality</a> for Urban Challenge Two Key<br>
+  <red> Evkzg's ltpyjg g ajozb mmy cl xgoatx gy hnqu wzzeb.</red><br>
+  <red> Dcsmvixml qzqomvy hqej noaag idancd huecroa rmffymnf</red><br>
+  <red> Hqej jca jg tsm hlp hu kjayox fzk zpg wzzeb hcxsu?</red><br>
+  <red> Oc ikc jca oqiyo mm ms zpg oym pfz'g mwknr bh dlwr bjex iej...</red><br><br>
+
+
  <h3>v0.0.0.0.1.2a: Multipuzzle</h3><br>
   - Refixed 3 Dust Challenges<br>
   - Adjusted funcMat2 & added funcMat3<br>
@@ -26,6 +37,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
   <red>Mysq noz alu kte yfp ywplnrj.</red><br>
   <red>Jsc yts dogl stkpvft tmc eymt lnesa ac tmc ohq?</red><br>
   <red>Dr fpp fgj osjj jseagjp vx cilfe pf ihj blyc?</red><br><br>
+  
  <h3>v0.0.0.0.1.2:</h3><br>
   - Unknown Fate<br>
   - Urban Re-side Effects (Refix Boost of U-12 by 0.2)<br>
@@ -33,6 +45,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
   - Reduce FuncMet2 Formula Effect<br>
   - Dust Base is increased by 0.07<br>
   - <red>Understanding</red> <a>false</a> <red>positives</red> <a>in</a> <red>the</red> <a>community</a><red>.</red><br><br>
+
  <h3>v0.0.0.0.1.1:</h3><br>
   - Companic Distress<br>
   - Added FuncMet1 & FuncMet2 for Dust & Urbans<br>
