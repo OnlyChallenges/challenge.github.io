@@ -63,7 +63,7 @@ achievements: {
     // Row Two Locked from Achievement 18
     21: {
         name: "Debuff? I don't think so!",
-        done() { return tmp.d.challengeLook.gte(9) && hasChallenge('d', 18)},
+        done() { return tmp.d.challengeLook.gte(9) && inChallenge('d', 18)},
         tooltip: "Complete All P-Challenges in the 8th Dust Challenge",
         unlocked() { return hasAchievement('A', 18) },
     },
