@@ -81,5 +81,18 @@ addLayer("u", {
                 return unlock
             },
         },
+        13: {
+            name: "Challenging Growth",
+            challengeDescription(){return "^0.2 Point Gain, with that, times Prestige Points based on challenges completed (Boost Effect: "+format(new Decimal.pow(1.25, tmp.u.challengeSafe).max(1))+"x)"},
+            canComplete: function() {return player.d.points.gte(1000)},
+            goalDescription: "1000 Dust",
+            rewardEffect() { return (new Decimal.pow(1.2, tmp.u.challengeSafe).max(1))},
+            rewardDescription(){return "Every Completed Challenge boosts prestige point gain"},
+            rewardDisplay(){return format(challengeEffect('u', 13))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('u', 12) || inChallenge('u', 13) || hasChallenge('u', 13))
+                return unlock
+            },
+        },
     },
 })
