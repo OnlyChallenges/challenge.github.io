@@ -71,8 +71,8 @@ addLayer("u", {
         12: {
             name: "Challenging Growth",
             challengeDescription(){return "Boosts Point gain based on how many challenges you have before Urban Challenges<br> (Boost Effect: "+format(new Decimal.pow(2.77, tmp.u.challengeSafe).max(1))+"x)"},
-            canComplete: function() {return player.points.gte(1e30)},
-            goalDescription: "1e30 Points",
+            canComplete: function() {return player.points.gte(1e35)},
+            goalDescription: "1e35 Points",
             rewardEffect() { return (new Decimal.pow(1.5, tmp.u.challengeSafe).max(1))},
             rewardDescription(){return "Every Completed Challenge boosts point gain"},
             rewardDisplay(){return format(challengeEffect('u', 12))+"x"},
