@@ -123,7 +123,7 @@ addLayer("u", {
         },
         15: {
             name: "Populative Explosion",
-            challengeDescription(){return "The Population is exploding! Don't let it inflate as it decreases your point gain overtime!<br> Population nerfs Point Gain<br> (Population Nerf: /" + format(player.u.population)+")" },
+            challengeDescription(){return "The Population is exploding! Don't let it inflate as it decreases your point gain overtime!<br> Population nerfs Point Gain<br> (Population Nerf: /" + format(player.u.population.pow(0.5))+")" },
             canComplete: function() {return player.d.points.gte(500)},
             goalDescription: "500 Dust",
             rewardEffect() { return (player.points.pow(0.04).max(1))},
