@@ -52,7 +52,7 @@ addLayer("u", {
         return look
 },
     layerShown(){return hasAchievement('A', 18)},
-    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "[Point Gain: ("+ format(tmp.pointGen)+"/s)]<br>" + "You have "+ format(player.d.points) +" dust<br>" + "You have "+ format(player.p.points) +" prestige points" },{}],["display-text", function(){if (player.u.population.lte(100)) return "<red>WARNING: Your Population is under 100!"},{}],"blank","challenges"],
+    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "[Point Gain: ("+ format(tmp.pointGen)+"/s)]<br>" + "You have "+ format(player.d.points) +" dust<br>" + "You have "+ format(player.p.points) +" prestige points" },{}],["display-text", function(){if (player.u.population.lte(100)) return "<red>WARNING: Your Population is under 100!"},{}],["display-text", function(){if (player.u.population.lte(1)) return "<logic>Your Population is too low! Restart the challenge.</logic>"},{}],"blank","challenges"],
     challengeLook(){let look = new Decimal(0)
         return look
 },
