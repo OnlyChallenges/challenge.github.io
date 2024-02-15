@@ -143,7 +143,7 @@ var displayThings = [
 	function(){
 		let func2 = ""
 		if (inChallenge('u', 14)) func2 = "Population: <red>" + format(player.u.population) +"</red> (-<logic>1.27%</logic>/<a>tick</a>)"
-		if (inChallenge('u', 15)) func2 = "Population: <red>" + format(player.u.population) +"</red> (+<logic>0.75%</logic>/<a>tick</a>)"
+		if (inChallenge('u', 15)) func2 = "Population: <red>" + format(player.u.population) +"</red> (+<logic>2.85%</logic>/<a>tick</a>)"
 		return func2
 	
 	},
