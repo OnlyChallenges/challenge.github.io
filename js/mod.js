@@ -134,13 +134,26 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	function(){if (inChallenge('u', 14)) return "<logic>Your Population is Infected!</logic>"},
-	function(){if (inChallenge('u', 14)) return "Population: <red>" + format(player.u.population) +"</red> (-<logic>1.27%</logic>/<a>tick</a>)"},
-	function(){if (inChallenge('u', 14)) return "If your Population drops under 1 before you can complete the challenge;<br>You lose and will need to restart the challenge.<br><a>Can you save them all?</a>"},
-
-	function(){if (inChallenge('u', 15)) return "<logic>Your Population is Exploding</logic>"},
-	function(){if (inChallenge('u', 15)) return "Population: <red>" + format(player.u.population) +"</red> (+<logic>5%</logic>/<a>tick</a>)"},
-	function(){if (inChallenge('u', 15)) return "If your Population becomes stupidly inflated (1e10) before you can complete the challenge;<br>You lose and will need to restart the challenge."},
+	function(){
+		let func = ""
+		if (inChallenge('u', 14)) func = "<logic>Your Population is Infected!</logic>"
+		if (inChallenge('u', 15)) func = "<logic>Your Population is Exploding</logic>"
+		return func
+	},
+	function(){
+		let func2 = ""
+		if (inChallenge('u', 14)) func2 = "Population: <red>" + format(player.u.population) +"</red> (-<logic>1.27%</logic>/<a>tick</a>)"
+		if (inChallenge('u', 15)) func2 = "Population: <red>" + format(player.u.population) +"</red> (+<logic>5%</logic>/<a>tick</a>)"
+		return func2
+	
+	},
+	function(){
+		let func3 = ""
+		if (inChallenge('u', 14)) func3 = "If your Population drops under 1 before you can complete the challenge;<br>You lose and will need to restart the challenge.<br><a>Can you save them all?</a>"
+		if (inChallenge('u', 15)) func3 = "If your Population becomes stupidly inflated (1e10) before you can complete the challenge;<br>You lose and will need to restart the challenge."
+		return func3
+	
+	},
 ]
 
 // Determines when the game "ends"
