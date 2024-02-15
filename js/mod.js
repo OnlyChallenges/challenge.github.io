@@ -124,6 +124,7 @@ function getPointGen() {
 	if (inChallenge('u', 12)) gain = gain.times(new Decimal.pow(2.77, tmp.u.challengeSafe).max(1))
 	if (inChallenge('u', 13)) gain = gain.pow(0.7)
 	if (inChallenge('u', 14)) gain = gain.times(player.u.population.max(0.0000001))
+	if (inChallenge('u', 15)) gain = gain.div(player.u.population.max(1e15))
 	return gain
 }
 
@@ -133,9 +134,13 @@ function addedPlayerData() { return {
 
 // Display extra things at the top of the page
 var displayThings = [
-	function(){if (inChallenge('u', 14)) return "<logic>Your Population is Infected!</logic> (<a>Stage 1</a>)"},
+	function(){if (inChallenge('u', 14)) return "<logic>Your Population is Infected!</logic>"},
 	function(){if (inChallenge('u', 14)) return "Population: <red>" + format(player.u.population) +"</red> (-<logic>1.27%</logic>/<a>tick</a>)"},
-	function(){if (inChallenge('u', 14)) return "If your Population drops under 1 before you can complete the challenge;<br>You lose and will need to restart the challenge.<br><a>Can you save them all?</a>"}
+	function(){if (inChallenge('u', 14)) return "If your Population drops under 1 before you can complete the challenge;<br>You lose and will need to restart the challenge.<br><a>Can you save them all?</a>"},
+
+	function(){if (inChallenge('u', 15)) return "<logic>Your Population is Exploding</logic>"},
+	function(){if (inChallenge('u', 15)) return "Population: <red>" + format(player.u.population) +"</red> (+<logic>5%</logic>/<a>tick</a>)"},
+	function(){if (inChallenge('u', 15)) return "If your Population becomes stupidly inflated (1e10) before you can complete the challenge;<br>You lose and will need to restart the challenge."},
 ]
 
 // Determines when the game "ends"

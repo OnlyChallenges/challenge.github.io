@@ -51,14 +51,21 @@ addLayer("u", {
         if (hasChallenge('d', 19)) look = look.add(1)
         return look
 },
+    popDia(){let dia = new Decimal(0)},
     layerShown(){return hasAchievement('A', 18)},
-    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "[Point Gain: ("+ format(tmp.pointGen)+"/s)]<br>" + "You have "+ format(player.d.points) +" dust<br>" + "You have "+ format(player.p.points) +" prestige points" },{}],["display-text", function(){if (player.u.population.lte(100)) return "<red>WARNING: Your Population is under 100!"},{}],["display-text", function(){if (player.u.population.lte(1)) return "<logic>Your Population is too low! Restart the challenge.</logic>"},{}],"blank","challenges"],
+    tabFormat: ["main-display", "prestige-button",
+    ["display-text", function(){return "[Point Gain: ("+ format(tmp.pointGen)+"/s)]<br>" + "You have "+ format(player.d.points) +" dust<br>" + "You have "+ format(player.p.points) +" prestige points" },{}],
+    ["display-text", function(){if (player.u.population.lte(100) && inChallenge('u', 14)) return "<red>WARNING: Your Population is under 100!"},{}],
+    ["display-text", function(){if (player.u.population.lte(1) && inChallenge('u', 14)) return "<logic>Your Population is too low! Restart the challenge.</logic>"},{}],
+    "blank","challenges"],
     challengeLook(){let look = new Decimal(0)
         return look
 },
     update(diff){
         if (inChallenge('u', 14))
         player.u.population = player.u.population.div(1.0127)
+        if (inChallenge('u', 15))
+        player.u.population = player.u.population.times(1.05)
     },
     challenges: {
         11: {
@@ -105,11 +112,27 @@ addLayer("u", {
             canComplete: function() {return hasChallenge('d', 19)},
             goalDescription: "Complete Dust Challenge 9",
             rewardEffect() { return (player.u.points.pow(0.2).max(1))},
+            onEnter(){return player.u.population = new Decimal(10000000)},
             onExit(){return player.u.population = new Decimal(10000000)},
             rewardDescription(){return "Urban boosts points slightly"},
             rewardDisplay(){return format(challengeEffect('u', 14))+"x"},
             unlocked(){
                 let unlock = (hasChallenge('u', 13) || inChallenge('u', 14) || hasChallenge('u', 14))
+                return unlock
+            },
+        },
+        15: {
+            name: "Populative Explosion",
+            challengeDescription(){return "The Population is exploding! Don't let it inflate as it decreases your point gain overtime!<br> Population nerfs Point Gain<br> (Population Nerf: /" + format(player.u.population)+")" },
+            canComplete: function() {return player.d.points.gte(500)},
+            goalDescription: "500 Dust",
+            rewardEffect() { return (player.points.pow(0.04).max(1))},
+            onEnter(){return player.u.population = new Decimal(1.1)},
+            onExit(){return player.u.population = new Decimal(1)},
+            rewardDescription(){return "Points boosts itself"},
+            rewardDisplay(){return format(challengeEffect('u', 15))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('u', 14) || inChallenge('u', 15) || hasChallenge('u', 15))
                 return unlock
             },
         },
