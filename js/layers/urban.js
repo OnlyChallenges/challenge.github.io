@@ -113,7 +113,7 @@ addLayer("u", {
             goalDescription: "Complete Dust Challenge 9",
             rewardEffect() { return (player.u.points.pow(0.2).max(1))},
             onEnter(){return player.u.population = new Decimal(10000000)},
-            onExit(){return player.u.population = new Decimal(10000000)},
+            onExit(){return player.u.population = new Decimal(1)},
             rewardDescription(){return "Urban boosts points slightly"},
             rewardDisplay(){return format(challengeEffect('u', 14))+"x"},
             unlocked(){
