@@ -65,7 +65,7 @@ addLayer("u", {
         if (inChallenge('u', 14))
         player.u.population = player.u.population.div(1.0127)
         if (inChallenge('u', 15))
-        player.u.population = player.u.population.times(1.05)
+        player.u.population = player.u.population.times(1.0075)
     },
     challenges: {
         11: {
