@@ -46,7 +46,7 @@ addLayer("p", {
         {key: "p", description: "P: Reset for prestige points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
-    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.points) +" points ("+ format(tmp.pointGen)+"/s)"},{}],["display-text", function(){if (player.u.population.lte(100)) return "<red>WARNING: Your Population is under 100!</red>"},{}],["display-text", function(){if (player.u.population.lte(1)) return "<logic>Your Population is too low! Restart the challenge.</logic>"},{}],"blank","challenges"],
+    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.points) +" points ("+ format(tmp.pointGen)+"/s)"},{}],["display-text", function(){if (player.u.population.lte(100)) return "<red>WARNING: Your Population is under 100!</red>"},{}],["display-text", function(){if (player.u.population.lte(1)) return "<logic>Your Population is too low! Restart the challenge...Or can you complete it?</logic>"},{}],"blank","challenges"],
     challenges: {
         11: {
             name: "The Beginning",

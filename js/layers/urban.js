@@ -56,7 +56,7 @@ addLayer("u", {
     tabFormat: ["main-display", "prestige-button",
     ["display-text", function(){return "[Point Gain: ("+ format(tmp.pointGen)+"/s)]<br>" + "You have "+ format(player.d.points) +" dust<br>" + "You have "+ format(player.p.points) +" prestige points" },{}],
     ["display-text", function(){if (player.u.population.lte(100) && inChallenge('u', 14)) return "<red>WARNING: Your Population is under 100!"},{}],
-    ["display-text", function(){if (player.u.population.lte(1) && inChallenge('u', 14)) return "<logic>Your Population is too low! Restart the challenge.</logic>"},{}],
+    ["display-text", function(){if (player.u.population.lte(1) && inChallenge('u', 14)) return "<logic>Your Population is too low! Restart the challenge...Or can you complete it?</logic>"},{}],
     "blank","challenges"],
     challengeLook(){let look = new Decimal(0)
         return look

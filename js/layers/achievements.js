@@ -68,8 +68,8 @@ achievements: {
         unlocked() { return hasAchievement('A', 18) },
     },
     22: {
-        name: "Lucky Chance",
-        done() { return player.points.gte(1e200) },
+        name: "Non-Infected Population",
+        done() { return hasChallenge('u', 14) },
         tooltip: "Complete the 4th Urban Challenge<br>Reward: Double Dust Gain",
         unlocked() { return hasAchievement('A', 18) },
     },
