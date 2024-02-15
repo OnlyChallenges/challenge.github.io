@@ -34,7 +34,7 @@ addLayer("d", {
         {key: "d", description: "D: Reset for dust", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return hasAchievement('A', 14)},
-    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.p.points) +" prestige points [Point Gain: ("+ format(tmp.pointGen)+"/s)]"},{}],["display-text", function(){if (player.u.population.lte(100)) return "<red>WARNING: Your Population is under 100!</red>"},{}],"blank","challenges"],
+    tabFormat: ["main-display", "prestige-button",["display-text", function(){return "You have "+ format(player.p.points) +" prestige points [Point Gain: ("+ format(tmp.pointGen)+"/s)]"},{}],["display-text", function(){if (player.u.population.lte(100)) return "<red>WARNING: Your Population is under 100!</red>"},{}],["display-text", function(){if (player.u.population.lte(1)) return "<logic>Your Population is too low! Restart the challenge.</logic>"},{}],"blank","challenges"],
     challengeLook(){let look = new Decimal(0)
         if (hasChallenge('p', 11)) look = look.add(1)
         if (hasChallenge('p', 12)) look = look.add(1)
