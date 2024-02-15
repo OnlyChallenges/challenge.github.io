@@ -134,7 +134,7 @@ function addedPlayerData() { return {
 // Display extra things at the top of the page
 var displayThings = [
 	function(){if (inChallenge('u', 14)) return "<logic>Your Population is Infected!</logic>"},
-	function(){if (inChallenge('u', 14)) return "Population: <red>" + format(player.u.population) +"</red>"},
+	function(){if (inChallenge('u', 14)) return "Population: <red>" + format(player.u.population) +"</red> ( -<logic>1.47%</logic>/tick )"},
 	function(){if (inChallenge('u', 14)) return "If your Population drops under 1 before you can complete the challenge;<br>You lose and will need to restart the challenge.<br><a>Can you save them all?</a>"}
 ]
 
