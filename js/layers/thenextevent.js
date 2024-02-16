@@ -24,6 +24,7 @@ addLayer("d", {
         if (hasAchievement('A', 16)) mult = mult.add(2)
         if (hasChallenge('d', 16)) mult = mult.times(3)
         if (hasAchievement('A', 22)) mult = mult.times(2)
+        if (hasChallenge('u', 16)) mult = mult.times(challengeEffect('u', 16))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
