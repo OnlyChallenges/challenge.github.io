@@ -68,7 +68,7 @@ addLayer("u", {
         if (inChallenge('u', 15))
         player.u.population = player.u.population.times(1.0283)
         if (inChallenge('u', 16))
-        ((player.u.infected = player.u.infected.add(player.u.infected.pow(0.1))) && (player.u.population = player.u.population.minus(player.u.infected)))
+        ((player.u.infected = player.u.infected.add(player.u.infected.pow(0.17))) && (player.u.population = player.u.population.minus(player.u.infected)))
     },
     challenges: {
         11: {
