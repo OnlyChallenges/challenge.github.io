@@ -90,6 +90,13 @@ logic {
 	cursor: pointer;
 }
 
+
+fail {
+	color: #d75c15;
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
 .link {
 	display: block;
 	font-size: 20px;

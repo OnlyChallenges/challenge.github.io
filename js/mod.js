@@ -141,6 +141,7 @@ var displayThings = [
 		if (inChallenge('u', 14)) func = "<logic>Your Population is Infected!</logic>"
 		if (inChallenge('u', 15)) func = "<logic>Your Population is Exploding</logic>"
 		if (inChallenge('u', 16)) func = "<logic>Infectious Outbreak!</logic>"
+		if (inChallenge('u', 16) && player.u.population.lte(0.1)) func = "<logic>Infectious Outbreak!</logic><br><fail>You have failed to complete the challenge; restart the challenge to try again</fail>"
 		return func
 	},
 	function(){
