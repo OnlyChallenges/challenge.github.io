@@ -139,7 +139,9 @@ var displayThings = [
 	function(){
 		let func = ""
 		if (inChallenge('u', 14)) func = "<logic>Your Population is Infected!</logic>"
+		if (inChallenge('u', 14) && player.u.population.lte(0.1)) func = "<logic>Your Population is Infected!</logic><br><fail>You have failed to complete the challenge; restart the challenge to try again</fail>"
 		if (inChallenge('u', 15)) func = "<logic>Your Population is Exploding</logic>"
+		if (inChallenge('u', 15) && player.u.population.gte(1e10)) func = "<logic>Your Population is Infected!</logic><br><fail>You have failed to complete the challenge; restart the challenge to try again</fail>"
 		if (inChallenge('u', 16)) func = "<logic>Infectious Outbreak!</logic>"
 		if (inChallenge('u', 16) && player.u.population.lte(0.1)) func = "<logic>Infectious Outbreak!</logic><br><fail>You have failed to complete the challenge; restart the challenge to try again</fail>"
 		return func
@@ -154,8 +156,7 @@ var displayThings = [
 	},
 	function(){
 		let func3 = ""
-		if (inChallenge('u', 14)) func3 = "If your Population drops under 1 before you can complete the challenge;<br>You lose and will need to restart the challenge.<br><a>Can you save them all?</a>"
-		if (inChallenge('u', 15)) func3 = "If your Population becomes stupidly inflated (1e10) before you can complete the challenge;<br>You lose and will need to restart the challenge."
+		if (inChallenge('u', 14)) func3 = "<br><a>Can you save them all?</a>"
 		if (inChallenge('u', 16)) func3 = "You are losing <logic>" + format(player.u.infected) +"</logic> Population every tick<br>You are also gaining <red>" + format(player.u.infected.pow(0.17)) + "</red> Infected every tick"
 		if (inChallenge('u', 16) && player.u.population.lte(0.1)) func3 = "You are losing <logic>0.00</logic> Population every tick<br>You are also gaining <red>" + format(player.u.infected.pow(0.17)) + "</red> Infected every tick"
 		return func3
