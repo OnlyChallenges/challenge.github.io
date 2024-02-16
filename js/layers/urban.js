@@ -68,7 +68,7 @@ addLayer("u", {
         if (inChallenge('u', 15))
         player.u.population = player.u.population.times(1.0283)
         if (inChallenge('u', 16))
-        player.u.infected = player.u.infected.add(player.u.infected.div(17))
+        player.u.infected = player.u.infected.add(player.u.infected.pow(0.1))
         player.u.population = player.u.population.minus(player.u.infected)
     },
     challenges: {
@@ -142,7 +142,7 @@ addLayer("u", {
         },
         16: {
             name: "Infectious Attacks",
-            challengeDescription(){return "Infects grows more and more... towards a point where it's impossible to beat the challenge (Population Boost: " + format(player.u.population)+"x)<br> (Infected Nerf: /" + format(player.u.infected) + ")" },
+            challengeDescription(){return "Infects grows more and more... towards a point where it's impossible to beat the challenge <br>(Population Boost: " + format(player.u.population)+"x)<br> (Infected Nerf: /" + format(player.u.infected) + ")" },
             canComplete: function() {return hasChallenge('d', 19)},
             goalDescription: "Complete the 9th Dust Challenge",
             rewardEffect() { return (player.p.points.pow(0.1).max(1))},
