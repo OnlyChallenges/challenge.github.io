@@ -111,7 +111,7 @@ addLayer("u", {
         },
         14: {
             name: "Virus Spread",
-            challengeDescription(){return "The Population is dropping! Can you finish the challenge before it drops to 1?<br> Population Boosts Point Gain<br> (Population Boost: " + format(player.u.population)+"x)" },
+            challengeDescription(){return "The Population is dropping! Can you finish the challenge before it drops to 1?<br> Population Boosts Point Gain<br> (Population Boost: " + format(player.u.population.max(0.000001))+"x)" },
             canComplete: function() {return hasChallenge('d', 19)},
             goalDescription: "Complete Dust Challenge 9",
             rewardEffect() { return (player.u.points.pow(0.2).max(1))},
@@ -126,7 +126,7 @@ addLayer("u", {
         },
         15: {
             name: "Populative Explosion",
-            challengeDescription(){return "The Population is exploding! Don't let it inflate as it decreases your point gain overtime!<br> Population nerfs Point Gain<br> (Population Nerf: /" + format(player.u.population.pow(0.5))+")" },
+            challengeDescription(){return "The Population is exploding! Don't let it inflate as it decreases your point gain overtime!<br> Population nerfs Point Gain<br> (Population Nerf: /" + format(player.u.population.pow(0.5).max(0.00001))+")" },
             canComplete: function() {return player.d.points.gte(1)},
             goalDescription: "1 Dust",
             rewardEffect() { return (player.points.pow(0.04).max(1))},
@@ -141,7 +141,7 @@ addLayer("u", {
         },
         16: {
             name: "Infectious Attacks",
-            challengeDescription(){return "Infects grows more and more... towards a point where it's impossible to beat the challenge <br>(Population Boost: " + format(player.u.population)+"x)<br> (Infected Nerf: /" + format(player.u.infected) + ")" },
+            challengeDescription(){return "Infects grows more and more... towards a point where it's impossible to beat the challenge <br>(Population Boost: " + format(player.u.population.max(0.000001))+"x)<br> (Infected Nerf: /" + format(player.u.infected) + ")" },
             canComplete: function() {return hasChallenge('d', 19)},
             goalDescription: "Complete the 9th Dust Challenge",
             rewardEffect() { return (player.p.points.pow(0.1).max(1))},
