@@ -125,6 +125,8 @@ function getPointGen() {
 	if (inChallenge('u', 13)) gain = gain.pow(0.7)
 	if (inChallenge('u', 14)) gain = gain.times(player.u.population.max(0.0000001))
 	if (inChallenge('u', 15)) gain = gain.div(player.u.population.pow(0.5).min(1e15))
+	if (inChallenge('u', 16)) gain = gain.times(player.u.population.max(0.0000001))
+	if (inChallenge('u', 16)) gain = gain.div(player.u.infected.max(0.0001).min(1e50))
 	return gain
 }
 
@@ -138,13 +140,14 @@ var displayThings = [
 		let func = ""
 		if (inChallenge('u', 14)) func = "<logic>Your Population is Infected!</logic>"
 		if (inChallenge('u', 15)) func = "<logic>Your Population is Exploding</logic>"
+		if (inChallenge('u', 16)) func = "<logic>Infectious Outbreak!</logic>"
 		return func
 	},
 	function(){
 		let func2 = ""
 		if (inChallenge('u', 14)) func2 = "Population: <red>" + format(player.u.population) +"</red> (-<logic>1.27%</logic>/<a>tick</a>)"
 		if (inChallenge('u', 15)) func2 = "Population: <red>" + format(player.u.population) +"</red> (+<logic>2.85%</logic>/<a>tick</a>)"
-		if (inChallenge('u', 16)) func2 = "Pop: " +format(player.u.population) + "<br>Infected: " + format(player.u.infected)
+		if (inChallenge('u', 16)) func2 = "Population: <a>" +format(player.u.population) + "</a><br>Infected: <red>" + format(player.u.infected) + "</red>"
 		return func2
 	
 	},
@@ -152,6 +155,7 @@ var displayThings = [
 		let func3 = ""
 		if (inChallenge('u', 14)) func3 = "If your Population drops under 1 before you can complete the challenge;<br>You lose and will need to restart the challenge.<br><a>Can you save them all?</a>"
 		if (inChallenge('u', 15)) func3 = "If your Population becomes stupidly inflated (1e10) before you can complete the challenge;<br>You lose and will need to restart the challenge."
+		if (inChallenge('u', 16)) func3 = "You are losing <logic>" + format(player.u.infected) +" Population every tick<br>You are also gaining <red>" + format(player.u.infected.div(17)) + "</red> Infected every tick" 
 		return func3
 	
 	},

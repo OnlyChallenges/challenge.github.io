@@ -68,11 +68,8 @@ addLayer("u", {
         if (inChallenge('u', 15))
         player.u.population = player.u.population.times(1.0283)
         if (inChallenge('u', 16))
-        player.u.infected = player.u.infected.minus(player.u.population.div(1000))
-        player.u.population = player.u.population.add(player.u.infected.div(1000))
-        if (inChallenge('u', 16) && (player.u.infected.lte(5) || player.u.population.gte(50000)))
-        player.u.infected = new Decimal(2500)
-        player.u.population = new Decimal(2500)
+        player.u.infected = player.u.infected.add(player.u.infected.div(17))
+        player.u.population = player.u.population.minus(player.u.infected)
     },
     challenges: {
         11: {
@@ -144,17 +141,17 @@ addLayer("u", {
             },
         },
         16: {
-            name: "Down and Up (WIP)",
-            challengeDescription(){return "Infected & Population stimulate each other, will it be a different outcome?" },
-            canComplete: function() {return player.d.points.gte(1)},
-            goalDescription: "1 Dust",
-            rewardEffect() { return (player.points.pow(0.08).max(1))},
-            onEnter(){return ((player.u.population = new Decimal(2500)) && (player.u.infected = new Decimal(2500)))},
+            name: "Infectious Attacks",
+            challengeDescription(){return "Infects grows more and more... towards a point where it's impossible to beat the challenge (Population Boost: " + format(player.u.population)+"x)<br> (Infected Nerf: /" + format(player.u.infected) + ")" },
+            canComplete: function() {return hasChallenge('d', 19)},
+            goalDescription: "Complete the 9th Dust Challenge",
+            rewardEffect() { return (player.p.points.pow(0.1).max(1))},
+            onEnter(){return ((player.u.population = new Decimal(1000000)) && (player.u.infected = new Decimal(1)))},
             onExit(){return ((player.u.population = new Decimal(1)) && (player.u.infected = new Decimal(1)))},
-            rewardDescription(){return "Points boosts itself"},
-            rewardDisplay(){return format(challengeEffect('u', 15))+"x"},
+            rewardDescription(){return "Prestige Points boosts Dust Gain slightly"},
+            rewardDisplay(){return format(challengeEffect('u', 16))+"x"},
             unlocked(){
-                let unlock = (hasChallenge('u', 14) || inChallenge('u', 15) || hasChallenge('u', 15))
+                let unlock = (hasChallenge('u', 15) || inChallenge('u', 16) || hasChallenge('u', 16))
                 return unlock
             },
         },
