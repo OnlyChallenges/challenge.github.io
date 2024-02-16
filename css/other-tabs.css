@@ -94,6 +94,7 @@ logic {
 fail {
 	color: #d75c15;
 	text-decoration-line: none;
+	text-shadow: 5px 0 10px #7d0b1e;
 	cursor: pointer;
 }
 
