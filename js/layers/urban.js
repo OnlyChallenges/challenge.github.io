@@ -145,7 +145,7 @@ addLayer("u", {
             canComplete: function() {return hasChallenge('d', 19)},
             goalDescription: "Complete the 9th Dust Challenge",
             rewardEffect() { return (player.p.points.pow(0.1).max(1))},
-            onEnter(){return ((player.u.population = new Decimal(1000000)) && (player.u.infected = new Decimal(1)))},
+            onEnter(){return ((player.u.population = new Decimal(1500000)) && (player.u.infected = new Decimal(1)))},
             onExit(){return ((player.u.population = new Decimal(1)) && (player.u.infected = new Decimal(1)))},
             rewardDescription(){return "Prestige Points boosts Dust Gain slightly"},
             rewardDisplay(){return format(challengeEffect('u', 16))+"x"},
