@@ -144,6 +144,7 @@ var displayThings = [
 		let func2 = ""
 		if (inChallenge('u', 14)) func2 = "Population: <red>" + format(player.u.population) +"</red> (-<logic>1.27%</logic>/<a>tick</a>)"
 		if (inChallenge('u', 15)) func2 = "Population: <red>" + format(player.u.population) +"</red> (+<logic>2.85%</logic>/<a>tick</a>)"
+		if (inChallenge('u', 16)) fun2 = "Pop: " +format(player.u.population) + "<br>Infected: " + format(player.u.infected)
 		return func2
 	
 	},

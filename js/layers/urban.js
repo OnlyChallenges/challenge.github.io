@@ -6,6 +6,7 @@ addLayer("u", {
         unlocked: false,
                 points: new Decimal(0),
                 population: new Decimal(10000000),
+                infected: new Decimal(10000000),
     }},
     color: "#eb3474",
     requires(){ 
@@ -66,6 +67,17 @@ addLayer("u", {
         player.u.population = player.u.population.div(1.0127)
         if (inChallenge('u', 15))
         player.u.population = player.u.population.times(1.0283)
+        if (inChallenge('u', 16))
+        player.u.infected = player.u.infected.minus(player.u.population.div(10))
+        player.u.population = player.u.population.add(player.u.infected.div(10))
+        if (inChallenge('u', 16) && player.u.infected.lte(5))
+        player.u.infected = player.u.infected.add(player.u.population.div(10))
+        if (inChallenge('u', 16) && player.u.population.gte(500000))
+        player.u.population = player.u.population.minus(player.infected.div(10))
+        if (inChallenge('u', 16) && player.u.infected.gte(500000))
+        player.u.infected = player.u.infected.minus(player.u.population.div(10))
+        if (inChallenge('u', 16) && player.u.population.lte(5))
+        player.u.population = player.u.population.add(player.infected.div(10))
     },
     challenges: {
         11: {
@@ -129,6 +141,21 @@ addLayer("u", {
             rewardEffect() { return (player.points.pow(0.04).max(1))},
             onEnter(){return player.u.population = new Decimal(1.1)},
             onExit(){return player.u.population = new Decimal(1)},
+            rewardDescription(){return "Points boosts itself"},
+            rewardDisplay(){return format(challengeEffect('u', 15))+"x"},
+            unlocked(){
+                let unlock = (hasChallenge('u', 14) || inChallenge('u', 15) || hasChallenge('u', 15))
+                return unlock
+            },
+        },
+        16: {
+            name: "Down and Up (WIP)",
+            challengeDescription(){return "Infected & Population stimulate each other, will it be a different outcome?" },
+            canComplete: function() {return player.d.points.gte(1)},
+            goalDescription: "1 Dust",
+            rewardEffect() { return (player.points.pow(0.08).max(1))},
+            onEnter(){return ((player.u.population = new Decimal(2500)) && (player.u.infected = new Decimal(2500)))},
+            onExit(){return ((player.u.population = new Decimal(1)) && (player.u.infected = new Decimal(1)))},
             rewardDescription(){return "Points boosts itself"},
             rewardDisplay(){return format(challengeEffect('u', 15))+"x"},
             unlocked(){
