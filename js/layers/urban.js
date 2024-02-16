@@ -68,16 +68,11 @@ addLayer("u", {
         if (inChallenge('u', 15))
         player.u.population = player.u.population.times(1.0283)
         if (inChallenge('u', 16))
-        player.u.infected = player.u.infected.minus(player.u.population.div(10))
-        player.u.population = player.u.population.add(player.u.infected.div(10))
-        if (inChallenge('u', 16) && player.u.infected.lte(5))
-        player.u.infected = player.u.infected.add(player.u.population.div(10))
-        if (inChallenge('u', 16) && player.u.population.gte(500000))
-        player.u.population = player.u.population.minus(player.infected.div(10))
-        if (inChallenge('u', 16) && player.u.infected.gte(500000))
-        player.u.infected = player.u.infected.minus(player.u.population.div(10))
-        if (inChallenge('u', 16) && player.u.population.lte(5))
-        player.u.population = player.u.population.add(player.infected.div(10))
+        player.u.infected = player.u.infected.minus(player.u.population.div(1000))
+        player.u.population = player.u.population.add(player.u.infected.div(1000))
+        if (inChallenge('u', 16) && (player.u.infected.lte(5) || player.u.population.gte(50000)))
+        player.u.infected = new Decimal(2500)
+        player.u.population = new Decimal(2500)
     },
     challenges: {
         11: {
