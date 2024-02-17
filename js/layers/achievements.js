@@ -112,7 +112,7 @@ achievements: {
     31: {
         name: "<rainbow>Plasmaic Goober</rainbow>",
         done() { return player.points.gte(1e200) },
-        tooltip: "<rainbow>Darkening Rooms, Colorful Details, and Amazing Artistic Abilities. Don't know who I'm talking about?</rainbow> <red>She's close...</red><rainbow><br>Reward: Give him a hug every time you see him talk; it'll cheer him up :)</rainbow><br><corrupt>Requirements: Finish 'Plasmaic Difference' & 'Gooberification'</corrupt>",
+        tooltip: "<rainbow>Darkening Rooms, Colorful Details, and Amazing Artistic Abilities. Don't know who I'm talking about?</rainbow> <red>She's close...</red><rainbow><br>Reward: Give her a hug every time you see her talk; it'll cheer him up :)</rainbow><br><corrupt>Requirements: Finish 'Plasmaic Difference' & 'Gooberification'</corrupt>",
         unlocked() { return hasAchievement('A', 18) },
     },
 },
