@@ -140,9 +140,9 @@ function addedPlayerData() { return {
 var displayThings = [
 	function(){
 		let func = ""
-		if (inChallenge('u', 14)) func = "<logic>Your Population is Infected!</logic>"
-		if (inChallenge('u', 14) && player.u.population.lte(0.1)) func = "<logic>Your Population is Infected!</logic><br><fail>You have failed to complete the challenge; restart the challenge to try again</fail>"
-		if (inChallenge('u', 15)) func = "<logic>Your Population is Exploding</logic>"
+		if (inChallenge('u', 14)) func = "<rainbow>Your Population is Infected!</rainbow>"
+		if (inChallenge('u', 14) && player.u.population.lte(0.1)) func = "<rainbow>Your Population is Infected!</rainbow><br><fail>You have failed to complete the challenge; restart the challenge to try again</fail>"
+		if (inChallenge('u', 15)) func = "<rainbow>Your Population is Exploding</rainbow>"
 		if (inChallenge('u', 15) && player.u.population.gte(1e10)) func = "<logic>Your Population is Infected!</logic><br><fail>You have failed to complete the challenge; restart the challenge to try again</fail>"
 		if (inChallenge('u', 16)) func = "<logic>Infectious Outbreak!</logic>"
 		if (inChallenge('u', 16) && player.u.population.lte(0.1)) func = "<logic>Infectious Outbreak!</logic><br><fail>You have failed to complete the challenge; restart the challenge to try again</fail>"
