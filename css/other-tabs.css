@@ -105,7 +105,7 @@ rainbow {
   100%{background-position:0% 50%}
 }
 
-rainbow span:nth-child(10n + 1) {
+rainbow span {
   animation: movement 2s linear infinite;
 }
 
