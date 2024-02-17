@@ -105,6 +105,21 @@ rainbow {
   100%{background-position:0% 50%}
 }
 
+corrupt {
+ background-image: repeating-linear-gradient(65deg, green, lime, green, orange, green, lime, green, orange, green);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: another 6.3s ease infinite;
+}
+@keyframes another {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
 fail {
 	color: #d75c15;
 	text-decoration-line: none;
