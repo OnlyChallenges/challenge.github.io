@@ -109,5 +109,11 @@ achievements: {
         tooltip: "Complete all Challenges in the 9th Dimensional Challenge<br>Reward: ^1.05 Point Gain",
         unlocked() { return hasAchievement('A', 18) },
     },
+    31: {
+        name: "<rainbow>Plasmaic Goober</rainbow>",
+        done() { return player.points.gte(1e200) },
+        tooltip: "<rainbow>Personality: Gay Text, Goober, Likes Vanilla Coke, Draws, and does nothing else but drink monster every so often, inserting gay text btw<br>Reward: Gay Goober</rainbow>",
+        unlocked() { return hasAchievement('A', 18) },
+    },
 },
 })
