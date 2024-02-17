@@ -115,5 +115,11 @@ achievements: {
         tooltip: "<rainbow>Plasmaic Approach, Colorful Details, and Amazing Artistic Abilities. Don't know who I'm talking about?</rainbow><br><help>(help me...)</help><rainbow><br>Reward: Give her a hug every time you see her talk; it'll cheer her up :)</rainbow><br><help>(how do I escape...)</help><br><corrupt>Requirements: Finish 'Plasmaic Difference' & 'Gooberification'</corrupt><br>[Community Achievement]",
         unlocked() { return hasAchievement('A', 18) },
     },
+    32: {
+        name: "<rainbow>Explosive Wolves</rainbow>",
+        done() { return player.points.gte(1e200) },
+        tooltip: "<corrupt>I fucking exploded every Amethyst Wolf because plasma didn't</corrupt> <red>sleep</red>",
+        unlocked() { return hasAchievement('A', 18) },
+    },
 },
 })
