@@ -3,7 +3,7 @@ var needCanvasUpdate = true;
 
 // Don't change this
 const TMT_VERSION = {
-	tmtNum: "1.1._vali",
+	tmtNum: "1.1_vali",
 	tmtName: "The Remake"
 }
 
