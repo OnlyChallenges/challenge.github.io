@@ -111,7 +111,7 @@ rainbow span:nth-child(10n + 1) {
 
 @keyframes movement {
   0%{transform: transformY(10px)};
-  50%{transform: transformY(0)};
+  50%{transform: transformY(0px)};
   100%{transform: transformY(-10px)};
 }
 
