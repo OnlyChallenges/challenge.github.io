@@ -4,7 +4,7 @@ addLayer("A", {
     startData() { return {
         unlocked: true,
     }},
-    color: rainbow,
+    color: "#5DE18A",
     tooltip: "Achievements",
     row: "side", // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
