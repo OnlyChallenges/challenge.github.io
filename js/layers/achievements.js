@@ -104,7 +104,7 @@ achievements: {
         unlocked() { return hasAchievement('A', 18) },
     },
     28: {
-        name: "Determined Challenges",
+        name: "<rainbow>Determined Challenges</rainbow>",
         done() { return player.points.gte(1e200) },
         tooltip: "Complete all Challenges in the 9th Dimensional Challenge<br>Reward: ^1.05 Point Gain",
         unlocked() { return hasAchievement('A', 18) },
