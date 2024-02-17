@@ -105,6 +105,17 @@ rainbow {
   100%{background-position:0% 50%}
 }
 
+rainbow span:nth-child(10n + 1) {
+  animation: movement 2s linear infinite;
+}
+
+@keyframes movement {
+  0%{transform: transformY(10px)};
+  50%{transform: transformY(0)};
+  100%{transform: transformY(-10px)};
+}
+
+
 fail {
 	color: #d75c15;
 	text-decoration-line: none;
