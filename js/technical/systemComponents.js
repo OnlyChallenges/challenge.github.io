@@ -127,7 +127,7 @@ var systemComponents = {
         <div>
         <h2>{{modInfo.name}}</h2>
         <br>
-        <h3>{{VERSION.withName}}</h3>
+        <h3><rainbow>{{VERSION.withName}}</rainbow></h3>
         <span v-if="modInfo.author">
             <br>
             Made by {{modInfo.author}}	
