@@ -1,7 +1,7 @@
 let modInfo = {
-	name: "The ??? Tree",
+	name: "Tree of Abyssal Demise",
 	id: "mymod",
-	author: "nobody",
+	author: "vali (snor mimi)",
 	pointsName: "points",
 	modFiles: ["layers/challenge.js","layers/achievements.js","layers/thenextevent.js","layers/urban.js", "tree.js"],
 	discordName: "",
