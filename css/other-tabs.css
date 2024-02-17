@@ -127,6 +127,12 @@ fail {
 	cursor: pointer;
 }
 
+help {
+color: rgba(150, 150, 150, 0.2);
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
 .link {
 	display: block;
 	font-size: 20px;
