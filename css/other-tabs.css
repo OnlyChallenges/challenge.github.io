@@ -105,8 +105,8 @@ rainbow {
   100%{background-position:0% 50%}
 }
 
-rainbow span {
-  animation: movement 2s linear infinite;
+sideline {
+  animation: movement 3s linear infinite;
 }
 
 @keyframes movement {
