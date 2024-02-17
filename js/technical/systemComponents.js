@@ -135,14 +135,13 @@ var systemComponents = {
         <br>
         Github Repository Version <a v-bind:href="'https://github.com/Acamaeda/The-Modding-Tree/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum}}</a>
         <br>
-		<br><br>
-		<div class="link" onclick="showTab('changelog-tab')">Changelog</div><br>
+		<br>
+		<div class="link" onclick="showTab('changelog-tab')">Changelog / Devlog</div><br>
         <span v-if="modInfo.discordLink"><a class="link" v-bind:href="modInfo.discordLink" target="_blank">{{modInfo.discordName}}</a><br></span>
-        <a class="link" href="https://discord.gg/F3xveHV" target="_blank" v-bind:style="modInfo.discordLink ? {'font-size': '16px'} : {}">The Modding Tree Discord</a><br>
-        <a class="link" href="http://discord.gg/wwQfgPa" target="_blank" v-bind:style="{'font-size': '16px'}">Main Prestige Tree server</a><br>
+        <a class="link" href="https://discord.com/e205" target="_blank" v-bind:style="modInfo.discordLink ? {'font-size': '16px'} : {}">Experiment-205 Discord</a><br>
 		<br><br>
         Time Played: <corrupt>{{ formatTime(player.timePlayed) }}</corrupt><br><br>
-        <h3>Hotkeys</h3><br>
+        <h2>Hotkeys</h2><br>
         <span v-for="key in hotkeys" v-if="player[key.layer].unlocked && tmp[key.layer].hotkeys[key.id].unlocked"><br>{{key.description}}</span></div>
     `
     },
