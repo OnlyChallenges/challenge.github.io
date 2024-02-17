@@ -128,7 +128,7 @@ fail {
 }
 
 help {
-color: rgba(150, 150, 150, 0.2);
+color: rgba(150, 150, 150, 0.11);
 	text-decoration-line: none;
 	cursor: pointer;
 }
