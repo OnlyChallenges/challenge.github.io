@@ -105,17 +105,6 @@ rainbow {
   100%{background-position:0% 50%}
 }
 
-sideline {
-  animation: movement 3s linear infinite;
-}
-
-@keyframes movement {
-  0%{transform: transformY(10px);}
-  50%{transform: transformY(0px);}
-  100%{transform: transformY(-10px);}
-}
-
-
 fail {
 	color: #d75c15;
 	text-decoration-line: none;
