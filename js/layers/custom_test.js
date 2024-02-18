@@ -7,6 +7,7 @@ addLayer("L", {
     color: "#8A422A",
     tooltip: "Battle",
     row: 5, // Row the layer is in on the tree (0 is the first row)
+    type: "custom",
     layerShown(){return true},
     tabFormat: {
             "Achievements":{
