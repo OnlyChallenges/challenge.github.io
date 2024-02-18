@@ -131,5 +131,24 @@ return click},
                 'background-color': tmp.L.color,
             }},
         },
+        21: {
+            title: "Heal",
+            display(){let dis = "Heal Ability"
+return dis
+},
+            canClick(){ 
+let click = false
+if (player.L.randomizer == (7)) click = true
+if (player.L.health >= player.healthMax) click = false
+return click},
+            onClick() {
+            if (player.L.randomizer == (7))
+                 player.L.enemyHP = player.L.enemyHP.add(1)
+                 player.L.health = player.L.health.add(2.5)
+            },
+            style() {return{
+                'background-color': tmp.L.color,
+            }},
+        },
      },
 })
