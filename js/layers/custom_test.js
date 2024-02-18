@@ -107,10 +107,10 @@ if (player.L.randomizer == (7)) click = false
 return click},
             onClick() {
                 player.L.randomizer = Math.floor(Math.random() * 10) + 1;
-                if (player.L.randomizer == (7)) player.L.enemyHP = 75
-                if (player.L.randomizer == (7)) player.L.enemyHPMax = 75
-                if (player.L.randomizer == (7)) player.L.enemyAttack = 2
-                if (player.L.randomizer == (7)) player.L.enemyDefense = 1
+                if (player.L.randomizer == (7)) player.L.enemyHP = player.L.enemyHP.add(75)
+                if (player.L.randomizer == (7)) player.L.enemyHPMax = player.L.enemyHPMax.add(75)
+                if (player.L.randomizer == (7)) player.L.enemyAttack = player.L.enemyAttack.add(2)
+                if (player.L.randomizer == (7)) player.L.enemyDefense = player.L.enemyDefense.add(1)
             },
             style() {return{
                 'background-color': tmp.L.color,
@@ -135,6 +135,8 @@ return click},
                  if (player.L.enemyHP <= (0)) player.L.randomizer = minus(player.L.randomizer)
                 if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
                 if (player.L.enemyHP <= (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
+                if (player.L.enemyHP <= (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
+                if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
             },
             style() {return{
                 'background-color': tmp.L.color,
@@ -154,7 +156,7 @@ return click},
             if (player.L.randomizer == (7))
                  player.L.enemyHP = player.L.enemyHP.add(1)
                  player.L.health = player.L.health.add(2)
-                 if ((player.L.health > player.L.healthMax) && player.L.level == (1)) player.L.health = 20
+                 if ((player.L.health > player.L.healthMax) && player.L.level == (1)) player.L.health = new Decimal(20)
             },
             style() {return{
                 'background-color': tmp.L.color,
