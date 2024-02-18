@@ -125,7 +125,7 @@ return click},
                  player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(2.3).floor())).add(player.L.enemyDefense)
                  player.L.health = player.L.health.minus(player.L.enemyAttack)
                  if (player.L.enemyHP <= (0)) player.L.exp = player.L.exp.add(3)
-                 if (player.L.enemyHP <= (0)) player.L.randomizer = minus(player.L.randomizer)},
+                 if (player.L.enemyHP <= (0)) player.L.randomizer = minus(player.L.randomizer)
             },
             style() {return{
                 'background-color': tmp.L.color,
