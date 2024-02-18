@@ -120,6 +120,21 @@ corrupt {
   100%{background-position:0% 50%}
 }
 
+ruins {
+ background-image: repeating-linear-gradient(65deg, pink, indigo, purple, pink, indigo, purple, pink, indigo, purple);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: lay 5.8s ease infinite;
+}
+@keyframes lay {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
 fail {
 	color: #d75c15;
 	text-decoration-line: none;
