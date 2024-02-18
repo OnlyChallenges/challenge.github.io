@@ -151,8 +151,6 @@ return dis
 },
             canClick(){ 
 let click = true
-if (player.L.randomizer !== (7)) click = false
-if (player.L.randomizer == (7)) click = true
 if (player.L.health >= player.L.healthMax) click = false
 return click},
             onClick() {
