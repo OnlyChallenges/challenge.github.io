@@ -131,7 +131,7 @@ return click},
                 'background-color': tmp.L.color,
             }},
         },
-        21: {
+        22: {
             title: "Heal",
             display(){let dis = "Heal Ability"
 return dis
