@@ -71,7 +71,7 @@ return func
             display: "Look Around",
             canClick: true,
             onClick() {
-                player.L.randomizer = (Math.random() * 100)
+                player.L.randomizer = (Math.random() * 100).floor()
             },
             style() {return{
                 'background-color': tmp.L.color,
