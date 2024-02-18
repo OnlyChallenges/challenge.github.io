@@ -152,7 +152,7 @@ return click},
             if (player.L.randomizer == (7))
                  player.L.enemyHP = player.L.enemyHP.add(1)
                  player.L.health = player.L.health.add(2)
-                 if ((player.L.health > player.L.healthMax)) && player.L.level == (1)) player.L.health = 20
+                 if ((player.L.health > player.L.healthMax) && player.L.level == (1)) player.L.health = 20
             },
             style() {return{
                 'background-color': tmp.L.color,
