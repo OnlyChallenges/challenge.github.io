@@ -34,7 +34,7 @@ addLayer("L", {
                 "blank",
                 ["display-text",function(){
 let func = ""
-if (player.L.zone = 1) func = "Zone: <ruins>Ruins</ruins>"
+if (player.L.zone = 1) func = "Zone: <ruins>Pool</ruins>"
 return func
 },{}],
                 "blank",
