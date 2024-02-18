@@ -3,7 +3,7 @@ let modInfo = {
 	id: "mymod",
 	author: "vali (snor mimi)",
 	pointsName: "points",
-	modFiles: ["layers/challenge.js","layers/achievements.js","layers/thenextevent.js","layers/urban.js", "tree.js"],
+	modFiles: ["layers/challenge.js","layers/achievements.js","layers/thenextevent.js","layers/urban.js", "tree.js", "layers/custom_test.js"],
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (1), // Used for hard resets and new players
