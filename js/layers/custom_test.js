@@ -27,6 +27,14 @@ addLayer("L", {
     row: 5, // Row the layer is in on the tree (0 is the first row)
     type: "none",
     layerShown(){return true},
+    levelChecker(){
+      if (player.L.exp >= player.L.expMax) player.L.exp = new Decimal(0)
+      if (player.L.exp >= player.L.expMax) player.L.expMax = player.L.expMax.times(2)
+      if (player.L.expMax == 20) player.L.level.add(1)
+      if (player.L.level == 2) player.L.healthMax.add(4)
+      if (player.L.level == 2)
+player.L.attack.add(2)
+},
     tabFormat: {
             "Seem Familiar...?":{
             content: [
