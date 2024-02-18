@@ -43,6 +43,11 @@ return func
                 ["display-text",function(){let func = "EXP: "+format(player.L.exp)+" / " +format(player.L.expMax)
 return func
 },{}],
+                "blank",
+                "blank",
+                ["display-text",function(){let func = "<help>(EXP means Execution Points)<br>(LV stands for Level of Violence)</help>
+return func
+},{}],
                 ],
             },
         },
