@@ -60,11 +60,6 @@ return func
 },{}],
                 ],
             },
-        },
-
-
-
-
         clickables:{
         11: {
             title: "Explore",
@@ -77,4 +72,5 @@ return func
                 'background-color': tmp.L.color,
             }},
         },
+     },
 })
