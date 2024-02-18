@@ -135,6 +135,21 @@ ruins {
   100%{background-position:0% 50%}
 }
 
+water {
+ background-image: repeating-linear-gradient(65deg, blue, cyan, blue, white, blue, cyan, white, blue, cyan, cyan);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: boop 6s linear infinite;
+}
+@keyframes boop {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
 fail {
 	color: #d75c15;
 	text-decoration-line: none;
