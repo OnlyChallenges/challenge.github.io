@@ -14,6 +14,7 @@ addLayer("L", {
         exp: new Decimal(0),
         expMax: new Decimal(10),
         randomizer: new Decimal(1),
+        dmgMult: new Decimal(1),
 
         // Enemy Stats
         enemyHP: new Decimal(0),
@@ -85,6 +86,10 @@ return func
 },{}],
                 "blank",
                 ["clickables", [2]],
+                "blank",
+["display-text",function(){ let func = ""
+if (player.L.randomizer == (7)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).add(player.L.enemyDefense)) + " Damage on <corrupt>Abys</corrupt><br>* You lost " +formatWhole(player.L.enemyAttack)+" Health"
+},{}],
                 ],
             },
         },
@@ -122,7 +127,8 @@ if (player.L.enemyHP <= (0)) click = false
 return click},
             onClick() {
             if (player.L.randomizer == (7))
-                 player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(Math.floor(Math.random() * 7) + 1).floor())).add(player.L.enemyDefense)
+                 player.L.dmgMult = Math.floor(Math.random() * 7))
+                 player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor())).add(player.L.enemyDefense)
                  player.L.health = player.L.health.minus(player.L.enemyAttack)
                  if (player.L.enemyHP <= (0)) player.L.exp = player.L.exp.add(3)
                  if (player.L.enemyHP <= (0)) player.L.randomizer = minus(player.L.randomizer)
