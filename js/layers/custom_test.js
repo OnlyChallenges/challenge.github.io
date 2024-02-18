@@ -7,7 +7,9 @@ addLayer("L", {
         health: new Decimal(20),
         healthMax: new Decimal(20),
         attack: new Decimal(2),
+        Wattack: new Decimal(1),
         defense: new Decimal(1),
+        Wdefense: new Decimal(0),
         exp: new Decimal(0),
         expMax: new Decimal(10),
     }},
@@ -37,7 +39,7 @@ let func = "HP <logic>" + formatWhole(player.L.health) + "</logic> / <logic>" + 
 return func
 
 },{}],
-                ["display-text",function(){let func = "ATK: " +formatWhole(player.L.attack)+ " ==== DEF: " + formatWhole(player.L.defense)
+                ["display-text",function(){let func = "ATK: " +formatWhole(player.L.attack)+" ("+formatWhole(player.L.Wattack)+ ") ==== DEF: " + formatWhole(player.L.defense) + " ("+formatWhole(player.L.Wdefense)+")"
 return func
 },{}],
                 ["display-text",function(){let func = "EXP: "+format(player.L.exp)+" / " +format(player.L.expMax)
