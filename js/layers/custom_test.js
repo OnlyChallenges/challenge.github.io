@@ -97,7 +97,7 @@ return dis
             onClick() {
                 player.L.randomizer = Math.floor(Math.random() * 10) + 1;
                 if (player.L.randomizer == (7)) player.L.enemyHP = 75
-                if (player.L.randomizer == (7)) player.L.enemyHP = 75
+                if (player.L.randomizer == (7)) player.L.enemyHPMax = 75
                 if (player.L.randomizer == (7)) player.L.enemyAttack = 2
                 if (player.L.randomizer == (7)) player.L.enemyDefense = 1
             },
