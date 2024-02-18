@@ -89,6 +89,7 @@ return func
                 "blank",
 ["display-text",function(){ let func = ""
 if (player.L.randomizer == (7)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).add(player.L.enemyDefense)) + " Damage on <corrupt>Abys</corrupt><br>* You lost " +formatWhole(player.L.enemyAttack)+" Health"
+return func
 },{}],
                 ],
             },
@@ -139,7 +140,7 @@ return click},
         },
         22: {
             title: "Heal",
-            display(){let dis = "Heal Ability"
+            display(){let dis = "Heal Ability<br>You can't heal of your above Max Health"
 return dis
 },
             canClick(){ 
@@ -150,8 +151,7 @@ return click},
             onClick() {
             if (player.L.randomizer == (7))
                  player.L.enemyHP = player.L.enemyHP.add(1)
-                 player.L.health = player.L.health.add(2.5)
-                 if ((player.L.health >= player.L.healthMax) && player.L.level == (1)) player.L.health = 20
+                 player.L.health = player.L.health.add(2)
             },
             style() {return{
                 'background-color': tmp.L.color,
