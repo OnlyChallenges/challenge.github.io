@@ -48,7 +48,7 @@ return func
                 ["display-text",function(){let func = "EXP: "+format(player.L.exp)+" / " +format(player.L.expMax)
 return func
 },{}],
-                ["display-text",function(){let func = "RNG: " format(player.L.randomizer)
+                ["display-text",function(){let func = "RNG: " + format(player.L.randomizer)
 return func
 },{}],
                 "blank",
