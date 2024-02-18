@@ -59,14 +59,14 @@ return func
 },{}],
                 "blank",
                 ["display-text",function(){let func = ""
- if (player.L.randomizer == (10)) func = "* You Stepped On Some Leaves"
- if (player.L.randomizer == (9)) func = "* You Stepped On Some Rocks"
- if (player.L.randomizer == (8)) func = "* You Walked Across A Room"
+ if (player.L.randomizer == (10)) func = "* You Saw A Book that says: <br>* 'How to give a hu-'<br>* ... The rest of the title is scrapped off."
+ if (player.L.randomizer == (9)) func = "* You Stepped On Something..."
+ if (player.L.randomizer == (8)) func = "* You Walked Across The Pool"
  if (player.L.randomizer == (7)) func = "*You've Encountered A <water>Abys</water>"
 if (player.L.randomizer == (6)) func = "*[Battle_Function2]"
-if (player.L.randomizer == (5)) func = "*You Tripped On A Stick"
+if (player.L.randomizer == (5)) func = "*You Liked The Lighting In The Pool"
 if (player.L.randomizer == (4)) func = "*You Found A Rock; You Threw It"
-if (player.L.randomizer == (3)) func = "*You Found a Piece of 'Monster Candy', Gain 2 HP"
+if (player.L.randomizer == (3)) func = "*You Dipped Your Hand In The Water"
 if (player.L.randomizer == (2)) func = "*[Battle_Function3]"
 if (player.L.randomizer == (1)) func = "*<red>Kill Them All</red>"
  return func
