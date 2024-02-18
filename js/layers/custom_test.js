@@ -12,6 +12,7 @@ addLayer("L", {
         Wdefense: new Decimal(0),
         exp: new Decimal(0),
         expMax: new Decimal(10),
+        randomizer: new Decimal(1),
     }},
     color: "#8A422A",
     tooltip: "Battle",
@@ -46,11 +47,34 @@ return func
 return func
 },{}],
                 "blank",
+                ["display-text",function(){let func = ""
+ if (player.L.randomizer.gte(80)) func = "* You Stepped On Some Leaves"
+ if (player.L.randomizer.lte(79).gte(60)) func = "* You Stepped On Some Rocks"
+ if (player.L.randomizer.lte(59).gte(30)) func = "* You Walked Across A Room"
+ if (player.L.randomizer.lte(29)) func = "*[Battle_Function1]"
+ return func
+},{}],
                 "blank",
                 ["display-text",function(){let func = "<help>(EXP means Execution Points)<br>(LV stands for Level of Violence)</help>"
 return func
 },{}],
                 ],
             },
+        },
+
+
+
+
+        clickables:{
+        11: {
+            title: "Explore",
+            display: "Look Around",
+            canClick: true,
+            onClick() {1
+                player.L.randomizer = Math.random(1,100)
+            },
+            style() {return{
+                'background-color': tmp.L.color,
+            }},
         },
 })
