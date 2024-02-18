@@ -134,10 +134,10 @@ return click},
                  player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).add(player.L.enemyDefense)
                  player.L.health = player.L.health.minus(player.L.enemyAttack)
                  if (player.L.enemyHP <= (0)) player.L.exp = player.L.exp.add(3)
-                 if (player.L.enemyHP <= (0)) player.L.randomizer = minus(player.L.randomizer)
+                 if (player.L.enemyHP <= (0)) player.L.randomizer = player.L.randomizer.minus(player.L.randomizer)
                 if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
                 if (player.L.enemyHP <= (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
-                if (player.L.enemyHP <= (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
+                if (player.L.enemyHP <= (0)) player.L.enemyHP = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
             },
             style() {return{
