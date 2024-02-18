@@ -62,7 +62,7 @@ return func
  if (player.L.randomizer == (10)) func = "* You Stepped On Some Leaves"
  if (player.L.randomizer == (9)) func = "* You Stepped On Some Rocks"
  if (player.L.randomizer == (8)) func = "* You Walked Across A Room"
- if (player.L.randomizer == (7)) func = "*You've Encountered A <corrupt>Abys</corrupt>"
+ if (player.L.randomizer == (7)) func = "*You've Encountered A <water>Abys</water>"
 if (player.L.randomizer == (6)) func = "*[Battle_Function2]"
 if (player.L.randomizer == (5)) func = "*You Tripped On A Stick"
 if (player.L.randomizer == (4)) func = "*You Found A Rock; You Threw It"
@@ -81,7 +81,7 @@ return func
                 "blank",
                 "blank",
                 ["display-text",function(){ let func = ""
-if (player.L.randomizer == (7)) func = "<corrupt>Abys</corrupt><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (7)) func = "<water>Abys</water><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 return func
 },{}],
                 "blank",
