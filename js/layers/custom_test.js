@@ -26,7 +26,8 @@ addLayer("L", {
                 "blank",
                 "blank",
                 ["display-text",function(){
-let func = "Zone: <rainbow>Ruins</rainbow>"
+let func = ""
+if (player.L.zone = 1) func = "Zone: <rainbow>Ruins</rainbow>"
 if (player.L.zone = 2) func = "Zone: Snowdin"
 return func
 },{}],
@@ -45,6 +46,9 @@ return func
 return func
 },{}],
                 ["display-text",function(){let func = "EXP: "+format(player.L.exp)+" / " +format(player.L.expMax)
+return func
+},{}],
+                ["display-text",function(){let func = "RNG: " format(player.L.randomizer)
 return func
 },{}],
                 "blank",
