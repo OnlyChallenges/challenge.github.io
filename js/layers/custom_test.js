@@ -121,10 +121,10 @@ if (player.L.randomizer == (7)) click = true
 if (player.L.enemyHP <= (0)) click = false
 return click},
             onClick() {
-            if (player.L.randomizer == (7))
+            if (player.L.randomizer == (7)) abysClick(){
                  player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(2.3).floor())).add(player.L.enemyDefense)
                  player.L.health = player.L.health.minus(player.L.enemyAttack)
-                 if (player.L.enemyHP <= (0)) player.L.exp = player.L.exp.add(3)},
+                 if (player.L.enemyHP <= (0)) player.L.exp = player.L.exp.add(3)
                  if (player.L.enemyHP <= (0)) player.L.randomizer = minus(player.L.randomizer)},
             },
             style() {return{
