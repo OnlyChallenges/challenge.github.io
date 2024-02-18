@@ -4,6 +4,8 @@ addLayer("L", {
     startData() { return {
         unlocked: true,
         level: new Decimal(1),
+        health: new Decimal(20),
+        healthMax: new Decimal(20),
         attack: new Decimal(2),
         defense: new Decimal(1),
         exp: new Decimal(0),
@@ -21,7 +23,12 @@ addLayer("L", {
                 "blank",
                 "blank",
                 ["display-text",function(){
-let func = "Level " + formatWhole(player.L.level)
+let func = "LV " + formatWhole(player.L.level)
+return func
+
+},{}],
+                ["display-text",function(){
+let func = "HP " + formatWhole(player.L.health) + " / " + formatWhole(player.L.healthMax)
 return func
 
 },{}],
