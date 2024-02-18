@@ -60,6 +60,7 @@ return func
 },{}],
                 ],
             },
+        },
         clickables:{
         11: {
             title: "Explore",
