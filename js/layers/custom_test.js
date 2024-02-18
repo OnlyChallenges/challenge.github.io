@@ -111,6 +111,8 @@ return click},
                 if (player.L.randomizer == (7)) player.L.enemyHPMax = player.L.enemyHPMax.add(75)
                 if (player.L.randomizer == (7)) player.L.enemyAttack = player.L.enemyAttack.add(2)
                 if (player.L.randomizer == (7)) player.L.enemyDefense = player.L.enemyDefense.add(1)
+
+//Refix
             },
             style() {return{
                 'background-color': tmp.L.color,
@@ -173,10 +175,10 @@ if (player.L.randomizer == (7)) click = true
 return click},
             onClick() {
             player.L.randomizer = 0
-                if (player.L.randomizer = (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
-               if (player.L.randomizer = (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
-               if (player.L.randomizer = (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
-               if (player.L.randomizer = (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
+                if (player.L.randomizer == (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
+               if (player.L.randomizer == (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
+               if (player.L.randomizer == (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
+               if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
             },
             style() {return{
                 'background-color': tmp.L.color,
