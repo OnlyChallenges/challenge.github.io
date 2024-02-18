@@ -133,6 +133,8 @@ return click},
                  player.L.health = player.L.health.minus(player.L.enemyAttack)
                  if (player.L.enemyHP <= (0)) player.L.exp = player.L.exp.add(3)
                  if (player.L.enemyHP <= (0)) player.L.randomizer = minus(player.L.randomizer)
+                if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
+                if (player.L.enemyHP <= (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
             },
             style() {return{
                 'background-color': tmp.L.color,
@@ -169,6 +171,10 @@ if (player.L.randomizer == (7)) click = true
 return click},
             onClick() {
             player.L.randomizer = 0
+                if (player.L.randomizer = (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
+               if (player.L.randomizer = (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
+               if (player.L.randomizer = (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
+               if (player.L.randomizer = (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
             },
             style() {return{
                 'background-color': tmp.L.color,
