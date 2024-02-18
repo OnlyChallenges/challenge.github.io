@@ -80,7 +80,7 @@ return func
                 "blank",
                 "blank",
                 ["display-text",function(){ let func = ""
-if (player.L.randomizer == (7)) func = "<corrupt>Froggit</corrupt><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemvyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (7)) func = "<corrupt>Froggit</corrupt><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 return func
 },{}],
                 ],
