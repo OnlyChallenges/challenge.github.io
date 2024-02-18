@@ -52,10 +52,16 @@ return func
 },{}],
                 "blank",
                 ["display-text",function(){let func = ""
- if (player.L.randomizer == (80, 100)) func = "* You Stepped On Some Leaves"
- if (player.L.randomizer == (60, 79)) func = "* You Stepped On Some Rocks"
- if (player.L.randomizer == (30, 59)) func = "* You Walked Across A Room"
- if (player.L.randomizer == (1, 29)) func = "*[Battle_Function1]"
+ if (player.L.randomizer == (10)) func = "* You Stepped On Some Leaves"
+ if (player.L.randomizer == (9)) func = "* You Stepped On Some Rocks"
+ if (player.L.randomizer == (8)) func = "* You Walked Across A Room"
+ if (player.L.randomizer == (7)) func = "*[Battle_Function1]"
+if (player.L.randomizer == (6)) func = "*[Battle_Function2]"
+if (player.L.randomizer == (5)) func = "*You Tripped On A Stick"
+if (player.L.randomizer == (4)) func = "*You Found A Rock; You Threw It"
+if (player.L.randomizer == (3)) func = "*You Found a Piece of 'Monster Candy', Gained 2 HP"
+if (player.L.randomizer == (2)) func = "*[Battle_Function3]"
+if (player.L.randomizer == (1)) func = "*</red>Kill Them All</red>"
  return func
 },{}],
                 "blank",
@@ -74,7 +80,7 @@ return func
             display: "Look Around",
             canClick: true,
             onClick() {
-                player.L.randomizer = Math.floor(Math.random() * 100) + 1;
+                player.L.randomizer = Math.floor(Math.random() * 10) + 1;
             },
             style() {return{
                 'background-color': tmp.L.color,
