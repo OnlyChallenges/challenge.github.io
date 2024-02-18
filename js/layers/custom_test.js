@@ -61,13 +61,13 @@ return func
  if (player.L.randomizer == (10)) func = "* You Stepped On Some Leaves"
  if (player.L.randomizer == (9)) func = "* You Stepped On Some Rocks"
  if (player.L.randomizer == (8)) func = "* You Walked Across A Room"
- if (player.L.randomizer == (7)) func = "*You've Encountered A <corrupt>Froggit</corrupt>"
+ if (player.L.randomizer == (7)) func = "*You've Encountered A <corrupt>Abys</corrupt>"
 if (player.L.randomizer == (6)) func = "*[Battle_Function2]"
 if (player.L.randomizer == (5)) func = "*You Tripped On A Stick"
 if (player.L.randomizer == (4)) func = "*You Found A Rock; You Threw It"
-if (player.L.randomizer == (3)) func = "*You Found a Piece of 'Monster Candy', Gained 2 HP"
+if (player.L.randomizer == (3)) func = "*You Found a Piece of 'Monster Candy', Gain 2 HP"
 if (player.L.randomizer == (2)) func = "*[Battle_Function3]"
-if (player.L.randomizer == (1)) func = "*</red>Kill Them All</red>"
+if (player.L.randomizer == (1)) func = "*<red>Kill Them All</red>"
  return func
 },{}],
                 "blank",
@@ -80,9 +80,11 @@ return func
                 "blank",
                 "blank",
                 ["display-text",function(){ let func = ""
-if (player.L.randomizer == (7)) func = "<corrupt>Froggit</corrupt><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (7)) func = "<corrupt>Abys</corrupt><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 return func
 },{}],
+                "blank",
+                ["clickables", [2]],
                 ],
             },
         },
@@ -93,13 +95,37 @@ return func
                if (player.L.randomizer == (7)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
 return dis
 },
-            canClick: true,
+            canClick(){ 
+let click = true
+if (player.L.randomizer == (7)) click = false
+return click},
             onClick() {
                 player.L.randomizer = Math.floor(Math.random() * 10) + 1;
                 if (player.L.randomizer == (7)) player.L.enemyHP = 75
                 if (player.L.randomizer == (7)) player.L.enemyHPMax = 75
                 if (player.L.randomizer == (7)) player.L.enemyAttack = 2
                 if (player.L.randomizer == (7)) player.L.enemyDefense = 1
+            },
+            style() {return{
+                'background-color': tmp.L.color,
+            }},
+        },
+        21: {
+            title: "Attack",
+            display(){let dis = "Attack the enemy"
+return dis
+},
+            canClick(){ 
+let click = false
+if (player.L.randomizer == (7)) click = true
+if (player.L.enemyHP <= (0)) click = false
+return click},
+            onClick() {
+            if (player.L.randomizer == (7)) abysAttack(){
+                 player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(2.3).floor())).add(player.L.enemyDefense)
+                 player.L.health = player.L.health.minus(player.L.enemyAttack)
+                 if (player.L.enemyHP <= (0)) player.L.exp = player.L.exp.add(3)},
+                 if (player.L.enemyHP <= (0)) player.L.randomizer = minus(player.L.randomizer)},
             },
             style() {return{
                 'background-color': tmp.L.color,
