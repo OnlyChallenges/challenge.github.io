@@ -45,7 +45,7 @@ return func
 },{}],
                 "blank",
                 "blank",
-                ["display-text",function(){let func = "<help>(EXP means Execution Points)<br>(LV stands for Level of Violence)</help>
+                ["display-text",function(){let func = "<help>(EXP means Execution Points)<br>(LV stands for Level of Violence)</help>"
 return func
 },{}],
                 ],
