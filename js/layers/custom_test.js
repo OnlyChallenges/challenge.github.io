@@ -3,6 +3,7 @@ addLayer("L", {
     symbol: "L", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
         unlocked: true,
+        zone: new Decimal(0),
         level: new Decimal(1),
         health: new Decimal(20),
         healthMax: new Decimal(20),
@@ -25,9 +26,9 @@ addLayer("L", {
                 "blank",
                 "blank",
                 ["display-text",function(){
-let func = "Zone: <rainbow>???</rainbow>"
+let func = "Zone: <rainbow>Ruins</rainbow>"
+if (player.L.zone = 1) func = "Zone: Snowdin"
 return func
-
 },{}],
                 "blank",
                 ["display-text",function(){
