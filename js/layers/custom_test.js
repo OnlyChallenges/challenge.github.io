@@ -165,7 +165,6 @@ return dis
             canClick(){ 
 let click = false
 if (player.L.randomizer == (7)) click = true
-else click = false
 return click},
             onClick() {
             player.L.randomizer = 0
