@@ -21,6 +21,11 @@ addLayer("L", {
             content: [
                 "blank",
                 "blank",
+                ["display-text",function(){
+let func = "Zone: <rainbow>???</rainbow>"
+return func
+
+},{}],
                 "blank",
                 ["display-text",function(){
 let func = "LV " + formatWhole(player.L.level)
@@ -28,7 +33,7 @@ return func
 
 },{}],
                 ["display-text",function(){
-let func = "HP " + formatWhole(player.L.health) + " / " + formatWhole(player.L.healthMax)
+let func = "HP <logic>" + formatWhole(player.L.health) + "</logic> / <logic>" + formatWhole(player.L.healthMax) + "</logic>"
 return func
 
 },{}],
