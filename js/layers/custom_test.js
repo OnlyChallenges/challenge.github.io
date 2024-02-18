@@ -151,5 +151,22 @@ return click},
                 'background-color': tmp.L.color,
             }},
         },
+23: {
+            title: "Flee",
+            display(){let dis = "Flee from the Enemy"
+return dis
+},
+            canClick(){ 
+let click = false
+if (player.L.randomizer == (7)) click = true
+else click = false
+return click},
+            onClick() {
+            player.L.randomizer = 0
+            },
+            style() {return{
+                'background-color': tmp.L.color,
+            }},
+        },
      },
 })
