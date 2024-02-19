@@ -51,6 +51,8 @@ addLayer("L", {
       if ((player.L.exp > 300) && player.L.level == 9) player.L.exp = new Decimal(0)
       if ((player.L.exp > 400) && player.L.level == 10) player.L.expMax = player.L.expMax.add(100)
       if ((player.L.exp > 400) && player.L.level == 10) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 500) && player.L.level == 11) player.L.expMax = player.L.expMax.add(350)
+      if ((player.L.exp > 500) && player.L.level == 11) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
       if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
@@ -63,6 +65,7 @@ addLayer("L", {
       if ((player.L.expMax > 250) && player.L.level == 8) player.L.level = new Decimal(9)
       if ((player.L.expMax > 300) && player.L.level == 9) player.L.level = new Decimal(10)
       if ((player.L.expMax > 400) && player.L.level == 10) player.L.level = new Decimal(11)
+      if ((player.L.expMax > 500) && player.L.level == 11) player.L.level = new Decimal(12)
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 11) player.L.zone = new Decimal(3)
       if (player.L.level == 1) player.L.healthMax = new Decimal(20)
@@ -92,6 +95,8 @@ addLayer("L", {
       if (player.L.level == 11) player.L.attack = new Decimal(17)
       if (player.L.level == 11) player.L.Wdefense = new Decimal(2)
       if (player.L.level == 11) player.L.defense = new Decimal(6)
+      if (player.L.level == 12) player.L.healthMax = new Decimal(67)
+      if (player.L.level == 12) player.L.Wattack = new Decimal(6)
 },
 
     colorcheckerOne(){
@@ -119,7 +124,7 @@ addLayer("L", {
 let func = ""
 if (player.L.zone == 1) func = "Zone: <ruins>Pool</ruins>"
 if (player.L.zone == 2) func = "Zone: <corrupt>Library</corrupt>"
-if (player.L.zone == 3) func = "Zone: <corrupt>Server Roo.</corrupt>"
+if (player.L.zone == 3) func = "Zone: <corrupt>Server Room</corrupt>"
 return func
 },{}],
                 "blank",
@@ -206,7 +211,8 @@ if ((player.L.exp < 1) && player.L.level == (7)) func = "<levelup>Level Up! You'
 if ((player.L.exp < 1) && player.L.level == (8)) func = "<levelup>Level Up! You're now Level 8</levelup><br> (+2 Max Health, Unlock Weapon Defense)"
 if ((player.L.exp < 1) && player.L.level == (9)) func = "<levelup>Level Up! You're now Level 9</levelup><br> (+3 Max Health, +2 Attack)"
 if ((player.L.exp < 1) && player.L.level == (10)) func = "<levelup>Level Up! You're now Level 10</levelup><br> (+7 Max Health, +4 Attack, +1 Defense)<br><red>Don't let them escape...</red>"
-if ((player.L.exp < 1) && player.L.level == (11)) func = "<levelup>Level Up! You're now Level 11</levelup><br> (+4 Max Health, +2 Attack, +2 Defense, +1 Weapon Defensd)<br>"
+if ((player.L.exp < 1) && player.L.level == (11)) func = "<levelup>Level Up! You're now Level 11</levelup><br> (+4 Max Health, +2 Attack, +2 Defense, +1 Weapon Defense)<br>"
+if ((player.L.exp < 1) && player.L.level == (12)) func = "<levelup>Level Up! You're now Level 12</levelup><br> (+3 Max Health, +2 Weapon Attack)<br>"
 return func
 },{}],
                 "blank",
@@ -390,6 +396,7 @@ if ((player.L.health >= 50) && player.L.level == (8)) click = false
 if ((player.L.health >= 53) && player.L.level == (9)) click = false
 if ((player.L.health >= 60) && player.L.level == (10)) click = false
 if ((player.L.health >= 64) && player.L.level == (11)) click = false
+if ((player.L.health >= 67) && player.L.level == (12)) click = false
 return click},
             onClick() {
             if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1))
