@@ -23,9 +23,9 @@ let changelog = `<h1>Changelog:</h1><br><br>
   > Added <rainbow>Hallow</rainbow><br>
   > Added <rainbow>Virux</rainbow><br>
   > Added <rainbow>Cyberruin</rainbow><br><br>
-  - > Increased the level cap to 18<br>
-  - > Added Attack Cooldown<br>
-  - > Added Secret Hug Ability<br> that will hug plasma because I want it there >:D<br><br>
+  - Increased the level cap to 18<br>
+  - Added Attack Cooldown<br>
+  - Added Secret Hug Ability<br> that will hug plasma because I want it there >:D<br><br>
 
  <h3>v0.0.0.0.1.3: Logicality</h3><br>
   - Added 2 Urban Challenges<br>
