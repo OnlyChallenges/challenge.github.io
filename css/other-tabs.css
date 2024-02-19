@@ -150,6 +150,22 @@ water {
   100%{background-position:0% 50%}
 }
 
+levelup {
+ background-image: repeating-linear-gradient(77deg, green, blue, lime, blue, lime, cyan, white, cyan, lime);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: lv 6.1s ease infinite;
+}
+@keyframes lv {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
+
 fail {
 	color: #d75c15;
 	text-decoration-line: none;
