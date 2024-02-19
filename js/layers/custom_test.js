@@ -188,8 +188,10 @@ if ((player.L.health >= 20) && player.L.level == (1)) click = false
 if ((player.L.health >= 24) && player.L.level == (2)) click = false
 return click},
             onClick() {
-            if (player.L.randomizer == (7))
+            if (player.L.randomizer == (7) || player.L.randomizer == (6))
                  player.L.enemyHP = player.L.enemyHP.add(1)
+            if (player.L.randomizer == (6))
+                 player.L.enemyHP = player.L.enemyHP.add(2)
                  player.L.health = player.L.health.add(2)
             },
             style() {return{
