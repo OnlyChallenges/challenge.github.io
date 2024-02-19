@@ -28,12 +28,13 @@ addLayer("L", {
     type: "none",
     layerShown(){return true},
     levelChecker(){
-      if (player.L.exp > player.L.expMax) player.L.exp = new Decimal(0)
+      if (player.L.exp > player.L.expMax) player.L.exp = player.L.exp.minus(player.L.exp)
       if (player.L.exp > player.L.expMax) player.L.expMax = player.L.expMax.times(2)
       if (player.L.expMax == 20) player.L.level.add(1)
       if (player.L.level == 2) player.L.healthMax.add(4)
       if (player.L.level == 2)
 player.L.attack.add(2)
+      else player.L.health = player.L.health.add(0)
 },
     tabFormat: {
             "Seem Familiar...?":{
@@ -165,7 +166,6 @@ return click},
             if (player.L.randomizer == (7))
                  player.L.enemyHP = player.L.enemyHP.add(1)
                  player.L.health = player.L.health.add(2)
-                 if ((player.L.health > player.L.healthMax) && player.L.level == (1)) player.L.health = new Decimal(20)
             },
             style() {return{
                 'background-color': tmp.L.color,
