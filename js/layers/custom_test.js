@@ -70,7 +70,7 @@ addLayer("L", {
       if (player.L.level == 7) player.L.healthMax = new Decimal(48)
       if (player.L.level == 7) player.L.Wattack = new Decimal(4)
       if (player.L.level == 8) player.L.healthMax = new Decimal(50)
-      if (player.L.level == 8) player.L.WDefense = new Decimal(1)
+      if (player.L.level == 8) player.L.Wdefense = new Decimal(1)
 
 },
     tabFormat: {
