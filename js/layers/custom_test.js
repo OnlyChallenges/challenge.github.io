@@ -282,7 +282,7 @@ return click},
                 if (player.L.enemyHP <= (0)) player.L.enemyHP = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
             },
-            style() {return {'background-color': tmp.L.spectwo,
+            style() {return {'background-color': player.L.spectwo,
 }},
         },
         22: {
@@ -318,7 +318,7 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone 
                  player.L.health = player.L.health.add(3)
             },
             style() {return {
-                'background-color': tmp.L.spec,}
+                'background-color': player.L.spec,}
             },
         },
 23: {
@@ -338,7 +338,7 @@ return click},
                if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
             },
             style() {return{
-                'background-color': tmp.L.specthree,
+                'background-color': player.L.specthree,
             }},
         },
      },
