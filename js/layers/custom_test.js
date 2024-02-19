@@ -124,7 +124,7 @@ addLayer("L", {
 let func = ""
 if (player.L.zone == 1) func = "Zone: <ruins>Pool</ruins>"
 if (player.L.zone == 2) func = "Zone: <corrupt>Library</corrupt>"
-if (player.L.zone == 3) func = "Zone: <corrupt>Server Room</corrupt>"
+if (player.L.zone == 3) func = "Zone: <server>Server Room</server>"
 return func
 },{}],
                 "blank",
@@ -142,9 +142,6 @@ return func
 return func
 },{}],
                 ["display-text",function(){let func = "EXP: "+format(player.L.exp)+" / " +format(player.L.expMax)
-return func
-},{}],
-                ["display-text",function(){let func = "RNG: " + format(player.L.randomizer) + " (<corrupt>Developer Feature</corrupt>)"
 return func
 },{}],
                 "blank",
