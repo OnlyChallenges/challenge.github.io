@@ -16,8 +16,9 @@ addLayer("L", {
         randomizer: new Decimal(1),
         dmgMult: new Decimal(1),
         defenseRNG: new Decimal(1),
-        spec: "#FFC0CB",
-
+        spec: "#DAC0CB",
+        spectwo: "#00FF00",
+        specthree: "#FF4433",
         // Enemy Stats
         enemyHP: new Decimal(0),
         enemyHPMax: new Decimal(0),
@@ -281,7 +282,7 @@ return click},
                 if (player.L.enemyHP <= (0)) player.L.enemyHP = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
             },
-            style() {return {'background-color': tmp.A.color,
+            style() {return {'background-color': tmp.L.spectwo,
 }},
         },
         22: {
@@ -337,7 +338,7 @@ return click},
                if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
             },
             style() {return{
-                'background-color': tmp.L.color,
+                'background-color': tmp.L.specthree,
             }},
         },
      },
