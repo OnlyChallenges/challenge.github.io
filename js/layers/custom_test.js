@@ -151,15 +151,15 @@ return func
                 ["clickables", [2]],
                 "blank",
 ["display-text",function(){ let func = ""
-if (player.L.randomizer == (7) && player.L.zone == (1)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Abys</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense))+" Health"
-if (player.L.randomizer == (2) && player.L.zone == (1)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Azure</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense))+" Health"
-if (player.L.randomizer == (6) && player.L.zone == (1)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Malachite</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense))+" Health"
+if (player.L.randomizer == (7) && player.L.zone == (1)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Abys</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense).max(0))+" Health"
+if (player.L.randomizer == (2) && player.L.zone == (1)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Azure</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense).max(0))+" Health"
+if (player.L.randomizer == (6) && player.L.zone == (1)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Malachite</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense).max(0))+" Health"
 
 // Zone 2
 
-if (player.L.randomizer == (7) && player.L.zone == (2)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <ruins>Nyko</ruins><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense))+" Health"
-if (player.L.randomizer == (6) && player.L.zone == (2)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <ruins>Permafrost</ruins><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense))+" Health"
-if (player.L.randomizer == (2) && player.L.zone == (2)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <ruins>Snapper</ruins><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense))+" Health"
+if (player.L.randomizer == (7) && player.L.zone == (2)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <ruins>Nyko</ruins><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense).max(0))+" Health"
+if (player.L.randomizer == (6) && player.L.zone == (2)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <ruins>Permafrost</ruins><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense).max(0))+" Health"
+if (player.L.randomizer == (2) && player.L.zone == (2)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <ruins>Snapper</ruins><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense).max(0))+" Health"
 
 return func
 },{}],
@@ -235,8 +235,8 @@ return click},
             onClick() {
             if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6))
                  player.L.dmgMult = Math.floor((Math.random() * 7) + 1)
-                 player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).add(player.L.enemyDefense)
-                 player.L.health = player.L.health.minus(player.L.enemyAttack).add(player.L.defense)
+                 player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).add(player.L.enemyDefense).max(0)
+                 player.L.health = player.L.health.minus(player.L.enemyAttack).add(player.L.defense).max(0)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (1)) player.L.exp = player.L.exp.add(3)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (1)) player.L.exp = player.L.exp.add(4)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (1)) player.L.exp = player.L.exp.add(2.58)
