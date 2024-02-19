@@ -86,7 +86,7 @@ return func
 },{}],
                 "blank",
                 ["display-text",function(){let func = ""
-if ((player.L.exp < 3) && player.L.level == (2)) func = "<levelup>Level Up! You're now Level 2</levelup><br> (+4 Max Health, +2 Damage)"
+if ((player.L.exp < 4) && player.L.level == (2)) func = "<levelup>Level Up! You're now Level 2</levelup><br> (+4 Max Health, +2 Damage)"
 return func
 },{}],
                 "blank",
