@@ -33,6 +33,8 @@ addLayer("L", {
 },
     recheckChecker(){
       if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
+      if (player.L.level == 1) player.L.healthMax = new Decimal(20)
+      if (player.L.level == 1) player.L.attack = new Decimal(2)
       if (player.L.level == 2) player.L.healthMax = new Decimal(24)
       if (player.L.level == 2) player.L.attack = new Decimal(4)
       if (player.L.level == 2) player.L.health = new Decimal(24)
