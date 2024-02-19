@@ -84,6 +84,10 @@ if (player.L.randomizer == (1)) func = "*<red>Kill Them All</red>"
                 ["display-text",function(){let func = "<help>(EXP means Execution Points)<br>(LV stands for Level of Violence)</help>"
 return func
 },{}],
+                ["display-text",function(){let func = ""
+if ((player.L.exp > 10) && player.L.level == (1)) func = "Level Up! You're now Level 2<br> (+4 Max Health, +2 Damage)"
+return func
+},{}],
                 "blank",
                 "blank",
                 ["clickables", [1]],
