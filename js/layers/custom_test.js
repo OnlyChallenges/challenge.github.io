@@ -269,7 +269,7 @@ if (player.L.randomizer == (6) && player.L.zone == (2)) player.L.enemyHP = playe
         },
         21: {
             title: "Attack",
-            display(){let dis = "Attack the enemy!<br> <water>Green means you can attack!"
+            display(){let dis = "Attack the enemy!"
 return dis
 },
             canClick(){ 
