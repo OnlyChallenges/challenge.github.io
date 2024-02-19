@@ -16,6 +16,7 @@ addLayer("L", {
         randomizer: new Decimal(1),
         dmgMult: new Decimal(1),
         defenseRNG: new Decimal(1),
+        spec: "#FFC0CB",
 
         // Enemy Stats
         enemyHP: new Decimal(0),
@@ -250,7 +251,7 @@ if (player.L.randomizer == (6) && player.L.zone == (2)) player.L.enemyHP = playe
         },
         21: {
             title: "Attack",
-            display(){let dis = "Attack the enemy!<br> <logic>You need 2.5 Points for every attack (2s)</logic>"
+            display(){let dis = "Attack the enemy!<br> <water>Green means you can attack!"
 return dis
 },
             canClick(){ 
@@ -280,13 +281,14 @@ return click},
                 if (player.L.enemyHP <= (0)) player.L.enemyHP = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
             },
-            style() {return{
-                'background-color': tmp.L.color,
-            }},
+            style() {let sty = {
+                'background-color': tmp.L.color,},
+if (player.points > 2.5) sty = {'background-color': tmp.A.color,}
+},
         },
         22: {
             title: "Heal",
-            display(){let dis = "Heal Ability<br>You can't heal of your above Max Health"
+            display(){let dis = "Heal Ability<br>You can't heal if your above Max Health"
 return dis
 },
             canClick(){ 
@@ -316,8 +318,10 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone 
             if ((player.L.level < 11) && player.L.zone == 2)
                  player.L.health = player.L.health.add(3)
             },
-            style() {return{
-                'background-color': tmp.L.color,
+            style() {let sty = {
+                'background-color': tmp.L.color,},
+if (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) sty = {'background-color': tmp.L.spec,}
+},
             }},
         },
 23: {
