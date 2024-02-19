@@ -29,12 +29,13 @@ addLayer("L", {
     layerShown(){return true},
     levelChecker(){
       if ((player.L.exp > 10) && player.L.level == 1) player.L.expMax = player.L.expMax.times(2)
-      if ((player.L.exp > 10) && player.L.level == 1) player.L.exp = player.L.exp.minus(10)
+      if ((player.L.exp > 10) && player.L.level == 1) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
       if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
       if (player.L.level == 2) player.L.healthMax = new Decimal(24)
       if (player.L.level == 2) player.L.attack = new Decimal(4)
+      if (player.L.level == 2) player.L.health = new Decimal(24)
 },
     tabFormat: {
             "E205_Beta 1: RPG Mechanics":{
@@ -86,7 +87,7 @@ return func
 },{}],
                 "blank",
                 ["display-text",function(){let func = ""
-if ((player.L.exp < 4) && player.L.level == (2)) func = "<levelup>Level Up! You're now Level 2</levelup><br> (+4 Max Health, +2 Damage)"
+if ((player.L.exp < 1) && player.L.level == (2)) func = "<levelup>Level Up! You're now Level 2</levelup><br> (+4 Max Health, +2 Damage)"
 return func
 },{}],
                 "blank",
