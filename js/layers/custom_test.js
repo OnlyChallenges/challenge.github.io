@@ -284,6 +284,7 @@ return click},
             style() {let sty = {
                 'background-color': tmp.L.color,},
 if (player.points > 2.5) sty = {'background-color': tmp.A.color,}
+return sty
 },
         },
         22: {
@@ -321,7 +322,7 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone 
             style() {let sty = {
                 'background-color': tmp.L.color,},
 if (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) sty = {'background-color': tmp.L.spec,}
-},
+return sty},
             }},
         },
 23: {
