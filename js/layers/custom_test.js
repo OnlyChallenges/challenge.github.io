@@ -277,7 +277,7 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone 
                  player.L.enemyHP = player.L.enemyHP.add(2)
             if (player.L.randomizer == (6) && player.L.zone == (2))
                  player.L.enemyHP = player.L.enemyHP.add(3)
-            if (player.L.level < 3)
+            if (player.L.level < 4)
                  player.L.health = player.L.health.add(2)
             if ((player.L.level < 6) && player.L.zone == 2)
                  player.L.health = player.L.health.add(3)
