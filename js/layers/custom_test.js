@@ -76,7 +76,7 @@ if (player.L.randomizer == (6)) func = "*You've Encountered A(n) <water>Malachit
 if (player.L.randomizer == (5)) func = "*You Liked The Lighting In The Pool"
 if (player.L.randomizer == (4)) func = "*You Found A Rock; You Threw It"
 if (player.L.randomizer == (3)) func = "*You Dipped Your Hand In The Water"
-if (player.L.randomizer == (2)) func = "*You've Encountered A <water>Azure</water>"
+if (player.L.randomizer == (2)) func = "*You've Encountered A(n) <water>Azure</water>"
 if (player.L.randomizer == (1)) func = "*<red>Kill Them All</red>"
  return func
 },{}],
