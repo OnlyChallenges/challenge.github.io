@@ -282,7 +282,7 @@ return click},
                 if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
             },
             style() {let sty = {
-                'background-color': tmp.L.color,},
+                'background-color': tmp.L.color},
 if (player.points > 2.5) sty = {'background-color': tmp.A.color,}
 return sty
 },
