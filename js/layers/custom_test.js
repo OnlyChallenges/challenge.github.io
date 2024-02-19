@@ -30,13 +30,19 @@ addLayer("L", {
     levelChecker(){
       if ((player.L.exp > 10) && player.L.level == 1) player.L.expMax = player.L.expMax.times(2)
       if ((player.L.exp > 10) && player.L.level == 1) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 20) && player.L.level == 2) player.L.expMax = player.L.expMax.times(1.5)
+      if ((player.L.exp > 20) && player.L.level == 2) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
       if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
+      if ((player.L.expMax > 20) && player.L.level == 2) player.L.level = new Decimal(3)
       if (player.L.level == 1) player.L.healthMax = new Decimal(20)
       if (player.L.level == 1) player.L.attack = new Decimal(2)
       if (player.L.level == 2) player.L.healthMax = new Decimal(24)
       if (player.L.level == 2) player.L.attack = new Decimal(4)
+      if (player.L.level == 3) player.L.healthMax = new Decimal(29)
+      if (player.L.level == 3) player.L.Wattack = new Decimal(2)
+      if (player.L.level == 3) player.L.defense = new Decimal(2)
 },
     tabFormat: {
             "E205_Beta 1: RPG Mechanics":{
@@ -89,6 +95,7 @@ return func
                 "blank",
                 ["display-text",function(){let func = ""
 if ((player.L.exp < 1) && player.L.level == (2)) func = "<levelup>Level Up! You're now Level 2</levelup><br> (+4 Max Health, +2 Damage)"
+if ((player.L.exp < 1) && player.L.level == (3)) func = "<levelup>Level Up! You're now Level 3</levelup><br> (+5 Max Health, +1 Weapon Damage, +1 Defense)"
 return func
 },{}],
                 "blank",
