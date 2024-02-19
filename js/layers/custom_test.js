@@ -85,7 +85,7 @@ if (player.L.randomizer == (1)) func = "*<red>Kill Them All</red>"
 return func
 },{}],
                 ["display-text",function(){let func = ""
-if ((player.L.exp > 10) && player.L.level == (1)) func = "Level Up! You're now Level 2<br> (+4 Max Health, +2 Damage)"
+if ((player.L.exp > 10) && player.L.level == (1)) func = "<levelup>Level Up! You're now Level 2</levelup><br> (+4 Max Health, +2 Damage)"
 return func
 },{}],
                 "blank",
