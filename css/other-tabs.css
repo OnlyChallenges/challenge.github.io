@@ -153,6 +153,7 @@ water {
 levelup {
  background-image: repeating-linear-gradient(77deg, green, blue, lime, blue, lime, cyan, white, cyan, lime);
  text-decoration-line: none;
+ font-size: 22px;
  cursor: pointer;
  background-size: 900% 900%;
  -webkit-background-clip: text;
