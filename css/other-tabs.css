@@ -166,6 +166,21 @@ levelup {
   100%{background-position:0% 50%}
 }
 
+server {
+ background-image: repeating-linear-gradient(33deg, orange, yellow, cyan, lime, orange, pink, yellow, red, violet, orange, yellow);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: room 4.2s ease infinite;
+}
+@keyframes room {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
 
 fail {
 	color: #d75c15;
