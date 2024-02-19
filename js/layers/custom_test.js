@@ -98,8 +98,8 @@ return func
                 ["clickables", [2]],
                 "blank",
 ["display-text",function(){ let func = ""
-if (player.L.randomizer == (7)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Abys</water><br>* You lost " +formatWhole(player.L.enemyAttack)+" Health"
-if (player.L.randomizer == (2)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Azure</water><br>* You lost " +formatWhole(player.L.enemyAttack)+" Health"
+if (player.L.randomizer == (7)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Abys</water><br>* You lost " +formatWhole(player.L.enemyAttack.add(player.L.defense)+" Health"
+if (player.L.randomizer == (2)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Azure</water><br>* You lost " +formatWhole(player.L.enemyAttack.add(player.L.defense)+" Health"
 return func
 },{}],
                 ],
@@ -150,7 +150,7 @@ return click},
             if (player.L.randomizer == (7) || player.L.randomizer == (2))
                  player.L.dmgMult = Math.floor((Math.random() * 7) + 1)
                  player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).add(player.L.enemyDefense)
-                 player.L.health = player.L.health.minus(player.L.enemyAttack)
+                 player.L.health = player.L.health.minus(player.L.enemyAttack).add(player.L.defense)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7)) player.L.exp = player.L.exp.add(3)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2)) player.L.exp = player.L.exp.add(4)
                  if (player.L.enemyHP <= (0)) player.L.randomizer = new Decimal(0)
