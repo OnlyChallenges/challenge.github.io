@@ -196,14 +196,19 @@ return dis
 let click = true
 if ((player.L.health >= 20) && player.L.level == (1)) click = false
 if ((player.L.health >= 24) && player.L.level == (2)) click = false
+if ((player.L.health >= 29) && player.L.level == (3)) click = false
 return click},
             onClick() {
             if (player.L.randomizer == (7) || player.L.randomizer == (2))
                  player.L.enemyHP = player.L.enemyHP.add(1)
             if (player.L.randomizer == (6))
                  player.L.enemyHP = player.L.enemyHP.add(2)
-            if ((player.health > 20) && player.L.level == (1)) 
+            if ((player.L.health > 20) && player.L.level == (1)) 
                  player.L.health = new Decimal(20)
+            if ((player.L.health > 24) && player.L.level == (2)) 
+                 player.L.health = new Decimal(24)
+            if ((player.L.health > 29) && player.L.level == (3)) 
+                 player.L.health = new Decimal(29)
                  player.L.health = player.L.health.add(2)
             },
             style() {return{
