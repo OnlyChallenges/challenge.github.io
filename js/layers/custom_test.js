@@ -148,7 +148,7 @@ if ((player.L.exp < 1) && player.L.level == (4)) func = "<levelup>Level Up! You'
 if ((player.L.exp < 1) && player.L.level == (5)) func = "<levelup>Level Up! You're now Level 5</levelup><br> (+7 Max Health, +3 Attack)"
 if ((player.L.exp < 1) && player.L.level == (6)) func = "<levelup>Level Up! You're now Level 6</levelup><br> (+5 Max Health, +2 Attack, +1 Defense)"
 if ((player.L.exp < 1) && player.L.level == (7)) func = "<levelup>Level Up! You're now Level 7</levelup><br> (+3 Max Health, +1 Weapon Attack, Increased Max Damage)"
-if ((player.L.exp < 1) && player.L.level == (8)) func = "<levelup>Level Up! You're now Level 7</levelup><br> (+2 Max Health, Unlock Weapon Defense)"
+if ((player.L.exp < 1) && player.L.level == (8)) func = "<levelup>Level Up! You're now Level 8</levelup><br> (+2 Max Health, Unlock Weapon Defense)"
 return func
 },{}],
                 "blank",
