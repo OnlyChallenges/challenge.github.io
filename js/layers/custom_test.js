@@ -315,17 +315,17 @@ if (player.L.randomizer == (6) && player.L.zone == (2)) player.L.enemyHP = playe
 
 if (player.L.randomizer == (7) && player.L.zone == (3)) player.L.enemyHP = player.L.enemyHP.add(750)
                 if (player.L.randomizer == (7) && player.L.zone == (3)) player.L.enemyHPMax = player.L.enemyHPMax.add(750)
-                if (player.L.randomizer == (7) && player.L.zone == (3)) player.L.enemyAttack = player.L.enemyAttack.add(8)
+                if (player.L.randomizer == (7) && player.L.zone == (3)) player.L.enemyAttack = player.L.enemyAttack.add(12)
                 if (player.L.randomizer == (7) && player.L.zone == (3)) player.L.enemyDefense = player.L.enemyDefense.add(5)
 
 if (player.L.randomizer == (2) && player.L.zone == (3)) player.L.enemyHP = player.L.enemyHP.add(250)
                 if (player.L.randomizer == (2) && player.L.zone == (3)) player.L.enemyHPMax = player.L.enemyHPMax.add(250)
                 if (player.L.randomizer == (2) && player.L.zone == (3)) player.L.enemyAttack = player.L.enemyAttack.add(4)
-                if (player.L.randomizer == (2) && player.L.zone == (3)) player.L.enemyDefense = player.L.enemyDefense.add(16)
+                if (player.L.randomizer == (2) && player.L.zone == (3)) player.L.enemyDefense = player.L.enemyDefense.add(25)
 
 if (player.L.randomizer == (6) && player.L.zone == (3)) player.L.enemyHP = player.L.enemyHP.add(150)
                 if (player.L.randomizer == (6) && player.L.zone == (3)) player.L.enemyHPMax = player.L.enemyHPMax.add(150)
-                if (player.L.randomizer == (6) && player.L.zone == (3)) player.L.enemyAttack = player.L.enemyAttack.add(23)
+                if (player.L.randomizer == (6) && player.L.zone == (3)) player.L.enemyAttack = player.L.enemyAttack.add(24)
                 if (player.L.randomizer == (6) && player.L.zone == (3)) player.L.enemyDefense = player.L.enemyDefense.add(3)
 
 
