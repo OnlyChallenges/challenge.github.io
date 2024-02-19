@@ -32,11 +32,9 @@ addLayer("L", {
       if ((player.L.exp > 10) && player.L.level == 1) player.L.exp = player.L.exp.minus(10)
 },
     recheckChecker(){
-      if ((player.L.expMax > 10) && player.L.level == 1) player.L.level.add(1)
-      if (player.L.level == 2) player.L.healthMax.add(4)
-      if (player.L.level == 2)
-player.L.attack.add(2)
-      else player.L.health = player.L.health.add(0)
+      if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
+      if (player.L.level == 2) player.L.healthMax = new Decimal(24)
+      if (player.L.level == 2) player.L.attack = new Decimal(4)
 },
     tabFormat: {
             "Seem Familiar...?":{
