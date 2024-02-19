@@ -51,7 +51,7 @@ addLayer("L", {
       if ((player.L.expMax > 60) && player.L.level == 4) player.L.level = new Decimal(5)
       if ((player.L.expMax > 90) && player.L.level == 5) player.L.level = new Decimal(6)
       if ((player.L.expMax > 130) && player.L.level == 6) player.L.level = new Decimal(7)
-      if ((player.L.expMax > 180) && player.L.level == 6) player.L.level = new Decimal(8)
+      if ((player.L.expMax > 180) && player.L.level == 7) player.L.level = new Decimal(8)
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 1) player.L.healthMax = new Decimal(20)
       if (player.L.level == 1) player.L.attack = new Decimal(2)
