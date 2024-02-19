@@ -29,7 +29,7 @@ addLayer("L", {
     layerShown(){return true},
     levelChecker(){
       if ((player.L.exp > 10) && player.L.level == 1) player.L.exp = player.L.exp.minus(10)
-      if (player.L.exp > 10 && player.L.level == 1) player.L.expMax = player.L.expMax.times(2)
+          player.L.expMax = player.L.expMax.times(2)
       if (player.L.expMax == 20) player.L.level.add(1)
       if (player.L.level == 2) player.L.healthMax.add(4)
       if (player.L.level == 2)
