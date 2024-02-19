@@ -320,8 +320,8 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone 
                  player.L.health = player.L.health.add(3)
             },
             style() {let sty = {
-                'background-color': tmp.L.color,},
-if (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) sty = {'background-color': tmp.L.spec,}
+                'background-color': tmp.L.color};
+if (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) sty = {'background-color': tmp.L.spec},
 return sty},
             }},
         },
