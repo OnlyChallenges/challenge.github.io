@@ -37,7 +37,6 @@ addLayer("L", {
       if (player.L.level == 1) player.L.attack = new Decimal(2)
       if (player.L.level == 2) player.L.healthMax = new Decimal(24)
       if (player.L.level == 2) player.L.attack = new Decimal(4)
-      if (player.L.level == 2) player.L.health = new Decimal(24)
 },
     tabFormat: {
             "E205_Beta 1: RPG Mechanics":{
