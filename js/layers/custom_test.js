@@ -79,6 +79,23 @@ addLayer("L", {
       if (player.L.level == 9) player.L.healthMax = new Decimal(53)
       if (player.L.level == 9) player.L.attack = new Decimal(11)
 },
+
+    colorcheckerOne(){
+    if (player.points < 2.5) player.L.spectwo = "#f5cbcb"
+    else player.L.spectwo = "#00FF00"
+},
+
+    colorcheckerTwo(){
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= player.L.healthMax)) player.L.spec = "#f5cbcb"
+    else player.L.spec = "#CAC0CB"
+},
+
+    colorcheckerThree(){
+    if (player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) player.L.specthree = "#f5cbcb"
+    else player.L.specthree = "#FF4433"
+},
+
+
     tabFormat: {
             "E205_Beta 1: RPG Mechanics":{
             content: [
