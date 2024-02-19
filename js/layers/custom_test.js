@@ -15,6 +15,7 @@ addLayer("L", {
         expMax: new Decimal(10),
         randomizer: new Decimal(1),
         dmgMult: new Decimal(1),
+        defenseRNG: new Decimal(1),
 
         // Enemy Stats
         enemyHP: new Decimal(0),
@@ -40,6 +41,8 @@ addLayer("L", {
       if ((player.L.exp > 90) && player.L.level == 5) player.L.exp = new Decimal(0)
       if ((player.L.exp > 130) && player.L.level == 6) player.L.expMax = player.L.expMax.add(50)
       if ((player.L.exp > 130) && player.L.level == 6) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 180) && player.L.level == 7) player.L.expMax = player.L.expMax.add(70)
+      if ((player.L.exp > 180) && player.L.level == 7) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
       if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
@@ -48,6 +51,7 @@ addLayer("L", {
       if ((player.L.expMax > 60) && player.L.level == 4) player.L.level = new Decimal(5)
       if ((player.L.expMax > 90) && player.L.level == 5) player.L.level = new Decimal(6)
       if ((player.L.expMax > 130) && player.L.level == 6) player.L.level = new Decimal(7)
+      if ((player.L.expMax > 180) && player.L.level == 6) player.L.level = new Decimal(8)
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 1) player.L.healthMax = new Decimal(20)
       if (player.L.level == 1) player.L.attack = new Decimal(2)
@@ -65,6 +69,8 @@ addLayer("L", {
       if (player.L.level == 6) player.L.defense = new Decimal(3)
       if (player.L.level == 7) player.L.healthMax = new Decimal(48)
       if (player.L.level == 7) player.L.Wattack = new Decimal(4)
+      if (player.L.level == 8) player.L.healthMax = new Decimal(50)
+      if (player.L.level == 8) player.L.WDefense = new Decimal(1)
 
 },
     tabFormat: {
@@ -142,6 +148,7 @@ if ((player.L.exp < 1) && player.L.level == (4)) func = "<levelup>Level Up! You'
 if ((player.L.exp < 1) && player.L.level == (5)) func = "<levelup>Level Up! You're now Level 5</levelup><br> (+7 Max Health, +3 Attack)"
 if ((player.L.exp < 1) && player.L.level == (6)) func = "<levelup>Level Up! You're now Level 6</levelup><br> (+5 Max Health, +2 Attack, +1 Defense)"
 if ((player.L.exp < 1) && player.L.level == (7)) func = "<levelup>Level Up! You're now Level 7</levelup><br> (+3 Max Health, +1 Weapon Attack, Increased Max Damage)"
+if ((player.L.exp < 1) && player.L.level == (8)) func = "<levelup>Level Up! You're now Level 7</levelup><br> (+2 Max Health, Unlock Weapon Defense)"
 return func
 },{}],
                 "blank",
@@ -251,8 +258,9 @@ return click},
                  player.L.dmgMult = Math.floor((Math.random() * 7) + 1)
             if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.L.level > 6)
                  player.L.dmgMult = Math.floor((Math.random() * 9) + 1)
+                 player.L.defenseRNG = Math.floor((Math.random() * 3) + 1)
                  player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).add(player.L.enemyDefense).max(0)
-                 player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense).max(0))
+                 player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (1)) player.L.exp = player.L.exp.add(3)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (1)) player.L.exp = player.L.exp.add(4)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (1)) player.L.exp = player.L.exp.add(2.58)
@@ -283,6 +291,8 @@ if ((player.L.health >= 29) && player.L.level == (3)) click = false
 if ((player.L.health >= 33) && player.L.level == (4)) click = false
 if ((player.L.health >= 40) && player.L.level == (5)) click = false
 if ((player.L.health >= 45) && player.L.level == (6)) click = false
+if ((player.L.health >= 48) && player.L.level == (7)) click = false
+if ((player.L.health >= 50) && player.L.level == (8)) click = false
 return click},
             onClick() {
             if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1))
