@@ -81,8 +81,8 @@ addLayer("L", {
 },
 
     colorcheckerOne(){
-    if (player.points < 2.5) player.L.spectwo = "#f5cbcb"
-    else player.L.spectwo = "#00FF00"
+    if ((player.points > 2.5) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2))) player.L.spectwo = "#00FF00"
+    else player.L.spectwo = "#f5cbcb"
 },
 
     colorcheckerTwo(){
@@ -91,8 +91,8 @@ addLayer("L", {
 },
 
     colorcheckerThree(){
-    if (player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) player.L.specthree = "#f5cbcb"
-    else player.L.specthree = "#FF4433"
+    if (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) player.L.specthree = "#FF4433"
+    else player.L.specthree = "#f5cbcb"
 },
 
 
