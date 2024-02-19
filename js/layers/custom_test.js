@@ -37,7 +37,7 @@ addLayer("L", {
       if (player.L.level == 2) player.L.attack = new Decimal(4)
 },
     tabFormat: {
-            "Seem Familiar...?":{
+            "E205_Beta 1: RPG Mechanics":{
             content: [
                 "blank",
                 "blank",
