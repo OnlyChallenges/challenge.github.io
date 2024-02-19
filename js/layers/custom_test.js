@@ -281,11 +281,8 @@ return click},
                 if (player.L.enemyHP <= (0)) player.L.enemyHP = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
             },
-            style() {
-let sty = {'background-color': tmp.L.color};
-if (player.points > 2.5) sty = {'background-color': tmp.A.color};
-return sty
-},
+            style() {return {'background-color': tmp.A.color,
+}},
         },
         22: {
             title: "Heal",
@@ -319,10 +316,8 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone 
             if ((player.L.level < 11) && player.L.zone == 2)
                  player.L.health = player.L.health.add(3)
             },
-            style() {let sty = {
-                'background-color': tmp.L.color};
-if (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) sty = {'background-color': tmp.L.spec};
-return sty},
+            style() {return {
+                'background-color': tmp.L.spec,}
             },
         },
 23: {
