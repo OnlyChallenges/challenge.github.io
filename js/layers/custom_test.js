@@ -147,7 +147,7 @@ if (player.L.randomizer == (7) || player.L.randomizer == (2)) click = true
 if (player.L.enemyHP <= (0)) click = false
 return click},
             onClick() {
-            if (player.L.randomizer == (7))
+            if (player.L.randomizer == (7) || player.L.randomizer == (2))
                  player.L.dmgMult = Math.floor((Math.random() * 7) + 1)
                  player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).add(player.L.enemyDefense)
                  player.L.health = player.L.health.minus(player.L.enemyAttack)
