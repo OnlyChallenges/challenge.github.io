@@ -7,16 +7,26 @@ let modInfo = {
 	discordName: "",
 	discordLink: "",
 	initialStartPoints: new Decimal (0), // Used for hard resets and new players
-	offlineLimit: 1,  // In hours
+	offlineLimit: 0,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.0.0.1.3.1",
-	name: "Wtf how many 0's are you adding?",
+	num: "1.0",
+	name: "The Server Room",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+
+ <h3>v1.0: Zone 3</h3><br>
+  - Added Zone 3 (<server>Server Room</server>)<br>[Level 11 - 18]<br>
+  > Added <rainbow>Hallow</rainbow><br>
+  > Added <rainbow>Virux</rainbow><br>
+  > Added <rainbow>Cyberruin</rainbow><br><br>
+  - > Increased the level cap to 18<br>
+  - > Added Attack Cooldown<br>
+  - > Added Secret Hug Ability<br> that will hug plasma because I want it there >:D<br><br>
+
  <h3>v0.0.0.0.1.3: Logicality</h3><br>
   - Added 2 Urban Challenges<br>
   - Inflative Difference?<br>
