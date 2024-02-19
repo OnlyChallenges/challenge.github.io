@@ -250,12 +250,12 @@ if (player.L.randomizer == (6) && player.L.zone == (2)) player.L.enemyHP = playe
         },
         21: {
             title: "Attack",
-            display(){let dis = "Attack the enemy"
+            display(){let dis = "Attack the enemy!<br> <logic>You need 2.5 Points for every attack (2s)</logic>"
 return dis
 },
             canClick(){ 
 let click = false
-if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) click = true
+if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.points > 2.49) click = true
 if (player.L.enemyHP <= (0)) click = false
 return click},
             onClick() {
