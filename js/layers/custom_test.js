@@ -36,12 +36,15 @@ addLayer("L", {
       if ((player.L.exp > 30) && player.L.level == 3) player.L.exp = new Decimal(0)
       if ((player.L.exp > 60) && player.L.level == 4) player.L.expMax = player.L.expMax.times(1.5)
       if ((player.L.exp > 60) && player.L.level == 4) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 90) && player.L.level == 5) player.L.expMax = player.L.expMax.add(40)
+      if ((player.L.exp > 90) && player.L.level == 5) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
       if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
       if ((player.L.expMax > 20) && player.L.level == 2) player.L.level = new Decimal(3)
       if ((player.L.expMax > 30) && player.L.level == 3) player.L.level = new Decimal(4)
       if ((player.L.expMax > 60) && player.L.level == 4) player.L.level = new Decimal(5)
+      if ((player.L.expMax > 90) && player.L.level == 5) player.L.level = new Decimal(6)
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 1) player.L.healthMax = new Decimal(20)
       if (player.L.level == 1) player.L.attack = new Decimal(2)
@@ -54,6 +57,10 @@ addLayer("L", {
       if (player.L.level == 4) player.L.Wattack = new Decimal(3)
       if (player.L.level == 5) player.L.healthMax = new Decimal(40)
       if (player.L.level == 5) player.L.attack = new Decimal(7)
+      if (player.L.level == 6) player.L.attack = new Decimal(9)
+      if (player.L.level == 6) player.L.healthMax = new Decimal(45)
+      if (player.L.level == 6) player.L.defense = new Decimal(3)
+
 },
     tabFormat: {
             "E205_Beta 1: RPG Mechanics":{
@@ -128,6 +135,7 @@ if ((player.L.exp < 1) && player.L.level == (2)) func = "<levelup>Level Up! You'
 if ((player.L.exp < 1) && player.L.level == (3)) func = "<levelup>Level Up! You're now Level 3</levelup><br> (+5 Max Health, +1 Weapon Attack, +1 Defense)"
 if ((player.L.exp < 1) && player.L.level == (4)) func = "<levelup>Level Up! You're now Level 4</levelup><br> (+4 Max Health, +1 Weapon Attack)"
 if ((player.L.exp < 1) && player.L.level == (5)) func = "<levelup>Level Up! You're now Level 5</levelup><br> (+7 Max Health, +3 Attack)"
+if ((player.L.exp < 1) && player.L.level == (6)) func = "<levelup>Level Up! You're now Level 6</levelup><br> (+5 Max Health, +2 Attack, +1 Defense)"
 return func
 },{}],
                 "blank",
@@ -266,6 +274,7 @@ if ((player.L.health >= 24) && player.L.level == (2)) click = false
 if ((player.L.health >= 29) && player.L.level == (3)) click = false
 if ((player.L.health >= 33) && player.L.level == (4)) click = false
 if ((player.L.health >= 40) && player.L.level == (5)) click = false
+if ((player.L.health >= 45) && player.L.level == (6)) click = false
 return click},
             onClick() {
             if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1))
@@ -279,7 +288,7 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone 
                  player.L.enemyHP = player.L.enemyHP.add(3)
             if (player.L.level < 4)
                  player.L.health = player.L.health.add(2)
-            if ((player.L.level < 6) && player.L.zone == 2)
+            if ((player.L.level < 11) && player.L.zone == 2)
                  player.L.health = player.L.health.add(3)
             },
             style() {return{
