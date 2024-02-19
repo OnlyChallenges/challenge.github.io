@@ -71,8 +71,8 @@ return func
  if (player.L.randomizer == (10)) func = "* You Saw A Book that says: <br>* 'How to give a hu-'<br>* ... The rest of the title is scrapped off."
  if (player.L.randomizer == (9)) func = "* You Stepped On Something..."
  if (player.L.randomizer == (8)) func = "* You Walked Across The Pool"
- if (player.L.randomizer == (7)) func = "*You've Encountered A <water>Abys</water>"
-if (player.L.randomizer == (6)) func = "*[Battle_Function2]"
+ if (player.L.randomizer == (7)) func = "*You've Encountered A(n) <water>Abys</water>"
+if (player.L.randomizer == (6)) func = "*You've Encountered A(n) <water>Malachite</water>"
 if (player.L.randomizer == (5)) func = "*You Liked The Lighting In The Pool"
 if (player.L.randomizer == (4)) func = "*You Found A Rock; You Threw It"
 if (player.L.randomizer == (3)) func = "*You Dipped Your Hand In The Water"
@@ -96,6 +96,7 @@ return func
                 ["display-text",function(){ let func = ""
 if (player.L.randomizer == (7)) func = "<water>Abys</water><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 if (player.L.randomizer == (2)) func = "<water>Azure</water><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (6)) func = "<water>Malachite</water><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 return func
 },{}],
                 "blank",
@@ -104,6 +105,7 @@ return func
 ["display-text",function(){ let func = ""
 if (player.L.randomizer == (7)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Abys</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense))+" Health"
 if (player.L.randomizer == (2)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Azure</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense))+" Health"
+if (player.L.randomizer == (6)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Malachite</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense))+" Health"
 return func
 },{}],
                 ],
@@ -115,12 +117,14 @@ return func
             display(){let dis = "Look Around"
                if (player.L.randomizer == (7)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
                if (player.L.randomizer == (2)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
+               if (player.L.randomizer == (6)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
 return dis
 },
             canClick(){ 
 let click = true
 if (player.L.randomizer == (7)) click = false
 if (player.L.randomizer == (2)) click = false
+if (player.L.randomizer == (6)) click = false
 return click},
             onClick() {
                 player.L.randomizer = Math.floor(Math.random() * 10) + 1;
@@ -133,6 +137,11 @@ if (player.L.randomizer == (2)) player.L.enemyHP = player.L.enemyHP.add(90)
                 if (player.L.randomizer == (2)) player.L.enemyHPMax = player.L.enemyHPMax.add(90)
                 if (player.L.randomizer == (2)) player.L.enemyAttack = player.L.enemyAttack.add(1)
                 if (player.L.randomizer == (2)) player.L.enemyDefense = player.L.enemyDefense.add(3)
+
+if (player.L.randomizer == (6)) player.L.enemyHP = player.L.enemyHP.add(30)
+                if (player.L.randomizer == (6)) player.L.enemyHPMax = player.L.enemyHPMax.add(30)
+                if (player.L.randomizer == (6)) player.L.enemyAttack = player.L.enemyAttack.add(4)
+                if (player.L.randomizer == (6)) player.L.enemyDefense = player.L.enemyDefense.add(0)
 
 //Refix
             },
@@ -147,16 +156,17 @@ return dis
 },
             canClick(){ 
 let click = false
-if (player.L.randomizer == (7) || player.L.randomizer == (2)) click = true
+if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) click = true
 if (player.L.enemyHP <= (0)) click = false
 return click},
             onClick() {
-            if (player.L.randomizer == (7) || player.L.randomizer == (2))
+            if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6))
                  player.L.dmgMult = Math.floor((Math.random() * 7) + 1)
                  player.L.enemyHP = player.L.enemyHP.minus(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).add(player.L.enemyDefense)
                  player.L.health = player.L.health.minus(player.L.enemyAttack).add(player.L.defense)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7)) player.L.exp = player.L.exp.add(3)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2)) player.L.exp = player.L.exp.add(4)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2)) player.L.exp = player.L.exp.add(2.58)
                  if (player.L.enemyHP <= (0)) player.L.randomizer = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
                 if (player.L.enemyHP <= (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
@@ -193,7 +203,7 @@ return dis
 },
             canClick(){ 
 let click = false
-if (player.L.randomizer == (7) || player.L.randomizer == (2)) click = true
+if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) click = true
 return click},
             onClick() {
             player.L.randomizer = 0
