@@ -166,7 +166,7 @@ return click},
                  player.L.health = player.L.health.minus(player.L.enemyAttack).add(player.L.defense)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7)) player.L.exp = player.L.exp.add(3)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2)) player.L.exp = player.L.exp.add(4)
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2)) player.L.exp = player.L.exp.add(2.58)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (6)) player.L.exp = player.L.exp.add(2.58)
                  if (player.L.enemyHP <= (0)) player.L.randomizer = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
                 if (player.L.enemyHP <= (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
