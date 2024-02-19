@@ -323,7 +323,7 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone 
                 'background-color': tmp.L.color};
 if (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) sty = {'background-color': tmp.L.spec};
 return sty},
-            }},
+            },
         },
 23: {
             title: "Flee",
