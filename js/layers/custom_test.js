@@ -171,6 +171,7 @@ return dis
             canClick(){ 
 let click = true
 if ((player.L.health >= 20) && player.L.level == (1)) click = false
+if ((player.L.health >= 24) && player.L.level == (2)) click = false
 return click},
             onClick() {
             if (player.L.randomizer == (7))
