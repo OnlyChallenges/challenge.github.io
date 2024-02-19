@@ -81,7 +81,7 @@ if (player.L.randomizer == (1)) func = "*<red>Kill Them All</red>"
  return func
 },{}],
                 "blank",
-                ["display-text",function(){let func = "<fail>Zone 2 is Unlocked at Level 4</fail><br>(You are currently Level " +formatWhole(player.L.level)
+                ["display-text",function(){let func = "<fail>Zone 2 is Unlocked at Level 4</fail><br>(You are currently Level " +formatWhole(player.L.level) + ")"
 return func
 },{}],
                 "blank",
