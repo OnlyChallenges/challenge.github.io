@@ -26,5 +26,15 @@ achievements: {
         done() { return player.L.level == 2 },
         tooltip: "Reach Level 2",
     },
+    12: {
+        name: "The 2nd Zone",
+        done() { return player.L.zone == 2 },
+        tooltip: "Reach Zone 2",
+    },
+    13: {
+        name: "Experimental Threat",
+        done() { return player.L.level == 10 },
+        tooltip: "Reach Level <logic>10</logic<",
+    },
 },
 })
