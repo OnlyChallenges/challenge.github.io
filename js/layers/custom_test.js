@@ -335,6 +335,27 @@ if (player.L.randomizer == (6) && player.L.zone == (3)) player.L.enemyHP = playe
                 'background-color': tmp.L.color,
             }},
         },
+
+        12: {
+            title: "Revive",
+            display(){let dis = "You died, Would you like to start again?<br><logic>On Revive, Recover 20 HP; but lose half of your experience..."   
+return dis
+},
+            canClick(){ 
+let click = false
+if (player.L.health < 0) click = true
+return click},
+            onClick() {
+                player.L.randomizer = new Decimal(0)
+                player.L.health = player.L.health.add(20)
+                player.L.exp = player.L.exp.div(2)
+            },
+            style() {return{
+                'background-color': tmp.L.color,
+            }},
+            unlocked() { return (player.L.health < 0) },
+        },
+
         21: {
             title: "Attack",
             display(){let dis = "Attack the enemy!"
