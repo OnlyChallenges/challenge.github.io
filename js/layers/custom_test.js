@@ -130,7 +130,22 @@ addLayer("L", {
 },
 
     colorcheckerTwo(){
-    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= player.L.healthMax)) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 20 && player.L.level == (1))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 24 && player.L.level == (2))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 29 && player.L.level == (3))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 33 && player.L.level == (4))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 40 && player.L.level == (5))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 45 && player.L.level == (6))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 48 && player.L.level == (7))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 50 && player.L.level == (8))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 53 && player.L.level == (9))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 60 && player.L.level == (10))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 64 && player.L.level == (11))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 67 && player.L.level == (12))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 75 && player.L.level == (13))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 80 && player.L.level == (14))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 80 && player.L.level == (15))) player.L.spec = "#f5cbcb"
+    if ((player.L.randomizer != (7) || player.L.randomizer != (6) || player.L.randomizer != (2)) && (player.L.health >= 85 && player.L.level == (16))) player.L.spec = "#f5cbcb"
     else player.L.spec = "#11f4f7"
 },
 
@@ -415,7 +430,10 @@ return click},
                  player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).minus(player.L.enemyDefense).max(0))
                  player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
                  // Attack Formuals
-                 // Attacking Enemy Damage Formula: (attack(+weapon_attack * Damage Luck Mult) - Enemy_Defense))
+                 // Attacking Enemy Damage Formula: (attack(+weapon_attack * Damage Luck Mult) - Enemy_Defense)) (Minimum of 0 Damage)
+                 // Player Damage Formula: (Enemy_attack+(defense+(Weapon_Defense*Defense_RNG))) (Minimum of 0 Damage)
+                 // Damage Mult RNG: Picks a Number between 1 through 9 per Attack (Added Crit damage Mult during Zone 4)
+                 // Defense RNG: Picks a Number between 1 through 4 per Attack (Added Block Chance during Zone 5)
                  player.points = player.points.minus(2.5)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (1)) player.L.exp = player.L.exp.add(3.05)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (1)) player.L.exp = player.L.exp.add(4.37)
@@ -513,3 +531,16 @@ return click},
         },
      },
 })
+
+
+
+// TODO
+// Add Crit Chance Past Zone 4
+// Show Zone 4 
+// Get A Name for Zone 4
+// Add 3 more Enemies in Zone 4
+// Refix Damage & Death Effect
+// Fix Attack & Defense Vectors
+// Improve the Level cap to 25
+// Add Block Chance Past Zone 5
+// Get other stuff done lol
