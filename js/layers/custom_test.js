@@ -260,7 +260,7 @@ return func
                 "blank",
                 ["clickables", [1]],
                 ["display-text",function(){
-                    let func = ""
+                    let func = "* You need 2.5 Points per Attack, Heal, or Flee action!"
                     if (player.L.health <= 0) func = "* You have been killed..."
                     return func
                 },{}],
@@ -463,22 +463,22 @@ return dis
 },
             canClick(){ 
 let click = true
-    if ((player.L.health >= 20) && player.L.level == (1)) click = false
-    if ((player.L.health >= 24) && player.L.level == (2)) click = false
-    if ((player.L.health >= 29) && player.L.level == (3)) click = false
-    if ((player.L.health >= 33) && player.L.level == (4)) click = false
-    if ((player.L.health >= 40) && player.L.level == (5)) click = false
-    if ((player.L.health >= 45) && player.L.level == (6)) click = false
-    if ((player.L.health >= 48) && player.L.level == (7)) click = false
-    if ((player.L.health >= 50) && player.L.level == (8)) click = false
-    if ((player.L.health >= 53) && player.L.level == (9)) click = false
-    if ((player.L.health >= 60) && player.L.level == (10)) click = false
-    if ((player.L.health >= 64) && player.L.level == (11)) click = false
-    if ((player.L.health >= 67) && player.L.level == (12)) click = false
-    if ((player.L.health >= 75) && player.L.level == (13)) click = false
-    if ((player.L.health >= 80) && player.L.level == (14)) click = false
-    if ((player.L.health >= 80) && player.L.level == (15)) click = false
-    if ((player.L.health >= 85) && player.L.level == (16)) click = false
+    if ((player.L.health >= 20) && player.L.level == (1) && player.points < 2.49) click = false
+    if ((player.L.health >= 24) && player.L.level == (2) && player.points < 2.49) click = false
+    if ((player.L.health >= 29) && player.L.level == (3) && player.points < 2.49) click = false
+    if ((player.L.health >= 33) && player.L.level == (4) && player.points < 2.49) click = false
+    if ((player.L.health >= 40) && player.L.level == (5) && player.points < 2.49) click = false
+    if ((player.L.health >= 45) && player.L.level == (6) && player.points < 2.49) click = false
+    if ((player.L.health >= 48) && player.L.level == (7) && player.points < 2.49) click = false
+    if ((player.L.health >= 50) && player.L.level == (8) && player.points < 2.49) click = false
+    if ((player.L.health >= 53) && player.L.level == (9) && player.points < 2.49) click = false
+    if ((player.L.health >= 60) && player.L.level == (10) && player.points < 2.49) click = false
+    if ((player.L.health >= 64) && player.L.level == (11) && player.points < 2.49) click = false
+    if ((player.L.health >= 67) && player.L.level == (12) && player.points < 2.49) click = false
+    if ((player.L.health >= 75) && player.L.level == (13) && player.points < 2.49) click = false
+    if ((player.L.health >= 80) && player.L.level == (14) && player.points < 2.49) click = false
+    if ((player.L.health >= 80) && player.L.level == (15) && player.points < 2.49) click = false
+    if ((player.L.health >= 85) && player.L.level == (16) && player.points < 2.49) click = false
     if (player.L.health <= (0)) click = false
 return click},
             onClick() {
@@ -515,7 +515,7 @@ return dis
 },
             canClick(){ 
 let click = false
-    if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) click = true
+    if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.points > 2.49) click = true
     if (player.L.health <= (0)) click = false
 return click},
             onClick() {
