@@ -16,6 +16,8 @@ addLayer("L", {
         randomizer: new Decimal(1),
         dmgMult: new Decimal(1),
         defenseRNG: new Decimal(1),
+        kills: new Decimal(0),
+        revives: new Decimal(0),
         spec: "#DAC0CB",
         spectwo: "#00FF00",
         specthree: "#FF4433",
@@ -227,19 +229,19 @@ return func
                 ["display-text",function(){let func = ""
 if ((player.L.exp < 1) && player.L.level == (2)) func = "<levelup>Level Up! You're now Level 2</levelup><br> (+4 Max Health, +2 Attack)"
 if ((player.L.exp < 1) && player.L.level == (3)) func = "<levelup>Level Up! You're now Level 3</levelup><br> (+5 Max Health, +1 Weapon Attack, +1 Defense)"
-if ((player.L.exp < 1) && player.L.level == (4)) func = "<levelup>Level Up! You're now Level 4</levelup><br> (+4 Max Health, +1 Weapon Attack)"
+if ((player.L.exp < 1) && player.L.level == (4)) func = "<levelup>Level Up! You're now Level 4</levelup><br> (+4 Max Health, +1 Weapon Attack)<br> Storyline Updated!"
 if ((player.L.exp < 1) && player.L.level == (5)) func = "<levelup>Level Up! You're now Level 5</levelup><br> (+7 Max Health, +3 Attack)"
 if ((player.L.exp < 1) && player.L.level == (6)) func = "<levelup>Level Up! You're now Level 6</levelup><br> (+5 Max Health, +2 Attack, +1 Defense)"
 if ((player.L.exp < 1) && player.L.level == (7)) func = "<levelup>Level Up! You're now Level 7</levelup><br> (+3 Max Health, +1 Weapon Attack, Increased Max Damage)"
 if ((player.L.exp < 1) && player.L.level == (8)) func = "<levelup>Level Up! You're now Level 8</levelup><br> (+2 Max Health, Unlock Weapon Defense)"
 if ((player.L.exp < 1) && player.L.level == (9)) func = "<levelup>Level Up! You're now Level 9</levelup><br> (+3 Max Health, +2 Attack)"
 if ((player.L.exp < 1) && player.L.level == (10)) func = "<levelup>Level Up! You're now Level 10</levelup><br> (+7 Max Health, +4 Attack, +1 Defense)<br><red>Don't let them escape...</red>"
-if ((player.L.exp < 1) && player.L.level == (11)) func = "<levelup>Level Up! You're now Level 11</levelup><br> (+4 Max Health, +2 Attack, +2 Defense, +1 Weapon Defense)<br>"
-if ((player.L.exp < 1) && player.L.level == (12)) func = "<levelup>Level Up! You're now Level 12</levelup><br> (+3 Max Health, +2 Weapon Attack)<br>"
-if ((player.L.exp < 1) && player.L.level == (13)) func = "<levelup>Level Up! You're now Level 13</levelup><br> (+8 Max Health, +2 Weapon Attack, +1 Defense)<br>"
-if ((player.L.exp < 1) && player.L.level == (14)) func = "<levelup>Level Up! You're now Level 14</levelup><br> (+5 Max Health, +1 Weapon Attack, +6 Attack)<br>"
-if ((player.L.exp < 1) && player.L.level == (15)) func = "<levelup>Level Up! You're now Level 15</levelup><br> (+1 Weapon Attack, +3 Attack, +1 Defense)<br>"
-if ((player.L.exp < 1) && player.L.level == (16)) func = "<levelup>Level Up! You're now Level 16</levelup><br> (+5 Max Health, +3 Weapon Attack, +4 Attack, +2 Defense)<br>"
+if ((player.L.exp < 1) && player.L.level == (11)) func = "<levelup>Level Up! You're now Level 11</levelup><br> (+4 Max Health, +2 Attack, +2 Defense, +1 Weapon Defense)<br> Storyline Updated!"
+if ((player.L.exp < 1) && player.L.level == (12)) func = "<levelup>Level Up! You're now Level 12</levelup><br> (+3 Max Health, +2 Weapon Attack)"
+if ((player.L.exp < 1) && player.L.level == (13)) func = "<levelup>Level Up! You're now Level 13</levelup><br> (+8 Max Health, +2 Weapon Attack, +1 Defense)"
+if ((player.L.exp < 1) && player.L.level == (14)) func = "<levelup>Level Up! You're now Level 14</levelup><br> (+5 Max Health, +1 Weapon Attack, +6 Attack)"
+if ((player.L.exp < 1) && player.L.level == (15)) func = "<levelup>Level Up! You're now Level 15</levelup><br> (+1 Weapon Attack, +3 Attack, +1 Defense)"
+if ((player.L.exp < 1) && player.L.level == (16)) func = "<levelup>Level Up! You're now Level 16</levelup><br> (+5 Max Health, +3 Weapon Attack, +4 Attack, +2 Defense)"
 return func
 },{}],
                 "blank",
@@ -307,19 +309,21 @@ return func
                     Each having their own stats and damage counters.<br>
                     The game will be split into 10 Zones and will be having more and more content added throughout the zones.<br> Enjoy :)<br><br><br>
                     
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+
                     <water>Act 1: Pool</water><br><br>
                     * You traverse into a facility.<br>
                     * Wondering what would be inside.<br>
                     * You walk around only to find multiple pools.<br>
                     * Mainly a bigger one.<br>
-                    * You can feel a presence of something nearby.<br><br>
-                    -= * You see a book on the counter* =-<br>
-                    -= * It says 'Guide-ful Advice' * =-<br><br>
-                    * You put the book into your Bag.<br>
+                    * You can feel a presence of something nearby.<br>
+                    * You see a book on the counter*<br><br>
+                    -= * It says 'Guide-ful Advice' * =-<br>
+                    -= * You put the book into your Bag. * =-<br><br>
                     * And decide to walk through the water while looking at the intresting technology.<br>
                     * You feel something really close...<br>
                     * You decide to get out of the water and look around<br>
-                    * You have a stick on you just in case...<br>
+                    * You have a stick on you just in case...<br><br>
                     <water>End of Act 1</water>
                     `
                 },{}],
@@ -327,6 +331,8 @@ return func
                     "blank",
                     ["display-text", function(){if (player.L.zone == 2) return `
                     
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+
                     <corrupt>Act 2: Library</corrupt><br><br>
                     * You leave the pool area, achieved greater confidence and strength.<br>
                     * You want to see if you can find intresting books about what you just encountered...<br>
@@ -345,7 +351,96 @@ return func
                     <corrupt>End of Act 2</corrupt>
                     `
                 },{}],
+                    "blank",
+                    "blank",
 
+                ],
+            },
+            "Stats & Bonus": {
+                content: [
+                    "blank",
+                    "blank",
+                    ["display-text", function(){return "You are currently Level "+ format(player.L.level)},{}],
+                    ["display-text", function(){return "You have killed "+ format(player.L.kills) + " Experiments"},{}],
+                    ["display-text", function(){return "You have revived a total of "+ format(player.L.revives) + " times"},{}],
+                    ["display-text", function(){return "You are currently in Zone "+ format(player.L.zone)},{}],
+                    "blank",
+                    "blank",
+                    "blank",
+                    ["display-text", function(){return `~~~~~~~~~~~~~Experiment Log~~~~~~~~~~~~~<br><br>
+                    
+                    Zone 1 (<ruins>Pool</ruins>):<br><br>
+
+                    Enemy 1: <water>Abys</water><br>
+                    - Health: 75<br>
+                    - Attack: 2<br>
+                    - Defense: 1<br>
+                    - EXP on Death: 3.05 EXP<br><br>
+                    
+                    Enemy 2: <water>Azure</water><br>
+                    - Health: 60<br>
+                    - Attack: 1<br>
+                    - Defense: 3<br>
+                    - EXP on Death: 4.37 EXP<br><br>
+
+                    Enemy 3: <water>Malachite</water><br>
+                    - Health: 30<br>
+                    - Attack: 4<br>
+                    - Defense: 0<br>
+                    - EXP on Death: 2.58 EXP<br><br>
+                    
+                    `
+                },{}],
+                    "blank",
+                    ["display-text", function(){if (player.L.zone == 2) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+                    
+                    Zone 2 (<corrupt>Library</corrupt>):<br><br>
+
+                    Enemy 1: <ruins>Nyko</ruins><br>
+                    - Health: 360<br>
+                    - Attack: 3<br>
+                    - Defense: 2<br>
+                    - EXP on Death: 17.36 EXP<br><br>
+                    
+                    Enemy 2: <ruins>Permafrost</ruins><br>
+                    - Health: 70<br>
+                    - Attack: 10<br>
+                    - Defense: 0<br>
+                    - EXP on Death: 11.52 EXP<br><br>
+
+                    Enemy 3: <ruins>Malachite</ruins><br>
+                    - Health: 140<br>
+                    - Attack: 2<br>
+                    - Defense: 7<br>
+                    - EXP on Death: 9.28 EXP<br><br>
+                    
+                    `
+                },{}],
+                "blank",
+                ["display-text", function(){if (player.L.zone == 3) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+                
+                    Zone 3 (<server>Server Room</server>):<br><br>
+
+                    Enemy 1: <rainbow>Hallow</rainbow><br>
+                    - Health: 750<br>
+                    - Attack: 12<br>
+                    - Defense: 5<br>
+                    - EXP on Death: 47.61 EXP<br><br>
+                
+                    Enemy 2: <rainbow>Virux</rainbow><br>
+                    - Health: 150<br>
+                    - Attack: 24<br>
+                    - Defense: 3<br>
+                    - EXP on Death: 42.19 EXP<br><br>
+
+                    Enemy 3: <rainbow>Cyberruin</rainbow><br>
+                    - Health: 250<br>
+                    - Attack: 4<br>
+                    - Defense: 25<br>
+                    - EXP on Death: 31.37 EXP<br><br>
+                
+                `
+            },{}],
                 ],
             },
         },
@@ -373,8 +468,8 @@ return click},
                 if (player.L.randomizer == (7) && player.L.zone == (1)) player.L.enemyAttack = player.L.enemyAttack.add(2)
                 if (player.L.randomizer == (7) && player.L.zone == (1)) player.L.enemyDefense = player.L.enemyDefense.add(1)
 
-if (player.L.randomizer == (2) && player.L.zone == (1)) player.L.enemyHP = player.L.enemyHP.add(90)
-                if (player.L.randomizer == (2) && player.L.zone == (1)) player.L.enemyHPMax = player.L.enemyHPMax.add(90)
+if (player.L.randomizer == (2) && player.L.zone == (1)) player.L.enemyHP = player.L.enemyHP.add(60)
+                if (player.L.randomizer == (2) && player.L.zone == (1)) player.L.enemyHPMax = player.L.enemyHPMax.add(60)
                 if (player.L.randomizer == (2) && player.L.zone == (1)) player.L.enemyAttack = player.L.enemyAttack.add(1)
                 if (player.L.randomizer == (2) && player.L.zone == (1)) player.L.enemyDefense = player.L.enemyDefense.add(3)
 
@@ -442,6 +537,7 @@ return click},
                if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
                 player.L.health = new Decimal(20)
                 player.L.exp = player.L.exp.div(2)
+                player.L.revives = player.L.revives.add(1)
             },
             style() {return{
                 'background-color': tmp.L.color,
@@ -487,6 +583,7 @@ return click},
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (3)) player.L.exp = player.L.exp.add(31.37)
 
                  if (player.L.enemyHP <= (0)) player.L.randomizer = new Decimal(0)
+                if (player.L.enemyHP <= (0)) player.L.kills = player.L.kills.add(1)
                 if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
                 if (player.L.enemyHP <= (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
                 if (player.L.enemyHP <= (0)) player.L.enemyHP = new Decimal(0)
@@ -583,4 +680,4 @@ return click},
 // Fix Attack & Defense Vectors
 // Improve the Level cap to 25
 // Add Block Chance Past Zone 5
-// Get other stuff done lol
+// FINISHED - Completing Storyline & Beta Experiment Log
