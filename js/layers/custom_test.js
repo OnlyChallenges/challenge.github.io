@@ -417,17 +417,17 @@ return click},
                  // Attack Formuals
                  // Attacking Enemy Damage Formula: (attack(+weapon_attack * Damage Luck Mult) - Enemy_Defense))
                  player.points = player.points.minus(2.5)
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (1)) player.L.exp = player.L.exp.add(3)
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (1)) player.L.exp = player.L.exp.add(4)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (1)) player.L.exp = player.L.exp.add(3.05)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (1)) player.L.exp = player.L.exp.add(4.37)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (1)) player.L.exp = player.L.exp.add(2.58)
 
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (2)) player.L.exp = player.L.exp.add(13.36)
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (2)) player.L.exp = player.L.exp.add(8.52)
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (2)) player.L.exp = player.L.exp.add(6.28)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (2)) player.L.exp = player.L.exp.add(17.36)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (2)) player.L.exp = player.L.exp.add(11.52)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (2)) player.L.exp = player.L.exp.add(9.28)
 
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (3)) player.L.exp = player.L.exp.add(47.61)
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (3)) player.L.exp = player.L.exp.add(38.19)
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (3)) player.L.exp = player.L.exp.add(26.33)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (3)) player.L.exp = player.L.exp.add(42.19)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (3)) player.L.exp = player.L.exp.add(31.37)
 
                  if (player.L.enemyHP <= (0)) player.L.randomizer = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
