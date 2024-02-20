@@ -369,12 +369,12 @@ return func
                     -= * Boosts your healing ability by 3. * =-<br><br>
                     * Your <red>hand</red> starts to irritate <red>quite</red> a lot.<br>
                     * Your <red>mind</red> is racing...<br>
-                    * You start to <red>lose</red< feeling in your <red>right hand</red>.<br>
+                    * You start to <red>lose</red> your feeling in your <red>right hand</red>.<br>
                     * ...<br>
-                    * <red>All you can do is heal it...<br>
+                    * <red>All you can do is heal it...</red><br>
                     * '<red>Kill them all</red>'... You said to yourself.<br><br>
                     -= * Three New Enemies Are Now Lurking * =-<br>
-                    -= * <rainbow>Hallow, Virux, Cyberruin/rainbow> * =-<br><br>
+                    -= * <rainbow>Hallow, Virux, Cyberruin</rainbow> * =-<br><br>
                     <server>End of Act 3</server>
                     `
                 },{}],
