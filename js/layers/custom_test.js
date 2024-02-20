@@ -215,6 +215,11 @@ return func
                 "blank",
                 "blank",
                 ["clickables", [1]],
+                ["display-text",function(){
+let func = ""
+if (player.L.health <= 0) func = * You have been killed...
+return func
+},{}],
                 "blank",
                 "blank",
                 ["display-text",function(){ let func = ""
@@ -256,7 +261,6 @@ if (player.L.randomizer == (7) && player.L.zone == (3)) func = "* You inflicted 
 if (player.L.randomizer == (6) && player.L.zone == (3)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <rainbow>Virux</rainbow><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
 if (player.L.randomizer == (2) && player.L.zone == (3)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <rainbow>Cyberruin</rainbow><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
 
-
 return func
 },{}],
                 ],
@@ -269,6 +273,7 @@ return func
                if (player.L.randomizer == (7)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
                if (player.L.randomizer == (2)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
                if (player.L.randomizer == (6)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
+               if (player.L.health <= 0) dis = "You were killed; revive to continue..."
 return dis
 },
             canClick(){ 
@@ -276,6 +281,7 @@ let click = true
 if (player.L.randomizer == (7)) click = false
 if (player.L.randomizer == (2)) click = false
 if (player.L.randomizer == (6)) click = false
+if (player.L.health <= 0) click = false
 return click},
             onClick() {
                 player.L.randomizer = Math.floor(Math.random() * 10) + 1;
@@ -343,7 +349,7 @@ return dis
 },
             canClick(){ 
 let click = false
-if (player.L.health < 0) click = true
+if (player.L.health <= 0) click = true
 return click},
             onClick() {
                 player.L.randomizer = new Decimal(0)
@@ -353,7 +359,7 @@ return click},
             style() {return{
                 'background-color': tmp.L.color,
             }},
-            unlocked() { return (player.L.health < 0) },
+            unlocked() { return (player.L.health <= 0) },
         },
 
         21: {
@@ -365,6 +371,7 @@ return dis
 let click = false
 if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.points > 2.49) click = true
 if (player.L.enemyHP <= (0)) click = false
+if (player.L.health <= (0)) click = false
 return click},
             onClick() {
             if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6))
@@ -415,6 +422,7 @@ if ((player.L.health >= 53) && player.L.level == (9)) click = false
 if ((player.L.health >= 60) && player.L.level == (10)) click = false
 if ((player.L.health >= 64) && player.L.level == (11)) click = false
 if ((player.L.health >= 67) && player.L.level == (12)) click = false
+if (player.L.health <= (0)) click = false
 return click},
             onClick() {
             if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1))
@@ -451,6 +459,7 @@ return dis
             canClick(){ 
 let click = false
 if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) click = true
+if (player.L.health <= (0)) click = false
 return click},
             onClick() {
             player.L.randomizer = 0
