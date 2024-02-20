@@ -408,7 +408,7 @@ return func
                     - Defense: 0<br>
                     - EXP on Death: 11.52 EXP<br><br>
 
-                    Enemy 3: <ruins>Malachite</ruins><br>
+                    Enemy 3: <ruins>Snapper</ruins><br>
                     - Health: 140<br>
                     - Attack: 2<br>
                     - Defense: 7<br>
