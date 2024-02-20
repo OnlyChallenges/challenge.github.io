@@ -329,7 +329,7 @@ return func
                 },{}],
                     "blank",
                     "blank",
-                    ["display-text", function(){if (player.L.zone == 2) return `
+                    ["display-text", function(){if (player.L.zone == 2 || player.L.zone == 3) return `
                     
                     ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
 
@@ -360,10 +360,10 @@ return func
                 content: [
                     "blank",
                     "blank",
-                    ["display-text", function(){return "You are currently Level "+ format(player.L.level)},{}],
-                    ["display-text", function(){return "You have killed "+ format(player.L.kills) + " Experiments"},{}],
-                    ["display-text", function(){return "You have revived a total of "+ format(player.L.revives) + " times"},{}],
-                    ["display-text", function(){return "You are currently in Zone "+ format(player.L.zone)},{}],
+                    ["display-text", function(){return "You are currently Level "+ formatWhole(player.L.level)},{}],
+                    ["display-text", function(){return "You have killed "+ formatWhole(player.L.kills) + " Experiments"},{}],
+                    ["display-text", function(){return "You have revived a total of "+ formatWhole(player.L.revives) + " times"},{}],
+                    ["display-text", function(){return "You are currently in Zone "+ formatWhole(player.L.zone)},{}],
                     "blank",
                     "blank",
                     "blank",
@@ -392,7 +392,7 @@ return func
                     `
                 },{}],
                     "blank",
-                    ["display-text", function(){if (player.L.zone == 2) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+                    ["display-text", function(){if (player.L.zone == 2 || player.L.zone == 3) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
                     
                     Zone 2 (<corrupt>Library</corrupt>):<br><br>
 
