@@ -121,7 +121,7 @@ corrupt {
 }
 
 ruins {
- background-image: repeating-linear-gradient(65deg, pink, indigo, purple, pink, indigo, purple, pink, indigo, purple);
+ background-image: repeating-linear-gradient(65deg, red, pink, white, purple, pink, white, purple, pink, indigo, purple, red);
  text-decoration-line: none;
  cursor: pointer;
  background-size: 900% 900%;
