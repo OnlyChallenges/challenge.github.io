@@ -344,10 +344,11 @@ return func
                     -= * This might be wise... * =-<br><br>
                     * You sit down carefully, fully aware of what this facility could contain...<br>
                     * Your mumbling to yourself...<br>
-                    * Anxiety ran down your face with fear of more enemies approaching.<br>
-                    * ...Be careful now...<br>
-                    * You have a stick on you just in case...<br><br>
-                    -= * Three New Enemies Unlocked * =-<br>
+                    * Anxiety ran down your face with fear of more enemies approaching down the hall..<br>
+                    * ...<br>
+                    * You found a busted bat...<br>
+                    * <red>We need to get stronger</red><br><br>
+                    -= * Three New Enemies Are Now Lurking * =-<br>
                     -= * <ruins>Snapper, Permafrost, and Nyko</ruins> * =-<br><br>
                     <corrupt>End of Act 2</corrupt>
                     `
