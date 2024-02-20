@@ -295,6 +295,59 @@ return func
 },{}],
                 ],
             },
+            "Storyline": {
+                content: [
+                    "blank",
+                    "blank",
+                    ["display-text", function(){return `<logic>CONTEXT</logic>: Welcome to Zone 1 (Pool);<br>
+                    In this area; you will encounter three types of monsters;<br>
+                    - <water>Abys</water><br>
+                    - <water>Azure</water><br>
+                    - <water>Malachite</water><br>
+                    Each having their own stats and damage counters.<br>
+                    The game will be split into 10 Zones and will be having more and more content added throughout the zones.<br> Enjoy :)<br><br><br>
+                    
+                    <water>Act 1: Pool</water><br><br>
+                    * You traverse into a facility.<br>
+                    * Wondering what would be inside.<br>
+                    * You walk around only to find multiple pools.<br>
+                    * Mainly a bigger one.<br>
+                    * You can feel a presence of something nearby.<br><br>
+                    -= * You see a book on the counter* =-<br>
+                    -= * It says 'Guide-ful Advice' * =-<br><br>
+                    * You put the book into your Bag.<br>
+                    * And decide to walk through the water while looking at the intresting technology.<br>
+                    * You feel something really close...<br>
+                    * You decide to get out of the water and look around<br>
+                    * You have a stick on you just in case...<br>
+                    <water>End of Act 1</water>
+                    `
+                },{}],
+                    "blank",
+                    "blank",
+                    ["display-text", function(){if (player.L.zone == 2) return `
+                    
+                    <corrupt>Act 2: Library</corrupt><br><br>
+                    * You leave the pool area, achieved greater confidence and strength.<br>
+                    * You want to see if you can find intresting books about what you just encountered...<br>
+                    * You walk around with the stick you've been using earlier.<br>
+                    * Annoyed; you tried to find a better weapon<br>
+                    * All you found was a flashlight...<br><br>
+                    -= * You put the Flashlight in your Bag * =-<br>
+                    -= * It says 'Guide-ful Advice' * =-<br><br>
+                    * You sit down carefully, fully aware of what this facility could contain...<br>
+                    * Your mumbling to yourself...<br>
+                    * Anxiety ran down your face with fear of more enemies approaching.<br>
+                    * ...Be careful now...<br>
+                    * You have a stick on you just in case...<br><br>
+                    -= * Three New Enemies Unlocked * =-<br>
+                    -= * <ruins>Snapper, Permafrost, and Nyko</ruins> * =-<br><br>
+                    <corrupt>End of Act 2</corrupt>
+                    `
+                },{}],
+
+                ],
+            },
         },
         clickables:{
         11: {
