@@ -136,7 +136,7 @@ addLayer("L", {
 },
 
     colorcheckerThree(){
-    if (player.points > 2.5) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2))) player.L.specthree = "#FF4433"
+    if ((player.points > 2.5) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2))) player.L.specthree = "#FF4433"
     else player.L.specthree = "#f5cbcb"
 },
 
