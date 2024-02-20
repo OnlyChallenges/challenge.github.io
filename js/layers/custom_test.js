@@ -353,7 +353,11 @@ if (player.L.health <= 0) click = true
 return click},
             onClick() {
                 player.L.randomizer = new Decimal(0)
-                player.L.health = player.L.health.add(20)
+                if (player.L.randomizer == (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
+               if (player.L.randomizer == (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
+               if (player.L.randomizer == (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
+               if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
+                player.L.health = new Decimal(20)
                 player.L.exp = player.L.exp.div(2)
             },
             style() {return{
