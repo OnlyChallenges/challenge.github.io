@@ -135,7 +135,7 @@ addLayer("L", {
     colorcheckerTwo(){
     if ((player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) && (player.points > 2.49)) player.L.spec = "#11f47f"
     if (player.L.health >= player.L.healthMax) player.L.spec = "#f5cbcb"
-   if (player.L.health < player.L.healthMax) player.L.spec = "#11f47f"
+   if (player.L.health < player.L.healthMax && (player.points > 2.49)) player.L.spec = "#11f47f"
     else player.L.spec = "#f5cbcb"
 },
 
@@ -667,6 +667,9 @@ return click},
                  player.L.health = player.L.health.add(3)
             if ((player.L.level < 17) && player.L.zone == 3)
                  player.L.health = player.L.health.add(5)
+
+
+player.points = player.points.minus(2.5)
             },
             style() {return {
                 'background-color': player.L.spec,}
@@ -688,6 +691,8 @@ return click},
                 if (player.L.randomizer == (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
                 if (player.L.randomizer == (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
                 if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
+
+player.points = player.points.minus(2.5)
             },
             style() {return{
                 'background-color': player.L.specthree,
