@@ -217,7 +217,7 @@ return func
                 ["clickables", [1]],
                 ["display-text",function(){
 let func = ""
-if (player.L.health <= 0) func = * You have been killed...
+if (player.L.health <= 0) func = "* You have been killed..."
 return func
 },{}],
                 "blank",
