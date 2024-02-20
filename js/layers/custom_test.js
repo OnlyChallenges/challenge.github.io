@@ -334,7 +334,7 @@ return func
                     * Annoyed; you tried to find a better weapon<br>
                     * All you found was a flashlight...<br><br>
                     -= * You put the Flashlight in your Bag * =-<br>
-                    -= * It says 'Guide-ful Advice' * =-<br><br>
+                    -= * This might be wise... * =-<br><br>
                     * You sit down carefully, fully aware of what this facility could contain...<br>
                     * Your mumbling to yourself...<br>
                     * Anxiety ran down your face with fear of more enemies approaching.<br>
