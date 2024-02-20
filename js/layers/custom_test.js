@@ -355,6 +355,29 @@ return func
                 },{}],
                     "blank",
                     "blank",
+                    ["display-text", function(){if (player.L.zone == 3) return `
+                    
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+
+                    <server>Act 3: Server Room</server><br><br>
+                    * You escape from the weird creatures...<br>
+                    * One of them scratched your hand...<br>
+                    * Luckily, you stumbled across the <server>Server Room</server>.<br>
+                    * Your strength and confidence started to look for something to help your hand.<br>
+                    * You found something that could help<br><br>
+                    -= * You found an 'MedHealth Stim'. * =-<br>
+                    -= * Boosts your healing ability by 3. * =-<br><br>
+                    * Your <red>hand</red> starts to irritate <red>quite</red> a lot.<br>
+                    * Your <red>mind</red> is racing...<br>
+                    * You start to <red>lose</red< feeling in your <red>right hand</red>.<br>
+                    * ...<br>
+                    * <red>All you can do is heal it...<br>
+                    * '<red>Kill them all</red>'... You said to yourself.<br><br>
+                    -= * Three New Enemies Are Now Lurking * =-<br>
+                    -= * <rainbow>Hallow, Virux, Cyberruin/rainbow> * =-<br><br>
+                    <server>End of Act 3</server>
+                    `
+                },{}],
 
                 ],
             },
