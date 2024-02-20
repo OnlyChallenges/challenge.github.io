@@ -133,8 +133,8 @@ addLayer("L", {
 },
 
     colorcheckerTwo(){
-    if ((player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) || (player.L.health >= player.L.healthMax) && (player.points > 2.49)) player.L.spec = "#11f47f"
-    
+    if ((player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) && (player.points > 2.49)) player.L.spec = "#11f47f"
+    if (player.L.health >= player.L.healthMax) player.L.spec = "#f5cbcb"
     else player.L.spec = "#f5cbcb"
 },
 
