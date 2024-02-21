@@ -72,7 +72,7 @@ achievements: {
         tooltip: "Have more than 600 Experiment Kills",
     },
     24: {
-        name: "<fail>Your best friend</fail>>",
+        name: "<fail>Your best friend</fail>",
         done() { return player.L.kills > 1000 },
         tooltip: "Have more than 1,000 Experiment Kills<br>Reward: 2,000 XP",
     },
