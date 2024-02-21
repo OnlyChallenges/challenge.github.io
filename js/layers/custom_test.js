@@ -259,16 +259,16 @@ if (player.L.randomizer == (1) && player.L.zone == (3)) func = "*<red> Watch out
 // Zone 4
 
 
-if (player.L.randomizer == (10) && player.L.zone == (4)) func = "* ---"
- if (player.L.randomizer == (9) && player.L.zone == (4)) func = "* ---"
- if (player.L.randomizer == (8) && player.L.zone == (4)) func = "* ---"
+if (player.L.randomizer == (10) && player.L.zone == (4)) func = "* You looked at the trees"
+ if (player.L.randomizer == (9) && player.L.zone == (4)) func = "* You looked at the small pond"
+ if (player.L.randomizer == (8) && player.L.zone == (4)) func = "* Something is in the water..."
  if (player.L.randomizer == (7) && player.L.zone == (4)) func = "* You've Encountered A(n) <rainbow>Morgan</rainbow>"
 if (player.L.randomizer == (6) && player.L.zone == (4)) func = "* You've Encountered A(n) <rainbow>Lovebeast</rainbow>"
-if (player.L.randomizer == (5) && player.L.zone == (4)) func = "* ---"
-if (player.L.randomizer == (4) && player.L.zone == (4)) func = "* ---"
-if (player.L.randomizer == (3) && player.L.zone == (4)) func = "* ---."
+if (player.L.randomizer == (5) && player.L.zone == (4)) func = "* A weird aroma scent is near..."
+if (player.L.randomizer == (4) && player.L.zone == (4)) func = "* Another book about 'Plasmatic Damage'...<br>* Huh...might be helpful..."
+if (player.L.randomizer == (3) && player.L.zone == (4)) func = "* Those Metal Beams on the roof seems stable."
 if (player.L.randomizer == (2) && player.L.zone == (4)) func = "* You've Encountered A(n) <rainbow>Deep</rainbow>"
-if (player.L.randomizer == (1) && player.L.zone == (4)) func = "* ---"
+if (player.L.randomizer == (1) && player.L.zone == (4)) func = "* You found a fun fact about the Facility.<br>* Facility§1.3: There's a Loving Experiment who would lure people in and then murder them...<br>* Turns out it wasn't a fun fact..."
  return func
 },{}],
                 "blank",

@@ -12,11 +12,26 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0",
-	name: "The Server Room",
+	num: "1.1",
+	name: "The Garden",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+
+ <h3>v1.1: Zone 4</h3><br>
+  - Added Zone 4 (<rainbow>Garden</rainbow>)<br>[Level 19 - 26]<br>
+  > Added <server>Morgan</server><br>
+  > Added <server>Lovebeast</server><br>
+  > Added <server>Deep</server><br>
+  - Increased Level Cap to Level 26<br>
+  - Refixed Attack & Heal Vectors<br>
+  - Added Experiment Boost Damage<br>
+  _ Readjusted Experience & Experiment Health<br>
+  - Added Storyline & Experiment Log<br><br>
+  - [WIP] Added 3 NPC Dialogues for Zone 4 [<ruins>...It's a secret</ruins>]<br>
+  - [WIP] Experiment Coating (Sheild)<br>
+  - [WIP] Weapon Critting% (2.5x Damage)<br><br>
+
 
  <h3>v1.0: Zone 3</h3><br>
   - Added Zone 3 (<server>Server Room</server>)<br>[Level 11 - 18]<br>
