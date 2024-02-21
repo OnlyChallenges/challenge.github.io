@@ -69,6 +69,7 @@ addLayer("L", {
       if ((player.L.exp > 2500) && player.L.level == 17) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
+        // Level Up Checker - DelogV1
       if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
       if ((player.L.expMax > 20) && player.L.level == 2) player.L.level = new Decimal(3)
       if ((player.L.expMax > 30) && player.L.level == 3) player.L.level = new Decimal(4)
@@ -86,53 +87,75 @@ addLayer("L", {
       if ((player.L.expMax > 2000) && player.L.level == 15) player.L.level = new Decimal(16)
       if ((player.L.expMax > 2200) && player.L.level == 16) player.L.level = new Decimal(17)
       if ((player.L.expMax > 2500) && player.L.level == 17) player.L.level = new Decimal(18)
+
+      // Zone Movements
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 11) player.L.zone = new Decimal(3)
+      if (player.L.level == 18) player.L.zone = new Decimal(4)
+
+      //Level 1 Stats
       if (player.L.level == 1) player.L.healthMax = new Decimal(20)
       if (player.L.level == 1) player.L.attack = new Decimal(2)
+      //Level 2 Stats
       if (player.L.level == 2) player.L.healthMax = new Decimal(24)
       if (player.L.level == 2) player.L.attack = new Decimal(4)
+      //Level 3 Stats
       if (player.L.level == 3) player.L.healthMax = new Decimal(29)
       if (player.L.level == 3) player.L.Wattack = new Decimal(2)
       if (player.L.level == 3) player.L.defense = new Decimal(2)
+      //Level 4 Stats
       if (player.L.level == 4) player.L.healthMax = new Decimal(33)
       if (player.L.level == 4) player.L.Wattack = new Decimal(3)
+      //Level 5 Stats
       if (player.L.level == 5) player.L.healthMax = new Decimal(40)
       if (player.L.level == 5) player.L.attack = new Decimal(7)
+      //Level 6 Stats
       if (player.L.level == 6) player.L.attack = new Decimal(9)
       if (player.L.level == 6) player.L.healthMax = new Decimal(45)
       if (player.L.level == 6) player.L.defense = new Decimal(3)
+      //Level 7 Stats
       if (player.L.level == 7) player.L.healthMax = new Decimal(48)
       if (player.L.level == 7) player.L.Wattack = new Decimal(4)
+      //Level 8 Stats
       if (player.L.level == 8) player.L.healthMax = new Decimal(50)
       if (player.L.level == 8) player.L.Wdefense = new Decimal(1)
+      //Level 9 Stats
       if (player.L.level == 9) player.L.healthMax = new Decimal(53)
       if (player.L.level == 9) player.L.attack = new Decimal(11)
+      //Level 10 Stats
       if (player.L.level == 10) player.L.healthMax = new Decimal(60)
       if (player.L.level == 10) player.L.attack = new Decimal(15)
       if (player.L.level == 10) player.L.defense = new Decimal(4)
+      //Level 11 Stats
       if (player.L.level == 11) player.L.healthMax = new Decimal(64)
       if (player.L.level == 11) player.L.attack = new Decimal(17)
       if (player.L.level == 11) player.L.Wdefense = new Decimal(2)
       if (player.L.level == 11) player.L.defense = new Decimal(6)
+      //Level 12 Stats
       if (player.L.level == 12) player.L.healthMax = new Decimal(67)
       if (player.L.level == 12) player.L.Wattack = new Decimal(6)
+      //Level 13 Stats
       if (player.L.level == 13) player.L.healthMax = new Decimal(75)
       if (player.L.level == 13) player.L.Wattack = new Decimal(8)
       if (player.L.level == 13) player.L.defense = new Decimal(7)
+      //Level 14 Stats
       if (player.L.level == 14) player.L.healthMax = new Decimal(80)
       if (player.L.level == 14) player.L.Wattack = new Decimal(9)
       if (player.L.level == 14) player.L.attack = new Decimal(23)
+      //Level 15 Stats
       if (player.L.level == 15) player.L.Wattack = new Decimal(10)
       if (player.L.level == 15) player.L.attack = new Decimal(26)
       if (player.L.level == 15) player.L.defense = new Decimal(8)
+      //Level 16 Stats
       if (player.L.level == 16) player.L.Wattack = new Decimal(13)
       if (player.L.level == 16) player.L.attack = new Decimal(30)
       if (player.L.level == 16) player.L.defense = new Decimal(10)
       if (player.L.level == 16) player.L.healthMax = new Decimal(85)
+      //Level 17 Stats
       if (player.L.level == 17) player.L.healthMax = new Decimal(90)
       if (player.L.level == 17) player.L.attack = new Decimal(37)
       if (player.L.level == 17) player.L.Wdefense = new Decimal(3)
+      //Level 18 Stats
       if (player.L.level == 18) player.L.healthMax = new Decimal(150)
       if (player.L.level == 18) player.L.attack = new Decimal(45)
       if (player.L.level == 18) player.L.Wdefense = new Decimal(5)
@@ -331,6 +354,12 @@ if (player.L.randomizer == (7) && player.L.zone == (3)) func = "* You inflicted 
 if (player.L.randomizer == (6) && player.L.zone == (3)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <rainbow>Virux</rainbow><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
 if (player.L.randomizer == (2) && player.L.zone == (3)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <rainbow>Cyberruin</rainbow><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
 
+// Zone 4
+
+if (player.L.randomizer == (7) && player.L.zone == (4)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <server>Morgan</server><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
+if (player.L.randomizer == (6) && player.L.zone == (4)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <server>Lovebeast</server><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
+if (player.L.randomizer == (2) && player.L.zone == (4)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <server>Deep</server><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
+
 return func
 },{}],
                 ],
@@ -367,7 +396,7 @@ return func
                 },{}],
                     "blank",
                     "blank",
-                    ["display-text", function(){if (player.L.zone == 2 || player.L.zone == 3) return `
+                    ["display-text", function(){if (player.L.zone == 2 || player.L.zone == 3 || player.L.zone == 4) return `
                     
                     ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
 
@@ -392,7 +421,7 @@ return func
                 },{}],
                     "blank",
                     "blank",
-                    ["display-text", function(){if (player.L.zone == 3) return `
+                    ["display-text", function(){if (player.L.zone == 3 || player.L.zone == 4) return `
                     
                     ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
 
@@ -413,6 +442,19 @@ return func
                     -= * Three New Enemies Are Now Lurking * =-<br>
                     -= * <rainbow>Hallow, Virux, Cyberruin</rainbow> * =-<br><br>
                     <server>End of Act 3</server>
+                    `
+                },{}],
+                    "blank",
+                    "blank",
+                    ["display-text", function(){if (player.L.zone == 4) return `
+                    
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+
+                    <rainbow>Act 4: Garden</rainbow><br><br>
+                    * Write this later-<br><br>
+                    -= * Three New Enemies Are Now Lurking * =-<br>
+                    -= * <server>Morgan, Lovebeast, Deep</server> * =-<br><br>
+                    <rainbow>End of Act 4</rainbow>
                     `
                 },{}],
 
@@ -509,22 +551,22 @@ return func
                 Zone 4 (<rainbow>Garden</rainbow>):<br><br>
 
                 Enemy 1: <server>Morgan</server><br>
-                - Health: 750<br>
-                - Attack: 12<br>
-                - Defense: 5<br>
-                - EXP on Death: 47.61 EXP<br><br>
+                - Health: 400<br>
+                - Attack: 45<br>
+                - Defense: 0<br>
+                - EXP on Death: 496.68 EXP<br><br>
             
-                Enemy 2: <server>Virux</server><br>
-                - Health: 150<br>
-                - Attack: 24<br>
-                - Defense: 3<br>
-                - EXP on Death: 42.19 EXP<br><br>
+                Enemy 2: <server>Lovebeast</server><br>
+                - Health: 1800<br>
+                - Attack: 0<br>
+                - Defense: 43<br>
+                - EXP on Death: 516.14 EXP<br><br>
 
                 Enemy 3: <server>Deep</server><br>
-                - Health: 250<br>
-                - Attack: 4<br>
-                - Defense: 25<br>
-                - EXP on Death: 31.37 EXP<br><br>
+                - Health: 3500<br>
+                - Attack: 15<br>
+                - Defense: 15<br>
+                - EXP on Death: 527.55 EXP<br><br>
             
             `
         },{}],
@@ -603,19 +645,19 @@ return func
                 // Zone 4
 
                 if (player.L.randomizer == (7) && player.L.zone == (4)) player.L.enemyHP = player.L.enemyHP.add(400)
-                if (player.L.randomizer == (7) && player.L.zone == (4)) player.L.enemyHPMax = player.L.enemyHPMax.add(750)
+                if (player.L.randomizer == (7) && player.L.zone == (4)) player.L.enemyHPMax = player.L.enemyHPMax.add(400)
                 if (player.L.randomizer == (7) && player.L.zone == (4)) player.L.enemyAttack = player.L.enemyAttack.add(45)
                 if (player.L.randomizer == (7) && player.L.zone == (4)) player.L.enemyDefense = player.L.enemyDefense.add(0)
 
-                if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyHP = player.L.enemyHP.add(1800)
-                if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyHPMax = player.L.enemyHPMax.add(250)
-                if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyAttack = player.L.enemyAttack.add(0)
-                if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyDefense = player.L.enemyDefense.add(43)
+                if (player.L.randomizer == (6) && player.L.zone == (4)) player.L.enemyHP = player.L.enemyHP.add(1800)
+                if (player.L.randomizer == (6) && player.L.zone == (4)) player.L.enemyHPMax = player.L.enemyHPMax.add(1800)
+                if (player.L.randomizer == (6) && player.L.zone == (4)) player.L.enemyAttack = player.L.enemyAttack.add(0)
+                if (player.L.randomizer == (6) && player.L.zone == (4)) player.L.enemyDefense = player.L.enemyDefense.add(43)
 
-                if (player.L.randomizer == (6) && player.L.zone == (4)) player.L.enemyHP = player.L.enemyHP.add(3500)
-                if (player.L.randomizer == (6) && player.L.zone == (4)) player.L.enemyHPMax = player.L.enemyHPMax.add(150)
-                if (player.L.randomizer == (6) && player.L.zone == (4)) player.L.enemyAttack = player.L.enemyAttack.add(7)
-                if (player.L.randomizer == (6) && player.L.zone == (4)) player.L.enemyDefense = player.L.enemyDefense.add(3)
+                if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyHP = player.L.enemyHP.add(3500)
+                if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyHPMax = player.L.enemyHPMax.add(3500)
+                if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyAttack = player.L.enemyAttack.add(7)
+                if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyDefense = player.L.enemyDefense.add(6)
             },
                 style() {return{'background-color': tmp.L.color,}},
         },
