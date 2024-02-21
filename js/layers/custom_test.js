@@ -805,7 +805,7 @@ return click},
 
             if (player.L.level < 12)
                  player.L.health = player.L.health.add(2)
-            if ((player.L.level < 17) && player.L.zone == 3)
+            if ((player.L.level < 18) && player.L.zone == 3)
                  player.L.health = player.L.health.add(5)
             if ((player.L.level < 26) && player.L.zone == 4)
                  player.L.health = player.L.health.add(7)
