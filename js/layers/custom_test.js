@@ -460,7 +460,7 @@ return func
                     -= * Healing is boosted to 10 health per Heal Ability * =-<br><br>
                     * <red>During the process</red> your <red>vision starts</red> to become <red>red</red>.<br>
                     * Anxiety <red>is taking you over</red> with a fear of <red>losing your own thought</red>.<br>
-                    * <red>All you can<red> do is try to <red>find</red> a cure.<br>
+                    * <red>All you can</red> do is try to <red>find</red> a cure.<br>
                     * '<fail>I'll see how long you last</fail>' You heard something controlling your hand that's proceeding your mind.<br>
                     * '<fail>Kill them all</fail>' It said...<br>
                     * You flee to the Garden to relax.<br>
