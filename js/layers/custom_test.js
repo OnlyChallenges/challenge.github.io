@@ -794,6 +794,8 @@ return click},
                  player.L.health = player.L.health.add(2)
             if ((player.L.level < 17) && player.L.zone == 3)
                  player.L.health = player.L.health.add(5)
+            if ((player.L.level < 26) && player.L.zone == 4)
+                 player.L.health = player.L.health.add(7)
 
         player.points = player.points.minus(2.5)
             },
@@ -831,10 +833,5 @@ return click},
 
 // TODO
 // Add Crit Chance Past Zone 4
-// Show Zone 4 
-// Get A Name for Zone 4
-// Add 3 more Enemies in Zone 4
-// Refix Damage & Death Effect
-// Fix Attack & Defense Vectors
 // Improve the Level cap to 25
 // Add Block Chance Past Zone 5
