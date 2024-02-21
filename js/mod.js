@@ -88,7 +88,7 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 
-	let gain = new Decimal(4.5)
+	let gain = new Decimal(5.6)
 	
  if (player.points > 2.5) gain = new Decimal (0.0001)
 	return gain
