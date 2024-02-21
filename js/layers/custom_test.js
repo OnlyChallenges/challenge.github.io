@@ -64,6 +64,8 @@ addLayer("L", {
       if ((player.L.exp > 1700) && player.L.level == 14) player.L.exp = new Decimal(0)
       if ((player.L.exp > 2000) && player.L.level == 15) player.L.expMax = player.L.expMax.add(200)
       if ((player.L.exp > 2000) && player.L.level == 15) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 2200) && player.L.level == 16) player.L.expMax = player.L.expMax.add(300)
+      if ((player.L.exp > 2200) && player.L.level == 16) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
       if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
@@ -81,6 +83,7 @@ addLayer("L", {
       if ((player.L.expMax > 1300) && player.L.level == 13) player.L.level = new Decimal(14)
       if ((player.L.expMax > 1700) && player.L.level == 14) player.L.level = new Decimal(15)
       if ((player.L.expMax > 2000) && player.L.level == 15) player.L.level = new Decimal(16)
+      if ((player.L.expMax > 2200) && player.L.level == 16) player.L.level = new Decimal(17)
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 11) player.L.zone = new Decimal(3)
       if (player.L.level == 1) player.L.healthMax = new Decimal(20)
@@ -125,6 +128,9 @@ addLayer("L", {
       if (player.L.level == 16) player.L.attack = new Decimal(30)
       if (player.L.level == 16) player.L.defense = new Decimal(10)
       if (player.L.level == 16) player.L.healthMax = new Decimal(85)
+      if (player.L.level == 17) player.L.healthMax = new Decimal(90)
+      if (player.L.level == 17) player.L.attack = new Decimal(37)
+      if (player.L.level == 17) player.L.Wdefense = new Decimal(3)
 },
 
     colorcheckerOne(){
@@ -244,6 +250,7 @@ if ((player.L.exp < 1) && player.L.level == (13)) func = "<levelup>Level Up! You
 if ((player.L.exp < 1) && player.L.level == (14)) func = "<levelup>Level Up! You're now Level 14</levelup><br> (+5 Max Health, +1 Weapon Attack, +6 Attack)"
 if ((player.L.exp < 1) && player.L.level == (15)) func = "<levelup>Level Up! You're now Level 15</levelup><br> (+1 Weapon Attack, +3 Attack, +1 Defense)"
 if ((player.L.exp < 1) && player.L.level == (16)) func = "<levelup>Level Up! You're now Level 16</levelup><br> (+5 Max Health, +3 Weapon Attack, +4 Attack, +2 Defense)"
+if ((player.L.exp < 1) && player.L.level == (17)) func = "<levelup>Level Up! You're now Level 17</levelup><br> (+5 Max Health, +7 Attack, +1 Weapon Defense)"
 return func
 },{}],
                 "blank",
@@ -479,15 +486,16 @@ return func
                if (player.L.randomizer == (2)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
                if (player.L.randomizer == (6)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
                if (player.L.health <= 0) dis = "You were killed; revive to continue..."
-return dis
-},
+            return dis
+            },
             canClick(){ 
-let click = true
-if (player.L.randomizer == (7)) click = false
-if (player.L.randomizer == (2)) click = false
-if (player.L.randomizer == (6)) click = false
-if (player.L.health <= 0) click = false
-return click},
+                let click = true
+                if (player.L.randomizer == (7)) click = false
+                if (player.L.randomizer == (2)) click = false
+                if (player.L.randomizer == (6)) click = false
+                if (player.L.health <= 0) click = false
+            return click
+            },
             onClick() {
                 player.L.randomizer = Math.floor(Math.random() * 10) + 1;
                 if (player.L.randomizer == (7) && player.L.zone == (1)) player.L.enemyHP = player.L.enemyHP.add(75)
@@ -642,6 +650,7 @@ let click = true
     if ((player.L.health >= 80) && player.L.level == (14)) click = false
     if ((player.L.health >= 80) && player.L.level == (15)) click = false
     if ((player.L.health >= 85) && player.L.level == (16)) click = false
+    if ((player.L.health >= 90) && player.L.level == (17)) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
 return click},
@@ -663,8 +672,6 @@ return click},
 
             if (player.L.level < 4)
                  player.L.health = player.L.health.add(2)
-            if ((player.L.level < 11) && player.L.zone == 2)
-                 player.L.health = player.L.health.add(3)
             if ((player.L.level < 17) && player.L.zone == 3)
                  player.L.health = player.L.health.add(5)
 
@@ -712,4 +719,3 @@ player.points = player.points.minus(2.5)
 // Fix Attack & Defense Vectors
 // Improve the Level cap to 25
 // Add Block Chance Past Zone 5
-// FINISHED - Completing Storyline & Beta Experiment Log
