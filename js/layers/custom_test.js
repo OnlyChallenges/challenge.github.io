@@ -18,6 +18,7 @@ addLayer("L", {
         defenseRNG: new Decimal(1),
         kills: new Decimal(0),
         revives: new Decimal(0),
+        threat: new Decimal(0),
         spec: "#DAC0CB",
         spectwo: "#00FF00",
         specthree: "#FF4433",
@@ -67,6 +68,8 @@ addLayer("L", {
       if ((player.L.exp > 2200) && player.L.level == 16) player.L.exp = new Decimal(0)
       if ((player.L.exp > 2500) && player.L.level == 17) player.L.expMax = player.L.expMax.add(500)
       if ((player.L.exp > 2500) && player.L.level == 17) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 3000) && player.L.level == 18) player.L.expMax = player.L.expMax.add(96999)
+      if ((player.L.exp > 3000) && player.L.level == 18) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
         // Level Up Checker - DelogV1
@@ -87,6 +90,7 @@ addLayer("L", {
       if ((player.L.expMax > 2000) && player.L.level == 15) player.L.level = new Decimal(16)
       if ((player.L.expMax > 2200) && player.L.level == 16) player.L.level = new Decimal(17)
       if ((player.L.expMax > 2500) && player.L.level == 17) player.L.level = new Decimal(18)
+      if ((player.L.expMax > 3000) && player.L.level == 18) player.L.level = new Decimal(19)
 
       if (hasAchievement('A', 24)) player.L.exp = player.L.exp.add(2000)
 
@@ -163,6 +167,12 @@ addLayer("L", {
       if (player.L.level == 18) player.L.attack = new Decimal(45)
       if (player.L.level == 18) player.L.Wdefense = new Decimal(5)
       if (player.L.level == 18) player.L.Wattack = new Decimal(20)
+      //Level 19 Stats
+      if (player.L.level == 19) player.L.healthMax = new Decimal(199)
+      if (player.L.level == 19) player.L.attack = new Decimal(99)
+      if (player.L.level == 19) player.L.Wdefense = new Decimal(6)
+      if (player.L.level == 19) player.L.Wattack = new Decimal(25)
+
 },
 
     colorcheckerOne(){
@@ -199,6 +209,7 @@ return func
                 "blank",
                 ["display-text",function(){
 let func = "LV " + formatWhole(player.L.level)
+if (player.L.level == 19) func = "LV<red> " + formatWhole(player.L.level) + " </red><br><fail>I'll never let you escape</fail>"
 return func
 
 },{}],
@@ -272,6 +283,19 @@ if (player.L.randomizer == (4) && player.L.zone == (4)) func = "* Another book a
 if (player.L.randomizer == (3) && player.L.zone == (4)) func = "* Those Metal Beams on the roof seems stable."
 if (player.L.randomizer == (2) && player.L.zone == (4)) func = "* You've Encountered A(n) <rainbow>Deep</rainbow>"
 if (player.L.randomizer == (1) && player.L.zone == (4)) func = "* You found a fun fact about the Facility.<br>* Facility§1.3: There's a Loving Experiment who would lure people in and then murder them...<br>* Turns out it wasn't a fun fact..."
+
+// Plasma's Dialogue
+if (player.L.threat == (1)) "* You start to get stronger..."
+if (player.L.threat == (2)) "* You start to get stronger...<br>* Your losing your thoughts and control over yourself."
+if (player.L.threat == (3)) "* You start to get stronger...<br>* Your losing your thoughts and control over yourself.<br>*<fail>'Keep going...your almost done...</fail>'"
+if (player.L.threat == (4)) "* You start to get stronger...<br>* Your losing your thoughts and control over yourself.<br>* <fail>'Keep going...your almost done...</fail>'<br>* You start to hear someone come down the hall..."
+if (player.L.threat == (5)) "* You start to get stronger...<br>* Your losing your thoughts and control over yourself.<br>* <fail>'Keep going...your almost done...</fail>'<br>* You start to hear someone come down the hallway...<br>* You start to move back to avoid contact with the person"
+if (player.L.threat == (6)) "* You start to get stronger...<br>* Your losing your thoughts and control over yourself.<br>* <fail>'Keep going...your almost done...</fail>'<br>* You start to hear someone come down the hallway...<br>* You start to move back to avoid contact with the person<br>* '<fail>What do you think your doing?</fail>'"
+if (player.L.threat == (7)) "* You start to get stronger...<br>* Your losing your thoughts and control over yourself.<br>* <fail>'Keep going...your almost done...</fail>'<br>* You start to hear someone come down the hallway...<br>* You start to move back to avoid contact with the person<br>* '<fail>What do you think your doing?</fail>'<br>* Your forced towards the entrance"
+if (player.L.threat == (8)) "* You start to get stronger...<br>* Your losing your thoughts and control over yourself.<br>* <fail>'Keep going...your almost done...</fail>'<br>* You start to hear someone come down the hallway...<br>* You start to move back to avoid contact with the person<br>* '<fail>What do you think your doing?</fail>'<br>* Your forced towards the entrance<br>* The entity looks at you...concerned and worried"
+if (player.L.threat == (9)) "* You start to get stronger...<br>* Your losing your thoughts and control over yourself.<br>* <fail>'Keep going...your almost done...</fail>'<br>* You start to hear someone come down the hallway...<br>* You start to move back to avoid contact with the person<br>* '<fail>What do you think your doing?</fail>'<br>* Your forced towards the entrance<br>* The entity looks at you...concerned and worried<br>'<rainbow>H-Hey are you o-</rainbow>'"
+if (player.L.threat == (10)) "* You've Encountered <rainbow>Plasma</rainbow>."
+
  return func
 },{}],
                 "blank",
@@ -300,6 +324,7 @@ if ((player.L.exp < 1) && player.L.level == (15)) func = "<levelup>Level Up! You
 if ((player.L.exp < 1) && player.L.level == (16)) func = "<levelup>Level Up! You're now Level 16</levelup><br> (+5 Max Health, +3 Weapon Attack, +4 Attack, +2 Defense)"
 if ((player.L.exp < 1) && player.L.level == (17)) func = "<levelup>Level Up! You're now Level 17</levelup><br> (+5 Max Health, +7 Attack, +1 Weapon Defense)"
 if ((player.L.exp < 1) && player.L.level == (18)) func = "<levelup>Level Up! You're now Level 18</levelup><br> (+60 Max Health, +8 Attack, +7 Weapon Attack, +2 Weapon Defense) Storyline Updated!"
+if ((player.L.exp < 1) && player.L.level == (19)) func = "<levelup>Level Up! You're now Level 18</levelup><br> (+49 Max Health, +54 Attack, +5 Weapon Attack, +1 Weapon Defense)<br>Something is controlling you... You lost the ability to Flee."
 return func
 },{}],
                 "blank",
@@ -335,6 +360,8 @@ if (player.L.randomizer == (7) && player.L.zone == (4)) func = "<server>Morgan</
 if (player.L.randomizer == (6) && player.L.zone == (4)) func = "<server>Lovebeast</server><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 if (player.L.randomizer == (2) && player.L.zone == (4)) func = "<server>Deep</server><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 
+if (player.L.threat == (10) && player.L.zone == (4)) func = "<rainbow>Plasma</rainbow><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+
 return func
 },{}],
                 "blank",
@@ -362,6 +389,10 @@ if (player.L.randomizer == (2) && player.L.zone == (3)) func = "* You inflicted 
 if (player.L.randomizer == (7) && player.L.zone == (4)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <server>Morgan</server><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
 if (player.L.randomizer == (6) && player.L.zone == (4)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <server>Lovebeast</server><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
 if (player.L.randomizer == (2) && player.L.zone == (4)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " Damage on <server>Deep</server><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
+
+// Plasma...
+
+if (player.L.randomizer == (0) && player.L.level == (19) && player.L.threat == (10)) func = "'<rainbow>W-why are you looking at me like t-that?</rainbow>'<br>* <fail>Kill her...</fail>"
 
 return func
 },{}],
@@ -597,6 +628,9 @@ return func
                if (player.L.randomizer == (2)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
                if (player.L.randomizer == (6)) dis = "Look Around<br><ruins>You've Encountered An Enemy</ruins>"
                if (player.L.health <= 0) dis = "You were killed; revive to continue..."
+               if (player.L.level == 19)
+dis = "...Proceed"
+               if (player.L.level == (19) && player.L.threat == (10)) dis = "<fail>Finish The Job</fail>
             return dis
             },
             canClick(){ 
@@ -604,11 +638,17 @@ return func
                 if (player.L.randomizer == (7)) click = false
                 if (player.L.randomizer == (2)) click = false
                 if (player.L.randomizer == (6)) click = false
+                if (player.L.threat == (10)) click = false
                 if (player.L.health <= 0) click = false
             return click
             },
             onClick() {
+                if (player.L.level < 19)
                 player.L.randomizer = Math.floor(Math.random() * 10) + 1;
+                if (player.L.level == 19)
+                player.L.randomizer = new Decimal(0)
+                if (player.L.level == 19)
+                player.L.threat = player.L.threat.add(1)
                 if (player.L.randomizer == (7) && player.L.zone == (1)) player.L.enemyHP = player.L.enemyHP.add(75)
                 if (player.L.randomizer == (7) && player.L.zone == (1)) player.L.enemyHPMax = player.L.enemyHPMax.add(75)
                 if (player.L.randomizer == (7) && player.L.zone == (1)) player.L.enemyAttack = player.L.enemyAttack.add(2)
@@ -674,6 +714,15 @@ return func
                 if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyHPMax = player.L.enemyHPMax.add(3500)
                 if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyAttack = player.L.enemyAttack.add(15)
                 if (player.L.randomizer == (2) && player.L.zone == (4)) player.L.enemyDefense = player.L.enemyDefense.add(15)
+
+
+// Plasma...
+
+                if (player.L.randomizer == (0) && player.L.zone == (4) && player.L.threat == (10)) player.L.enemyHP = player.L.enemyHP.add(1)
+                if (player.L.randomizer == (0) && player.L.zone == (4) && player.L.threat == (10)) player.L.enemyHPMax = player.L.enemyHPMax.add(1)
+                if (player.L.randomizer == (0) && player.L.zone == (4) && player.L.threat == (10)) player.L.enemyAttack = player.L.enemyAttack.add(0)
+                if (player.L.randomizer == (0) && player.L.zone == (4) && player.L.threat == (10)) player.L.enemyDefense = player.L.enemyDefense.add(0)
+
             },
                 style() {return{'background-color': tmp.L.color,}},
         },
@@ -782,6 +831,7 @@ let click = true
     if ((player.L.health >= 85) && player.L.level == (16)) click = false
     if ((player.L.health >= 90) && player.L.level == (17)) click = false
     if ((player.L.health >= 150) && player.L.level == (18)) click = false
+    if ((player.L.health >= 199) && player.L.level == (19)) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
 return click},
@@ -841,6 +891,9 @@ return click},
             style() {return{
                 'background-color': player.L.specthree,
             }},
+            unlocked() {let unl = true
+if (player.L.level == 19) unl = false
+retuen unl},
         },
      },
 })
