@@ -73,6 +73,8 @@ addLayer("L", {
       if ((player.L.exp > 5000) && player.L.level == 19) player.L.exp = new Decimal(0)
       if ((player.L.exp > 7500) && player.L.level == 20) player.L.expMax = player.L.expMax.add(5000)
       if ((player.L.exp > 7500) && player.L.level == 20) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 12500) && player.L.level == 21) player.L.expMax = player.L.expMax.add(2500)
+      if ((player.L.exp > 12500) && player.L.level == 21) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
         // Level Up Checker - DelogV1
@@ -96,6 +98,7 @@ addLayer("L", {
       if ((player.L.expMax > 3000) && player.L.level == 18) player.L.level = new Decimal(19)
       if ((player.L.expMax > 5000) && player.L.level == 19) player.L.level = new Decimal(20)
       if ((player.L.expMax > 7500) && player.L.level == 20) player.L.level = new Decimal(21)
+      if ((player.L.expMax > 12500) && player.L.level == 21) player.L.level = new Decimal(22)
 
       // Zone Movements
       if (player.L.level == 4) player.L.zone = new Decimal(2)
@@ -181,7 +184,11 @@ addLayer("L", {
       if (player.L.level == 20) player.L.Wattack = new Decimal(30)
       //Level 21 Stats
       if (player.L.level == 21) player.L.attack = new Decimal(120)
-
+      //Level 22 Stats
+      if (player.L.level == 22) player.L.attack = new Decimal(140)
+      if (player.L.level == 22) player.L.Wattack = new Decimal(34)
+      if (player.L.level == 22) player.L.defense = new Decimal(14)
+      if (player.L.level == 22) player.L.healthMax = new Decimal(260)
 },
 
     colorcheckerOne(){
@@ -323,6 +330,7 @@ if ((player.L.exp < 1) && player.L.level == (18)) func = "<levelup>Level Up! You
 if ((player.L.exp < 1) && player.L.level == (19)) func = "<levelup>Level Up! You're now Level 19</levelup><br> (+49 Max Health, +25 Attack, +5 Weapon Attack, +1 Weapon Defense)"
 if ((player.L.exp < 1) && player.L.level == (20)) func = "<levelup>Level Up! You're now Level 20</levelup><br> (+21 Max Health, +29 Attack, +5 Weapon Attack, +1 Weapon Defense)"
 if ((player.L.exp < 1) && player.L.level == (21)) func = "<levelup>Level Up! You're now Level 21</levelup><br> (+21 Attack, Increased Max Damage)"
+if ((player.L.exp < 1) && player.L.level == (22)) func = "<levelup>Level Up! You're now Level 22</levelup><br> (+20 Attack, +4 Weapon Attack, +4 Defense, +40 Health)"
 return func
 },{}],
                 "blank",
@@ -818,6 +826,7 @@ let click = true
     if ((player.L.health >= 150) && player.L.level == (18)) click = false
     if ((player.L.health >= 199) && player.L.level == (19)) click = false
     if (((player.L.health >= 220) && player.L.level == (20)) || (player.L.health >= 220 && player.L.level == (21))) click = false
+    if ((player.L.health >= 260) && player.L.level == (22)) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
 return click},
