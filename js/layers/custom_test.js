@@ -630,7 +630,7 @@ return func
                if (player.L.health <= 0) dis = "You were killed; revive to continue..."
                if (player.L.level == 19)
 dis = "...Proceed"
-               if (player.L.level == (19) && player.L.threat == (10)) dis = "<fail>Finish The Job</fail>
+               if (player.L.level == (19) && player.L.threat == (10)) dis = "<fail>Finish The Job</fail>"
             return dis
             },
             canClick(){ 
