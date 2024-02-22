@@ -92,9 +92,6 @@ addLayer("L", {
       if ((player.L.expMax > 2500) && player.L.level == 17) player.L.level = new Decimal(18)
       if ((player.L.expMax > 3000) && player.L.level == 18) player.L.level = new Decimal(19)
 
-      if (hasAchievement('A', 24)) player.L.exp = player.L.exp.add(2000)
-
-
       // Zone Movements
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 11) player.L.zone = new Decimal(3)
