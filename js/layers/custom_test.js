@@ -893,7 +893,7 @@ return click},
             }},
             unlocked() {let unl = true
 if (player.L.level == 19) unl = false
-retuen unl},
+return unl},
         },
      },
 })
