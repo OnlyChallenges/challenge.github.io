@@ -172,7 +172,7 @@ addLayer("L", {
 },
 
     colorcheckerOne(){
-    if ((player.points > 2.5) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2)) player.L.spectwo = "#00FF00"
+    if ((player.points > 2.5) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2))) player.L.spectwo = "#00FF00"
     else player.L.spectwo = "#f5cbcb"
 },
 
