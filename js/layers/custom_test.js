@@ -760,6 +760,7 @@ dis = "...Proceed"
                 if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.points > 2.49) click = true
                 if (player.L.enemyHP <= (0)) click = false
                 if (player.L.health <= (0)) click = false
+                if (player.L.threat == (10)) click = true
 return click},
             onClick() {
             if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6))
@@ -793,12 +794,16 @@ return click},
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (4)) player.L.exp = player.L.exp.add(516.14)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (4)) player.L.exp = player.L.exp.add(527.55)
 
+if (player.L.enemyHP <= (0) && player.L.randomizer == (0) && player.L.zone == (4) && player.L.threat == (10)) player.L.exp = player.L.exp.add(99999)
+
                  if (player.L.enemyHP <= (0)) player.L.randomizer = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.kills = player.L.kills.add(1)
                 if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
                 if (player.L.enemyHP <= (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
                 if (player.L.enemyHP <= (0)) player.L.enemyHP = new Decimal(0)
                 if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
+if (player.L.enemyHP <= (0) && player.L.threat == (10)) player.L.threat = new Decimal(0)
+                
             },
             style() {return {'background-color': player.L.spectwo,
 }},
