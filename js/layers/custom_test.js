@@ -817,7 +817,7 @@ let click = true
     if ((player.L.health >= 90) && player.L.level == (17)) click = false
     if ((player.L.health >= 150) && player.L.level == (18)) click = false
     if ((player.L.health >= 199) && player.L.level == (19)) click = false
-    if ((player.L.health >= 220) && player.L.level == (20) || player.L.level == (21)) click = false
+    if (((player.L.health >= 220) && player.L.level == (20)) || (player.L.health >= 220 && player.L.level == (21))) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
 return click},
