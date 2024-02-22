@@ -643,8 +643,8 @@ dis = "...Proceed"
                 if (player.L.level < 19)
                 player.L.randomizer = Math.floor(Math.random() * 10) + 1;
                 if (player.L.level == 19)
-                player.L.randomizer = new Decimal(0)
-                if (player.L.level == 19)
+                player.L.randomizer = new Decimal(0);
+                if (player.L.level == (19) && player.L.randomizer == (0))
                 player.L.threat = player.L.threat.add(1)
                 if (player.L.randomizer == (7) && player.L.zone == (1)) player.L.enemyHP = player.L.enemyHP.add(75)
                 if (player.L.randomizer == (7) && player.L.zone == (1)) player.L.enemyHPMax = player.L.enemyHPMax.add(75)
