@@ -44,17 +44,17 @@ addLayer("L", {
             borderStyle() { return { "border-color": "#569945", } },
             healthBarProg(){
                 let prog = player.L.enemyHP.div(player.L.enemyHPMax)
-                if (prog == 1) player.L.barprog = "#47d424"
+                if (prog > 0.99) player.L.barprog = "#47d424"
                 if (prog < 0.9) player.L.barprog = "#67d424"
                 if (prog < 0.8) player.L.barprog = "#88d424"
                 if (prog < 0.7) player.L.barprog = "#b4d424"
                 if (prog < 0.6) player.L.barprog = "#d4d424"
                 if (prog < 0.5) player.L.barprog = "#d4c224"
                 if (prog < 0.4) player.L.barprog = "#d4ae24"
-                if (prog < 0.3) player.L.barprog = "#d49624"
-                if (prog < 0.2) player.L.barprog = "#d46a24"
-                if (prog < 0.1) player.L.barprog = "#d44724"
-                if (prog < 0.05) player.L.barprog = "#d43624"
+                if (prog < 0.3) player.L.barprog = "#d47624"
+                if (prog < 0.2) player.L.barprog = "#d43e24"
+                if (prog < 0.1) player.L.barprog = "#d42424"
+                if (prog < 0.05) player.L.barprog = "#ad2111"
                 if (player.L.enemyHP < 1) prog = 0
                 return prog
             },
