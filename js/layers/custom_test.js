@@ -54,7 +54,8 @@ addLayer("L", {
                 if (prog < 0.2) player.L.barprog = "#d46a24"
                 if (prog < 0.1) player.L.barprog = "#d44724"
                 if (prog < 0.005) player.L.barprog = "#d43624"
-                else player.L.barprog = "#47d424"
+                if (player.L.enemyHP == player.L.enemyHPMax) prog = 1
+                if (player.L.enemyHP < 0) prog = 0
                 return prog
             },
             progress() {
