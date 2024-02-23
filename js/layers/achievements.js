@@ -56,6 +56,11 @@ achievements: {
         done() { return player.L.revives == 1},
         tooltip: "Congrats!<br>You learned about the revive system!",
     },
+    18: {
+        name: "Another Medium",
+        done() { return player.L.zone == 4},
+        tooltip: "Reach Zone 4",
+    },
     21: {
         name: "Beginner's Murder",
         done() { return player.L.kills > 50 },

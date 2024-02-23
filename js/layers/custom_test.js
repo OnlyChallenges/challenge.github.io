@@ -121,6 +121,8 @@ addLayer("L", {
       if ((player.L.exp > 7500) && player.L.level == 20) player.L.exp = new Decimal(0)
       if ((player.L.exp > 12500) && player.L.level == 21) player.L.expMax = player.L.expMax.add(2500)
       if ((player.L.exp > 12500) && player.L.level == 21) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 15000) && player.L.level == 22) player.L.expMax = player.L.expMax.add(2500)
+      if ((player.L.exp > 15000) && player.L.level == 22) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
         // Level Up Checker - DelogV1
@@ -145,7 +147,7 @@ addLayer("L", {
       if ((player.L.expMax > 5000) && player.L.level == 19) player.L.level = new Decimal(20)
       if ((player.L.expMax > 7500) && player.L.level == 20) player.L.level = new Decimal(21)
       if ((player.L.expMax > 12500) && player.L.level == 21) player.L.level = new Decimal(22)
-
+      if ((player.L.expMax > 15000) && player.L.level == 22) player.L.level = new Decimal(23)
       // Zone Movements
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 11) player.L.zone = new Decimal(3)
@@ -235,6 +237,10 @@ addLayer("L", {
       if (player.L.level == 22) player.L.Wattack = new Decimal(34)
       if (player.L.level == 22) player.L.defense = new Decimal(14)
       if (player.L.level == 22) player.L.healthMax = new Decimal(260)
+      //Level 23 Stats
+      if (player.L.level == 23) player.L.attack = new Decimal(150)
+      if (player.L.level == 23) player.L.Wattack = new Decimal(36)
+      if (player.L.level == 23) player.L.defense = new Decimal(15)
 },
 
     colorcheckerOne(){
@@ -378,6 +384,7 @@ if ((player.L.exp < 1) && player.L.level == (19)) func = "<levelup>Level Up! You
 if ((player.L.exp < 1) && player.L.level == (20)) func = "<levelup>Level Up! You're now Level 20</levelup><br> (+21 Max Health, +29 Attack, +5 Weapon Attack, +1 Weapon Defense)"
 if ((player.L.exp < 1) && player.L.level == (21)) func = "<levelup>Level Up! You're now Level 21</levelup><br> (+21 Attack, Increased Max Damage)"
 if ((player.L.exp < 1) && player.L.level == (22)) func = "<levelup>Level Up! You're now Level 22</levelup><br> (+20 Attack, +4 Weapon Attack, +4 Defense, +40 Health)"
+if ((player.L.exp < 1) && player.L.level == (23)) func = "<levelup>Level Up! You're now Level 23</levelup><br> (+10 Attack, +2 Weapon Attack, +1 Defense)"
 return func
 },{}],
                 "blank",
@@ -627,19 +634,19 @@ return func
                     - Health: 750<br>
                     - Attack: 12<br>
                     - Defense: 5<br>
-                    - EXP on Death: 47.61 EXP<br><br>
+                    - EXP on Death: 84.61 EXP<br><br>
                 
                     Enemy 2: <rainbow>Virux</rainbow><br>
                     - Health: 150<br>
                     - Attack: 24<br>
                     - Defense: 3<br>
-                    - EXP on Death: 42.19 EXP<br><br>
+                    - EXP on Death: 79.19 EXP<br><br>
 
                     Enemy 3: <rainbow>Cyberruin</rainbow><br>
                     - Health: 250<br>
                     - Attack: 4<br>
                     - Defense: 25<br>
-                    - EXP on Death: 31.37 EXP<br><br>
+                    - EXP on Death: 88.37 EXP<br><br>
                 
                 `
             },{}],
@@ -827,9 +834,9 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.random
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (2)) player.L.exp = player.L.exp.add(11.52)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (2)) player.L.exp = player.L.exp.add(9.28)
 
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (3)) player.L.exp = player.L.exp.add(47.61)
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (3)) player.L.exp = player.L.exp.add(42.19)
-                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (3)) player.L.exp = player.L.exp.add(31.37)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (3)) player.L.exp = player.L.exp.add(84.61)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (3)) player.L.exp = player.L.exp.add(79.19)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (3)) player.L.exp = player.L.exp.add(88.37)
 
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (4)) player.L.exp = player.L.exp.add(498.68)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (4)) player.L.exp = player.L.exp.add(516.14)
@@ -874,7 +881,7 @@ let click = true
     if ((player.L.health >= 150) && player.L.level == (18)) click = false
     if ((player.L.health >= 199) && player.L.level == (19)) click = false
     if (((player.L.health >= 220) && player.L.level == (20)) || (player.L.health >= 220 && player.L.level == (21))) click = false
-    if ((player.L.health >= 260) && player.L.level == (22)) click = false
+    if (((player.L.health >= 260) && player.L.level == (22)) || (player.L.health >= 260 && player.L.level == (23))) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
 return click},
