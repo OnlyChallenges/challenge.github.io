@@ -48,7 +48,7 @@ achievements: {
     },
     16: {
         name: "Defensive Apporach",
-        done() { return player.L.defense == 5},
+        done() { return player.L.defense >= 5},
         tooltip: "Get 5 Defense or higher",
     },
     17: {
