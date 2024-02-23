@@ -32,6 +32,34 @@ addLayer("L", {
     row: 5, // Row the layer is in on the tree (0 is the first row)
     type: "none",
     layerShown(){return true},
+
+    bars: {
+        bigBar: {
+            direction: RIGHT,
+            width: 330,
+            height: 45,
+            fillStyle: { 'background-color': "#47d424" },
+            borderStyle() { return { "border-color": "##569945" } },
+            progress() {
+                let prog = player.L.enemyHP.div(player.L.enemyHPMax)
+                if (player.L.enemyHP == player.L.enemyHPMax) prog = 1
+                if (player.L.enemyHP < 0) prog = 0
+                return prog
+            },
+            display() {
+                if (player.L.enemyHP > 0)
+                    return formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax)
+                else
+                    return "..."
+            },
+            unlocked(){
+                return player.L.enemyHP > 0
+            },
+        },
+     },
+
+
+
     levelChecker(){
       if ((player.L.exp > 10) && player.L.level == 1) player.L.expMax = player.L.expMax.times(2)
       if ((player.L.exp > 10) && player.L.level == 1) player.L.exp = new Decimal(0)
@@ -343,6 +371,7 @@ return func
                 },{}],
                 "blank",
                 "blank",
+                ["bar", "bigBar"],
                 ["display-text",function(){ let func = ""
 if (player.L.randomizer == (7) && player.L.zone == (1)) func = "<water>Abys</water><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 if (player.L.randomizer == (2) && player.L.zone == (1)) func = "<water>Azure</water><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
