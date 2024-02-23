@@ -41,7 +41,7 @@ addLayer("L", {
             width: 330,
             height: 45,
             fillStyle: { 'background-color': "#47d424" },
-            borderStyle() { return { "border-color": "##569945" } },
+            borderStyle() { return { "border-color": "#569945" } },
             healthBarProg(){
                 if (prog < 0.9) health.L.barprog = "#67d424"
                 if (prog < 0.8) health.L.barprog = "#88d424"
