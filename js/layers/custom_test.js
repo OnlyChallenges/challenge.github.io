@@ -38,8 +38,8 @@ addLayer("L", {
     bars: {
         bigBar: {
             direction: RIGHT,
-            width: 330,
-            height: 45,
+            width: 380,
+            height: 37,
             fillStyle: { 'background-color': player.L.barprog },
             borderStyle() { return { "border-color": "#569945" } },
             healthBarProg(){
