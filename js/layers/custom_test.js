@@ -258,6 +258,7 @@ addLayer("L", {
     tabFormat: {
             "E205_Beta 1: RPG Mechanics":{
             content: [
+                ["raw-html", function () { return player.L.zone == (4) ? "<audio controls autoplay loop hidden><source src=music/another.mp3 type<=audio/mp3>loop=true hidden=true autostart=true</audio>": ""}],
                 "blank",
                 "blank",
                 ["display-text",function(){
