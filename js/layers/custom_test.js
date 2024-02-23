@@ -63,7 +63,7 @@ addLayer("L", {
             },
             display() {
                 if (player.L.enemyHP > 0)
-                    return formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax)
+                    return "Health: "+ formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax)
                 else
                     return "..."
             },
@@ -388,28 +388,28 @@ return func
                 "blank",
                 ["bar", "bigBar"],
                 ["display-text",function(){ let func = ""
-if (player.L.randomizer == (7) && player.L.zone == (1)) func = "<water>Abys</water><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
-if (player.L.randomizer == (2) && player.L.zone == (1)) func = "<water>Azure</water><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
-if (player.L.randomizer == (6) && player.L.zone == (1)) func = "<water>Malachite</water><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (7) && player.L.zone == (1)) func = "<water>Abys</water><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (2) && player.L.zone == (1)) func = "<water>Azure</water><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (6) && player.L.zone == (1)) func = "<water>Malachite</water><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 
 // Zone 2
 
-if (player.L.randomizer == (7) && player.L.zone == (2)) func = "<ruins>Nyko</ruins><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
-if (player.L.randomizer == (6) && player.L.zone == (2)) func = "<ruins>Permafrost</ruins><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
-if (player.L.randomizer == (2) && player.L.zone == (2)) func = "<ruins>Snapper</ruins><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (7) && player.L.zone == (2)) func = "<ruins>Nyko</ruins><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (6) && player.L.zone == (2)) func = "<ruins>Permafrost</ruins><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (2) && player.L.zone == (2)) func = "<ruins>Snapper</ruins><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 
 // Zone 3
 
-if (player.L.randomizer == (7) && player.L.zone == (3)) func = "<rainbow>Hallow</rainbow><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
-if (player.L.randomizer == (6) && player.L.zone == (3)) func = "<rainbow>Virux</rainbow><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
-if (player.L.randomizer == (2) && player.L.zone == (3)) func = "<rainbow>Cyberruin</rainbow><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (7) && player.L.zone == (3)) func = "<rainbow>Hallow</rainbow><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (6) && player.L.zone == (3)) func = "<rainbow>Virux</rainbow><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (2) && player.L.zone == (3)) func = "<rainbow>Cyberruin</rainbow><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 
 // Zone 4
 
-if (player.L.randomizer == (7) && player.L.zone == (4)) func = "<server>Morgan</server><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
-if (player.L.randomizer == (6) && player.L.zone == (4)) func = "<server>Lovebeast</server><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
-if (player.L.randomizer == (2) && player.L.zone == (4)) func = "<server>Deep</server><br>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "<br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
-
+if (player.L.randomizer == (7) && player.L.zone == (4)) func = "<server>Morgan</server><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (6) && player.L.zone == (4)) func = "<server>Lovebeast</server><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (2) && player.L.zone == (4)) func = "<server>Deep</server><br><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+ 
 
 return func
 },{}],
