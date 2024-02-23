@@ -40,8 +40,8 @@ addLayer("L", {
             direction: RIGHT,
             width: 380,
             height: 37,
-            fillStyle: { 'background-color': player.L.barprog },
-            borderStyle() { return { "border-color": "#569945" } },
+            fillStyle() { return { 'background-color': player.L.barprog, } },
+            borderStyle() { return { "border-color": "#569945", } },
             healthBarProg(){
                 if (prog < 0.9) player.L.barprog = "#67d424"
                 if (prog < 0.8) player.L.barprog = "#88d424"
