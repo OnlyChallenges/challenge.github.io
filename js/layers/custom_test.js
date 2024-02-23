@@ -40,20 +40,20 @@ addLayer("L", {
             direction: RIGHT,
             width: 330,
             height: 45,
-            fillStyle: { 'background-color': health.L.barprog },
+            fillStyle: { 'background-color': player.L.barprog },
             borderStyle() { return { "border-color": "#569945" } },
             healthBarProg(){
-                if (prog < 0.9) health.L.barprog = "#67d424"
-                if (prog < 0.8) health.L.barprog = "#88d424"
-                if (prog < 0.7) health.L.barprog = "#b4d424"
-                if (prog < 0.6) health.L.barprog = "#d4d424"
-                if (prog < 0.5) health.L.barprog = "#d4c224"
-                if (prog < 0.4) health.L.barprog = "#d4ae24"
-                if (prog < 0.3) health.L.barprog = "#d49624"
-                if (prog < 0.2) health.L.barprog = "#d46a24"
-                if (prog < 0.1) health.L.barprog = "#d44724"
-                if (prog < 0.05) health.L.barprog = "#d43624"
-                else health.L.barprog = "#47d424"
+                if (prog < 0.9) player.L.barprog = "#67d424"
+                if (prog < 0.8) player.L.barprog = "#88d424"
+                if (prog < 0.7) player.L.barprog = "#b4d424"
+                if (prog < 0.6) player.L.barprog = "#d4d424"
+                if (prog < 0.5) player.L.barprog = "#d4c224"
+                if (prog < 0.4) player.L.barprog = "#d4ae24"
+                if (prog < 0.3) player.L.barprog = "#d49624"
+                if (prog < 0.2) player.L.barprog = "#d46a24"
+                if (prog < 0.1) player.L.barprog = "#d44724"
+                if (prog < 0.05) player.L.barprog = "#d43624"
+                else player.L.barprog = "#47d424"
             },
             progress() {
                 let prog = player.L.enemyHP.div(player.L.enemyHPMax)
