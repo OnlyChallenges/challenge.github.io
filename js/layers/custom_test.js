@@ -21,6 +21,7 @@ addLayer("L", {
         spec: "#DAC0CB",
         spectwo: "#00FF00",
         specthree: "#FF4433",
+        barprog: "#47d424",
         // Enemy Stats
         enemyHP: new Decimal(0),
         enemyHPMax: new Decimal(0),
@@ -33,6 +34,7 @@ addLayer("L", {
     type: "none",
     layerShown(){return true},
 
+
     bars: {
         bigBar: {
             direction: RIGHT,
@@ -40,6 +42,19 @@ addLayer("L", {
             height: 45,
             fillStyle: { 'background-color': "#47d424" },
             borderStyle() { return { "border-color": "##569945" } },
+            healthBarProg(){
+                if (prog < 0.9) health.L.barprog = "#67d424"
+                if (prog < 0.8) health.L.barprog = "#88d424"
+                if (prog < 0.7) health.L.barprog = "#b4d424"
+                if (prog < 0.6) health.L.barprog = "#d4d424"
+                if (prog < 0.5) health.L.barprog = "#d4c224"
+                if (prog < 0.4) health.L.barprog = "#d4ae24"
+                if (prog < 0.3) health.L.barprog = "#d49624"
+                if (prog < 0.2) health.L.barprog = "#d46a24"
+                if (prog < 0.1) health.L.barprog = "#d44724"
+                if (prog < 0.05) health.L.barprog = "#d43624"
+                else health.L.barprog = "#47d424"
+            },
             progress() {
                 let prog = player.L.enemyHP.div(player.L.enemyHPMax)
                 if (player.L.enemyHP == player.L.enemyHPMax) prog = 1
