@@ -27,6 +27,8 @@ addLayer("L", {
         enemyHPMax: new Decimal(0),
         enemyAttack: new Decimal(0),
         enemyDefense: new Decimal(0),
+        enemyShield: new Decimal(0),
+        enemyShieldMax: new Decimal(0),
     }},
     color: "#8A422A",
     tooltip: "Battle",
@@ -36,7 +38,7 @@ addLayer("L", {
 
 
     bars: {
-        bigBar: {
+        Ehealth: {
             direction: RIGHT,
             width: 380,
             height: 37,
@@ -74,6 +76,30 @@ addLayer("L", {
                 return player.L.enemyHP > 0
             },
         },
+
+        Eshield: {
+            direction: RIGHT,
+            width: 290,
+            height: 18,
+            fillStyle() { return { 'background-color': #349beb, } },
+            borderStyle() { return { "border-color": "#3437eb", } },
+            progress() {
+                let prog = player.L.enemyShield.div(player.L.enemyShieldMax)
+                if (player.L.enemyShield == player.L.enemyShieldMax) prog = 1
+                if (player.L.enemyShield < 0) prog = 0
+                return prog
+            },
+            display() {
+                if (player.L.enemyHP > 0)
+                    return "Shield: "+ formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
+                else
+                    return "..."
+            },
+            unlocked(){
+                return player.L.enemyShield > 0 
+            },
+        },
+
      },
 
 
@@ -123,6 +149,8 @@ addLayer("L", {
       if ((player.L.exp > 12500) && player.L.level == 21) player.L.exp = new Decimal(0)
       if ((player.L.exp > 15000) && player.L.level == 22) player.L.expMax = player.L.expMax.add(2500)
       if ((player.L.exp > 15000) && player.L.level == 22) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 17500) && player.L.level == 23) player.L.expMax = player.L.expMax.add(2500)
+      if ((player.L.exp > 15000) && player.L.level == 23) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
         // Level Up Checker - DelogV1
@@ -148,6 +176,7 @@ addLayer("L", {
       if ((player.L.expMax > 7500) && player.L.level == 20) player.L.level = new Decimal(21)
       if ((player.L.expMax > 12500) && player.L.level == 21) player.L.level = new Decimal(22)
       if ((player.L.expMax > 15000) && player.L.level == 22) player.L.level = new Decimal(23)
+      if ((player.L.expMax > 17500) && player.L.level == 23) player.L.level = new Decimal(24)
       // Zone Movements
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 11) player.L.zone = new Decimal(3)
@@ -241,6 +270,10 @@ addLayer("L", {
       if (player.L.level == 23) player.L.attack = new Decimal(150)
       if (player.L.level == 23) player.L.Wattack = new Decimal(36)
       if (player.L.level == 23) player.L.defense = new Decimal(15)
+      //Level 24 Stats
+      if (player.L.level == 24) player.L.attack = new Decimal(160)
+      if (player.L.level == 24) player.L.defense = new Decimal(17)
+      if (player.L.level == 24) player.L.healthMax = new Decimal(280)
 },
 
     colorcheckerOne(){
@@ -385,6 +418,7 @@ if ((player.L.exp < 1) && player.L.level == (20)) func = "<levelup>Level Up! You
 if ((player.L.exp < 1) && player.L.level == (21)) func = "<levelup>Level Up! You're now Level 21</levelup><br> (+21 Attack, Increased Max Damage)"
 if ((player.L.exp < 1) && player.L.level == (22)) func = "<levelup>Level Up! You're now Level 22</levelup><br> (+20 Attack, +4 Weapon Attack, +4 Defense, +40 Health)"
 if ((player.L.exp < 1) && player.L.level == (23)) func = "<levelup>Level Up! You're now Level 23</levelup><br> (+10 Attack, +2 Weapon Attack, +1 Defense)"
+if ((player.L.exp < 1) && player.L.level == (24)) func = "<levelup>Level Up! You're now Level 24</levelup><br> (+10 Attack, +2 Defense, +20 Max Health)"
 return func
 },{}],
                 "blank",
@@ -397,7 +431,8 @@ return func
                 },{}],
                 "blank",
                 "blank",
-                ["bar", "bigBar"],
+                ["bar", "Eshield"],
+                ["bar", "Ehealth"],
                 ["display-text",function(){ let func = ""
 if (player.L.randomizer == (7) && player.L.zone == (1)) func = "<water>Abys</water><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 if (player.L.randomizer == (2) && player.L.zone == (1)) func = "<water>Azure</water><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
@@ -785,6 +820,11 @@ return func
                if (player.L.randomizer == (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
                if (player.L.randomizer == (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
                if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
+
+               if (player.L.randomizer == (0)) player.L.enemyShield = player.L.enemyShield.minus(player.L.enemyShield)
+
+               if (player.L.randomizer == (0)) player.L.enemyShieldMax = player.L.enemyShieldMax.minus(player.L.enemyShieldMax)
+
                 player.L.health = new Decimal(20)
                 player.L.exp = player.L.exp.div(2)
                 player.L.revives = player.L.revives.add(1)
@@ -825,6 +865,12 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.random
                  // Player Damage Formula: (Enemy_attack+(defense+(Weapon_Defense*Defense_RNG))) (Minimum of 0 Damage)
                  // Damage Mult RNG: Picks a Number between 1 through 9 per Attack (Added Crit damage Mult during Zone 4)
                  // Defense RNG: Picks a Number between 1 through 4 per Attack (Added Block Chance during Zone 5)
+
+                 if (player.L.enemyShield < 0) player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).minus(player.L.enemyDefense).max(0))
+                 if (player.L.enemyShield > 0) player.L.enemyHP = player.L.enemyHP.minus(0)
+                 if (player.L.enemyShield > 0) player.L.enemyShield = player.L.enemyShield.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).minus(player.L.enemyDefense.times(3)).max(0))
+
+
                  player.points = player.points.minus(2.5)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (1)) player.L.exp = player.L.exp.add(3.05)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (1)) player.L.exp = player.L.exp.add(4.37)
@@ -848,6 +894,9 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.random
                 if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
                 if (player.L.enemyHP <= (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
                 if (player.L.enemyHP <= (0)) player.L.enemyHP = new Decimal(0)
+                if (player.L.enemyShield <= (0)) player.L.enemyShield = new Decimal(0)
+                if (player.L.enemyShield <= (0)) player.L.enemyShieldMax = player.L.enemyShieldMax.minus(player.L.enemyShieldMax)
+
                 if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
                 
             },
@@ -882,6 +931,7 @@ let click = true
     if ((player.L.health >= 199) && player.L.level == (19)) click = false
     if (((player.L.health >= 220) && player.L.level == (20)) || (player.L.health >= 220 && player.L.level == (21))) click = false
     if (((player.L.health >= 260) && player.L.level == (22)) || (player.L.health >= 260 && player.L.level == (23))) click = false
+    if ((player.L.health >= 280) && player.L.level == (24)) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
 return click},
@@ -935,6 +985,9 @@ return click},
                 if (player.L.randomizer == (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
                 if (player.L.randomizer == (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
                 if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
+
+                if (player.L.enemyShieldMax <= (0)) player.L.enemyShieldMax = player.L.enemyShieldMax.minus(player.L.enemyShieldMax)
+                if (player.L.enemyShield <= (0)) player.L.enemyShield = player.L.enemyShield.minus(player.L.enemyShield)
 
         player.points = player.points.minus(2.5)
             },
