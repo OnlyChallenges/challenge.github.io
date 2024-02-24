@@ -22,6 +22,7 @@ addLayer("L", {
         spectwo: "#00FF00",
         specthree: "#FF4433",
         barprog: "#47d424",
+        barprog2: "#47d424",
         // Enemy Stats
         enemyHP: new Decimal(0),
         enemyHPMax: new Decimal(0),
@@ -38,6 +39,44 @@ addLayer("L", {
 
 
     bars: {
+        Phealth: {
+            direction: RIGHT,
+            width: 380,
+            height: 37,
+            fillStyle() { return { 'background-color': player.L.barprog2, } },
+            borderStyle() { return { "border-color": "#569945", } },
+            healthBarProg(){
+                let prog = player.L.health.div(player.L.healthMax)
+                if (prog > 0.99) player.L.barprog2 = "#47d424"
+                if (prog < 0.9) player.L.barprog2 = "#67d424"
+                if (prog < 0.8) player.L.barprog2 = "#88d424"
+                if (prog < 0.7) player.L.barprog2 = "#b4d424"
+                if (prog < 0.6) player.L.barprog2 = "#d4d424"
+                if (prog < 0.5) player.L.barprog2 = "#d4c224"
+                if (prog < 0.4) player.L.barprog2 = "#d4ae24"
+                if (prog < 0.3) player.L.barprog2 = "#d47624"
+                if (prog < 0.2) player.L.barprog2 = "#d43e24"
+                if (prog < 0.1) player.L.barprog2 = "#d42424"
+                if (prog < 0.05) player.L.barprog2 = "#ad2111"
+                if (player.L.health < 1) prog = 0
+                return prog
+            },
+            progress() {
+                let prog = player.L.health.div(player.L.healthMax)
+                if (player.L.health == player.L.healthMax) prog = 1
+                if (player.L.health < 0) prog = 0
+                return prog
+            },
+            display() {
+                if (player.L.health > 0)
+                    return "Health: "+ formatWhole(player.L.health) + " / " + formatWhole(player.L.healthMax)
+                else
+                    return "You died."
+            },
+            unlocked(){
+                return true
+            },
+        },
         Ehealth: {
             direction: RIGHT,
             width: 380,
@@ -98,6 +137,26 @@ addLayer("L", {
             },
             unlocked(){
                 return (player.L.enemyShield > 0) 
+            },
+        },
+
+        EXP: {
+            direction: RIGHT,
+            width: 380,
+            height: 34,
+            fillStyle: { 'background-color': "#f281fc", },
+            borderStyle() { return { "border-color": "#f4ccfc", } },
+            progress() {
+                let prog = player.L.exp.div(player.L.expMax)
+                if (player.L.exp == player.L.expMax) prog = 1
+                if (player.L.exp <= 0) prog = 0
+                return prog
+            },
+            display() {
+                    return "Level: " + formatWhole(player.L.level) + "<br>Experience: "+ formatWhole(player.L.exp) + " / " + formatWhole(player.L.expMax)
+            },
+            unlocked(){
+                return true
             },
         },
 
@@ -327,20 +386,9 @@ if (player.L.zone == 5) func = "Zone: <obs>Observatory</obs>"
 return func
 },{}],
                 "blank",
-                ["display-text",function(){
-let func = "LV " + formatWhole(player.L.level)
-return func
-
-},{}],
-                ["display-text",function(){
-let func = "HP <logic>" + formatWhole(player.L.health) + "</logic> / <logic>" + formatWhole(player.L.healthMax) + "</logic>"
-return func
-
-},{}],
+                ["bar", "EXP"],
+                ["bar", "Phealth"],
                 ["display-text",function(){let func = "ATK: " +formatWhole(player.L.attack)+" ("+formatWhole(player.L.Wattack)+ ") ==== DEF: " + formatWhole(player.L.defense) + " ("+formatWhole(player.L.Wdefense)+")"
-return func
-},{}],
-                ["display-text",function(){let func = "EXP: "+format(player.L.exp)+" / " +format(player.L.expMax)
 return func
 },{}],
                 "blank",
