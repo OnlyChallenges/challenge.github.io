@@ -948,7 +948,6 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.random
                  player.L.dmgMult = Math.floor((Math.random() * 18) + 2)
 
                  player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
-                 player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).minus(player.L.enemyDefense).max(0))
                  player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
                  // Attack Formuals
                  // Attacking Enemy Damage Formula: (attack(+weapon_attack * Damage Luck Mult) - Enemy_Defense)) (Minimum of 0 Damage)
