@@ -63,7 +63,6 @@ addLayer("L", {
             progress() {
                 let prog = player.L.enemyHP.div(player.L.enemyHPMax)
                 if (player.L.enemyHP == player.L.enemyHPMax) prog = 1
-                if ((player.L.enemyHP == player.L.enemyHPMax) && player.L.enemyShield <= 0) prog = 0
                 if (player.L.enemyHP < 0) prog = 0
                 return prog
             },
@@ -87,7 +86,6 @@ addLayer("L", {
             progress() {
                 let prog = player.L.enemyShield.div(player.L.enemyShieldMax)
                 if (player.L.enemyShield == player.L.enemyShieldMax) prog = 1
-                if ((player.L.enemyShield == player.L.enemyShieldMax) && player.L.enemyShield < 0) prog = 0
                 if (player.L.enemyShield < 0) prog = 0
                 return prog
             },
@@ -99,7 +97,7 @@ addLayer("L", {
                     return "Shattered!"
             },
             unlocked(){
-                return (player.L.enemyShield > 0 || (player.L.enemyHP > 0 && player.L.zone == 5)) 
+                return (player.L.enemyShield > 0) 
             },
         },
 
