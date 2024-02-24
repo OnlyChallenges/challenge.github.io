@@ -90,7 +90,8 @@ addLayer("L", {
                 return prog
             },
             display() {
-                if (player.L.enemyHP > 0)
+                if (player.L.enemyShield >
+ 0)
                     return "Shield: "+ formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
                 else
                     return "Shattered!"
