@@ -1050,6 +1050,11 @@ return click},
             if (player.L.randomizer == (6) && player.L.zone == (4))
                  player.L.enemyHP = player.L.enemyHP.add(12)
 
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5))
+                 player.L.enemyHP = player.L.enemyHP.add(137)
+            if (player.L.randomizer == (6) && player.L.zone == (5))
+                 player.L.enemyHP = player.L.enemyHP.add(175)
+
             if (player.L.level < 12)
                  player.L.health = player.L.health.add(2)
             if ((player.L.level < 18) && player.L.zone == 3)
