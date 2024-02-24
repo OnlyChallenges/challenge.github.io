@@ -1036,25 +1036,51 @@ return click},
             if (player.L.randomizer == (6) && player.L.zone == (1))
                  player.L.enemyHP = player.L.enemyHP.add(2)
 
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(1)
+            if (player.L.randomizer == (6) && player.L.zone == (1))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(2)
+
         if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2))
                  player.L.enemyHP = player.L.enemyHP.add(2)
             if (player.L.randomizer == (6) && player.L.zone == (2))
                  player.L.enemyHP = player.L.enemyHP.add(3)
+
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(2)
+            if (player.L.randomizer == (6) && player.L.zone == (2))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(3)
+
 
         if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3))
                  player.L.enemyHP = player.L.enemyHP.add(3)
             if (player.L.randomizer == (6) && player.L.zone == (3))
                  player.L.enemyHP = player.L.enemyHP.add(5)
 
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(3)
+            if (player.L.randomizer == (6) && player.L.zone == (3))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(5)
+
         if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4))
                  player.L.enemyHP = player.L.enemyHP.add(9)
             if (player.L.randomizer == (6) && player.L.zone == (4))
                  player.L.enemyHP = player.L.enemyHP.add(12)
 
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(9)
+            if (player.L.randomizer == (6) && player.L.zone == (4))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(12)
+
 if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5))
                  player.L.enemyHP = player.L.enemyHP.add(137)
             if (player.L.randomizer == (6) && player.L.zone == (5))
                  player.L.enemyHP = player.L.enemyHP.add(175)
+
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(137)
+            if (player.L.randomizer == (6) && player.L.zone == (5))
+                 player.L.enemyHPMax = player.L.enemyHPMax.add(175)
 
             if (player.L.level < 12)
                  player.L.health = player.L.health.add(2)
