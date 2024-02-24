@@ -154,6 +154,8 @@ addLayer("L", {
       if ((player.L.exp > 17500) && player.L.level == 23) player.L.exp = new Decimal(0)
       if ((player.L.exp > 20000) && player.L.level == 24) player.L.expMax = player.L.expMax.add(10000)
       if ((player.L.exp > 20000) && player.L.level == 24) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 30000) && player.L.level == 25) player.L.expMax = player.L.expMax.add(10000)
+      if ((player.L.exp > 30000) && player.L.level == 25) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
         // Level Up Checker - DelogV1
@@ -181,6 +183,7 @@ addLayer("L", {
       if ((player.L.expMax > 15000) && player.L.level == 22) player.L.level = new Decimal(23)
       if ((player.L.expMax > 17500) && player.L.level == 23) player.L.level = new Decimal(24)
       if ((player.L.expMax > 20000) && player.L.level == 24) player.L.level = new Decimal(25)
+      if ((player.L.expMax > 30000) && player.L.level == 25) player.L.level = new Decimal(26)
       // Zone Movements
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 11) player.L.zone = new Decimal(3)
@@ -281,9 +284,13 @@ addLayer("L", {
       if (player.L.level == 24) player.L.defense = new Decimal(17)
       if (player.L.level == 24) player.L.healthMax = new Decimal(280)
       //Level 25 Stats
-      if (player.L.level == 24) player.L.attack = new Decimal(175)
-      if (player.L.level == 24) player.L.defense = new Decimal(20)
-      if (player.L.level == 24) player.L.healthMax = new Decimal(300)
+      if (player.L.level == 25) player.L.attack = new Decimal(175)
+      if (player.L.level == 25) player.L.defense = new Decimal(20)
+      if (player.L.level == 25) player.L.healthMax = new Decimal(300)
+      //Level 26 Stats
+      if (player.L.level == 26) player.L.attack = new Decimal(200)
+      if (player.L.level == 26) player.L.defense = new Decimal(23)
+      if (player.L.level == 26) player.L.healthMax = new Decimal(325)
 },
 
     colorcheckerOne(){
@@ -446,6 +453,7 @@ if ((player.L.exp < 1) && player.L.level == (22)) func = "<levelup>Level Up! You
 if ((player.L.exp < 1) && player.L.level == (23)) func = "<levelup>Level Up! You're now Level 23</levelup><br> (+10 Attack, +2 Weapon Attack, +1 Defense)"
 if ((player.L.exp < 1) && player.L.level == (24)) func = "<levelup>Level Up! You're now Level 24</levelup><br> (+10 Attack, +2 Defense, +20 Max Health)"
 if ((player.L.exp < 1) && player.L.level == (25)) func = "<levelup>Level Up! You're now Level 25</levelup><br> (+15 Attack, +3 Defense, +20 Max Health)<br>WARNING: <logic>Experiments now have Shields!</logic>"
+if ((player.L.exp < 1) && player.L.level == (26)) func = "<levelup>Level Up! You're now Level 26</levelup><br> (+25 Attack, +3 Defense, +25 Max Health)"
 return func
 },{}],
                 "blank",
@@ -1027,6 +1035,7 @@ let click = true
     if (((player.L.health >= 260) && player.L.level == (22)) || (player.L.health >= 260 && player.L.level == (23))) click = false
     if ((player.L.health >= 280) && player.L.level == (24)) click = false
     if ((player.L.health >= 300) && player.L.level == (25)) click = false
+    if ((player.L.health >= 325) && player.L.level == (26)) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
 return click},
