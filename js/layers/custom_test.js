@@ -955,7 +955,7 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.random
                  // Damage Mult RNG: Picks a Number between 1 through 9 per Attack (Added Crit damage Mult during Zone 4)
                  // Defense RNG: Picks a Number between 1 through 4 per Attack (Added Block Chance during Zone 5)
 
-                 if (player.L.enemyShield < 0) player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).minus(player.L.enemyDefense).max(0))
+                 if (player.L.enemyShield <= 0) player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).minus(player.L.enemyDefense).max(0))
                  if (player.L.enemyShield > 0) player.L.enemyHP = player.L.enemyHP.minus(0)
                  if (player.L.enemyShield > 0) player.L.enemyShield = player.L.enemyShield.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).minus(player.L.enemyDefense.times(3)).max(0))
 
