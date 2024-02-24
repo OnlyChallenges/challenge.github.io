@@ -757,8 +757,8 @@ return func
                 
                 Zone 5 (<obs>Observatory</obs>): <br>[Blue Means Shield!]<br><br>
 
-                Enemy 1: <obs>Lim</server><br>
-                - Health: 3500 (<a>1500</a><br>
+                Enemy 1: <obs>Lim</obs><br>
+                - Health: 3500 (<a>1500</a>)<br>
                 - Attack: 46<br>
                 - Defense: 58<br>
                 - EXP on Death: 3,183.48 EXP<br><br>
