@@ -81,7 +81,7 @@ addLayer("L", {
             direction: RIGHT,
             width: 290,
             height: 18,
-            fillStyle() { return { 'background-color': #349beb, } },
+            fillStyle() { return { 'background-color': "#349beb", } },
             borderStyle() { return { "border-color": "#3437eb", } },
             progress() {
                 let prog = player.L.enemyShield.div(player.L.enemyShieldMax)
