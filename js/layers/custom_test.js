@@ -93,10 +93,10 @@ addLayer("L", {
                 if (player.L.enemyHP > 0)
                     return "Shield: "+ formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
                 else
-                    return "..."
+                    return "Shattered!"
             },
             unlocked(){
-                return player.L.enemyShield > 0 
+                return (player.L.enemyShield > 0 || (player.L.enemyHP > 0 && player.L.zone == 5)) 
             },
         },
 
