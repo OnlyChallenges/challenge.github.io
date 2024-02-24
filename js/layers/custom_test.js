@@ -150,7 +150,7 @@ addLayer("L", {
       if ((player.L.exp > 15000) && player.L.level == 22) player.L.expMax = player.L.expMax.add(2500)
       if ((player.L.exp > 15000) && player.L.level == 22) player.L.exp = new Decimal(0)
       if ((player.L.exp > 17500) && player.L.level == 23) player.L.expMax = player.L.expMax.add(2500)
-      if ((player.L.exp > 15000) && player.L.level == 23) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 17500) && player.L.level == 23) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
         // Level Up Checker - DelogV1
