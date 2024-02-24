@@ -1056,6 +1056,8 @@ return click},
                  player.L.health = player.L.health.add(5)
             if ((player.L.level < 26) && player.L.zone == 4)
                  player.L.health = player.L.health.add(7)
+            if ((player.L.level < 33) && player.L.zone == 5)
+                 player.L.health = player.L.health.add(15)
 
         player.points = player.points.minus(2.5)
             },
