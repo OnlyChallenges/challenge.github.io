@@ -181,6 +181,21 @@ server {
   100%{background-position:0% 50%}
 }
 
+obs {
+ background-image: repeating-linear-gradient(122deg, orange, white, orange, yellow, lime, blue, indigo, pink, orange, yellow, white);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: observe 6.1s ease infinite;
+}
+@keyframes observe {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
 
 fail {
 	color: #d75c15;
