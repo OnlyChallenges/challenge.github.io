@@ -179,7 +179,7 @@ addLayer("L", {
       if ((player.L.expMax > 12500) && player.L.level == 21) player.L.level = new Decimal(22)
       if ((player.L.expMax > 15000) && player.L.level == 22) player.L.level = new Decimal(23)
       if ((player.L.expMax > 17500) && player.L.level == 23) player.L.level = new Decimal(24)
-      if ((player.L.expMax > 20000) && player.L.level == 24) player.L.level = new Decimal(24)
+      if ((player.L.expMax > 20000) && player.L.level == 24) player.L.level = new Decimal(25)
       // Zone Movements
       if (player.L.level == 4) player.L.zone = new Decimal(2)
       if (player.L.level == 11) player.L.zone = new Decimal(3)
