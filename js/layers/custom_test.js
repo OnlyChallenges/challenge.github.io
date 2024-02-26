@@ -219,6 +219,8 @@ addLayer("L", {
       if ((player.L.exp > 40000) && player.L.level == 26) player.L.exp = new Decimal(0)
       if ((player.L.exp > 55000) && player.L.level == 27) player.L.expMax = player.L.expMax.add(15000)
       if ((player.L.exp > 55000) && player.L.level == 27) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 70000) && player.L.level == 28) player.L.expMax = player.L.expMax.add(10000)
+      if ((player.L.exp > 70000) && player.L.level == 28) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
         // Level Up Checker - DelogV1
@@ -249,6 +251,7 @@ addLayer("L", {
       if ((player.L.expMax > 30000) && player.L.level == 25) player.L.level = new Decimal(26)
       if ((player.L.expMax > 40000) && player.L.level == 26) player.L.level = new Decimal(27)
       if ((player.L.expMax > 55000) && player.L.level == 27) player.L.level = new Decimal(28)
+      if ((player.L.expMax > 70000) && player.L.level == 28) player.L.level = new Decimal(29)
 
       // Zone Movements
       if (player.L.level == 4) player.L.zone = new Decimal(2)
@@ -365,6 +368,8 @@ addLayer("L", {
       if (player.L.level == 28) player.L.Wattack = new Decimal(41)
       if (player.L.level == 28) player.L.Wdefense = new Decimal(8)
       if (player.L.level == 28) player.L.healthMax = new Decimal(365)
+      //Level 29 Stats
+      if (player.L.level == 29) player.L.Wattack = new Decimal(45)
 },
 
     colorcheckerOne(){
@@ -519,6 +524,7 @@ if ((player.L.exp < 1) && player.L.level == (25)) func = "<levelup>Level Up! You
 if ((player.L.exp < 1) && player.L.level == (26)) func = "<levelup>Level Up! You're now Level 26</levelup><br> (+25 Attack, +3 Defense, +25 Max Health)"
 if ((player.L.exp < 1) && player.L.level == (27)) func = "<levelup>Level Up! You're now Level 27</levelup><br> (+20 Attack, +2 Defense, +25 Max Health)"
 if ((player.L.exp < 1) && player.L.level == (28)) func = "<levelup>Level Up! You're now Level 28</levelup><br> (+5 Weapon Attack, +1 Weapon Defense, +15 Max Health)"
+if ((player.L.exp < 1) && player.L.level == (29)) func = "<levelup>Level Up! You're now Level 29</levelup><br> (+4 Weapon Attack)"
 return func
 },{}],
                 "blank",
@@ -1103,6 +1109,7 @@ let click = true
     if ((player.L.health >= 325) && player.L.level == (26)) click = false
     if ((player.L.health >= 350) && player.L.level == (27)) click = false
     if ((player.L.health >= 365) && player.L.level == (28)) click = false
+    if ((player.L.health >= 365) && player.L.level == (29)) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
 return click},
