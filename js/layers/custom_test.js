@@ -72,10 +72,8 @@ addLayer("L", {
                     return "Health: "+ formatWhole(player.L.health) + " / " + formatWhole(player.L.healthMax)
                 if ((player.L.health > 1000) && (player.L.healthMax > 1000))
                     return "health: "+ format(player.L.health.div(1000)) + " thousand / " + format( player.L.healthMax.div(1000)) + " thousand"
-                if (player.L.healthMax > 1000)
+                if ((player.L.health < 1000) && (player.L.healthMax > 1000))
                     return "health: "+ formatWhole(player.L.health) + " / " + format(player.L.healthMax.div(1000)) + " thousand"
-                if (player.L.health > 1000)
-                    return "health: "+ format(player.L.health.div(1000)) + " thousand / " + formatWhole(player.L.healthMax)
                 else
                     return "You died."
             },
@@ -114,6 +112,10 @@ addLayer("L", {
             display() {
                 if (player.L.enemyHP > 0)
                     return "Health: "+ formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax)
+                    if ((player.L.enemyHP > 1000) && (player.L.enemyHPMax > 1000))
+                    return "health: "+ format(player.L.enemyHP.div(1000)) + " thousand / " + format( player.L.enemyHPMax.div(1000)) + " thousand"
+                if ((player.L.enemyHP < 1000) && (player.L.enemyHPMax > 1000))
+                    return "health: "+ formatWhole(player.L.enemyHP) + " / " + format(player.L.enemyHPMax.div(1000)) + " thousand"
                 else
                     return "..."
             },
