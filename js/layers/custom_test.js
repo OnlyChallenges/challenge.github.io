@@ -111,9 +111,9 @@ addLayer("L", {
             },
             display() {
                 if ((player.L.enemyHP > 1000) && (player.L.enemyHPMax > 1000))
-                    return "health: "+ format(player.L.enemyHP.div(1000)) + " thousand / " + format( player.L.enemyHPMax.div(1000)) + " thousand"
+                    return "Health: "+ format(player.L.enemyHP.div(1000)) + " thousand / " + format( player.L.enemyHPMax.div(1000)) + " thousand"
                 if ((player.L.enemyHP < 1000) && (player.L.enemyHPMax > 1000))
-                    return "health: "+ formatWhole(player.L.enemyHP) + " / " + format(player.L.enemyHPMax.div(1000)) + " thousand"
+                    return "Health: "+ formatWhole(player.L.enemyHP) + " / " + format(player.L.enemyHPMax.div(1000)) + " thousand"
                 else
                     return "Health: "+ formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax)
             },
