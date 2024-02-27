@@ -394,6 +394,17 @@ addLayer("L", {
     if ((player.points > 2.5) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2))) player.L.specthree = "#FF4433"
     else player.L.specthree = "#f5cbcb"
 },
+    posionCheck(){
+        if (player.L.randomizer == 7 && player.L.zone == 5) player.L.dmg = 1
+        if (player.L.health <= 0) player.L.dmg = 0
+        else player.L.dmg = 0
+    },
+
+
+    update(diff){
+        if (player.L.dmg == 1) 
+            player.L.health = player.L.health.minus(0.2)
+    },
 
 
     tabFormat: {
@@ -539,6 +550,7 @@ return func
                 ["display-text",function(){
                     let func = "* You need 2.5 Points per Attack, Heal, or Flee action!"
                     if (player.L.health <= 0) func = "* You have been killed..."
+                    if (player.L.dmg == 1) func = "* You were given <server>Lim's Posion</server> (-5HP/sec)"
                     return func
                 },{}],
                 "blank",
