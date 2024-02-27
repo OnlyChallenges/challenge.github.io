@@ -18,6 +18,7 @@ addLayer("L", {
         defenseRNG: new Decimal(1),
         kills: new Decimal(0),
         revives: new Decimal(0),
+        dmg: new Decimal(0),
         spec: "#DAC0CB",
         spectwo: "#00FF00",
         specthree: "#FF4433",
