@@ -396,9 +396,8 @@ addLayer("L", {
     else player.L.specthree = "#f5cbcb"
 },
     posionCheck(){
-        if (player.L.randomizer == 7 && player.L.zone == 5) player.L.dmg = 1
-        if (player.L.health <= 0) player.L.dmg = 0
-        else player.L.dmg = 0
+        if ((player.L.randomizer == 7) && (player.L.zone == 5)) player.L.dmg = 1
+        if ((player.L.enemyHP <= 0) || (player.L.health <= 0)) player.L.dmg = 0
     },
 
 
