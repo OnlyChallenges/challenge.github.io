@@ -403,7 +403,7 @@ addLayer("L", {
 
     update(diff){
         if (player.L.dmg == 1) 
-            player.L.health = player.L.health.minus(0.2)
+            player.L.health = player.L.health.minus(0.3)
     },
 
 
@@ -494,7 +494,7 @@ if (player.L.randomizer == (1) && player.L.zone == (4)) func = "* You found a fu
 if (player.L.randomizer == (10) && player.L.zone == (5)) func = "* Why is their defense feel higher with shield?"
  if (player.L.randomizer == (9) && player.L.zone == (5)) func = "* They're becoming stronger"
  if (player.L.randomizer == (8) && player.L.zone == (5)) func = "* You look around the <obs>Observatory</obs>"
- if (player.L.randomizer == (7) && player.L.zone == (5)) func = "* You've Encountered A(n) <obs>Lim</obs>"
+ if (player.L.randomizer == (7) && player.L.zone == (5)) func = "* You've Encountered A(n) <obs>Vixtra</obs>"
 if (player.L.randomizer == (6) && player.L.zone == (5)) func = "* You've Encountered A(n) <obs>Wenyi</obs>"
 if (player.L.randomizer == (5) && player.L.zone == (5)) func = "* Glassy Shards on a Glass Window...?"
 if (player.L.randomizer == (4) && player.L.zone == (5)) func = "* 'Shields' - Experiments have 3x defense with shields enabled.<br> If not, they have regular defense...<br>* These bastards..."
@@ -550,7 +550,7 @@ return func
                 ["display-text",function(){
                     let func = "* You need 2.5 Points per Attack, Heal, or Flee action!"
                     if (player.L.health <= 0) func = "* You have been killed..."
-                    if (player.L.dmg == 1) func = "* You were given <server>Lim's Posion</server> (-5HP/sec)"
+                    if (player.L.dmg == 1) func = "* You're <logic>Bleeding</logic>! 10HP/sec)"
                     return func
                 },{}],
                 "blank",
@@ -582,7 +582,7 @@ if (player.L.randomizer == (2) && player.L.zone == (4)) func = "<server>Deep</se
 
 // Zone 5
 
-if (player.L.randomizer == (7) && player.L.zone == (5)) func = "<obs>Lim</obs><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
+if (player.L.randomizer == (7) && player.L.zone == (5)) func = "<obs>Vixtra</obs><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 if (player.L.randomizer == (6) && player.L.zone == (5)) func = "<obs>Wenyi</obs><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
 if (player.L.randomizer == (2) && player.L.zone == (5)) func = "<obs>Somby</obs><br> Attack: "+ formatWhole(player.L.enemyAttack) + " | Defense: "+ formatWhole(player.L.enemyDefense)
  
@@ -617,7 +617,7 @@ if (player.L.randomizer == (2) && player.L.zone == (4)) func = "* You inflicted 
 
 // Zone 5
 
-if (player.L.randomizer == (7) && player.L.zone == (5)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " (<a>"+formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense.times(3)).max(0)))+"</a>) Damage on <obs>Lim</obs><br>* You lost "+ formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
+if (player.L.randomizer == (7) && player.L.zone == (5)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " (<a>"+formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense.times(3)).max(0)))+"</a>) Damage on <obs>Vixtra</obs><br>* You lost "+ formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
 
 if (player.L.randomizer == (6) && player.L.zone == (5)) func = "* You inflicted " + formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense).max(0))) + " (<a>"+formatWhole((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense.times(3)).max(0)))+"</a>) Damage on <obs>Wenyi</obs><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
 
