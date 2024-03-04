@@ -395,34 +395,7 @@ addLayer("L", {
 },
 
     colorcheckerTwo(){
-    if ((player.L.health <= 20) && player.L.level == (1) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 24) && player.L.level == (2) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 29) && player.L.level == (3) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 33) && player.L.level == (4) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 40) && player.L.level == (5) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 45) && player.L.level == (6) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 48) && player.L.level == (7) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 50) && player.L.level == (8) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 53) && player.L.level == (9) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 60) && player.L.level == (10) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 64) && player.L.level == (11) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 67) && player.L.level == (12) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 75) && player.L.level == (13) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 80) && player.L.level == (14) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 80) && player.L.level == (15) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 85) && player.L.level == (16) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 90) && player.L.level == (17) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 150) && player.L.level == (18) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 199) && player.L.level == (19) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if (((player.L.health <= 220) && player.L.level == (20)) || (player.L.health <= 220 && player.L.level == (21)) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if (((player.L.health <= 260) && player.L.level == (22)) || (player.L.health <= 260 && player.L.level == (23)) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 280) && player.L.level == (24) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 300) && player.L.level == (25) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 325) && player.L.level == (26) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 350) && player.L.level == (27) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 365) && player.L.level == (28) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 365) && player.L.level == (29) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if ((player.L.health <= 400) && player.L.level == (30) && player.points < 2.49) player.L.spec = "#f5cbcb"
+    if ((player.points > 2.5) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2))) player.L.spec = "#f5cbcb"
     else player.L.spec = "#11f47f"
 },
 
@@ -1140,6 +1113,7 @@ return dis
 },
             canClick(){ 
 let click = true
+let re = false
     if ((player.L.health >= 20) && player.L.level == (1)) click = false
     if ((player.L.health >= 24) && player.L.level == (2)) click = false
     if ((player.L.health >= 29) && player.L.level == (3)) click = false
@@ -1170,7 +1144,8 @@ let click = true
     if ((player.L.health >= 400) && player.L.level == (30)) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
-return click},
+    if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.points > 2.49 && click == true) re = true
+return re,
             onClick() {
         if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1))
                  player.L.enemyHP = player.L.enemyHP.add(1)
