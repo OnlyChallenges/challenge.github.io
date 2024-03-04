@@ -30,7 +30,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
 - [WIP] <ruins>Added An Debuff</ruins><br>
 - [WIP] <ruins>Bonus Sheild Mechanics</ruins><br>
 - [WIP] <ruins>Bonus Attack Damage on Critical Change Impact</ruins><br><br>
-- <help> Bro I am not canonically an Avali (ongosh)</help>
+- <help> Bro I am not canonically an Avali</help><br>
 
  <h3>v1.1: Zone 4</h3><br>
   - Added Zone 4 (<rainbow>Garden</rainbow>)<br>[Level 19 - 26]<br>
