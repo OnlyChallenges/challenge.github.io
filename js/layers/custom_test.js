@@ -415,7 +415,7 @@ addLayer("L", {
     if ((player.L.health <= 150) && player.L.level == (18) && player.points < 2.49) player.L.spec = "#f5cbcb"
     if ((player.L.health <= 199) && player.L.level == (19) && player.points < 2.49) player.L.spec = "#f5cbcb"
     if (((player.L.health <= 220) && player.L.level == (20)) || (player.L.health <= 220 && player.L.level == (21)) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if (((player.L.health >= 260) && player.L.level == (22)) || (player.L.health >= 260 && player.L.level == (23)) && player.points < 2.49) player.L.spec = "#f5cbcb"
+    if (((player.L.health <= 260) && player.L.level == (22)) || (player.L.health <= 260 && player.L.level == (23)) && player.points < 2.49) player.L.spec = "#f5cbcb"
     if ((player.L.health <= 280) && player.L.level == (24) && player.points < 2.49) player.L.spec = "#f5cbcb"
     if ((player.L.health <= 300) && player.L.level == (25) && player.points < 2.49) player.L.spec = "#f5cbcb"
     if ((player.L.health <= 325) && player.L.level == (26) && player.points < 2.49) player.L.spec = "#f5cbcb"
