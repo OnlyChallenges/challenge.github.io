@@ -423,7 +423,6 @@ addLayer("L", {
     if ((player.L.health >= 365) && player.L.level == (28) && player.points < 2.49) player.L.spec = "#f5cbcb"
     if ((player.L.health >= 365) && player.L.level == (29) && player.points < 2.49) player.L.spec = "#f5cbcb"
     if ((player.L.health >= 400) && player.L.level == (30) && player.points < 2.49) player.L.spec = "#f5cbcb"
-    if (player.L.health <= (0)) player.L.spec = "#f5cbcb"
     else player.L.spec = "#11f47f"
 },
 
