@@ -12,11 +12,24 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.1",
-	name: "The Garden",
+	num: "1.2",
+	name: "Observations...",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+<h3>v1.2: Zone 5</h3><br>
+- Added Zone 5 (<obs>Observatory</obs>)<br>[Level 27 - 30~]<br>
+> Added <obs>Vixtra</obs><br>
+> Added <obs>Wenyi</obs><br>
+> Added <obs>Deep</obs><br>
+- Increased Level Cap to Level 30 (For now)<br>
+- Readjusted Max Damage Pre-20<br>
+- Fixed Sheild Manipluation<br>
+- Added Thousands Format (Used to make it easier for myself instead of seeing a number like 139,392,139,402,130,000 or 1.4e12...<br>
+- Refixed Storyline to end at Zone 4<br><br>
+- [WIP] <ruins>Added An Debuff</ruins><br>
+- [WIP] <ruins>Bonus Sheild Mechanics</ruins><br>
+- [WIP] <ruins>Bonus Attack Damage on Critical Change Impact</ruins><br><br>
 
  <h3>v1.1: Zone 4</h3><br>
   - Added Zone 4 (<rainbow>Garden</rainbow>)<br>[Level 19 - 26]<br>
@@ -51,38 +64,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
   <red> Dcsmvixml qzqomvy hqej noaag idancd huecroa rmffymnf</red><br>
   <red> Hqej jca jg tsm hlp hu kjayox fzk zpg wzzeb hcxsu?</red><br>
   <red> Oc ikc jca oqiyo mm ms zpg oym pfz'g mwknr bh dlwr bjex iej...</red><br><br>
-
-
- <h3>v0.0.0.0.1.2a: Multipuzzle</h3><br>
-  - Refixed 3 Dust Challenges<br>
-  - Adjusted funcMat2 & added funcMat3<br>
-  - Added Reality Key to Urbans<br>
-  - Removed False Positivity<br>
-  <red>Rsljt ix lz zmrh yftuy ps yfp ajjtm.</red><br>
-  <red>Mysq noz alu kte yfp ywplnrj.</red><br>
-  <red>Jsc yts dogl stkpvft tmc eymt lnesa ac tmc ohq?</red><br>
-  <red>Dr fpp fgj osjj jseagjp vx cilfe pf ihj blyc?</red><br><br>
-  
- <h3>v0.0.0.0.1.2:</h3><br>
-  - Unknown Fate<br>
-  - Urban Re-side Effects (Refix Boost of U-12 by 0.2)<br>
-  - Another Medium in D-17<br>
-  - Reduce FuncMet2 Formula Effect<br>
-  - Dust Base is increased by 0.07<br>
-  - <red>Understanding</red> <a>false</a> <red>positives</red> <a>in</a> <red>the</red> <a>community</a><red>.</red><br><br>
-
- <h3>v0.0.0.0.1.1:</h3><br>
-  - Companic Distress<br>
-  - Added FuncMet1 & FuncMet2 for Dust & Urbans<br>
-  - Changed Refunc1 > chalLookSubj<br>
-  - Fixed log³(points) formula to have a low-cap of 0.01/s<br>
-  - Resubjectated 20 Challenges<br>
-  - <red> You will never understand...</red> <a>will you?</a><br><br>
-	<h3>v0.0</h3><br>
-		- Flipping nothing bruh
-
 	`
-
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
