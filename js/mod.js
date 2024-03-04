@@ -30,6 +30,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
 - [WIP] <ruins>Added An Debuff</ruins><br>
 - [WIP] <ruins>Bonus Sheild Mechanics</ruins><br>
 - [WIP] <ruins>Bonus Attack Damage on Critical Change Impact</ruins><br><br>
+- <help> Bro I am not canonically an Avali (ongosh)</help>
 
  <h3>v1.1: Zone 4</h3><br>
   - Added Zone 4 (<rainbow>Garden</rainbow>)<br>[Level 19 - 26]<br>
@@ -55,15 +56,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
   - Added Attack Cooldown<br>
   - Added Secret Hug Ability<br> that will hug plasma because I want it there >:D<br><br>
 
- <h3>v0.0.0.0.1.3: Logicality</h3><br>
-  - Added 2 Urban Challenges<br>
-  - Inflative Difference?<br>
-  - Refixed Dust Formula<br>
-  - Added <a>Logicality</a> for Urban Challenge Two Key<br>
-  <red> Evkzg's ltpyjg g ajozb mmy cl xgoatx gy hnqu wzzeb.</red><br>
-  <red> Dcsmvixml qzqomvy hqej noaag idancd huecroa rmffymnf</red><br>
-  <red> Hqej jca jg tsm hlp hu kjayox fzk zpg wzzeb hcxsu?</red><br>
-  <red> Oc ikc jca oqiyo mm ms zpg oym pfz'g mwknr bh dlwr bjex iej...</red><br><br>
+
 	`
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
