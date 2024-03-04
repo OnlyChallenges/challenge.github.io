@@ -136,8 +136,7 @@ addLayer("L", {
                 return prog
             },
             display() {
-                if (player.L.enemyShield >
- 0)
+                if (player.L.enemyShield > 0)
                     return "Shield: "+ formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
                 else
                     return "Shattered!"
@@ -156,7 +155,7 @@ addLayer("L", {
             progress() {
                 let prog = player.L.exp.div(player.L.expMax)
                 if (player.L.exp == player.L.expMax) prog = 1
-                if (player.L.exp <= 0) prog = 0
+                if (player.L.exp >= 0) prog = 0
                 return prog
             },
             display() {
