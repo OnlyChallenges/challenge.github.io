@@ -156,11 +156,16 @@ addLayer("L", {
             progress() {
                 let prog = player.L.exp.div(player.L.expMax)
                 if (player.L.exp == player.L.expMax) prog = 1
-                if (player.L.exp <= 0) prog = 0
+                if (player.L.exp = 0) prog = 0
                 return prog
             },
             display() {
-                    return "Level: " + formatWhole(player.L.level) + "<br>Experience: "+ formatWhole(player.L.exp) + " / " + formatWhole(player.L.expMax)
+                if ((player.L.exp > 1000) && (player.L.expMax > 1000))
+                    return "Level: " + formatWhole(player.L.level) + "<br>Experience: "+ format(player.L.exp.div(1000)) + " Thousand / " + format(player.L.expMax.div(1000)) + " Thousand"
+                if ((player.L.exp < 1000) && (player.L.expMax > 1000))
+                    return "Level: " + formatWhole(player.L.level) + "<br>Experience: "+ format(player.L.exp) + " / " + format(player.L.expMax.div(1000)) + " Thousand"
+                else
+                    return "Level: " + formatWhole(player.L.level) + "<br>Experience: "+ format(player.L.exp) + " / " + formatWhole(player.L.expMax)
             },
             unlocked(){
                 return true
@@ -228,6 +233,8 @@ addLayer("L", {
       if ((player.L.exp > 55000) && player.L.level == 27) player.L.exp = new Decimal(0)
       if ((player.L.exp > 70000) && player.L.level == 28) player.L.expMax = player.L.expMax.add(10000)
       if ((player.L.exp > 70000) && player.L.level == 28) player.L.exp = new Decimal(0)
+      if ((player.L.exp > 80000) && player.L.level == 29) player.L.expMax = player.L.expMax.add(20000)
+      if ((player.L.exp > 80000) && player.L.level == 29) player.L.exp = new Decimal(0)
 },
     recheckChecker(){
         // Level Up Checker - DelogV1
@@ -259,6 +266,7 @@ addLayer("L", {
       if ((player.L.expMax > 40000) && player.L.level == 26) player.L.level = new Decimal(27)
       if ((player.L.expMax > 55000) && player.L.level == 27) player.L.level = new Decimal(28)
       if ((player.L.expMax > 70000) && player.L.level == 28) player.L.level = new Decimal(29)
+      if ((player.L.expMax > 80000) && player.L.level == 28) player.L.level = new Decimal(30)
 
       // Zone Movements
       if (player.L.level == 4) player.L.zone = new Decimal(2)
@@ -377,6 +385,9 @@ addLayer("L", {
       if (player.L.level == 28) player.L.healthMax = new Decimal(365)
       //Level 29 Stats
       if (player.L.level == 29) player.L.Wattack = new Decimal(45)
+      //Level 30 Stats
+      if (player.L.level == 30) player.L.Wattack = new Decimal(60)
+      if (player.L.level == 30) player.L.healthMax = new Decimal(400)
 },
 
     colorcheckerOne(){
@@ -542,6 +553,8 @@ if ((player.L.exp < 1) && player.L.level == (26)) func = "<levelup>Level Up! You
 if ((player.L.exp < 1) && player.L.level == (27)) func = "<levelup>Level Up! You're now Level 27</levelup><br> (+20 Attack, +2 Defense, +25 Max Health)"
 if ((player.L.exp < 1) && player.L.level == (28)) func = "<levelup>Level Up! You're now Level 28</levelup><br> (+5 Weapon Attack, +1 Weapon Defense, +15 Max Health)"
 if ((player.L.exp < 1) && player.L.level == (29)) func = "<levelup>Level Up! You're now Level 29</levelup><br> (+4 Weapon Attack)"
+if ((player.L.exp < 1) && player.L.level == (30)) func = "<levelup>Level Up! You're now Level 30</levelup><br> (+15 Weapon Attack, +35 Max Health, Increased Max Damage)"
+
 return func
 },{}],
                 "blank",
@@ -1042,8 +1055,10 @@ return click},
                  player.L.dmgMult = Math.floor((Math.random() * 9) + 1)
             if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.L.level > 17)
                  player.L.dmgMult = Math.floor((Math.random() * 13) + 2)
-if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.L.level > 20)
+            if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.L.level > 20)
                  player.L.dmgMult = Math.floor((Math.random() * 18) + 2)
+            if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.L.level > 29)
+                 player.L.dmgMult = Math.floor((Math.random() * 24) + 3)
 
                  player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
                  player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
@@ -1128,6 +1143,7 @@ let click = true
     if ((player.L.health >= 350) && player.L.level == (27)) click = false
     if ((player.L.health >= 365) && player.L.level == (28)) click = false
     if ((player.L.health >= 365) && player.L.level == (29)) click = false
+    if ((player.L.health >= 400) && player.L.level == (30)) click = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
 return click},
