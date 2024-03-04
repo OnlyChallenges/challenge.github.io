@@ -1145,7 +1145,8 @@ let re = false
     if (player.L.health <= (0)) click = false
     if (player.points < 2.49) click = false
     if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.points > 2.49 && click == true) re = true
-return re,
+return re
+    },
             onClick() {
         if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1))
                  player.L.enemyHP = player.L.enemyHP.add(1)
