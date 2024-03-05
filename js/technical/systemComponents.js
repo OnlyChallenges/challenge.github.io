@@ -133,7 +133,10 @@ var systemComponents = {
             Made by <a>{{modInfo.author}}<a>	
         </span>
         <br>
-        Github Repository Version <a v-bind:href="'https://github.com/Acamaeda/The-Modding-Tree/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum}}</a>
+        Github Original Version || <a v-bind:href="'https://github.com/Acamaeda/The-Modding-Tree/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum}}</a>
+        <br>
+        <br>
+        Github E205 Mechanics Version || <a v-bind:href="'https://github.com/OnlyChallenges/challenge.github.io/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum2}} (Vali's Recode)</a>
         <br>
 		<br>
 		<div class="link" onclick="showTab('changelog-tab')">Changelog / Devlog</div><br>
