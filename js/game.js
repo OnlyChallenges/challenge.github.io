@@ -4,7 +4,7 @@ var needCanvasUpdate = true;
 // Don't change this
 const TMT_VERSION = {
 	tmtNum: "2.6.6.2",
- tmtNum2: "1.2",
+      tmtNum2: "1.2",
 	tmtName: "Reality Update"
 }
 
