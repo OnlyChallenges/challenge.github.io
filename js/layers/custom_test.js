@@ -72,9 +72,9 @@ addLayer("L", {
                 if (player.L.health > 0)
                     return "Health: "+ formatWhole(player.L.health) + " / " + formatWhole(player.L.healthMax)
                 if ((player.L.health > 1000) && (player.L.healthMax > 1000))
-                    return "health: "+ format(player.L.health.div(1000)) + " thousand / " + format( player.L.healthMax.div(1000)) + " thousand"
+                    return "health: "+ format(player.L.health.div(1000)) + " Thousand / " + format( player.L.healthMax.div(1000)) + " Thousand"
                 if ((player.L.health < 1000) && (player.L.healthMax > 1000))
-                    return "health: "+ formatWhole(player.L.health) + " / " + format(player.L.healthMax.div(1000)) + " thousand"
+                    return "health: "+ formatWhole(player.L.health) + " / " + format(player.L.healthMax.div(1000)) + " Thousand"
                 else
                     return "You died."
             },
