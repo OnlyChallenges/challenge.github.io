@@ -31,6 +31,7 @@ addLayer("L", {
         enemyDefense: new Decimal(0),
         enemyShield: new Decimal(0),
         enemyShieldMax: new Decimal(0),
+        debuff: new Decimal(0),
     }},
     color: "#8A422A",
     tooltip: "Battle",
@@ -394,7 +395,6 @@ addLayer("L", {
     if ((player.points > 2.5) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2))) player.L.spectwo = "#00FF00"
     else player.L.spectwo = "#f5cbcb"
 },
-
     colorcheckerThree(){
     if ((player.points > 2.5) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2))) player.L.specthree = "#FF4433"
     else player.L.specthree = "#f5cbcb"
@@ -402,6 +402,9 @@ addLayer("L", {
     posionCheck(){
         if ((player.L.randomizer == 7) && (player.L.zone == 5)) player.L.dmg = 1
         if ((player.L.enemyHP <= 0) || (player.L.health <= 0)) player.L.dmg = 0
+        if ((player.L.randomizer == 2) && (player.L.zone == 6)) player.L.defense = player.L.defense.minus(player.L.debuff)
+        if ((player.L.randomizer == 0) && (player.L.zone == 6)) player.L.defense = player.L.defense.add(player.L.debuff)
+        player.L.debuff = player.L.defense.div(4)
     },
 
 
@@ -520,8 +523,8 @@ if (player.L.randomizer == (6) && player.L.zone == (6)) func = "* You've Encount
 if (player.L.randomizer == (5) && player.L.zone == (6)) func = "* Undetermined"
 if (player.L.randomizer == (4) && player.L.zone == (6)) func = "* Another Basementative"
 if (player.L.randomizer == (3) && player.L.zone == (6)) func = "* Regenerative?"
-if (player.L.randomizer == (2) && player.L.zone == (6)) func = "* You've Encountered <rainbow>Somby</rainbow>"
-if (player.L.randomizer == (1) && player.L.zone == (6)) func = "* Facility§1.5: Hear of falling down?"
+if (player.L.randomizer == (2) && player.L.zone == (6)) func = "* You've Encountered <rainbow>Vali</rainbow>"
+if (player.L.randomizer == (1) && player.L.zone == (6)) func = "* Facility§1.5.1: There are some people in this world who can see this photo correctly<br>* Facility§1.5.2: You are not one of them...only a figment of imagination...<br>* Facility§1.5.3: Only time can tell from this nonexistant world<br>* Facility§1.5.4: Heh...only some can understand.<br>* Written by <ruins>A Bird of light</ruins>"
 
 
 
@@ -533,7 +536,8 @@ if (player.L.randomizer == (1) && player.L.zone == (6)) func = "* Facility§1.5:
  if (player.L.zone == 2) func = "<fail>Zone 3 unlocks at Level 11</fail><br>(You are currently Level " +formatWhole(player.L.level) + ")"
 if (player.L.zone == 3) func = "<fail>Zone 4 unlocks at Level 18</fail><br>(You are currently Level " +formatWhole(player.L.level) + ")"
 if (player.L.zone == 4) func = "<fail>Zone 5 unlocks at Level 25</fail><br>(You are currently Level " +formatWhole(player.L.level) + ")"
-if (player.L.zone == 5) func = "<fail>Zone 6 unlocks at Level 33</fail><br>(You are currently Level " +formatWhole(player.L.level) + ")"
+if (player.L.zone == 5) func = "<fail>Zone 6 unlocks at Level 30</fail><br>(You are currently Level " +formatWhole(player.L.level) + ")"
+if (player.L.zone == 6) func = "<fail>Zone 7 unlocks at Level 37</fail><br>(You are currently Level " +formatWhole(player.L.level) + ")"
 return func
 },{}],
                 "blank",
@@ -577,7 +581,7 @@ return func
                     let func = "* You need 2.5 Points per Attack, Heal, or Flee action!"
                     if (player.L.health <= 0) func = "* You have been killed..."
                     if (player.L.dmg == 1) func = "* You're <logic>Bleeding</logic>! (10HP/sec)"
-                    if (player.L.randomizer == (2) && player.L.zone == (6)) func = "*You've been inflicted with <fail>Bird's Fear</fail>! (Quad-Halved Defense)"
+                    if (player.L.randomizer == (2) && player.L.zone == (6)) func = "* You've been inflicted with <fail>Bird's Fear</fail>! (You lose 25% of your DEF!)<br>* <rainbow>Vali</rainbow> regenerates health overtime!"
                     return func
                 },{}],
                 "blank",
@@ -1030,7 +1034,7 @@ return func
 
                 if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyHP = player.L.enemyHP.add(15000)
                 if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyHPMax = player.L.enemyHPMax.add(15000)
-                if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(60)
+                if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(170)
                 if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyDefense = player.L.enemyDefense.add(75)
 
                 if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyHP = player.L.enemyHP.add(35000)
@@ -1042,7 +1046,7 @@ return func
 
                 if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyHP = player.L.enemyHP.add(99999)
                 if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyHPMax = player.L.enemyHPMax.add(99999)
-                if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(150)
+                if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(130)
                 if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyDefense = player.L.enemyDefense.add(75)
 
 
@@ -1066,11 +1070,9 @@ return func
                if (player.L.randomizer == (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
                if (player.L.randomizer == (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
                if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
-
                if (player.L.randomizer == (0)) player.L.enemyShield = player.L.enemyShield.minus(player.L.enemyShield)
-
                if (player.L.randomizer == (0)) player.L.enemyShieldMax = player.L.enemyShieldMax.minus(player.L.enemyShieldMax)
-
+                // Enemy Stat Reset on Revive
                 player.L.health = new Decimal(20)
                 player.L.exp = player.L.exp.div(2)
                 player.L.revives = player.L.revives.add(1)
@@ -1138,6 +1140,10 @@ return click},
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (5)) player.L.exp = player.L.exp.add(3183.48)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (5)) player.L.exp = player.L.exp.add(2849.32)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (5)) player.L.exp = player.L.exp.add(3527.49)
+
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (6)) player.L.exp = player.L.exp.add(18305.35)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (6)) player.L.exp = player.L.exp.add(21044.35)
+                 if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (6)) player.L.exp = player.L.exp.add(56022.33)
 
 
                  if (player.L.enemyHP <= (0)) player.L.randomizer = new Decimal(0)
@@ -1258,8 +1264,10 @@ if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone 
                  player.L.health = player.L.health.add(5)
             if ((player.L.level < 26) && player.L.zone == 4)
                  player.L.health = player.L.health.add(7)
-            if ((player.L.level < 33) && player.L.zone == 5)
+            if ((player.L.level < 30) && player.L.zone == 5)
                  player.L.health = player.L.health.add(15)
+            if ((player.L.level < 37) && player.L.zone == 6)
+                 player.L.health = player.L.health.add(43)
 
         player.points = player.points.minus(2.5)
             },
