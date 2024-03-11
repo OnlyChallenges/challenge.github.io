@@ -402,15 +402,15 @@ addLayer("L", {
     posionCheck(){
         if ((player.L.randomizer == 7) && (player.L.zone == 5)) player.L.dmg = 1
         if ((player.L.enemyHP <= 0) || (player.L.health <= 0)) player.L.dmg = 0
-        if ((player.L.randomizer == 2) && (player.L.zone == 6)) player.L.defense = player.L.defense.minus(player.L.debuff)
-        if ((player.L.randomizer == 0) && (player.L.zone == 6)) player.L.defense = player.L.defense.add(player.L.debuff)
-        player.L.debuff = player.L.defense.div(4)
+        if ((player.L.randomizer == 2) && (player.L.zone == 6)) player.L.dmg = 2
     },
 
 
     update(diff){
         if (player.L.dmg == 1) 
             player.L.health = player.L.health.minus(0.3)
+        if (player.L.dmg == 2)
+            player.L.health = player.L.health.minus(0.5)
         if ((player.L.randomizer == (2) && player.L.zone == (6)) && player.L.enemyHP < player.L.enemyHPMax) // Regenerative Attack If Enemy Health is under the max.
             player.L.enemyHP = player.L.enemyHP.add(6)
     },
@@ -429,8 +429,9 @@ if (player.L.zone == 2) func = "Zone: <corrupt>Library</corrupt>"
 if (player.L.zone == 3) func = "Zone: <server>Server Room</server>"
 if (player.L.zone == 4) func = "Zone: <rainbow>Garden</rainbow>"
 if (player.L.zone == 5) func = "Zone: <obs>Observatory</obs>"
-if (player.L.zone == 6) func = "Zone: <ruins>???</ruins>"
-return func
+if (player.L.zone == 6) func = "Zone: <ruins>Reality</ruins>"
+let func2 = (func + "(This is still in beta so expect multiple bugs from Level 1 - 30 :D)")
+return func2
 },{}],
                 "blank",
                 ["bar", "EXP"],
