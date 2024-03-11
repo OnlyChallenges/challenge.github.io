@@ -413,6 +413,9 @@ addLayer("L", {
             player.L.health = player.L.health.minus(0.5)
         if ((player.L.randomizer == (2) && player.L.zone == (6)) && player.L.enemyHP < player.L.enemyHPMax) // Regenerative Attack If Enemy Health is under the max.
             player.L.enemyHP = player.L.enemyHP.add(6)
+
+        player.L.exp = player.L.exp.add(0.0000000001)
+        // Bar Checker
     },
 
 
@@ -430,7 +433,7 @@ if (player.L.zone == 3) func = "Zone: <server>Server Room</server>"
 if (player.L.zone == 4) func = "Zone: <rainbow>Garden</rainbow>"
 if (player.L.zone == 5) func = "Zone: <obs>Observatory</obs>"
 if (player.L.zone == 6) func = "Zone: <ruins>Reality</ruins>"
-let func2 = (func + "(This is still in beta so expect multiple bugs from Level 1 - 30 :D)")
+let func2 = (func + " (This is still in beta so expect multiple bugs from Level 1 - 30 :D)")
 return func2
 },{}],
                 "blank",
