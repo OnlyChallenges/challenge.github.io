@@ -31,7 +31,10 @@ addLayer("L", {
         enemyDefense: new Decimal(0),
         enemyShield: new Decimal(0),
         enemyShieldMax: new Decimal(0),
+        // Other Stats
         debuff: new Decimal(0),
+        crit: new Decimal(0),
+        DMGBoost: new Decimal(1)
     }},
     color: "#8A422A",
     tooltip: "Battle",
@@ -588,6 +591,11 @@ return func
                     if (player.L.randomizer == (2) && player.L.zone == (6)) func = "* You've been inflicted with <fail>Bird's Fear</fail>! (You lose 25% of your DEF!)<br>* <rainbow>Vali</rainbow> regenerates health overtime!"
                     return func
                 },{}],
+                ["display-text",function(){
+                    let func = " "
+                    if (player.L.crit == 2) func = "* Critical Hit!"
+                    return func
+                },{}],
                 "blank",
                 "blank",
                 ["bar", "Eshield"],
@@ -1112,16 +1120,19 @@ return click},
                  player.L.dmgMult = Math.floor((Math.random() * 24) + 3)
 
                  player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
+                 player.L.crit = Math.floor((Math.random() * 5) + 1)
+                 if (player.L.crit == 2) player.L.DMGBoost = 2
+                 if (player.L.crit != 2) player.L.DMGBoost = 1
                  player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
                  // Attack Formuals
-                 // Attacking Enemy Damage Formula: (attack(+weapon_attack * Damage Luck Mult) - Enemy_Defense)) (Minimum of 0 Damage)
+                 // Attacking Enemy Damage Formula: (attack(+weapon_attack * Damage Luck Mult(Crit2x)) - Enemy_Defense)) (Minimum of 0 Damage)
                  // Player Damage Formula: (Enemy_attack+(defense+(Weapon_Defense*Defense_RNG))) (Minimum of 0 Damage)
                  // Damage Mult RNG: Picks a Number between 1 through 9 per Attack (Added Crit damage Mult during Zone 4)
                  // Defense RNG: Picks a Number between 1 through 4 per Attack (Added Block Chance during Zone 5)
 
-                 if (player.L.enemyShield <= 0) player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).minus(player.L.enemyDefense).max(0))
+                 if (player.L.enemyShield <= 0) player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult.times(player.L.DMGBoost)))).minus(player.L.enemyDefense).max(0))
                  if (player.L.enemyShield > 0) player.L.enemyHP = player.L.enemyHP.minus(0)
-                 if (player.L.enemyShield > 0) player.L.enemyShield = player.L.enemyShield.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult))).minus(player.L.enemyDefense.times(3)).max(0))
+                 if (player.L.enemyShield > 0) player.L.enemyShield = player.L.enemyShield.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult.times(player.L.DMGBoost)))).minus(player.L.enemyDefense.times(3)).max(0))
 
 
                  player.points = player.points.minus(2.5)
