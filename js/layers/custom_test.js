@@ -1118,8 +1118,15 @@ return click},
                  player.L.dmgMult = Math.floor((Math.random() * 18) + 2)
             if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.L.level > 29)
                  player.L.dmgMult = Math.floor((Math.random() * 24) + 3)
+                // Max Damage Boost Based on Attack Formuals:
+                // Under Level 6: 1-7x Damage Multi 
+                // Under Level 17: 1-9x Damage Multi
+                // Under Level 20: 2-13x Damage Multi
+                // Under Level 29: 2-18x Damage Multi
+                // Above Level 29: 3-24x Damage Multi
 
                  player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
+                 // DefenseRNG; Allows The Player to sustain less damage dependant on Weapon Defense
                  if (player.L.zone > 3) player.L.crit = Math.floor((Math.random() * 5) + 1)
                  if (player.L.crit == 2) player.L.DMGBoost = 2
                  if (player.L.crit != 2) player.L.DMGBoost = 1
@@ -1137,6 +1144,7 @@ return click},
 
 
                  player.points = player.points.minus(2.5)
+                 // Somewhat of a Mana Storage
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (1)) player.L.exp = player.L.exp.add(3.05)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (1)) player.L.exp = player.L.exp.add(4.37)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (1)) player.L.exp = player.L.exp.add(2.58)
@@ -1160,6 +1168,7 @@ return click},
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (7) && player.L.zone == (6)) player.L.exp = player.L.exp.add(18305.35)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (6) && player.L.zone == (6)) player.L.exp = player.L.exp.add(21044.35)
                  if (player.L.enemyHP <= (0) && player.L.randomizer == (2) && player.L.zone == (6)) player.L.exp = player.L.exp.add(56022.33)
+                 // EXP Per Zone Applier
 
 
                  if (player.L.enemyHP <= (0)) player.L.randomizer = new Decimal(0)
