@@ -1129,6 +1129,7 @@ return click},
                  // Player Damage Formula: (Enemy_attack+(defense+(Weapon_Defense*Defense_RNG))) (Minimum of 0 Damage)
                  // Damage Mult RNG: Picks a Number between 1 through 9 per Attack (Added Crit damage Mult during Zone 4)
                  // Defense RNG: Picks a Number between 1 through 4 per Attack (Added Block Chance during Zone 5)
+                 // Crit Change Mech: Randomly Picks a Number between 1 - 5, if the number lands on 2, land a crit on the enemy, applies to main damage but shield damage is still deduced based on Defense.
 
                  if (player.L.enemyShield <= 0) player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).times(player.L.DMGBoost))).minus(player.L.enemyDefense).max(0))
                  if (player.L.enemyShield > 0) player.L.enemyHP = player.L.enemyHP.minus(0)
