@@ -1139,7 +1139,7 @@ return click},
 
                  player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
                  // DefenseRNG; Allows The Player to sustain less damage dependant on Weapon Defense
-                 player.L.AI = Math.floor((Math.random()) + 1)
+                 player.L.AI = Math.floor((Math.random()*2) + 1)
                  // Enemy AI: Lets it choose it own choice depend on Player's Action
                  if (player.L.zone > 4) player.L.crit = Math.floor((Math.random() * 5) + 1)
                  if (player.L.crit == 2 && player.L.counter != 5) player.L.DMGBoost = 2
@@ -1311,7 +1311,7 @@ return re
             onClick() {
                 player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
                 // DefenseRNG; Allows The Player to sustain less damage dependant on Weapon Defense
-                player.L.AI = Math.floor((Math.random()) + 1)
+                player.L.AI = Math.floor((Math.random()*2) + 1)
                 // Enemy AI: Lets it choose it own choice depend on Player's Action
                 if (player.L.zone > 4) player.L.crit = Math.floor((Math.random() * 5) + 1)
                 if (player.L.crit == 2 && player.L.counter != 5) player.L.DMGBoost = 2
