@@ -596,7 +596,7 @@ return func
                     let func = " "
                     if (player.L.crit == 2) func = "<fail>Critical Hit!</fail>"
                     if (player.L.counter == 5) func = "<fail>Enemy Counter! (2x Damage Taken)</fail>"
-                    if (player.L.crit == 2 && player.L.counter == 5) func = "<fail>Crtical Hit but Enemy Countered! (Take 3x Damage & Crit Fails)</fail>"
+                    if (player.L.crit == 2 && player.L.counter == 5) func = "<fail>Critical Hit but Enemy Countered! (Take 3x Damage & Crit Fails)</fail>"
                     return func
                 },{}],
                 "blank",
