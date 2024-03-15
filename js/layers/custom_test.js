@@ -951,35 +951,34 @@ return func
             },
             "Random Info": {
                 content: [
-                    ["display-text", function(){return `
-                    formatWhole(player.L.zone)<br>
-                    formatWhole(player.L.level)<br>
-                    formatWhole(player.L.health)<br>
-                    formatWhole(player.L.healthMax)<br>
-                    formatWhole(player.L.attack)<br>
-                    formatWhole(player.L.Wattack)<br>
-                    formatWhole(player.L.defense)<br>
-                    formatWhole(player.L.Wdefense)<br>
-                    formatWhole(player.L.exp)<br>
-                    formatWhole(player.L.expMax)<br>
-                    formatWhole(player.L.randomizer)<br>
-                    formatWhole(player.L.dmgMult)<br>
-                    formatWhole(player.L.defenseRNG)<br>
-                    formatWhole(player.L.kills)<br>
-                    formatWhole(player.L.revives)<br>
-                    formatWhole(player.L.dmg)<br>
-                    formatWhole(player.L.enemyHP)<br>
-                    formatWhole(player.L.enemyHPMax)<br>
-                    formatWhole(player.L.enemyAttack)<br>
-                    formatWhole(player.L.enemyDefense)<br>
-                    formatWhole(player.L.enemyShield)<br>
-                    formatWhole(player.L.enemyShieldMax)<br>
-                    formatWhole(player.L.AI)<br>
-                    formatWhole(player.L.debuff)<br>
-                    formatWhole(player.L.crit)<br>
-                    formatWhole(player.L.counter)<br>
-                    formatWhole(player.L.DMGBoost)<br>
-            `
+                    ["display-text", function(){return 
+                    formatWhole(player.L.zone)+"<br>"
+                    formatWhole(player.L.level)+"<br>"
+                    formatWhole(player.L.health)+"<br>"
+                    formatWhole(player.L.healthMax)+"<br>"
+                    formatWhole(player.L.attack)+"<br>"
+                    formatWhole(player.L.Wattack)+"<br>"
+                    formatWhole(player.L.defense)+"<br>"
+                    formatWhole(player.L.Wdefense)+"<br>"
+                    formatWhole(player.L.exp)+"<br>"
+                    formatWhole(player.L.expMax)+"<br>"
+                    formatWhole(player.L.randomizer)+"<br>"
+                    formatWhole(player.L.dmgMult)+"<br>"
+                    formatWhole(player.L.defenseRNG)+"<br>"
+                    formatWhole(player.L.kills)+"<br>"
+                    formatWhole(player.L.revives)+"<br>"
+                    formatWhole(player.L.dmg)+"<br>"
+                    formatWhole(player.L.enemyHP)+"<br>"
+                    formatWhole(player.L.enemyHPMax)+"<br>"
+                    formatWhole(player.L.enemyAttack)+"<br>"
+                    formatWhole(player.L.enemyDefense)+"<br>"
+                    formatWhole(player.L.enemyShield)+"<br>"
+                    formatWhole(player.L.enemyShieldMax)+"<br>"
+                    formatWhole(player.L.AI)+"<br>"
+                    formatWhole(player.L.debuff)+"<br>"
+                    formatWhole(player.L.crit)+"<br>"
+                    formatWhole(player.L.counter)+"<br>"
+                    formatWhole(player.L.DMGBoost)+"<br>"
         },{}],
                 ],
             },
