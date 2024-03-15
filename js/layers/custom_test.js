@@ -964,7 +964,7 @@ return func
                     formatWhole(player.L.expMax)+"<br> Game Action Randomizer: "+
                     formatWhole(player.L.randomizer)+"<br> Player Weapon Damage RNG: "+
                     formatWhole(player.L.dmgMult)+"<br> Player Weapon Defense RNG: "+
-                    formatWhole(player.L.defenseRNG)+"<br>Enemy Killed: "+
+                    formatWhole(player.L.defenseRNG)+"<br>Enemies Killed: "+
                     formatWhole(player.L.kills)+"<br> Player Revives: "+
                     formatWhole(player.L.revives)+"<br>Player Bleeding: "+
                     formatWhole(player.L.dmg)+"<br> Enemy Health: "+
@@ -973,7 +973,7 @@ return func
                     formatWhole(player.L.enemyAttack)+"<br> Enemy Defense: "+
                     formatWhole(player.L.enemyDefense)+"<br> Enemy Shield: "+
                     formatWhole(player.L.enemyShield)+"<br> Enemy Max Shield: "+
-                    formatWhole(player.L.enemyShieldMax)+"<br>Enemy Choices: "+
+                    formatWhole(player.L.enemyShieldMax)+"<br>Enemy Choice (AI): "+
                     formatWhole(player.L.AI)+"<br> Debuffs: "+
                     formatWhole(player.L.debuff)+"<br> Crit: "+
                     formatWhole(player.L.crit)+"<br> Counter: "+
