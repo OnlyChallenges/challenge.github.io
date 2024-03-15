@@ -31,6 +31,7 @@ addLayer("L", {
         enemyDefense: new Decimal(0),
         enemyShield: new Decimal(0),
         enemyShieldMax: new Decimal(0),
+        AI: new Decimal(0),
         // Other Stats
         debuff: new Decimal(0),
         crit: new Decimal(0),
@@ -437,7 +438,7 @@ if (player.L.zone == 3) func = "Zone: <server>Server Room</server>"
 if (player.L.zone == 4) func = "Zone: <rainbow>Garden</rainbow>"
 if (player.L.zone == 5) func = "Zone: <obs>Observatory</obs>"
 if (player.L.zone == 6) func = "Zone: <ruins>Reality</ruins>"
-let func2 = (func + "<br>(This is still in beta so expect multiple bugs from Level 1 - 30 :D)")
+let func2 = (func + "<br>(This is still in beta so expect multiple bugs from Level 1 - 30 :D)<br><corrupt>Developer Mode</corrupt>; AI:" + formatWhole(player.L.AI))
 return func2
 },{}],
                 "blank",
@@ -1138,13 +1139,15 @@ return click},
 
                  player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
                  // DefenseRNG; Allows The Player to sustain less damage dependant on Weapon Defense
+                 player.L.AI = Math.floor((Math.random()) + 1)
+                 // Enemy AI: Lets it choose it own choice depend on Player's Action
                  if (player.L.zone > 4) player.L.crit = Math.floor((Math.random() * 5) + 1)
                  if (player.L.crit == 2 && player.L.counter != 5) player.L.DMGBoost = 2
                  if (player.L.crit != 2) player.L.DMGBoost = 1
                  if (player.L.zone > 4) player.L.counter = Math.floor((Math.random() * 10) + 1)
-                 if (player.L.counter != 5) player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
-                 if (player.L.counter == 5) player.L.health = player.L.health.minus(player.L.enemyAttack.times(2).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
-                 if (player.L.counter == 5 && player.L.crit == 2) player.L.health = player.L.health.minus(player.L.enemyAttack.times(3).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                 if (player.L.counter != 5 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                 if (player.L.counter == 5 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.times(2).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                 if (player.L.counter == 5 && player.L.crit == 2 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.times(3).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
                  // Attack Formuals
                  // Attacking Enemy Damage Formula: (attack(+weapon_attack * Damage Luck Mult(Crit2x)) - Enemy_Defense)) (Minimum of 0 Damage)
                  // Player Damage Formula: (Enemy_attack+(defense+(Weapon_Defense*Defense_RNG))) (Minimum of 0 Damage)
@@ -1156,6 +1159,9 @@ return click},
                  if (player.L.enemyShield <= 0) player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).times(player.L.DMGBoost))).minus(player.L.enemyDefense).max(0))
                  if (player.L.enemyShield > 0) player.L.enemyHP = player.L.enemyHP.minus(0)
                  if (player.L.enemyShield > 0) player.L.enemyShield = player.L.enemyShield.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).times(player.L.DMGBoost))).minus(player.L.enemyDefense.times(3)).max(0))
+
+
+
 
 
                  player.points = player.points.minus(2.5)
@@ -1196,6 +1202,67 @@ return click},
 
                 if (player.L.enemyHP <= (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
                 
+                // Enemy Actions TB
+
+                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(1)
+           if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(2)
+
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(1)
+           if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(2)
+
+       if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(2)
+           if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(3)
+
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(2)
+           if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(3)
+
+
+       if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(3)
+           if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(5)
+
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(3)
+           if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(5)
+
+       if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(9)
+           if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(12)
+
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(9)
+           if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(12)
+
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(137)
+           if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(175)
+
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(137)
+           if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(175)
+
+                if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
+                player.L.enemyHP = player.L.enemyHP.add(470)
+                if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
+                player.L.enemyHPMax = player.L.enemyHPMax.add(470)
+
+
+
+
             },
             style() {return {'background-color': player.L.spectwo,
 }},
@@ -1242,60 +1309,75 @@ let re = false
 return re
     },
             onClick() {
-        if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1))
+                player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
+                // DefenseRNG; Allows The Player to sustain less damage dependant on Weapon Defense
+                player.L.AI = Math.floor((Math.random()) + 1)
+                // Enemy AI: Lets it choose it own choice depend on Player's Action
+                if (player.L.zone > 4) player.L.crit = Math.floor((Math.random() * 5) + 1)
+                if (player.L.crit == 2 && player.L.counter != 5) player.L.DMGBoost = 2
+                if (player.L.crit != 2) player.L.DMGBoost = 1
+                if (player.L.zone > 4) player.L.counter = Math.floor((Math.random() * 10) + 1)
+                if (player.L.counter != 5 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                if (player.L.counter == 5 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.times(2).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                if (player.L.counter == 5 && player.L.crit == 2 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.times(3).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+
+
+
+
+        if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(1)
-            if (player.L.randomizer == (6) && player.L.zone == (1))
+            if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(2)
 
-if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1))
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(1)
-            if (player.L.randomizer == (6) && player.L.zone == (1))
+            if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(2)
 
-        if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2))
+        if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(2)
-            if (player.L.randomizer == (6) && player.L.zone == (2))
+            if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(3)
 
-if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2))
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(2)
-            if (player.L.randomizer == (6) && player.L.zone == (2))
+            if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(3)
 
 
-        if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3))
+        if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(3)
-            if (player.L.randomizer == (6) && player.L.zone == (3))
+            if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(5)
 
-if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3))
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(3)
-            if (player.L.randomizer == (6) && player.L.zone == (3))
+            if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(5)
 
-        if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4))
+        if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(9)
-            if (player.L.randomizer == (6) && player.L.zone == (4))
+            if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(12)
 
-if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4))
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(9)
-            if (player.L.randomizer == (6) && player.L.zone == (4))
+            if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(12)
 
-if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5))
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(137)
-            if (player.L.randomizer == (6) && player.L.zone == (5))
+            if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(175)
 
-if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5))
+if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(137)
-            if (player.L.randomizer == (6) && player.L.zone == (5))
+            if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(175)
 
-                 if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6))
+                 if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
                  player.L.enemyHP = player.L.enemyHP.add(470)
-                 if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6))
+                 if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
                  player.L.enemyHPMax = player.L.enemyHPMax.add(470)
 
             if (player.L.level < 12)
