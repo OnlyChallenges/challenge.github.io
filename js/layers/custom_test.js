@@ -645,6 +645,11 @@ return func
                 "blank",
                 ["clickables", [2]],
                 "blank",
+                ["display-text",function(){ let func = ""
+                if (player.L.AI == 2) func = "*The Enemy used <logic>heal</logic>!"
+                if (player.L.AI == 1) func = "*The Enemy <logic>attacked</logic> you!"
+return func
+},{}],
 ["display-text",function(){ let func = ""
 if (player.L.randomizer == (7) && player.L.zone == (1)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Abys</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
 if (player.L.randomizer == (2) && player.L.zone == (1)) func = "* You inflicted " + formatWhole(player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).floor()).minus(player.L.enemyDefense)) + " Damage on <water>Azure</water><br>* You lost " +formatWhole(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))+" Health"
