@@ -954,31 +954,31 @@ return func
                     ["display-text", function(){return `
                     formatWhole(player.L.zone)<br>
                     formatWhole(player.L.level)<br>
-                    formtWhole(player.L.health)<br>
-                    formtWhole(player.L.healthMax)<br>
-                    formtWhole(player.L.attack)<br>
-                    formtWhole(player.L.Wattack)<br>
-                    formtWhole(player.L.defense)<br>
-                    formtWhole(player.L.Wdefense)<br>
-                    formtWhole(player.L.exp)<br>
-                    formtWhole(player.L.expMax)<br>
-                    formtWhole(player.L.randomizer)<br>
-                    formtWhole(player.L.dmgMult)<br>
-                    formtWhole(player.L.defenseRNG)<br>
-                    formtWhole(player.L.kills)<br>
-                    formtWhole(player.L.revives)<br>
-                    formtWhole(player.L.dmg)<br>
-                    formtWhole(player.L.enemyHP)<br>
-                    formtWhole(player.L.enemyHPMax)<br>
-                    formtWhole(player.L.enemyAttack)<br>
-                    formtWhole(player.L.enemyDefense)<br>
-                    formtWhole(player.L.enemyShield)<br>
-                    formtWhole(player.L.enemyShieldMax)<br>
-                    formtWhole(player.L.AI)<br>
-                    formtWhole(player.L.debuff)<br>
-                    formtWhole(player.L.crit)<br>
-                    formtWhole(player.L.counter)<br>
-                    formtWhole(player.L.DMGBoost)<br>
+                    formatWhole(player.L.health)<br>
+                    formatWhole(player.L.healthMax)<br>
+                    formatWhole(player.L.attack)<br>
+                    formatWhole(player.L.Wattack)<br>
+                    formatWhole(player.L.defense)<br>
+                    formatWhole(player.L.Wdefense)<br>
+                    formatWhole(player.L.exp)<br>
+                    formatWhole(player.L.expMax)<br>
+                    formatWhole(player.L.randomizer)<br>
+                    formatWhole(player.L.dmgMult)<br>
+                    formatWhole(player.L.defenseRNG)<br>
+                    formatWhole(player.L.kills)<br>
+                    formatWhole(player.L.revives)<br>
+                    formatWhole(player.L.dmg)<br>
+                    formatWhole(player.L.enemyHP)<br>
+                    formatWhole(player.L.enemyHPMax)<br>
+                    formatWhole(player.L.enemyAttack)<br>
+                    formatWhole(player.L.enemyDefense)<br>
+                    formatWhole(player.L.enemyShield)<br>
+                    formatWhole(player.L.enemyShieldMax)<br>
+                    formatWhole(player.L.AI)<br>
+                    formatWhole(player.L.debuff)<br>
+                    formatWhole(player.L.crit)<br>
+                    formatWhole(player.L.counter)<br>
+                    formatWhole(player.L.DMGBoost)<br>
             `
         },{}],
                 ],
