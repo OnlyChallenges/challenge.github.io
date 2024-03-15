@@ -949,6 +949,40 @@ return func
         },{}],
                 ],
             },
+            "Random Info": {
+                content: [
+                    ["display-text", function(){return `
+                    formatWhole(player.L.zone)<br>
+                    formatWhole(player.L.level)<br>
+                    formtWhole(player.L.health)<br>
+                    formtWhole(player.L.healthMax)<br>
+                    formtWhole(player.L.attack)<br>
+                    formtWhole(player.L.Wattack)<br>
+                    formtWhole(player.L.defense)<br>
+                    formtWhole(player.L.Wdefense)<br>
+                    formtWhole(player.L.exp)<br>
+                    formtWhole(player.L.expMax)<br>
+                    formtWhole(player.L.randomizer)<br>
+                    formtWhole(player.L.dmgMult)<br>
+                    formtWhole(player.L.defenseRNG)<br>
+                    formtWhole(player.L.kills)<br>
+                    formtWhole(player.L.revives)<br>
+                    formtWhole(player.L.dmg)<br>
+                    formtWhole(player.L.enemyHP)<br>
+                    formtWhole(player.L.enemyHPMax)<br>
+                    formtWhole(player.L.enemyAttack)<br>
+                    formtWhole(player.L.enemyDefense)<br>
+                    formtWhole(player.L.enemyShield)<br>
+                    formtWhole(player.L.enemyShieldMax)<br>
+                    formtWhole(player.L.AI)<br>
+                    formtWhole(player.L.debuff)<br>
+                    formtWhole(player.L.crit)<br>
+                    formtWhole(player.L.counter)<br>
+                    formtWhole(player.L.DMGBoost)<br>
+            `
+        },{}],
+                ],
+            },
         },
         clickables:{
         11: {
