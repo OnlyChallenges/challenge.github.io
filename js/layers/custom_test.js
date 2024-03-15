@@ -952,32 +952,32 @@ return func
             "Random Info": {
                 content: [
                     ["display-text", function(){let func = 
-                    formatWhole(player.L.zone)+"<br>"+
-                    formatWhole(player.L.level)+"<br>"+
-                    formatWhole(player.L.health)+"<br>"+
-                    formatWhole(player.L.healthMax)+"<br>"+
-                    formatWhole(player.L.attack)+"<br>"+
-                    formatWhole(player.L.Wattack)+"<br>"+
-                    formatWhole(player.L.defense)+"<br>"+
-                    formatWhole(player.L.Wdefense)+"<br>"+
-                    formatWhole(player.L.exp)+"<br>"+
-                    formatWhole(player.L.expMax)+"<br>"+
-                    formatWhole(player.L.randomizer)+"<br>"+
-                    formatWhole(player.L.dmgMult)+"<br>"+
-                    formatWhole(player.L.defenseRNG)+"<br>"+
-                    formatWhole(player.L.kills)+"<br>"+
-                    formatWhole(player.L.revives)+"<br>"+
-                    formatWhole(player.L.dmg)+"<br>"+
-                    formatWhole(player.L.enemyHP)+"<br>"+
-                    formatWhole(player.L.enemyHPMax)+"<br>"+
-                    formatWhole(player.L.enemyAttack)+"<br>"+
-                    formatWhole(player.L.enemyDefense)+"<br>"+
-                    formatWhole(player.L.enemyShield)+"<br>"+
-                    formatWhole(player.L.enemyShieldMax)+"<br>"+
-                    formatWhole(player.L.AI)+"<br>"+
-                    formatWhole(player.L.debuff)+"<br>"+
-                    formatWhole(player.L.crit)+"<br>"+
-                    formatWhole(player.L.counter)+"<br>"+
+                    "Zone/Area: " + formatWhole(player.L.zone)+"<br>Player Level: "+
+                    formatWhole(player.L.level)+"<br>Player Health: "+
+                    formatWhole(player.L.health)+"<br>Player Max Health: "+
+                    formatWhole(player.L.healthMax)+"<br>Player Attack: "+
+                    formatWhole(player.L.attack)+"<br>Player Weapon Attack: "+
+                    formatWhole(player.L.Wattack)+"<br>Player Defense: "+
+                    formatWhole(player.L.defense)+"<br>Player Weapon Defense: "+
+                    formatWhole(player.L.Wdefense)+"<br>Player Experience: "+
+                    formatWhole(player.L.exp)+"<br>Player Max Experience: "+
+                    formatWhole(player.L.expMax)+"<br> Game Action Randomizer: "+
+                    formatWhole(player.L.randomizer)+"<br> Player Weapon Damage RNG: "+
+                    formatWhole(player.L.dmgMult)+"<br> Player Weapon Defense RNG: "+
+                    formatWhole(player.L.defenseRNG)+"<br>Enemy Killed: "+
+                    formatWhole(player.L.kills)+"<br> Player Revives: "+
+                    formatWhole(player.L.revives)+"<br>Player Bleeding: "+
+                    formatWhole(player.L.dmg)+"<br> Enemy Health: "+
+                    formatWhole(player.L.enemyHP)+"<br> Enemy Max Health: "+
+                    formatWhole(player.L.enemyHPMax)+"<br> Enemy Attack: "+
+                    formatWhole(player.L.enemyAttack)+"<br> Enemy Defense: "+
+                    formatWhole(player.L.enemyDefense)+"<br> Enemy Shield: "+
+                    formatWhole(player.L.enemyShield)+"<br> Enemy Max Shield: "+
+                    formatWhole(player.L.enemyShieldMax)+"<br>Enemy Choices: "+
+                    formatWhole(player.L.AI)+"<br> Debuffs: "+
+                    formatWhole(player.L.debuff)+"<br> Crit: "+
+                    formatWhole(player.L.crit)+"<br> Counter: "+
+                    formatWhole(player.L.counter)+"<br> Crit Booster: "+
                     formatWhole(player.L.DMGBoost)+"<br>"
                     return func
         },{}],
