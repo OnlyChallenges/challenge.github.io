@@ -419,7 +419,7 @@ addLayer("L", {
         if ((player.L.randomizer == (2) && player.L.zone == (6)) && player.L.enemyHP < player.L.enemyHPMax) // Regenerative Attack If Enemy Health is under the max.
             player.L.enemyHP = player.L.enemyHP.add(6)
 
-        if (player.L.health > player.L.healthMax) player.L.health = player.L.health.minus(0.05)
+        if (player.L.health > player.L.healthMax) player.L.health = player.L.health.minus(0.1)
 // Health Depressed
 
         player.L.exp = player.L.exp.add(0.0000000001)
