@@ -668,8 +668,8 @@ addLayer("L", {
                 "blank",
                 ["display-text", function () {
                     let func = ""
-                    if (player.L.AI == (2) && player.L.randomizer == (2) && player.L.randomizer == (6) && player.L.randomizer == (7)) func = "* The enemy used <logic>heal</logic>!"
-                    if (player.L.AI == (1) && player.L.randomizer == (2) && player.L.randomizer == (6) && player.L.randomizer == (7)) func = "* The enemy <logic>attacked</logic> you!"
+                    if (player.L.AI == (2) && (player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7))) func = "* The enemy used <logic>heal</logic>!"
+                    if (player.L.AI == (1) && (player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7))) func = "* The enemy <logic>attacked</logic> you!"
                     return func
                 }, {}],
                 ["display-text", function () {
