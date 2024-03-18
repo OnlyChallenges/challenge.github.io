@@ -12,6 +12,8 @@ addLayer("L", {
             Wattack: new Decimal(1),
             defense: new Decimal(1),
             Wdefense: new Decimal(0),
+            Pregen: new Decimal(0),
+            Eregen: new Decimal(0),
             exp: new Decimal(0),
             expMax: new Decimal(10),
             randomizer: new Decimal(1),
@@ -397,6 +399,7 @@ addLayer("L", {
         //Level 30 Stats
         if (player.L.level == 30) player.L.Wattack = new Decimal(60)
         if (player.L.level == 30) player.L.healthMax = new Decimal(400)
+        if (player.L.level == 30) player.L.Pregen = new Decimal(1)
     },
 
     colorcheckerOne() {
@@ -423,7 +426,12 @@ addLayer("L", {
             player.L.enemyHP = player.L.enemyHP.add(6)
 
         if (player.L.health > player.L.healthMax) player.L.health = player.L.health.minus(0.1)
-        // Health Depressed
+        // Health Depressed - FIXED
+        if (player.L.health < player.L.healthMax) player.L.health = player.L.health.add(player.L.Pregen)
+        // Player Regen 
+
+        if (player.L.enemyHP < player.L.enemyHPMax) player.L.enemyHP = player.L.enemyHP.add(player.L.Eregen)
+        // Enemy Regen
 
         player.L.exp = player.L.exp.add(0.00000000001)
         // Bar Checker
@@ -452,6 +460,7 @@ addLayer("L", {
                 ["bar", "Phealth"],
                 ["display-text", function () {
                     let func = "ATK: " + formatWhole(player.L.attack) + " (" + formatWhole(player.L.Wattack) + ") ==== DEF: " + formatWhole(player.L.defense) + " (" + formatWhole(player.L.Wdefense) + ")"
+                    if (player.L.zone > 5) func = "ATK: " + formatWhole(player.L.attack) + " (" + formatWhole(player.L.Wattack) + ") ==== DEF: " + formatWhole(player.L.defense) + " (" + formatWhole(player.L.Wdefense) + ") ==== REG: " + formatWhole(player.L.Pregen)
                     return func
                 }, {}],
                 "blank",
@@ -577,7 +586,7 @@ addLayer("L", {
                     if ((player.L.exp < 1) && player.L.level == (15)) func = "<levelup>Level Up! You're now Level 15</levelup><br> (+1 Weapon Attack, +3 Attack, +1 Defense)"
                     if ((player.L.exp < 1) && player.L.level == (16)) func = "<levelup>Level Up! You're now Level 16</levelup><br> (+5 Max Health, +3 Weapon Attack, +4 Attack, +2 Defense)"
                     if ((player.L.exp < 1) && player.L.level == (17)) func = "<levelup>Level Up! You're now Level 17</levelup><br> (+5 Max Health, +7 Attack, +1 Weapon Defense)"
-                    if ((player.L.exp < 1) && player.L.level == (18)) func = "<levelup>Level Up! You're now Level 18</levelup><br> (+60 Max Health, +8 Attack, +7 Weapon Attack, +2 Weapon Defense) Storyline Updated!"
+                    if ((player.L.exp < 1) && player.L.level == (18)) func = "<levelup>Level Up! You're now Level 18</levelup><br> (+60 Max Health, +8 Attack, +7 Weapon Attack, +2 Weapon Defense) Storyline Updated!<br>Unlock Crit & Counters!"
                     if ((player.L.exp < 1) && player.L.level == (19)) func = "<levelup>Level Up! You're now Level 19</levelup><br> (+49 Max Health, +25 Attack, +5 Weapon Attack, +1 Weapon Defense)"
                     if ((player.L.exp < 1) && player.L.level == (20)) func = "<levelup>Level Up! You're now Level 20</levelup><br> (+21 Max Health, +29 Attack, +5 Weapon Attack, +1 Weapon Defense)"
                     if ((player.L.exp < 1) && player.L.level == (21)) func = "<levelup>Level Up! You're now Level 21</levelup><br> (+21 Attack, Increased Max Damage)"
@@ -589,7 +598,7 @@ addLayer("L", {
                     if ((player.L.exp < 1) && player.L.level == (27)) func = "<levelup>Level Up! You're now Level 27</levelup><br> (+20 Attack, +2 Defense, +25 Max Health)"
                     if ((player.L.exp < 1) && player.L.level == (28)) func = "<levelup>Level Up! You're now Level 28</levelup><br> (+5 Weapon Attack, +1 Weapon Defense, +15 Max Health)"
                     if ((player.L.exp < 1) && player.L.level == (29)) func = "<levelup>Level Up! You're now Level 29</levelup><br> (+4 Weapon Attack)"
-                    if ((player.L.exp < 1) && player.L.level == (30)) func = "<levelup>Level Up! You're now Level 30</levelup><br> (+15 Weapon Attack, +35 Max Health, Increased Max Damage)"
+                    if ((player.L.exp < 1) && player.L.level == (30)) func = "<levelup>Level Up! You're now Level 30</levelup><br> (+15 Weapon Attack, +35 Max Health, Increased Max Damage)<br>Unlock Regeneration!"
 
                     return func
                 }, {}],
@@ -646,9 +655,9 @@ addLayer("L", {
 
                     // Zone 6
 
-                    if (player.L.randomizer == (7) && player.L.zone == (6)) func = "<water>Stone, Tidal, Daizy</water><br> Attack: " + formatWhole(player.L.enemyAttack) + " | Defense: " + formatWhole(player.L.enemyDefense)
-                    if (player.L.randomizer == (6) && player.L.zone == (6)) func = "<ruins>Plasma, Brian, JJ</ruins><br> Attack: " + formatWhole(player.L.enemyAttack) + " | Defense: " + formatWhole(player.L.enemyDefense)
-                    if (player.L.randomizer == (2) && player.L.zone == (6)) func = "<rainbow>Vali</rainbow><br> Attack: " + formatWhole(player.L.enemyAttack) + " | Defense: " + formatWhole(player.L.enemyDefense)
+                    if (player.L.randomizer == (7) && player.L.zone == (6)) func = "<water>Stone, Tidal, Daizy</water><br> Attack: " + formatWhole(player.L.enemyAttack) + " | Defense: " + formatWhole(player.L.enemyDefense) + " | Regeneration: " + formatWhole(player.L.Eregen)
+                    if (player.L.randomizer == (6) && player.L.zone == (6)) func = "<ruins>Plasma, Brian, JJ</ruins><br> Attack: " + formatWhole(player.L.enemyAttack) + " | Defense: " + formatWhole(player.L.enemyDefense) + " | Regeneration: " + formatWhole(player.L.Eregen)
+                    if (player.L.randomizer == (2) && player.L.zone == (6)) func = "<rainbow>Vali</rainbow><br> Attack: " + formatWhole(player.L.enemyAttack) + " | Defense: " + formatWhole(player.L.enemyDefense) + " | Regeneration: " + formatWhole(player.L.Eregen)
 
 
                     return func
@@ -658,8 +667,8 @@ addLayer("L", {
                 "blank",
                 ["display-text", function () {
                     let func = ""
-                    if (player.L.AI == 2) func = "*The Enemy used <logic>heal</logic>!"
-                    if (player.L.AI == 1) func = "*The Enemy <logic>attacked</logic> you!"
+                    if (player.L.AI == (2) && player.L.randomizer == (2) && player.L.randomizer == (6) && player.L.randomizer == (7)) func = "* The enemy used <logic>heal</logic>!"
+                    if (player.L.AI == (1) && player.L.randomizer == (2) && player.L.randomizer == (6) && player.L.randomizer == (7)) func = "* The enemy <logic>attacked</logic> you!"
                     return func
                 }, {}],
                 ["display-text", function () {
@@ -1001,7 +1010,9 @@ addLayer("L", {
                         formatWhole(player.L.debuff) + "<br> Crit: " +
                         formatWhole(player.L.crit) + "<br> Counter: " +
                         formatWhole(player.L.counter) + "<br> Crit Booster: " +
-                        formatWhole(player.L.DMGBoost) + "<br>"
+                        formatWhole(player.L.DMGBoost) + "<br> Player Regen: " +
+                        formatWhole(player.L.Pregen) + "<br> Enemy Regen: " +
+                        formatWhole(player.L.Eregen) + "<br>"
                     return func
                 }, {}],
             ],
@@ -1507,6 +1518,4 @@ addLayer("L", {
 
 
 // TODO
-// Add Crit Chance Past Zone 4
-// Improve the Level cap to 25
-// Add Block Chance Past Zone 5
+// Add Block Chance Past Zone 8
