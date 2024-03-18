@@ -400,7 +400,7 @@ addLayer("L", {
         //Level 30 Stats
         if (player.L.level == 30) player.L.Wattack = new Decimal(60)
         if (player.L.level == 30) player.L.healthMax = new Decimal(400)
-        if (player.L.level == 30) player.L.Pregen = new Decimal(1)
+        if (player.L.level == 30) player.L.Pregen = new Decimal(0.2)
     },
 
     colorcheckerOne() {
@@ -461,7 +461,7 @@ addLayer("L", {
                 ["bar", "Phealth"],
                 ["display-text", function () {
                     let func = "ATK: " + formatWhole(player.L.attack) + " (" + formatWhole(player.L.Wattack) + ") ==== DEF: " + formatWhole(player.L.defense) + " (" + formatWhole(player.L.Wdefense) + ")"
-                    if (player.L.zone > 5) func = "ATK: " + formatWhole(player.L.attack) + " (" + formatWhole(player.L.Wattack) + ") ==== DEF: " + formatWhole(player.L.defense) + " (" + formatWhole(player.L.Wdefense) + ") ==== REG: " + formatWhole(player.L.Pregen)
+                    if (player.L.zone > 5) func = "ATK: " + formatWhole(player.L.attack) + " (" + formatWhole(player.L.Wattack) + ") ==== DEF: " + formatWhole(player.L.defense) + " (" + formatWhole(player.L.Wdefense) + ") ==== REG: " + formatWhole(player.L.Pregen.times(10))
                     return func
                 }, {}],
                 "blank",
