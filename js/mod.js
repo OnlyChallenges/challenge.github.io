@@ -17,7 +17,7 @@ let VERSION = {
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
-<h4>v1.3.1: New Content</h4><br>
+<h2>v1.3.1: New Content</h2><br>
 - Added Crit at Zone 4<br>
 - Added Counter at Zone 4<br>
 - Added Regen at Zone 6<br>
