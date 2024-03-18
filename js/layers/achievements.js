@@ -17,7 +17,11 @@ addLayer("A", {
                 "blank",
                 "blank",
                 "blank",
-                ["achievements", [1, 2]],
+                ["achievements", [1, 2, 3, 4, 5, 6, 7, 8, 9]],
+                "blank",
+                "blank",
+                "blank",
+                "blank",
                 "blank",
                 "blank",
                 "blank",
@@ -95,7 +99,7 @@ addLayer("A", {
             },
             canClick() {
                 let click = true
-                if (player.L.secret > 1) click = false
+                if (player.L.secret > 0) click = false
                 return click
             },
             onClick() {
