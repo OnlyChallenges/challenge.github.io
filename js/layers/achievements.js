@@ -95,6 +95,8 @@ addLayer("A", {
             },
             canClick() {
                 let click = true
+                if (player.L.secret > 1) click = false
+                return click
             },
             onClick() {
                 player.L.secret = player.L.secret.add(1)
@@ -176,7 +178,7 @@ addLayer("A", {
         },
         27: {
             name: "I love disappearing!",
-            done() { return player.L.revives <= 10 },
+            done() { return player.L.revives == 10 },
             tooltip: "Revive yourself 10 or more times!",
         },
         28: {
@@ -186,8 +188,8 @@ addLayer("A", {
         },
         91: {
             name: "The Secret Box",
-            done() { return player.L.secret <= 1 },
-            unlocked() { return player.L.secret <= 1 },
+            done() { return player.L.secret == 1 },
+            unlocked() { return player.L.secret == 1 },
             tooltip: "Click on the secret box",
         },
     },
