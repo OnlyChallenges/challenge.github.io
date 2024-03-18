@@ -1134,6 +1134,7 @@ addLayer("L", {
                 if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyHPMax = player.L.enemyHPMax.add(15000)
                 if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(170)
                 if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyDefense = player.L.enemyDefense.add(75)
+                if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.Eregen = player.L.Eregen.add(4)
 
                 if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyHP = player.L.enemyHP.add(35000)
                 if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyHPMax = player.L.enemyHPMax.add(35000)
@@ -1171,6 +1172,7 @@ addLayer("L", {
                 if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
                 if (player.L.randomizer == (0)) player.L.enemyShield = player.L.enemyShield.minus(player.L.enemyShield)
                 if (player.L.randomizer == (0)) player.L.enemyShieldMax = player.L.enemyShieldMax.minus(player.L.enemyShieldMax)
+                if (player.L.randomizer == (0)) player.L.Eregen = player.L.Eregen.minus(player.L.Eregen)
                 // Enemy Stat Reset on Revive
                 player.L.health = new Decimal(20)
                 player.L.exp = player.L.exp.div(2)
@@ -1276,6 +1278,7 @@ addLayer("L", {
                 if (player.L.enemyHP <= (0)) player.L.enemyAttack = player.L.enemyAttack.minus(player.L.enemyAttack)
                 if (player.L.enemyHP <= (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
                 if (player.L.enemyHP <= (0)) player.L.enemyHP = new Decimal(0)
+                if (player.L.enemyHP <= (0)) player.L.Eregen = new Decimal(0)
                 if (player.L.enemyShield <= (0)) player.L.enemyShield = new Decimal(0)
                 if (player.L.enemyShield <= (0)) player.L.enemyShieldMax = player.L.enemyShieldMax.minus(player.L.enemyShieldMax)
 
@@ -1500,6 +1503,7 @@ addLayer("L", {
                 if (player.L.randomizer == (0)) player.L.enemyHP = player.L.enemyHP.minus(player.L.enemyHP)
                 if (player.L.randomizer == (0)) player.L.enemyHPMax = player.L.enemyHPMax.minus(player.L.enemyHPMax)
                 if (player.L.randomizer == (0)) player.L.enemyDefense = player.L.enemyDefense.minus(player.L.enemyDefense)
+                if (player.L.randomizer == (0)) player.L.Eregen = player.L.Eregen.minus(player.L.Eregen)
 
                 if ((player.L.enemyShieldMax <= (0)) || (player.L.randomizer == (0))) player.L.enemyShieldMax = player.L.enemyShieldMax.minus(player.L.enemyShieldMax)
                 if ((player.L.enemyShield <= (0)) || (player.L.randomizer == (0))) player.L.enemyShield = player.L.enemyShield.minus(player.L.enemyShield)
