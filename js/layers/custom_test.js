@@ -137,7 +137,7 @@ addLayer("L", {
 
         Eshield: {
             direction: RIGHT,
-            width: 290,
+            width: 350,
             height: 18,
             fillStyle: { 'background-color': "#349beb", },
             borderStyle() { return { "border-color": "#3437eb", } },
