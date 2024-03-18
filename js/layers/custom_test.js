@@ -40,7 +40,8 @@ addLayer("L", {
             debuff: new Decimal(0),
             crit: new Decimal(0),
             counter: new Decimal(0),
-            DMGBoost: new Decimal(1)
+            DMGBoost: new Decimal(1),
+            secret: new Decimal(0)
         }
     },
     color: "#8A422A",

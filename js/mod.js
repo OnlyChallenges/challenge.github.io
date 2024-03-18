@@ -1,22 +1,39 @@
 let modInfo = {
-	name: "Tree of Abyssal Demise",
-	id: "mymod",
-	author: "vali (snor mimi)",
-	pointsName: "points",
-	modFiles: ["tree.js", "layers/custom_test.js", "layers/achievements.js"],
-	discordName: "",
-	discordLink: "",
-	initialStartPoints: new Decimal (0), // Used for hard resets and new players
-	offlineLimit: 0,  // In hours
+  name: "Tree of Abyssal Demise",
+  id: "mymod",
+  author: "vali (snor mimi)",
+  pointsName: "points",
+  modFiles: ["tree.js", "layers/custom_test.js", "layers/achievements.js"],
+  discordName: "",
+  discordLink: "",
+  initialStartPoints: new Decimal(0), // Used for hard resets and new players
+  offlineLimit: 0,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.2",
-	name: "Observations...",
+  num: "1.3.1",
+  name: "Some more stuff",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+<h4>v1.3.1: New Content</h4><br>
+- Added Crit at Zone 4<br>
+- Added Counter at Zone 4<br>
+- Added Regen at Zone 6<br>
+- Rebalanced XP Requirement past level 27<br>
+- Fixed Attack & Defense Stats<br>
+- Readjusted Shield Effects from Enemies<br>
+- Added 4 Achievements<br><br>
+
+<h3>v1.3: Zone 6</h3><br>
+- Added Zone 6 (<ruins>Reality</ruins>)<br>[Level 30 - 39]<br>
+> Added 3 Enemies<br>
+- Fixed some Pre-L30 Bugs<br>
+- Fixed Enemy Damage<br>
+- Fixed Shield Protection Damage<br>
+- Fixed 2 Achievements<br><br>
+
 <h3>v1.2: Zone 5</h3><br>
 - Added Zone 5 (<obs>Observatory</obs>)<br>[Level 27 - 30~]<br>
 > Added <obs>Vixtra</obs><br>
@@ -64,38 +81,40 @@ let winText = `Congratulations! You have reached the end and beaten this game, b
 // (The ones here are examples, all official functions are already taken care of)
 var doNotCallTheseFunctionsEveryTick = ["blowUpEverything"]
 
-function getStartPoints(){
-    return new Decimal(modInfo.initialStartPoints)
+function getStartPoints() {
+  return new Decimal(modInfo.initialStartPoints)
 }
 
 // Determines if it should show points/sec
-function canGenPoints(){
-	return true
+function canGenPoints() {
+  return true
 }
 
 // Calculate points/sec!
 function getPointGen() {
-	if(!canGenPoints())
-		return new Decimal(0)
+  if (!canGenPoints())
+    return new Decimal(0)
 
-	let gain = new Decimal(5.6)
-	
- if (player.points > 2.5) gain = new Decimal (0.0001)
-	return gain
+  let gain = new Decimal(5.6)
+
+  if (player.points > 2.5) gain = new Decimal(0.0001)
+  return gain
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
-function addedPlayerData() { return {
-}}
+function addedPlayerData() {
+  return {
+  }
+}
 
 // Display extra things at the top of the page
 var displayThings = [
-"Battling & Achievements Only :)"
+  "Battling & Achievements Only :)"
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("e280000000"))
+  return player.points.gte(new Decimal("e280000000"))
 }
 
 
@@ -109,10 +128,10 @@ var backgroundStyle = {
 
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {
-	return(3600) // Default is 1 hour which is just arbitrarily large
+  return (3600) // Default is 1 hour which is just arbitrarily large
 }
 
 // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
 // you can cap their current resources with this.
-function fixOldSave(oldVersion){
+function fixOldSave(oldVersion) {
 }
