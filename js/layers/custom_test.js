@@ -149,9 +149,9 @@ addLayer("L", {
             },
             display() {
                 if ((player.L.enemyShield > 1000) && (player.L.enemyShieldMax > 1000))
-                    return "Shield: " + formatWhole(player.L.enemyShield.div(1000)) + " Thousand / " + formatWhole(player.L.enemyShieldMax.div(1000)) + " Thousand"
+                    return "Shield: " + format(player.L.enemyShield.div(1000)) + " Thousand / " + format(player.L.enemyShieldMax.div(1000)) + " Thousand"
                 if ((player.L.enemyShield < 1000) && (player.L.enemyShieldMax > 1000))
-                    return "Shield: " + formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax.div(1000)) + " Thousand" 
+                    return "Shield: " + formatWhole(player.L.enemyShield) + " / " + format(player.L.enemyShieldMax.div(1000)) + " Thousand" 
                 else
                     return "Shield: " + formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
             },
