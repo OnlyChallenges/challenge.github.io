@@ -148,10 +148,12 @@ addLayer("L", {
                 return prog
             },
             display() {
-                if (player.L.enemyShield > 0)
-                    return "Shield: " + formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
+                if ((player.L.enemyShield > 1000) && (player.L.enemyShieldMax > 1000))
+                    return "Shield: " + formatWhole(player.L.enemyShield.div(1000)) + " Thousand / " + formatWhole(player.L.enemyShieldMax.div(1000)) + " Thousand"
+                if ((player.L.enemyShield < 1000) && (player.L.enemyShieldMax > 1000))
+                    return "Shield: " + formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax.div(1000)) + " Thousand" 
                 else
-                    return "Shattered!"
+                    return "Shield: " + formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
             },
             unlocked() {
                 return (player.L.enemyShield > 0)
@@ -1012,7 +1014,7 @@ addLayer("L", {
                         formatWhole(player.L.crit) + "<br> Counter: " +
                         formatWhole(player.L.counter) + "<br> Crit Booster: " +
                         formatWhole(player.L.DMGBoost) + "<br> Player Regen: " +
-                        formatWhole(player.L.Pregen) + "<br> Enemy Regen: " +
+                        formatWhole(player.L.Pregen.times(10)) + "<br> Enemy Regen: " +
                         formatWhole(player.L.Eregen) + "<br>"
                     return func
                 }, {}],
@@ -1133,21 +1135,21 @@ addLayer("L", {
 
                 if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyHP = player.L.enemyHP.add(15000)
                 if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyHPMax = player.L.enemyHPMax.add(15000)
-                if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(280)
-                if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyDefense = player.L.enemyDefense.add(120)
+                if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(200)
+                if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.enemyDefense = player.L.enemyDefense.add(0)
                 if (player.L.randomizer == (7) && player.L.zone == (6)) player.L.Eregen = player.L.Eregen.add(6)
 
                 if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyHP = player.L.enemyHP.add(55000)
                 if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyHPMax = player.L.enemyHPMax.add(55000)
-                if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(160)
+                if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(80)
                 if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyDefense = player.L.enemyDefense.add(175)
                 if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyShield = player.L.enemyShield.add(12500)
                 if (player.L.randomizer == (6) && player.L.zone == (6)) player.L.enemyShieldMax = player.L.enemyShieldMax.add(12500)
 
                 if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyHP = player.L.enemyHP.add(99999)
                 if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyHPMax = player.L.enemyHPMax.add(99999)
-                if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(500)
-                if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyDefense = player.L.enemyDefense.add(500)
+                if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyAttack = player.L.enemyAttack.add(50)
+                if (player.L.randomizer == (2) && player.L.zone == (6)) player.L.enemyDefense = player.L.enemyDefense.add(50)
 
 
             },
