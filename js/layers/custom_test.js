@@ -60,7 +60,7 @@ addLayer("P", {
     upgrades: {
         11: {
             title: "Normal Powder I",
-            description: "Some Simple Powder, boost point gain by 20%",
+            description: "Some Simple Powder, boost Particle gain by 20%",
             cost: new Decimal(10),
         },
         12: {
