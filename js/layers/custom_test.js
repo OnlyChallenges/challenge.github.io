@@ -28,6 +28,7 @@ addLayer("P", {
     gainMult(){
         let gain = new Decimal(1)
         if (hasUpgrade('P', 13)) gain = gain.minus(0.1)
+        if (hasUpgrade('P', 15)) gain = gain.minus(0.1)
         return gain
     },
     gainExp(){
@@ -94,10 +95,18 @@ addLayer("P", {
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(% Capped)" : "";
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(10))} ${capped}%`;
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
                 return text;
             },
             unlocked() { return hasUpgrade('P', 13)},
+        },
+        15: {
+            title: "Normal Powder V",
+            description: "Powderis Movement? Decrease Powder Gain Even more, but increase Particle Gain by 70%",
+            cost: new Decimal(150),
+            currencyDisplayName: "Particles",
+            currencyInternalName: "points",
+            unlocked() { return hasUpgrade('P', 14)},
         },
     },
 })
