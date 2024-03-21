@@ -1,8 +1,8 @@
 let modInfo = {
   name: "Tree of Abyssal Demise",
-  id: "mymod",
+  id: "anothermod2",
   author: "vali (snor mimi)",
-  pointsName: "points",
+  pointsName: "particles",
   modFiles: ["tree.js", "layers/custom_test.js", "layers/achievements.js"],
   discordName: "",
   discordLink: "",
