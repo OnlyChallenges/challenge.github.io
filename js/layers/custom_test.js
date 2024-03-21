@@ -67,6 +67,7 @@ addLayer("P", {
             title: "Normal Powder II",
             description: "2nd Powder? Decrease Powder Requirement Slightly...",
             cost: new Decimal(15),
+            unlocked() { return hasUpgrade('P', 11)},
         },
         13: {
             title: "Normal Powder III",
@@ -74,6 +75,7 @@ addLayer("P", {
             cost: new Decimal(150),
             currencyDisplayName: "Particles",
             currencyInternalName: "particles",
+            unlocked() { return hasUpgrade('P', 12)},
         },
     },
 })
