@@ -29,6 +29,7 @@ addLayer("P", {
         let gain = new Decimal(1)
         if (hasUpgrade('P', 13)) gain = gain.minus(0.1)
         if (hasUpgrade('P', 15)) gain = gain.minus(0.1)
+        if (hasUpgrade('P', 22)) gain = gain.add(upgradeEffect('P', 22))
         return gain
     },
     gainExp(){
@@ -124,6 +125,23 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 15)},
+       },
+       22: {
+            title: "Saget Powder II",
+            description: "<server>Powder is boosted based on itself (Additive)</server>",
+            cost: new Decimal(500),
+            currencyDisplayName: "Particles",
+            currencyInternalName: "points",
+            effect() {
+                let effect1 = (player.P.points.max(1).add(1).pow(0.04)).max(1).min(3);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(3) ? "(Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1))}${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('P', 21)},
        },
     },
 })
