@@ -66,6 +66,8 @@ addLayer("P", {
 
     //Build Content
     upgrades: {
+    rows: 5,
+    cols: 5,
         11: {
             title: "Normal Powder I",
             description: "Some Simple Powder, boost Particle gain by 20%",
@@ -122,5 +124,6 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 15)},
+       },
     },
 })
