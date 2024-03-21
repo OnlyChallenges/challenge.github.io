@@ -47,7 +47,7 @@ addLayer("P", {
         lore: {
             title: "Some stuff",
             body: `
-            Hello!; Welcome to <ruinsAbyssal Demise</ruins>, I would like to clarify that this is indeed, still in beta.<br> 
+            Hello!; Welcome to <ruins>Abyssal Demise</ruins>, I would like to clarify that this is indeed, still in beta.<br> 
             There will be multiple bugs, issues, and occurences as the game update, so please be patient!
             
             `,
