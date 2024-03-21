@@ -36,7 +36,7 @@ addLayer("A", {
         },
         13: {
             name: "Half of Two",
-            done() { return (upgradeEffect('P', 14) > 49.99)},
+            done() { return (upgradeEffect('P', 14) > 1.499)},
             tooltip: "NP-IV has 50% boost",
             unlocked() {return hasAchievement('A', 12)},
         },
