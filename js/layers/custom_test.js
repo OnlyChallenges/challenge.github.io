@@ -143,5 +143,11 @@ addLayer("P", {
             },
             unlocked() { return hasUpgrade('P', 21)},
        },
+       23: {
+            title: "Saget Powder III",
+            description: "<server>Unlock Two Layers</server>",
+            cost: new Decimal(1000),
+            unlocked() { return hasUpgrade('P', 22)},
+       },
     },
 })
