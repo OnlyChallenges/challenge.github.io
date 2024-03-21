@@ -84,5 +84,20 @@ addLayer("P", {
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('P', 12)},
         },
+        14: {
+            title: "Normal Powder IV",
+            description: "More Particles! Boost Particles based on itself.",
+            cost: new Decimal(40),
+            effect() {
+                let effect1 = (player.points.max(1).add(1).pow(0.07)).max(1).min(10);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(% Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(10))} ${capped}%`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('P', 13)},
+        },
     },
 })
