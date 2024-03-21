@@ -34,5 +34,11 @@ addLayer("A", {
             tooltip: "3 Powders?",
             unlocked() {return hasAchievement('A', 11)},
         },
+        13: {
+            name: "Half of Two",
+            done() { return (upgradeEffect('P', 14) > 49.99)},
+            tooltip: "NP-IV has 50% boost",
+            unlocked() {return hasAchievement('A', 12)},
+        },
     },
 })
