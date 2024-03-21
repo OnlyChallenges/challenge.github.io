@@ -53,7 +53,14 @@ addLayer("P", {
         },
     },
 
+    update(diff){
+        if (player.devSpeed > 1)  
+            player.devSpeed = player.devSpeed.div(2)
+        if (player.devSpeed < 1)
+            player.devSpeed = new Decimal(1)
 
+
+    },
 
 
     //Build Content
@@ -72,9 +79,9 @@ addLayer("P", {
         13: {
             title: "Normal Powder III",
             description: "Particle User! Improve Particle Gain by 40% but decrease Powder gain by a smudge",
-            cost: new Decimal(150),
+            cost: new Decimal(35),
             currencyDisplayName: "Particles",
-            currencyInternalName: "particles",
+            currencyInternalName: "points",
             unlocked() { return hasUpgrade('P', 12)},
         },
     },
