@@ -12,68 +12,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "1.3.1",
-  name: "Some more stuff",
+  num: "0.1",
+  name: "The Beginning",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
-<h2>v1.3.1: New Content</h2><br>
-- Added Crit at Zone 4<br>
-- Added Counter at Zone 4<br>
-- Added Regen at Zone 6<br>
-- Rebalanced XP Requirement past level 27<br>
-- Fixed Attack & Defense Stats<br>
-- Readjusted Shield Effects from Enemies<br>
-- Added 4 Achievements<br><br>
-
-<h3>v1.3: Zone 6</h3><br>
-- Added Zone 6 (<ruins>Reality</ruins>)<br>[Level 30 - 39]<br>
-> Added 3 Enemies<br>
-- Fixed some Pre-L30 Bugs<br>
-- Fixed Enemy Damage<br>
-- Fixed Shield Protection Damage<br>
-- Fixed 2 Achievements<br><br>
-
-<h3>v1.2: Zone 5</h3><br>
-- Added Zone 5 (<obs>Observatory</obs>)<br>[Level 27 - 30~]<br>
-> Added <obs>Vixtra</obs><br>
-> Added <obs>Wenyi</obs><br>
-> Added <obs>Deep</obs><br>
-- Increased Level Cap to Level 30 (For now)<br>
-- Readjusted Max Damage Pre-20<br>
-- Fixed Sheild Manipluation<br>
-- Added Thousands Format (Used to make it easier for myself instead of seeing a number like 139,392,139,402,130,000 or 1.4e12...<br>
-- Refixed Storyline to end at Zone 4<br><br>
-- [WIP] <ruins>Added An Debuff</ruins><br>
-- [WIP] <ruins>Bonus Sheild Mechanics</ruins><br>
-- [WIP] <ruins>Bonus Attack Damage on Critical Change Impact</ruins><br><br>
-- <help> Bro I am not canonically an Avali</help><br>
-
- <h3>v1.1: Zone 4</h3><br>
-  - Added Zone 4 (<rainbow>Garden</rainbow>)<br>[Level 19 - 26]<br>
-  > Added <server>Morgan</server><br>
-  > Added <server>Lovebeast</server><br>
-  > Added <server>Deep</server><br>
-  - Increased Level Cap to Level 26<br>
-  - Refixed Attack & Heal Vectors<br>
-  - Added Experiment Boost Damage<br>
-  _ Readjusted Experience & Experiment Health<br>
-  - Added Storyline & Experiment Log<br><br>
-  - [WIP] Added 3 NPC Dialogues for Zone 4 [<ruins>...It's a secret</ruins>]<br>
-  - [WIP] Experiment Coating (Sheild)<br>
-  - [WIP] Weapon Critting% (2.5x Damage)<br><br>
-
-
- <h3>v1.0: Zone 3</h3><br>
-  - Added Zone 3 (<server>Server Room</server>)<br>[Level 11 - 18]<br>
-  > Added <rainbow>Hallow</rainbow><br>
-  > Added <rainbow>Virux</rainbow><br>
-  > Added <rainbow>Cyberruin</rainbow><br><br>
-  - Increased the level cap to 18<br>
-  - Added Attack Cooldown<br>
-  - Added Secret Hug Ability<br> that will hug plasma because I want it there >:D<br><br>
-
-
+ - There's nothing here
 	`
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -95,9 +39,8 @@ function getPointGen() {
   if (!canGenPoints())
     return new Decimal(0)
 
-  let gain = new Decimal(5.6)
-
-  if (player.points > 2.5) gain = new Decimal(0.0001)
+  let gain = new Decimal(1)
+  if (hasUpgrade('P', 11)) gain = gain.times(1.2)
   return gain
 }
 
@@ -109,7 +52,7 @@ function addedPlayerData() {
 
 // Display extra things at the top of the page
 var displayThings = [
-  "Battling & Achievements Only :)"
+  "The Start of it all: 0.3%"
 ]
 
 // Determines when the game "ends"
