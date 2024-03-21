@@ -40,5 +40,11 @@ addLayer("A", {
             tooltip: "NP-IV has 50% boost",
             unlocked() {return hasAchievement('A', 12)},
         },
+        14: {
+            name: "Saget the 2nd",
+            done() { return hasUpgrade('P', 22)},
+            tooltip: "Saget the 1st would be proud...",
+            unlocked() {return hasAchievement('A', 13)},
+        },
     },
 })
