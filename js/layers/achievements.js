@@ -25,8 +25,14 @@ addLayer("A", {
     achievements: {
         11: {
             name: "Press Start!",
-            done() { return  },
+            done() { return player.points.gte(100) },
             tooltip: "Embark on your points!",
+        },
+        12: {
+            name: "III",
+            done() { return hasUpgrade('P', 13) },
+            tooltip: "3 Powders?",
+            unlocked() {return hasAchievement('A', 11)},
         },
     },
 })

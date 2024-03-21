@@ -7,7 +7,13 @@ addLayer("P", {
             points: new Decimal(0),
         }
     },
-    requires: new Decimal(5),
+    requires(){ 
+        let requirement = new Decimal(5)
+        if (hasUpgrade('P', 12)) requirement = requirement.minus(0.7)
+    
+        return requirement
+    
+    },
 
     color: "#FFFFFF",
     resource: "powder",
@@ -21,6 +27,7 @@ addLayer("P", {
     },
     gainMult(){
         let gain = new Decimal(1)
+        if (hasUpgrade('P', 13)) gain = gain.minus(0.1)
         return gain
     },
     gainExp(){
@@ -52,9 +59,21 @@ addLayer("P", {
     //Build Content
     upgrades: {
         11: {
-            title: "Normal Powder",
+            title: "Normal Powder I",
             description: "Some Simple Powder, boost point gain by 20%",
             cost: new Decimal(10),
+        },
+        12: {
+            title: "Normal Powder II",
+            description: "2nd Powder? Decrease Powder Requirement Slightly...",
+            cost: new Decimal(15),
+        },
+        13: {
+            title: "Normal Powder III",
+            description: "Particle User! Improve Particle Gain by 40% but decrease Powder gain by a smudge",
+            cost: new Decimal(150),
+            currencyDisplayName: "Particles",
+            currencyInternalName: "particles",
         },
     },
 })
