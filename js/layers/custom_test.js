@@ -167,7 +167,7 @@ addLayer("P", {
             let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
             return text;
         },
-        unlocked() { return hasUpgrade('P', 23 && (player.F.unlocked || player.SP.unlocked))},
+        unlocked() { return hasUpgrade('P', 23) && (player.F.unlocked || player.SP.unlocked)},
    },
     },
 })
