@@ -7,12 +7,12 @@ addLayer("P", {
             points: new Decimal(0),
         }
     },
-    requires(){ 
+    requires() {
         let requirement = new Decimal(5)
         if (hasUpgrade('P', 12)) requirement = requirement.minus(0.7)
-    
+
         return requirement
-    
+
     },
 
     color: "#FFFFFF",
@@ -21,11 +21,11 @@ addLayer("P", {
     baseAmount() { return player.points },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
-    exponent(){
+    exponent() {
         let ex = new Decimal(1.1)
         return ex
     },
-    gainMult(){
+    gainMult() {
         let gain = new Decimal(1)
         if (hasUpgrade('P', 13)) gain = gain.minus(0.1)
         if (hasUpgrade('P', 15)) gain = gain.minus(0.1)
@@ -34,12 +34,12 @@ addLayer("P", {
         if (hasUpgrade('P', 24)) gain = gain.times(upgradeEffect('P', 24))
         return gain
     },
-    gainExp(){
+    gainExp() {
         let exp = new Decimal(1)
         return exp
     },
     hotkeys: [
-        {key: "p", description: "p: Reset for Powder", onPress(){if (canReset(this.layer) && player.P.unlocked) doReset(this.layer)}},
+        { key: "p", description: "p: Reset for Powder", onPress() { if (canReset(this.layer) && player.P.unlocked) doReset(this.layer) } },
     ],
     layerShown() { return true },
     doReset(resettingLayer) {
@@ -57,8 +57,8 @@ addLayer("P", {
         },
     },
 
-    update(diff){
-        if (player.devSpeed > 1)  
+    update(diff) {
+        if (player.devSpeed > 1)
             player.devSpeed = player.devSpeed.div(2)
         if (player.devSpeed < 1)
             player.devSpeed = new Decimal(1)
@@ -69,8 +69,8 @@ addLayer("P", {
 
     //Build Content
     upgrades: {
-    rows: 5,
-    cols: 5,
+        rows: 5,
+        cols: 5,
         11: {
             title: "Normal Powder I",
             description: "Some Simple Powder, boost Particle gain by 20%",
@@ -80,7 +80,7 @@ addLayer("P", {
             title: "Normal Powder II",
             description: "2nd Powder? Decrease Powder Requirement Slightly...",
             cost: new Decimal(15),
-            unlocked() { return hasUpgrade('P', 11)},
+            unlocked() { return hasUpgrade('P', 11) },
         },
         13: {
             title: "Normal Powder III",
@@ -88,7 +88,7 @@ addLayer("P", {
             cost: new Decimal(35),
             currencyDisplayName: "Particles",
             currencyInternalName: "points",
-            unlocked() { return hasUpgrade('P', 12)},
+            unlocked() { return hasUpgrade('P', 12) },
         },
         14: {
             title: "Normal Powder IV",
@@ -104,7 +104,7 @@ addLayer("P", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('P', 13)},
+            unlocked() { return hasUpgrade('P', 13) },
         },
         15: {
             title: "Normal Powder V",
@@ -112,7 +112,7 @@ addLayer("P", {
             cost: new Decimal(150),
             currencyDisplayName: "Particles",
             currencyInternalName: "points",
-            unlocked() { return hasUpgrade('P', 14)},
+            unlocked() { return hasUpgrade('P', 14) },
         },
         21: {
             title: "Saget Powder I",
@@ -128,9 +128,9 @@ addLayer("P", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('P', 15)},
-       },
-       22: {
+            unlocked() { return hasUpgrade('P', 15) },
+        },
+        22: {
             title: "Saget Powder II",
             description: "<server>Powder is boosted based on itself (Additive)</server>",
             cost: new Decimal(300),
@@ -146,28 +146,28 @@ addLayer("P", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1))}${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('P', 21)},
-       },
-       23: {
+            unlocked() { return hasUpgrade('P', 21) },
+        },
+        23: {
             title: "Saget Powder III",
             description: "<server>Unlock Two Layers</server>",
             cost: new Decimal(1000),
-            unlocked() { return hasUpgrade('P', 22)},
-       },
-       24: {
-        title: "Saget Powder IV",
-        description: "<server>Let's keep going! Feed boosts Powder & Particles</server>",
-        cost: new Decimal(10000),
-        effect() {
-            let effect1 = (player.F.points.max(1).add(1).pow(0.15)).max(1).min(10);
-            return effect1
+            unlocked() { return hasUpgrade('P', 22) },
         },
-        effectDisplay() {
-            let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
-            let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
-            return text;
+        24: {
+            title: "Saget Powder IV",
+            description: "<server>Let's keep going! Feed/Super Powder boosts Powder & Particles</server>",
+            cost: new Decimal(10000),
+            effect() {
+                let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.15)).max(1).min(10);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('P', 23) && (player.F.unlocked || player.SP.unlocked) },
         },
-        unlocked() { return hasUpgrade('P', 23) && (player.F.unlocked || player.SP.unlocked)},
-   },
     },
 })
