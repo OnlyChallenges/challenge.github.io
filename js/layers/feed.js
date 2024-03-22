@@ -95,5 +95,22 @@ addLayer("F", {
             },
             unlocked() { return hasUpgrade('F', 14)},
         },
+        16: {
+            title: "Feed VI",
+            description: "Feeding Movement II! Feed boosts Super Power effect",
+            cost: new Decimal(150000),
+            currencyDisplayName: "Particles",
+            currencyInternalName: "points",
+            effect() {
+                let effect1 = (player.F.points.max(1).add(1).pow(0.28)).max(1).min(7);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(7) ? "(% Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 15) && player.SP.unlocked},
+        },
     },
 })
