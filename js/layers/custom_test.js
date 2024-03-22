@@ -31,6 +31,7 @@ addLayer("P", {
         if (hasUpgrade('P', 15)) gain = gain.minus(0.1)
         if (hasUpgrade('P', 22)) gain = gain.add(upgradeEffect('P', 22))
         if (hasUpgrade('F', 14)) gain = gain.times(upgradeEffect('F', 14))
+        if (hasUpgrade('P', 24)) gain = gain.times(upgradeEffect('P', 24))
         return gain
     },
     gainExp(){
@@ -153,5 +154,20 @@ addLayer("P", {
             cost: new Decimal(1000),
             unlocked() { return hasUpgrade('P', 22)},
        },
+       24: {
+        title: "Saget Powder IV",
+        description: "<server>Let's keep going! Feed boosts Powder & Particles</server>",
+        cost: new Decimal(10000),
+        effect() {
+            let effect1 = (player.F.points.max(1).add(1).pow(0.15)).max(1).min(10);
+            return effect1
+        },
+        effectDisplay() {
+            let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
+            let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
+            return text;
+        },
+        unlocked() { return hasUpgrade('P', 23 && (player.F.unlocked || player.SP.unlocked))},
+   },
     },
 })
