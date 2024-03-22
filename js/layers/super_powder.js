@@ -73,7 +73,7 @@ addLayer("SP", {
 
 
     tabFormat: ["main-display", "prestige-button", ["display-text", function() {
-        return 'You have ' + format(player.A.power) + ' Super Power, which boosts Particle Gain by +' + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
+        return 'You have ' + format(player.A.power) + ' Super Power, which boosts Particle Gain, +' + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
     },{}], "blank", "upgrades"],
 
 

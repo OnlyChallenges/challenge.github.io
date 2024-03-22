@@ -10,6 +10,7 @@ addLayer("F", {
     },
     requires(){ 
         let requirement = new Decimal(500)  
+        if (hasUpgrade('F', 12)) requirement = requirement.div(3.5)
         if (player.SP.unlocked) requirement = requirement.times(50)
         if (player.SP.unlocked && player.F.unlocked) requirement = requirement.div(50)
         return requirement
@@ -50,8 +51,8 @@ addLayer("F", {
         },
         12: {
             title: "Feed II",
-            description: "2nd Feed! Decrease Feed Requirement & Boost NP-IV by 40%.",
-            cost: new Decimal(2),
+            description: "2nd Feed! Decrease Feed Requirement & Boost NP-IV by 300%.",
+            cost: new Decimal(1),
             unlocked() { return hasUpgrade('F', 11)},
         },
         13: {
