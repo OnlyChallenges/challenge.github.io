@@ -65,9 +65,10 @@ addLayer("SP", {
     },
 
     generationEff() {
-        if (!player.SP.unlocked)
-            return new Decimal(1);
-        return player.SP.generation.plus(1).pow(this.generationExp());
+        let gen = player.SP.generation.plus(1).pow(this.generationExp())
+        if (!player.SP.unlocked) gen = new Decimal(1)
+        if (hasUpgrade('F', 16)) gen = gen.times(upgradeEffect('F', 16))
+        return gen
     },
 
 
