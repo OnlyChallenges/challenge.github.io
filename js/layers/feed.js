@@ -4,7 +4,7 @@ addLayer("F", {
     position: 0,
     startData() {
         return {
-            unlocked: true,
+            unlocked: false,
             points: new Decimal(0),
         }
     },

@@ -4,7 +4,7 @@ addLayer("SP", {
     position: 1,
     startData() {
         return {
-            unlocked: true,
+            unlocked: false,
             points: new Decimal(0),
             generation: new Decimal(0),
         }
