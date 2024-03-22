@@ -43,7 +43,7 @@ addLayer("F", {
     //Build Content
     upgrades: {
     rows: 5,
-    cols: 5,
+    cols: 6,
         11: {
             title: "Feed I",
             description: "Feeding! Boost Particle Gain by 50%",
