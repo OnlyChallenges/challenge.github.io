@@ -30,6 +30,7 @@ addLayer("P", {
         if (hasUpgrade('P', 13)) gain = gain.minus(0.1)
         if (hasUpgrade('P', 15)) gain = gain.minus(0.1)
         if (hasUpgrade('P', 22)) gain = gain.add(upgradeEffect('P', 22))
+        if (hasUpgrade('F', 14)) gain = gain.times(upgradeEffect('F', 14))
         return gain
     },
     gainExp(){
@@ -118,6 +119,7 @@ addLayer("P", {
             cost: new Decimal(150),
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.06)).max(1).min(5);
+                if (hasUpgrade('F', 15)) effect1 = effect1.times(upgradeEffect('F', 15))
                 return effect1
             },
             effectDisplay() {

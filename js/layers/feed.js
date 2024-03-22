@@ -63,5 +63,37 @@ addLayer("F", {
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('F', 12)},
         },
+        14: {
+            title: "Feed IV",
+            description: "Feeder + Feeder + Feeder + Feeder? Particles boosts Powder",
+            cost: new Decimal(25000),
+            effect() {
+                let effect1 = (player.points.max(1).add(1).pow(0.04)).max(1).min(10);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(% Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
+                return text;
+            },
+            currencyDisplayName: "Particles",
+            currencyInternalName: "points",
+            unlocked() { return hasUpgrade('F', 13)},
+        },
+        15: {
+            title: "Feed V",
+            description: "Feeding Movement! Feed boosts SP-I Upgrade.",
+            cost: new Decimal(3),
+            effect() {
+                let effect1 = (player.points.max(1).add(1).pow(0.046)).max(1).min(3.5);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(3.5) ? "(% Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 14)},
+        },
     },
 })
