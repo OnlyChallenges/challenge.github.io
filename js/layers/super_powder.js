@@ -98,5 +98,14 @@ addLayer("SP", {
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 11) },
         },
+        13: {
+            title: "Super III",
+            description: "Super³! Boost Particle Gain by 200%",
+            cost: new Decimal(2500),
+            currencyDisplayName: "Super Power",
+            currencyInternalName: "generation",
+            currencyLayer: "SP",
+            unlocked() { return hasUpgrade('SP', 12) },
+        },
     },
 })
