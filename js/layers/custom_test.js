@@ -134,7 +134,7 @@ addLayer("P", {
             currencyDisplayName: "Particles",
             currencyInternalName: "points",
             effect() {
-                let effect1 = (player.P.points.max(1).add(1).pow(0.04)).max(1).min(3);
+                let effect1 = (player.P.points.max(1).add(1).pow(0.05)).max(1).min(3);
                 if (hasUpgrade('SP', 12)) effect1 = effect1.times(1.4)
                 return effect1
             },

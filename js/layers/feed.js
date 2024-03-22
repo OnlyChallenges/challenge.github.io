@@ -37,7 +37,7 @@ addLayer("F", {
     hotkeys: [
         {key: "f", description: "f: Reset for Feed", onPress(){if (canReset(this.layer) && player.F.unlocked) doReset(this.layer)}},
     ],
-    layerShown() { return hasUpgrade('P', 23) || player.F.unlocked },
+    layerShown() { return hasUpgrade('P', 23) || player.F.unlocked || player.SP.unlocked },
 
     //Build Content
     upgrades: {
