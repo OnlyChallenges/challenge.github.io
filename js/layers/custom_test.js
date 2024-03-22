@@ -133,7 +133,7 @@ addLayer("P", {
        22: {
             title: "Saget Powder II",
             description: "<server>Powder is boosted based on itself (Additive)</server>",
-            cost: new Decimal(500),
+            cost: new Decimal(300),
             currencyDisplayName: "Particles",
             currencyInternalName: "points",
             effect() {
