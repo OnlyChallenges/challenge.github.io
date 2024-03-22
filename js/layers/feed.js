@@ -85,7 +85,7 @@ addLayer("F", {
             description: "Feeding Movement! Feed boosts SP-I Upgrade.",
             cost: new Decimal(3),
             effect() {
-                let effect1 = (player.points.max(1).add(1).pow(0.046)).max(1).min(3.5);
+                let effect1 = (player.F.points.max(1).add(1).pow(0.2)).max(1).min(3.5);
                 return effect1
             },
             effectDisplay() {
