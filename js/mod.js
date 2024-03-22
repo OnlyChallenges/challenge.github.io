@@ -3,7 +3,7 @@ let modInfo = {
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "particles",
-  modFiles: ["tree.js", "layers/custom_test.js", "layers/achievements.js"],
+  modFiles: ["tree.js", "layers/custom_test.js", "layers/achievements.js", "layers/feed.js", "layers/super_powder.js"],
   discordName: "",
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
@@ -45,6 +45,7 @@ function getPointGen() {
   if (hasUpgrade('P', 14)) gain = gain.times(upgradeEffect('P', 14))
   if (hasUpgrade('P', 15)) gain = gain.times(1.7)
   if (hasUpgrade('P', 21)) gain = gain.times(upgradeEffect('P', 21))
+  if (player.SP.unlocked) mult = mult.times(tmp.SP.boostEff)
   return gain
 }
 

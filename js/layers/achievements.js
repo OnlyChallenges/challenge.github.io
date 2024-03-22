@@ -46,5 +46,17 @@ addLayer("A", {
             tooltip: "Saget the 1st would be proud...",
             unlocked() {return hasAchievement('A', 13)},
         },
+        15: {
+            name: "Another Area",
+            done() { return player.SP.unlocked || player.F.unlocked},
+            tooltip: "Unlock one of the layers in Row 2",
+            unlocked() {return hasAchievement('A', 14)},
+        },
+        16: {
+            name: "Duel Achieved",
+            done() { return player.SP.unlocked && player.F.unlocked},
+            tooltip: "have both layers unlocked",
+            unlocked() {return hasAchievement('A', 15)},
+        },
     },
 })

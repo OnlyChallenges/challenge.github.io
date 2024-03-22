@@ -43,7 +43,7 @@ addLayer("P", {
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },
-
+    branches: ["F", "SP"],
     infoboxes: {
         lore: {
             title: "Some stuff",
@@ -94,6 +94,7 @@ addLayer("P", {
             cost: new Decimal(40),
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.07)).max(1).min(10);
+                if (hasUpgrade('F', 12)) effect1 = effect1.times(1.4)
                 return effect1
             },
             effectDisplay() {
