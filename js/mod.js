@@ -49,7 +49,7 @@ function getPointGen() {
   if (hasUpgrade('F', 11)) gain = gain.times(1.5)
   if (hasUpgrade('SP', 11)) gain = gain.times(1.5)
   if (hasUpgrade('F', 13)) gain = gain.pow(1.05)
-  if (player.SP.unlocked) gain = gain.times(tmp.SP.boostEff)
+  if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
   return gain
 }
 
