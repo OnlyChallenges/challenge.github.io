@@ -9,7 +9,7 @@ addLayer("P", {
     },
     requires() {
         let requirement = new Decimal(5)
-        if (hasUpgrade('P', 12)) requirement = requirement.minus(0.7)
+        if (hasUpgrade('P', 12)) requirement = requirement.minus(0.8)
 
         return requirement
 
@@ -22,13 +22,13 @@ addLayer("P", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
-        let ex = new Decimal(1.1)
+        let ex = new Decimal(1.07)
         return ex
     },
     gainMult() {
         let gain = new Decimal(1)
         if (hasUpgrade('P', 13)) gain = gain.minus(0.1)
-        if (hasUpgrade('P', 15)) gain = gain.minus(0.1)
+        if (hasUpgrade('P', 15)) gain = gain.minus(0.05)
         if (hasUpgrade('P', 22)) gain = gain.add(upgradeEffect('P', 22))
         if (hasUpgrade('F', 14)) gain = gain.times(upgradeEffect('F', 14))
         if (hasUpgrade('P', 24)) gain = gain.times(upgradeEffect('P', 24))
@@ -56,16 +56,6 @@ addLayer("P", {
             `,
         },
     },
-
-    update(diff) {
-        if (player.devSpeed > 1)
-            player.devSpeed = player.devSpeed.div(2)
-        if (player.devSpeed < 1)
-            player.devSpeed = new Decimal(1)
-
-
-    },
-
 
     //Build Content
     upgrades: {
