@@ -24,12 +24,12 @@ addLayer("A", {
 
     achievements: {
         11: {
-            name: "Press Start!",
+            name: "particle accelerator",
             done() { return player.points.gte(100) },
             tooltip: "Embark on your points!",
         },
         12: {
-            name: "III",
+            name: "thre",
             done() { return hasUpgrade('P', 13) },
             tooltip: "3 Powders?",
             unlocked() {return hasAchievement('A', 11)},
@@ -47,7 +47,7 @@ addLayer("A", {
             unlocked() {return hasAchievement('A', 13)},
         },
         15: {
-            name: "Another Area",
+            name: "SF",
             done() { return player.SP.unlocked || player.F.unlocked},
             tooltip: "Unlock one of the layers in Row 2",
             unlocked() {return hasAchievement('A', 14)},
