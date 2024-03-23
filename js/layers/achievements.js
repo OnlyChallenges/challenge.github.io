@@ -36,7 +36,7 @@ addLayer("A", {
         },
         13: {
             name: "Half of Two",
-            done() { return (upgradeEffect('P', 14) > 1.499)},
+            done() { return hasUpgrade('P', 14) && (upgradeEffect('P', 14) > 1.499)},
             tooltip: "NP-IV has 50% boost",
             unlocked() {return hasAchievement('A', 12)},
         },
@@ -57,6 +57,12 @@ addLayer("A", {
             done() { return player.SP.unlocked && player.F.unlocked},
             tooltip: "have both layers unlocked",
             unlocked() {return hasAchievement('A', 15)},
+        },
+        17: {
+            name: "6&3",
+            done() { return hasUpgrade('F', 16) && hasUpgrade('SP', 13)},
+            tooltip: "get 6 & 3<br>Reward: Row 3 Layer (WIP)",
+            unlocked() {return hasAchievement('A', 16)},
         },
     },
 })
