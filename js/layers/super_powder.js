@@ -108,5 +108,14 @@ addLayer("SP", {
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 12) },
         },
+        14: {
+            title: "Super IV",
+            description: "Super^Super! Increase Super Power Effect by 45%",
+            cost: new Decimal(32500),
+            currencyDisplayName: "Super Power",
+            currencyInternalName: "generation",
+            currencyLayer: "SP",
+            unlocked() { return hasUpgrade('SP', 13) },
+        },
     },
 })

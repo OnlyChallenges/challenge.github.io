@@ -62,7 +62,7 @@ function addedPlayerData() {
 
 // Display extra things at the top of the page
 var displayThings = [
-  "The Start of it all: 0.3%"
+  `<ruins>Endgame: 1e9 Particles</ruins>`
 ]
 
 // Determines when the game "ends"

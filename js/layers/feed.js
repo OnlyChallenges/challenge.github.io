@@ -125,7 +125,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return (hasUpgrade('F', 16) && player.SG.generation.gte(1000)) || hasUpgrade('F', 21)},
+            unlocked() { return player.SG.generation.gte(1000)|| hasUpgrade('F', 21)},
         },
     },
 })
