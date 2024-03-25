@@ -107,10 +107,25 @@ addLayer("F", {
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(7) ? "(% Capped)" : "";
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
             unlocked() { return hasUpgrade('F', 15) && player.SP.unlocked},
+        },
+        21: {
+            title: "Super Feed I",
+            description: "Particles boosts Powder Gain",
+            cost: new Decimal(5),
+            effect() {
+                let effect1 = (player.points.max(1).add(1).pow(0.09)).max(1).min(15);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(15) ? "(% Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
+                return text;
+            },
+            unlocked() { return (hasUpgrade('F', 16) && player.SG.generation.gte(1000)) || hasUpgrade('F', 21)},
         },
     },
 })
