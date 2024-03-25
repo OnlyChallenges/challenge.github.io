@@ -112,20 +112,35 @@ addLayer("F", {
             },
             unlocked() { return hasUpgrade('F', 15) && player.SP.unlocked},
         },
-        21: {
-            title: "Super Feed I",
-            description: "Particles boosts Powder Gain",
-            cost: new Decimal(5),
+        22: {
+            title: "Super Feed II",
+            description: "Powder boost SP-IV",
+            cost: new Decimal(7),
             effect() {
-                let effect1 = (player.points.max(1).add(1).pow(0.09)).max(1).min(15);
+                let effect1 = (player.P.points.max(1).add(1).pow(0.06)).max(1).min(20);
                 return effect1
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(15) ? "(% Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(20) ? "(% Capped)" : "";
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return player.SP.generation.gte(1000)|| hasUpgrade('F', 21)},
+            unlocked() { return hasUpgrade('F', 21)},
+        },
+        23: {
+            title: "Super Feed III",
+            description: "Feed decreases Super Powder Requirement",
+            cost: new Decimal(7),
+            effect() {
+                let effect1 = (player.F.points.max(1).add(1).pow(0.7)).max(1).min(25);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(25) ? "(% Capped)" : "";
+                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 22)},
         },
     },
 })
