@@ -13,7 +13,7 @@ addLayer("SP", {
         let requirement = new Decimal(2500)
         if (player.F.unlocked) requirement = requirement.times(50)
         if (player.F.unlocked && player.SP.unlocked) requirement = requirement.div(50)
-        if (hasUpgrade('F', 24)) requirement = requirement.div(upgradeEffect('F', 24))
+        if (hasUpgrade('F', 23)) requirement = requirement.div(upgradeEffect('F', 23))
         return requirement
 
     },
