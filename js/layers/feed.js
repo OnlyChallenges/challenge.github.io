@@ -158,5 +158,20 @@ addLayer("F", {
             },
             unlocked() { return hasUpgrade('F', 22)},
         },
+        24: {
+            title: "Super Feed IV",
+            description: "Super Powder boosts Particle gain",
+            cost: new Decimal(8),
+            effect() {
+                let effect1 = (player.SP.points.max(1).add(1).pow(0.38)).max(1).min(10);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(% Capped)" : "";
+                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 23)},
+        },
     },
 })
