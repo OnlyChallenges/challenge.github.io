@@ -20,7 +20,7 @@ addLayer("V", {
     row: 2, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
-        let ex = new Decimal(1.02)
+        let ex = new Decimal(0.87)
         return ex
     },
     gainMult() {
@@ -52,6 +52,7 @@ addLayer("V", {
             title: "<rainbow>A</rainbow>",
             description: "Boost Powder gain by 600%",
             cost: new Decimal(2),
+            unlocked() { return hasUpgrade('V', 11) },
         },
     },
 })
