@@ -116,7 +116,7 @@ addLayer("P", {
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(5) ? "(% Capped)" : "";
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
             unlocked() { return hasUpgrade('P', 15) },
@@ -134,7 +134,7 @@ addLayer("P", {
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(3) ? "(Capped)" : "";
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1))}${capped}`;
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1))} ${capped}`;
                 return text;
             },
             unlocked() { return hasUpgrade('P', 21) },
@@ -156,7 +156,7 @@ addLayer("P", {
             },
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
             unlocked() { return hasUpgrade('P', 23) && (player.F.unlocked || player.SP.unlocked) },
@@ -166,11 +166,11 @@ addLayer("P", {
             description: "<server>Particles boosts SF-III Reduction</server>",
             cost: new Decimal(1650000),
             effect() {
-                let effect1 = (player.points.max(1).add(1).pow(0.085)).max(1).min(4);
+                let effect1 = (player.points.max(1).add(1).pow(0.065)).max(1).min(20);
                 return effect1
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(4) ? "(Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(20) ? "(Capped)" : "";
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
