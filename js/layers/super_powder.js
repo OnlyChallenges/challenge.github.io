@@ -120,5 +120,23 @@ addLayer("SP", {
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 13) },
         },
+        15: {
+            title: "Super V",
+            description: "Super*Super⁴! Increase F-IV Effect based on Super Power Points",
+            cost: new Decimal(50000),
+            currencyDisplayName: "Super Power",
+            currencyInternalName: "generation",
+            currencyLayer: "SP",
+            effect() {
+                let effect1 = (player.SP.generation.max(1).add(1).pow(0.068)).max(1).min(10);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(% Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('SP', 14) },
+        },
     },
 })
