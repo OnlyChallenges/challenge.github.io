@@ -33,6 +33,7 @@ addLayer("P", {
         if (hasUpgrade('F', 14)) gain = gain.times(upgradeEffect('F', 14))
         if (hasUpgrade('P', 24)) gain = gain.times(upgradeEffect('P', 24))
         if (hasUpgrade('F', 21)) gain = gain.times(upgradeEffect('F', 21))
+        if (hasUpgrade('V', 12)) gain = gain.times(6)
         return gain
     },
     gainExp() {
