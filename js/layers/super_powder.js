@@ -50,6 +50,7 @@ addLayer("SP", {
         if (!player.SP.unlocked)
             return new Decimal(0)
         let eff = Decimal.pow(this.effBase(), player.SP.points).sub(1).max(0);
+       if (hasUpgrade('F', 26)) eff = eff.times(upgradeEffect('F', 26))
         return eff;
     },
     effBase() {
