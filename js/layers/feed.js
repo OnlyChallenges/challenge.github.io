@@ -247,5 +247,19 @@ addLayer("F", {
             },
             unlocked() { return hasUpgrade('F', 31)},
         },
+        33: {
+            title: "Super² Feed III",
+            description: "Particles boosts itself",
+            cost: new Decimal(10),
+            effect() {
+                let effect1 = (player.points.max(1).add(1).pow(0.115)).max(1).min(12);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 32)},
+        },
     },
 })
