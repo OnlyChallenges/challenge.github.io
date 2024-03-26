@@ -12,14 +12,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.1",
-  name: "The Beginning",
+  num: "0.1.1",
+  name: "Vaccinations",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
- - There's nothing here
+ - There's nothing here...
 	`
-let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
+let winText = `You've started to make vaccines? Start to make the cure...`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -65,12 +65,12 @@ function addedPlayerData() {
 
 // Display extra things at the top of the page
 var displayThings = [
-  `<ruins>Endgame: 1e9 Particles</ruins>`
+  `<logic>Endgame: 3 Vaccines</logic><br>:)`
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-  return player.points.gte(new Decimal("e280000000"))
+  return player.V.points.gte(3)
 }
 
 
