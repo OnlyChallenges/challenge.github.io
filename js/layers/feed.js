@@ -173,5 +173,23 @@ addLayer("F", {
             },
             unlocked() { return hasUpgrade('F', 23)},
         },
+        25: {
+            title: "Super Feed V",
+            description: "Lower Super Powder Requirement based on Powder",
+            cost: new Decimal(150000000),
+            currencyDisplayName: "Powder",
+            currencyInternalName: "points",
+            currencyLayer: "P",
+            effect() {
+                let effect1 = (player.P.points.max(1).add(1).pow(0.09)).max(1).min(15);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(15) ? "(% Capped)" : "";
+                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 24)},
+        },
     },
 })
