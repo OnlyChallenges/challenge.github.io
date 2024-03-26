@@ -191,5 +191,23 @@ addLayer("F", {
             },
             unlocked() { return hasUpgrade('F', 24)},
         },
+        26: {
+            title: "Super Feed VI",
+            description: "Super Power Gain is boosted based on Particles",
+            cost: new Decimal(750000000),
+            currencyDisplayName: "Powder",
+            currencyInternalName: "points",
+            currencyLayer: "P",
+            effect() {
+                let effect1 = (player.points.max(1).add(1).pow(0.11)).max(1).min(22);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(22) ? "(% Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 25)},
+        },
     },
 })
