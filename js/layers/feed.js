@@ -230,7 +230,7 @@ addLayer("F", {
             },
             unlocked() { return hasUpgrade('F', 26)},
         },
-        31: {
+        32: {
             title: "Super² Feed II",
             description: "Feed boosts itself",
             cost: new Decimal(2.2e9),
