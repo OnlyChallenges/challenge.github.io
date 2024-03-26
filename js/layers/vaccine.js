@@ -17,7 +17,7 @@ addLayer("V", {
     resource: "vaccines",
     baseResource: "particles",
     baseAmount() { return player.points },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 2, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
         let ex = new Decimal(1.03)
