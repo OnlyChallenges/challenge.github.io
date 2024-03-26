@@ -148,6 +148,7 @@ addLayer("F", {
             cost: new Decimal(7),
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.7)).max(1).min(25);
+                if (hasUpgrade('P', 25)) effect1 = effect1.times(upgradeEffect('P', 25))
                 return effect1
             },
             effectDisplay() {
