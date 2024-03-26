@@ -14,6 +14,7 @@ addLayer("SP", {
         if (player.F.unlocked) requirement = requirement.times(50)
         if (player.F.unlocked && player.SP.unlocked) requirement = requirement.div(50)
         if (hasUpgrade('F', 23)) requirement = requirement.div(upgradeEffect('F', 23))
+        if (hasUpgrade('F', 25)) requirement = requirement.div(upgradeEffect('F', 25))
         return requirement
 
     },
