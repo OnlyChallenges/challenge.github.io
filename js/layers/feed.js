@@ -13,6 +13,7 @@ addLayer("F", {
         if (hasUpgrade('F', 12)) requirement = requirement.div(3.5)
         if (player.SP.unlocked) requirement = requirement.times(50)
         if (player.SP.unlocked && player.F.unlocked) requirement = requirement.div(50)
+        if (hasUpgrade('F', 32)) requirement = requirement.div(upgradeEffect('F',32))
         return requirement
     
     },
@@ -228,6 +229,23 @@ addLayer("F", {
                 return text;
             },
             unlocked() { return hasUpgrade('F', 26)},
+        },
+        31: {
+            title: "Super² Feed II",
+            description: "Feed boosts itself",
+            cost: new Decimal(2.2e9),
+            currencyDisplayName: "Powder",
+            currencyInternalName: "points",
+            currencyLayer: "P",
+            effect() {
+                let effect1 = (player.F.points.max(1).add(1).pow(0.47)).max(1).min(12);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 31)},
         },
     },
 })
