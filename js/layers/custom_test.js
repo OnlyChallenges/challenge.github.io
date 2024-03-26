@@ -161,5 +161,20 @@ addLayer("P", {
             },
             unlocked() { return hasUpgrade('P', 23) && (player.F.unlocked || player.SP.unlocked) },
         },
+        25: {
+            title: "Saget Powder V",
+            description: "<server>Particles boosts SF-III Reduction</server>",
+            cost: new Decimal(1650000),
+            effect() {
+                let effect1 = (player.points.max(1).add(1).pow(0.085)).max(1).min(4);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(4) ? "(Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('P', 24) && (hasUpgrade('F', 23)) },
+        },
     },
 })
