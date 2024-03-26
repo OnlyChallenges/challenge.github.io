@@ -134,6 +134,7 @@ addLayer("F", {
             cost: new Decimal(7),
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.06)).max(1).min(20);
+                if (hasUpgrade('F', 31)) effect1 = effect1.times(upgradeEffect('F', 31))
                 return effect1
             },
             effectDisplay() {
@@ -209,6 +210,24 @@ addLayer("F", {
                 return text;
             },
             unlocked() { return hasUpgrade('F', 25)},
+        },
+        31: {
+            title: "Super² Feed I",
+            description: "Feed boosts SF-II Effect",
+            cost: new Decimal(1.5e9),
+            currencyDisplayName: "Powder",
+            currencyInternalName: "points",
+            currencyLayer: "P",
+            effect() {
+                let effect1 = (player.F.points.max(1).add(1).pow(0.3)).max(1).min(12);
+                return effect1
+            },
+            effectDisplay() {
+                let capped = upgradeEffect(this.layer, this.id).gte(12) ? "(% Capped)" : "";
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 26)},
         },
     },
 })
