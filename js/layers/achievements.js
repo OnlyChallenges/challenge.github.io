@@ -64,5 +64,17 @@ addLayer("A", {
             tooltip: "get 6 & 3<br>Reward: Row 3 Layer (WIP)",
             unlocked() {return hasAchievement('A', 16)},
         },
+        21: {
+            name: "curing",
+            done() { return player.V.points.gte(1)},
+            tooltip: "start the 3rd layer",
+            unlocked() {return hasAchievement('A', 16)},
+        },
+        22: {
+            name: "number adoption",
+            done() { return player.points.gte(1e10)},
+            tooltip: "1.00 × 10¹⁰",
+            unlocked() {return hasAchievement('A', 21)},
+        },
     },
 })
