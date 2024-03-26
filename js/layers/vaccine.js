@@ -39,6 +39,14 @@ addLayer("V", {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },
 
+    //Milestone Build Content
+milestones: {
+        11: {
+            requirementDescription: "<server>C</server> (5 Vaccines)",
+            effectDescription: `Keep all Powder Upgrades on all resets`,
+            done() { return player.V.points.gte(5) },
+        },
+    },
     //Build Content
     upgrades: {
         rows: 5,
