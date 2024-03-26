@@ -20,7 +20,7 @@ addLayer("V", {
     row: 2, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
-        let ex = new Decimal(1.03)
+        let ex = new Decimal(1.02)
         return ex
     },
     gainMult() {
@@ -45,8 +45,13 @@ addLayer("V", {
         cols: 5,
         11: {
             title: "V",
-            description: "Boost Particle gain by 350%",
+            description: "Boost Particle gain by 750%",
             cost: new Decimal(1),
+        },
+        12: {
+            title: "A",
+            description: "Boost Powder gain by 600%",
+            cost: new Decimal(2),
         },
     },
 })
