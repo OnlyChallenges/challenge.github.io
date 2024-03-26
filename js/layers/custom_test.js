@@ -46,6 +46,7 @@ addLayer("P", {
     layerShown() { return true },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        if (hasMilestone('V', 11)) player.P.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25")
     },
     branches: ["F", "SP", "V"],
     infoboxes: {
