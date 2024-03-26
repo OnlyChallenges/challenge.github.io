@@ -46,7 +46,7 @@ addLayer("P", {
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },
-    branches: ["F", "SP"],
+    branches: ["F", "SP", "V"],
     infoboxes: {
         lore: {
             title: "Some stuff",
