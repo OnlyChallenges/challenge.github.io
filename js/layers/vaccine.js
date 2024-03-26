@@ -44,12 +44,12 @@ addLayer("V", {
         rows: 5,
         cols: 5,
         11: {
-            title: "V",
+            title: "<server>V</server>",
             description: "Boost Particle gain by 750%",
             cost: new Decimal(1),
         },
         12: {
-            title: "A",
+            title: "<rainbow>A</rainbow>",
             description: "Boost Powder gain by 600%",
             cost: new Decimal(2),
         },
