@@ -46,7 +46,7 @@ addLayer("F", {
     milestones: {
         11: {
             requirementDescription: "8 Feed",
-            effectDescription: `Buy the maximum amount of feed you can purchase`,
+            effectDescription: `Buy the maximum amount of feed you can purchase.<br>To get the 2nd row of Feed Upgrades<br>You need 150 Super Power.`,
             done() { return player.F.points.gte(8) },
         },
     },
