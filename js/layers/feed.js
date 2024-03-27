@@ -36,12 +36,20 @@ addLayer("F", {
         let exp = new Decimal(1)
         return exp
     },
+    canBuyMax(){ return hasMilestone('F', 11)},
     hotkeys: [
         {key: "f", description: "f: Reset for Feed", onPress(){if (canReset(this.layer) && player.F.unlocked) doReset(this.layer)}},
     ],
     layerShown() { return hasUpgrade('P', 23) || player.F.unlocked || player.SP.unlocked },
 
     //Build Content
+    milestones: {
+        11: {
+            requirementDescription: "8 Feed",
+            effectDescription: `Buy the maximum amount of feed you can purchase`,
+            done() { return player.F.points.gte(8) },
+        },
+    },
     upgrades: {
     rows: 5,
     cols: 6,
