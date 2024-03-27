@@ -46,6 +46,12 @@ milestones: {
             effectDescription: `Keep all Powder Upgrades on all resets`,
             done() { return player.V.points.gte(1) },
         },
+        12: {
+            requirementDescription: "<server>U</server> (4 Vaccines)",
+            effectDescription: `+450% Super Power Generation`,
+            done() { return player.V.points.gte(4) },
+            unlocked() { return hasMilestone('V', 11) },
+        },
     },
     //Build Content
     upgrades: {
