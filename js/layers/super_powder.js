@@ -50,8 +50,8 @@ addLayer("SP", {
         if (!player.SP.unlocked)
             return new Decimal(0)
         let eff = Decimal.pow(this.effBase(), player.SP.points).sub(1).max(0);
-       if (hasUpgrade('F', 26)) eff = eff.times(upgradeEffect('F', 26))
-       if (hasMilestone('V', 12)) eff = eff.times(4.5)
+        if (hasUpgrade('F', 26)) eff = eff.times(upgradeEffect('F', 26))
+        if (hasMilestone('V', 12)) eff = eff.times(4.5)
         return eff;
     },
     effBase() {
@@ -77,9 +77,9 @@ addLayer("SP", {
 
 
 
-    tabFormat: ["main-display", "prestige-button", ["display-text", function() {
+    tabFormat: ["main-display", "prestige-button", ["display-text", function () {
         return 'You have ' + format(player.SP.generation) + ' Super Power, which boosts Particle Gain, +' + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
-    },{}], "blank", "upgrades"],
+    }, {}], "blank", "upgrades"],
 
 
     //Build Content

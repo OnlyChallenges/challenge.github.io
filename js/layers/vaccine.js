@@ -34,17 +34,17 @@ addLayer("V", {
     hotkeys: [
         { key: "v", description: "v: Reset for Vaccines", onPress() { if (canReset(this.layer) && player.P.unlocked) doReset(this.layer) } },
     ],
-    layerShown() { return hasAchievement('A', 17)},
+    layerShown() { return hasAchievement('A', 17) },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },
 
     //Milestone Build Content
-milestones: {
+    milestones: {
         11: {
             requirementDescription: "<server>C</server> (1 Vaccines)",
             effectDescription: `Keep all Powder Upgrades on all resets`,
-            done() { return player.V.points.gte(1) || hasUpgrade('V', 11)},
+            done() { return player.V.points.gte(1) || hasUpgrade('V', 11) },
         },
         12: {
             requirementDescription: "<server>U</server> (4 Vaccines)",
