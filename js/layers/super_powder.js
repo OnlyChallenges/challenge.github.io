@@ -51,6 +51,7 @@ addLayer("SP", {
             return new Decimal(0)
         let eff = Decimal.pow(this.effBase(), player.SP.points).sub(1).max(0);
        if (hasUpgrade('F', 26)) eff = eff.times(upgradeEffect('F', 26))
+       if (hasMilestone('V', 12) eff = eff.times(4.5)
         return eff;
     },
     effBase() {
