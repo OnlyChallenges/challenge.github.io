@@ -42,9 +42,9 @@ addLayer("V", {
     //Milestone Build Content
 milestones: {
         11: {
-            requirementDescription: "<server>C</server> (5 Vaccines)",
+            requirementDescription: "<server>C</server> (1 Vaccines)",
             effectDescription: `Keep all Powder Upgrades on all resets`,
-            done() { return player.V.points.gte(5) },
+            done() { return player.V.points.gte(1) },
         },
     },
     //Build Content
