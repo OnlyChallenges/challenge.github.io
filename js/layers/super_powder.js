@@ -55,7 +55,7 @@ addLayer("SP", {
         return eff;
     },
     effBase() {
-        let base = new Decimal(1.2);
+        let base = new Decimal(1.3);
         return base;
     },
     update(diff) {

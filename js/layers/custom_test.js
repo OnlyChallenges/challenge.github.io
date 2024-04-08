@@ -152,7 +152,7 @@ addLayer("P", {
             description: "<server>Let's keep going! Feed/Super Powder boosts Powder & Particles</server>",
             cost: new Decimal(10000),
             effect() {
-                let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.15)).max(1).min(10);
+                let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.21)).max(1).min(10);
                 if (hasUpgrade('F', 22)) effect1 = effect1.times(upgradeEffect('F', 22))
                 return effect1
             },
