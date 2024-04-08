@@ -64,7 +64,7 @@ addLayer("SP", {
     },
 
     generationExp() {
-        let exp = new Decimal(1 / 8);
+        let exp = new Decimal(1 / 7);
         return exp;
     },
 
