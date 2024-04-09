@@ -88,7 +88,7 @@ addLayer("P", {
             description: "More Particles! Boost Particles based on itself.",
             cost: new Decimal(40),
             effect() {
-                let effect1 = (player.points.max(1).add(1).pow(0.07)).max(1).min(10);
+                let effect1 = (player.points.max(1).add(1).pow(0.09)).max(1).min(10);
                 if (hasUpgrade('F', 12)) effect1 = effect1.times(3)
                 return effect1
             },
@@ -151,13 +151,12 @@ addLayer("P", {
             description: "<server>Let's keep going! Feed/Super Powder boosts Powder & Particles</server>",
             cost: new Decimal(10000),
             effect() {
-                let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.21)).max(1).min(10);
+                let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.22)).max(1).min(10);
                 if (hasUpgrade('F', 22)) effect1 = effect1.times(upgradeEffect('F', 22))
                 return effect1
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(Capped)" : "";
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
                 return text;
             },
             unlocked() { return hasUpgrade('P', 23) && (player.F.unlocked || player.SP.unlocked) },
