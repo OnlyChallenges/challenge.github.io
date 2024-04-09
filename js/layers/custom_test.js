@@ -16,8 +16,8 @@ addLayer("P", {
     },
 
     passiveGeneration(){
-        let pass = new Decimal(1)
-        if (hasUpgrade('V', 13)) pass = pass.add(upgradeEffect('V', 13))
+        let pass = new Decimal(0)
+        if (hasUpgrade('V', 13)) pass = pass.add(upgradeEffect('V', 13).div(100))
         return pass
     },
     color: "#FFFFFF",
