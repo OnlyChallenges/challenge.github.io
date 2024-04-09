@@ -76,7 +76,7 @@ addLayer("V", {
         },
         13: {
             title: "<rainbow>C</rainbow>",
-            description: "Passively Gain Powder based on <ruins>Vaccines</ruins><br(Capped at +1,000% OR 1e10 Powder)",
+            description: "Passively Gain Powder based on <ruins>Vaccines</ruins><br>(Capped at +1,000% OR 1e10 Powder)",
             cost: new Decimal(3),
             unlocked() { return hasUpgrade('V', 12) },
             effect() {
@@ -86,6 +86,7 @@ addLayer("V", {
             },
             effectDisplay() {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                if (player.P.points > 1e10) text = `+0.00%`;
                 return text;
             },
         },
