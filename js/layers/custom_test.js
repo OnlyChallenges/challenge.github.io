@@ -15,6 +15,11 @@ addLayer("P", {
 
     },
 
+    passiveGeneration(){
+        let pass = new Decimal(1)
+        if (hasUpgrade('V', 13)) pass = pass.add(upgradeEffect('V', 13))
+        return pass
+    },
     color: "#FFFFFF",
     resource: "powder",
     baseResource: "particles",

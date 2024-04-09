@@ -52,6 +52,12 @@ addLayer("V", {
             done() { return player.V.points.gte(4) },
             unlocked() { return hasMilestone('V', 11) },
         },
+        13: {
+            requirementDescription: "<server>R</server> (22 Vaccines)",
+            effectDescription: `+^7.5% Super Power Effect`,
+            done() { return player.V.points.gte(22) },
+            unlocked() { return hasMilestone('V', 12) },
+        },
     },
     //Build Content
     upgrades: {
@@ -67,6 +73,21 @@ addLayer("V", {
             description: "Boost Powder gain by 600%",
             cost: new Decimal(2),
             unlocked() { return hasUpgrade('V', 11) },
+        },
+        13: {
+            title: "<rainbow>C</rainbow>",
+            description: "Passively Gain Powder based on <ruins>Vaccines</ruins><br(Capped at +1,000% OR 1e10 Powder)",
+            cost: new Decimal(3),
+            unlocked() { return hasUpgrade('V', 12) },
+            effect() {
+                let effect1 = (player.V.points.max(1).add(1).pow(0.3)).max(1).min(10);
+                if (player.P.points > 1e10) effect1 = new Decimal(0)
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
         },
     },
 })
