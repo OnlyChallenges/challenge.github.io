@@ -74,7 +74,7 @@ addLayer("SP", {
         if (hasUpgrade('F', 16)) gen = gen.times(upgradeEffect('F', 16))
         return gen
     },
-
+    canBuyMax(){ return hasMilestone('F', 11)},
 
 
     tabFormat: ["main-display", "prestige-button", ["display-text", function () {

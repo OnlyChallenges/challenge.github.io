@@ -9,7 +9,7 @@ addLayer("P", {
     },
     requires() {
         let requirement = new Decimal(5)
-        if (hasUpgrade('P', 12)) requirement = requirement.minus(0.8)
+        if (hasUpgrade('P', 12)) requirement = requirement.minus(1.2)
 
         return requirement
 
@@ -27,8 +27,8 @@ addLayer("P", {
     },
     gainMult() {
         let gain = new Decimal(1)
-        if (hasUpgrade('P', 13)) gain = gain.minus(0.1)
-        if (hasUpgrade('P', 15)) gain = gain.minus(0.05)
+        if (hasUpgrade('P', 13)) gain = gain.minus(0.075)
+        if (hasUpgrade('P', 15)) gain = gain.minus(0.025)
         if (hasUpgrade('P', 22)) gain = gain.add(upgradeEffect('P', 22))
         if (hasUpgrade('F', 14)) gain = gain.times(upgradeEffect('F', 14))
         if (hasUpgrade('P', 24)) gain = gain.times(upgradeEffect('P', 24))
