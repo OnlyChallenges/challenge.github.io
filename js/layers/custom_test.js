@@ -142,7 +142,7 @@ addLayer("P", {
         },
         23: {
             title: "Saget Powder III",
-            description: "<server>Unlock Two Layers</server>",
+            description: "<server>Unlock Two Layers, also boost Particle Gain by ^3.5%</server>",
             cost: new Decimal(1000),
             unlocked() { return hasUpgrade('P', 22) },
         },
