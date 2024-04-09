@@ -55,7 +55,7 @@ addLayer("SP", {
         return eff;
     },
     effBase() {
-        let base = new Decimal(1.3);
+        let base = new Decimal(1.4);
         return base;
     },
     update(diff) {
@@ -64,7 +64,7 @@ addLayer("SP", {
     },
 
     generationExp() {
-        let exp = new Decimal(1 / 7);
+        let exp = new Decimal(1 / 6);
         return exp;
     },
 
