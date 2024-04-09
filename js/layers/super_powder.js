@@ -96,7 +96,7 @@ addLayer("SP", {
         },
         12: {
             title: "Super II",
-            description: "Super Super! Boost SP-II Effect by 30%",
+            description: "Super Super! Boost SP-II Effect by 110%",
             cost: new Decimal(650),
             currencyDisplayName: "Super Power",
             currencyInternalName: "generation",

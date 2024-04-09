@@ -131,12 +131,11 @@ addLayer("P", {
             currencyInternalName: "points",
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.05)).max(1).min(3);
-                if (hasUpgrade('SP', 12)) effect1 = effect1.times(1.4)
+                if (hasUpgrade('SP', 12)) effect1 = effect1.times(2.1)
                 return effect1
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(3) ? "(Capped)" : "";
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1))} ${capped}`;
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1))}`;
                 return text;
             },
             unlocked() { return hasUpgrade('P', 21) },
