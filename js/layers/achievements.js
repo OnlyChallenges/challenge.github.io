@@ -25,7 +25,7 @@ addLayer("A", {
     achievements: {
         11: {
             name: "particle accelerator",
-            done() { return player.points.gte(100) },
+            done() { return player.points.gte(20) },
             tooltip: "Embark on your points!",
         },
         12: {
@@ -75,6 +75,24 @@ addLayer("A", {
             done() { return player.points.gte(1e10)},
             tooltip: "1.00 × 10¹⁰",
             unlocked() {return hasAchievement('A', 21)},
+        },
+        23: {
+            name: "4 out of 6",
+            done() { return hasUpgrade('V', 14)},
+            tooltip: "V.A.C.C.?",
+            unlocked() {return hasAchievement('A', 22)},
+        },
+        24: {
+            name: "due process",
+            done() { return hasMilestone('V', 13)},
+            tooltip: "would you like an CUR?",
+            unlocked() {return hasAchievement('A', 23)},
+        },
+        25: {
+            name: "false three",
+            done() { return hasMilestone('V', 14)},
+            tooltip: "Cures?",
+            unlocked() {return hasAchievement('A', 24)},
         },
     },
 })

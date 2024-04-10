@@ -58,6 +58,12 @@ addLayer("V", {
             done() { return player.V.points.gte(22) },
             unlocked() { return hasMilestone('V', 12) },
         },
+        14: {
+            requirementDescription: "<server>E</server> (165 Vaccines)",
+            effectDescription: `Lower Super Powder Requirement by 400%<br>Also unlock the next layer.`,
+            done() { return player.V.points.gte(165) },
+            unlocked() { return hasMilestone('V', 13) },
+        },
     },
     //Build Content
     upgrades: {
@@ -98,6 +104,20 @@ addLayer("V", {
             effect() {
                 let effect1 = (player.V.points.max(1).add(1).pow(0.13)).max(1).min(151);
                 if (effect1 > 151) effect1 = new Decimal(151)
+                return effect1
+            },
+            effectDisplay() {
+                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+        },
+        15: {
+            title: "<rainbow>I</rainbow>",
+            description: "Vaccines boosts Super Power Effect",
+            cost: new Decimal(8),
+            unlocked() { return hasUpgrade('V', 14) },
+            effect() {
+                let effect1 = (player.V.points.max(1).add(1).pow(0.24)).max(1).min(20);
                 return effect1
             },
             effectDisplay() {

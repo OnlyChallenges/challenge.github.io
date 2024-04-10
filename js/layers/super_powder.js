@@ -15,6 +15,7 @@ addLayer("SP", {
         if (player.F.unlocked && player.SP.unlocked) requirement = requirement.div(50)
         if (hasUpgrade('F', 23)) requirement = requirement.div(upgradeEffect('F', 23))
         if (hasUpgrade('F', 25)) requirement = requirement.div(upgradeEffect('F', 25))
+        if (hasMilestone('V', 14)) requirement = requirement.div(4)
         return requirement
 
     },
@@ -72,6 +73,7 @@ addLayer("SP", {
         let gen = player.SP.generation.plus(1).pow(this.generationExp())
         if (!player.SP.unlocked) gen = new Decimal(1)
         if (hasUpgrade('F', 16)) gen = gen.times(upgradeEffect('F', 16))
+        if (hasUpgrade('V', 15)) gen = gen.times(upgradeEffect('V', 15))
         return gen
     },
     canBuyMax(){ return hasMilestone('F', 11)},
