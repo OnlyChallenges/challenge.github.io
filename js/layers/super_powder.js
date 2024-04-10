@@ -144,7 +144,7 @@ addLayer("SP", {
         21: {
             title: "Vaccine Super I",
             description: "Vaccine + Super? S²F-II Effect is better based on hover formula",
-            cost: new Decimal(50000),
+            cost: new Decimal(1000000),
             tooltip: "(Super Points + Vaccines / (Feed + 1))^0.3",
             currencyDisplayName: "Super Power",
             currencyInternalName: "generation",
