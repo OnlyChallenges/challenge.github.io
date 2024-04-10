@@ -141,7 +141,7 @@ addLayer("V", {
         },
         17: {
             title: "<rainbow>E</rainbow>",
-            description: "Vaccines boost Super Power Generatione (Additive)",
+            description: "Vaccines boost Super Power Generatione (Multiplicative)",
             cost: new Decimal(13),
             unlocked() { return hasUpgrade('V', 16) },
             effect() {
@@ -149,7 +149,7 @@ addLayer("V", {
                 return effect1
             },
             effectDisplay() {
-                let text = `+${format(upgradeEffect(this.layer, this.id))}`;
+                let text = `+${format(upgradeEffect(this.layer, this.id))}x`;
                 return text;
             },
         },
