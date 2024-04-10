@@ -15,7 +15,7 @@ addLayer("P", {
 
     },
 
-    passiveGeneration(){
+    passiveGeneration() {
         let pass = new Decimal(1)
         if (!hasUpgrade('V', 13)) pass = new Decimal(0)
         if (hasUpgrade('V', 13)) pass = pass.add(upgradeEffect('V', 13).minus(1))
