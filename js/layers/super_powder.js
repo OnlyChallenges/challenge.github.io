@@ -131,7 +131,7 @@ addLayer("SP", {
             currencyInternalName: "generation",
             currencyLayer: "SP",
             effect() {
-                let effect1 = (player.SP.generation.max(1).add(1).pow(0.068)).max(1).min(10);
+                let effect1 = (player.SP.generation.max(1).add(1).pow(0.068)).max(1).min(14);
                 return effect1
             },
             effectDisplay() {
@@ -140,6 +140,24 @@ addLayer("SP", {
                 return text;
             },
             unlocked() { return hasUpgrade('SP', 14) },
+        },
+        21: {
+            title: "Vaccine Super I",
+            description: "Vaccine + Super? S²F-II Effect is better based on hover formula",
+            cost: new Decimal(50000),
+            tooltip: "(Super Points + Vaccines / (Feed + 1))^0.3",
+            currencyDisplayName: "Super Power",
+            currencyInternalName: "generation",
+            currencyLayer: "SP",
+            effect() {
+                let effect1 = (((player.SP.points.add(player.V.points)).div(player.F.points.add(1))).max(1).add(1).pow(0.3)).max(1).min(19);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('SP', 15) && hasUpgrade('V', 11) },
         },
     },
 })

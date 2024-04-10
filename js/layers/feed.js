@@ -230,6 +230,7 @@ addLayer("F", {
             currencyLayer: "P",
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.3)).max(1).min(12);
+                if (hasUpgrade('SP', 21)) effect1 = effect1.times(upgradeEffect('SP', 21))
                 return effect1
             },
             effectDisplay() {

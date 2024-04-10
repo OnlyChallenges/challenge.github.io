@@ -121,7 +121,7 @@ addLayer("V", {
                 return effect1
             },
             effectDisplay() {
-                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
                 return text;
             },
         },
