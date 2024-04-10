@@ -67,8 +67,8 @@ addLayer("V", {
     },
     //Build Content
     upgrades: {
-        rows: 5,
-        cols: 5,
+        rows: 7,
+        cols: 7,
         11: {
             title: "<server>V</server>",
             description: "Boost Particle gain by 750%",
