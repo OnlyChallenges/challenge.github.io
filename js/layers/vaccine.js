@@ -139,5 +139,19 @@ addLayer("V", {
                 return text;
             },
         },
+        17: {
+            title: "<rainbow>E</rainbow>",
+            description: "Vaccines boost Super Power Generatione (Additive)",
+            cost: new Decimal(13),
+            unlocked() { return hasUpgrade('V', 16) },
+            effect() {
+                let effect1 = (player.V.points.max(1).pow(0.2)).max(1).min(99);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id))}`;
+                return text;
+            },
+        },
     },
 })
