@@ -39,6 +39,8 @@ addLayer("P", {
         if (hasUpgrade('P', 24)) gain = gain.times(upgradeEffect('P', 24))
         if (hasUpgrade('F', 21)) gain = gain.times(upgradeEffect('F', 21))
         if (hasUpgrade('V', 12)) gain = gain.times(6)
+        if (hasUpgrade('F', 34)) gain = gain.times(1.5)
+        if (player.SP.generation2 > 0) gain = gain.times(tmp.SP.generation2Eff)
         return gain
     },
     gainExp() {
@@ -50,8 +52,9 @@ addLayer("P", {
     ],
     layerShown() { return true },
     doReset(resettingLayer) {
-        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
-        if (hasMilestone('V', 11)) player.P.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25")
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
+        if (hasMilestone('V', 11)) player.P.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25");
+        if (hasMilestone('V', 15)) player.F.upgrades.push("36");
     },
     branches: ["F", "SP", "V"],
     infoboxes: {

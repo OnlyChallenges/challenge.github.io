@@ -249,6 +249,7 @@ addLayer("F", {
             currencyLayer: "P",
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.47)).max(1).min(12);
+                if (hasUpgrade('SP', 21)) effect1 = effect1.times(upgradeEffect('SP', 21))
                 return effect1
             },
             effectDisplay() {
@@ -270,6 +271,32 @@ addLayer("F", {
                 return text;
             },
             unlocked() { return hasUpgrade('F', 32) },
+        },
+        34: {
+            title: "Super² Feed IV",
+            description: "Feed lowers Vaccine Requirement slightly",
+            cost: new Decimal(14),
+            effect() {
+                let effect1 = (player.F.points.max(1).add(1).pow(0.02)).max(1).min(16);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('F', 33) && hasMilestone('V', 13) },
+        },
+        35: {
+            title: "Super² Feed V",
+            description: "+30% Particle Gain, +50% Powder Gain, +33% Super Power Gain",
+            cost: new Decimal(15),
+            unlocked() { return hasUpgrade('F', 34) && hasMilestone('V', 13) },
+        },
+        36: {
+            title: "Super² Feed VI",
+            description: "Unlock the next generation in Super Powder Layer, +60% Particles",
+            cost: new Decimal(16),
+            unlocked() { return hasUpgrade('F', 35) && hasMilestone('V', 13) },
         },
     },
 })

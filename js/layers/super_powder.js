@@ -7,6 +7,7 @@ addLayer("SP", {
             unlocked: false,
             points: new Decimal(0),
             generation: new Decimal(0),
+            generation2: new Decimal(0),
         }
     },
     requires() {
@@ -55,6 +56,7 @@ addLayer("SP", {
         if (hasUpgrade('F', 26)) eff = eff.times(upgradeEffect('F', 26))
         if (hasMilestone('V', 12)) eff = eff.times(4.5)
         if (hasUpgrade('V', 17)) eff = eff.times(upgradeEffect('V', 17))
+        if (hasUpgrade('F', 34)) eff = eff.times(1.33)
         return eff;
     },
     effBase() {
@@ -64,11 +66,18 @@ addLayer("SP", {
     update(diff) {
         if (player.SP.unlocked)
             player.SP.generation = player.SP.generation.plus(tmp.SP.effect.times(diff));
+        if (player.SP.unlocked && hasUpgrade('F', 36))
+            player.SP.generation2 = player.SP.generation2.plus(player.SP.generation.pow(0.01).times(diff));
     },
 
     generationExp() {
         let exp = new Decimal(1 / 6);
         return exp;
+    },
+
+    generation2Exp() {
+        let exp1 = new Decimal(1 / 8);
+        return exp1;
     },
 
     generationEff() {
@@ -78,12 +87,27 @@ addLayer("SP", {
         if (hasUpgrade('V', 15)) gen = gen.times(upgradeEffect('V', 15))
         return gen
     },
+
+    generation2Eff() {
+        let gen = player.SP.generation2.plus(1).pow(this.generation2Exp())
+        if (!hasUpgrade('F', 36)) gen = new Decimal(1)
+        return gen
+    },
+
     canBuyMax() { return hasMilestone('F', 11) },
 
 
-    tabFormat: ["main-display", "prestige-button", ["display-text", function () {
-        return 'You have ' + format(player.SP.generation) + ' Super Power, which boosts Particle Gain, +' + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
-    }, {}], "blank", "upgrades"],
+    tabFormat:
+        ["main-display", "prestige-button",
+            ["display-text", function () {
+                return 'You have ' + format(player.SP.generation) + ' Super Power, which boosts Particle Gain, +' + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
+            }, {}],
+            ["display-text", function () {
+                if (hasUpgrade('F', 36)) return 'You have ' + format(player.SP.generation2) + ' Ultra Power, which boosts Powder Gain, +' + format(tmp.SP.generation2Eff.minus(1).times(100)) + '%'
+            }, {}],
+            "blank",
+            "upgrades"
+        ],
 
 
     //Build Content
@@ -146,10 +170,10 @@ addLayer("SP", {
         21: {
             title: "Vaccine Super I",
             description: "Vaccine + Super? S²F-II Effect is better based on hover formula",
-            cost: new Decimal(1000000),
+            cost: new Decimal(10),
             tooltip: "(Super Points + Vaccines / (Feed + 1))^0.3",
-            currencyDisplayName: "Super Power",
-            currencyInternalName: "generation",
+            currencyDisplayName: "Ultra Power",
+            currencyInternalName: "generation2",
             currencyLayer: "SP",
             effect() {
                 let effect1 = (((player.SP.points.add(player.V.points)).div(player.F.points.add(1))).max(1).add(1).pow(0.3)).max(1).min(19);

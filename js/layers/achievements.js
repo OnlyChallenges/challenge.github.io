@@ -89,10 +89,16 @@ addLayer("A", {
             unlocked() { return hasAchievement('A', 23) },
         },
         25: {
-            name: "false three",
-            done() { return hasMilestone('V', 14) },
-            tooltip: "Cures?",
+            name: "2 Gens",
+            done() { return tmp.SP.generation2 > 0 },
+            tooltip: "Ultra",
             unlocked() { return hasAchievement('A', 24) },
+        },
+        26: {
+            name: "C.U.R.E",
+            done() { return hasMilestone('V', 14) },
+            tooltip: "Cure... Have fun with Water!",
+            unlocked() { return hasAchievement('A', 25) },
         },
     },
 })

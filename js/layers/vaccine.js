@@ -9,6 +9,7 @@ addLayer("V", {
     },
     requires() {
         let requirement = new Decimal(1e9)
+        if (hasUpgrade('V', 34)) requirement = requirement.div(upgradeEffect('V', 34))
         return requirement
 
     },
@@ -54,7 +55,7 @@ addLayer("V", {
         },
         13: {
             requirementDescription: "<server>R</server> (22 Vaccines)",
-            effectDescription: `+^7.5% Super Power Effect`,
+            effectDescription: `+^7.5% Super Power Effect<br> Add 3 More Feed Upgrades`,
             done() { return player.V.points.gte(22) },
             unlocked() { return hasMilestone('V', 12) },
         },
@@ -63,6 +64,13 @@ addLayer("V", {
             effectDescription: `Lower Super Powder Requirement by 400%<br>Also unlock the next layer.`,
             done() { return player.V.points.gte(165) },
             unlocked() { return hasMilestone('V', 13) },
+        },
+        15: {
+            requirementDescription: "<logic>Special</logic> (S²F-VI Unlocked)",
+            effectDescription: `Keep S²F-VI on Resets before Vaccines`,
+            done() { return hasUpgrade('F', 36) },
+            unlocked() { return hasMilestone('V', 13) },
+        
         },
     },
     //Build Content
