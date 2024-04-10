@@ -8,37 +8,38 @@ addLayer("F", {
             points: new Decimal(0),
         }
     },
-    requires(){ 
-        let requirement = new Decimal(500)  
+    requires() {
+        let requirement = new Decimal(500)
         if (hasUpgrade('F', 12)) requirement = requirement.div(3.5)
         if (player.SP.unlocked) requirement = requirement.times(50)
         if (player.SP.unlocked && player.F.unlocked) requirement = requirement.div(50)
-        if (hasUpgrade('F', 32)) requirement = requirement.div(upgradeEffect('F',32))
+        if (hasUpgrade('F', 32)) requirement = requirement.div(upgradeEffect('F', 32))
+        if (hasUpgrade('V', 14)) requirement = requirement.div(upgradeEffect('V', 14))
         return requirement
-    
-    },
 
+    },
+    branches: ["V"],
     color: "#e0c287",
     resource: "feed",
     baseResource: "powder",
     baseAmount() { return player.P.points },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     type: "static",
-    exponent(){
+    exponent() {
         let ex = new Decimal(1.5)
         return ex
     },
-    gainMult(){
+    gainMult() {
         let gain = new Decimal(1)
         return gain
     },
-    gainExp(){
+    gainExp() {
         let exp = new Decimal(1)
         return exp
     },
-    canBuyMax(){ return hasMilestone('F', 11)},
+    canBuyMax() { return hasMilestone('F', 11) },
     hotkeys: [
-        {key: "f", description: "f: Reset for Feed", onPress(){if (canReset(this.layer) && player.F.unlocked) doReset(this.layer)}},
+        { key: "f", description: "f: Reset for Feed", onPress() { if (canReset(this.layer) && player.F.unlocked) doReset(this.layer) } },
     ],
     layerShown() { return hasUpgrade('P', 23) || player.F.unlocked || player.SP.unlocked },
 
@@ -51,18 +52,18 @@ addLayer("F", {
         },
     },
     upgrades: {
-    rows: 5,
-    cols: 6,
+        rows: 5,
+        cols: 6,
         11: {
             title: "Feed I",
-            description: "Feeding! Boost Particle Gain by 50%",
+            description: "Feeding! Boost Particle Gain by 75%",
             cost: new Decimal(1),
         },
         12: {
             title: "Feed II",
             description: "2nd Feed! Decrease Feed Requirement & Boost NP-IV by 300%.",
             cost: new Decimal(1),
-            unlocked() { return hasUpgrade('F', 11)},
+            unlocked() { return hasUpgrade('F', 11) },
         },
         13: {
             title: "Feed III",
@@ -70,7 +71,7 @@ addLayer("F", {
             cost: new Decimal(7500),
             currencyDisplayName: "Particles",
             currencyInternalName: "points",
-            unlocked() { return hasUpgrade('F', 12)},
+            unlocked() { return hasUpgrade('F', 12) },
         },
         14: {
             title: "Feed IV",
@@ -88,7 +89,7 @@ addLayer("F", {
             },
             currencyDisplayName: "Particles",
             currencyInternalName: "points",
-            unlocked() { return hasUpgrade('F', 13)},
+            unlocked() { return hasUpgrade('F', 13) },
         },
         15: {
             title: "Feed V",
@@ -103,7 +104,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 14)},
+            unlocked() { return hasUpgrade('F', 14) },
         },
         16: {
             title: "Feed VI",
@@ -120,7 +121,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 15) && player.SP.unlocked},
+            unlocked() { return hasUpgrade('F', 15) && player.SP.unlocked },
         },
         21: {
             title: "Super Feed I",
@@ -135,7 +136,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return player.SP.generation.gte(150) ||hasUpgrade('F', 21)},
+            unlocked() { return player.SP.generation.gte(150) || hasUpgrade('F', 21) },
         },
         22: {
             title: "Super Feed II",
@@ -151,7 +152,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 21)},
+            unlocked() { return hasUpgrade('F', 21) },
         },
         23: {
             title: "Super Feed III",
@@ -167,7 +168,7 @@ addLayer("F", {
                 let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 22)},
+            unlocked() { return hasUpgrade('F', 22) },
         },
         24: {
             title: "Super Feed IV",
@@ -182,7 +183,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 23)},
+            unlocked() { return hasUpgrade('F', 23) },
         },
         25: {
             title: "Super Feed V",
@@ -200,7 +201,7 @@ addLayer("F", {
                 let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 24)},
+            unlocked() { return hasUpgrade('F', 24) },
         },
         26: {
             title: "Super Feed VI",
@@ -218,7 +219,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 25)},
+            unlocked() { return hasUpgrade('F', 25) },
         },
         31: {
             title: "Super² Feed I",
@@ -236,7 +237,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 26)},
+            unlocked() { return hasUpgrade('F', 26) },
         },
         32: {
             title: "Super² Feed II",
@@ -253,7 +254,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 31)},
+            unlocked() { return hasUpgrade('F', 31) },
         },
         33: {
             title: "Super² Feed III",
@@ -267,7 +268,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
                 return text;
             },
-            unlocked() { return hasUpgrade('F', 32)},
+            unlocked() { return hasUpgrade('F', 32) },
         },
     },
 })

@@ -17,7 +17,7 @@ addLayer("P", {
 
     passiveGeneration(){
         let pass = new Decimal(0)
-        if (hasUpgrade('V', 13)) pass = pass.add(upgradeEffect('V', 13).div(100))
+        if (hasUpgrade('V', 13)) pass = pass.add(upgradeEffect('V', 13).div(10))
         return pass
     },
     color: "#FFFFFF",
@@ -148,7 +148,7 @@ addLayer("P", {
         23: {
             title: "Saget Powder III",
             description: "<server>Unlock Two Layers, also boost Particle Gain by ^3.5%</server>",
-            cost: new Decimal(1000),
+            cost: new Decimal(250),
             unlocked() { return hasUpgrade('P', 22) },
         },
         24: {

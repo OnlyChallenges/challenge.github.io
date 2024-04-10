@@ -90,5 +90,20 @@ addLayer("V", {
                 return text;
             },
         },
+        14: {
+            title: "<rainbow>C</rainbow>",
+            description: "Vaccines lower Feed Requirement (Capped at -15,000%)",
+            cost: new Decimal(5),
+            unlocked() { return hasUpgrade('V', 13) },
+            effect() {
+                let effect1 = (player.V.points.max(1).add(1).pow(0.13)).max(1).min(151);
+                if (effect1 > 151) effect1 = new Decimal(151)
+                return effect1
+            },
+            effectDisplay() {
+                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+        },
     },
 })
