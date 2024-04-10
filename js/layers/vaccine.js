@@ -125,5 +125,19 @@ addLayer("V", {
                 return text;
             },
         },
+        16: {
+            title: "<rainbow>N</rainbow>",
+            description: "Super Power lowers Super Point Requirement",
+            cost: new Decimal(10),
+            unlocked() { return hasUpgrade('V', 15) },
+            effect() {
+                let effect1 = (player.SP.generation.max(1).add(1).pow(0.15)).max(1).min(40);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+        },
     },
 })

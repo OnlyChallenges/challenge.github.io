@@ -16,6 +16,7 @@ addLayer("SP", {
         if (hasUpgrade('F', 23)) requirement = requirement.div(upgradeEffect('F', 23))
         if (hasUpgrade('F', 25)) requirement = requirement.div(upgradeEffect('F', 25))
         if (hasMilestone('V', 14)) requirement = requirement.div(4)
+        if (hasUpgrade('V', 16)) requirement = requirement.div(upgradeEffect('V', 16))
         return requirement
 
     },
