@@ -4,6 +4,7 @@ addLayer("A", {
     startData() {
         return {
             unlocked: true,
+            ach: new Decimal(12),
         }
     },
     color: "#5DE18A",
@@ -14,12 +15,20 @@ addLayer("A", {
         "Achievements": {
             content: [
                 "blank",
+                ["display-text", function () {
+                    return 'You have ' + format(player.W.achievements.length) + " / " + format(player.W.ach) + ' Achievements, which boosts point gain by -' + format(tmp.A.effect) + 'x'
+                }, {}],
                 "blank",
                 "blank",
                 "blank",
                 ["achievements", [1, 2, 3, 4, 5, 6, 7, 8, 9]],
             ],
         },
+    },
+
+    effect(){
+        let eff = Decimal.pow(1.15, player.W.achievements.length)
+        return eff
     },
 
     achievements: {

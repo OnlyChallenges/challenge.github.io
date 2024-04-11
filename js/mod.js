@@ -72,6 +72,7 @@ function getPointGen() {
   if (hasMilestone('W', 11)) gain = gain.times(3)
   if (hasUpgrade('W', 11)) gain = gain.pow(1.075)
   if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
+  if (player.A.unlocked) gain = gain.times(tmp.A.effect)
   return gain
 }
 
