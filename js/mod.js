@@ -12,12 +12,25 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.1.1",
-  name: "Vaccinations",
+  num: "0.2 || Changelog",
+  name: "Some Channges",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
- - There's nothing here...
+ <h2>v0.2: Some Changes</h2><br><br>
+ - Added 14 Upgrades<br>
+ - Improved Pre-Feed/Pre-Super Powder Formulas & Costs<br>
+ - Improved Point Gain on 3 Upgrades<br>
+ - Revamped Feed Costs & Differences<br>
+ - Hovering over; will now pop out more so it's easier to read<br>
+ - > Upgrades<br>
+ - > Milestones<br>
+ - > Achievements<br><br>
+ - Added 2 Milestones<br>
+ - Changed 2 Vaccine Upgrades<br>
+ - Changed Super Power Effect Slightly & Power Difference to 0.4 instead of 0.22<br>
+ - Changed Begin Feed route to make it a better Active-Playstyle.<br><br>
+
 	`
 let winText = `You've started to make vaccines? Start to make the cure...`
 
