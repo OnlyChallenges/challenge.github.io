@@ -91,7 +91,7 @@ addLayer("W", {
             effectDescription: `+200% Particle Gain & -20% Feed Requirement`,
             done() { return player.W.points.gte(1) || hasUpgrade('W', 11) },
         },
-        11: {
+        12: {
             requirementDescription: "H3O (3 Water)",
             effectDescription: `Unlock 5 more Powder Upgrades<br>Ontop of that; keep the Feed Milestone`,
             done() { return player.W.points.gte(3) },
