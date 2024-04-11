@@ -1,5 +1,5 @@
 let modInfo = {
-  name() { return format(player.points) + `particles`},
+  name: "The Powder Tree v0.2",
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "particles",
