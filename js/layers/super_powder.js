@@ -76,7 +76,7 @@ addLayer("SP", {
     },
 
     generation2Exp() {
-        let exp1 = new Decimal(1 / 8);
+        let exp1 = new Decimal(1 / 18);
         return exp1;
     },
 
