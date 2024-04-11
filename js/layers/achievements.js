@@ -4,7 +4,7 @@ addLayer("A", {
     startData() {
         return {
             unlocked: true,
-            ach: new Decimal(12),
+            ach: new Decimal(14),
         }
     },
     color: "#5DE18A",
@@ -108,6 +108,12 @@ addLayer("A", {
             done() { return hasMilestone('V', 14) },
             tooltip: "Cure... Have fun with Water!",
             unlocked() { return hasAchievement('A', 25) },
+        },
+        27: {
+            name: "HTwoTheNo!",
+            done() { return player.W.points.gte(2) },
+            tooltip: "Hah, get it?",
+            unlocked() { return hasAchievement('A', 26) },
         },
     },
 })
