@@ -21,11 +21,11 @@ addLayer("W", {
     row: 2, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
-        let ex = new Decimal(0.24)
+        let ex = new Decimal(0.1)
         return ex
     },
     gainMult() {
-        let gain = new Decimal(0.7)
+        let gain = new Decimal(1)
         return gain
     },
     gainExp() {
@@ -91,6 +91,12 @@ addLayer("W", {
             effectDescription: `+200% Particle Gain & -20% Feed Requirement`,
             done() { return player.W.points.gte(1) || hasUpgrade('W', 11) },
         },
+        11: {
+            requirementDescription: "H3O (3 Water)",
+            effectDescription: `Unlock 5 more Powder Upgrades<br>Ontop of that; keep the Feed Milestone`,
+            done() { return player.W.points.gte(3) },
+            unlocked() { return hasMilestone('W', 11) },
+        },
     },
     //Build Content
     upgrades: {
@@ -100,6 +106,12 @@ addLayer("W", {
             title: "Type I",
             description: "^7.5% Particle Gain & ^3.5% Powder Gain",
             cost: new Decimal(1),
+        },
+        12: {
+            title: "Type II",
+            description: "Lower Vaccine Requirement by 250%",
+            cost: new Decimal(1),
+            unlocked() { return hasUpgrade('W', 11) },
         },
     },
 })

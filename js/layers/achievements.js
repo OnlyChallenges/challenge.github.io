@@ -15,7 +15,7 @@ addLayer("A", {
             content: [
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.hahaFormula) + ' / 14 Achievements, which boosts point gain by -' + format(tmp.A.effect) + 'x<br>(1.15*[Total_Achievements])'
+                    return 'You have ' + formatWhole(tmp.A.hahaFormula) + ' / 14 Achievements, which boosts point gain by ' + format(tmp.A.effect) + 'x<br>(1.15*[Total_Achievements])'
                 }, {}],
                 "blank",
                 "blank",

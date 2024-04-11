@@ -10,6 +10,7 @@ addLayer("V", {
     requires() {
         let requirement = new Decimal(1e9)
         if (hasUpgrade('F', 34)) requirement = requirement.div(upgradeEffect('F', 34))
+        if (hasUpgrade('W', 11)) requirement = requirement.div(2.5)
         return requirement
 
     },
