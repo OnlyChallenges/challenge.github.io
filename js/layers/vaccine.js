@@ -78,7 +78,7 @@ addLayer("V", {
         rows: 7,
         cols: 7,
         11: {
-            title: "<server>V</server>",
+            title: "<rainbowr>V</rainbow>",
             description: "Boost Particle gain by 750%",
             cost: new Decimal(1),
         },

@@ -185,5 +185,48 @@ addLayer("SP", {
             },
             unlocked() { return hasUpgrade('SP', 15) && hasUpgrade('V', 11) },
         },
+        22: {
+            title: "Vaccine Super II",
+            description: "Vaccine + Vaccine = Super 2? Ultra Power lowers Feed Requirement",
+            cost: new Decimal(70),
+            currencyDisplayName: "Ultra Power",
+            currencyInternalName: "generation2",
+            currencyLayer: "SP",
+            effect() {
+                let effect1 = (player.SP.generation2.max(1).add(1).pow(0.13)).max(1).min(44);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('SP', 21) },
+        },
+        23: {
+            title: "Vaccine Super III",
+            description: "VacVacVac = Super 3? Increase Ultra Power Effect by ^20%",
+            cost: new Decimal(300),
+            currencyDisplayName: "Ultra Power",
+            currencyInternalName: "generation2",
+            currencyLayer: "SP",
+            unlocked() { return hasUpgrade('SP', 22) },
+        },
+        24: {
+            title: "Vaccine Super IV",
+            description: "Vac^Vac = Super 4? Increase Ultra Power Gain based on Super Power",
+            cost: new Decimal(400),
+            currencyDisplayName: "Ultra Power",
+            currencyInternalName: "generation2",
+            currencyLayer: "SP",
+            effect() {
+                let effect1 = (player.SP.generation.max(1).add(1).pow(0.09)).max(1).min(39);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('SP', 23) },
+        },
     },
 })

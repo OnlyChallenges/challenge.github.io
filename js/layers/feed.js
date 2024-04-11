@@ -277,11 +277,11 @@ addLayer("F", {
             description: "Feed lowers Vaccine Requirement slightly",
             cost: new Decimal(14),
             effect() {
-                let effect1 = (player.F.points.max(1).add(1).pow(0.02)).max(1).min(16);
+                let effect1 = (player.F.points.max(1).add(1).pow(0.04)).max(1).min(16);
                 return effect1
             },
             effectDisplay() {
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
                 return text;
             },
             unlocked() { return hasUpgrade('F', 33) && hasMilestone('V', 13) },
