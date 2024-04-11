@@ -67,7 +67,9 @@ addLayer("SP", {
         if (player.SP.unlocked)
             player.SP.generation = player.SP.generation.plus(tmp.SP.effect.times(diff));
         if (player.SP.unlocked && hasUpgrade('F', 36))
-            player.SP.generation2 = player.SP.generation2.plus(tmp.SP.effect.pow(0.01).times(diff));
+            player.SP.generation2 = player.SP.generation2.plus(tmp.SP.effect.times(diff).div(150));
+        if (player.SP.unlocked && hasUpgrade('F', 36) && hasUpgrade('SP', 35))
+            player.SP.generation2 = player.SP.generation2.plus(tmp.SP.effect.times(diff).div(150).times(upgradeEffect('SP', 35)))
     },
 
     generationExp() {
@@ -77,7 +79,6 @@ addLayer("SP", {
 
     generation2Exp() {
         let exp1 = new Decimal(1 / 18);
-        if (hasUpgrade('SP', 24)) exp1 = exp1.times(upgradeEffect('SP', 24))
         return exp1;
     },
 
