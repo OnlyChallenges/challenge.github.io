@@ -90,7 +90,7 @@ addLayer("A", {
         },
         25: {
             name: "2 Gens",
-            done() { return tmp.SP.generation2 > 0 },
+            done() { return hasUpgrade('F', 36) },
             tooltip: "Ultra",
             unlocked() { return hasAchievement('A', 24) },
         },
