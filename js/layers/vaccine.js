@@ -13,7 +13,8 @@ addLayer("V", {
         return requirement
 
     },
-
+    branches: ["W"],
+    position: 1,
     color: "#CD33B2",
     resource: "vaccines",
     baseResource: "particles",
@@ -34,7 +35,7 @@ addLayer("V", {
         return exp
     },
     hotkeys: [
-        { key: "v", description: "v: Reset for Vaccines", onPress() { if (canReset(this.layer) && player.P.unlocked) doReset(this.layer) } },
+        { key: "v", description: "v: Reset for Vaccines", onPress() { if (canReset(this.layer) && player.V.unlocked) doReset(this.layer) } },
     ],
     layerShown() { return hasAchievement('A', 17) },
     doReset(resettingLayer) {

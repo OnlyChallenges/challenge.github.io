@@ -40,6 +40,7 @@ addLayer("P", {
         if (hasUpgrade('F', 21)) gain = gain.times(upgradeEffect('F', 21))
         if (hasUpgrade('V', 12)) gain = gain.times(6)
         if (hasUpgrade('F', 34)) gain = gain.times(1.5)
+        if (hasUpgrade('W', 11)) gain = gain.pow(1.035)
         if (player.SP.generation2 > 0) gain = gain.times(tmp.SP.generation2Eff)
         return gain
     },
@@ -56,7 +57,7 @@ addLayer("P", {
         if (hasMilestone('V', 11)) player.P.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25");
         if (hasMilestone('V', 15)) player.F.upgrades.push("36");
     },
-    branches: ["F", "SP", "V"],
+    branches: ["F", "SP", "V", "W"],
     infoboxes: {
         lore: {
             title: "Some stuff",

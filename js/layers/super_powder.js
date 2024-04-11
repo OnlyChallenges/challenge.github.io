@@ -18,9 +18,11 @@ addLayer("SP", {
         if (hasUpgrade('F', 25)) requirement = requirement.div(upgradeEffect('F', 25))
         if (hasMilestone('V', 14)) requirement = requirement.div(4)
         if (hasUpgrade('V', 16)) requirement = requirement.div(upgradeEffect('V', 16))
+        if (player.W.unlocked) requirement = requirement.div(tmp.W.generationEff)
         return requirement
 
     },
+    branches: ["W"],
 
     color: "#a733dc",
     resource: "super powder",
