@@ -1,5 +1,5 @@
 let modInfo = {
-  name: "Tree of Abyssal Demise",
+  name: format(player.points) + ` particles`,
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "particles",
