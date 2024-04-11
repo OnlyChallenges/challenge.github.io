@@ -9,7 +9,7 @@
 }
 
 .upg:hover{
-	transform: scale(1.3, 1.3);
+	transform: scale(1.2, 1.2);
 	box-shadow: 0 0 10px var(--points);
 	z-index: 4;
 }
@@ -26,7 +26,7 @@
 }
 
 .achievement:hover {
-	transform: scale(1.3, 1.3);
+	transform: scale(1.23, 1.23);
 	box-shadow: 0 0 10px var(--points);
 	z-index: 7;
 }
@@ -55,7 +55,7 @@
 }
 
 .milestone:hover {
-	transform: scale(1.2, 1.2);
+	transform: scale(1.15, 1.15);
 	box-shadow: 0 0 20px var(--points);
 	z-index: 4
 }
@@ -75,7 +75,7 @@
 }
 
 .milestoneDone:hover {
-	transform: scale(1.2, 1.2);
+	transform: scale(1.15, 1.15);
 	box-shadow: 0 0 20px var(--points);
 	z-index: 4
 }

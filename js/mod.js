@@ -21,7 +21,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
  - Added 14 Upgrades<br>
  - Improved Pre-Feed/Pre-Super Powder Formulas & Costs<br>
  - Improved Point Gain on 3 Upgrades<br>
- - Revamped Feed Costs & Differences<br>
+ - Revamped Feed Costs & Differences<br><br>
  - Hovering over; will now pop out more so it's easier to read<br>
  - > Upgrades<br>
  - > Milestones<br>

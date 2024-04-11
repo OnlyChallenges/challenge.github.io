@@ -40,7 +40,7 @@
 }
 
 .resetNotify {
-	box-shadow: var(--hqProperty2a), 0 0 8px #ffffff;
+	box-shadow: var(--hqProperty2a), 0 0 15px #07d2f1;
 }
 
 .treeNode.can:hover {
@@ -51,7 +51,7 @@
 .notify {
 	transform: scale(1.05, 1.05);
 	border-color: rgba(0, 0, 0, 0.125);
-	box-shadow: var(--hqProperty2a), 0 0 20px #ff0000;
+	box-shadow: var(--hqProperty2a), 0 0 26px #c80202;
 }
 
 
