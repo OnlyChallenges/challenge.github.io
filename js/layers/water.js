@@ -9,7 +9,7 @@ addLayer("W", {
         }
     },
     requires() {
-        let requirement = new Decimal(1e16)
+        let requirement = new Decimal(9.99e19)
         return requirement
 
     },
@@ -17,7 +17,7 @@ addLayer("W", {
     color: "#E2776A",
     resource: "water",
     baseResource: "powder",
-    baseAmount() { return player.points },
+    baseAmount() { return player.P.points },
     row: 2, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
