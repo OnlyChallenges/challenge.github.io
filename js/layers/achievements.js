@@ -31,7 +31,7 @@ addLayer("A", {
     },
 
     hahaFormula(){
-        let form = new Decimal(0),
+        let form = new Decimal(0)
         // Row 1
         if (hasAchievement('A', 11)) form = form.add(1)
         if (hasAchievement('A', 12)) form = form.add(1)
