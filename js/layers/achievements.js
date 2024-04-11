@@ -26,7 +26,7 @@ addLayer("A", {
     },
 
     effect(){
-        let eff = Decimal.times(1.15, tmp.W.hahaFormula).plus(1).max(1)
+        let eff = Decimal.pow(1.15, tmp.W.hahaFormula).plus(1).max(1)
         return eff
     },
 
