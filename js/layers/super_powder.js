@@ -67,7 +67,7 @@ addLayer("SP", {
         if (player.SP.unlocked)
             player.SP.generation = player.SP.generation.plus(tmp.SP.effect.times(diff));
         if (player.SP.unlocked && hasUpgrade('F', 36))
-            player.SP.generation2 = player.SP.generation2.plus(player.SP.generation.pow(0.01).times(diff));
+            player.SP.generation2 = player.SP.generation2.plus(tmp.SP.effect.pow(0.01).times(diff));
     },
 
     generationExp() {
