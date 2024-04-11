@@ -32,6 +32,16 @@ addLayer("W", {
         let exp = new Decimal(1)
         return exp
     },
+    effect() {
+        if (!player.W.unlocked)
+            return new Decimal(0)
+        let eff = Decimal.pow(this.effBase(), player.W.points).sub(1).max(0);
+        return eff;
+    },
+    effBase() {
+        let base = new Decimal(1.25);
+        return base;
+    },
     effectDescription() {
         dis = "which is generating " + format(tmp.W.effect) + " Liquid/sec"
         return dis
