@@ -4,7 +4,6 @@ addLayer("A", {
     startData() {
         return {
             unlocked: true,
-            ach: new Decimal(14),
         }
     },
     color: "#5DE18A",
@@ -16,7 +15,7 @@ addLayer("A", {
             content: [
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + format(player.W.achievements.length) + " / " + format(player.W.ach) + ' Achievements, which boosts point gain by -' + format(tmp.A.effect) + 'x'
+                    return 'You have ' + formatWhole(tmp.W.hahaFormula) + ' / 14 Achievements, which boosts point gain by -' + format(tmp.A.effect) + 'x<br>(1.15*[Total_Achievements])'
                 }, {}],
                 "blank",
                 "blank",
@@ -27,8 +26,29 @@ addLayer("A", {
     },
 
     effect(){
-        let eff = Decimal.pow(1.15, player.W.achievements.length)
+        let eff = Decimal(1).times(1.15, tmp.W.hahaFormula)
         return eff
+    },
+
+    hahaFormula(){
+        let form = new Decimal(0),
+        // Row 1
+        if (hasAchievement('A', 11)) form = form.add(1)
+        if (hasAchievement('A', 12)) form = form.add(1)
+        if (hasAchievement('A', 13)) form = form.add(1)
+        if (hasAchievement('A', 14)) form = form.add(1)
+        if (hasAchievement('A', 15)) form = form.add(1)
+        if (hasAchievement('A', 16)) form = form.add(1)
+        if (hasAchievement('A', 17)) form = form.add(1)
+        // Row 2
+        if (hasAchievement('A', 21)) form = form.add(1)
+        if (hasAchievement('A', 22)) form = form.add(1)
+        if (hasAchievement('A', 23)) form = form.add(1)
+        if (hasAchievement('A', 24)) form = form.add(1)
+        if (hasAchievement('A', 25)) form = form.add(1)
+        if (hasAchievement('A', 26)) form = form.add(1)
+        if (hasAchievement('A', 27)) form = form.add(1)
+        return form
     },
 
     achievements: {
