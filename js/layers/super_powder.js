@@ -77,6 +77,7 @@ addLayer("SP", {
 
     generation2Exp() {
         let exp1 = new Decimal(1 / 18);
+        if (hasUpgrade('SP', 24)) exp1 = exp1.times(upgradeEffect('SP', 24))
         return exp1;
     },
 
@@ -91,6 +92,7 @@ addLayer("SP", {
     generation2Eff() {
         let gen = player.SP.generation2.plus(1).pow(this.generation2Exp())
         if (!hasUpgrade('F', 36)) gen = new Decimal(1)
+        if (hasUpgrade('SP', 23)) gen = gen.pow(1.2)
         return gen
     },
 
@@ -219,14 +221,23 @@ addLayer("SP", {
             currencyInternalName: "generation2",
             currencyLayer: "SP",
             effect() {
-                let effect1 = (player.SP.generation.max(1).add(1).pow(0.09)).max(1).min(39);
+                let effect1 = (player.SP.generation.max(1).add(1).pow(0.08)).max(1).min(39);
                 return effect1
             },
             effectDisplay() {
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}x%`;
                 return text;
             },
             unlocked() { return hasUpgrade('SP', 23) },
+        },
+        25: {
+            title: "Vaccine Super V",
+            description: "Super^^Vac. 60% Vaccine Gain",
+            cost: new Decimal(1000),
+            currencyDisplayName: "Ultra Power",
+            currencyInternalName: "generation2",
+            currencyLayer: "SP",
+            unlocked() { return hasUpgrade('SP', 24) },
         },
     },
 })

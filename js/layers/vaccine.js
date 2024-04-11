@@ -26,6 +26,7 @@ addLayer("V", {
     },
     gainMult() {
         let gain = new Decimal(1)
+        if (hasUpgrade('SP', 25)) gain = gain.times(1.6)
         return gain
     },
     gainExp() {
