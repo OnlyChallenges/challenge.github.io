@@ -172,8 +172,8 @@ addLayer("A", {
             unlocked() { return hasAchievement('A', 26) },
         },
         101: {
-            name: "Secret: Only 6 and 6",
-            done() { return ((hasUpgrade('F', 11) && hasUpgrade('F', 12) && hasUpgrade('F', 13) && hasUpgrade('F', 14) && hasUpgrade('F', 15) && hasUpgrade('F', 16) && !hasUpgrade('F', 21) && !hasUpgrade('F', 22)) && (hasUpgrade('SP', 11) && hasUpgrade('SP', 12) && hasUpgrade('SP', 13) && hasUpgrade('SP', 14) && hasUpgrade('SP', 15) && hasUpgrade('SP', 16) && !hasUpgrade('SP', 21))) },
+            name: "Secret: Only the first row",
+            done() { return ((hasUpgrade('F', 11) && hasUpgrade('F', 12) && hasUpgrade('F', 13) && hasUpgrade('F', 14) && hasUpgrade('F', 15) && hasUpgrade('F', 16) && !hasUpgrade('F', 21) && !hasUpgrade('F', 22)) && (hasUpgrade('SP', 11) && hasUpgrade('SP', 12) && hasUpgrade('SP', 13) && hasUpgrade('SP', 14) && hasUpgrade('SP', 15) && !hasUpgrade('SP', 21))) },
             tooltip: "Get only the first row of Super Power & Feed Upgrades before getting the 2nd row of both!<br>Reward: 100 AP",
             unlocked() { return hasAchievement('A', 101) },
         },
