@@ -310,7 +310,7 @@ function completeChallenge(layer, x) {
 
 VERSION.withoutName = "v" + VERSION.num + (VERSION.pre ? " Pre-Release " + VERSION.pre : VERSION.pre ? " Beta " + VERSION.beta : "")
 VERSION.withName = VERSION.withoutName + (VERSION.name ? ": " + VERSION.name : "")
-
+VERSION.special = "v<ruins>" + VERSION.num + "</ruins> || <rainbow>" + VERSION.ver + "</rainbow>"
 
 function autobuyUpgrades(layer){
 	if (!tmp[layer].upgrades) return
