@@ -75,13 +75,13 @@ addLayer("A", {
         if (hasAchievement('A', 16)) form = form.add(10)
         if (hasAchievement('A', 17)) form = form.add(10)
         // Row 2
-        if (hasAchievement('A', 21)) form = form.add(15)
+        if (hasAchievement('A', 21)) form = form.add(20)
         if (hasAchievement('A', 22)) form = form.add(20)
         if (hasAchievement('A', 23)) form = form.add(20)
         if (hasAchievement('A', 24)) form = form.add(20)
-        if (hasAchievement('A', 25)) form = form.add(25)
-        if (hasAchievement('A', 26)) form = form.add(30)
-        if (hasAchievement('A', 27)) form = form.add(40)
+        if (hasAchievement('A', 25)) form = form.add(20)
+        if (hasAchievement('A', 26)) form = form.add(20)
+        if (hasAchievement('A', 27)) form = form.add(20)
         // Special Achievements are worth more points
         if (hasAchievement('A', 101)) form = form.add(100)
         return form
@@ -132,7 +132,7 @@ addLayer("A", {
         21: {
             name: "curing",
             done() { return player.V.points.gte(1) },
-            tooltip: "start the 3rd layer<br>Reward: 15 AP",
+            tooltip: "start the 3rd layer<br>Reward: 20 AP",
             unlocked() { return hasAchievement('A', 16) },
         },
         22: {
@@ -156,19 +156,19 @@ addLayer("A", {
         25: {
             name: "2 Gens",
             done() { return hasUpgrade('F', 36) },
-            tooltip: "Ultra<br>Reward: 25 AP",
+            tooltip: "Ultra<br>Reward: 20 AP",
             unlocked() { return hasAchievement('A', 24) },
         },
         26: {
             name: "C.U.R.E",
             done() { return hasMilestone('V', 14) },
-            tooltip: "Cure... Have fun with Water!<br>Reward: 30 AP",
+            tooltip: "Cure... Have fun with Water!<br>Reward: 20 AP",
             unlocked() { return hasAchievement('A', 25) },
         },
         27: {
             name: "HTwoTheNo!",
             done() { return player.W.points.gte(2) },
-            tooltip: "Hah, get it?<br>Reward: 40 AP",
+            tooltip: "Hah, get it?<br>Reward: 20 AP",
             unlocked() { return hasAchievement('A', 26) },
         },
         101: {
