@@ -16,7 +16,7 @@ addLayer("A", {
             content: [
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have ' + formatWhole(tmp.A.aP) + ' Achievement Points.<br>(Formula: 1.01^'+formatWhole(tmp.A.aP)+'/'+format(tmp.A.nonInf)+')'
+                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have ' + formatWhole(tmp.A.aP) + ' Achievement Points.<br>(Formula: (1.0125^'+formatWhole(tmp.A.aP)+')/'+format(tmp.A.nonInf)+')'
                 }, {}],
                 "blank",
                 "blank",
@@ -60,7 +60,7 @@ addLayer("A", {
     },
 
     effect(){
-        let eff = Decimal.pow(1.01, tmp.A.aP).div(tmp.A.nonInf).max(1)
+        let eff = Decimal.pow(1.0125, tmp.A.aP).div(tmp.A.nonInf).max(1)
 
         return eff
     },
