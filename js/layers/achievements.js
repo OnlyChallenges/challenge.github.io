@@ -60,7 +60,7 @@ addLayer("A", {
     },
 
     effect(){
-        let eff = Decimal.pow(1.01, tmp.A.aP.div(tmp.A.noninf)).max(1)
+        let eff = Decimal.pow(1.01, tmp.A.aP).div(tmp.A.nonInf).max(1)
 
         return eff
     },
