@@ -24,7 +24,7 @@ addLayer("A", {
                 ["achievements", [1, 2, 3, 4, 5, 6, 7, 8, 9]],
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total2) + ' / ? Secret Achievements'
+                    return 'You have ' + formatWhole(tmp.A.total2) + ' / 3 Secret Achievements'
                 }, {}],
                 ["achievements", [10, 11, 12]],
                 "blank",
@@ -96,6 +96,7 @@ addLayer("A", {
         // Row 1
         if (hasAchievement('A', 101)) form = form.add(1)
         if (hasAchievement('A', 102)) form = form.add(1)
+        if (hasAchievement('A', 103)) form = form.add(1)
         return form
     },
 
@@ -120,6 +121,7 @@ addLayer("A", {
         // Special Achievements are worth more points
         if (hasAchievement('A', 101)) form = form.add(100)
         if (hasAchievement('A', 102)) form = form.add(50)
+        if (hasAchievement('A', 103)) form = form.add(50)
         return form
     },
 
@@ -218,6 +220,12 @@ addLayer("A", {
             done() { return player.A.secret.gte(1) },
             tooltip: "You found a secret Button...it does nothing surprisingly<br>Reward: 50 AP",
             unlocked() { return hasAchievement('A', 102) },
+        },
+        103: {
+            name: "Secret: Powdery World",
+            done() { return player.P.points.gte(1e25) && player.W.points.lte(0)},
+            tooltip: `"Have no H20, but have 10^25 Powder", Nice quote <br>Reward: 50 AP`,
+            unlocked() { return hasAchievement('A', 103) },
         },
     },
     clickables: {
