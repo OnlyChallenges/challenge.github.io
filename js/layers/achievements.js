@@ -66,7 +66,7 @@ addLayer("A", {
     },
 
     nonInf(){
-        let non = Decimal.pow(1.0025, tmp.A.aP).max(1)
+        let non = Decimal.pow(1.006, tmp.A.aP).max(1)
         return non
     },
 
