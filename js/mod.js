@@ -30,7 +30,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
  - Added 3 Secret Achievements that are given subtle hints for all three.<br><br>
  -> <fail>Hint 1: The 1st row on the 2nd Row would be pretty nice...</fail><br>
  -> <fail>Hint 2: Only the Achievement's Tab will show you something.</fail><br>
- -> <fail>Hint 3: Heard about No Water and 10^25 Powder?<fail><br><br>
+ -> <fail>Hint 3: Heard about No Water and 10^25 Powder?</fail><br><br>
  - Improved Hover UI Again for several Upgrades & Achievements<br><br>
 
  <h3>v0.2.1.1</h3><br>
@@ -41,7 +41,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
  
   <rainbow>=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+</rainbow><br><br>
 
- <h2>v0.2: Some Changes</h2><br><br>
+ <h2>v0.2: Some Changes</h2><br>
  - Added 14 Upgrades<br>
  - Improved Pre-Feed/Pre-Super Powder Formulas & Costs<br>
  - Improved Point Gain on 3 Upgrades<br>
