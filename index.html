@@ -78,7 +78,7 @@
 			<img id="optionWheel" class="overlayThing" v-if="player.tab!='options-tab'" src="options_wheel.png"
 				onclick="showTab('options-tab')"></img>
 			<div id="info" v-if="player.tab!='info-tab'" class="overlayThing" onclick="showTab('info-tab')"><br>i</div>
-			<div id="secret" class="overlayThing" onclick="showTab(`tmp['s'].layer`)"><br>`</div>
+			<div id="secret" v-if="player.tab!=`tmp['s'].layer`"class="overlayThing" onclick="showTab(`tmp['s'].layer`)"><br>`</div>
 			<div id="discord" class="overlayThing">
 				<img onclick="window.open((modInfo.discordLink ? modInfo.discordLink : 'https://discord.gg/F3xveHV'),'mywindow')"
 					src="discord.png" target="_blank"></img>
