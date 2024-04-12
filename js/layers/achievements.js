@@ -226,14 +226,14 @@ addLayer("A", {
             display: "Secret",
             canClick: true,
             onClick() {
-                player.s.secret = 1
+                player.A.secret = 1
             },
             style() {
                 return {
                     'background-color': tmp.A.color,
                 }
             },
-            unlocked() { return player.s.secret == 0 }
+            unlocked() { return player.A.secret == 0 }
         },
     },
 })
