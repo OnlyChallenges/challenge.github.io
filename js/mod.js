@@ -1,5 +1,5 @@
 let modInfo = {
-  name: "The Powder Tree v0.2",
+  name: "The Powder Tree v0.2.1.1",
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "particles",
@@ -12,11 +12,34 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2 || Changelog",
-  name: "Some Channges",
+  num: "0.2.1.1 || Changelog",
+  name: "Secrets",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+ <h2>v0.2.1: Secrets</h2><br>
+ - Added Water<br><br>
+ -> <logic>Added 2 Milestones</logic><br>
+ -> <logic>Added 2 Upgrades</logic><br><br>
+ - Added 3 Feed Upgrades<br>
+ - Fixed Vaccination Balancing<br>
+ - Fixed 2 Pre-Super Powder Upgrades<br>
+ - Changed Begin Feed once again and improved past that<br>
+ - Added Achievement Points & Achievement Bonus Effects<br>
+ - Added 3 Secret Achievements that are given subtle hints for all three.<br><br>
+ -> <fail>Hint 1: The 1st row on the 2nd Row would be pretty nice...</fail><br>
+ -> <fail>Hint 2: Only the Achievement's Tab will show you something.</fail><br>
+ -> <fail>Hint 3: Heard about No Water and 10^25 Powder?<fail><br><br>
+ - Improved Hover UI Again for several Upgrades & Achievements<br><br>
+
+ <h3>v0.2.1.1</h3><br>
+ - Fixed Super Powder Effect<br>
+ - Fixed Vaccine Super III not giving an effect.<br>
+ - Fixed Achievement Points giving no effect or was super unbalanced.<br>
+ - Changed Achievement Point Formula from '1.05^AP' -> '(1.0125^AP)/???'<br><br>
+ 
+  =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+<br><br>
+
  <h2>v0.2: Some Changes</h2><br><br>
  - Added 14 Upgrades<br>
  - Improved Pre-Feed/Pre-Super Powder Formulas & Costs<br>
