@@ -25,6 +25,7 @@ addLayer("A", {
                 ["display-text", function () {
                     return 'You have ' + formatWhole(tmp.A.total2) + ' / ? Secret Achievements'
                 }, {}],
+                ["achievements", [10, 11, 12]],
             ],
         },
     },
