@@ -38,7 +38,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
  - Fixed Achievement Points giving no effect or was super unbalanced.<br>
  - Changed Achievement Point Formula from '1.05^AP' -> '(1.0125^AP)/???'<br><br>
  
-  =+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+<br><br>
+  <rainbow>=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+</rainbow><br><br>
 
  <h2>v0.2: Some Changes</h2><br><br>
  - Added 14 Upgrades<br>
