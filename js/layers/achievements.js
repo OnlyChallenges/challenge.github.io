@@ -94,7 +94,7 @@ addLayer("A", {
     },
 
     nonInf(){
-        let non = Decimal.pow(1.006, tmp.A.aP).max(1)
+        let non = Decimal.pow(1.001, tmp.A.aP).max(1)
         return non
     },
 
@@ -132,10 +132,10 @@ addLayer("A", {
         let form = new Decimal(0)
         // Row 1
         if (hasAchievement('A', 11)) form = form.add(1)
-        if (hasAchievement('A', 12)) form = form.add(1)
-        if (hasAchievement('A', 13)) form = form.add(3)
-        if (hasAchievement('A', 14)) form = form.add(4)
-        if (hasAchievement('A', 15)) form = form.add(4)
+        if (hasAchievement('A', 12)) form = form.add(2)
+        if (hasAchievement('A', 13)) form = form.add(5)
+        if (hasAchievement('A', 14)) form = form.add(5)
+        if (hasAchievement('A', 15)) form = form.add(7)
         if (hasAchievement('A', 16)) form = form.add(10)
         if (hasAchievement('A', 17)) form = form.add(10)
         // Row 2
@@ -162,25 +162,25 @@ addLayer("A", {
         12: {
             name: "thre",
             done() { return hasUpgrade('P', 13) },
-            tooltip: "3 Powders?<br> Reward: 1 AP",
+            tooltip: "3 Powders?<br> Reward: 2 AP",
             unlocked() { return hasAchievement('A', 11) },
         },
         13: {
             name: "Half of Two",
             done() { return hasUpgrade('P', 14) && (upgradeEffect('P', 14) > 1.499) },
-            tooltip: "NP-IV has 50% boost<br>Reward: 3 AP",
+            tooltip: "NP-IV has 50% boost<br>Reward: 5 AP",
             unlocked() { return hasAchievement('A', 12) },
         },
         14: {
             name: "Saget the 2nd",
             done() { return hasUpgrade('P', 22) },
-            tooltip: "Saget the 1st would be proud...<br> Reward: 4 AP",
+            tooltip: "Saget the 1st would be proud...<br> Reward: 5 AP",
             unlocked() { return hasAchievement('A', 13) },
         },
         15: {
             name: "SF",
             done() { return player.SP.unlocked || player.F.unlocked },
-            tooltip: "Unlock one of the layers in Row 2<br> Reward: 4 AP",
+            tooltip: "Unlock one of the layers in Row 2<br> Reward: 7 AP",
             unlocked() { return hasAchievement('A', 14) },
         },
         16: {
