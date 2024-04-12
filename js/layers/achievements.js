@@ -15,7 +15,7 @@ addLayer("A", {
             content: [
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.hahaFormula) + ' / 14 Achievements, which boosts point gain by ' + format(tmp.A.effect) + 'x<br>(1.15*[Total_Achievements])'
+                    return 'You have ' + formatWhole(tmp.A.hahaFormula) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>(1.15^Achievements)'
                 }, {}],
                 "blank",
                 "blank",
@@ -26,7 +26,7 @@ addLayer("A", {
     },
 
     effect(){
-        let eff = Decimal.times(1.15, tmp.A.hahaFormula).plus(1).max(1)
+        let eff = Decimal.pow(1.15, tmp.A.hahaFormula).plus(1.15).max(1)
         return eff
     },
 
