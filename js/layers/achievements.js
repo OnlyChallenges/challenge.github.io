@@ -4,6 +4,7 @@ addLayer("A", {
     startData() {
         return {
             unlocked: true,
+            secret: new Decimal(0)
         }
     },
     color: "#5DE18A",
@@ -26,6 +27,34 @@ addLayer("A", {
                     return 'You have ' + formatWhole(tmp.A.total2) + ' / ? Secret Achievements'
                 }, {}],
                 ["achievements", [10, 11, 12]],
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "clickables",
             ],
         },
     },
@@ -180,10 +209,26 @@ addLayer("A", {
             unlocked() { return hasAchievement('A', 101) },
         },
         102: {
-            name: "Secret: Hidden under Coldkeys",
-            done() { return player.s.secret.gte(1) },
-            tooltip: "You found a secret layer...it does nothing surprisingly<br>Reward: 50 AP",
+            name: "Secret: Hidden under the Achievements",
+            done() { return player.A.secret.gte(1) },
+            tooltip: "You found a secret Button...it does nothing surprisingly<br>Reward: 50 AP",
             unlocked() { return hasAchievement('A', 102) },
+        },
+    },
+    clickables: {
+        11: {
+            title: "You found a secret",
+            display: "Secret",
+            canClick: true,
+            onClick() {
+                player.s.secret = 1
+            },
+            style() {
+                return {
+                    'background-color': tmp.A.color,
+                }
+            },
+            unlocked() { return player.s.secret == 0 }
         },
     },
 })
