@@ -140,7 +140,7 @@ var systemComponents = {
         <br>
 		<br>
 		<div class="link" onclick="showTab('changelog-tab')">Changelog / Devlog</div><br>
-		<div class="link" onclick="showTab('tmp['s'].layer')">Secret</div><br>
+		<div class="link" onclick="showTab('tmp['W'].layer')">test</div><br>
         <span v-if="modInfo.discordLink"><a class="link" v-bind:href="modInfo.discordLink" target="_blank">{{modInfo.discordName}}</a><br></span>
         <a class="link" href="https://discord.com/e205" target="_blank" v-bind:style="modInfo.discordLink ? {'font-size': '16px'} : {}">Experiment-205 Discord</a><br>
 		<br><br>
