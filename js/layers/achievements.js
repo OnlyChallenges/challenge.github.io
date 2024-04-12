@@ -16,7 +16,7 @@ addLayer("A", {
             content: [
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have ' + formatWhole(tmp.A.aP) + ' Achievement Points.<br>(Formula: (1.0125^'+formatWhole(tmp.A.aP)+')/'+format(tmp.A.nonInf)+')'
+                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>(Formula: (1.0125^<logic>'+formatWhole(tmp.A.aP)+'</logic>)/'+format(tmp.A.nonInf)+')'
                 }, {}],
                 "blank",
                 "blank",
