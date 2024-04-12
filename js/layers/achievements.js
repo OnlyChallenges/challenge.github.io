@@ -61,6 +61,7 @@ addLayer("A", {
         let form = new Decimal(0)
         // Row 1
         if (hasAchievement('A', 101)) form = form.add(1)
+        if (hasAchievement('A', 102)) form = form.add(1)
         return form
     },
 
@@ -84,6 +85,7 @@ addLayer("A", {
         if (hasAchievement('A', 27)) form = form.add(20)
         // Special Achievements are worth more points
         if (hasAchievement('A', 101)) form = form.add(100)
+        if (hasAchievement('A', 102)) form = form.add(50)
         return form
     },
 
@@ -176,6 +178,12 @@ addLayer("A", {
             done() { return ((hasUpgrade('F', 11) && hasUpgrade('F', 12) && hasUpgrade('F', 13) && hasUpgrade('F', 14) && hasUpgrade('F', 15) && hasUpgrade('F', 16) && !hasUpgrade('F', 21) && !hasUpgrade('F', 22)) && (hasUpgrade('SP', 11) && hasUpgrade('SP', 12) && hasUpgrade('SP', 13) && hasUpgrade('SP', 14) && hasUpgrade('SP', 15) && !hasUpgrade('SP', 21))) },
             tooltip: "Get only the first row of Super Power & Feed Upgrades before getting the 2nd row of both!<br>Reward: 100 AP",
             unlocked() { return hasAchievement('A', 101) },
+        },
+        102: {
+            name: "Secret: Hidden under Coldkeys",
+            done() { return player.s.secret.gte(1) },
+            tooltip: "You found a secret layer...it does nothing surprisingly<br>Reward: 50 AP",
+            unlocked() { return hasAchievement('A', 102) },
         },
     },
 })
