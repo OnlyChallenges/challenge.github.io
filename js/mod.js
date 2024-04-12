@@ -107,12 +107,12 @@ function addedPlayerData() {
 
 // Display extra things at the top of the page
 var displayThings = [
-  `<logic>Endgame: 3 Vaccines</logic><br>:)`
+  `<logic>Endgame: 10 Water</logic><br>Please check <rainbow>Changelog</rainbow> for update information!`
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-  return player.V.points.gte(3)
+  return player.W.points.gte(10)
 }
 
 
