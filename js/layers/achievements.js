@@ -26,6 +26,7 @@ addLayer("A", {
                 ["display-text", function () {
                     return 'You have ' + formatWhole(tmp.A.total2) + ' / 3 Secret Achievements'
                 }, {}],
+                "blank",
                 ["achievements", [10, 11, 12]],
                 "blank",
                 "blank",
@@ -245,7 +246,7 @@ addLayer("A", {
         },
         102: {
             name: "Secret: Hidden under the Achievements",
-            done() { return player.A.secret.gte(1) },
+            done() { return player.A.secret == 1 },
             tooltip: "You found a secret Button...it does nothing surprisingly<br>Reward: 50 AP",
             unlocked() { return hasAchievement('A', 102) },
         },
@@ -259,10 +260,10 @@ addLayer("A", {
     clickables: {
         11: {
             title: "You found a secret",
-            display: "Secret",
+            display: "Secret, THIS WILL REQUIRE TO RESTART THE PAGE ON CLICK",
             canClick: true,
             onClick() {
-                player.A.secret = 1
+                player.A.secret += 1
             },
             style() {
                 return {
