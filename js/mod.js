@@ -28,9 +28,9 @@ let changelog = `<h1>Changelog:</h1><br><br>
  - Changed Begin Feed once again and improved past that<br>
  - Added Achievement Points & Achievement Bonus Effects<br>
  - Added 3 Secret Achievements that are given subtle hints for all three.<br><br>
- -> <fail>Hint 1: The 1st row on the 2nd row would be pretty nice of upgrades...?</fail><br>
- -> <fail>Hint 2: A secret button, under the secret area...?</fail><br>
- -> <fail>Hint 3: I hear that No H²0 and 10 powers of 25 that causes powdery blindness would bring a box of points...?</fail><br><br>
+ -> <logic>Hint 1</logic>: <fail>The 1st row on the 2nd row would be pretty nice of upgrades...?</fail><br>
+ -> <logic>Hint 2</logic>: <fail>A secret button, under the secret area...?</fail><br>
+ -> <logic>Hint 3</logic>: <fail>I hear that No H²0 and 10 powers of 25 that causes powdery blindness;<br>would bring a box of points...?</fail><br><br>
  - Improved Hover UI Again for several Upgrades & Achievements<br><br>
 
  <h3>v0.2.1.1</h3><br>
