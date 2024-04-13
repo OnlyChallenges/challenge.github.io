@@ -28,9 +28,9 @@ let changelog = `<h1>Changelog:</h1><br><br>
  - Changed Begin Feed once again and improved past that<br>
  - Added Achievement Points & Achievement Bonus Effects<br>
  - Added 3 Secret Achievements that are given subtle hints for all three.<br><br>
- -> <fail>Hint 1: The 1st row on the 2nd Row would be pretty nice...</fail><br>
- -> <fail>Hint 2: Only the Achievement's Tab will show you something.</fail><br>
- -> <fail>Hint 3: Heard about No Water and 10^25 Powder?</fail><br><br>
+ -> <fail>Hint 1: The 1st row on the 2nd row would be pretty nice...</fail><br>
+ -> <fail>Hint 2: A Secret button, under the secret area..</fail><br>
+ -> <fail>Hint 3: I hear that No H²0 and 10²⁵ dust would bring a box of points?</fail><br><br>
  - Improved Hover UI Again for several Upgrades & Achievements<br><br>
 
  <h3>v0.2.1.1</h3><br>
