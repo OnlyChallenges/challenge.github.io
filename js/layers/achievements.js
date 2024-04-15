@@ -18,7 +18,7 @@ addLayer("A", {
             content: [
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>(Formula: (1.0125^<logic>'+formatWhole(tmp.A.aP)+'</logic>)/'+format(tmp.A.nonInf)+')'
+                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>(Formula: (1.0125^<logic>' + formatWhole(tmp.A.aP) + '</logic>)/' + format(tmp.A.nonInf) + ')'
                 }, {}],
                 "blank",
                 "blank",
@@ -93,18 +93,18 @@ addLayer("A", {
         },
     },
 
-    effect(){
+    effect() {
         let eff = Decimal.pow(1.0125, tmp.A.aP).div(tmp.A.nonInf).max(1)
 
         return eff
     },
 
-    nonInf(){
+    nonInf() {
         let non = Decimal.pow(1.001, tmp.A.aP).max(1)
         return non
     },
 
-    total(){
+    total() {
         let form = new Decimal(0)
         // Row 1
         if (hasAchievement('A', 11)) form = form.add(1)
@@ -125,7 +125,7 @@ addLayer("A", {
         return form
     },
 
-    total2(){
+    total2() {
         let form = new Decimal(0)
         // Row 1
         if (hasAchievement('A', 101)) form = form.add(1)
@@ -134,7 +134,7 @@ addLayer("A", {
         return form
     },
 
-    aP(){
+    aP() {
         let form = new Decimal(0)
         // Row 1
         if (hasAchievement('A', 11)) form = form.add(1)
@@ -257,7 +257,7 @@ addLayer("A", {
         },
         103: {
             name: "Secret: Powdery World",
-            done() { return player.P.points.gte(1e25) && player.W.points.lte(0)},
+            done() { return player.P.points.gte(1e25) && player.W.points.lte(0) },
             tooltip: `"Have no H20, but have 10^25 Powder", Nice quote <br>Reward: 50 AP`,
             unlocked() { return hasAchievement('A', 103) },
         },
@@ -279,9 +279,11 @@ addLayer("A", {
         },
         12: {
             title: "Hug Plasma",
-            display(){ 
-                let hug = "Hug the creatur, there is a 10% chance that you will not give a hug" 
-                if (player.A.random == 5) hug = "You are not allowed to touch the creatur"},
+            display() {
+                let hug = "Hug the creatur, there is a 10% chance that you will not give a hug"
+                if (player.A.random == 5) hug = "You are not allowed to touch the creatur"
+                return hug
+            },
             canClick: true,
             onClick() {
                 player.A.random = Math.floor((Math.random + 1) * 1)
