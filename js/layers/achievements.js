@@ -6,7 +6,7 @@ addLayer("A", {
             unlocked: true,
             secret: new Decimal(0),
             hugs: new Decimal(0),
-            random: new Decimal(0),
+            randomizer: new Decimal(0),
         }
     },
     color: "#5DE18A",
@@ -286,8 +286,8 @@ addLayer("A", {
             },
             canClick: true,
             onClick() {
-                player.A.random = Math.floor((Math.random + 1) * 1)
-                if (player.A.random == 5) player.A.secret += 0
+                player.A.randomizer = Math.floor((Math.random + 1) * 1)
+                if (player.A.randomizer == 5) player.A.hugs += 0
                 player.A.hugs += 1
             },
             style() {
