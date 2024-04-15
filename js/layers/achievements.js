@@ -266,9 +266,9 @@ addLayer("A", {
             unlocked() { return hasAchievement('A', 103) },
         },
         104: {
-            name: "Secret: Creature's Forgiving Hug",
+            name: "Secret: Creatur's Forgiving Hug",
             done() { return player.A.hugs > 999 },
-            tooltip: `"Hug Plasma more than 999 times! <br>Reward: 30 AP`,
+            tooltip: `"Hug Plasma more than 999 times! (<logic>Are you a psychopath?</logic>)<br>Reward: 30 AP`,
             unlocked() { return hasAchievement('A', 104) },
         },
     },
