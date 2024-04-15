@@ -26,7 +26,7 @@ addLayer("A", {
                 ["achievements", [1, 2, 3, 4, 5, 6, 7, 8, 9]],
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total2) + ' / 3 Secret Achievements'
+                    return 'You have ' + formatWhole(tmp.A.total2) + ' / 4 Secret Achievements'
                 }, {}],
                 "blank",
                 ["achievements", [10, 11, 12]],
