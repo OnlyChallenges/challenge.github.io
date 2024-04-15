@@ -281,7 +281,7 @@ addLayer("A", {
             title: "Hug Plasma",
             display() {
                 let hug = "Hug the creatur, there is a 10% chance that you will not give a hug"
-                if (player.A.random == 5) hug = "You are not allowed to touch the creatur"
+                if (player.A.randomizer == 5) hug = "You are not allowed to touch the creatur"
                 return hug
             },
             canClick: true,
