@@ -95,6 +95,7 @@ function getPointGen() {
   if (hasUpgrade('F', 34)) gain = gain.times(1.6)
   if (hasMilestone('W', 11)) gain = gain.times(3)
   if (hasUpgrade('W', 11)) gain = gain.pow(1.075)
+  if (getBuyableAmount('W', 11).gte(1)) gain = gain.times(buyableEffect('W', 11))
   if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
   return gain
