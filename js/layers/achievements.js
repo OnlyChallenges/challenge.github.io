@@ -310,7 +310,7 @@ addLayer("A", {
             },
             canClick: true,
             onClick() {
-                player.A.hugs += 1
+                player.A.hugs.add(1)
             },
             style() {
                 return {
