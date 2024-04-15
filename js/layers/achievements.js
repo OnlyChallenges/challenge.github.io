@@ -4,7 +4,9 @@ addLayer("A", {
     startData() {
         return {
             unlocked: true,
-            secret: new Decimal(0)
+            secret: new Decimal(0),
+            hugs: new Decimal(0),
+            random: new Decimal(0),
         }
     },
     color: "#5DE18A",
@@ -83,6 +85,9 @@ addLayer("A", {
                 "blank",
                 "blank",
                 "blank",
+                ["display-text", function () {
+                    return 'You have hugged Plasma a total of <logic>' + formatWhole(player.A.hugs) + '</logic> times!'
+                }, {}],
                 "clickables",
             ],
         },
@@ -271,6 +276,24 @@ addLayer("A", {
                 }
             },
             unlocked() { return player.A.secret == 0 }
+        },
+        12: {
+            title: "Hug Plasma",
+            display(){ 
+                let hug = "Hug the creatur, there is a 10% chance that you will not give a hug" 
+                if (player.A.random == 5) hug = "You are not allowed to touch the creatur"},
+            canClick: true,
+            onClick() {
+                player.A.random = Math.floor((Math.random + 1) * 1)
+                if (player.A.random == 5) player.A.secret += 0
+                player.A.hugs += 1
+            },
+            style() {
+                return {
+                    'background-color': tmp.A.color,
+                }
+            },
+            unlocked() { return player.A.secret == 1 }
         },
     },
 })
