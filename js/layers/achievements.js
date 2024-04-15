@@ -86,7 +86,9 @@ addLayer("A", {
                 "blank",
                 "blank",
                 ["display-text", function () {
-                    return 'You have hugged Plasma a total of <logic>' + formatWhole(player.A.hugs) + '</logic> times!'
+                    let yes = 'You have hugged Plasma a total of <logic>' + formatWhole(player.A.hugs) + '</logic> times!'
+                    if (player.A.hugs > 999) yes = 'You have hugged Plasma a total of <logic>' + formatWhole(player.A.hugs) + `</logic> times!<br> You Achieved 'Secret: Creature's Forgiving Hug' Achievement!`
+                    return yes
                 }, {}],
                 "clickables",
             ],
@@ -131,6 +133,7 @@ addLayer("A", {
         if (hasAchievement('A', 101)) form = form.add(1)
         if (hasAchievement('A', 102)) form = form.add(1)
         if (hasAchievement('A', 103)) form = form.add(1)
+        if (hasAchievement('A', 104)) form = form.add(1)
         return form
     },
 
@@ -156,6 +159,7 @@ addLayer("A", {
         if (hasAchievement('A', 101)) form = form.add(100)
         if (hasAchievement('A', 102)) form = form.add(50)
         if (hasAchievement('A', 103)) form = form.add(50)
+        if (hasAchievement('A', 104)) form = form.add(30)
         return form
     },
 
@@ -261,6 +265,12 @@ addLayer("A", {
             tooltip: `"Have no H20, but have 10^25 Powder", Nice quote <br>Reward: 50 AP`,
             unlocked() { return hasAchievement('A', 103) },
         },
+        104: {
+            name: "Secret: Creature's Forgiving Hug",
+            done() { return player.A.hugs > 999 },
+            tooltip: `"Hug Plasma more than 999 times! <br>Reward: 30 AP`,
+            unlocked() { return hasAchievement('A', 104) },
+        },
     },
     clickables: {
         11: {
@@ -280,14 +290,26 @@ addLayer("A", {
         12: {
             title: "Hug Plasma",
             display() {
-                let hug = "Hug the creatur, there is a 10% chance that you will not give a hug"
-                if (player.A.randomizer == 5) hug = "You are not allowed to touch the creatur"
+                let hug = "Hug the creatur"
+                if (player.A.hugs >= 30) hug = "Uh...you can stop hugging the creatur"
+                if (player.A.hugs >= 60) hug = "Please..stop"
+                if (player.A.hugs >= 100) hug = "I said to stop..."
+                if (player.A.hugs >= 130) hug = "..."
+                if (player.A.hugs >= 160) hug = "I spent 20 minutes making this hug button"
+                if (player.A.hugs >= 200) hug = "Too much affection"
+                if (player.A.hugs >= 250) hug = "..."
+                if (player.A.hugs >= 450) hug = "How long until you stop pressing this button?"
+                if (player.A.hugs >= 500) hug = "Fine, at 1000 you WILL leave me alone"
+                if (player.A.hugs >= 550) hug = "..."
+                if (player.A.hugs >= 600) hug = "... ..."
+                if (player.A.hugs >= 650) hug = "... ... ..."
+                if (player.A.hugs >= 750) hug = "... ... ... ..."
+                if (player.A.hugs >= 800) hug = "Hug me until this button disappears I guess..."
+                if (player.A.hugs >= 950) hug = "Thanks for being so nice...I guess"
                 return hug
             },
             canClick: true,
             onClick() {
-                player.A.randomizer = Math.floor((Math.random + 1) * 1)
-                if (player.A.randomizer == 5) player.A.hugs += 0
                 player.A.hugs += 1
             },
             style() {
@@ -295,7 +317,12 @@ addLayer("A", {
                     'background-color': tmp.A.color,
                 }
             },
-            unlocked() { return player.A.secret == 1 }
+            unlocked() {
+                let yes = false
+                if (player.A.secret == 1) yes = true
+                if (player.A.hugs >= 1000) yes = false
+                return yes
+            }
         },
     },
 })
