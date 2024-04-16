@@ -18,7 +18,7 @@ addLayer("A", {
             content: [
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>(Formula: (1.0125^<logic>' + formatWhole(tmp.A.aP) + '</logic>)/' + format(tmp.A.nonInf) + ')'
+                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>(Formula: (1.0125^<logic>' + formatWhole(tmp.A.aP) + '</logic>) / (1.0012^<logic>'+ formatWhole(tmp.A.aP)+'*(<logic>'+ formatWhole(tmp.A.aP) + '</logic>/100))'
                 }, {}],
                 "blank",
                 "blank",
@@ -96,7 +96,7 @@ addLayer("A", {
     },
 
     effect() {
-        let eff = Decimal.pow(1.0125, tmp.A.aP).div(tmp.A.nonInf).max(1)
+        let eff = Decimal.pow(1.0125, tmp.A.aP).div(tmp.A.nonInf.times(tmp.A.specialInf)).max(1)
 
         return eff
     },
@@ -104,6 +104,11 @@ addLayer("A", {
     nonInf() {
         let non = Decimal.pow(1.0012, tmp.A.aP).max(1)
         return non
+    },
+
+    specialInf() {
+        let ia = tmp.A.aP.div(100).max(1)
+        return ia
     },
 
     total() {
