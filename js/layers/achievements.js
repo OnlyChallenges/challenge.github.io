@@ -18,7 +18,7 @@ addLayer("A", {
             content: [
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>[Formula: (1.0125^<logic>' + formatWhole(tmp.A.aP) + '</logic>) / (1.0012^<logic>'+ formatWhole(tmp.A.aP)+'</logic>*(<logic>'+ formatWhole(tmp.A.aP) + '</logic>/100))]'
+                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>[Formula: (1.0125^<logic>' + formatWhole(tmp.A.aP) + '</logic>) / ((1.0012^<logic>'+ formatWhole(tmp.A.aP)+'</logic>)*(<logic>'+ formatWhole(tmp.A.aP) + '</logic>/100))]'
                 }, {}],
                 "blank",
                 "blank",
