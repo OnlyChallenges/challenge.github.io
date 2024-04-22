@@ -135,3 +135,11 @@ function maxTickLength() {
 // you can cap their current resources with this.
 function fixOldSave(oldVersion) {
 }
+
+
+
+
+
+// I'm currently sleeping or at school, you can talk and do what you want in vc. 
+// I will be back online when the clock says 4:30 PM.
+

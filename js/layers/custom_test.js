@@ -42,6 +42,7 @@ addLayer("P", {
         if (hasUpgrade('F', 34)) gain = gain.times(1.5)
         if (hasUpgrade('W', 11)) gain = gain.pow(1.035)
         if (player.SP.generation2 > 0) gain = gain.times(tmp.SP.generation2Eff)
+        if (getBuyableAmount('W', 12).gte(1)) gain = gain.times(buyableEffect('W', 12))
         return gain
     },
     gainExp() {
