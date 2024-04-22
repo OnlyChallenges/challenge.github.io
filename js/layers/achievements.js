@@ -18,7 +18,7 @@ addLayer("A", {
             content: [
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total) + ' / 14 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>[Formula: (1.0125^<logic>' + formatWhole(tmp.A.aP) + '</logic>) / ((1.0012^<logic>'+ formatWhole(tmp.A.aP)+'</logic>)*(<logic>'+ formatWhole(tmp.A.aP) + '</logic>/100))]'
+                    return 'You have ' + formatWhole(tmp.A.total) + ' / 15 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>[Formula: (1.0125^<logic>' + formatWhole(tmp.A.aP) + '</logic>) / ((1.0012^<logic>'+ formatWhole(tmp.A.aP)+'</logic>)*(<logic>'+ formatWhole(tmp.A.aP) + '</logic>/100))]'
                 }, {}],
                 "blank",
                 "blank",
@@ -129,6 +129,8 @@ addLayer("A", {
         if (hasAchievement('A', 25)) form = form.add(1)
         if (hasAchievement('A', 26)) form = form.add(1)
         if (hasAchievement('A', 27)) form = form.add(1)
+        // Row 3
+        if (hasAchievement('A', 31)) form = form.add(1)
         return form
     },
 
@@ -160,6 +162,8 @@ addLayer("A", {
         if (hasAchievement('A', 25)) form = form.add(20)
         if (hasAchievement('A', 26)) form = form.add(20)
         if (hasAchievement('A', 27)) form = form.add(20)
+        // Row 3
+        if (hasAchievement('A', 31)) form = form.add(30)
         // Special Achievements are worth more points
         if (hasAchievement('A', 101)) form = form.add(100)
         if (hasAchievement('A', 102)) form = form.add(50)
@@ -251,6 +255,12 @@ addLayer("A", {
             done() { return player.W.points.gte(2) },
             tooltip: "Hah, get it?<br>Reward: 20 AP",
             unlocked() { return hasAchievement('A', 26) },
+        },
+        31: {
+            name: "Special Formula +2",
+            done() { return getBuyableAmmount('W', 12).gte(2)},
+            tooltip: "Get 2 of the 2nd Water Buyable<br>Reward: 30 AP",
+            unlocked() { return hasAchievement('A', 31) },
         },
         101: {
             name: "Secret: Only the first row",
