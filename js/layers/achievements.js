@@ -258,7 +258,7 @@ addLayer("A", {
         },
         31: {
             name: "Special Formula +2",
-            done() { return getBuyableAmmount('W', 12).gte(2)},
+            done() { return getBuyableAmount('W', 12).gte(2)},
             tooltip: "Get 2 of the 2nd Water Buyable<br>Reward: 30 AP",
             unlocked() { return hasAchievement('A', 31) },
         },
