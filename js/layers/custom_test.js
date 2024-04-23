@@ -19,7 +19,7 @@ addLayer("F1", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
-        let ex = new Decimal(1.073)
+        let ex = new Decimal(1.075)
         return ex
     },
     gainMult() {
@@ -78,7 +78,7 @@ addLayer("F1", {
             title: "Tripler",
             unlocked() { return true },
             cost(x) {
-                let exp1 = new Decimal(1.05)
+                let exp1 = new Decimal(1.04)
                 let exp2 = new Decimal(1.005)
                 let costdef = new Decimal(15000)
                 if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.005)
