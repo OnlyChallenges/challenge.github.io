@@ -46,11 +46,11 @@ addLayer("F1", {
             title: "Doubler",
             unlocked() { return true },
             cost(x) {
-                let exp1 = new Decimal(1.05)
+                let exp1 = new Decimal(1.1)
                 let exp2 = new Decimal(1.005)
                 let costdef = new Decimal(1)
-                if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.005)
-                if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.010)
+                if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.007)
+                if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.011)
                 if (getBuyableAmount(this.layer, this.id).gte(75)) exp2 = exp2.add(0.015)
                 if (getBuyableAmount(this.layer, this.id).gte(150)) exp2 = exp2.add(0.025)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
