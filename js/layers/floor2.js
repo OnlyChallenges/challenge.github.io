@@ -1,6 +1,6 @@
-addLayer("F1", {
-    name: "Floor 1", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "G", // This appears on the layer's node. Default is the id with the first letter capitalized
+addLayer("F2", {
+    name: "Floor 2", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "F2", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() {
         return {
             unlocked: true,
@@ -8,15 +8,15 @@ addLayer("F1", {
         }
     },
     requires() {
-        let requirement = new Decimal(10)
+        let requirement = new Decimal(1e50)
         return requirement
 
     },
-    color: "#33AACC",
+    color: "#222222",
     resource: "gold",
     baseResource: "money",
     baseAmount() { return player.points },
-    row: 0, // Row the layer is in on the tree (0 is the first row)
+    row: 1, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
         let ex = new Decimal(1.07)
@@ -24,7 +24,6 @@ addLayer("F1", {
     },
     gainMult() {
         let gain = new Decimal(1)
-        if (getBuyableAmount('F2', 12).gte(1)) gain = gain.times(buyableEffect('F2', 12))
         return gain
     },
     gainExp() {
@@ -42,7 +41,7 @@ addLayer("F1", {
     //Build Content
     buyables: {
         11: {
-            title: "Doubler",
+            title: "Doubler Doubler",
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.05)
@@ -74,7 +73,7 @@ addLayer("F1", {
             },
         },
         12: {
-            title: "Tripler",
+            title: "Tripler Doubler",
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.05)
@@ -87,7 +86,7 @@ addLayer("F1", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple Money Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Double Gold Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -98,7 +97,39 @@ addLayer("F1", {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(3)
+                let base1 = new Decimal(6)
+                let base2 = x
+                let expo = new Decimal(1)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+        },
+        13: {
+            title: "Tripler Tripler",
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.05)
+                let exp2 = new Decimal(1.005)
+                let costdef = new Decimal(1e25)
+                if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.005)
+                if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.010)
+                if (getBuyableAmount(this.layer, this.id).gte(75)) exp2 = exp2.add(0.015)
+                if (getBuyableAmount(this.layer, this.id).gte(150)) exp2 = exp2.add(0.025)
+                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Triple Money Gain"
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(9)
                 let base2 = x
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
