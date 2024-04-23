@@ -39,23 +39,23 @@ addLayer("F2", {
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
     },
-    automate(){
-    	if (player.F3.unlocked) {
-			if (layers.F2.buyables[11].canAfford()) {
-				layers.F2.buyables[11].buy();
-			};
-		};
+    automate() {
         if (player.F3.unlocked) {
-			if (layers.F2.buyables[12].canAfford()) {
-				layers.F2.buyables[12].buy();
-			};
-		};
+            if (layers.F2.buyables[11].canAfford()) {
+                    layers.F2.buyables[11].buy();
+            };
+        };
         if (player.F3.unlocked) {
-			if (layers.F2.buyables[13].canAfford()) {
-				layers.F2.buyables[13].buy();
-			};
-		};
-	},
+            if (layers.F2.buyables[12].canAfford()) {
+                    layers.F2.buyables[12].buy();
+            };
+        };
+        if (player.F3.unlocked) {
+            if (layers.F2.buyables[13].canAfford()) {
+                    layers.F2.buyables[13].buy();
+            };
+        };
+    },
 
 
     //Build Content
