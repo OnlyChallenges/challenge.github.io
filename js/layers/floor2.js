@@ -3,7 +3,7 @@ addLayer("F2", {
     symbol: "F2", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() {
         return {
-            unlocked: true,
+            unlocked: false,
             points: new Decimal(0),
         }
     },
@@ -12,8 +12,8 @@ addLayer("F2", {
         return requirement
 
     },
-    color: "#222222",
-    resource: "gold",
+    color: "#ACC233",
+    resource: "Floor 2",
     baseResource: "money",
     baseAmount() { return player.points },
     row: 1, // Row the layer is in on the tree (0 is the first row)

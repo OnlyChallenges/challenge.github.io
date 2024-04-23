@@ -8,7 +8,7 @@ addLayer("F1", {
         }
     },
     requires() {
-        let requirement = new Decimal(10)
+        let requirement = new Decimal(25)
         return requirement
 
     },
@@ -31,6 +31,7 @@ addLayer("F1", {
         let exp = new Decimal(1)
         return exp
     },
+    branches: ["F2"],
     hotkeys: [
         { key: "1", description: "1: Reset for Floor 1", onPress() { if (canReset(this.layer) && player.F1.unlocked) doReset(this.layer) } },
     ],
