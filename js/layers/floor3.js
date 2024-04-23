@@ -1,6 +1,6 @@
-addLayer("F2", {
-    name: "Floor 2", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "F2", // This appears on the layer's node. Default is the id with the first letter capitalized
+addLayer("F3", {
+    name: "Floor 3", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "F3", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() {
         return {
             unlocked: false,
@@ -8,23 +8,22 @@ addLayer("F2", {
         }
     },
     requires() {
-        let requirement = new Decimal(1e90)
+        let requirement = new Decimal("1e850")
         return requirement
 
     },
-    color: "#ACC233",
-    resource: "Floor 2",
-    baseResource: "Floor 1",
+    color: "#a86932",
+    resource: "Floor 3",
+    baseResource: "Floor 2",
     baseAmount() { return player.F1.points },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
-        let ex = new Decimal(1)
+        let ex = new Decimal(0.9)
         return ex
     },
     gainMult() {
         let gain = new Decimal(1)
-        if (getBuyableAmount('F2', 12).gte(1)) gain = gain.times(buyableEffect('F2', 12))
         return gain
     },
     gainExp() {
@@ -87,7 +86,7 @@ addLayer("F2", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Double Floor 1 Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Double Floor 2 Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())

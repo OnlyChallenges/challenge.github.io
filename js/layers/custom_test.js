@@ -1,6 +1,6 @@
 addLayer("F1", {
     name: "Floor 1", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "G", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "F1", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() {
         return {
             unlocked: true,
@@ -19,7 +19,7 @@ addLayer("F1", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
-        let ex = new Decimal(1.07)
+        let ex = new Decimal(1.073)
         return ex
     },
     gainMult() {

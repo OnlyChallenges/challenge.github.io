@@ -3,7 +3,7 @@ let modInfo = {
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "money",
-  modFiles: ["tree.js", "layers/custom_test.js", "layers/floor2.js"],
+  modFiles: ["tree.js", "layers/custom_test.js", "layers/floor2.js", "layers/floor3.js"],
   discordName: "",
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
@@ -44,6 +44,8 @@ function getPointGen() {
   if (getBuyableAmount('F1', 12).gte(1)) gain = gain.times(buyableEffect('F1', 12))
   if (getBuyableAmount('F2', 11).gte(1)) gain = gain.times(buyableEffect('F2', 11))
   if (getBuyableAmount('F2', 13).gte(1)) gain = gain.times(buyableEffect('F2', 13))
+  if (getBuyableAmount('F3', 11).gte(1)) gain = gain.times(buyableEffect('F3', 11))
+  if (getBuyableAmount('F3', 13).gte(1)) gain = gain.times(buyableEffect('F3', 13))
   return gain
 }
 
