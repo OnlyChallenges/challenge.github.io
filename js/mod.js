@@ -12,7 +12,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.0.1",
+  num: "0.0.1.1",
   ver: "Changelog",
   name: "Nothing",
 }
@@ -46,6 +46,9 @@ function getPointGen() {
   if (getBuyableAmount('F2', 13).gte(1)) gain = gain.times(buyableEffect('F2', 13))
   if (getBuyableAmount('F3', 11).gte(1)) gain = gain.times(buyableEffect('F3', 11))
   if (getBuyableAmount('F3', 13).gte(1)) gain = gain.times(buyableEffect('F3', 13))
+  if (getBuyableAmount('F4', 11).gte(1)) gain = gain.pow(buyableEffect('F4', 11))
+  if (getBuyableAmount('F4', 12).gte(1)) gain = gain.pow(buyableEffect('F4', 12))
+  if (getBuyableAmount('F4', 13).gte(1)) gain = gain.pow(buyableEffect('F4', 13))
   return gain
 }
 

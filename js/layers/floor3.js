@@ -15,7 +15,7 @@ addLayer("F3", {
     color: "#a86932",
     resource: "Floor 3",
     baseResource: "Floor 2",
-    baseAmount() { return player.F1.points },
+    baseAmount() { return player.F2.points },
     row: 2, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
@@ -31,7 +31,7 @@ addLayer("F3", {
         return exp
     },
     hotkeys: [
-        { key: "2", description: "2: Reset for Floor 2", onPress() { if (canReset(this.layer) && player.F2.unlocked) doReset(this.layer) } },
+        { key: "3", description: "3: Reset for Floor 3", onPress() { if (canReset(this.layer) && player.F3.unlocked) doReset(this.layer) } },
     ],
     layerShown() { return true },
     doReset(resettingLayer) {
@@ -54,7 +54,7 @@ addLayer("F3", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Double Money Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 3" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Double Money Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -86,7 +86,7 @@ addLayer("F3", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Double Floor 2 Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 3" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Double Floor 2 Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -118,7 +118,7 @@ addLayer("F3", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Triple Money Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 3" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Triple Money Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())

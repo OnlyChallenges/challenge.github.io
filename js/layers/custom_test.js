@@ -39,6 +39,19 @@ addLayer("F1", {
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
     },
+    automate() {
+		if (player.F2.unlocked) {
+			if (layers.F1.buyables[11].canAfford()) {
+				layers.F1.buyables[11].buy();
+			};
+		};
+        if (player.F2.unlocked) {
+			if (layers.F1.buyables[12].canAfford()) {
+				layers.F1.buyables[12].buy();
+			};
+		};
+	},
+
 
     //Build Content
     buyables: {
@@ -67,7 +80,7 @@ addLayer("F1", {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(2)
+                let base1 = new Decimal(2.01)
                 let base2 = x
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))

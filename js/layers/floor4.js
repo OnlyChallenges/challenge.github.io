@@ -1,6 +1,6 @@
-addLayer("F2", {
-    name: "Floor 2", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "F2", // This appears on the layer's node. Default is the id with the first letter capitalized
+addLayer("F4", {
+    name: "Floor 4", // This is optional, only used in a few places, If absent it just uses the layer id.
+    symbol: "F4", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() {
         return {
             unlocked: false,
@@ -8,73 +8,53 @@ addLayer("F2", {
         }
     },
     requires() {
-        let requirement = new Decimal(1e90)
+        let requirement = new Decimal("1e2600")
         return requirement
 
     },
-    color: "#ACC233",
-    resource: "Floor 2",
-    baseResource: "Floor 1",
-    baseAmount() { return player.F1.points },
-    row: 1, // Row the layer is in on the tree (0 is the first row)
+    color: "#b83aa2",
+    resource: "Floor 4",
+    baseResource: "Floor 3",
+    baseAmount() { return player.F3.points },
+    row: 3, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
-        let ex = new Decimal(0.98)
+        let ex = new Decimal(0.86)
         return ex
     },
     gainMult() {
         let gain = new Decimal(1)
-        if (getBuyableAmount('F2', 12).gte(1)) gain = gain.times(buyableEffect('F2', 12))
         return gain
     },
     gainExp() {
         let exp = new Decimal(1)
         return exp
     },
-    branches: ["F3"],
     hotkeys: [
-        { key: "2", description: "2: Reset for Floor 2", onPress() { if (canReset(this.layer) && player.F2.unlocked) doReset(this.layer) } },
+        { key: "4", description: "4: Reset for Floor 4", onPress() { if (canReset(this.layer) && player.F4.unlocked) doReset(this.layer) } },
     ],
     layerShown() { return true },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
     },
-    automate(){
-    	if (player.F3.unlocked) {
-			if (layers.F2.buyables[11].canAfford()) {
-				layers.F2.buyables[11].buy();
-			};
-		};
-        if (player.F3.unlocked) {
-			if (layers.F2.buyables[12].canAfford()) {
-				layers.F2.buyables[12].buy();
-			};
-		};
-        if (player.F3.unlocked) {
-			if (layers.F2.buyables[13].canAfford()) {
-				layers.F2.buyables[13].buy();
-			};
-		};
-	},
-
 
     //Build Content
     buyables: {
         11: {
-            title: "Doubler Doubler",
+            title: "Exponental",
             unlocked() { return true },
             cost(x) {
-                let exp1 = new Decimal(1.12)
-                let exp2 = new Decimal(1.005)
+                let exp1 = new Decimal(1.2)
+                let exp2 = new Decimal(1.002)
                 let costdef = new Decimal(1)
                 if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.007)
                 if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.011)
-                if (getBuyableAmount(this.layer, this.id).gte(75)) exp2 = exp2.add(0.016)
-                if (getBuyableAmount(this.layer, this.id).gte(150)) exp2 = exp2.add(0.025)
+                if (getBuyableAmount(this.layer, this.id).gte(250)) exp2 = exp2.add(0.016)
+                if (getBuyableAmount(this.layer, this.id).gte(300)) exp2 = exp2.add(0.025)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Double Money Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 4" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: ^1.001 Money Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -85,7 +65,7 @@ addLayer("F2", {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(2)
+                let base1 = new Decimal(1.001)
                 let base2 = x
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
@@ -93,12 +73,12 @@ addLayer("F2", {
             },
         },
         12: {
-            title: "Tripler Doubler",
+            title: "Exponental+",
             unlocked() { return true },
             cost(x) {
-                let exp1 = new Decimal(1.07)
+                let exp1 = new Decimal(1.3)
                 let exp2 = new Decimal(1.005)
-                let costdef = new Decimal(15000)
+                let costdef = new Decimal(1e250)
                 if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.009)
                 if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.011)
                 if (getBuyableAmount(this.layer, this.id).gte(75)) exp2 = exp2.add(0.015)
@@ -106,7 +86,7 @@ addLayer("F2", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Double Floor 1 Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 4" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: ^1.002 Money Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -117,7 +97,7 @@ addLayer("F2", {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(6)
+                let base1 = new Decimal(1.002)
                 let base2 = x
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
@@ -125,12 +105,12 @@ addLayer("F2", {
             },
         },
         13: {
-            title: "Tripler Tripler",
+            title: "Exponental++",
             unlocked() { return true },
             cost(x) {
-                let exp1 = new Decimal(1.09)
+                let exp1 = new Decimal(1.3)
                 let exp2 = new Decimal(1.005)
-                let costdef = new Decimal(1e25)
+                let costdef = new Decimal("1e4700")
                 if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.005)
                 if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.010)
                 if (getBuyableAmount(this.layer, this.id).gte(75)) exp2 = exp2.add(0.015)
@@ -138,7 +118,7 @@ addLayer("F2", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Triple Money Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 4" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: ^1.004 Money Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -149,7 +129,7 @@ addLayer("F2", {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(9)
+                let base1 = new Decimal(1.004)
                 let base2 = x
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
