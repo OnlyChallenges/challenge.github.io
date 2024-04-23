@@ -19,7 +19,7 @@ addLayer("F1", {
     row: 0, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
-        let ex = new Decimal(1.075)
+        let ex = new Decimal(1.077)
         return ex
     },
     gainMult() {
