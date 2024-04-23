@@ -14,8 +14,8 @@ addLayer("F2", {
     },
     color: "#ACC233",
     resource: "Floor 2",
-    baseResource: "money",
-    baseAmount() { return player.points },
+    baseResource: "Floor 1",
+    baseAmount() { return player.F1.points },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
@@ -54,7 +54,7 @@ addLayer("F2", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Double Money Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Double Money Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -86,7 +86,7 @@ addLayer("F2", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Double Gold Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Double Gold Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -118,7 +118,7 @@ addLayer("F2", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Triple Money Gain"
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Floor 2" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Triple-Triple Money Gain"
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
