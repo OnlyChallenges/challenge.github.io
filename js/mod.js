@@ -60,7 +60,7 @@ function addedPlayerData() {
 
 // Display extra things at the top of the page
 var displayThings = [
-  `<logic>Endgame: 10 Water</logic><br>Please check <rainbow>Changelog</rainbow> for update information!`
+  `<logic>Endgame: 1e90000 Money</logic>`
 ]
 
 // Determines when the game "ends"
