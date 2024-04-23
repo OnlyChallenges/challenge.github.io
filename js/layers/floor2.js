@@ -101,8 +101,8 @@ addLayer("F2", {
                 let costdef = new Decimal(15000)
                 if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.009)
                 if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.011)
-                if (getBuyableAmount(this.layer, this.id).gte(75)) exp2 = exp2.add(0.015)
-                if (getBuyableAmount(this.layer, this.id).gte(150)) exp2 = exp2.add(0.025)
+                if (getBuyableAmount(this.layer, this.id).gte(150)) exp2 = exp2.add(0.015)
+                if (getBuyableAmount(this.layer, this.id).gte(300)) exp2 = exp2.add(0.025)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
@@ -133,8 +133,8 @@ addLayer("F2", {
                 let costdef = new Decimal(1e25)
                 if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.005)
                 if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.010)
-                if (getBuyableAmount(this.layer, this.id).gte(75)) exp2 = exp2.add(0.015)
-                if (getBuyableAmount(this.layer, this.id).gte(150)) exp2 = exp2.add(0.025)
+                if (getBuyableAmount(this.layer, this.id).gte(250)) exp2 = exp2.add(0.015)
+                if (getBuyableAmount(this.layer, this.id).gte(350)) exp2 = exp2.add(0.025)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {

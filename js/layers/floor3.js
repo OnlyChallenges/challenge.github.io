@@ -8,7 +8,7 @@ addLayer("F3", {
         }
     },
     requires() {
-        let requirement = new Decimal("1e850")
+        let requirement = new Decimal("1e437")
         return requirement
 
     },
