@@ -13,7 +13,7 @@ addLayer("F1", {
 
     },
     color: "#33AACC",
-    resource: "gold",
+    resource: "Floor 1",
     baseResource: "money",
     baseAmount() { return player.points },
     row: 0, // Row the layer is in on the tree (0 is the first row)
@@ -32,7 +32,7 @@ addLayer("F1", {
         return exp
     },
     hotkeys: [
-        { key: "p", description: "p: Reset for Powder", onPress() { if (canReset(this.layer) && player.P.unlocked) doReset(this.layer) } },
+        { key: "1", description: "1: Reset for Floor 1", onPress() { if (canReset(this.layer) && player.F1.unlocked) doReset(this.layer) } },
     ],
     layerShown() { return true },
     doReset(resettingLayer) {

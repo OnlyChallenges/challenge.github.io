@@ -31,7 +31,7 @@ addLayer("F2", {
         return exp
     },
     hotkeys: [
-        { key: "p", description: "p: Reset for Powder", onPress() { if (canReset(this.layer) && player.P.unlocked) doReset(this.layer) } },
+        { key: "2", description: "2: Reset for Floor 2", onPress() { if (canReset(this.layer) && player.F2.unlocked) doReset(this.layer) } },
     ],
     layerShown() { return true },
     doReset(resettingLayer) {

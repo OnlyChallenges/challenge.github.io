@@ -2,7 +2,7 @@ let modInfo = {
   name: `The Powder Tree v0.2.1.1 - BETA`,
   id: "anothermod2",
   author: "vali (snor mimi)",
-  pointsName: "particles",
+  pointsName: "money",
   modFiles: ["tree.js", "layers/custom_test.js", "layers/floor2.js"],
   discordName: "",
   discordLink: "",
@@ -60,7 +60,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-  return player.W.points.gte(10)
+  return points.points.gte("1e5000")
 }
 
 
