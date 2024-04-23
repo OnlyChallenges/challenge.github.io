@@ -31,6 +31,7 @@ addLayer("F2", {
         let exp = new Decimal(1)
         return exp
     },
+    branches: ["F3"],
     hotkeys: [
         { key: "2", description: "2: Reset for Floor 2", onPress() { if (canReset(this.layer) && player.F2.unlocked) doReset(this.layer) } },
     ],
