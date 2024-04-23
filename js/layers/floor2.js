@@ -16,7 +16,7 @@ addLayer("F2", {
     resource: "Floor 2",
     baseResource: "Floor 1",
     baseAmount() { return player.F1.points },
-    row: 1, // Row the layer is in on the tree (0 is the first row)
+    row: 2, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
     exponent() {
         let ex = new Decimal(1)
