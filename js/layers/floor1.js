@@ -12,6 +12,18 @@ addLayer("F1", {
         return requirement
 
     },
+    nodeStyle() {
+        return {
+            "background": (player.F1.unlocked || canReset("F1")) ? "radial-gradient(#33AACC, #1703fc)" : "#bf8f8f",
+        }
+    },
+    componentStyles: {
+        "prestige-button": {
+            background() {
+                return (canReset("F1")) ? "radial-gradient(#33AACC, #1703fc)" : "#bf8f8f"
+            },
+        },
+    },
     color: "#33AACC",
     resource: "Floor 1",
     baseResource: "money",
@@ -40,21 +52,21 @@ addLayer("F1", {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
     },
     automate() {
-		if (player.F2.unlocked) {
-			if (layers.F1.buyables[11].canAfford()) {
-				layers.F1.buyables[11].buy();
-			};
-		};
         if (player.F2.unlocked) {
-			if (layers.F1.buyables[12].canAfford()) {
-				layers.F1.buyables[12].buy();
-			};
-		};
-	},
-    passiveGeneration(){
+            if (layers.F1.buyables[11].canAfford()) {
+                layers.F1.buyables[11].buy();
+            };
+        };
+        if (player.F2.unlocked) {
+            if (layers.F1.buyables[12].canAfford()) {
+                layers.F1.buyables[12].buy();
+            };
+        };
+    },
+    passiveGeneration() {
         if (player.F3.unlocked) eff = new Decimal(1)
         else eff = new Decimal(0)
-    return eff
+        return eff
     },
 
 
@@ -91,6 +103,11 @@ addLayer("F1", {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#33AACC, #1703fc)" : "#bf8f8f"),
+                }
+            },
         },
         12: {
             title: "Tripler",
@@ -122,6 +139,11 @@ addLayer("F1", {
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#33AACC, #1703fc)" : "#bf8f8f"),
+                }
             },
         },
     },

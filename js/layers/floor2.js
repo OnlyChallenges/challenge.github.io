@@ -12,6 +12,18 @@ addLayer("F2", {
         return requirement
 
     },
+    nodeStyle() {
+        return {
+            "background": (player.F2.unlocked || canReset("F2")) ? "radial-gradient(#ACC233, #4dc233)" : "#bf8f8f",
+        }
+    },
+    componentStyles: {
+        "prestige-button": {
+            background() {
+                return (canReset("F2")) ? "radial-gradient(#ACC233, #4dc233" : "#bf8f8f"
+            },
+        },
+    },
     color: "#ACC233",
     resource: "Floor 2",
     baseResource: "Floor 1",
@@ -92,6 +104,11 @@ addLayer("F2", {
                 if ((getBuyableAmount('F3', 21)).gte(1)) eff = eff.pow(buyableEffect('F3', 14))
                 return eff
             },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#ACC233, #4dc233)" : "#bf8f8f"),
+                }
+            },
         },
         12: {
             title: "Tripler Doubler",
@@ -124,6 +141,11 @@ addLayer("F2", {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#ACC233, #4dc233)" : "#bf8f8f"),
+                }
+            },
         },
         13: {
             title: "Tripler Tripler",
@@ -155,6 +177,11 @@ addLayer("F2", {
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#ACC233, #4dc233)" : "#bf8f8f"),
+                }
             },
         },
     },
