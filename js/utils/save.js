@@ -1,6 +1,7 @@
 // ************ Save stuff ************
 function save(force) {
 	NaNcheck(player)
+	let t = new Date().getTime()
 	if (NaNalert && !force) return
 	localStorage.setItem(modInfo.id, btoa(unescape(encodeURIComponent(JSON.stringify(player)))));
 	localStorage.setItem(modInfo.id+"_options", btoa(unescape(encodeURIComponent(JSON.stringify(options)))));
@@ -127,6 +128,10 @@ function getStartGrid(layer) {
 		}
 	}
 	return data;
+}
+
+function colorText(elem, color, text) {
+	return "<" + elem + " style='color:" + color + ";text-shadow:0px 0px 10px;'>" + text + "</" + elem + ">"
 }
 
 function fixSave() {

@@ -51,6 +51,11 @@ addLayer("F1", {
 			};
 		};
 	},
+    passiveGeneration(){
+        if (player.F3.unlocked) eff = new Decimal(1)
+        else eff = new Decimal(0)
+    return eff
+    },
 
 
     //Build Content

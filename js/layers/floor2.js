@@ -69,7 +69,7 @@ addLayer("F2", {
                 let costdef = new Decimal(1)
                 if (getBuyableAmount(this.layer, this.id).gte(25)) exp2 = exp2.add(0.007)
                 if (getBuyableAmount(this.layer, this.id).gte(50)) exp2 = exp2.add(0.011)
-                if (getBuyableAmount(this.layer, this.id).gte(75)) exp2 = exp2.add(0.016)
+                if (getBuyableAmount(this.layer, this.id).gte(75)) exp2 = exp2.add(0.014)
                 if (getBuyableAmount(this.layer, this.id).gte(150)) exp2 = exp2.add(0.025)
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
@@ -89,6 +89,7 @@ addLayer("F2", {
                 let base2 = x
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
+                if ((getBuyableAmount('F3', 21)).gte(1)) eff = eff.pow(buyableEffect('F3', 14))
                 return eff
             },
         },
