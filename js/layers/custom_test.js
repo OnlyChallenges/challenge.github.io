@@ -120,7 +120,7 @@ addLayer("P", {
             display() {
                     let x = getUndulatingColor()
                     let arg = player.points
-                    let base = new Decimal("1e500")
+                    let base = new Decimal(1e250)
                     let prog = Math.log(arg) / Math.log(base)
                     return "Secret 1: " +colorText("b", x, format((Math.log(arg)/Math.log(base)))) + "% (" + format(Math.log(arg)) + "/" + format(Math.log(base)) + ")"
              },
