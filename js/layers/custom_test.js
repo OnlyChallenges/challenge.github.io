@@ -113,17 +113,17 @@ addLayer("P", {
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let arg = player.points
-                let base = player.points.gte("1e500")
+                let base = new Decimal("1e500")
                 let prog = Math.log(arg) / Math.log(base)
                 return prog
             },
             display() {
                     let x = getUndulatingColor()
                     let arg = player.points
-                    let base = player.points.gte("1e500")
+                    let base = new Decimal("1e500")
                     let prog = Math.log(arg) / Math.log(base)
-                    return "Secret 1: " +colorText("b", x, format(Math.log(arg) / Math.log(base))) + "%" + format(Math.log(arg)) + "/" + format(Math.log(base))
-            },
+                    return "Secret 1: " +colorText("b", x, format((Math.log(arg) / Math.log(base)).times(100))) + "% (" + format(Math.log(arg)) + "/" + format(Math.log(base)) + ")"
+             },
             unlocked(){
                 return true
             },
@@ -136,14 +136,14 @@ addLayer("P", {
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let arg = player.SP.generation
-                let base = player.SP.generation.gte("1e50")
+                let base = new Decimal("1e50")
                 let prog = Math.log(arg) / Math.log(base)
                 return prog
             },
             display() {
                     let x = getUndulatingColor()
                     let arg = player.SP.generation
-                    let base = player.SP.generation.gte("1e50")
+                    let base = new Decimal("1e50")
                     let prog = Math.log(arg) / Math.log(base)
                     return "Secret 2: " +colorText("b", x, format(Math.log(arg) / Math.log(base) + "%"))
             },
