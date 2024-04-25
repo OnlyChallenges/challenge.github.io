@@ -23,7 +23,18 @@ addLayer("SP", {
 
     },
     branches: ["W"],
-
+    nodeStyle() {
+        return {
+            "background": (player.SP.unlocked || canReset("SP")) ? "radial-gradient(#a733dc, #ab13bf)" : "#bf8f8f",
+        }
+    },
+    componentStyles: {
+        "prestige-button": {
+            background() {
+                return (canReset("SP")) ? "radial-gradient(#a733dc, #ab13bf)" : "#bf8f8f"
+            },
+        },
+    },
     color: "#a733dc",
     resource: "super powder",
     baseResource: "particles",

@@ -20,6 +20,18 @@ addLayer("P", {
         if (hasUpgrade('V', 13)) pass = pass.add(upgradeEffect('V', 13).div(2))
         return pass
     },
+    nodeStyle() {
+        return {
+            "background": (player.P.unlocked || canReset("P")) ? "radial-gradient(#FFFFFF, #333232)" : "#bf8f8f",
+        }
+    },
+    componentStyles: {
+        "prestige-button": {
+            background() {
+                return (canReset("P")) ? "radial-gradient(#FFFFFF, #333232)" : "#bf8f8f"
+            },
+        },
+    },
     color: "#FFFFFF",
     resource: "powder",
     baseResource: "particles",
