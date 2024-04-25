@@ -122,7 +122,7 @@ addLayer("P", {
                     let arg = player.points
                     let base = new Decimal("1e500")
                     let prog = Math.log(arg) / Math.log(base)
-                    return "Secret 1: " +colorText("b", x, format(prog).times(100)) + "% (" + format(Math.log(arg)) + "/" + format(Math.log(base)) + ")"
+                    return "Secret 1: " +colorText("b", x, format(prog.times(100)) + "% (" + format(Math.log(arg)) + "/" + format(Math.log(base)) + ")"
              },
             unlocked(){
                 return true
