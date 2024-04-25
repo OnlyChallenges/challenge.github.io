@@ -143,6 +143,7 @@ addLayer("P", {
             display() {
                     let x = getUndulatingColor()
                     let arg = player.SP.generation
+                    if (player.SP.generation.lte(0)) arg = 0.01
                     let base = new Decimal("1e50")
                     let prog = Math.log(arg) / Math.log(base)
                     return "Secret 2: " +colorText("b", x, format(Math.log(arg)/Math.log(base)))
