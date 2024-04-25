@@ -107,9 +107,47 @@ function addedPlayerData() {
   }
 }
 
+function convertToB16(n) {
+  let codes = {
+    0: "0",
+    1: "1",
+    2: "2",
+    3: "3",
+    4: "4",
+    5: "5",
+    6: "6",
+    7: "7",
+    8: "8",
+    9: "9",
+    10: "A",
+    11: "B",
+    12: "C",
+    13: "D",
+    14: "E",
+    15: "F",
+  }
+  let x = n % 16
+  return codes[(n - x) / 16] + codes[x]
+}
+function getUndulatingColor(period = Math.sqrt(760)) {
+  let t = new Date().getTime()
+  let a = Math.sin(t / 1e3 / period * 2 * Math.PI + 0)
+  let b = Math.sin(t / 1e3 / period * 2 * Math.PI + 2)
+  let c = Math.sin(t / 1e3 / period * 2 * Math.PI + 4)
+  a = convertToB16(Math.floor(a * 128) + 128)
+  b = convertToB16(Math.floor(b * 128) + 128)
+  c = convertToB16(Math.floor(c * 128) + 128)
+  return "#" + String(a) + String(b) + String(c)
+}
+
+
 // Display extra things at the top of the page
 var displayThings = [
-  `<logic>Endgame: 10 Water</logic><br>Please check <rainbow>Changelog</rainbow> for update information!`
+  function () {
+    let x = getUndulatingColor()
+    let a = "<logic>Endgame</logic>: " + colorText("b", x, "10 Water")
+    return a
+  }
 ]
 
 // Determines when the game "ends"
