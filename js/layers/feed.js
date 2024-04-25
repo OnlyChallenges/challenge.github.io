@@ -21,6 +21,18 @@ addLayer("F", {
 
     },
     branches: ["V"],
+    nodeStyle() {
+        return {
+            "background": (player.SP.unlocked || canReset("SP")) ? "radial-gradient(#e0c287, #d1863b)" : "#bf8f8f",
+        }
+    },
+    componentStyles: {
+        "prestige-button": {
+            background() {
+                return (canReset("SP")) ? "radial-gradient(#e0c287, #d1863b)" : "#bf8f8f"
+            },
+        },
+    },
     color: "#e0c287",
     resource: "feed",
     baseResource: "powder",

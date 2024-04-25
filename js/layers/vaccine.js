@@ -16,6 +16,18 @@ addLayer("V", {
     },
     branches: ["W"],
     position: 1,
+    nodeStyle() {
+        return {
+            "background": (player.V.unlocked || canReset("V")) ? "radial-gradient(#CD33B2, #651791)" : "#bf8f8f",
+        }
+    },
+    componentStyles: {
+        "prestige-button": {
+            background() {
+                return (canReset("V")) ? "radial-gradient(#CD33B2, #651791)" : "#bf8f8f"
+            },
+        },
+    },
     color: "#CD33B2",
     resource: "vaccines",
     baseResource: "particles",

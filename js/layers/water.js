@@ -14,7 +14,19 @@ addLayer("W", {
 
     },
     position: 2,
-    color: "#E2776A",
+    nodeStyle() {
+        return {
+            "background": (player.W.unlocked || canReset("W")) ? "radial-gradient(#E2776A, #1703fc)" : "#bf8f8f",
+        }
+    },
+    componentStyles: {
+        "prestige-button": {
+            background() {
+                return (canReset("W")) ? "radial-gradient(#E2776A, #1703fc)" : "#bf8f8f"
+            },
+        },
+    },
+    color: "#1703fc",
     resource: "water",
     baseResource: "powder",
     baseAmount() { return player.P.points },
@@ -129,12 +141,16 @@ addLayer("W", {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#E2776A, #1703fc)" : "#bf8f8f"),
+                }
+            },
         },
         12: {
             title: "Diluted Water",
             unlocked() { return true },
             cost(x) {
-<<<<<<< HEAD
                 let exp1 = new Decimal(1.4)
                 let exp2 = new Decimal(1.105)
                 let costdef = new Decimal(1)
@@ -142,17 +158,7 @@ addLayer("W", {
                 return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
             },
             display() {
-                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Powder gain by 1.5^x <br> Current Effect: x" + format(buyableEffect(this.layer, this.id))
-=======
-                let exp1 = new Decimal(1.3)
-                let exp2 = new Decimal(1.105)
-                let costdef = new Decimal(1)
-                if (getBuyableAmount(this.layer, this.id).gte(45)) exp2 = exp2.add(0.005)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
-            },
-            display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Powder Gain by 1.5^x<br>Current Effect: x" + format(buyableEffect(this.layer, this.id))
->>>>>>> 645b6e6c9ca385b5361277196b486953458cad06
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -165,13 +171,14 @@ addLayer("W", {
             effect(x) {
                 let base1 = new Decimal(1.5)
                 let base2 = x
-<<<<<<< HEAD
-                let expo = new Decimal(1.000)
-=======
                 let expo = new Decimal(1)
->>>>>>> 645b6e6c9ca385b5361277196b486953458cad06
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#E2776A, #1703fc)" : "#bf8f8f"),
+                }
             },
         },
     },
@@ -187,7 +194,7 @@ addLayer("W", {
         12: {
             title: "Type II",
             description: "Lower Vaccine Requirement by 250%",
-            cost: new Decimal(1),
+            cost: new Decimal(2),
             unlocked() { return hasUpgrade('W', 11) },
         },
         13: {
