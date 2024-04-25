@@ -71,6 +71,26 @@ addLayer("P", {
         if (hasMilestone('V', 15)) player.F.upgrades.push("36");
     },
     branches: ["F", "SP", "V", "W"],
+    tabFormat: {
+        "Main": {
+            content: [
+                ["infobox", "lore"],
+                "main-display",
+                "prestige-button",
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.points) + " particles." },
+                    {}],
+                "upgrades",
+                "blank",
+            ],
+        },
+        "???": {
+            content: [
+                ["bar", "secret1"],
+                ["bar", "secret2"],
+            ],
+        },
+    },
     infoboxes: {
         lore: {
             title: "Some stuff",
@@ -81,6 +101,57 @@ addLayer("P", {
             `,
         },
     },
+
+    bars: {
+        secret1: {
+            direction: RIGHT,
+            width: 500,
+            height: 40,
+            fillStyle: { 'background-color': "#107a2c" },
+            borderStyle() { return { "border-color": "#9DD1C2" } },
+            progress() {
+                let arg = player.points
+                let base = "1e500"
+                let prog = Math.log(arg) / Math.log(base)
+                return prog
+            },
+            display() {
+                    let x = getUndulatingColor()
+                    let arg = player.points
+                    let base = "1e500"
+                    let prog = Math.log(arg) / Math.log(base)
+                    return "Secret 1: " +colorText("b", x, format(Math.log(arg) / Math.log(base)))
+            },
+            unlocked(){
+                return true
+            },
+        },
+        secret2: {
+            direction: RIGHT,
+            width: 500,
+            height: 40,
+            fillStyle: { 'background-color': "#107a2c" },
+            borderStyle() { return { "border-color": "#9DD1C2" } },
+            progress() {
+                let arg = player.SP.generation
+                let base = "1e50"
+                let prog = Math.log(arg) / Math.log(base)
+                return prog
+            },
+            display() {
+                    let x = getUndulatingColor()
+                    let arg = player.SP.generation
+                    let base = "1e50"
+                    let prog = Math.log(arg) / Math.log(base)
+                    return "Secret 2: " +colorText("b", x, format(Math.log(arg) / Math.log(base)))
+            },
+            unlocked(){
+                return true
+            },
+        },
+    },
+
+
 
     //Build Content
     upgrades: {
