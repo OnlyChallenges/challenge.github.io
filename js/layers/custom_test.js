@@ -113,7 +113,7 @@ addLayer("P", {
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let arg = player.points
-                let base = new Decimal("1e500")
+                let base = new Decimal(1e250)
                 let prog = Math.log(arg) / Math.log(base)
                 return prog
             },
@@ -122,7 +122,7 @@ addLayer("P", {
                     let arg = player.points
                     let base = new Decimal(1e250)
                     let prog = Math.log(arg) / Math.log(base)
-                    return "Secret 1: " +colorText("b", x, format((Math.log(arg)/Math.log(base)))) + "% (" + format(Math.log(arg)) + "/" + format(Math.log(base)) + ")"
+                    return "Secret 1: " +colorText("b", x, format((Math.log(arg)/Math.log(base)) * 100)) + "% (" + format(Math.log(arg)) + "/" + format(Math.log(base)) + ")"
              },
             unlocked(){
                 return true
