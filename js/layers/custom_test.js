@@ -136,17 +136,18 @@ addLayer("P", {
             borderStyle() { return { "border-color": "#9DD1C2" } },
             progress() {
                 let arg = player.SP.generation
-                let base = new Decimal("1e50")
+                if (player.SP.generation.lte(0)) arg = 1
+                let base = new Decimal(1e50)
                 let prog = Math.log(arg) / Math.log(base)
                 return prog
             },
             display() {
                     let x = getUndulatingColor()
                     let arg = player.SP.generation
-                    if (player.SP.generation.lte(0)) arg = 0.01
-                    let base = new Decimal("1e50")
+                    if (player.SP.generation.lte(0)) arg = 1
+                    let base = new Decimal(1e50)
                     let prog = Math.log(arg) / Math.log(base)
-                    return "Secret 2: " +colorText("b", x, format(Math.log(arg)/Math.log(base)))
+                    return "Secret 2: " +colorText("b", x, format(Math.log(arg)/Math.log(base)) * 100)+ "% (" + format(Math.log(arg)) + "/" + format(Math.log(base)) + ")"
             },
             unlocked(){
                 return true
