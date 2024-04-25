@@ -109,7 +109,7 @@ addLayer("W", {
                 let exp2 = new Decimal(1.101)
                 let costdef = new Decimal(1)
                 if (getBuyableAmount(this.layer, this.id).gte(45)) exp2 = exp2.add(0.014)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Particle gain by x" + format(buyableEffect(this.layer, this.id))
@@ -118,12 +118,12 @@ addLayer("W", {
                 return player[this.layer].points.gte(this.cost())
             },
             buy() {
-                let cost = new Decimal (1)
+                let cost = new Decimal(1)
                 player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(1.46)
+                let base1 = new Decimal(1.3)
                 let base2 = x
                 let expo = new Decimal(1.012)
                 let eff = base1.pow(Decimal.pow(base2, expo))
@@ -134,6 +134,7 @@ addLayer("W", {
             title: "Diluted Water",
             unlocked() { return true },
             cost(x) {
+<<<<<<< HEAD
                 let exp1 = new Decimal(1.4)
                 let exp2 = new Decimal(1.105)
                 let costdef = new Decimal(1)
@@ -142,6 +143,16 @@ addLayer("W", {
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Powder gain by 1.5^x <br> Current Effect: x" + format(buyableEffect(this.layer, this.id))
+=======
+                let exp1 = new Decimal(1.3)
+                let exp2 = new Decimal(1.105)
+                let costdef = new Decimal(1)
+                if (getBuyableAmount(this.layer, this.id).gte(45)) exp2 = exp2.add(0.005)
+                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
+            },
+            display() {
+                return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Powder Gain by 1.5^x<br>Current Effect: x" + format(buyableEffect(this.layer, this.id))
+>>>>>>> 645b6e6c9ca385b5361277196b486953458cad06
             },
             canAfford() {
                 return player[this.layer].points.gte(this.cost())
@@ -154,7 +165,11 @@ addLayer("W", {
             effect(x) {
                 let base1 = new Decimal(1.5)
                 let base2 = x
+<<<<<<< HEAD
                 let expo = new Decimal(1.000)
+=======
+                let expo = new Decimal(1)
+>>>>>>> 645b6e6c9ca385b5361277196b486953458cad06
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
@@ -174,6 +189,20 @@ addLayer("W", {
             description: "Lower Vaccine Requirement by 250%",
             cost: new Decimal(1),
             unlocked() { return hasUpgrade('W', 11) },
+        },
+        13: {
+            title: "Type III",
+            description: "Boost Powder Gain on a lackluster effect",
+            cost: new Decimal(3),
+            effect() {
+                let effect1 = (player.points.max(1).add(1).pow(0.004)).max(1).min(10);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+            unlocked() { return hasUpgrade('W', 12) },
         },
     },
 })
