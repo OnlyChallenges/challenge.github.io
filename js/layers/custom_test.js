@@ -22,13 +22,13 @@ addLayer("P", {
     },
     nodeStyle() {
         return {
-            "background": (player.P.unlocked || canReset("P")) ? "radial-gradient(#FFFFFF, #424140)" : "#bf8f8f",
+            "background": (player.P.unlocked || canReset("P")) ? "radial-gradient(#FFFFFF, #333232)" : "#bf8f8f",
         }
     },
     componentStyles: {
         "prestige-button": {
             background() {
-                return (canReset("P")) ? "radial-gradient(#FFFFFF, #424140)" : "#bf8f8f"
+                return (canReset("P")) ? "radial-gradient(#FFFFFF, #333232)" : "#bf8f8f"
             },
         },
     },
@@ -72,6 +72,28 @@ addLayer("P", {
         if (hasMilestone('V', 15)) player.F.upgrades.push("36");
     },
     branches: ["F", "SP", "V", "W"],
+    tabFormat: {
+        "Main": {
+            content: [
+                ["infobox", "lore"],
+                "main-display",
+                "prestige-button",
+                "blank",
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.points) + " particles." },
+                    {}],
+                "blank",
+                "upgrades",
+                "blank",
+            ],
+        },
+        "???": {
+            content: [
+                ["bar", "secret1"],
+                ["bar", "secret2"],
+            ],
+        },
+    },
     infoboxes: {
         lore: {
             title: "Some stuff",
@@ -82,6 +104,59 @@ addLayer("P", {
             `,
         },
     },
+
+    bars: {
+        secret1: {
+            direction: RIGHT,
+            width: 500,
+            height: 40,
+            fillStyle: { 'background-color': "#107a2c" },
+            borderStyle() { return { "border-color": "#9DD1C2" } },
+            progress() {
+                let arg = player.points
+                let base = new Decimal(1e250)
+                let prog = Math.log(arg) / Math.log(base)
+                return prog
+            },
+            display() {
+                    let x = getUndulatingColor()
+                    let arg = player.points
+                    let base = new Decimal(1e250)
+                    let prog = Math.log(arg) / Math.log(base)
+                    return "Secret 1: " +colorText("b", x, format((Math.log(arg)/Math.log(base).max(0)) * 100)) + "% (" + format(Math.log(arg).max(0)) + "/" + format(Math.log(base)) + ")"
+             },
+            unlocked(){
+                return true
+            },
+        },
+        secret2: {
+            direction: RIGHT,
+            width: 500,
+            height: 40,
+            fillStyle: { 'background-color': "#107a2c" },
+            borderStyle() { return { "border-color": "#9DD1C2" } },
+            progress() {
+                let arg = player.SP.generation
+                if (player.SP.generation.lte(0)) arg = 1
+                let base = new Decimal(1e50)
+                let prog = Math.log(arg) / Math.log(base)
+                return prog
+            },
+            display() {
+                    let x = getUndulatingColor()
+                    let arg = player.SP.generation
+                    if (player.SP.generation.lte(0)) arg = 1
+                    let base = new Decimal(1e50)
+                    let prog = Math.log(arg) / Math.log(base)
+                    return "Secret 2: " +colorText("b", x, format(Math.log(arg)/Math.log(base).max(0)) * 100)+ "% (" + format(Math.log(arg).max(0)) + "/" + format(Math.log(base)) + ")"
+            },
+            unlocked(){
+                return true
+            },
+        },
+    },
+
+
 
     //Build Content
     upgrades: {

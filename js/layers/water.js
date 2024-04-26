@@ -16,17 +16,17 @@ addLayer("W", {
     position: 2,
     nodeStyle() {
         return {
-            "background": (player.W.unlocked || canReset("W")) ? "radial-gradient(#E2776A, #1703fc)" : "#bf8f8f",
+            "background": (player.W.unlocked || canReset("W")) ? "radial-gradient(#669ce8, #12448a)" : "#bf8f8f",
         }
     },
     componentStyles: {
         "prestige-button": {
             background() {
-                return (canReset("W")) ? "radial-gradient(#E2776A, #1703fc)" : "#bf8f8f"
+                return (canReset("W")) ? "radial-gradient(#669ce8, #12448a)" : "#bf8f8f"
             },
         },
     },
-    color: "#1703fc",
+    color: "#669ce8",
     resource: "water",
     baseResource: "powder",
     baseAmount() { return player.P.points },
@@ -143,7 +143,7 @@ addLayer("W", {
             },
             style() {
                 return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#E2776A, #1703fc)" : "#bf8f8f"),
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#669ce8, #12448a)" : "#bf8f8f"),
                 }
             },
         },
@@ -177,7 +177,7 @@ addLayer("W", {
             },
             style() {
                 return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#E2776A, #1703fc)" : "#bf8f8f"),
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#669ce8, #12448a)" : "#bf8f8f"),
                 }
             },
         },
