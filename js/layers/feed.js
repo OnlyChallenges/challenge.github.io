@@ -23,21 +23,13 @@ addLayer("F", {
     branches: ["V"],
     nodeStyle() {
         return {
-<<<<<<< HEAD
-            "background": (player.SP.unlocked || canReset("SP")) ? "radial-gradient(#e0c287, #d1863b)" : "#bf8f8f",
-=======
-            "background": (player.F.unlocked || canReset("F")) ? "radial-gradient(#e0c287, #bf5b13)" : "#bf8f8f",
->>>>>>> 42d585110c79ed88d572d8732a628cfb4cfd023d
+            "background": (player.F.unlocked || canReset("F")) ? "radial-gradient(#e0c287, #d1863b)" : "#bf8f8f",
         }
     },
     componentStyles: {
         "prestige-button": {
             background() {
-<<<<<<< HEAD
-                return (canReset("SP")) ? "radial-gradient(#e0c287, #d1863b)" : "#bf8f8f"
-=======
-                return (canReset("F")) ? "radial-gradient(#e0c287, #bf5b13)" : "#bf8f8f"
->>>>>>> 42d585110c79ed88d572d8732a628cfb4cfd023d
+                return (canReset("F")) ? "radial-gradient(#e0c287, #d1863b)" : "#bf8f8f"
             },
         },
     },

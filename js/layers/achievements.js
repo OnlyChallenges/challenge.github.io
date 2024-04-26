@@ -31,7 +31,11 @@ addLayer("A", {
                 "blank",
                 ["achievements", [10, 11, 12]],
                 "blank",
+                ["display-text", function () {
+                    return 'You have ' + formatWhole(tmp.A.total3) + ' / 4 Secret Bar Achievements'
+                }, {}],
                 "blank",
+                ["achievements", [20, 21, 22]],
                 "blank",
                 "blank",
                 "blank",
@@ -144,6 +148,16 @@ addLayer("A", {
         return form
     },
 
+    total3() {
+        let form = new Decimal(0)
+        // Row 1
+        if (hasAchievement('A', 201)) form = form.add(1)
+        if (hasAchievement('A', 202)) form = form.add(1)
+        if (hasAchievement('A', 203)) form = form.add(1)
+        if (hasAchievement('A', 204)) form = form.add(1)
+        return form
+    },
+
     aP() {
         let form = new Decimal(0)
         // Row 1
@@ -169,6 +183,11 @@ addLayer("A", {
         if (hasAchievement('A', 102)) form = form.add(50)
         if (hasAchievement('A', 103)) form = form.add(50)
         if (hasAchievement('A', 104)) form = form.add(30)
+        // Secret Bar Achievements
+        if (hasAchievement('A', 201)) form = form.add(100)
+        if (hasAchievement('A', 202)) form = form.add(100)
+        if (hasAchievement('A', 203)) form = form.add(100)
+        if (hasAchievement('A', 204)) form = form.add(100)
         return form
     },
 
@@ -260,7 +279,7 @@ addLayer("A", {
             name: "Special Formula +2",
             done() { return getBuyableAmount('W', 12).gte(2)},
             tooltip: "Get 2 of the 2nd Water Buyable<br>Reward: 30 AP",
-            unlocked() { return hasAchievement('A', 31) },
+            unlocked() { return hasAchievement('A', 27) },
         },
         101: {
             name: "Secret: Only the first row",
@@ -283,8 +302,32 @@ addLayer("A", {
         104: {
             name: "Secret: Creatur's Forgiving Hug",
             done() { return player.A.hugs > 999 },
-            tooltip: `"Hug Plasma more than 999 times! (<logic>Are you a psychopath?</logic>)<br>Reward: 30 AP`,
+            tooltip: `Hug Plasma more than 999 times! (<logic>Are you a psychopath?</logic>)<br>Reward: 30 AP`,
             unlocked() { return hasAchievement('A', 104) },
+        },
+        201: {
+            name: "Secret Bar 1",
+            done() { return player.points.gte(1e250) },
+            tooltip: `Complete the first Secret Bar (Achieve 1e250 Money)<br>Reward: 100 AP`,
+            unlocked() { return hasAchievement('A', 201) },
+        },
+        202: {
+            name: "Secret Bar 2",
+            done() { return player.SP.generation.gte(1e50) },
+            tooltip: `Complete the 2nd Secret Bar (Achieve 1e50 Super Power)<br>Reward: 100 AP`,
+            unlocked() { return hasAchievement('A', 202) },
+        },
+        203: {
+            name: "Secret Bar 3",
+            done() { return (getBuyableAmount('W', 11).add(getBuyableAmount('W',12))).gte(150)},
+            tooltip: `Complete the 3rd Secret Bar (Achieve 150 Water Buyables)<br>Reward: 100 AP`,
+            unlocked() { return hasAchievement('A', 203) },
+        },
+        204: {
+            name: "Secret Bar 4",
+            done() { return player.P.points.gte(1e290) },
+            tooltip: `Complete the 4th Secret Bar (Achieve 1e290 Powder)<br>Reward: 100 AP`,
+            unlocked() { return hasAchievement('A', 204) },
         },
     },
     clickables: {
