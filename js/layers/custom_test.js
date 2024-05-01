@@ -190,12 +190,14 @@ addLayer("P", {
             progress() {
                 let arg = player.P.points
                 let base = new Decimal(1e290)
+                if (player.P.points <= 0) arg = 0.01
                 let prog = Math.log(arg) / Math.log(base)
                 return prog
             },
             display() {
                 let x = getUndulatingColor()
                 let arg = player.P.points
+                if (player.P.points <= 0) arg = 0.01
                 let base = new Decimal(1e290)
                 let prog = Math.log(arg) / Math.log(base)
                     return "Secret 4: " +colorText("b", x, format(prog * 100))+ "%"
