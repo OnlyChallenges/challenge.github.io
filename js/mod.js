@@ -1,5 +1,5 @@
 let modInfo = {
-  name: `The Powder Tree v0.2.1.2`,
+  name: `The Powder Tree v0.2.2`,
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "particles",
@@ -12,12 +12,28 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.1.2",
+  num: "0.2.2",
   ver: "Changelog",
-  name: "Secrets",
+  name: "Liquidation",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+ <h2>v0.2.2: Liquidation</h2><br>
+ - Added Two Water Buyables<br>
+ - Added 'Liquid' to Water to have an effect an previous generation<br>
+ - Added 4 Secret Bars (Powder, Water Buyables, Points, & Super Power)<br>
+ - Added One Secret Achievement<br><br>
+ -> <logic>Hint</logic>: <fail>Click on a button 1,000 times to achieve this goal of hugification...</fail><br><br>
+ - Added 4 Upgrades to Water<br>
+ - Improved Two Upgrades in Super Powder<br>
+ - Fixed Ultra Generation being too strong.<br>
+ - Improved Rainbow Text Speed<br>
+ - Improved Particle Gain on Powder Layer<br>
+ - Imporved Three Upgrades in Feed Layer to make the game more balanced and self-paced<br>
+ - Improved Super Power (Idle) & Feed (Active) to be correspond to their co-op layers<br><br>
+
+ <rainbow>=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+</rainbow><br><br>
+
  <h2>v0.2.1: Secrets</h2><br>
  - Added Water<br><br>
  -> <logic>Added 2 Milestones</logic><br>
@@ -93,8 +109,9 @@ function getPointGen() {
   if (hasUpgrade('P', 23)) gain = gain.pow(1.035)
   if (hasUpgrade('F', 34)) gain = gain.times(1.3)
   if (hasUpgrade('F', 34)) gain = gain.times(1.6)
-  if (hasMilestone('W', 11)) gain = gain.times(3)
+  if (hasMilestone('W', 11)) gain = gain.times(5)
   if (hasUpgrade('W', 11)) gain = gain.pow(1.075)
+  if (hasUpgrade('W', 14)) gain = gain.times(upgradeEffect('W', 14))
   if (getBuyableAmount('W', 11).gte(1)) gain = gain.times(buyableEffect('W', 11))
   if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
@@ -145,14 +162,14 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 var displayThings = [
   function () {
     let x = getUndulatingColor()
-    let a = "<logic>Endgame</logic>: " + colorText("b", x, "10 Water")
+    let a = "<logic>Endgame</logic>: " + colorText("b", x, "1,000,000 Liquid")
     return a
   }
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-  return player.W.points.gte(10)
+  return player.W.generation.gte(1000000)
 }
 
 

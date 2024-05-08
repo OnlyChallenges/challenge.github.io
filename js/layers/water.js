@@ -64,7 +64,7 @@ addLayer("W", {
     },
 
     generationExp() {
-        let exp = new Decimal(1 / 7);
+        let exp = new Decimal(1 / 7.5);
         return exp;
     },
 
@@ -102,7 +102,7 @@ addLayer("W", {
     milestones: {
         11: {
             requirementDescription: "HO (1 Water)",
-            effectDescription: `+200% Particle Gain & -20% Feed Requirement`,
+            effectDescription: `+400% Particle Gain & -20% Feed Requirement`,
             done() { return player.W.points.gte(1) || hasUpgrade('W', 11) },
         },
         12: {
@@ -202,7 +202,7 @@ addLayer("W", {
             description: "Boost Powder Gain on a lackluster effect",
             cost: new Decimal(3),
             effect() {
-                let effect1 = (player.points.max(1).add(1).pow(0.004)).max(1).min(10);
+                let effect1 = (player.points.max(1).add(1).pow(0.01)).max(1).min(10);
                 return effect1
             },
             effectDisplay() {
@@ -211,5 +211,19 @@ addLayer("W", {
             },
             unlocked() { return hasUpgrade('W', 12) },
         },
+        14: {
+            title: "Type IV",
+            description: "Boost Particle Gain based on Liquid^0.2",
+            cost: new Decimal(6),
+            effect() {
+                let effect1 = (player.W.generation.max(1).add(1).pow(0.2)).max(1).min(1000);
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
+                return text;
+            },
+            unlocked() { return hasUpgrade("W", 13) },
+        }
     },
 })
