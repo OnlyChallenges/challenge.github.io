@@ -1,5 +1,5 @@
 let modInfo = {
-  name: `The Powder Tree v0.2.2`,
+  name: `The Powder Tree v0.2.2.1`,
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "particles",
@@ -12,7 +12,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.2",
+  num: "0.2.2.1",
   ver: "Changelog",
   name: "Liquidation",
 }
