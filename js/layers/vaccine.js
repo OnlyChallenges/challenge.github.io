@@ -113,7 +113,7 @@ addLayer("V", {
                 return spec
             },
             display() {
-                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Vaccines<br>Effect: Boost Powder gain by ^1.05 per purchase<br>Purchase Limit: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br> To get purchases for this buyable, 10 achievement points = 1 purchase, 100 AP = 2, and so forth."
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Vaccines<br>Effect: Boost Powder gain by ^1.05 per purchase<br>Purchase Limit: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br> To increase the purchase limit, you need 1e^x Achievement Points."
             },
             purchaseLimit() {
                 let pur = new Decimal.log10(tmp.A.aP).floor()
