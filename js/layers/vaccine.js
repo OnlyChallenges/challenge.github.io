@@ -109,7 +109,8 @@ addLayer("V", {
                 let exp1 = new Decimal(1.1)
                 let exp2 = new Decimal(1.02)
                 let costdef = new Decimal(100)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
             },
             display() {
                 return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Vaccines<br>Effect: Boost Powder gain by ^1.05 per purchase<br>Purchase Limit: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br> To get purchases for this buyable, 10 achievement points = 1 purchase, 100 AP = 2, and so forth."
@@ -139,7 +140,6 @@ addLayer("V", {
                 }
             },
         },
-
     },
 
     //Build Content

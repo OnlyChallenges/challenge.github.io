@@ -121,7 +121,8 @@ addLayer("W", {
                 let exp2 = new Decimal(1.101)
                 let costdef = new Decimal(1)
                 if (getBuyableAmount(this.layer, this.id).gte(45)) exp2 = exp2.add(0.014)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Particle gain by x" + format(buyableEffect(this.layer, this.id))
@@ -155,7 +156,8 @@ addLayer("W", {
                 let exp2 = new Decimal(1.105)
                 let costdef = new Decimal(1)
                 if (getBuyableAmount(this.layer, this.id).gte(45)) exp2 = exp2.add(0.014)
-                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x , Decimal.pow(exp2 , x))).floor()
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
             },
             display() {
                 return "Cost: " + format(tmp[this.layer].buyables[this.id].cost) + " Water" + "<br>Bought: " + getBuyableAmount(this.layer, this.id) + "<br>Effect: Boost Powder Gain by 1.5^x<br>Current Effect: x" + format(buyableEffect(this.layer, this.id))
