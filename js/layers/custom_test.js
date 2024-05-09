@@ -56,6 +56,7 @@ addLayer("P", {
         if (hasUpgrade('W', 13)) gain = gain.times(upgradeEffect('W', 13))
         if (player.SP.generation2 > 0) gain = gain.times(tmp.SP.generation2Eff)
         if (getBuyableAmount('W', 12).gte(1)) gain = gain.times(buyableEffect('W', 12))
+        if ((getBuyableAmount('V', 11)).gte(1)) eff = eff.pow(buyableEffect('V', 11))
         return gain
     },
     gainExp() {
@@ -207,8 +208,6 @@ addLayer("P", {
             },
         },
     },
-
-
 
     //Build Content
     upgrades: {

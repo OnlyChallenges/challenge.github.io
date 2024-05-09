@@ -224,6 +224,6 @@ addLayer("W", {
                 return text;
             },
             unlocked() { return hasUpgrade("W", 13) },
-        }
+        },
     },
 })

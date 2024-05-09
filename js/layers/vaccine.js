@@ -100,6 +100,48 @@ addLayer("V", {
         
         },
     },
+
+    buyables: {
+        11: {
+            title: "Powdery Boost",
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.1)
+                let exp2 = new Decimal(1.02)
+                let costdef = new Decimal(100)
+                return new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).floor()
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Vaccines<br>Effect: Boost Powder gain by ^1.05 per purchase<br>Purchase Limit: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br> To get purchases for this buyable, 10 achievement points = 1 purchase, 100 AP = 2, and so forth."
+            },
+            purchaseLimit() {
+                let pur = (tmp.A.aP.log()).floor()
+                return pur
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.05)
+                let base2 = x
+                let expo = new Decimal(1)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#CD33B2, #ba1356)" : "#bf8f8f"),
+                }
+            },
+        },
+
+    },
+
     //Build Content
     upgrades: {
         rows: 7,
