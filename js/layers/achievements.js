@@ -333,7 +333,7 @@ addLayer("A", {
     clickables: {
         11: {
             title: "You found a secret",
-            display: "Secret, THIS WILL REQUIRE TO RESTART THE PAGE ON CLICK",
+            display: "Thanks for looking for it.",
             canClick: true,
             onClick() {
                 player.A.secret += 1
