@@ -85,7 +85,7 @@ addLayer("P", {
                     {}],
                 ["display-text",
                     function () {
-                        if (tmp[this.layer].passiveGeneration.lte(0))
+                        if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13))
                             return "You have No Passive Effect"
                         if (tmp[this.layer].passiveGeneration.gte(0.0001))
                             return "You are gaining " + formatWhole(tmp[this.layer].resetGain.times(tmp[this.layer].passiveGeneration)) + tmp[this.layer].resource + "/sec (" + format(tmp[this.layer].passiveGeneration.times(100)) + "%)"
