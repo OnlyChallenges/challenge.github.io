@@ -84,11 +84,14 @@ addLayer("P", {
                     function () { return 'You have ' + formatWhole(player.points) + " particles." },
                     {}],
                 ["display-text",
-                    function () 
-                        {
-                            if (tmp[layer].passiveGeneration.gte(0.0001)) 
-                            return "You are gaining" + formatWhole(tmp[layer].resetGain.times(tmp[layer].passiveGeneration)) + tmp[layer].resource + "/sec (" + format(tmp[layer].passiveGeneration.times(100)) + "%)" 
-                        },
+                    function () {
+                        if (tmp[layer].passiveGeneration.lte(0))
+                            return "You have No Passive Effect"
+                        if (tmp[layer].passiveGeneration.gte(0.0001))
+                            return "You are gaining" + formatWhole(tmp[layer].resetGain.times(tmp[layer].passiveGeneration)) + tmp[layer].resource + "/sec (" + format(tmp[layer].passiveGeneration.times(100)) + "%)"
+                        if (player.P.points.gte(1e10) && tmp[layer].passiveGeneration.gte(0.0001))
+                            return "You are gaining 0 Powder /sec (0%) [You've been Passive Capped]"
+                    },
                     {}],
                 "blank",
                 "upgrades",
@@ -129,13 +132,13 @@ addLayer("P", {
                 return prog
             },
             display() {
-                    let x = getUndulatingColor()
-                    let arg = player.points
-                    let base = new Decimal(1e250)
-                    let prog = Math.log(arg) / Math.log(base)
-                    return "Secret 1: " +colorText("b", x, format((prog) * 100)) + "%"
-             },
-            unlocked(){
+                let x = getUndulatingColor()
+                let arg = player.points
+                let base = new Decimal(1e250)
+                let prog = Math.log(arg) / Math.log(base)
+                return "Secret 1: " + colorText("b", x, format((prog) * 100)) + "%"
+            },
+            unlocked() {
                 return true
             },
         },
@@ -153,14 +156,14 @@ addLayer("P", {
                 return prog
             },
             display() {
-                    let x = getUndulatingColor()
-                    let arg = player.SP.generation
-                    if (player.SP.generation.lte(0)) arg = 1
-                    let base = new Decimal(1e50)
-                    let prog = (Math.log(arg) / Math.log(base))
-                    return "Secret 2: " +colorText("b", x, format(prog * 100))+ "%"
+                let x = getUndulatingColor()
+                let arg = player.SP.generation
+                if (player.SP.generation.lte(0)) arg = 1
+                let base = new Decimal(1e50)
+                let prog = (Math.log(arg) / Math.log(base))
+                return "Secret 2: " + colorText("b", x, format(prog * 100)) + "%"
             },
-            unlocked(){
+            unlocked() {
                 return true
             },
         },
@@ -178,14 +181,14 @@ addLayer("P", {
                 return prog
             },
             display() {
-                    let x = getUndulatingColor()
-                    let arg = getBuyableAmount('W', 11).add(getBuyableAmount('W', 12))
-                    if (getBuyableAmount('W', 11).lte(0) && getBuyableAmount('W', 12).lte(0)) arg = 1
-                    let base = new Decimal(150)
-                    let prog = Math.log(arg) / Math.log(base)
-                    return "Secret 3: " +colorText("b", x, format(prog * 100))+ "%"
+                let x = getUndulatingColor()
+                let arg = getBuyableAmount('W', 11).add(getBuyableAmount('W', 12))
+                if (getBuyableAmount('W', 11).lte(0) && getBuyableAmount('W', 12).lte(0)) arg = 1
+                let base = new Decimal(150)
+                let prog = Math.log(arg) / Math.log(base)
+                return "Secret 3: " + colorText("b", x, format(prog * 100)) + "%"
             },
-            unlocked(){
+            unlocked() {
                 return true
             },
         },
@@ -208,9 +211,9 @@ addLayer("P", {
                 if (player.P.points <= 0) arg = 0.01
                 let base = new Decimal(1e290)
                 let prog = Math.log(arg) / Math.log(base)
-                    return "Secret 4: " +colorText("b", x, format(prog * 100))+ "%"
+                return "Secret 4: " + colorText("b", x, format(prog * 100)) + "%"
             },
-            unlocked(){
+            unlocked() {
                 return true
             },
         },
