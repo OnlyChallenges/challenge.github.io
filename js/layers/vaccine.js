@@ -167,11 +167,6 @@ addLayer("V", {
                 if (player.P.points > 1e10) effect1 = new Decimal(0)
                 return effect1
             },
-            effectDisplay() {
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
-                if (player.P.points > 1e10) text = `+0.00%`;
-                return text;
-            },
         },
         14: {
             title: "<rainbow>C</rainbow>",
