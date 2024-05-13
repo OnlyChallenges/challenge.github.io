@@ -1,5 +1,5 @@
 // ************ Themes ************
-var themes = ["default", "aqua"]
+var themes = ["default", "powdery"]
 
 var colors = {
 	default: {
@@ -12,11 +12,11 @@ var colors = {
 		background: "#0f0f0f",
 		background_tooltip: "rgba(0, 0, 0, 0.75)",
 	},
-	aqua: {
+	powdery: {
 		1: "#bfdfff",
-		2: "#8fa7bf",
-		3: "#5f6f7f",
-		color: "#bfdfff",
+		2: "#9dbf8f",
+		3: "#37593d",
+		color: "#875ea6",
 		points: "#dfefff",
 		locked: "#c4a7b3",
 		background: "#001f3f",
