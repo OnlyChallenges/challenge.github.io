@@ -1,5 +1,5 @@
 let modInfo = {
-  name: `The Powder Tree v0.2.2.1`,
+  name: `The Powder Tree v0.2.3`,
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "particles",
@@ -12,12 +12,27 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.2.1",
+  num: "0.2.3",
   ver: "Changelog",
-  name: "Liquidation",
+  name: "TOD",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
+ <h2>v0.2.3: TOD</h2><br>
+ - Added One Vaccine Buyable<br>
+ - Improved Achievement Point Effect Slightly<br>
+ - Added 2 Water Upgrades<br>
+ - Improved Powder UI<br>
+ - Improved Water UI<br>
+ - Added <rainbow>Gradient'd Background</rainbow> (1 Type Currently)<br>
+ - Improved Ultra Power Upgrades<br>
+ - Fixed Two Upgrades being defective<br>
+ - Improved Water Buyables to have a slightly better effect.<br>
+ - Improved 1 Feed Upgrade Effect<br>
+ - Improved Powder Passive Generation Effect.<br><br>
+
+ <rainbow>=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+</rainbow><br><br>
+
  <h2>v0.2.2: Liquidation</h2><br>
  - Added Two Water Buyables<br>
  - Added 'Liquid' to Water to have an effect an previous generation<br>
