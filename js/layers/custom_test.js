@@ -84,7 +84,11 @@ addLayer("P", {
                     function () { return 'You have ' + formatWhole(player.points) + " particles." },
                     {}],
                 ["display-text",
-                    function () { return `You are gaining {{format(tmp[layer].resetGain.times(tmp[layer].passiveGeneration))}} {{tmp[layer].resource}} /sec` },
+                    function () 
+                        {
+                            if (tmp[layer].passiveGeneration.gte(0.0001)) 
+                            return "You are gaining" + formatWhole(tmp[layer].resetGain.times(tmp[layer].passiveGeneration)) + tmp[layer].resource + "/sec (" + format(tmp[layer].passiveGeneration.times(100)) + "%)" 
+                        },
                     {}],
                 "blank",
                 "upgrades",
