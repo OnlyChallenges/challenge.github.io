@@ -86,7 +86,7 @@ addLayer("P", {
                     {}],
                 ["display-text",
                     function () {
-                        let b = getUndulatingColor()
+                        let x = getUndulatingColor()
                         if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == false)
                             return "You do not have " + colorText("b", x, "??????") + " Upgrade 3 Unlocked"
                         if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == true)
