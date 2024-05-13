@@ -97,6 +97,7 @@ addLayer("P", {
                             return "+ 0 Powder/sec (0%)"
                     },
                     {}],
+                ["display-text",
                     function () {
                         let x = getUndulatingColor
                         if (player.P.points.gte(1e10) && tmp[this.layer].passiveGeneration.lte(0) && hasUpgrade('V', 13) && player.W.unlocked == false)
@@ -105,7 +106,7 @@ addLayer("P", {
                             return "You do not have " + colorText("b", x, "Water Upgrade 11") + " Unlocked"
                         if (player.P.points.lte(1e10) && tmp[this.layer].passiveGeneration.gte(0.0001) && player.W.unlocked)
                             return "Passive Cap Changed: 1e10 >>> 1e50"
-                    {}},
+                    {}],
                 "blank",
                 "upgrades",
                 "blank",
