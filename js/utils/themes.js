@@ -16,11 +16,11 @@ var colors = {
 		1: "#bfdfff",
 		2: "#9dbf8f",
 		3: "#37593d",
-		color: "#875ea6",
-		points: "#dfefff",
+		color: "#a87dc9",
+		points: "#f57396",
 		locked: "#c4a7b3",
 		background: "#001f3f",
-		background_tooltip: "rgba(0, 15, 31, 0.75)",
+		background_tooltip: "rgba(0, 15, 31, 0.8)",
 	},
 }
 function changeTheme() {
