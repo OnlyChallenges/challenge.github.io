@@ -18,6 +18,7 @@ addLayer("P", {
     passiveGeneration() {
         let pass = new Decimal(0)
         if (hasUpgrade('V', 13)) pass = pass.add(upgradeEffect('V', 13).div(2))
+        if (player.P.points.gte(1e10)) pass = new Decimal(0)
         return pass
     },
     nodeStyle() {
