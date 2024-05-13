@@ -85,11 +85,11 @@ addLayer("P", {
                     {}],
                 ["display-text",
                     function () {
-                        if (tmp[layer].passiveGeneration.lte(0))
+                        if (tmp[this.layer].passiveGeneration.lte(0))
                             return "You have No Passive Effect"
-                        if (tmp[layer].passiveGeneration.gte(0.0001))
-                            return "You are gaining" + formatWhole(tmp[layer].resetGain.times(tmp[layer].passiveGeneration)) + tmp[layer].resource + "/sec (" + format(tmp[layer].passiveGeneration.times(100)) + "%)"
-                        if (player.P.points.gte(1e10) && tmp[layer].passiveGeneration.gte(0.0001))
+                        if (tmp[this.layer].passiveGeneration.gte(0.0001))
+                            return "You are gaining" + formatWhole(tmp[this.layer].resetGain.times(tmp[this.layer].passiveGeneration)) + tmp[this.layer].resource + "/sec (" + format(tmp[this.layer].passiveGeneration.times(100)) + "%)"
+                        if (player.P.points.gte(1e10) && tmp[this.layer].passiveGeneration.gte(0.0001))
                             return "You are gaining 0 Powder /sec (0%) [You've been Passive Capped]"
                     },
                     {}],
