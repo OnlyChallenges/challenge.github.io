@@ -88,15 +88,24 @@ addLayer("P", {
                     function () {
                         let x = getUndulatingColor()
                         if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == false)
-                            return "You do not have " + colorText("b", x, "??????") + " Upgrade 3 Unlocked"
+                            return "You do not have " + colorText("b", x, "??????") + " Unlocked"
                         if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == true)
-                            return "You do not have " + colorText("b", x, "Vaccine") + " Upgrade 3 Unlocked"
+                            return "You do not have " + colorText("b", x, "Vaccine Upgrade 3") + " Unlocked"
                         if (tmp[this.layer].passiveGeneration.gte(0.0001))
                             return "+" + formatWhole(tmp[this.layer].resetGain.times(tmp[this.layer].passiveGeneration)) +" " + tmp[this.layer].resource + "/sec ( +" + format(tmp[this.layer].passiveGeneration.times(100)) + "% )"
                         if (player.P.points.gte(1e10) && tmp[this.layer].passiveGeneration.lte(0) && hasUpgrade('V', 13))
-                            return "You are gaining 0 Powder /sec (0%) [You've been Passive Capped]"
+                            return "+ 0 Powder/sec (0%)"
                     },
                     {}],
+                    function () {
+                        let x = getUndulatingColor
+                        if (player.P.points.gte(1e10) && tmp[this.layer].passiveGeneration.lte(0) && hasUpgrade('V', 13) && player.W.unlocked == false)
+                            return "You do not have " + colorText("b", x, "??????") + " Unlocked"
+                        if (player.P.points.gte(1e10) && tmp[this.layer].passiveGeneration.lte(0) && hasUpgrade('V', 13) && player.W.unlocked == true)
+                            return "You do not have " + colorText("b", x, "Water Upgrade 11") + " Unlocked"
+                        if (player.P.points.lte(1e10) && tmp[this.layer].passiveGeneration.gte(0.0001) && player.W.unlocked)
+                            return "Passive Cap Changed: 1e10 >>> 1e50"
+                    {}},
                 "blank",
                 "upgrades",
                 "blank",
