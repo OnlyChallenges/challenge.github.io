@@ -177,24 +177,16 @@ function isEndgame() {
 // Less important things beyond this point!
 
 // Style for the background, can be a function
-var backgroundStyle = {
-
+var backgroundStyle = function(){
+  let backSty = {"background-image": "linear-gradient(rgb(0, 90, 25), rgb(140, 20, 25))"}
+  return backSty
 }
 
-// You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {
-  return (3600) // Default is 1 hour which is just arbitrarily large
+  return(3600)
 }
 
 // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
 // you can cap their current resources with this.
 function fixOldSave(oldVersion) {
 }
-
-
-
-
-
-// I'm currently sleeping or at school, you can talk and do what you want in vc. 
-// I will be back online when the clock says 4:30 PM.
-
