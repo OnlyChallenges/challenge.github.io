@@ -86,10 +86,13 @@ addLayer("P", {
                     {}],
                 ["display-text",
                     function () {
-                        if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13))
-                            return "You have No Passive Effect"
+                        let b = getUndulatingColor()
+                        if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == false)
+                            return "You do not have " + colorText("b", x, "??????") + " Upgrade 3 Unlocked"
+                        if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == true)
+                            return "You do not have " + colorText("b", x, "Vaccine") + " Upgrade 3 Unlocked"
                         if (tmp[this.layer].passiveGeneration.gte(0.0001))
-                            return "You are gaining " + formatWhole(tmp[this.layer].resetGain.times(tmp[this.layer].passiveGeneration)) + tmp[this.layer].resource + "/sec (" + format(tmp[this.layer].passiveGeneration.times(100)) + "%)"
+                            return "+" + formatWhole(tmp[this.layer].resetGain.times(tmp[this.layer].passiveGeneration)) +" " + tmp[this.layer].resource + "/sec ( +" + format(tmp[this.layer].passiveGeneration.times(100)) + "% )"
                         if (player.P.points.gte(1e10) && tmp[this.layer].passiveGeneration.lte(0) && hasUpgrade('V', 13))
                             return "You are gaining 0 Powder /sec (0%) [You've been Passive Capped]"
                     },
