@@ -106,7 +106,6 @@ addLayer("SP", {
     generation2Eff() {
         let gen = player.SP.generation2.plus(1).pow(this.generation2Exp())
         if (!hasUpgrade('F', 36)) gen = new Decimal(1)
-        if (hasUpgrade('SP', 23)) gen = gen.pow(1.2)
         return gen
     },
 
@@ -220,11 +219,21 @@ addLayer("SP", {
         },
         23: {
             title: "Vaccine Super III",
-            description: "VacVacVac = Super 3? Increase Ultra Power Effect by ^20%",
+            description: "VacVacVac = Super 3? Boost Particle gain based on a sin formula (hover)",
+            tooltip: "((time / 100) / √488 * 2 * PI + 1) + 2",
             cost: new Decimal(300),
             currencyDisplayName: "Ultra Power",
             currencyInternalName: "generation2",
             currencyLayer: "SP",
+            effect() {
+                let x = getSinRat()
+                let effect1 = new Decimal.add(1).times(x)
+                return effect1
+            },
+            effectDisplay() {
+                let text = `${format(upgradeEffect(this.layer, this.id))}x`;
+                return text;
+            },
             unlocked() { return hasUpgrade('SP', 22) },
         },
         24: {

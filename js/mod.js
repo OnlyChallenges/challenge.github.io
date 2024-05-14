@@ -116,6 +116,7 @@ function getPointGen() {
   if (hasUpgrade('P', 24)) gain = gain.times(upgradeEffect('P', 24))
   if (hasUpgrade('F', 24)) gain = gain.times(upgradeEffect('F', 24))
   if (hasUpgrade('F', 33)) gain = gain.times(upgradeEffect('F', 33))
+  if (hasUpgrade('SP', 23)) gain = gain.times(upgradeEffect('SP', 23))
   if (hasUpgrade('F', 11)) gain = gain.times(1.75)
   if (hasUpgrade('SP', 11)) gain = gain.times(1.5)
   if (hasUpgrade('F', 13)) gain = gain.pow(1.05)
@@ -172,6 +173,13 @@ function getUndulatingColor(period = Math.sqrt(760)) {
   return "#" + String(a) + String(b) + String(c)
 }
 
+function getSinRat(period = Math.sqrt(488)) {
+  let t = new Date().getTime()
+  let a = Math.sin(t / 1e3 / period * 2 * Math.PI + 1) + 2
+  return a
+
+}
+
 
 // Display extra things at the top of the page
 var displayThings = [
@@ -179,7 +187,7 @@ var displayThings = [
     let x = getUndulatingColor()
     let a = "<logic>Endgame</logic>: " + colorText("b", x, "1,000,000 Liquid")
     return a
-  }
+  },
 ]
 
 // Determines when the game "ends"
@@ -193,7 +201,7 @@ function isEndgame() {
 
 // Style for the background, can be a function
 var backgroundStyle = function(){
-  let backSty = {"background-image": "linear-gradient(rgb(0, 90, 25), rgb(140, 20, 25))"}
+  let backSty = {"background-image": "linear-gradient(rgb(25, 90, 0), rgb(140, 20, 55))"}
   return backSty
 }
 

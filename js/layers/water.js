@@ -86,7 +86,8 @@ addLayer("W", {
     tabFormat:
         ["main-display", "prestige-button",
             ["display-text", function () {
-                return 'You have ' + format(player.W.generation) + ' Liquid, which lowers Super Powder Requirement by -' + format(tmp.W.generationEff.minus(1).times(100)) + '%'
+                let x = getUndulatingColor()
+                return "You have " + colorText('b', x, format(player.W.generation)) + " Liquid, which lowers Super Powder Requirement by -<fail>" + format(tmp.W.generationEff.minus(1).times(100)) + '</fail>%'
             }, {}],
             "blank",
             "blank",

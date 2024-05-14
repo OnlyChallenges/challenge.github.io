@@ -28,18 +28,6 @@ addLayer("V", {
         },
     },
     position: 1,
-    nodeStyle() {
-        return {
-            "background": (player.V.unlocked || canReset("V")) ? "radial-gradient(#CD33B2, #651791)" : "#bf8f8f",
-        }
-    },
-    componentStyles: {
-        "prestige-button": {
-            background() {
-                return (canReset("V")) ? "radial-gradient(#CD33B2, #651791)" : "#bf8f8f"
-            },
-        },
-    },
     color: "#CD33B2",
     resource: "vaccines",
     baseResource: "particles",
@@ -113,7 +101,7 @@ addLayer("V", {
                 return spec
             },
             display() {
-                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Vaccines<br>Effect: Boost Powder gain by ^1.05 per purchase<br>Purchase Limit: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br> To increase the purchase limit, you need (10^x)^0.5 Achievement Points."
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Vaccines<br>Effect: Boost Powder gain by ^1.05 per purchase<br>Purchase Limit: " + getBuyableAmount(this.layer, this.id) + "/" + formatWhole(tmp[this.layer].buyables[this.id].purchaseLimit) + "<br> To increase the purchase limit, you need (10^x)^0.5 Achievement Points.<br> Current Effect: ^" + format(tmp[this.layer].buyables[this.id].effect)
             },
             purchaseLimit() {
                 let pur = new Decimal.log10(tmp.A.aP.pow(0.5)).floor()
@@ -159,7 +147,7 @@ addLayer("V", {
         },
         13: {
             title: "<rainbow>C</rainbow>",
-            description: "Passively Gain Powder based on <ruins>Vaccines</ruins><br>(Capped at +1,000% OR 1e10 Powder)",
+            description: "Passively Gain Powder based on <ruins>Vaccines</ruins><br>(Passive Generation ends at 1e10 Powder)",
             cost: new Decimal(3),
             unlocked() { return hasUpgrade('V', 12) },
             effect() {
