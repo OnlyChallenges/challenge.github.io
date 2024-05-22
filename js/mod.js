@@ -201,7 +201,9 @@ function isEndgame() {
 
 // Style for the background, can be a function
 var backgroundStyle = function(){
-  let backSty = {"background-image": "linear-gradient(rgb(25, 90, 0), rgb(140, 20, 55))"}
+  let backSty = {"background-image": "rgb(0, 0, 0)"}
+    if (getThemeName() == "default") backSty = {"background-image": "radial-gradient(rgb(0, 0, 0), rgb(50, 50, 50))"}
+    if (getThemeName() == "powdery") backSty = {"background-image": "linear-gradient(rgb(77, 33, 0), rgb(25, 20, 77))"}
   return backSty
 }
 
