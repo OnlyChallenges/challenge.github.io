@@ -4,6 +4,7 @@ addLayer("V", {
     startData() {
         return {
             unlocked: false,
+            spec: false,
             points: new Decimal(0),
         }
     },
@@ -50,7 +51,17 @@ addLayer("V", {
     hotkeys: [
         { key: "v", description: "v: Reset for Vaccines", onPress() { if (canReset(this.layer) && player.V.unlocked) doReset(this.layer) } },
     ],
-    layerShown() { return hasAchievement('A', 17) },
+    layerShown() { 
+        let lay = false
+        if (hasAchievement('A', 17)) lay = true
+        return lay},
+
+    Spec() {
+        let spec2 = (player.V.spec = false)
+        if (hasAchievement('A', 17)) spec2 = (player.V.spec = true)
+        if (player.V.unlocked == true) spec2 = (player.V.spec = false)
+        return spec2
+    },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
     },

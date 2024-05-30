@@ -87,10 +87,12 @@ addLayer("P", {
                 ["display-text",
                     function () {
                         let x = getUndulatingColor()
-                        if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == false)
-                            return "You do not have " + colorText("b", x, "??????") + " Unlocked"
+                        if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.spec == false && player.V.unlocked == false)
+                            return "You do not have " + colorText("b", x, "??????") + " unlocked"
+                        if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.spec == true && player.V.unlocked == false)
+                            return "You do not have " + colorText("b", x, "Vaccine") + " unlocked"
                         if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == true)
-                            return "You do not have " + colorText("b", x, "Vaccine Upgrade 3") + " Unlocked"
+                            return "You do not have " + colorText("b", x, "Vaccine - Upgrade 3") + " unlocked"
                         if (tmp[this.layer].passiveGeneration.gte(0.0001))
                             return "+ " + colorText("b", x, formatWhole(tmp[this.layer].resetGain.times(tmp[this.layer].passiveGeneration)))  +" Powder/sec (+" + format(tmp[this.layer].passiveGeneration.times(100)) + "%)"
                         if (player.P.points.gte(1e10) && tmp[this.layer].passiveGeneration.lte(0) && hasUpgrade('V', 13))
