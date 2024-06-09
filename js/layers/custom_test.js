@@ -81,6 +81,7 @@ addLayer("P", {
                 "main-display",
                 "prestige-button",
                 "blank",
+                "h-line",
                 ["display-text",
                     function () { return 'You have ' + formatWhole(player.points) + " particles." },
                     {}],
@@ -110,6 +111,7 @@ addLayer("P", {
                             return "Passive Cap Changed: 1e10 >>> 1e50"
                      },
                     {}],
+                "h-line",
                 "blank",
                 "upgrades",
                 "blank",

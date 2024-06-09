@@ -21,15 +21,21 @@ addLayer("A", {
                     return 'You have ' + formatWhole(tmp.A.total) + ' / 15 Achievements, which boosts particle gain by ' + format(tmp.A.effect) + 'x<br>You have <logic>' + formatWhole(tmp.A.aP) + '</logic> Achievement Points.<br>[Formula: (1.0125^<logic>' + formatWhole(tmp.A.aP) + '</logic>) / ((1.0012^<logic>'+ formatWhole(tmp.A.aP)+'</logic>)*(<logic>'+ formatWhole(tmp.A.aP) + '</logic>/100))]'
                 }, {}],
                 "blank",
+                "h-line",
+                "blank",
                 "blank",
                 "blank",
                 ["achievements", [1, 2, 3, 4, 5, 6, 7, 8, 9]],
+                "blank",
+                "h-line",
                 "blank",
                 ["display-text", function () {
                     return 'You have ' + formatWhole(tmp.A.total2) + ' / 4 Secret Achievements'
                 }, {}],
                 "blank",
                 ["achievements", [10, 11, 12]],
+                "blank",
+                "h-line",
                 "blank",
                 ["display-text", function () {
                     return 'You have ' + formatWhole(tmp.A.total3) + ' / 4 Secret Bar Achievements'
