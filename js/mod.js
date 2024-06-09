@@ -185,7 +185,7 @@ function getSinRat(period = Math.sqrt(488)) {
 var displayThings = [
   function () {
     let x = getUndulatingColor()
-    let a = "<logic>Endgame</logic>: " + colorText("b", x, "1,000,000 Liquid")
+    let a = "<logic>Endgame</logic>: " + colorText("b", x, "13,200,000 Compressed Water")
     return a
   },
 ]

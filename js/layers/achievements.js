@@ -105,6 +105,32 @@ addLayer("A", {
         },
     },
 
+    update() {
+        let title = ""
+        let devspeed = ""
+        if (player.devSpeed != 1) {
+            devspeed = format(player.devSpeed) + "x || "
+        }
+
+        if (((!player.F.unlocked) || (!player.SP.unlocked))) {
+            title = "" + formatWhole(player.P.points) + " P"
+        }
+        if ((player.F.unlocked) || (player.SP.unlocked)) {
+            if ((player.F.unlocked)) title = "" + formatWhole(player.F.points) + " F"
+            if ((player.SP.unlocked)) title = "" + formatWhole(player.SP.points) + " SP"
+        }
+        if ((player.F.unlocked) && player.SP.unlocked) {
+            title = "" + formatWhole(player.F.points) + " F || " + formatWhole(player.SP.points) + " SP"
+        }
+        if (player.V.unlocked) {
+            title = "" + formatWhole(player.V.points) + " V"
+        }
+        if ((player.V.unlocked) && (player.W.unlocked)) {
+            title = "" + formatWhole(player.V.points) + " V || " + formatWhole(player.W.points) + " W"
+        }
+        document.title = devspeed + title
+    },
+
     effect() {
         let eff = Decimal.pow(1.0125, tmp.A.aP).div(tmp.A.nonInf.times(tmp.A.specialInf)).max(1)
 

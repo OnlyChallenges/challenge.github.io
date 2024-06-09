@@ -90,6 +90,18 @@ logic {
 	cursor: pointer;
 }
 
+debuff {
+	color: #e61534;
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
+buff {
+	color: #37e615;
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
 rainbow {
  background-image: repeating-linear-gradient(45deg, orange, red, violet, indigo, blue, green, yellow, orange, red, violet, indigo);
  text-decoration-line: none;
