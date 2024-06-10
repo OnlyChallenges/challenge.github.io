@@ -28,79 +28,6 @@ addLayer("A", {
                 ["achievements", [1, 2, 3, 4, 5, 6, 7, 8, 9]],
                 "blank",
                 "h-line",
-                "blank",
-                ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total2) + ' / 4 Secret Achievements'
-                }, {}],
-                "blank",
-                ["achievements", [10, 11, 12]],
-                "blank",
-                "h-line",
-                "blank",
-                ["display-text", function () {
-                    return 'You have ' + formatWhole(tmp.A.total3) + ' / 4 Secret Bar Achievements'
-                }, {}],
-                "blank",
-                ["achievements", [20, 21, 22]],
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                "blank",
-                ["display-text", function () {
-                    let yes = 'You have hugged Plasma a total of <logic>' + formatWhole(player.A.hugs) + '</logic> times!'
-                    if (player.A.hugs > 999) yes = 'You have hugged Plasma a total of <logic>' + formatWhole(player.A.hugs) + `</logic> times!<br> You Achieved 'Secret: Creature's Forgiving Hug' Achievement!`
-                    return yes
-                }, {}],
-                "clickables",
             ],
         },
     },
@@ -111,7 +38,6 @@ addLayer("A", {
         if (player.devSpeed != 1) {
             devspeed = format(player.devSpeed) + "x || "
         }
-
         if (((!player.F.unlocked) || (!player.SP.unlocked))) {
             title = "" + formatWhole(player.P.points) + " P"
         }
@@ -313,106 +239,5 @@ addLayer("A", {
             tooltip: "Get 2 of the 2nd Water Buyable<br>Reward: 30 AP",
             unlocked() { return hasAchievement('A', 27) },
         },
-        101: {
-            name: "Secret: Only the first row",
-            done() { return ((hasUpgrade('F', 11) && hasUpgrade('F', 12) && hasUpgrade('F', 13) && hasUpgrade('F', 14) && hasUpgrade('F', 15) && hasUpgrade('F', 16) && !hasUpgrade('F', 21) && !hasUpgrade('F', 22)) && (hasUpgrade('SP', 11) && hasUpgrade('SP', 12) && hasUpgrade('SP', 13) && hasUpgrade('SP', 14) && hasUpgrade('SP', 15) && !hasUpgrade('SP', 21))) },
-            tooltip: "Get only the first row of Super Power & Feed Upgrades before getting the 2nd row of both!<br>Reward: 100 AP",
-            unlocked() { return hasAchievement('A', 101) },
-        },
-        102: {
-            name: "Secret: Hidden under the Achievements",
-            done() { return player.A.secret == 1 },
-            tooltip: "You found a secret Button...it does nothing surprisingly<br>Reward: 50 AP",
-            unlocked() { return hasAchievement('A', 102) },
-        },
-        103: {
-            name: "Secret: Powdery World",
-            done() { return player.P.points.gte(1e25) && player.W.points.lte(0) },
-            tooltip: `"Have no H20, but have 10^25 Powder", Nice quote <br>Reward: 50 AP`,
-            unlocked() { return hasAchievement('A', 103) },
-        },
-        104: {
-            name: "Secret: Creatur's Forgiving Hug",
-            done() { return player.A.hugs > 999 },
-            tooltip: `Hug Plasma more than 999 times! (<logic>Are you a psychopath?</logic>)<br>Reward: 30 AP`,
-            unlocked() { return hasAchievement('A', 104) },
-        },
-        201: {
-            name: "Secret Bar 1",
-            done() { return player.points.gte(1e250) },
-            tooltip: `Complete the first Secret Bar (Achieve 1e250 Money)<br>Reward: 100 AP`,
-            unlocked() { return hasAchievement('A', 201) },
-        },
-        202: {
-            name: "Secret Bar 2",
-            done() { return player.SP.generation.gte(1e50) },
-            tooltip: `Complete the 2nd Secret Bar (Achieve 1e50 Super Power)<br>Reward: 100 AP`,
-            unlocked() { return hasAchievement('A', 202) },
-        },
-        203: {
-            name: "Secret Bar 3",
-            done() { return (getBuyableAmount('W', 11).add(getBuyableAmount('W',12))).gte(150)},
-            tooltip: `Complete the 3rd Secret Bar (Achieve 150 Water Buyables)<br>Reward: 100 AP`,
-            unlocked() { return hasAchievement('A', 203) },
-        },
-        204: {
-            name: "Secret Bar 4",
-            done() { return player.P.points.gte(1e290) },
-            tooltip: `Complete the 4th Secret Bar (Achieve 1e290 Powder)<br>Reward: 100 AP`,
-            unlocked() { return hasAchievement('A', 204) },
-        },
-    },
-    clickables: {
-        11: {
-            title: "You found a secret",
-            display: "Thanks for looking for it.",
-            canClick: true,
-            onClick() {
-                player.A.secret += 1
-            },
-            style() {
-                return {
-                    'background-color': tmp.A.color,
-                }
-            },
-            unlocked() { return player.A.secret == 0 }
-        },
-        12: {
-            title: "Hug Plasma",
-            display() {
-                let hug = "Hug the creatur"
-                if (player.A.hugs >= 30) hug = "Uh...you can stop hugging the creatur"
-                if (player.A.hugs >= 60) hug = "Please..stop"
-                if (player.A.hugs >= 100) hug = "I said to stop..."
-                if (player.A.hugs >= 130) hug = "..."
-                if (player.A.hugs >= 160) hug = "I spent 20 minutes making this hug button"
-                if (player.A.hugs >= 200) hug = "Too much affection"
-                if (player.A.hugs >= 250) hug = "..."
-                if (player.A.hugs >= 450) hug = "How long until you stop pressing this button?"
-                if (player.A.hugs >= 500) hug = "Fine, at 1000 you WILL leave me alone"
-                if (player.A.hugs >= 550) hug = "..."
-                if (player.A.hugs >= 600) hug = "... ..."
-                if (player.A.hugs >= 650) hug = "... ... ..."
-                if (player.A.hugs >= 750) hug = "... ... ... ..."
-                if (player.A.hugs >= 800) hug = "Hug me until this button disappears I guess..."
-                if (player.A.hugs >= 950) hug = "Thanks for being so nice...I guess"
-                return hug
-            },
-            canClick: true,
-            onClick() {
-                player.A.hugs = player.A.hugs.add(1)
-            },
-            style() {
-                return {
-                    'background-color': tmp.A.color,
-                }
-            },
-            unlocked() {
-                let yes = false
-                if (player.A.secret == 1) yes = true
-                if (player.A.hugs >= 1000) yes = false
-                return yes
-            }
-        },
-    },
+    }
 })

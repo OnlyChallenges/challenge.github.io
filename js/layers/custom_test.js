@@ -117,124 +117,19 @@ addLayer("P", {
                 "blank",
             ],
         },
-        "???": {
-            content: [
-                ["bar", "secret1"],
-                ["bar", "secret2"],
-                ["bar", "secret3"],
-                ["bar", "secret4"],
-            ],
-        },
     },
     infoboxes: {
         lore: {
-            title: "Some stuff",
+            title: "Tutorial",
             body: `
-            Hello!; Welcome to <ruins>Abyssal Demise</ruins>, I would like to clarify that this is indeed, still in beta.<br> 
-            There will be multiple bugs, issues, and occurences as the game update, so please be patient!
-            
-            `,
-        },
-    },
+            Hello!; Welcome to <ruins>Experiment 205 Idle</ruins>, I would like to clarify that this is indeed, still in beta.<br> 
+            There will be multiple bugs, issues, and occurences as the game update, so please be patient!<br><br>
+            -------------------------------------<br><br>
 
-    bars: {
-        secret1: {
-            direction: RIGHT,
-            width: 500,
-            height: 40,
-            fillStyle: { 'background-color': "#107a2c" },
-            borderStyle() { return { "border-color": "#9DD1C2" } },
-            progress() {
-                let arg = player.points
-                let base = new Decimal(1e250)
-                let prog = Math.log(arg) / Math.log(base)
-                return prog
-            },
-            display() {
-                let x = getUndulatingColor()
-                let arg = player.points
-                let base = new Decimal(1e250)
-                let prog = Math.log(arg) / Math.log(base)
-                return "Secret 1: " + colorText("b", x, format((prog) * 100)) + "%"
-            },
-            unlocked() {
-                return true
-            },
-        },
-        secret2: {
-            direction: RIGHT,
-            width: 500,
-            height: 40,
-            fillStyle: { 'background-color': "#107a2c" },
-            borderStyle() { return { "border-color": "#9DD1C2" } },
-            progress() {
-                let arg = player.SP.generation
-                if (player.SP.generation.lte(0)) arg = 1
-                let base = new Decimal(1e50)
-                let prog = Math.log(arg) / Math.log(base)
-                return prog
-            },
-            display() {
-                let x = getUndulatingColor()
-                let arg = player.SP.generation
-                if (player.SP.generation.lte(0)) arg = 1
-                let base = new Decimal(1e50)
-                let prog = (Math.log(arg) / Math.log(base))
-                return "Secret 2: " + colorText("b", x, format(prog * 100)) + "%"
-            },
-            unlocked() {
-                return true
-            },
-        },
-        secret3: {
-            direction: RIGHT,
-            width: 500,
-            height: 40,
-            fillStyle: { 'background-color': "#107a2c" },
-            borderStyle() { return { "border-color": "#9DD1C2" } },
-            progress() {
-                let arg = getBuyableAmount('W', 11).add(getBuyableAmount('W', 12))
-                if (getBuyableAmount('W', 11).lte(0) && getBuyableAmount('W', 12).lte(0)) arg = 1
-                let base = new Decimal(150)
-                let prog = Math.log(arg) / Math.log(base)
-                return prog
-            },
-            display() {
-                let x = getUndulatingColor()
-                let arg = getBuyableAmount('W', 11).add(getBuyableAmount('W', 12))
-                if (getBuyableAmount('W', 11).lte(0) && getBuyableAmount('W', 12).lte(0)) arg = 1
-                let base = new Decimal(150)
-                let prog = Math.log(arg) / Math.log(base)
-                return "Secret 3: " + colorText("b", x, format(prog * 100)) + "%"
-            },
-            unlocked() {
-                return true
-            },
-        },
-        secret4: {
-            direction: RIGHT,
-            width: 500,
-            height: 40,
-            fillStyle: { 'background-color': "#107a2c" },
-            borderStyle() { return { "border-color": "#9DD1C2" } },
-            progress() {
-                let arg = player.P.points
-                let base = new Decimal(1e290)
-                if (player.P.points <= 0) arg = 0.01
-                let prog = Math.log(arg) / Math.log(base)
-                return prog
-            },
-            display() {
-                let x = getUndulatingColor()
-                let arg = player.P.points
-                if (player.P.points <= 0) arg = 0.01
-                let base = new Decimal(1e290)
-                let prog = Math.log(arg) / Math.log(base)
-                return "Secret 4: " + colorText("b", x, format(prog * 100)) + "%"
-            },
-            unlocked() {
-                return true
-            },
+            How to play:<br>
+            Each Row (Layer) will have content regarding the game or content, it'll progress more and more as we move forward.
+            To start, get some Powder & Upgrades! Look at your achievements to get through the game better!
+            `,
         },
     },
 

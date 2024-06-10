@@ -82,7 +82,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
  - > Milestones<br>
  - > Achievements<br><br>
  - Added 2 Milestones<br>
- - Changed 2 Vaccine Upgrades<br>
+ - Changed 2 <spoiler>Vaccine</spoiler> Upgrades<br>
  - Changed Super Power Effect Slightly & Power Difference to 0.4 instead of 0.22<br>
  - Changed Begin Feed route to make it a better Active-Playstyle.<br><br>
 
