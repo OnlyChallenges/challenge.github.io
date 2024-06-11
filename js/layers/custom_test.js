@@ -23,17 +23,17 @@ addLayer("P", {
     },
     nodeStyle() {
         return {
-            "background": (player.P.unlocked || canReset("P")) ? "radial-gradient(#FFFFFF, #333232)" : "#bf8f8f",
+            "background": (player.P.unlocked || canReset("P")) ? "radial-gradient(#5b85b3, #333232)" : "#bf8f8f",
         }
     },
     componentStyles: {
         "prestige-button": {
             background() {
-                return (canReset("P")) ? "radial-gradient(#FFFFFF, #333232)" : "#bf8f8f"
+                return (canReset("P")) ? "radial-gradient(#5b85b3, #333232)" : "#bf8f8f"
             },
         },
     },
-    color: "#FFFFFF",
+    color: "#5b85b3",
     resource: "powder",
     baseResource: "particles",
     baseAmount() { return player.points },
@@ -138,18 +138,18 @@ addLayer("P", {
         rows: 5,
         cols: 5,
         11: {
-            title: "Normal Powder I",
+            title: "Simplicity<br>[<red>P-1</red>]",
             description: "Some Simple Powder, boost Particle gain by 20%",
             cost: new Decimal(10),
         },
         12: {
-            title: "Normal Powder II",
+            title: "Undefined<br>[<red>P-2</red>]",
             description: "2nd Powder? Decrease Powder Requirement Slightly...",
             cost: new Decimal(15),
             unlocked() { return hasUpgrade('P', 11) },
         },
         13: {
-            title: "Normal Powder III",
+            title: "Excel<br>[<red>P-3</red>]",
             description: "Particle User! Improve Particle Gain by 40% but decrease Powder gain by a smudge",
             cost: new Decimal(35),
             currencyDisplayName: "Particles",
@@ -157,7 +157,7 @@ addLayer("P", {
             unlocked() { return hasUpgrade('P', 12) },
         },
         14: {
-            title: "Normal Powder IV",
+            title: "Omnipotent<br>[<red>P-4</red>]",
             description: "More Particles! Boost Particles based on itself.",
             cost: new Decimal(40),
             effect() {
@@ -173,7 +173,7 @@ addLayer("P", {
             unlocked() { return hasUpgrade('P', 13) },
         },
         15: {
-            title: "Normal Powder V",
+            title: "Stress<br>[<red>P-5</red>]",
             description: "Powderis Movement? Decrease Powder Gain Even more, but increase Particle Gain by 70%",
             cost: new Decimal(150),
             currencyDisplayName: "Particles",
@@ -181,8 +181,8 @@ addLayer("P", {
             unlocked() { return hasUpgrade('P', 14) },
         },
         21: {
-            title: "Saget Powder I",
-            description: "<server>Boosts Particle Gain based on Powder</server>",
+            title: "Depression<br>[<red>P-6</red>]",
+            description: "Boosts Particle Gain based on Powder",
             cost: new Decimal(150),
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.06)).max(1).min(5);
@@ -197,8 +197,8 @@ addLayer("P", {
             unlocked() { return hasUpgrade('P', 15) },
         },
         22: {
-            title: "Saget Powder II",
-            description: "<server>Powder is boosted based on itself (Additive)</server>",
+            title: "Logicality<br>[<red>P-7</red>]",
+            description: "Powder is boosted based on itself (Additive)",
             cost: new Decimal(300),
             currencyDisplayName: "Particles",
             currencyInternalName: "points",
@@ -214,14 +214,14 @@ addLayer("P", {
             unlocked() { return hasUpgrade('P', 21) },
         },
         23: {
-            title: "Saget Powder III",
-            description: "<server>Unlock Two Layers, also boost Particle Gain by ^3.5%</server>",
+            title: "Movement<br>[<red>P-8</red>]",
+            description: "Unlock Two Layers, also boost Particle Gain by ^3.5%",
             cost: new Decimal(250),
             unlocked() { return hasUpgrade('P', 22) },
         },
         24: {
-            title: "Saget Powder IV",
-            description: "<server>Let's keep going! Feed/Super Powder boosts Powder & Particles</server>",
+            title: "Resistance<br>[<red>P-9</red>]",
+            description: "Let's keep going! Feed/Super Powder boosts Powder & Particles",
             cost: new Decimal(10000),
             effect() {
                 let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.22)).max(1).min(10);
@@ -235,7 +235,7 @@ addLayer("P", {
             unlocked() { return hasUpgrade('P', 23) && (player.F.unlocked || player.SP.unlocked) },
         },
         25: {
-            title: "Saget Powder V",
+            title: "Combination<br>[<red>P-10</red>]",
             description: "<server>Particles boosts SF-III Reduction</server>",
             cost: new Decimal(1650000),
             effect() {

@@ -73,7 +73,7 @@ addLayer("SP", {
         return eff;
     },
     effBase() {
-        let base = new Decimal(1.4);
+        let base = new Decimal(1.65);
         return base;
     },
     update(diff) {
@@ -130,16 +130,16 @@ addLayer("SP", {
         rows: 5,
         cols: 5,
         11: {
-            title: "Super I",
-            description: "Super! Boost Particle Gain by 50%",
+            title: "Falsification<br>[<red>SP-1</red>]",
+            description: "Boost Particle Gain by 50%",
             cost: new Decimal(100),
             currencyDisplayName: "Super Power",
             currencyInternalName: "generation",
             currencyLayer: "SP",
         },
         12: {
-            title: "Super II",
-            description: "Super Super! Boost SP-II Effect by 110%",
+            title: "Unbounded<br>[<red>SP-2</red>]",
+            description: "Boost <red>P-7</red> Effect by 110%",
             cost: new Decimal(650),
             currencyDisplayName: "Super Power",
             currencyInternalName: "generation",
@@ -147,8 +147,8 @@ addLayer("SP", {
             unlocked() { return hasUpgrade('SP', 11) },
         },
         13: {
-            title: "Super III",
-            description: "Super³! Boost Particle Gain by 200%",
+            title: "Reality<br>[<red>SP-3</red>]",
+            description: "Boost Particle Gain by 200%",
             cost: new Decimal(2500),
             currencyDisplayName: "Super Power",
             currencyInternalName: "generation",
@@ -156,8 +156,8 @@ addLayer("SP", {
             unlocked() { return hasUpgrade('SP', 12) },
         },
         14: {
-            title: "Super IV",
-            description: "Super^Super! Increase Super Power Effect by 45%",
+            title: "Functionality<br>[<red>SP-4</red>",
+            description: "Increase Super Power Effect by 45%",
             cost: new Decimal(32500),
             currencyDisplayName: "Super Power",
             currencyInternalName: "generation",
@@ -166,7 +166,7 @@ addLayer("SP", {
         },
         15: {
             title: "Super V",
-            description: "Super*Super⁴! Increase F-IV Effect based on Super Power Points",
+            description: "SIncrease <red>F-4</red> Effect based on Super Power Points",
             cost: new Decimal(50000),
             currencyDisplayName: "Super Power",
             currencyInternalName: "generation",
