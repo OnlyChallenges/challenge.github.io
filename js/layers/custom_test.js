@@ -173,6 +173,7 @@ addLayer("P", {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
                 else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         13: {
             title: "Excel<br>[ <text style='color:skyblue'>P-1</text> ]",
@@ -188,6 +189,7 @@ addLayer("P", {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
                 else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         14: {
             title: "Omnipotent<br>[<red>P-4</red>]",
