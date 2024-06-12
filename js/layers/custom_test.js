@@ -163,7 +163,7 @@ addLayer("P", {
         },
         12: {
             title: "Compaction<br>[ <text style='color:skyblue'>P-2</text> ]",
-            description: "Decrease Chemical Requirement Slightly...",
+            description: "<br<Decrease Chemical Requirement Slightly...",
             unlocked() { return hasUpgrade('P', 11) },
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
@@ -176,8 +176,8 @@ addLayer("P", {
             },
         },
         13: {
-            title: "Excel<br>[ <text style='color:skyblue'>P-1</text> ]",
-            description: "Improve Crystal gain by 40% but decrease Chemical gain by 13%",
+            title: "Trade-Off<br>[ <text style='color:skyblue'>P-3</text> ]",
+            description: "<br>Improve Crystal gain by 40% but decrease Chemical gain by 13%",
             cost() {return new Decimal(35)},
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
