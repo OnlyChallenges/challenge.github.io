@@ -75,7 +75,7 @@ addLayer("P", {
     },
     branches: ["F", "SP", "V", "W"],
     tabFormat: {
-        "Experiment 205 v1.07": {
+        "Experiment 205 v1.09": {
             content: [
                 "main-display",
                 "prestige-button",
@@ -162,7 +162,7 @@ addLayer("P", {
             },
         },
         12: {
-            title: "Compaction<br>[ <text style='color:skyblue'>P-2</text> ]",
+            title: "The Idea<br>[ <text style='color:skyblue'>P-2</text> ]",
             description: "<br>Decrease Chemical Requirement Slightly...",
             unlocked() { return hasUpgrade('P', 11) },
             color(){return '#1b39a6'},
@@ -176,7 +176,7 @@ addLayer("P", {
             },
         },
         13: {
-            title: "Trade-Off<br>[ <text style='color:skyblue'>P-3</text> ]",
+            title: "Processing<br>[ <text style='color:skyblue'>P-3</text> ]",
             description: "<br>Improve Crystal gain by 40% but decrease Chemical gain by 13%",
             cost() {return new Decimal(35)},
             currencyDisplayName: "Crystals",
@@ -192,9 +192,9 @@ addLayer("P", {
             },
         },
         14: {
-            title: "Omnipotent<br>[<red>P-4</red>]",
-            description: "More Particles! Boost Particles based on itself.",
-            cost: new Decimal(40),
+            title: "Developers<br>[<red>P-4</red>]",
+            description: "Boost Crystals based on itself.",
+            cost(){return new Decimal(40)},
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.09)).max(1).min(10);
                 if (hasUpgrade('F', 12)) effect1 = effect1.times(3)
@@ -206,6 +206,14 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 13) },
+            color(){return '#1b39a6'},
+            color2(){return '#5b85b3'},
+            canAfford() {return player.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         15: {
             title: "Stress<br>[<red>P-5</red>]",
