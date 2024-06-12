@@ -46,7 +46,7 @@ addLayer("P", {
     gainMult() {
         let gain = new Decimal(1)
         if (hasUpgrade('P', 13)) gain = gain.minus(0.075)
-        if (hasUpgrade('P', 15)) gain = gain.minus(0.025)
+        if (hasUpgrade('P', 15)) gain = gain.minus(0.115)
         if (hasUpgrade('P', 22)) gain = gain.add(upgradeEffect('P', 22))
         if (hasUpgrade('F', 14)) gain = gain.times(upgradeEffect('F', 14))
         if (hasUpgrade('P', 24)) gain = gain.times(upgradeEffect('P', 24))
@@ -157,12 +157,12 @@ addLayer("P", {
             description: "<br>Boost Crystal gain by 20%",
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
-            cost() {return new Decimal(10)},
+            cost() {return new Decimal(6)},
             canAfford() {return player.P.points.gte(this.cost())},
             style() {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
             },
         },
         12: {
@@ -171,17 +171,17 @@ addLayer("P", {
             unlocked() { return hasUpgrade('P', 11) },
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
-            cost() {return new Decimal(15)},
+            cost() {return new Decimal(13)},
             canAfford() {return player.P.points.gte(this.cost())},
             style() {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
             },
         },
         13: {
             title: "Processing<br>[ <text style='color:skyblue'>P-3</text> ]",
-            description: "<br>Improve Crystal gain by 40% but decrease Chemical gain by 13%",
+            description: "<br>Improve Crystal gain by 40% but decrease Chemical gain by 7.5%",
             cost() {return new Decimal(35)},
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
@@ -192,13 +192,13 @@ addLayer("P", {
             style() {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
             },
         },
         14: {
-            title: "Developers<br>[<red>P-4</red>]",
+            title: "Developers<br>[ <text style='color:skyblue'>P-4</text> ]",
             description: "Boost Crystals based on itself.",
-            cost(){return new Decimal(40)},
+            cost(){return new Decimal(36)},
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.09)).max(1).min(10);
                 if (hasUpgrade('F', 12)) effect1 = effect1.times(3)
@@ -216,16 +216,24 @@ addLayer("P", {
             style() {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
             },
         },
         15: {
-            title: "Stress<br>[<red>P-5</red>]",
-            description: "Powderis Movement? Decrease Powder Gain Even more, but increase Particle Gain by 70%",
-            cost: new Decimal(150),
-            currencyDisplayName: "Particles",
+            title: "Versions<br>[ <text style='color:skyblue'>P-5</text> ]",
+            description: "<br>Decrease Chemical Gain by 11.5%, but increase Particle Gain by 70%",
+            currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('P', 14) },
+            color(){return '#1b39a6'},
+            color2(){return '#5b85b3'},
+            cost() {return new Decimal(125)},
+            canAfford() {return player.P.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         21: {
             title: "Depression<br>[<red>P-6</red>]",
