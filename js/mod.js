@@ -2,7 +2,7 @@ let modInfo = {
   name: `The Powder Tree v0.2.3`,
   id: "anothermod2",
   author: "vali (snor mimi)",
-  pointsName: "particles",
+  pointsName: "crystals",
   modFiles: ["tree.js", "layers/custom_test.js", "layers/achievements.js", "layers/feed.js", "layers/super_powder.js", "layers/vaccine.js", "layers/water.js"],
   discordName: "",
   discordLink: "",
@@ -136,7 +136,7 @@ function getPointGen() {
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
-  return {
+  return { devSpeed : new Decimal(1)
   }
 }
 
@@ -202,8 +202,18 @@ function isEndgame() {
 // Style for the background, can be a function
 var backgroundStyle = function(){
   let backSty = {"background-image": "rgb(0, 0, 0)"}
-    if (getThemeName() == "default") backSty = {"background-image": "radial-gradient(rgb(0, 0, 0), rgb(50, 50, 50))"}
-    if (getThemeName() == "powdery") backSty = {"background-image": "linear-gradient(rgb(77, 33, 0), rgb(25, 20, 77))"}
+    if (getThemeName() == "default") backSty = {
+            "background-image":
+            "linear-gradient(#000 30px,transparent 0),linear-gradient(270deg,red 1px,transparent 0)",
+            "background-size":"31px 31px,31px 31px",
+            "background-position":""+(player.timePlayed)%100+"%"+" "+(player.timePlayed%100)+"%"
+      }
+    if (getThemeName() == "powdery") backSty = {
+        'background': 'linear-gradient(135deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px),linear-gradient(45deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px)0 64px',
+        'background-color':'black',
+        'background-size':'64px 128px',
+        "background-position":"100%"+" "+(player.timePlayed%100)+"%"+" "+(player.timePlayed%100)+"%"
+      }
   return backSty
 }
 

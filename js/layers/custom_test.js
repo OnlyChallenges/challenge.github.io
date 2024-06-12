@@ -34,8 +34,8 @@ addLayer("P", {
         },
     },
     color: "#5b85b3",
-    resource: "powder",
-    baseResource: "particles",
+    resource: "chemicals",
+    baseResource: "crystals",
     baseAmount() { return player.points },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     type: "normal",
@@ -75,25 +75,25 @@ addLayer("P", {
     },
     branches: ["F", "SP", "V", "W"],
     tabFormat: {
-        "Main": {
+        "Experiment 205 v1.07": {
             content: [
-                ["infobox", "lore"],
                 "main-display",
                 "prestige-button",
                 "blank",
                 "h-line",
                 ["display-text",
-                    function () { return 'You have ' + formatWhole(player.points) + " particles." },
+                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:purple'>crystals</text>" },
                     {}],
+                
                 ["display-text",
                     function () {
                         let x = getUndulatingColor()
                         if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.spec == false && player.V.unlocked == false)
-                            return "You do not have " + colorText("b", x, "??????") + " unlocked"
+                            return ""
                         if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.spec == true && player.V.unlocked == false)
-                            return "You do not have " + colorText("b", x, "Vaccine") + " unlocked"
+                            return ""
                         if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == true)
-                            return "You do not have " + colorText("b", x, "Vaccine - Upgrade 3") + " unlocked"
+                            return ""
                         if (tmp[this.layer].passiveGeneration.gte(0.0001))
                             return "+ " + colorText("b", x, formatWhole(tmp[this.layer].resetGain.times(tmp[this.layer].passiveGeneration)))  +" Powder/sec (+" + format(tmp[this.layer].passiveGeneration.times(100)) + "%)"
                         if (player.P.points.gte(1e10) && tmp[this.layer].passiveGeneration.lte(0) && hasUpgrade('V', 13))
@@ -111,11 +111,22 @@ addLayer("P", {
                             return "Passive Cap Changed: 1e10 >>> 1e50"
                      },
                     {}],
+                "blank",
                 "h-line",
                 "blank",
                 "upgrades",
                 "blank",
+                
             ],
+            buttonStyle(){return {'background':'linear-gradient(to right,skyblue 33%, blue 92%)','color':'black','box-shadow':'2px 2px 2px red'}},
+            style(){
+                return {
+                    'background': 'linear-gradient(135deg, #000000 22px, #111133 22px, #111133 24px, transparent 24px, transparent 67px, #111133 67px, #111133 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #111133 22px, #111133 24px, transparent 24px, transparent 67px, #111133 67px, #111133 69px, transparent 69px)0 64px',
+                    'background-color':'black',
+                    'background-size':'64px 128px',
+                    "background-position":"100%"+" "+(player.timePlayed%100)+"%" + " "+(player.timePlayed%50)+"%"
+                }
+            },
         },
     },
     infoboxes: {
@@ -138,9 +149,17 @@ addLayer("P", {
         rows: 5,
         cols: 5,
         11: {
-            title: "Simplicity<br>[<red>P-1</red>]",
-            description: "Some Simple Powder, boost Particle gain by 20%",
-            cost: new Decimal(10),
+            title: "Simplicity<br>[ <text style='color:skyblue'>P-1</text> ]",
+            description: "<br>Boost Crystal gain by 20%",
+            color(){return '#1b39a6'},
+            color2(){return '#5b85b3'},
+            cost() {return new Decimal(10)},
+            canAfford() {return player.P.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'black', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         12: {
             title: "Undefined<br>[<red>P-2</red>]",
