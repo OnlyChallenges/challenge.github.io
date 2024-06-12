@@ -163,7 +163,7 @@ addLayer("P", {
         },
         12: {
             title: "Compaction<br>[ <text style='color:skyblue'>P-2</text> ]",
-            description: "<br<Decrease Chemical Requirement Slightly...",
+            description: "<br>Decrease Chemical Requirement Slightly...",
             unlocked() { return hasUpgrade('P', 11) },
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
