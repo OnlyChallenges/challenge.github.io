@@ -158,22 +158,36 @@ addLayer("P", {
             style() {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'black', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
             },
         },
         12: {
-            title: "Undefined<br>[<red>P-2</red>]",
-            description: "2nd Powder? Decrease Powder Requirement Slightly...",
-            cost: new Decimal(15),
+            title: "Compaction<br>[ <text style='color:skyblue'>P-2</text> ]",
+            description: "Decrease Chemical Requirement Slightly...",
             unlocked() { return hasUpgrade('P', 11) },
+            color(){return '#1b39a6'},
+            color2(){return '#5b85b3'},
+            cost() {return new Decimal(15)},
+            canAfford() {return player.P.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
         },
         13: {
-            title: "Excel<br>[<red>P-3</red>]",
-            description: "Particle User! Improve Particle Gain by 40% but decrease Powder gain by a smudge",
+            title: "Excel<br>[ <text style='color:skyblue'>P-1</text> ]",
+            description: "Improve Crystal gain by 40% but decrease Chemical gain by 13%",
             cost: new Decimal(35),
             currencyDisplayName: "Particles",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('P', 12) },
+            color(){return '#1b39a6'},
+            color2(){return '#5b85b3'},
+            canAfford() {return player.P.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
         },
         14: {
             title: "Omnipotent<br>[<red>P-4</red>]",
