@@ -128,6 +128,10 @@ addLayer("P", {
                 }
             },
         },
+        "FoR RNG v0.01": {
+            content: [],
+            buttonStyle(){return {'background':'linear-gradient(to right,red 13%, purple 82%)','color':'black','box-shadow':'2px 2px 2px red'}},
+        },
     },
     infoboxes: {
         lore: {
