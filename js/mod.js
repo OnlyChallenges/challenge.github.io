@@ -146,8 +146,9 @@ var backgroundStyle = function(){
     if (getThemeName() == "default") backSty = {
             "background-image":
             "linear-gradient(#000 30px,transparent 0),linear-gradient(270deg,red 1px,transparent 0)",
-            "background-size":"31px 31px,31px 31px",
-            "background-position":""+(player.timePlayed)%100+"%"+" "+(player.timePlayed%100)+"%"
+            "z-index" : 0.5,
+            "background-size":"32px 32px,32px 32px",
+            "background-position":""+(player.timePlayed)%100+"%"
       }
     if (getThemeName() == "powdery") backSty = {
         'background': 'linear-gradient(135deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px),linear-gradient(45deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px)0 64px',

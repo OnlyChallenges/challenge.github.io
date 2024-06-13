@@ -75,7 +75,7 @@ addLayer("P", {
     },
     branches: ["F", "SP", "V", "W"],
     tabFormat: {
-        "Experiment 205 v1.09": {
+        "Spawn": {
             content: [
                 "main-display",
                 "prestige-button",
@@ -118,19 +118,15 @@ addLayer("P", {
                 "blank",
                 
             ],
-            buttonStyle(){return {'background':'linear-gradient(to right,skyblue 33%, blue 92%)','color':'black','box-shadow':'2px 2px 2px red'}},
+            buttonStyle(){return {'background':'linear-gradient(to right,skyblue 33%, blue 92%)','color':'black','box-shadow':'2px 2px 2px skyblue'}},
             style(){
                 return {
-                    'background': 'linear-gradient(135deg, #000000 22px, #111133 22px, #111133 24px, transparent 24px, transparent 67px, #111133 67px, #111133 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #111133 22px, #111133 24px, transparent 24px, transparent 67px, #111133 67px, #111133 69px, transparent 69px)0 64px',
+                    'background': 'linear-gradient(135deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px)0 64px',
                     'background-color':'black',
                     'background-size':'64px 128px',
-                    "background-position":"100%"+" "+(player.timePlayed%200)+"%" + " "+(player.timePlayed%100)+"%"
+                    "background-position":"100%"+" "+(player.timePlayed%200)+"%"
                 }
             },
-        },
-        "FoR RNG v0.01": {
-            content: [],
-            buttonStyle(){return {'background':'linear-gradient(to right,red 13%, purple 82%)','color':'black','box-shadow':'2px 2px 2px red'}},
         },
     },
     infoboxes: {
@@ -285,7 +281,7 @@ addLayer("P", {
             },
         },
         23: {
-            title: "Beta Test<br>[ <text style='color:red'>P-8</text> ]",
+            title: "Beta Test<br>[ <text style='color:skyblue'>P-8</text> ]",
             description: "<br>Unlock Two Layers, also boost Crystal Gain by ^1.035",
             unlocked() { return hasUpgrade('P', 22) },
             color(){return '#f54260'},
@@ -299,9 +295,8 @@ addLayer("P", {
             },
         },
         24: {
-            title: "Resistance<br>[<red>P-9</red>]",
-            description: "Let's keep going! Feed/Super Powder boosts Powder & Particles",
-            cost: new Decimal(10000),
+            title: "Baseball.Bat.<br>Start<br>[ <text style='color:skyblue'>P-9</text> ]",
+            description: "<br>Feed & Super Powder boosts Chemicals & Crystals",
             effect() {
                 let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.22)).max(1).min(10);
                 if (hasUpgrade('F', 22)) effect1 = effect1.times(upgradeEffect('F', 22))
@@ -312,11 +307,19 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 23) && (player.F.unlocked || player.SP.unlocked) },
+            color(){return '#1b39a6'},
+            color2(){return '#5b85b3'},
+            cost() {return new Decimal(10000)},
+            canAfford() {return player.P.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         25: {
             title: "Combination<br>[<red>P-10</red>]",
-            description: "<server>Particles boosts SF-III Reduction</server>",
-            cost: new Decimal(1650000),
+            description: "<br>Particles boosts SF-III Reduction<br>",
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.065)).max(1).min(20);
                 return effect1
@@ -327,6 +330,15 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 24) && (hasUpgrade('F', 23)) },
+            color(){return '#1b39a6'},
+            color2(){return '#5b85b3'},
+            cost() {return new Decimal(1650000)},
+            canAfford() {return player.P.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer, this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer, this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
     },
 })

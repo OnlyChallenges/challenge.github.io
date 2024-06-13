@@ -33,6 +33,38 @@ addLayer("F", {
             },
         },
     },
+    tabFormat: {
+        "Hall A": {
+            content: [
+                "main-display",
+                "prestige-button",
+                "blank",
+                "h-line",
+                ["display-text",
+                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:purple'>crystals</text>" },
+                {}],
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.P.points) + " <text style='color:skyblue'>chemicals</text>" },
+                {}],
+                
+                "blank",
+                "h-line",
+                "blank",
+                "upgrades",
+                "blank",
+                
+            ],
+            buttonStyle(){return {'background':'linear-gradient(to right,orange 33%, yellow 63%)','color':'black','box-shadow':'2px 2px 2px orange'}},
+            style(){
+                return {
+                    'background': 'linear-gradient(135deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px)0 64px',
+                    'background-color':'black',
+                    'background-size':'64px 128px',
+                    "background-position":"100%"+" "+(player.timePlayed%200)+"%"
+                }
+            },
+        },
+    },
     color: "#e0c287",
     resource: "feed",
     baseResource: "powder",
@@ -69,15 +101,31 @@ addLayer("F", {
         rows: 5,
         cols: 6,
         11: {
-            title: "Aviation<br>[<red>F-1</red>]",
-            description: "Boost Particle Gain by 75%",
-            cost: new Decimal(1),
+            title: "Aviation<br>[ <text style='color:skyblue'>F-1</text> ]",
+            description: "<br>Boost Particle Gain by 75%",
+            color(){return '#d1863b'},
+            color2(){return '#e0c287'},
+            cost() {return new Decimal(1)},
+            canAfford() {return player.F.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         12: {
-            title: "Buster<br>[<red>F-2</red>",
-            description: "Decrease Feed Requirement & Boost <red>P-4</red> by 300%.",
-            cost: new Decimal(1),
+            title: "Buster<br>[ <text style='color:skyblue'>F-2</text> ]",
+            description: "<br>Decrease Feed Requirement & Boost <text style='color:skyblue'>P-4</text> by 300%.",
             unlocked() { return hasUpgrade('F', 11) },
+            color(){return '#d1863b'},
+            color2(){return '#e0c287'},
+            cost() {return new Decimal(1)},
+            canAfford() {return player.F.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         13: {
             title: "Health<br>[<red>F-3</red>]",
