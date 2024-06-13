@@ -12,79 +12,20 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.3",
+  num: "0.0.1",
   ver: "Changelog",
-  name: "TOD",
+  name: "Crystalized",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
- <h2>v0.2.3: TOD</h2><br>
- - Added One Vaccine Buyable<br>
- - Improved Achievement Point Effect Slightly<br>
- - Added 2 Water Upgrades<br>
- - Improved Powder UI<br>
- - Improved Water UI<br>
- - Added <rainbow>Gradient'd Background</rainbow> (1 Type Currently)<br>
- - Improved Ultra Power Upgrades<br>
- - Fixed Two Upgrades being defective<br>
- - Improved Water Buyables to have a slightly better effect.<br>
- - Improved 1 Feed Upgrade Effect<br>
- - Improved Powder Passive Generation Effect.<br><br>
-
- <rainbow>=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+</rainbow><br><br>
-
- <h2>v0.2.2: Liquidation</h2><br>
- - Added Two Water Buyables<br>
- - Added 'Liquid' to Water to have an effect an previous generation<br>
- - Added 4 Secret Bars (Powder, Water Buyables, Points, & Super Power)<br>
- - Added One Secret Achievement<br><br>
- -> <logic>Hint</logic>: <fail>Click on a button 1,000 times to achieve this goal of hugification...</fail><br><br>
- - Added 4 Upgrades to Water<br>
- - Improved Two Upgrades in Super Powder<br>
- - Fixed Ultra Generation being too strong.<br>
- - Improved Rainbow Text Speed<br>
- - Improved Particle Gain on Powder Layer<br>
- - Imporved Three Upgrades in Feed Layer to make the game more balanced and self-paced<br>
- - Improved Super Power (Idle) & Feed (Active) to be correspond to their co-op layers<br><br>
-
- <rainbow>=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+</rainbow><br><br>
-
- <h2>v0.2.1: Secrets</h2><br>
- - Added Water<br><br>
- -> <logic>Added 2 Milestones</logic><br>
- -> <logic>Added 2 Upgrades</logic><br><br>
- - Added 3 Feed Upgrades<br>
- - Fixed Vaccination Balancing<br>
- - Fixed 2 Pre-Super Powder Upgrades<br>
- - Changed Begin Feed once again and improved past that<br>
- - Added Achievement Points & Achievement Bonus Effects<br>
- - Added 3 Secret Achievements that are given subtle hints for all three.<br><br>
- -> <logic>Hint 1</logic>: <fail>The 1st row on the 2nd row would be pretty nice of upgrades...?</fail><br>
- -> <logic>Hint 2</logic>: <fail>A secret button, under the secret area...?</fail><br>
- -> <logic>Hint 3</logic>: <fail>I hear that No H²0 and 10 powers of 25 that causes powdery blindness;<br>would bring a box of points...?</fail><br><br>
- - Improved Hover UI Again for several Upgrades & Achievements<br><br>
-
- <h3>v0.2.1.1</h3><br>
- - Fixed Super Powder Effect<br>
- - Fixed Vaccine Super III not giving an effect.<br>
- - Fixed Achievement Points giving no effect or was super unbalanced.<br>
- - Changed Achievement Point Formula from '1.05^AP' -> '(1.0125^AP)/???'<br><br>
- 
-  <rainbow>=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+</rainbow><br><br>
-
- <h2>v0.2: Some Changes</h2><br>
- - Added 14 Upgrades<br>
- - Improved Pre-Feed/Pre-Super Powder Formulas & Costs<br>
- - Improved Point Gain on 3 Upgrades<br>
- - Revamped Feed Costs & Differences<br><br>
- - Hovering over; will now pop out more so it's easier to read<br>
- - > Upgrades<br>
- - > Milestones<br>
- - > Achievements<br><br>
- - Added 2 Milestones<br>
- - Changed 2 <spoiler>Vaccine</spoiler> Upgrades<br>
- - Changed Super Power Effect Slightly & Power Difference to 0.4 instead of 0.22<br>
- - Changed Begin Feed route to make it a better Active-Playstyle.<br><br>
+ <h5 style="opacity:0.5">Tip: Click and hold on a spoiler (White Boxes) to reveal it.</h5><br>
+ <h2>v0.0.1: <h2 style='color:purple'>Crystalized</h2></h2><br><br>
+ - Added three <spoiler>Chemical</spoiler> Upgrades<br>
+ - Added <spoiler>Facility of Redemption RNG</spoiler><br>
+ - Added Animated Red Dot Background depending on time<br>
+ - Added <spoiler>Feed</spoiler> and <spoiler>Infection</spoiler><br>
+ - Improved <text style='color:skyblue'>P-3</text> and <text style='color:skyblue'>P-7</text> Effects<br>
+ - Removed Daizy
 
 	`
 let winText = `You've started to make vaccines? Start to make the cure...`
@@ -185,14 +126,14 @@ function getSinRat(period = Math.sqrt(488)) {
 var displayThings = [
   function () {
     let x = getUndulatingColor()
-    let a = "<logic>Endgame</logic>: " + colorText("b", x, "13,200,000 Compressed Water")
+    let a = "<logic>Endgame</logic>: " + colorText("b", x, "45,000 Chemicals")
     return a
   },
 ]
 
 // Determines when the game "ends"
 function isEndgame() {
-  return player.W.generation.gte(1000000)
+  return player.P.points.gte("1e200")
 }
 
 

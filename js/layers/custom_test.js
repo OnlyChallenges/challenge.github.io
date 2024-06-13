@@ -124,7 +124,7 @@ addLayer("P", {
                     'background': 'linear-gradient(135deg, #000000 22px, #111133 22px, #111133 24px, transparent 24px, transparent 67px, #111133 67px, #111133 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #111133 22px, #111133 24px, transparent 24px, transparent 67px, #111133 67px, #111133 69px, transparent 69px)0 64px',
                     'background-color':'black',
                     'background-size':'64px 128px',
-                    "background-position":"100%"+" "+(player.timePlayed%100)+"%" + " "+(player.timePlayed%50)+"%"
+                    "background-position":"100%"+" "+(player.timePlayed%200)+"%" + " "+(player.timePlayed%100)+"%"
                 }
             },
         },
@@ -197,7 +197,7 @@ addLayer("P", {
         },
         14: {
             title: "Developers<br>[ <text style='color:skyblue'>P-4</text> ]",
-            description: "Boost Crystals based on itself.",
+            description: "<br>Boost Crystals based on itself.",
             cost(){return new Decimal(36)},
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.09)).max(1).min(10);
@@ -212,7 +212,7 @@ addLayer("P", {
             unlocked() { return hasUpgrade('P', 13) },
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
-            canAfford() {return player.points.gte(this.cost())},
+            canAfford() {return player.P.points.gte(this.cost())},
             style() {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
@@ -228,7 +228,7 @@ addLayer("P", {
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
             cost() {return new Decimal(125)},
-            canAfford() {return player.P.points.gte(this.cost())},
+            canAfford() {return player.points.gte(this.cost())},
             style() {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
@@ -236,9 +236,8 @@ addLayer("P", {
             },
         },
         21: {
-            title: "Depression<br>[<red>P-6</red>]",
-            description: "Boosts Particle Gain based on Powder",
-            cost: new Decimal(150),
+            title: "Lore<br>[ <text style='color:skyblue'>P-6</text> ]",
+            description: "<br>Boosts Crystal Gain based on Chemicals",
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.06)).max(1).min(5);
                 if (hasUpgrade('F', 15)) effect1 = effect1.times(upgradeEffect('F', 15))
@@ -250,12 +249,20 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 15) },
+            color(){return '#1b39a6'},
+            color2(){return '#5b85b3'},
+            cost() {return new Decimal(150)},
+            canAfford() {return player.P.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         22: {
-            title: "Logicality<br>[<red>P-7</red>]",
-            description: "Powder is boosted based on itself (Additive)",
-            cost: new Decimal(300),
-            currencyDisplayName: "Particles",
+            title: "System.Start<br>[ <text style='color:skyblue'>P-7</text> ]",
+            description: "<br>Chemicals boosts itself (Additive)",
+            currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.05)).max(1).min(3);
@@ -267,12 +274,29 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 21) },
+            color(){return '#1b39a6'},
+            color2(){return '#5b85b3'},
+            cost() {return new Decimal(300)},
+            canAfford() {return player.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         23: {
-            title: "Movement<br>[<red>P-8</red>]",
-            description: "Unlock Two Layers, also boost Particle Gain by ^3.5%",
-            cost: new Decimal(250),
+            title: "Beta Test<br>[ <text style='color:red'>P-8</text> ]",
+            description: "<br>Unlock Two Layers, also boost Crystal Gain by ^1.035",
             unlocked() { return hasUpgrade('P', 22) },
+            color(){return '#f54260'},
+            color2(){return '#8f0e24'},
+            cost() {return new Decimal(250)},
+            canAfford() {return player.P.points.gte(this.cost())},
+            style() {
+                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
+                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+            },
         },
         24: {
             title: "Resistance<br>[<red>P-9</red>]",
