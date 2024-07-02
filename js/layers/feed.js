@@ -66,8 +66,8 @@ addLayer("F", {
         },
     },
     color: "#e0c287",
-    resource: "feed",
-    baseResource: "powder",
+    resource: "isotopes",
+    baseResource: "chemicals",
     baseAmount() { return player.P.points },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     type: "static",
@@ -101,8 +101,8 @@ addLayer("F", {
         rows: 5,
         cols: 6,
         11: {
-            title: "Aviation<br>[ <text style='color:skyblue'>F-1</text> ]",
-            description: "<br>Boost Particle Gain by 75%",
+            title: "Compound of Chemicality<br>[ <text style='color:red'>I-1</text> ]",
+            description: "<br>Boost Crystal Gain by 75%",
             color(){return '#d1863b'},
             color2(){return '#e0c287'},
             cost() {return new Decimal(1)},
