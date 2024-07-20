@@ -35,9 +35,52 @@ addLayer("SP", {
             },
         },
     },
+    tabFormat: {
+        "Crystal Caves": {
+            content: [
+                "main-display",
+                "prestige-button",
+                "blank",
+                
+                "h-line",
+                ["display-text",
+                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:purple'>crystals</text>" },
+                    {}],
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.P.points) + " <text style='color:skyblue'>chemicals</text>" },
+                    {}],
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.F.points) + " <text style='color:orange'>isotopes</text>" },
+                    {}],
+
+                "blank",
+                ["display-text", function () {
+                    return 'You have ' + format(player.SP.generation) + ' Super Power, which boosts Particle Gain, +' + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
+                }, {}],
+                ["display-text", function () {
+                    if (hasUpgrade('F', 36)) return 'You have ' + format(player.SP.generation2) + ' Ultra Power, which boosts Powder Gain, +' + format(tmp.SP.generation2Eff.minus(1).times(100)) + '%'
+                }, {}],
+                "blank",
+                "h-line",
+                "blank",
+                "upgrades",
+                "blank",
+
+            ],
+            buttonStyle() { return { 'background': 'linear-gradient(to right,purple 40%, green 60%)', 'color': 'black', 'box-shadow': '2px 2px 2px purple' } },
+            style() {
+                return {
+                    'background': 'linear-gradient(135deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px)0 64px',
+                    'background-color': 'black',
+                    'background-size': '64px 128px',
+                    "background-position": "100%" + " " + (player.timePlayed % 200) + "%"
+                }
+            },
+        },
+    },
     color: "#a733dc",
     resource: "super powder",
-    baseResource: "particles",
+    baseResource: "crystals",
     baseAmount() { return player.points },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     type: "static",
@@ -110,19 +153,6 @@ addLayer("SP", {
     },
 
     canBuyMax() { return hasMilestone('F', 11) },
-
-
-    tabFormat:
-        ["main-display", "prestige-button",
-            ["display-text", function () {
-                return 'You have ' + format(player.SP.generation) + ' Super Power, which boosts Particle Gain, +' + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
-            }, {}],
-            ["display-text", function () {
-                if (hasUpgrade('F', 36)) return 'You have ' + format(player.SP.generation2) + ' Ultra Power, which boosts Powder Gain, +' + format(tmp.SP.generation2Eff.minus(1).times(100)) + '%'
-            }, {}],
-            "blank",
-            "upgrades"
-        ],
 
 
     //Build Content

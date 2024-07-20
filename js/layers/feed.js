@@ -1,6 +1,6 @@
 addLayer("F", {
     name: "Feed", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "F", // This appears on the layer's node. Default is the id with the first letter capitalized|
+    symbol: "I", // This appears on the layer's node. Default is the id with the first letter capitalized|
     position: 0,
     startData() {
         return {
@@ -42,25 +42,28 @@ addLayer("F", {
                 "h-line",
                 ["display-text",
                     function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:purple'>crystals</text>" },
-                {}],
+                    {}],
                 ["display-text",
                     function () { return 'You have ' + formatWhole(player.P.points) + " <text style='color:skyblue'>chemicals</text>" },
-                {}],
-                
+                    {}],
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.SP.points) + " <text style='color:lime'>experiments</text>" },
+                    {}],
+
                 "blank",
                 "h-line",
                 "blank",
                 "upgrades",
                 "blank",
-                
+
             ],
-            buttonStyle(){return {'background':'linear-gradient(to right,orange 33%, yellow 63%)','color':'black','box-shadow':'2px 2px 2px orange'}},
-            style(){
+            buttonStyle() { return { 'background': 'linear-gradient(to right,orange 33%, yellow 63%)', 'color': 'black', 'box-shadow': '2px 2px 2px orange' } },
+            style() {
                 return {
                     'background': 'linear-gradient(135deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px)0 64px',
-                    'background-color':'black',
-                    'background-size':'64px 128px',
-                    "background-position":"100%"+" "+(player.timePlayed%200)+"%"
+                    'background-color': 'black',
+                    'background-size': '64px 128px',
+                    "background-position": "100%" + " " + (player.timePlayed % 200) + "%"
                 }
             },
         },
@@ -101,44 +104,53 @@ addLayer("F", {
         rows: 5,
         cols: 6,
         11: {
-            title: "Compound of Chemicality<br>[ <text style='color:red'>I-1</text> ]",
+            title: "Compound of Chemicality<br>[ <text style='color:darkred'>I-1</text> ]",
             description: "<br>Learn the mastery of stimulates.<br>Boost Crystal Gain by 75%",
-            color(){return '#d1863b'},
-            color2(){return '#e0c287'},
-            cost() {return new Decimal(1)},
-            canAfford() {return player.F.points.gte(this.cost())},
+            color() { return '#d1863b' },
+            color2() { return '#e0c287' },
+            cost() { return new Decimal(1) },
+            canAfford() { return player.F.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         12: {
-            title: "Buster<br>[ <text style='color:skyblue'>F-2</text> ]",
-            description: "<br>Decrease Feed Requirement & Boost <text style='color:skyblue'>P-4</text> by 300%.",
+            title: "Rubber Material<br>[ <text style='color:darkred'>I-2</text> ]",
+            description: "<br>Decrease isotopes requirement & boost <text style='color:skyblue'>P-4</text> by 300%.",
             unlocked() { return hasUpgrade('F', 11) },
-            color(){return '#d1863b'},
-            color2(){return '#e0c287'},
-            cost() {return new Decimal(1)},
-            canAfford() {return player.F.points.gte(this.cost())},
+            color() { return '#d1863b' },
+            color2() { return '#e0c287' },
+            cost() { return new Decimal(1) },
+            canAfford() { return player.F.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         13: {
-            title: "Health<br>[<red>F-3</red>]",
-            description: "Boost Powder Gain by 40%, ^1.05 Particle Gain",
-            cost: new Decimal(7500),
-            currencyDisplayName: "Particles",
+            title: "Compressive Health<br>[ <text style='color:darkred'>I-3</text> ]",
+            description: "<br>Boost Chemical Gain by 40%, ^1.05 Crystal Gain",
+            currencyDisplayName: "chemicals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('F', 12) },
+            color() { return '#d1863b' },
+            color2() { return '#e0c287' },
+            cost() { return new Decimal(7500) },
+            canAfford() { return player.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
+
+
         },
         14: {
-            title: "Feed IV",
-            description: "Feeder + Feeder + Feeder + Feeder? Particles boosts Powder",
-            cost: new Decimal(25000),
+            title: "Visor of Life<br>[ <text style='color:darkred'>I-4</text> ]",
+            description: "<br>Crystals boost Chemicals in a way.<br>",
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.07)).max(1).min(10);
                 if (hasUpgrade('SP', 15)) effect1 = effect1.times(upgradeEffect('SP', 15))
@@ -149,14 +161,22 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
                 return text;
             },
-            currencyDisplayName: "Particles",
+            currencyDisplayName: "chemicals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('F', 13) },
+            color() { return '#d1863b' },
+            color2() { return '#e0c287' },
+            cost() { return new Decimal(25000) },
+            canAfford() { return player.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
         },
         15: {
-            title: "Feed V",
-            description: "Feeding Movement! Feed boosts SP-I Upgrade.",
-            cost: new Decimal(3),
+            title: "Empty Stim<br>[ <text style='color:darkred'>I-5</text> ]",
+            description: "<br>There is no such thing as progression.<br>Isotopes boosts <text style='color:lime'>E-1</text><br>",
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.3)).max(1).min(3.5);
                 return effect1
@@ -167,6 +187,15 @@ addLayer("F", {
                 return text;
             },
             unlocked() { return hasUpgrade('F', 14) },
+            color() { return '#d1863b' },
+            color2() { return '#e0c287' },
+            cost() { return new Decimal(3) },
+            canAfford() { return player.F.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
         },
         16: {
             title: "Feed VI",

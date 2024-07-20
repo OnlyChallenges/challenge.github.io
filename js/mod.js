@@ -131,6 +131,8 @@ var displayThings = [
   },
 ]
 
+// "<logic>Endgame</logic>: " + colorText("b", x, "45,000 Chemicals"
+
 // Determines when the game "ends"
 function isEndgame() {
   return player.P.points.gte("1e200")
