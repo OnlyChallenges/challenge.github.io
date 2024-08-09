@@ -44,7 +44,7 @@ addLayer("SP", {
                 
                 "h-line",
                 ["display-text",
-                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:purple'>crystals</text>" },
+                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystals</text>" },
                     {}],
                 ["display-text",
                     function () { return 'You have ' + formatWhole(player.P.points) + " <text style='color:skyblue'>chemicals</text>" },
@@ -55,7 +55,7 @@ addLayer("SP", {
 
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + format(player.SP.generation) + ' Super Power, which boosts Particle Gain, +' + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
+                    return 'You have ' + formatWhole(player.SP.generation) + " <text style='color:#5d56e8'>Experiment Dust</text>, which boosts <text style='color:#b76ce6'>crystal</text> gain by " + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
                 }, {}],
                 ["display-text", function () {
                     if (hasUpgrade('F', 36)) return 'You have ' + format(player.SP.generation2) + ' Ultra Power, which boosts Powder Gain, +' + format(tmp.SP.generation2Eff.minus(1).times(100)) + '%'
@@ -67,7 +67,7 @@ addLayer("SP", {
                 "blank",
 
             ],
-            buttonStyle() { return { 'background': 'linear-gradient(to right,purple 40%, green 60%)', 'color': 'black', 'box-shadow': '2px 2px 2px purple' } },
+            buttonStyle() { return { 'background': 'linear-gradient(to right,purple 40%, #b76ce6 60%)', 'color': 'black', 'box-shadow': '2px 2px 2px purple' } },
             style() {
                 return {
                     'background': 'linear-gradient(135deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px)0 64px',
@@ -79,7 +79,7 @@ addLayer("SP", {
         },
     },
     color: "#a733dc",
-    resource: "super powder",
+    resource: "experiments",
     baseResource: "crystals",
     baseAmount() { return player.points },
     row: 1, // Row the layer is in on the tree (0 is the first row)
@@ -97,7 +97,7 @@ addLayer("SP", {
         return exp
     },
     effectDescription() {
-        dis = "which is generating " + format(tmp.SP.effect) + " Super Power/sec"
+        dis = "which is generating " + format(tmp.SP.effect) + " <text style='color:#5d56e8'>Experiment Dust</text> / sec"
         return dis
     },
     hotkeys: [
@@ -160,21 +160,35 @@ addLayer("SP", {
         rows: 5,
         cols: 5,
         11: {
-            title: "Falsification<br>[<red>SP-1</red>]",
-            description: "Boost Particle Gain by 50%",
-            cost: new Decimal(100),
-            currencyDisplayName: "Super Power",
+            fullDisplay:
+            ("<h3>Falsification<br>[<text style='color:pink'>E-1</text>]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
+            color() { return '#571a7d' },
+            color2() { return '#a859d9' },
+            cost() { return new Decimal(100) },
+            canAfford() { return player.SP.generation.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
         },
         12: {
-            title: "Unbounded<br>[<red>SP-2</red>]",
-            description: "Boost <red>P-7</red> Effect by 110%",
-            cost: new Decimal(650),
-            currencyDisplayName: "Super Power",
+            fullDisplay:
+            ("<h3>Unbounded<br>[<text style='color:pink'>E-2</text>]</h3><br>Boost <text style='color:skyblue'>P-7</text> Effect by 110%<br><br>Cost: 650 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 11) },
+            color() { return '#571a7d' },
+            color2() { return '#a859d9' },
+            cost() { return new Decimal(650) },
+            canAfford() { return player.SP.generation.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
         },
         13: {
             title: "Reality<br>[<red>SP-3</red>]",
