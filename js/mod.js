@@ -76,6 +76,13 @@ function getPointGen() {
   return gain
 }
 
+function demoTimeIncrease() {
+  let demo = player.demoTime
+  if (hasUpgrade('F', 11)) demo = demo.add(150)
+    
+  return demo
+}
+
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return { devSpeed : new Decimal(1)
@@ -128,6 +135,12 @@ var displayThings = [
   function () {
     let x = getUndulatingColor()
     let a = "<logic>Endgame</logic>: " + colorText("b", x, "45,000 Chemicals")
+    return a
+  },
+  function () {
+    let x = player.timePlayed
+    let y = player.demoTime
+    let a = (formatWhole(y) - formatWhole(x)) + " seconds remaining..."
     return a
   },
 ]
