@@ -90,7 +90,7 @@ function formatTime(s) {
 function formatBaseTime(s) {
     if (s < 1000) return formatWhole(s) + "s"
     else if (s < 10000000000) return formatWhole(Math.floor(s / 1000)) + "." + formatWhole(s%1000) + "Ks"
-    else return formatWhole(Math.floor(s / 1000)) + "." + format(s%1000) + "Ks"
+    else return formatWhole(Math.floor(s / 1000)) + "." + format(s%1000) + "(K)s"
 }
 
 function toPlaces(x, precision, maxAccepted) {

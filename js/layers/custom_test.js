@@ -85,7 +85,7 @@ addLayer("P", {
                     function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:purple'>crystals</text>" },
                     {}],
                 ["display-text",
-                    function () { return 'You have been playing for ' + formatBaseTime(player.timePlayed) }, 
+                    function () { return "You have been playing for <text style='color:lime'>" + formatBaseTime(player.timePlayed) + "</text>" }, 
                     {}],
                 ["display-text",
                     function () {
