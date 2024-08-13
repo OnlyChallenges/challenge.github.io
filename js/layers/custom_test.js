@@ -155,7 +155,7 @@ addLayer("P", {
         cols: 5,
         11: {
             title: "Simplicity<br>[ <text style='color:skyblue'>P-1</text> ]",
-            description: "<br>Boost Crystal gain by 20%",
+            description: "<br>Boost Crystal gain by 35%"
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
             cost() {return new Decimal(6)},
@@ -182,7 +182,7 @@ addLayer("P", {
         },
         13: {
             title: "Processing<br>[ <text style='color:skyblue'>P-3</text> ]",
-            description: "<br>Improve Crystal gain by 40% but decrease Chemical gain by 7.5%",
+            description: "<br>Improve Crystal gain by 66% but decrease Chemical gain by 7.5%",
             cost() {return new Decimal(35)},
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
@@ -222,7 +222,7 @@ addLayer("P", {
         },
         15: {
             title: "Versions<br>[ <text style='color:skyblue'>P-5</text> ]",
-            description: "<br>Decrease Chemical Gain by 11.5%, but increase Particle Gain by 70%",
+            description: "<br>Decrease chemical gain by 11.5%, but increase crystal gain by 90%",
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('P', 14) },
