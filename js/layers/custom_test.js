@@ -85,8 +85,8 @@ addLayer("P", {
                     function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:purple'>crystals</text>" },
                     {}],
                 ["display-text",
-                    function () { return `Time: formatBaseTime(player.timePlayed)`}
-                ]
+                    function () { return '<br>Time:' + `{{formatBaseTime(player.timePlayed)}}` }, 
+                    {}],
                 ["display-text",
                     function () {
                         let x = getUndulatingColor()
