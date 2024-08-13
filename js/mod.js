@@ -140,7 +140,7 @@ var displayThings = [
   function () {
     let x = player.timePlayed
     let y = modInfo.demoTime
-    let a = (formatWhole(y) - formatWhole(x)) + " seconds remaining..."
+    let a = formatWhole(y-x) + " seconds remaining..."
     return a
   },
 ]
