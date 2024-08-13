@@ -87,6 +87,11 @@ function formatTime(s) {
     else return formatWhole(Math.floor(s / 31536000)) + "y " + formatWhole(Math.floor(s / 86400) % 365) + "d " + formatWhole(Math.floor(s / 3600) % 24) + "h " + formatWhole(Math.floor(s / 60) % 60) + "m " + format(s % 60) + "s"
 }
 
+function formatBaseTime(s) {
+    if (s <= 1000) return format(s) + "s"
+    else if (s > 1000) return formatWhole(Math.floor(s / 1000)) + "." + format(s%1000) + "Ks"
+}
+
 function toPlaces(x, precision, maxAccepted) {
     x = new Decimal(x)
     let result = x.toStringWithDecimalPlaces(precision)
