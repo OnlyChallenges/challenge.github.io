@@ -72,6 +72,7 @@ function getPointGen() {
   if (getBuyableAmount('W', 11).gte(1)) gain = gain.times(buyableEffect('W', 11))
   if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
+  if (player.timePlayed > 1000) gain = gain.pow(0.00000000001) // Demo Mode is over
   return gain
 }
 

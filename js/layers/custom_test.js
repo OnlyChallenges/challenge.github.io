@@ -85,7 +85,10 @@ addLayer("P", {
                     function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:purple'>crystals</text>" },
                     {}],
                 ["display-text",
-                    function () { return "You have been playing for <text style='color:lime'>" + formatBaseTime(player.timePlayed) + "</text>" }, 
+                    function () { 
+                        if (player.timePlayed < player.demoTime) return "DEMO MODE: <text style='color:lime'>" + formatBaseTime(player.timePlayed) + "</text> / <text style='color:green'>"+ formatBaseTime(player.demoTime) +"</text>"
+                        if (player.timePlayed > player.demoTime) return "DEMO OVER, You failed to increase your demotime..."
+                        },
                     {}],
                 ["display-text",
                     function () {
