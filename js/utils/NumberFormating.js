@@ -93,6 +93,10 @@ function formatBaseTime(s) {
     else return formatWhole(Math.floor(s / 1000)) + "." + format(s%1000) + "(K)s"
 }
 
+function formatTitleTime(s) {
+    return formatWhole(s) + "s"
+}
+
 function toPlaces(x, precision, maxAccepted) {
     x = new Decimal(x)
     let result = x.toStringWithDecimalPlaces(precision)

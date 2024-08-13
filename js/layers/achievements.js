@@ -38,22 +38,8 @@ addLayer("A", {
         if (player.devSpeed != 1) {
             devspeed = format(player.devSpeed) + "x || "
         }
-        if (((!player.F.unlocked) || (!player.SP.unlocked))) {
-            title = "" + formatWhole(player.P.points) + " P"
-        }
-        if ((player.F.unlocked) || (player.SP.unlocked)) {
-            if ((player.F.unlocked)) title = "" + formatWhole(player.F.points) + " F"
-            if ((player.SP.unlocked)) title = "" + formatWhole(player.SP.points) + " SP"
-        }
-        if ((player.F.unlocked) && player.SP.unlocked) {
-            title = "" + formatWhole(player.F.points) + " F || " + formatWhole(player.SP.points) + " SP"
-        }
-        if (player.V.unlocked) {
-            title = "" + formatWhole(player.V.points) + " V"
-        }
-        if ((player.V.unlocked) && (player.W.unlocked)) {
-            title = "" + formatWhole(player.V.points) + " V || " + formatWhole(player.W.points) + " W"
-        }
+            title = "" + formatTitleTime(player.timePlayed)
+
         document.title = devspeed + title
     },
 
