@@ -155,7 +155,7 @@ addLayer("P", {
         cols: 5,
         11: {
             title: "Simplicity<br>[ <text style='color:skyblue'>P-1</text> ]",
-            description: "<br>Boost Crystal gain by 35%"
+            description: "<br>Boost Crystal gain by 35%",
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
             cost() {return new Decimal(6)},
