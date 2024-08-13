@@ -201,7 +201,7 @@ addLayer("P", {
             description: "<br>Boost Crystals based on itself.",
             cost(){return new Decimal(36)},
             effect() {
-                let effect1 = (player.points.max(1).add(1).pow(0.09)).max(1).min(10);
+                let effect1 = (player.points.max(1).add(1).pow(0.1105)).max(1).min(10);
                 if (hasUpgrade('F', 12)) effect1 = effect1.times(3)
                 return effect1
             },
@@ -240,7 +240,7 @@ addLayer("P", {
             title: "Lore<br>[ <text style='color:skyblue'>P-6</text> ]",
             description: "<br>Boosts Crystal Gain based on Chemicals",
             effect() {
-                let effect1 = (player.P.points.max(1).add(1).pow(0.06)).max(1).min(5);
+                let effect1 = (player.P.points.max(1).add(1).pow(0.075)).max(1).min(5);
                 if (hasUpgrade('F', 15)) effect1 = effect1.times(upgradeEffect('F', 15))
                 return effect1
             },
