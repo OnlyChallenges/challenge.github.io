@@ -134,13 +134,13 @@ function getSinRat(period = Math.sqrt(488)) {
 var displayThings = [
   function () {
     let x = getUndulatingColor()
-    let a = "<logic>Endgame</logic>: " + colorText("b", x, "45,000 Chemicals")
+    let a = "<logic>Endgame</logic>: " + colorText("b", x, "133 ???????")
     return a
   },
   function () {
     let x = player.timePlayed
     let y = modInfo.demoTime
-    let a = formatWhole(y-x) + " seconds remaining..."
+    let a = "Demo Mode: <text style='color:skyblue'>" + formatWhole(y-x) + "</text> seconds remaining..."
     return a
   },
 ]
