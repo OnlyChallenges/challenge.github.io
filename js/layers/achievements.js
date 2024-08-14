@@ -141,8 +141,9 @@ addLayer("A", {
             done() { return player.timePlayed > 5 },
             tooltip: "Start the demo-version of the game!<br> Reward: 1 AP",
             style() {
-                if (!hasAchievement(this.layer, this.id)) return ('')
-                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white ')
+                if (!hasAchievement(this.layer, this.id)) {return ''}
+                else if (hasAchievement(this.layer, this.id)) {return {'background-color':'blue', 'color':'white'}}
+
             },
         },
         12: {
@@ -151,8 +152,8 @@ addLayer("A", {
             tooltip: "5 Base Upgrades! <br> Reward: 2 AP",
             unlocked() { return hasAchievement('A', 11) },
             style() {
-                if (!hasAchievement(this.layer, this.id)) return ('')
-                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+                if (!hasAchievement(this.layer, this.id)) {return ''}
+                else if (hasAchievement(this.layer, this.id)) {return {'background-color':'blue', 'color':'white'}}
 
             },
         },
@@ -162,8 +163,8 @@ addLayer("A", {
             tooltip: "Developers is 50% <br>Reward: 5 AP",
             unlocked() { return hasAchievement('A', 12) },
             style() {
-                if (!hasAchievement(this.layer, this.id)) return ('')
-                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+                if (!hasAchievement(this.layer, this.id)) {return ''}
+                else if (hasAchievement(this.layer, this.id)) {return {'background-color':'blue', 'color':'white'}}
 
             },
         },
@@ -173,8 +174,8 @@ addLayer("A", {
             tooltip: "Saget the 1st would be proud...<br> Reward: 5 AP",
             unlocked() { return hasAchievement('A', 13) },
             style() {
-                if (!hasAchievement(this.layer, this.id)) return ('')
-                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+                if (!hasAchievement(this.layer, this.id)) {return ''}
+                else if (hasAchievement(this.layer, this.id)) {return {'background-color':'blue', 'color':'white'}}
 
             },
         },
@@ -187,8 +188,8 @@ addLayer("A", {
             },
             unlocked() { return hasAchievement('A', 14) },
             style() {
-                if (!hasAchievement(this.layer, this.id)) return ('')
-                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+                if (!hasAchievement(this.layer, this.id)) {return ''}
+                else if (hasAchievement(this.layer, this.id)) {return {'background-color':'blue', 'color':'white'}}
 
             },
         },
@@ -198,8 +199,8 @@ addLayer("A", {
             tooltip: "have both layers unlocked<br> Reward: 10 AP",
             unlocked() { return hasAchievement('A', 15) },
             style() {
-                if (!hasAchievement(this.layer, this.id)) return ('')
-                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+                if (!hasAchievement(this.layer, this.id)) {return ''}
+                else if (hasAchievement(this.layer, this.id)) {return {'background-color':'blue', 'color':'white'}}
 
             },
         },
@@ -209,8 +210,8 @@ addLayer("A", {
             tooltip: "get 6 & 3<br>Reward: Row 3 Layer & 10 AP",
             unlocked() { return hasAchievement('A', 16) },
             style() {
-                if (!hasAchievement(this.layer, this.id)) return ('')
-                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+                if (!hasAchievement(this.layer, this.id)) {return ''}
+                else if (hasAchievement(this.layer, this.id)) {return {'background-color':'blue', 'color':'white'}}
 
             },
         },
