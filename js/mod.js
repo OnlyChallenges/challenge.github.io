@@ -8,7 +8,7 @@ let modInfo = {
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
   offlineLimit: 0,  // In hours
- 
+  demoTime: new Decimal(1000),
 }
 // Set your version in num and name
 let VERSION = {
@@ -72,20 +72,18 @@ function getPointGen() {
   if (getBuyableAmount('W', 11).gte(1)) gain = gain.times(buyableEffect('W', 11))
   if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
-  if (player.timePlayed > player.demoTime) gain = gain.pow(0.00000000001) // Demo Mode is over
+  if (player.timePlayed > modInfo.demoTime) gain = gain.pow(0.00000000001) // Demo Mode is over
   return gain
 }
 
 function demoTimeIncrease() {
-  if (hasUpgrade('P', 11)) player.demoTime = new Decimal(1150)
-  return player.demoTime
+  if (hasUpgrade('P', 11)) modInfo.demoTime = modInfo.demoTime.add(150)
+  return
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
-  let dev = { devSpeed : new Decimal(1)}
-  let demo = { demoTime : new Decimal(1000)}
-  return dev && demo
+  return { devSpeed : new Decimal(1)}
 }
 
 function convertToB16(n) {
@@ -138,7 +136,7 @@ var displayThings = [
   },
   function () {
     let x = player.timePlayed
-    let y = player.demoTime
+    let y = modInfo.demoTime
     let a = "Demo Mode: <text style='color:skyblue'>" + formatWhole(y-x) + "</text> seconds remaining..."
     return a
   },
