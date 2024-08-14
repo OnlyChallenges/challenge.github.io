@@ -1,5 +1,5 @@
 let modInfo = {
-  name: `The Powder Tree v0.2.3`,
+  name: `The FoR Tree v0.0.2-DEMO`,
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "crystals",
@@ -12,13 +12,21 @@ let modInfo = {
 }
 // Set your version in num and name
 let VERSION = {
-  num: "0.0.1-DEMO",
+  num: "0.0.2-DEMO",
   ver: "Changelog",
-  name: "Crystalized",
+  name: "Isotopic Change",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
  <h5 style="opacity:0.5">Tip: Click and hold on a spoiler (White Boxes) to reveal it.</h5><br>
+
+ <h2>v0.0.2: <h2 style='color:orange'>Isotopic Change</h2></h2><br><br>
+ - Added five <spoiler>Isotope</spoiler> Upgrades<br>
+ - Added Demo Mode which lasts for 3,000 Seconds<br>
+ - Added <spoiler>Improved Layer 2 Mechanics</spoiler><br>
+ - Renamed <spoiler>Feed to Isotopes & Super Powder to Experiments</spoiler><br>
+ - Improved Pre-<spoiler>Isotope</spoiler> Formulas<br>
+
  <h2>v0.0.1: <h2 style='color:purple'>Crystalized</h2></h2><br><br>
  - Added three <spoiler>Chemical</spoiler> Upgrades<br>
  - Added <spoiler>Facility of Redemption RNG</spoiler><br>
