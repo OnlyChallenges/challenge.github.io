@@ -77,10 +77,8 @@ function getPointGen() {
 }
 
 function demoTimeIncrease() {
-  let time = player.demoTime
-  if (hasUpgrade('P', 11)) time = time.add(150)
-    
-  return time
+  if (hasUpgrade('P', 11)) player.demoTime = new Decimal(1150)
+  return player.demoTime
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
