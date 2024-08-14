@@ -179,9 +179,12 @@ addLayer("A", {
             },
         },
         15: {
-            name: "SF",
+            name: "The Unknown Boundaries",
             done() { return player.SP.unlocked || player.F.unlocked },
-            tooltip: "Unlock one of the layers in Row 2<br> Reward: 7 AP",
+            tooltip() { 
+                if (!hasAchievement(this.layer, this.id)) return "????????????????????"
+                else if (hasAchievement(this.layer, this.id)) return "Unlock one of the layers in Row 2<br> Reward: 7 AP"
+            },
             unlocked() { return hasAchievement('A', 14) },
             style() {
                 if (!hasAchievement(this.layer, this.id)) return ('')
@@ -190,7 +193,7 @@ addLayer("A", {
             },
         },
         16: {
-            name: "Duel Achieved",
+            name: "Process of Experimentation",
             done() { return player.SP.unlocked && player.F.unlocked },
             tooltip: "have both layers unlocked<br> Reward: 10 AP",
             unlocked() { return hasAchievement('A', 15) },
@@ -201,7 +204,7 @@ addLayer("A", {
             },
         },
         17: {
-            name: "6&3",
+            name: "Importance in progression",
             done() { return hasUpgrade('F', 16) && hasUpgrade('SP', 13) },
             tooltip: "get 6 & 3<br>Reward: Row 3 Layer & 10 AP",
             unlocked() { return hasAchievement('A', 16) },
