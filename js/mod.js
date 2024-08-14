@@ -8,7 +8,7 @@ let modInfo = {
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
   offlineLimit: 0,  // In hours
-  demoTime: new Decimal(3000),
+  demoTime: new Decimal(1300),
 }
 // Set your version in num and name
 let VERSION = {
@@ -22,7 +22,7 @@ let changelog = `<h1>Changelog:</h1><br><br>
 
  <h2>v0.0.2: <h2 style='color:orange'>Isotopic Change</h2></h2><br><br>
  - Added five <spoiler>Isotope</spoiler> Upgrades<br>
- - Added Demo Mode which lasts for 3,000 Seconds<br>
+ - Added Demo Mode which lasts for 1,300 Seconds<br>
  - Added <spoiler>Improved Layer 2 Mechanics</spoiler><br>
  - Renamed <spoiler>Feed to Isotopes & Super Powder to Experiments</spoiler><br>
  - Improved Pre-<spoiler>Isotope</spoiler> Formulas<br>
