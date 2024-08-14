@@ -137,45 +137,79 @@ addLayer("A", {
 
     achievements: {
         11: {
-            name: "particle accelerator",
-            done() { return player.points.gte(20) },
-            tooltip: "Embark on your points!<br> Reward: 1 AP",
+            name: "The Demo",
+            done() { return player.timePlayed > 5 },
+            tooltip: "Start the demo-version of the game!<br> Reward: 1 AP",
+            style() {
+                if (!hasAchievement(this.layer, this.id)) return ('')
+                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white ')
+            },
         },
         12: {
-            name: "thre",
+            name: "The Five Bases",
             done() { return hasUpgrade('P', 13) },
-            tooltip: "3 Powders?<br> Reward: 2 AP",
+            tooltip: "5 Base Upgrades! <br> Reward: 2 AP",
             unlocked() { return hasAchievement('A', 11) },
+            style() {
+                if (!hasAchievement(this.layer, this.id)) return ('')
+                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+
+            },
         },
         13: {
-            name: "Half of Two",
+            name: "Good Math",
             done() { return hasUpgrade('P', 14) && (upgradeEffect('P', 14) > 1.499) },
-            tooltip: "NP-IV has 50% boost<br>Reward: 5 AP",
+            tooltip: "Developers is 50% <br>Reward: 5 AP",
             unlocked() { return hasAchievement('A', 12) },
+            style() {
+                if (!hasAchievement(this.layer, this.id)) return ('')
+                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+
+            },
         },
         14: {
-            name: "Saget the 2nd",
+            name: "Starting the System",
             done() { return hasUpgrade('P', 22) },
             tooltip: "Saget the 1st would be proud...<br> Reward: 5 AP",
             unlocked() { return hasAchievement('A', 13) },
+            style() {
+                if (!hasAchievement(this.layer, this.id)) return ('')
+                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+
+            },
         },
         15: {
             name: "SF",
             done() { return player.SP.unlocked || player.F.unlocked },
             tooltip: "Unlock one of the layers in Row 2<br> Reward: 7 AP",
             unlocked() { return hasAchievement('A', 14) },
+            style() {
+                if (!hasAchievement(this.layer, this.id)) return ('')
+                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+
+            },
         },
         16: {
             name: "Duel Achieved",
             done() { return player.SP.unlocked && player.F.unlocked },
             tooltip: "have both layers unlocked<br> Reward: 10 AP",
             unlocked() { return hasAchievement('A', 15) },
+            style() {
+                if (!hasAchievement(this.layer, this.id)) return ('')
+                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+
+            },
         },
         17: {
             name: "6&3",
             done() { return hasUpgrade('F', 16) && hasUpgrade('SP', 13) },
             tooltip: "get 6 & 3<br>Reward: Row 3 Layer & 10 AP",
             unlocked() { return hasAchievement('A', 16) },
+            style() {
+                if (!hasAchievement(this.layer, this.id)) return ('')
+                else if (hasAchievement(this.layer, this.id)) return ('background-color : blue', 'color : white')
+
+            },
         },
         21: {
             name: "curing",
