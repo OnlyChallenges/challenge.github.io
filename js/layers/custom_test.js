@@ -8,8 +8,8 @@ addLayer("P", {
         }
     },
     requires() {
-        let requirement = new Decimal(5)
-        if (hasUpgrade('P', 12)) requirement = requirement.minus(1.2)
+        let requirement = new Decimal(4.75)
+        if (hasUpgrade('P', 12)) requirement = requirement.minus(1.5)
 
         return requirement
 
