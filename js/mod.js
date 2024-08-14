@@ -78,7 +78,7 @@ function getPointGen() {
 }
 
 function demoTimeIncrease() {
-  if (hasUpgrade('F', 11)) modInfo.demoTime = modInfo.demoTime.add(150)
+  if (hasUpgrade('P', 11)) modInfo.demoTime = modInfo.demoTime.add(150)
     
   return modInfo.demoTime
 }
