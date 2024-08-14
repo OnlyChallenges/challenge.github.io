@@ -86,7 +86,7 @@ addLayer("P", {
                     {}],
                 ["display-text",
                     function () { 
-                        if (player.timePlayed < modInfo.demoTime) return "DEMO MODE: <text style='color:lime'>" + formatBaseTime(player.timePlayed) + "</text> / <text style='color:green'>"+ formatBaseTime(modInfo.demoTime) +"</text>"
+                        if (player.timePlayed < modInfo.demoTime) return "DEMO MODE: <text style='color:lime'>" + formatTitleTime(player.timePlayed) + "</text> / <text style='color:red'>"+ formatTitleTime(modInfo.demoTime) +"</text>"
                         if (player.timePlayed > modInfo.demoTime) return "DEMO OVER, You failed to increase your demotime..."
                         },
                     {}],
