@@ -50,13 +50,23 @@ addLayer("SP", {
                     function () { return 'You have ' + formatWhole(player.P.points) + " <text style='color:skyblue'>chemicals</text>" },
                     {}],
                 ["display-text",
-                    function () { return 'You have ' + formatWhole(player.F.points) + " <text style='color:orange'>isotopes</text>" },
+                    function () { 
+                        
+                        if (player.F.unlocked) return 'You have ' + formatWhole(player.F.points) + " <text style='color:orange'>isotopes</text>" 
+                        else if (!player.F.unlocked) return "?????????????????????????????"
+                    },
                     {}],
 
                 "blank",
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(player.SP.generation) + " <text style='color:#5d56e8'>Experiment Dust</text>, which boosts <text style='color:#b76ce6'>crystal</text> gain by " + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
+                    
+                    
+                    if (player.F.unlocked) return 'You have ' + formatWhole(player.SP.generation) + " <text style='color:#5d56e8'>Experiment Dust</text>, which boosts <text style='color:#b76ce6'>crystal</text> gain by " + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
+                    else if (!player.F.unlocked) return "??????????????????????????????????????????????????????????????"
+
                 }, {}],
+
+        
                 ["display-text", function () {
                     if (hasUpgrade('F', 36)) return 'You have ' + format(player.SP.generation2) + ' Ultra Power, which boosts Powder Gain, +' + format(tmp.SP.generation2Eff.minus(1).times(100)) + '%'
                 }, {}],
@@ -98,6 +108,8 @@ addLayer("SP", {
     },
     effectDescription() {
         dis = "which is generating " + format(tmp.SP.effect) + " <text style='color:#5d56e8'>Experiment Dust</text> / sec"
+        if (!player.F.unlocked) dis = "???????????????????????????????????????"
+        else if (player.F.unlocked) dis = "which is generating " + format(tmp.SP.effect) + " <text style='color:#5d56e8'>Experiment Dust</text> / sec"
         return dis
     },
     hotkeys: [
@@ -160,8 +172,10 @@ addLayer("SP", {
         rows: 5,
         cols: 5,
         11: {
-            fullDisplay:
-            ("<h3>Falsification<br>[<text style='color:pink'>E-1</text>]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>"),
+            fullDisplay()
+            { if (player.F.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
+              else if (!player.F.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
+            },
             currencyInternalName: "generation",
             currencyLayer: "SP",
             color() { return '#571a7d' },
