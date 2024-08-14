@@ -83,7 +83,9 @@ function demoTimeIncrease() {
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
-  return { devSpeed : new Decimal(1)}, { demoTime : new Decimal(1000)}
+  let dev = { devSpeed : new Decimal(1)}
+  let demo = { demoTime : new Decimal(1000)}
+  return dev && demo
 }
 
 function convertToB16(n) {
