@@ -47,7 +47,10 @@ addLayer("F", {
                     function () { return 'You have ' + formatWhole(player.P.points) + " <text style='color:skyblue'>chemicals</text>" },
                     {}],
                 ["display-text",
-                    function () { return 'You have ' + formatWhole(player.SP.points) + " <text style='color:lime'>experiments</text>" },
+                    function () { 
+                        if (player.SP.unlocked) return 'You have ' + formatWhole(player.SP.points) + " <text style='color:lime'>experiments</text>" 
+                        else if (!player.SP.unlocked) return "?????????????????????????????"
+                    },
                     {}],
 
                 "blank",
@@ -105,7 +108,7 @@ addLayer("F", {
         cols: 6,
         11: {
             title: "Compound of Chemicality<br>[ <text style='color:darkred'>I-1</text> ]",
-            description: "<br>Learn the mastery of stimulates.<br>Boost Crystal Gain by 75% and increase demo time by 150s",
+            description: "<br>Learn the mastery of stimulates.<br>Boost Crystal Gain by 75%",
             color() { return '#d1863b' },
             color2() { return '#e0c287' },
             cost() { return new Decimal(1) },
