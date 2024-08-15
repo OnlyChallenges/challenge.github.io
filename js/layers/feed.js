@@ -48,7 +48,7 @@ addLayer("F", {
                     {}],
                 ["display-text",
                     function () { 
-                        if (player.SP.unlocked) return 'You have ' + formatWhole(player.SP.points) + " <text style='color:lime'>experiments</text>" 
+                        if (player.SP.unlocked) return 'You have ' + formatWhole(player.SP.points) + " <text style='color:#a733dc'>experiments</text>" 
                         else if (!player.SP.unlocked) return "?????????????????????????????"
                     },
                     {}],
@@ -179,7 +179,7 @@ addLayer("F", {
         },
         15: {
             title: "Empty Stim<br>[ <text style='color:darkred'>I-5</text> ]",
-            description: "<br>There is no such thing as progression.<br>Isotopes boosts <text style='color:lime'>E-1</text><br>",
+            description: "<br>There is no such thing as progression.<br>Isotopes boosts <text style='color:#a733dc'>E-1</text><br>",
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.3)).max(1).min(3.5);
                 return effect1
