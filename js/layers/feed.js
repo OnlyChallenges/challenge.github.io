@@ -135,7 +135,7 @@ addLayer("F", {
         },
         13: {
             title: "Compressive Health<br>[ <text style='color:darkred'>I-3</text> ]",
-            description: "<br>Boost <text style='color:#5b85b3>chemical</text> gain by 40%, ^1.05 <text style='color:#b76ce6'>crystal</text> gain",
+            description: "<br>Boost <text style='color:#5b85b3'>chemical</text> gain by 40%, ^1.05 <text style='color:#b76ce6'>crystal</text> gain",
             currencyDisplayName: "crystals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('F', 12) },
@@ -153,7 +153,7 @@ addLayer("F", {
         },
         14: {
             title: "Visor of Life<br>[ <text style='color:darkred'>I-4</text> ]",
-            description: "<br><text style='color:#b76ce6'>Crystals</text> boost <text style='color:#5b85b3>chemicals</text> in a way.<br>",
+            description: "<br><text style='color:#b76ce6'>Crystals</text> boost <text style='color:#5b85b3'>chemicals</text> in a way.<br>",
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.07)).max(1).min(10);
                 if (hasUpgrade('SP', 15)) effect1 = effect1.times(upgradeEffect('SP', 15))
@@ -213,6 +213,8 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
+            currencyDisplayName: "chemicals",
+            currencyInternalName: "P",
             unlocked() { return hasUpgrade('F', 15) && player.SP.unlocked },
             color() { return '#d1863b' },
             color2() { return '#e0c287' },
@@ -226,7 +228,7 @@ addLayer("F", {
         },
         21: {
             title: "Cooldown Maker<br>[ <text style='color:darkres'>I-7</text> ]",
-            description: "<text style='color:#b76ce6'>Crystal</text> boosts <text style='color:#5b85b3>Chemicals</text>",
+            description: "<text style='color:#b76ce6'>Crystal</text> boosts <text style='color:#5b85b3'>Chemicals</text>",
             cost: new Decimal(5),
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.08)).max(1).min(7);
