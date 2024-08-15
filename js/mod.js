@@ -8,7 +8,7 @@ let modInfo = {
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
   offlineLimit: 0,  // In hours
-  demoTime: new Decimal(1300),
+  demoTime: new Decimal(5000),
 }
 // Set your version in num and name
 let VERSION = {
@@ -84,11 +84,6 @@ function getPointGen() {
   return gain
 }
 
-function demoTimeIncrease() {
-  if (hasUpgrade('P', 11)) modInfo.demoTime = modInfo.demoTime.add(150)
-  return
-}
-
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return { devSpeed : new Decimal(1)}
@@ -146,6 +141,7 @@ var displayThings = [
     let x = player.timePlayed
     let y = modInfo.demoTime
     let a = "Demo Mode: <text style='color:skyblue'>" + formatWhole(y-x) + "</text> seconds remaining..."
+    if (x > y) a = "Demo is over! Thanks for playing"
     return a
   },
 ]

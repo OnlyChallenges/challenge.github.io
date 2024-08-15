@@ -12,8 +12,8 @@ addLayer("SP", {
     },
     requires() {
         let requirement = new Decimal(2500)
-        if (player.F.unlocked) requirement = requirement.times(50)
-        if (player.F.unlocked && player.SP.unlocked) requirement = requirement.div(50)
+        if (player.F.unlocked) requirement = requirement.times(40)
+        if (player.F.unlocked && player.SP.unlocked) requirement = requirement.div(40)
         if (hasUpgrade('F', 23)) requirement = requirement.div(upgradeEffect('F', 23))
         if (hasUpgrade('F', 25)) requirement = requirement.div(upgradeEffect('F', 25))
         if (hasMilestone('V', 14)) requirement = requirement.div(4)
@@ -61,8 +61,8 @@ addLayer("SP", {
                 ["display-text", function () {
                     
                     
-                    if (player.F.unlocked) return 'You have ' + formatWhole(player.SP.generation) + " <text style='color:#5d56e8'>Experiment Dust</text>, which boosts <text style='color:#b76ce6'>crystal</text> gain by " + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
-                    else if (!player.F.unlocked) return "??????????????????????????????????????????????????????????????"
+                    if (player.SP.unlocked) return 'You have ' + formatWhole(player.SP.generation) + " <text style='color:#5d56e8'>Experiment Dust</text>, which boosts <text style='color:#b76ce6'>crystal</text> gain by " + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
+                    else if (!player.SP.unlocked) return "??????????????????????????????????????????????????????????????"
 
                 }, {}],
 
@@ -108,8 +108,8 @@ addLayer("SP", {
     },
     effectDescription() {
         dis = "which is generating " + format(tmp.SP.effect) + " <text style='color:#5d56e8'>Experiment Dust</text> / sec"
-        if (!player.F.unlocked) dis = "???????????????????????????????????????"
-        else if (player.F.unlocked) dis = "which is generating " + format(tmp.SP.effect) + " <text style='color:#5d56e8'>Experiment Dust</text> / sec"
+        if (!player.SP.unlocked) dis = "???????????????????????????????????????"
+        else if (player.SP.unlocked) dis = "which is generating " + format(tmp.SP.effect) + " <text style='color:#5d56e8'>Experiment Dust</text> / sec"
         return dis
     },
     hotkeys: [
@@ -173,8 +173,8 @@ addLayer("SP", {
         cols: 5,
         11: {
             fullDisplay()
-            { if (player.F.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
-              else if (!player.F.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
+            { if (player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
+              else if (!player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
             },
             currencyInternalName: "generation",
             currencyLayer: "SP",
