@@ -168,7 +168,7 @@ addLayer("P", {
         },
         12: {
             title: "The Idea<br>[ <text style='color:skyblue'>P-2</text> ]",
-            description: "<br>Decrease <text style='color:#5b85b3>chemical</text> requirement slightly...",
+            description: "<br>Decrease <text style='color:#5b85b3'>chemical</text> requirement slightly...",
             unlocked() { return hasUpgrade('P', 11) },
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
@@ -182,7 +182,7 @@ addLayer("P", {
         },
         13: {
             title: "Processing<br>[ <text style='color:skyblue'>P-3</text> ]",
-            description: "<br>Improve <text style='color:#b76ce6'>crystal</text> gain by 66% but decrease <text style='color:#5b85b3>chemical</text> gain by 7.5%",
+            description: "<br>Improve <text style='color:#b76ce6'>crystal</text> gain by 66% but decrease <text style='color:#5b85b3'>chemical</text> gain by 7.5%",
             cost() {return new Decimal(35)},
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
@@ -222,7 +222,7 @@ addLayer("P", {
         },
         15: {
             title: "Versions<br>[ <text style='color:skyblue'>P-5</text> ]",
-            description: "<br>Decrease <text style='color:#5b85b3>chemical</text> gain by 11.5%, but increase <text style='color:#b76ce6'>crystal</text> gain by 90%",
+            description: "<br>Decrease <text style='color:#5b85b3'>chemical</text> gain by 11.5%, but increase <text style='color:#b76ce6'>crystal</text> gain by 90%",
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('P', 14) },
@@ -238,7 +238,7 @@ addLayer("P", {
         },
         21: {
             title: "Lore<br>[ <text style='color:skyblue'>P-6</text> ]",
-            description: "<br>Boosts <text style='color:#b76ce6'>crystal</text> gain based on <text style='color:#5b85b3>chemicals</text>",
+            description: "<br>Boosts <text style='color:#b76ce6'>crystal</text> gain based on <text style='color:#5b85b3'>chemicals</text>",
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.08)).max(1).min(5);
                 if (hasUpgrade('F', 15)) effect1 = effect1.times(upgradeEffect('F', 15))
@@ -262,7 +262,7 @@ addLayer("P", {
         },
         22: {
             title: "System.Start<br>[ <text style='color:skyblue'>P-7</text> ]",
-            description: "<br><text style='color:#5b85b3>Chemicals</text> boosts itself (Additive)",
+            description: "<br><text style='color:#5b85b3'>Chemicals</text> boosts itself (Additive)",
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             effect() {
@@ -301,7 +301,7 @@ addLayer("P", {
         },
         24: {
             title: "Baseball.Bat.<br>Start<br>[ <text style='color:skyblue'>P-9</text> ]",
-            description: "<br><text style='color:orange'>Isotopes</text> & <text style='color:#a733dc'>Experiments</text> boosts <text style='color:#5b85b3>Chemicals</text> & <text style='color:#b76ce6'>Crystals</text> ",
+            description: "<br><text style='color:orange'>Isotopes</text> & <text style='color:#a733dc'>Experiments</text> boosts <text style='color:#5b85b3'>Chemicals</text> & <text style='color:#b76ce6'>Crystals</text> ",
             effect() {
                 let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.26)).max(1).min(10);
                 if (hasUpgrade('F', 22)) effect1 = effect1.times(upgradeEffect('F', 22))

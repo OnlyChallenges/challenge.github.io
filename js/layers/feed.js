@@ -227,7 +227,7 @@ addLayer("F", {
 
         },
         21: {
-            title: "Cooldown Maker<br>[ <text style='color:darkres'>I-7</text> ]",
+            title: "Cooldown Maker<br>[ <text style='color:darkred'>I-7</text> ]",
             description: "<text style='color:#b76ce6'>Crystal</text> boosts <text style='color:#5b85b3'>Chemicals</text>",
             cost: new Decimal(5),
             effect() {
