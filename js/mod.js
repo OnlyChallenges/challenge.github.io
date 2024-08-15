@@ -21,11 +21,11 @@ let changelog = `<h1>Changelog:</h1><br><br>
  <h5 style="opacity:0.5">Tip: Click and hold on a spoiler (White Boxes) to reveal it.</h5><br>
 
  <h2>v0.0.2: <h2 style='color:orange'>Isotopic Change</h2></h2><br><br>
- - Added five <spoiler>Isotope</spoiler> Upgrades<br>
+ - Added five <spoiler><text style='color:orange'>Isotope</text></spoiler> Upgrades<br>
  - Added Demo Mode which lasts for 1,300 Seconds<br>
  - Added <spoiler>Improved Layer 2 Mechanics</spoiler><br>
- - Renamed <spoiler>Feed to Isotopes & Super Powder to Experiments</spoiler><br>
- - Improved Pre-<spoiler>Isotope</spoiler> Formulas<br>
+ - Renamed <spoiler>Feed to <text style='color:orange'>Isotope</text> & Super Powder to <text style='color:green'>Experiments</text></spoiler><br>
+ - Improved Pre-<spoiler><text style='color:orange'>Isotope</text></spoiler> Formulas<br>
 
  <h2>v0.0.1: <h2 style='color:purple'>Crystalized</h2></h2><br><br>
  - Added three <spoiler>Chemical</spoiler> Upgrades<br>

@@ -240,7 +240,7 @@ addLayer("P", {
             title: "Lore<br>[ <text style='color:skyblue'>P-6</text> ]",
             description: "<br>Boosts Crystal Gain based on Chemicals",
             effect() {
-                let effect1 = (player.P.points.max(1).add(1).pow(0.075)).max(1).min(5);
+                let effect1 = (player.P.points.max(1).add(1).pow(0.08)).max(1).min(5);
                 if (hasUpgrade('F', 15)) effect1 = effect1.times(upgradeEffect('F', 15))
                 return effect1
             },
@@ -266,7 +266,7 @@ addLayer("P", {
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             effect() {
-                let effect1 = (player.P.points.max(1).add(1).pow(0.05)).max(1).min(3);
+                let effect1 = (player.P.points.max(1).add(1).pow(0.055)).max(1).min(9);
                 if (hasUpgrade('SP', 12)) effect1 = effect1.times(2.1)
                 return effect1
             },
@@ -303,7 +303,7 @@ addLayer("P", {
             title: "Baseball.Bat.<br>Start<br>[ <text style='color:skyblue'>P-9</text> ]",
             description: "<br>Feed & Super Powder boosts Chemicals & Crystals",
             effect() {
-                let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.22)).max(1).min(10);
+                let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.26)).max(1).min(10);
                 if (hasUpgrade('F', 22)) effect1 = effect1.times(upgradeEffect('F', 22))
                 return effect1
             },
