@@ -108,7 +108,7 @@ addLayer("F", {
         cols: 6,
         11: {
             title: "Compound of Chemicality<br>[ <text style='color:darkred'>I-1</text> ]",
-            description: "<br>Learn the mastery of stimulates.<br>Boost Crystal Gain by 75%",
+            description: "<br>Learn the mastery of stimulates.<br>Boost <text style='color:#b76ce6'>crystal</text> gain by 75%",
             color() { return '#d1863b' },
             color2() { return '#e0c287' },
             cost() { return new Decimal(1) },
@@ -121,7 +121,7 @@ addLayer("F", {
         },
         12: {
             title: "Rubber Material<br>[ <text style='color:darkred'>I-2</text> ]",
-            description: "<br>Decrease isotopes requirement & boost <text style='color:skyblue'>P-4</text> by 300%.",
+            description: "<br>Decrease <text style='color:orange'>isotopes</text> requirement & boost <text style='color:skyblue'>P-4</text> by 300%.",
             unlocked() { return hasUpgrade('F', 11) },
             color() { return '#d1863b' },
             color2() { return '#e0c287' },
@@ -135,8 +135,8 @@ addLayer("F", {
         },
         13: {
             title: "Compressive Health<br>[ <text style='color:darkred'>I-3</text> ]",
-            description: "<br>Boost Chemical Gain by 40%, ^1.05 Crystal Gain",
-            currencyDisplayName: "chemicals",
+            description: "<br>Boost <text style='color:#5b85b3>chemical</text> gain by 40%, ^1.05 <text style='color:#b76ce6'>crystal</text> gain",
+            currencyDisplayName: "crystals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('F', 12) },
             color() { return '#d1863b' },
@@ -153,7 +153,7 @@ addLayer("F", {
         },
         14: {
             title: "Visor of Life<br>[ <text style='color:darkred'>I-4</text> ]",
-            description: "<br>Crystals boost Chemicals in a way.<br>",
+            description: "<br><text style='color:#b76ce6'>Crystals</text> boost <text style='color:#5b85b3>chemicals</text> in a way.<br>",
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.07)).max(1).min(10);
                 if (hasUpgrade('SP', 15)) effect1 = effect1.times(upgradeEffect('SP', 15))
@@ -164,7 +164,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%${capped}`;
                 return text;
             },
-            currencyDisplayName: "chemicals",
+            currencyDisplayName: "crystals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('F', 13) },
             color() { return '#d1863b' },
@@ -179,7 +179,7 @@ addLayer("F", {
         },
         15: {
             title: "Empty Stim<br>[ <text style='color:darkred'>I-5</text> ]",
-            description: "<br>There is no such thing as progression.<br>Isotopes boosts <text style='color:#a733dc'>E-1</text><br>",
+            description: "<br>There is no such thing as progression.<br><text style='color:orange'>Isotopes</text> boosts <text style='color:#a733dc'>E-1</text><br>",
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.3)).max(1).min(3.5);
                 return effect1
@@ -201,28 +201,35 @@ addLayer("F", {
             },
         },
         16: {
-            title: "Feed VI",
-            description: "Feeding Movement II! Feed boosts Super Power effect",
-            cost: new Decimal(150000),
-            currencyDisplayName: "Particles",
-            currencyInternalName: "points",
+            title: "Experiment Isotope Type XI<br>[ <text style='color:darkred'>I-6</text> ]",
+            description: "<br>Across it all; it's only you.<br>Boost <text style='color:#5d56e8'>Experiment Dust</text> based on <text style='color:orange'>Isotopes</text>",
+            cost() {return new Decimal(140000) },
             effect() {
-                let effect1 = (player.F.points.max(1).add(1).pow(0.28)).max(1).min(7);
+                let effect1 = (player.F.points.max(1).add(1).pow(0.295)).max(1).min(150);
                 return effect1
             },
             effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(7) ? "(% Capped)" : "";
+                let capped = upgradeEffect(this.layer, this.id).gte(150) ? "(% Capped)" : "";
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
             unlocked() { return hasUpgrade('F', 15) && player.SP.unlocked },
+            color() { return '#d1863b' },
+            color2() { return '#e0c287' },
+            canAfford() { return player.P.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
+
         },
         21: {
-            title: "Super Feed I",
-            description: "Super Seeds? Particles boost Powder Gain",
+            title: "Cooldown Maker<br>[ <text style='color:darkres'>I-7</text> ]",
+            description: "<text style='color:#b76ce6'>Crystal</text> boosts <text style='color:#5b85b3>Chemicals</text>",
             cost: new Decimal(5),
             effect() {
-                let effect1 = (player.points.max(1).add(1).pow(0.09)).max(1).min(7);
+                let effect1 = (player.points.max(1).add(1).pow(0.08)).max(1).min(7);
                 return effect1
             },
             effectDisplay() {

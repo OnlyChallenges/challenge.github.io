@@ -190,7 +190,7 @@ addLayer("SP", {
         },
         12: {
             fullDisplay:
-            ("<h3>Unbounded<br>[<text style='color:pink'>E-2</text>]</h3><br>Boost <text style='color:skyblue'>P-7</text> Effect by 110%<br><br>Cost: 650 <text style='color:#5d56e8'>Experiment Dust</text>"),
+            ("<h3>Unbounded<br>[ <text style='color:pink'>E-2</text> ]</h3><br>Boost <text style='color:skyblue'>P-7</text> Effect by 110%<br><br>Cost: 650 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 11) },

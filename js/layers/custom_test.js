@@ -82,12 +82,12 @@ addLayer("P", {
                 "blank",
                 "h-line",
                 ["display-text",
-                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:purple'>crystals</text>" },
+                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystal</text>" },
                     {}],
                 ["display-text",
                     function () { 
                         if (player.timePlayed < modInfo.demoTime) return "DEMO MODE: <text style='color:lime'>" + formatTitleTime(player.timePlayed) + "</text> / <text style='color:red'>"+ formatTitleTime(modInfo.demoTime) +"</text>"
-                        if (player.timePlayed > modInfo.demoTime) return "DEMO OVER, You failed to increase your demotime..."
+                        if (player.timePlayed > modInfo.demoTime) return "DEMO OVER"
                         },
                     {}],
                 ["display-text",
@@ -144,7 +144,7 @@ addLayer("P", {
 
             How to play:<br>
             Each Row (Layer) will have content regarding the game or content, it'll progress more and more as we move forward.
-            To start, get some Powder & Upgrades! Look at your achievements to get through the game better!
+            To start, get some <text style='color:#b76ce6'>crystals</text>  & Upgrades! Look at your achievements to get through the game better!
             `,
         },
     },
@@ -155,7 +155,7 @@ addLayer("P", {
         cols: 5,
         11: {
             title: "Simplicity<br>[ <text style='color:skyblue'>P-1</text> ]",
-            description: "<br>Boost Crystal gain by 35%",
+            description: "<br>Boost <text style='color:#b76ce6'>crystal</text> gain by 35%",
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
             cost() {return new Decimal(6)},
@@ -168,7 +168,7 @@ addLayer("P", {
         },
         12: {
             title: "The Idea<br>[ <text style='color:skyblue'>P-2</text> ]",
-            description: "<br>Decrease Chemical Requirement Slightly...",
+            description: "<br>Decrease <text style='color:#5b85b3>chemical</text> requirement slightly...",
             unlocked() { return hasUpgrade('P', 11) },
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
@@ -182,7 +182,7 @@ addLayer("P", {
         },
         13: {
             title: "Processing<br>[ <text style='color:skyblue'>P-3</text> ]",
-            description: "<br>Improve Crystal gain by 66% but decrease Chemical gain by 7.5%",
+            description: "<br>Improve <text style='color:#b76ce6'>crystal</text> gain by 66% but decrease <text style='color:#5b85b3>chemical</text> gain by 7.5%",
             cost() {return new Decimal(35)},
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
@@ -198,7 +198,7 @@ addLayer("P", {
         },
         14: {
             title: "Developers<br>[ <text style='color:skyblue'>P-4</text> ]",
-            description: "<br>Boost Crystals based on itself.",
+            description: "<br>Boost <text style='color:#b76ce6'>crystals</text> based on itself.",
             cost(){return new Decimal(36)},
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.1105)).max(1).min(10);
@@ -222,7 +222,7 @@ addLayer("P", {
         },
         15: {
             title: "Versions<br>[ <text style='color:skyblue'>P-5</text> ]",
-            description: "<br>Decrease chemical gain by 11.5%, but increase crystal gain by 90%",
+            description: "<br>Decrease <text style='color:#5b85b3>chemical</text> gain by 11.5%, but increase <text style='color:#b76ce6'>crystal</text> gain by 90%",
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('P', 14) },
@@ -238,7 +238,7 @@ addLayer("P", {
         },
         21: {
             title: "Lore<br>[ <text style='color:skyblue'>P-6</text> ]",
-            description: "<br>Boosts Crystal Gain based on Chemicals",
+            description: "<br>Boosts <text style='color:#b76ce6'>crystal</text> gain based on <text style='color:#5b85b3>chemicals</text>",
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.08)).max(1).min(5);
                 if (hasUpgrade('F', 15)) effect1 = effect1.times(upgradeEffect('F', 15))
@@ -262,7 +262,7 @@ addLayer("P", {
         },
         22: {
             title: "System.Start<br>[ <text style='color:skyblue'>P-7</text> ]",
-            description: "<br>Chemicals boosts itself (Additive)",
+            description: "<br><text style='color:#5b85b3>Chemicals</text> boosts itself (Additive)",
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             effect() {
@@ -287,7 +287,7 @@ addLayer("P", {
         },
         23: {
             title: "Beta Test<br>[ <text style='color:skyblue'>P-8</text> ]",
-            description: "<br>Unlock Two Layers, also boost Crystal Gain by ^1.035",
+            description: "<br>Unlock Two Layers, also boost <text style='color:#b76ce6'>crystal</text> gain by ^1.035",
             unlocked() { return hasUpgrade('P', 22) },
             color(){return '#f54260'},
             color2(){return '#8f0e24'},
@@ -301,7 +301,7 @@ addLayer("P", {
         },
         24: {
             title: "Baseball.Bat.<br>Start<br>[ <text style='color:skyblue'>P-9</text> ]",
-            description: "<br>Feed & Super Powder boosts Chemicals & Crystals",
+            description: "<br><text style='color:orange'>Isotopes</text> & <text style='color:#a733dc'>Experiments</text> boosts <text style='color:#5b85b3>Chemicals</text> & <text style='color:#b76ce6'>Crystals</text> ",
             effect() {
                 let effect1 = (player.F.points.add(player.SP.points).max(1).add(1).pow(0.26)).max(1).min(10);
                 if (hasUpgrade('F', 22)) effect1 = effect1.times(upgradeEffect('F', 22))
@@ -324,7 +324,7 @@ addLayer("P", {
         },
         25: {
             title: "Combination<br>[<red>P-10</red>]",
-            description: "<br>Particles boosts SF-III Reduction<br>",
+            description: "<br><text style='color:#b76ce6'>Crystals</text> boosts SF-III Reduction<br>",
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.065)).max(1).min(20);
                 return effect1
