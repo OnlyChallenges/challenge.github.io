@@ -117,7 +117,7 @@ var systemComponents = {
 		<br>
 		<span v-if="player.points.lt('1e1000')"  class="overlayThing">You have </span>
 		<h2  class="overlayThing" id="points">{{format(player.points)}}</h2>
-		<span v-if="player.points.lt('1e1e6')"  class="overlayThing"> {{modInfo.pointsName}}</span>
+		<span v-if="player.points.lt('1e1e6')"  class="overlayThing"> <debuff>{{modInfo.pointsName}}</debuff></span>
 		<br>
 		<span v-if="canGenPoints() && player.devSpeed == (1.0000)"  class="overlayThing">({{tmp.other.oompsMag != 0 ? format(tmp.other.oomps) + " OOM" + (tmp.other.oompsMag < 0 ? "^OOM" : tmp.other.oompsMag > 1 ? "^" + tmp.other.oompsMag : "") + "s" : formatSmall(getPointGen())}}/sec)</span>
 		<span v-if="canGenPoints() && player.devSpeed > 1"  class="overlayThing">(<buff>{{tmp.other.oompsMag != 0 ? format(tmp.other.oomps) + " OOM" + (tmp.other.oompsMag < 0 ? "^OOM" : tmp.other.oompsMag > 1 ? "^" + tmp.other.oompsMag : "") + "s" : formatSmall(getPointGen().times(player.devSpeed))}}</buff>/sec) ↑<buff>{{formatSmall(player.devSpeed)}}</buff>x</span>

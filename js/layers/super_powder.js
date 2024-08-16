@@ -174,7 +174,7 @@ addLayer("SP", {
         11: {
             fullDisplay()
             { if (player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
-              else if (!player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
+              else if (!player.SP.unlocked) return ("<h3>Nyko<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
             },
             currencyInternalName: "generation",
             currencyLayer: "SP",
@@ -205,13 +205,22 @@ addLayer("SP", {
             },
         },
         13: {
-            title: "Reality<br>[<red>SP-3</red>]",
-            description: "Boost Particle Gain by 200%",
-            cost: new Decimal(2500),
+            fullDisplay:
+            ("<h3>Reality<br>[ <text style='color:pink'>E-3</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 200%<br><br>Cost: 650 <text style='color:#5d56e8'>Experiment Dust</text>"),
+            currencyInternalName: "generation",
             currencyDisplayName: "Super Power",
             currencyInternalName: "generation",
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 12) },
+            color() { return '#571a7d' },
+            color2() { return '#a859d9' },
+            cost() { return new Decimal(2500) },
+            canAfford() { return player.SP.generation.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
         },
         14: {
             title: "Functionality<br>[<red>SP-4</red>",

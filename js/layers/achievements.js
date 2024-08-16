@@ -38,7 +38,7 @@ addLayer("A", {
         if (player.devSpeed != 1) {
             devspeed = format(player.devSpeed) + "x || "
         }
-            title = "" + formatTitleTime(player.timePlayed)
+            title = "Demo: " + formatTitleTime(player.timePlayed) + "/" + formatTitleTime(modInfo.demoTime)
 
         document.title = devspeed + title
     },

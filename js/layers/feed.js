@@ -214,7 +214,6 @@ addLayer("F", {
                 return text;
             },
             currencyDisplayName: "chemicals",
-            currencyInternalName: "P",
             unlocked() { return hasUpgrade('F', 15) && player.SP.unlocked },
             color() { return '#d1863b' },
             color2() { return '#e0c287' },
@@ -239,7 +238,7 @@ addLayer("F", {
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            unlocked() { return player.SP.generation.gte(150) || hasUpgrade('F', 21) },
+            unlocked() { return (player.SP.generation.gte(150) && hasUpgrade('F', 16)) || hasUpgrade('F', 21) },
         },
         22: {
             title: "Super Feed II",

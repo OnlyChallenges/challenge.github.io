@@ -1,31 +1,38 @@
 let modInfo = {
-  name: `The FoR Tree v0.0.2-DEMO`,
+  name: `The FoR Tree`,
   id: "anothermod2",
-  author: "vali (snor mimi)",
+  author: "vali",
   pointsName: "crystals",
   modFiles: ["tree.js", "layers/custom_test.js", "layers/achievements.js", "layers/feed.js", "layers/super_powder.js", "layers/vaccine.js", "layers/water.js"],
   discordName: "",
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
   offlineLimit: 0,  // In hours
-  demoTime: new Decimal(500000),
+  demoTime: new Decimal(1200),
 }
 // Set your version in num and name
 let VERSION = {
-  num: "0.0.2-DEMO",
+  num: "0.0.3-DEMO",
   ver: "Changelog",
-  name: "Isotopic Change",
+  name: "Challenging Approach",
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
  <h5 style="opacity:0.5">Tip: Click and hold on a spoiler (White Boxes) to reveal it.</h5><br>
 
+ <h2>v0.0.3: <h2 style='color:skyblue'>Challenging Approach</h2></h2><br><br>
+ - Added Two <spoiler>Challenges past Vaccines</spoiler><br>
+ - Improved <spoiler>Experiment</spoiler> information shown<br>
+ - Hidden all aspects of spoilers in changelog & ingame by adding ??????<br>
+ - Improved crystal gain slightly<br><br>
+
+
  <h2>v0.0.2: <h2 style='color:orange'>Isotopic Change</h2></h2><br><br>
  - Added five <spoiler>Isotope</spoiler> Upgrades<br>
- - Added Demo Mode which lasts for 1,300 Seconds<br>
+ - Added Demo Mode which lasts for 1,200 Seconds<br>
  - Added <spoiler>Improved Layer 2 Mechanics</spoiler><br>
  - Renamed <spoiler>Feed to Isotopes & Super Powder to Experiments</spoiler><br>
- - Improved Pre-<spoiler>Isotope</spoiler> Formulas<br>
+ - Improved Pre-<spoiler>Isotope</spoiler> Formulas<br><br>
 
  <h2>v0.0.1: <h2 style='color:purple'>Crystalized</h2></h2><br><br>
  - Added three <spoiler>Chemical</spoiler> Upgrades<br>
@@ -33,10 +40,9 @@ let changelog = `<h1>Changelog:</h1><br><br>
  - Added Animated Red Dot Background depending on time<br>
  - Added <spoiler>Feed</spoiler> and <spoiler>Infection</spoiler><br>
  - Improved <text style='color:skyblue'>P-3</text> and <text style='color:skyblue'>P-7</text> Effects<br>
- - Removed Daizy
 
 	`
-let winText = `You've started to make vaccines? Start to make the cure...`
+let winText = `This concludes the demo...`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -80,7 +86,7 @@ function getPointGen() {
   if (getBuyableAmount('W', 11).gte(1)) gain = gain.times(buyableEffect('W', 11))
   if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
-  if (player.timePlayed > modInfo.demoTime) gain = gain.pow(0.00000000001) // Demo Mode is over
+  if (player.timePlayed > modInfo.demoTime) gain = gain.div(1e200) // Demo Mode is over
   return gain
 }
 
@@ -150,7 +156,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-  return player.P.points.gte("1e200")
+  return player.timePlayed > modInfo.demoTime
 }
 
 
