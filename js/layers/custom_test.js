@@ -118,6 +118,8 @@ addLayer("P", {
                     {}],
                 "blank",
                 "h-line",
+                "buyables",
+                "h-line",
                 "blank",
                 "upgrades",
                 "blank",
@@ -146,6 +148,43 @@ addLayer("P", {
             Each Row (Layer) will have content regarding the game or content, it'll progress more and more as we move forward.
             To start, get some <text style='color:#b76ce6'>crystals</text>  & Upgrades! Look at your achievements to get through the game better!
             `,
+        },
+    },
+
+    buyables: {
+        11: {
+            title: "Chemical Improvement",
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.5)
+                let exp2 = new Decimal(1.03)
+                let costdef = new Decimal(20)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Chemicals<br>Effect: Boost Crystal gain by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.14)
+                let base2 = x
+                let expo = new Decimal(1.02)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#5b85b3, #333232)" : "#bf8f8f"),
+                }
+            },
         },
     },
 

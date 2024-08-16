@@ -149,7 +149,7 @@ addLayer("A", {
         12: {
             name: "The Five Bases",
             done() { return hasUpgrade('P', 13) },
-            tooltip: "5 Base Upgrades! <br> Reward: 2 AP",
+            tooltip: "3 Base Upgrades! <br> Reward: 2 AP",
             unlocked() { return hasAchievement('A', 11) },
             style() {
                 if (!hasAchievement(this.layer, this.id)) {return ''}

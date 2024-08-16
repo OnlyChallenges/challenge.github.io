@@ -173,8 +173,8 @@ addLayer("SP", {
         cols: 5,
         11: {
             fullDisplay()
-            { if (player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
-              else if (!player.SP.unlocked) return ("<h3>Nyko<br>[ <text style='color:pink'>E-1</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
+            { if (player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
+              else if (!player.SP.unlocked) return ("<h3>Nyko<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
             },
             currencyInternalName: "generation",
             currencyLayer: "SP",
@@ -190,7 +190,7 @@ addLayer("SP", {
         },
         12: {
             fullDisplay:
-            ("<h3>Unbounded<br>[ <text style='color:pink'>E-2</text> ]</h3><br>Boost <text style='color:skyblue'>P-7</text> Effect by 110%<br><br>Cost: 650 <text style='color:#5d56e8'>Experiment Dust</text>"),
+            ("<h3>Abys<br>[ <text style='color:pink'>E-2</text> ]</h3><br><br>Boost <text style='color:skyblue'>P-7</text> Effect by 110%<br><br>Cost: 650 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 11) },
@@ -206,9 +206,7 @@ addLayer("SP", {
         },
         13: {
             fullDisplay:
-            ("<h3>Reality<br>[ <text style='color:pink'>E-3</text> ]</h3><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 200%<br><br>Cost: 650 <text style='color:#5d56e8'>Experiment Dust</text>"),
-            currencyInternalName: "generation",
-            currencyDisplayName: "Super Power",
+            ("<h3>False Experiments<br>[ <text style='color:pink'>E-3</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 200%<br><br>Cost: 2,500 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 12) },
@@ -229,7 +227,7 @@ addLayer("SP", {
             currencyDisplayName: "Super Power",
             currencyInternalName: "generation",
             currencyLayer: "SP",
-            unlocked() { return hasUpgrade('SP', 13) },
+            unlocked() { return hasUpgrade('SP', 13) && player.SP.generation.gte(150000) },
         },
         15: {
             title: "Super V",

@@ -83,7 +83,7 @@ function getPointGen() {
   if (hasMilestone('W', 11)) gain = gain.times(5)
   if (hasUpgrade('W', 11)) gain = gain.pow(1.075)
   if (hasUpgrade('W', 14)) gain = gain.times(upgradeEffect('W', 14))
-  if (getBuyableAmount('W', 11).gte(1)) gain = gain.times(buyableEffect('W', 11))
+  if (getBuyableAmount('P', 11).gte(1)) gain = gain.times(buyableEffect('P', 11))
   if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
   if (player.timePlayed > modInfo.demoTime) gain = gain.div(1e200) // Demo Mode is over
