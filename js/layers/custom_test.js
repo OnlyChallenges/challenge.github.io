@@ -9,7 +9,7 @@ addLayer("P", {
     },
     requires() {
         let requirement = new Decimal(4.75)
-        if (hasUpgrade('P', 12)) requirement = requirement.minus(1.5)
+        if (hasUpgrade('P', 12)) requirement = requirement.minus(1.75)
 
         return requirement
 
@@ -164,9 +164,9 @@ addLayer("P", {
             },  
             unlocked() { return true },
             cost(x) {
-                let exp1 = new Decimal(1.5)
-                let exp2 = new Decimal(1.03)
-                let costdef = new Decimal(20)
+                let exp1 = new Decimal(1.52)
+                let exp2 = new Decimal(1.04)
+                let costdef = new Decimal(15)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
                 return spec
             },
@@ -201,9 +201,9 @@ addLayer("P", {
             },  
             unlocked() { return true },
             cost(x) {
-                let exp1 = new Decimal(1.65)
+                let exp1 = new Decimal(1.55)
                 let exp2 = new Decimal(1.04)
-                let costdef = new Decimal(10)
+                let costdef = new Decimal(5)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
                 return spec
             },
