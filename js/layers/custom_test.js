@@ -154,7 +154,11 @@ addLayer("P", {
     buyables: {
         11: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Chemical Improvement"+ convertToRoman(getBuyableAmount(this.layer, this.id))}
+                if (getBuyableAmount(this.layer, this.id) > 0) {return "Chemical Improvement<br>[<text style='color:darkred'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
+                if (getBuyableAmount(this.layer, this.id) >= 10) {return "Chemical Improvement<br>[<text style='color:orange'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
+                if (getBuyableAmount(this.layer, this.id) >= 25) {return "Chemical Improvement<br>[<text style='color:yellow'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
+                if (getBuyableAmount(this.layer, this.id) >= 50) {return "Chemical Improvement<br>[<text style='color:green'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
+                if (getBuyableAmount(this.layer, this.id) >= 100) {return "Chemical Improvement<br>[<text style='color:blue'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
                 else return "Chemical Improvement"
             },  
             unlocked() { return true },
