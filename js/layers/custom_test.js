@@ -82,7 +82,7 @@ addLayer("P", {
                 "blank",
                 "h-line",
                 ["display-text",
-                    function () { return '<br>You have ' + convertToRoman(player.points) + " <text style='color:#b76ce6'>crystal</text>" },
+                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystal</text>" },
                     {}],
                 ["display-text",
                     function () { 
@@ -153,7 +153,10 @@ addLayer("P", {
 
     buyables: {
         11: {
-            title: "Chemical Improvement",
+            title() {
+                if (getBuyableAmount(this.layer, this.id) > 0) {return "Chemical Improvement"+ convertToRoman(getBuyableAmount(this.layer, this.id))}
+                else return "Chemical Improvement"
+            },  
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.5)
