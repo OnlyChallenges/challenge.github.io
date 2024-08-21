@@ -285,7 +285,7 @@ addLayer("P", {
             description: "<br>Boost <text style='color:#b76ce6'>crystals</text> based on itself.",
             cost(){return new Decimal(36)},
             effect() {
-                let effect1 = (player.points.max(1).add(1).pow(0.1105)).max(1).min(10);
+                let effect1 = (player.points.max(1).add(1).pow(0.109)).max(1).min(10);
                 if (hasUpgrade('F', 12)) effect1 = effect1.times(3)
                 return effect1
             },

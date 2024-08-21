@@ -149,7 +149,7 @@ addLayer("A", {
         12: {
             name: "The Five Bases",
             done() { return hasUpgrade('P', 13) },
-            tooltip: "3 Base Upgrades! <br> Reward: 2 AP",
+            tooltip: "5 Base Upgrades! <br> Reward: 2 AP",
             unlocked() { return hasAchievement('A', 11) },
             style() {
                 if (!hasAchievement(this.layer, this.id)) {return ''}
@@ -159,8 +159,8 @@ addLayer("A", {
         },
         13: {
             name: "Good Math",
-            done() { return hasUpgrade('P', 14) && (upgradeEffect('P', 14) > 1.499) },
-            tooltip: "Developers is 50% <br>Reward: 5 AP",
+            done() { return hasUpgrade('P', 14) && (upgradeEffect('P', 14) > 1.999) },
+            tooltip: "Developers is 100% <br>Reward: 5 AP",
             unlocked() { return hasAchievement('A', 12) },
             style() {
                 if (!hasAchievement(this.layer, this.id)) {return ''}
@@ -171,7 +171,7 @@ addLayer("A", {
         14: {
             name: "Starting the System",
             done() { return hasUpgrade('P', 22) },
-            tooltip: "Saget the 1st would be proud...<br> Reward: 5 AP",
+            tooltip: "V5.0...<br> Reward: 5.0 AP",
             unlocked() { return hasAchievement('A', 13) },
             style() {
                 if (!hasAchievement(this.layer, this.id)) {return ''}
