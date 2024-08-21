@@ -196,8 +196,8 @@ addLayer("P", {
         },
         12: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Chem<sub><text style='color:darkred'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
                 if (getBuyableAmount(this.layer, this.id) >= 10) {return "Chem<sub><text style='color:orange'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
+                else if (getBuyableAmount(this.layer, this.id) > 0) {return "Chem<sub><text style='color:darkred'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
                 else return "Chem<sub>0</sub>"
             },  
             unlocked() { return true },
