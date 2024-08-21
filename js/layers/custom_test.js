@@ -57,7 +57,8 @@ addLayer("P", {
         if (hasUpgrade('W', 13)) gain = gain.times(upgradeEffect('W', 13))
         if (player.SP.generation2 > 0) gain = gain.times(tmp.SP.generation2Eff)
         if (getBuyableAmount('W', 12).gte(1)) gain = gain.times(buyableEffect('W', 12))
-        if ((getBuyableAmount('V', 11)).gte(1)) eff = eff.pow(buyableEffect('V', 11))
+        if ((getBuyableAmount('V', 11)).gte(1)) gain = gain.pow(buyableEffect('V', 11))
+        if (getBuyableAmount('P', 12).gte(1)) gain = gain.times(buyableEffect('P', 12))
         return gain
     },
     gainExp() {
@@ -184,6 +185,43 @@ addLayer("P", {
                 let base1 = new Decimal(1.14)
                 let base2 = x
                 let expo = new Decimal(1.02)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#5b85b3, #333232)" : "#bf8f8f"),
+                }
+            },
+        },
+        12: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) > 0) {return "Chem"+ string.sub(convertToRoman(getBuyableAmount(this.layer, this.id)))}
+                else return "Chem"+string.sub(0) 
+            },  
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.65)
+                let exp2 = new Decimal(1.04)
+                let costdef = new Decimal(10)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Chemicals<br>Effect: Boost Chemical gain by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+            },
+            canAfford() {
+                return player[this.layer].points.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].points = player[this.layer].points.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.095)
+                let base2 = x
+                let expo = new Decimal(1.035)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
