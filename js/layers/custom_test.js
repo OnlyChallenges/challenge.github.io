@@ -196,8 +196,8 @@ addLayer("P", {
         },
         12: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Chem"+ sub(convertToRoman(getBuyableAmount(this.layer, this.id)))}
-                else return "Chem"+sub(0) 
+                if (getBuyableAmount(this.layer, this.id) > 0) {return "Chem<sub>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub>"}
+                else return "Chem<sub>0</sub>"
             },  
             unlocked() { return true },
             cost(x) {
