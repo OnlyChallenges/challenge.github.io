@@ -208,12 +208,14 @@ addLayer("F", {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.295)).max(1).min(150);
                 return effect1
             },
+            currencyDisplayName: "chemicals",
+            currencyInternalName: "points",
+            currencyLayer: "P",
             effectDisplay() {
                 let capped = upgradeEffect(this.layer, this.id).gte(150) ? "(% Capped)" : "";
                 let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
                 return text;
             },
-            currencyDisplayName: "chemicals",
             unlocked() { return hasUpgrade('F', 15) && player.SP.unlocked },
             color() { return '#d1863b' },
             color2() { return '#e0c287' },
@@ -228,7 +230,7 @@ addLayer("F", {
         21: {
             title: "Cooldown Maker<br>[ <text style='color:darkred'>I-7</text> ]",
             description: "<text style='color:#b76ce6'>Crystal</text> boosts <text style='color:#5b85b3'>Chemicals</text>",
-            cost: new Decimal(5),
+            cost() {return new Decimal(5) },
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.08)).max(1).min(7);
                 return effect1
@@ -239,6 +241,14 @@ addLayer("F", {
                 return text;
             },
             unlocked() { return (player.SP.generation.gte(150) && hasUpgrade('F', 16)) || hasUpgrade('F', 21) },
+            color() { return '#d1863b' },
+            color2() { return '#e0c287' },
+            canAfford() { return player.F.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
         },
         22: {
             title: "Super Feed II",
