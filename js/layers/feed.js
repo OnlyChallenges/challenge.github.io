@@ -275,9 +275,9 @@ addLayer("F", {
             },
         },
         23: {
-            title: "Super Feed III",
-            description: "Feed decreases Super Powder Requirement",
-            cost: new Decimal(7),
+            title: "Isotopic Progression<br> [ <text style='color:darkred'>I-9</text> ]",
+            description: "<text style='color:orange'>Isotopes</text> decreases <text style='color:#a733dc'>Experiments</text> Requirement",
+            cost() {return new Decimal(7)},
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.7)).max(1).min(25);
                 if (hasUpgrade('P', 25)) effect1 = effect1.times(upgradeEffect('P', 25))
@@ -289,6 +289,14 @@ addLayer("F", {
                 return text;
             },
             unlocked() { return hasUpgrade('F', 22) },
+            color() { return '#d1863b' },
+            color2() { return '#e0c287' },
+            canAfford() { return player.F.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            }
         },
         24: {
             title: "Super Feed IV",
