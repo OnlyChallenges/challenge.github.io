@@ -1,20 +1,22 @@
 let modInfo = {
-  name: `The FoR Tree`,
-  id: "anothermod2",
-  author: "vali",
-  pointsName: "crystals",
-  modFiles: ["tree.js", "layers/custom_test.js", "layers/achievements.js", "layers/feed.js", "layers/super_powder.js", "layers/vaccine.js", "layers/water.js"],
-  discordName: "",
-  discordLink: "",
-  initialStartPoints: new Decimal(0), // Used for hard resets and new players
-  offlineLimit: 0,  // In hours
-  demoTime: new Decimal(1300),
+  name: `The Facility`, // game name
+  id: "spacebird", // This will run all memory on this id, so any other type of "NG" will not run this id
+  author: "vali", // author data
+  pointsName: "crystals", // based memory resource (Total Memory Values: 193)
+  modFiles: ["tree.js", "layers/thebeginning.js", "layers/achievements.js", "layers/isotopes.js", "layers/experiments.js", "layers/weapons.js", "layers/developers.js"],
+  discordName: "Solstice Studios", // Pre-setted to FoR
+  discordLink: "https://discord.gg/QjceJTB8uV", // Non-Custom Link
+  initialStartPoints: new Decimal(0), // Used for hard resets & Memory loss reset
+  memoryLeakProt: null, 
+  offlineLimit: 3,  // 3 Hours of Offline Time Mode
+  demoTime: new Decimal("1e999"), // 1,300 Seconds
+  devTime: new Decimal("1e999"), // Overclocking Infinity;
 }
-// Set your version in num and name
+
 let VERSION = {
-  num: "0.0.3-DEMO",
-  ver: "Changelog",
-  name: "Challenging Approach",
+  num: "0.0.3.1-DEMO", // Version
+  ver: "Changelog", // Post-Version
+  name: "Baseball Conundrum", // Version Name Type
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
@@ -143,6 +145,7 @@ function convertToRoman(num) {
     V: 5,
     IV: 4,
     I: 1
+    // This took me 3 hours to code
   };
   var str = '';
 

@@ -166,7 +166,7 @@ addLayer("P", {
             cost(x) {
                 let exp1 = new Decimal(1.52)
                 let exp2 = new Decimal(1.04)
-                let costdef = new Decimal(10)
+                let costdef = new Decimal(15)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
                 return spec
             },
@@ -196,15 +196,14 @@ addLayer("P", {
         },
         12: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) >= 50) {return "Chem<sub><text style='color:green'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
-                else if (getBuyableAmount(this.layer, this.id) >= 25) {return "Chem<sub><text style='color:yellow'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
+                if (getBuyableAmount(this.layer, this.id) >= 25) {return "Chem<sub><text style='color:yellow>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
                 else if (getBuyableAmount(this.layer, this.id) >= 10) {return "Chem<sub><text style='color:orange'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
                 else if (getBuyableAmount(this.layer, this.id) > 0) {return "Chem<sub><text style='color:darkred'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
                 else return "Chem<sub>0</sub>"
             },  
             unlocked() { return true },
             cost(x) {
-                let exp1 = new Decimal(1.4)
+                let exp1 = new Decimal(1.52)
                 let exp2 = new Decimal(1.04)
                 let costdef = new Decimal(5)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
@@ -222,7 +221,7 @@ addLayer("P", {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(1.105)
+                let base1 = new Decimal(1.0975)
                 let base2 = x
                 let expo = new Decimal(1.035)
                 let eff = base1.pow(Decimal.pow(base2, expo))
