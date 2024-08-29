@@ -68,6 +68,7 @@ addLayer("V", {
         if (!player.V.unlocked)
             return new Decimal(0)
         let eff = Decimal.pow(this.effBase(), player.V.points).sub(1).max(0);
+        if (getBuyableAmount('V', 21).gte(1)) eff = eff.times(buyableEffect('P', 21))
         return eff;
     },
     effBase() {
@@ -93,6 +94,7 @@ addLayer("V", {
 
     killMult() {
         let mult = new Decimal(1);
+        if (getBuyableAmount('V', 23).gte(1)) mult = mult.times(buyableEffect('V', 23).pow(0.45))
         return mult;
     },
 
@@ -145,7 +147,7 @@ addLayer("V", {
     },
 
     coinExp() {
-        let exp = new Decimal(1 / 4);
+        let exp = new Decimal(1 / 6);
         return exp;
     },
 
@@ -202,14 +204,6 @@ addLayer("V", {
 
             ],
             buttonStyle() { return { 'background': 'linear-gradient(to right,green 40%, #13d165 60%)', 'color': 'black', 'box-shadow': '2px 2px 2px green' } },
-            style() {
-                return {
-                    'background': 'linear-gradient(135deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px)0 64px',
-                    'background-color': 'black',
-                    'background-size': '64px 128px',
-                    "background-position": "100%" + " " + (player.timePlayed % 200) + "%"
-                }
-            },
         },
     },
 
@@ -264,6 +258,7 @@ addLayer("V", {
                 let exp2 = new Decimal(1.05)
                 let costdef = new Decimal(10)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                if (getBuyableAmount('V', 33).gte(1)) spec = spec.div(buyableEffect('V', 33))
                 return spec
             },
             display() {
@@ -282,6 +277,8 @@ addLayer("V", {
                 let base2 = x
                 let expo = new Decimal(1.025)
                 let eff = base1.pow(Decimal.pow(base2, expo))
+                if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
                 return eff
             },
             style() {
@@ -301,6 +298,7 @@ addLayer("V", {
                 let exp2 = new Decimal(1.06)
                 let costdef = new Decimal(100)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                if (getBuyableAmount('V', 33).gte(1)) spec = spec.div(buyableEffect('V', 33))
                 return spec
             },
             display() {
@@ -319,6 +317,8 @@ addLayer("V", {
                 let base2 = x
                 let expo = new Decimal(1.04)
                 let eff = base1.pow(Decimal.pow(base2, expo))
+                if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
+                    if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 return eff
             },
             style() {
@@ -338,6 +338,7 @@ addLayer("V", {
                 let exp2 = new Decimal(1.06)
                 let costdef = new Decimal(15000)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                if (getBuyableAmount('V', 33).gte(1)) spec = spec.div(buyableEffect('V', 33))
                 return spec
             },
             display() {
@@ -356,6 +357,8 @@ addLayer("V", {
                 let base2 = x
                 let expo = new Decimal(1.01)
                 let eff = base1.pow(Decimal.pow(base2, expo))
+                if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
+                    if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 return eff
             },
             style() {
@@ -371,14 +374,15 @@ addLayer("V", {
             },  
             unlocked() { return true },
             cost(x) {
-                let exp1 = new Decimal(1.2)
+                let exp1 = new Decimal(1.22)
                 let exp2 = new Decimal(1.04)
                 let costdef = new Decimal(40)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                if (getBuyableAmount('V', 33).gte(1)) spec = spec.div(buyableEffect('V', 33))
                 return spec
             },
             display() {
-                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Streaks<br>Effect: Lower Weapon requirement by /" + format(tmp[this.layer].buyables[this.id].effect) + ""
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Streaks<br>Effect: Weapon Effect is boosted by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
             },
             canAfford() {
                 return player[this.layer].streak.gte(this.cost())
@@ -389,10 +393,205 @@ addLayer("V", {
                 setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
             },
             effect(x) {
-                let base1 = new Decimal(1.2)
+                let base1 = new Decimal(1.1)
                 let base2 = x
                 let expo = new Decimal(1.01)
                 let eff = base1.pow(Decimal.pow(base2, expo))
+                if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
+                }
+            },
+        },
+        22: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) > 0) {return "Wave 2"}
+                else return "Wave 1<br>"
+            },  
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.2)
+                let exp2 = new Decimal(1.04)
+                let costdef = new Decimal(1e9)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Kills & Infects<br>Effect: Boost all buyables around this one by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+            },
+            canAfford() {
+                return (player[this.layer].kills.gte(this.cost()) + player[this.layer].infects.gte(this.cost()))
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].kills = player[this.layer].kills.sub(this.cost().mul(cost))
+                player[this.layer].infects = player[this.layer].infects.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.5)
+                let base2 = x
+                let expo = new Decimal(1.03)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#a8324c, #a80024)" : "#a82400"),
+                }
+            },
+        },
+        23: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) > 0) {return "Crystalized Baton<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                else return "Crystalized Baton<br> [LV. 0]<br>"
+            },  
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.3)
+                let exp2 = new Decimal(1.04)
+                let costdef = new Decimal(45)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                if (getBuyableAmount('V', 33).gte(1)) spec = spec.div(buyableEffect('V', 33))
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Coins<br>Effect: Boost crystal gain and 'Streak' gain (at an reduced rate) by " + format(tmp[this.layer].buyables[this.id].effect) + "x (" +  + format(tmp[this.layer].buyables[this.id].effect.pow(0.45)) + "x)"
+            },
+            canAfford() {
+                return player[this.layer].coins.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].coins = player[this.layer].coins.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.35)
+                let base2 = x
+                let expo = new Decimal(1.04)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
+                }
+            },
+        },
+        31: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) > 0) {return "Pipe<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                else return "Pipe<br> [LV. 0]<br>"
+            },  
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.12)
+                let exp2 = new Decimal(1.04)
+                let costdef = new Decimal(1e22)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                if (getBuyableAmount('V', 33).gte(1)) spec = spec.div(buyableEffect('V', 33))
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Kills<br>Effect: Boost the 1st row of Buyable Weapons by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+            },
+            canAfford() {
+                return player[this.layer].kills.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].kills = player[this.layer].kills.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.5)
+                let base2 = x
+                let expo = new Decimal(1.04)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
+                }
+            },
+        },
+        32: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) > 0) {return "Machete<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                else return "Machete<br> [LV. 0]<br>"
+            },  
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.14)
+                let exp2 = new Decimal(1.04)
+                let costdef = new Decimal(1e4)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                if (getBuyableAmount('V', 33).gte(1)) spec = spec.div(buyableEffect('V', 33))
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Infects<br>Effect: Double Chemical gain everytime (" + formatWhole(tmp[this.layer].buyables[this.id].effect) + "x)"
+            },
+            canAfford() {
+                return player[this.layer].infects.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].infects = player[this.layer].infects.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2)
+                let base2 = x
+                let expo = new Decimal(1)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                return eff
+            },
+            style() {
+                return {
+                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
+                }
+            },
+        },
+        33: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) > 0) {return "Combat Knife<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                else return "Combat Knife<br> [LV. 0]<br>"
+            },  
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.16)
+                let exp2 = new Decimal(1.045)
+                let costdef = new Decimal(520)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Kills<br>Effect: Lower all (except this one & Waves) buyable costs (/" + format(tmp[this.layer].buyables[this.id].effect) + ")"
+            },
+            canAfford() {
+                return player[this.layer].kills.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].Kills = player[this.layer].infects.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.15)
+                let base2 = x
+                let expo = new Decimal(1.02)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 return eff
             },
             style() {
