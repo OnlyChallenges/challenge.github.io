@@ -59,7 +59,7 @@ addLayer("P", {
         if (getBuyableAmount('W', 12).gte(1)) gain = gain.times(buyableEffect('W', 12))
         if ((getBuyableAmount('V', 11)).gte(1)) gain = gain.pow(buyableEffect('V', 11))
         if (getBuyableAmount('P', 12).gte(1)) gain = gain.times(buyableEffect('P', 12))
-        if (getBuyableAmount('V', 32).gte(1)) gain = gain.times(buyableEffect('P', 32))
+        if (getBuyableAmount('V', 32).gte(1)) gain = gain.times(buyableEffect('V', 32))
         return gain
     },
     gainExp() {

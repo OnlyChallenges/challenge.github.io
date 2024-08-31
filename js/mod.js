@@ -9,7 +9,7 @@ let modInfo = {
   initialStartPoints: new Decimal(0), // Used for hard resets & Memory loss reset
   memoryLeakProt: null, 
   offlineLimit: 3,  // 3 Hours of Offline Time Mode
-  demoTime: new Decimal(4000), // 1,300 Seconds
+  demoTime: new Decimal(4000000), // 1,300 Seconds
   devTime: new Decimal("1e999"), // Overclocking Infinity;
 }
 
