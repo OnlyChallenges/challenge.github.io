@@ -57,7 +57,6 @@ addLayer("P", {
         if (hasUpgrade('W', 13)) gain = gain.times(upgradeEffect('W', 13))
         if (player.SP.generation2 > 0) gain = gain.times(tmp.SP.generation2Eff)
         if (getBuyableAmount('W', 12).gte(1)) gain = gain.times(buyableEffect('W', 12))
-        if ((getBuyableAmount('V', 11)).gte(1)) gain = gain.pow(buyableEffect('V', 11))
         if (getBuyableAmount('P', 12).gte(1)) gain = gain.times(buyableEffect('P', 12))
         if (getBuyableAmount('V', 32).gte(1)) gain = gain.times(buyableEffect('V', 32))
         return gain
@@ -197,7 +196,7 @@ addLayer("P", {
         },
         12: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) >= 25) {return "Chem<sub><text style='color:yellow>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
+                if (getBuyableAmount(this.layer, this.id) >= 25) {return "Chem<sub><text style='color:yellow'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
                 else if (getBuyableAmount(this.layer, this.id) >= 10) {return "Chem<sub><text style='color:orange'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
                 else if (getBuyableAmount(this.layer, this.id) > 0) {return "Chem<sub><text style='color:darkred'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
                 else return "Chem<sub>0</sub>"

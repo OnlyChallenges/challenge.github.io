@@ -70,6 +70,7 @@ addLayer("V", {
             return new Decimal(0)
         let eff = Decimal.pow(this.effBase(), player.V.points).sub(1).max(0);
         if (getBuyableAmount('V', 21).gte(1)) eff = eff.times(buyableEffect('V', 21))
+        if (hasUpgrade("V", 11)) eff = eff.times(1.3)
         return eff;
     },
     effBase() {
@@ -164,6 +165,14 @@ addLayer("V", {
         return damage
     },
 
+    tierOneUpgrades(){
+        let tier1 = new Decimal(0)
+        if (hasUpgrade("V", 11)) tier1 = tier1.add(1)
+        if (hasUpgrade("V", 12)) tier1 = tier1.add(1)
+        if (hasUpgrade("V", 13)) tier1 = tier1.add(1)
+
+        return tier1
+    },
 
     tabFormat: {
         "Facility": {
@@ -201,9 +210,6 @@ addLayer("V", {
                 "blank",
                 "h-line",
                 "blank",
-                "milestones",
-                "h-line",
-                "blank",
                 ["display-text",
                     function () { 
                         return 'You are doing ' + formatWhole(tmp[this.layer].avgDamage) + " Average Damage<br>That's " + format((tmp[this.layer].avgDamage).div(250)) +" Experiment Kills/sec!<br><spoiler>Formula: (((d1*(type)+WLVs)+(d2*(type)+WLVs))/2)^((1.05~1.15)=~Kills)</spoiler>" },
@@ -214,6 +220,45 @@ addLayer("V", {
 
             ],
             buttonStyle() { return { 'background': 'linear-gradient(to right,green 40%, #13d165 60%)', 'color': 'black', 'box-shadow': '2px 2px 2px green' } },
+        },
+        "Management": {
+            content: [
+                "main-display",
+                "prestige-button",
+                "blank",
+
+                "h-line",
+                ["display-text",
+                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystals</text>" },
+                    {}],
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.P.points) + " <text style='color:skyblue'>chemicals</text>" },
+                    {}],
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.SP.points) + " <text style='color:green'>experiments</text>" },
+                    {}],
+                ["display-text",
+                    function () { return 'You have ' + formatWhole(player.F.points) + " <text style='color:orange'>isotopes</text>" },
+                    {}],
+                "blank",
+                "h-line",
+                "blank",
+                "milestones",
+                "h-line",
+                ["display-text", function () {
+                    return formatWhole(player[this.layer].kills)+ " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>;"
+                }, {}],
+                ["display-text",
+                    function () {
+                        return "Tier 1 Upgrades (" + formatWhole(tmp[this.layer].tierOneUpgrades) +"/10)"  },
+                    {}],
+                "blank",
+                ["upgrades",[1]],
+                "blank",
+                "h-line",
+
+            ],
+            buttonStyle() { return { 'background': 'linear-gradient(to right,lime 30%, #13d165 70%)', 'color': 'black', 'box-shadow': '2px 2px 2px lime' } },
         },
     },
 
@@ -694,15 +739,31 @@ addLayer("V", {
         rows: 7,
         cols: 7,
         11: {
-            title: "<rainbowr>V</rainbow>",
-            description: "Boost Particle gain by 750%",
-            cost: new Decimal(1),
+            title: "<text style='color:orange'>Rage Stim</text><br>[ <text style='color:lime'>W-1</text> ]<br>",
+            description: "Damage is boosted! <text style='color:red'>Kills</text> gain is boosted by 1.3x",
+            color() { return '#5ec24a' },
+            color2() { return '#778c0a' },
+            cost() { return new Decimal(1) },
+            canAfford() { return player.V.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'grey', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'black', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
         },
         12: {
-            title: "<rainbow>A</rainbow>",
-            description: "Boost Powder gain by 600%",
-            cost: new Decimal(2),
+            title: "<text style='color:orange'>Table Measuring</text><br>[ <text style='color:lime'>W-2</text> ]<br>",
+            description: "Something feels unbalanced. Add <text style='color:blue'>Assists</text>; which will boost <text style='color:red'>kill</text> gain and lower <text style='color:orange'>isotope</text> req.",
             unlocked() { return hasUpgrade('V', 11) },
+            color() { return '#5ec24a' },
+            color2() { return '#778c0a' },
+            cost() { return new Decimal(2) },
+            canAfford() { return player.V.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'grey', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'black', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
         },
         13: {
             title: "<rainbow>C</rainbow>",
