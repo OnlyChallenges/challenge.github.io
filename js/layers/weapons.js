@@ -111,7 +111,7 @@ addLayer("V", {
     },
 
     assistExp() {
-        let exp = new Decimal(1 / 7);
+        let exp = new Decimal(1 / 15);
         return exp;
     },
 
