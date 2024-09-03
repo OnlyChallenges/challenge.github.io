@@ -10,6 +10,7 @@ addLayer("V", {
             streak: new Decimal(0),
             infects: new Decimal(0),
             coins: new Decimal(0),
+            assists: new Decimal(0),
             avgdamage: new Decimal(0),
         }
     },
@@ -71,6 +72,7 @@ addLayer("V", {
         let eff = Decimal.pow(this.effBase(), player.V.points).sub(1).max(0);
         if (getBuyableAmount('V', 21).gte(1)) eff = eff.times(buyableEffect('V', 21))
         if (hasUpgrade("V", 11)) eff = eff.times(1.3)
+        if (player.V.assists > 0) eff = eff.times(tmp.V.assistEff)
         return eff;
     },
     effBase() {
@@ -83,6 +85,7 @@ addLayer("V", {
             player.V.streak = player.V.streak.plus(tmp.V.killEff.times(diff));
             player.V.infects = player.V.infects.plus(tmp.V.streakEff.times(diff));
             player.V.coins = player.V.coins.plus(tmp.V.infectEff.times(diff));
+            player.V.assists = player.V.assists.plus(tmp.V.assistEff.times(diff).pow(0.8));
     },
 
     doReset(resettingLayer) {
@@ -104,6 +107,23 @@ addLayer("V", {
         let gen = player.V.kills.plus(0).pow(this.killExp())
         gen = gen.times(this.killMult())
         if (!player.V.unlocked) gen = new Decimal(0)
+        return gen
+    },
+
+    assistExp() {
+        let exp = new Decimal(1 / 7);
+        return exp;
+    },
+
+    assistMult() {
+        let mult = new Decimal(1);
+        return mult;
+    },
+
+    assistEff() {
+        let gen = player.V.assists.plus(1).pow(this.assistExp())
+        gen = gen.times(this.assistMult())
+        if (!hasUpgrade("V", 12)) gen = new Decimal(0)
         return gen
     },
 
@@ -149,7 +169,7 @@ addLayer("V", {
     },
 
     coinExp() {
-        let exp = new Decimal(1 / 6);
+        let exp = new Decimal(1 / 6.7);
         return exp;
     },
 
@@ -207,6 +227,10 @@ addLayer("V", {
                 ["display-text", function () {
                     return 'You have ' + formatWhole(player.V.coins) + " <text style='color:yellow'>Coins</text>, which boosts <text style='color:skyblue'>chemical</text> gain by " + format(tmp.V.coinEff) + 'x'
                 }, {}],
+                ["display-text", function () {
+                    if (player.V.assists > 0 ) return 'You have ' + formatWhole(player.V.assists) + " <text style='color:blue'>Assists</text>, which boosts <text style='color:red'>kill</text> gain & lower <text style='color:orange'>iso</text> req (at an reduced rate) by " + format(tmp.V.assistEff) + 'x (/' + format(tmp.V.assistEff.pow(0.4)) + ')' 
+                    else return ''
+                }, {}],
                 "blank",
                 "h-line",
                 "blank",
@@ -246,7 +270,8 @@ addLayer("V", {
                 "milestones",
                 "h-line",
                 ["display-text", function () {
-                    return formatWhole(player[this.layer].kills)+ " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>;"
+                    if (hasUpgrade("V", 12)) return formatWhole(player[this.layer].kills)+ " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>;" + formatWhole(player[this.layer].assists) + " <text style='color:blue'>A</text>;"
+                    else return formatWhole(player[this.layer].kills)+ " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>;"
                 }, {}],
                 ["display-text",
                     function () {
@@ -766,14 +791,22 @@ addLayer("V", {
             },
         },
         13: {
-            title: "<rainbow>C</rainbow>",
-            description: "Passively Gain Powder based on <ruins>Vaccines</ruins><br>(Passive Generation ends at 1e10 Powder)",
-            cost: new Decimal(3),
+            title: "<text style='color:orange'>Axe of Relativity</text><br>[ <text style='color:lime'>W-3</text> ]<br>",
+            description: "The Axe has enter 4D! Passively Gain <text style='color:skyblue'>chemicals</text> which will cap at ~1e10!<br>",
             unlocked() { return hasUpgrade('V', 12) },
             effect() {
                 let effect1 = (player.V.points.max(1).add(1).pow(0.3)).max(1).min(10);
-                if (player.P.points > 1e10) effect1 = new Decimal(0)
+                if (player.P.points >= 1e10) effect1 = new Decimal(0)
                 return effect1
+            },
+            color() { return '#5ec24a' },
+            color2() { return '#778c0a' },
+            cost() { return new Decimal(3) },
+            canAfford() { return player.V.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'grey', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'black', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         14: {

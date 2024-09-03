@@ -16,6 +16,7 @@ addLayer("F", {
         if (hasUpgrade('F', 32)) requirement = requirement.div(upgradeEffect('F', 32))
         if (hasUpgrade('V', 14)) requirement = requirement.div(upgradeEffect('V', 14))
         if (hasUpgrade('SP', 22)) requirement = requirement.div(upgradeEffect('SP', 22))
+        if (player.V.assists > 0) requirement = requirement.div(tmp.V.assistEff.pow(0.4))
         if (hasMilestone('W', 11)) requirement = requirement.div(1.2)
         return requirement
 
@@ -251,11 +252,11 @@ addLayer("F", {
             },
         },
         22: {
-            title: "Super Feed II",
-            description: "Powder boost SP-IV",
-            cost: new Decimal(7),
+            title: "Chemicalize Isotopes<br>[ <text style='color:darkred'>I-8</text> ]",
+            description: "<text style='color:skyblue'>Chemicals</text> boosts <text style='color:pink'>E-4</text>",
+            cost() {return new Decimal(7) },
             effect() {
-                let effect1 = (player.P.points.max(1).add(1).pow(0.06)).max(1).min(20);
+                let effect1 = (player.P.points.max(1).add(1).pow(0.065)).max(1).min(20);
                 if (hasUpgrade('F', 31)) effect1 = effect1.times(upgradeEffect('F', 31))
                 return effect1
             },
@@ -265,6 +266,14 @@ addLayer("F", {
                 return text;
             },
             unlocked() { return hasUpgrade('F', 21) },
+            color() { return '#d1863b' },
+            color2() { return '#e0c287' },
+            canAfford() { return player.F.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
         },
         23: {
             title: "Super Feed III",

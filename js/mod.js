@@ -77,7 +77,7 @@ function getPointGen() {
   if (hasUpgrade('F', 11)) gain = gain.times(1.75)
   if (hasUpgrade('SP', 11)) gain = gain.times(1.5)
   if (hasUpgrade('F', 13)) gain = gain.pow(1.05)
-  if (hasUpgrade('SP', 13)) gain = gain.times(2.5)
+  if (hasUpgrade('SP', 13)) gain = gain.times(3.33)
   if (hasUpgrade('P', 23)) gain = gain.pow(1.035)
   if (hasUpgrade('F', 34)) gain = gain.times(1.3)
   if (hasUpgrade('F', 34)) gain = gain.times(1.6)
@@ -87,6 +87,7 @@ function getPointGen() {
   if (getBuyableAmount('P', 11).gte(1)) gain = gain.times(buyableEffect('P', 11))
   if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
+  if (player.V.unlocked) gain = gain.times(tmp.V.infectEff.plus(1).pow(0.6))
   if (player.timePlayed > modInfo.demoTime) gain = gain.div(1e200) // Demo Mode is over
   return gain
 }

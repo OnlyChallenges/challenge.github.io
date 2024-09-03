@@ -173,8 +173,8 @@ addLayer("SP", {
         cols: 5,
         11: {
             fullDisplay()
-            { if (player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
-              else if (!player.SP.unlocked) return ("<h3>Nyko<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
+            { if (!player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
+              else if (player.SP.unlocked) return ("<h3>Nyko<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
             },
             currencyInternalName: "generation",
             currencyLayer: "SP",
@@ -206,7 +206,7 @@ addLayer("SP", {
         },
         13: {
             fullDisplay:
-            ("<h3>False Experiments<br>[ <text style='color:pink'>E-3</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 200%<br><br>Cost: 2,500 <text style='color:#5d56e8'>Experiment Dust</text>"),
+            ("<h3>False Experiments<br>[ <text style='color:pink'>E-3</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 333%<br><br>Cost: 2,500 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 12) },
@@ -221,111 +221,20 @@ addLayer("SP", {
             },
         },
         14: {
-            title: "Functionality<br>[<red>SP-4</red>",
-            description: "Increase Super Power Effect by 45%",
-            cost: new Decimal(32500),
-            currencyDisplayName: "Super Power",
+            fullDisplay:
+            ("<h3>Experimental Fusion<br>[ <text style='color:pink'>E-4</text> ]</h3><br><br> <text style='color:#5d56e8'>Experiment Dust</text> Effect is boosted by 45%<br><br>Cost: 32,500 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
-            unlocked() { return hasUpgrade('SP', 13) && player.SP.generation.gte(150000) },
-        },
-        15: {
-            title: "Super V",
-            description: "SIncrease <red>F-4</red> Effect based on Super Power Points",
-            cost: new Decimal(50000),
-            currencyDisplayName: "Super Power",
-            currencyInternalName: "generation",
-            currencyLayer: "SP",
-            effect() {
-                let effect1 = (player.SP.generation.max(1).add(1).pow(0.068)).max(1).min(14);
-                return effect1
+            unlocked() { return hasUpgrade('SP', 13) },
+            color() { return '#571a7d' },
+            color2() { return '#a859d9' },
+            cost() { return new Decimal(32500) },
+            canAfford() { return player.SP.generation.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
-            effectDisplay() {
-                let capped = upgradeEffect(this.layer, this.id).gte(10) ? "(% Capped)" : "";
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}% ${capped}`;
-                return text;
-            },
-            unlocked() { return hasUpgrade('SP', 14) },
-        },
-        21: {
-            title: "Vaccine Super I",
-            description: "Vaccine + Super? S²F-II Effect is better based on hover formula",
-            cost: new Decimal(10),
-            tooltip: "(Super Points + Vaccines / (Feed + 1))^0.3",
-            currencyDisplayName: "Ultra Power",
-            currencyInternalName: "generation2",
-            currencyLayer: "SP",
-            effect() {
-                let effect1 = (((player.SP.points.add(player.V.points)).div(player.F.points.add(1))).max(1).add(1).pow(0.3)).max(1).min(19);
-                return effect1
-            },
-            effectDisplay() {
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
-                return text;
-            },
-            unlocked() { return hasUpgrade('SP', 15) && hasUpgrade('V', 11) },
-        },
-        22: {
-            title: "Vaccine Super II",
-            description: "Vaccine + Vaccine = Super 2? Ultra Power lowers Feed Requirement",
-            cost: new Decimal(70),
-            currencyDisplayName: "Ultra Power",
-            currencyInternalName: "generation2",
-            currencyLayer: "SP",
-            effect() {
-                let effect1 = (player.SP.generation2.max(1).add(1).pow(0.13)).max(1).min(44);
-                return effect1
-            },
-            effectDisplay() {
-                let text = `-${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}%`;
-                return text;
-            },
-            unlocked() { return hasUpgrade('SP', 21) },
-        },
-        23: {
-            title: "Vaccine Super III",
-            description: "VacVacVac = Super 3? Boost Particle gain based on a sin formula (hover)",
-            tooltip: "((time / 100) / √488 * 2 * PI + 1) + 2",
-            cost: new Decimal(300),
-            currencyDisplayName: "Ultra Power",
-            currencyInternalName: "generation2",
-            currencyLayer: "SP",
-            effect() {
-                let x = getSinRat()
-                let effect1 = new Decimal.add(1).times(x)
-                return effect1
-            },
-            effectDisplay() {
-                let text = `${format(upgradeEffect(this.layer, this.id))}x`;
-                return text;
-            },
-            unlocked() { return hasUpgrade('SP', 22) },
-        },
-        24: {
-            title: "Vaccine Super IV",
-            description: "Vac^Vac = Super 4? Increase Ultra Power Gain based on Super Power",
-            cost: new Decimal(400),
-            currencyDisplayName: "Ultra Power",
-            currencyInternalName: "generation2",
-            currencyLayer: "SP",
-            effect() {
-                let effect1 = (player.SP.generation.max(1).add(1).pow(0.08)).max(1).min(39);
-                return effect1
-            },
-            effectDisplay() {
-                let text = `+${format(upgradeEffect(this.layer, this.id).minus(1).times(100))}x%`;
-                return text;
-            },
-            unlocked() { return hasUpgrade('SP', 23) },
-        },
-        25: {
-            title: "Vaccine Super V",
-            description: "Super^^Vac. 60% Vaccine Gain",
-            cost: new Decimal(1000),
-            currencyDisplayName: "Ultra Power",
-            currencyInternalName: "generation2",
-            currencyLayer: "SP",
-            unlocked() { return hasUpgrade('SP', 24) },
         },
     },
 })
