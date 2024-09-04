@@ -277,6 +277,7 @@ addLayer("V", {
                 "milestones",
                 "h-line",
                 "challenges",
+                ["upgrades", [20]],
                 "h-line",
                 ["display-text", function () {
                     if (hasUpgrade("V", 12)) return formatWhole(player[this.layer].kills) + " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>; " + formatWhole(player[this.layer].assists) + " <text style='color:blue'>A</text>;"
@@ -782,7 +783,7 @@ addLayer("V", {
         11: {
             name: "Power Outage",
             challengeDescription:
-                `All Weapon Buyable Effects & Buffs are disabled.<br>
+                `All Weapon Buffs are disabled.<br>Unlock Flashlight Upgrades<br>
             ^0.8 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster<br> <text style='color:orange'>Isotope</text> requirement scales faster<br>`,
             canComplete: function () { return player.points.gte(8174527630) },
             goalDescription: "<text style='color:lime'>Human Population</text> = <text style='color:#b76ce6'>Crystals</text>",
@@ -797,8 +798,11 @@ addLayer("V", {
             unlocked() {
                 return player[this.layer].assists.gte(100)
             },
-            style() {
-                return { 'background-color': 'grey', 'color': 'white' }
+            style(){
+                {
+                    if (inChallenge("V", 11)) return {animation: "pulse2 18s infinite"} 
+                    else return {background: "#616161", color: "white"}
+                }
             },
         },
     },
@@ -908,6 +912,61 @@ addLayer("V", {
             effectDisplay() {
                 let text = `+${format(upgradeEffect(this.layer, this.id))}x`;
                 return text;
+            },
+        },
+        201: {
+            title: "Flashlight I",
+            description: "Req: 30,000 Crystals",
+            cost: new Decimal(99999999),
+            unlocked() { return inChallenge("V", 11) },
+            style(){
+                {
+                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
+                }
+            },
+        },
+        202: {
+            title: "Flashlight II",
+            description: "Req: 2 Isotopes",
+            cost: new Decimal(99999999),
+            unlocked() { return inChallenge("V", 11) },
+            style(){
+                {
+                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
+                }
+            },
+        },
+        203: {
+            title: "Flashlight III",
+            description: "Req: 14,000 Experiment Dust",
+            cost: new Decimal(99999999),
+            unlocked() { return inChallenge("V", 11) },
+            style(){
+                {
+                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
+                }
+            },
+        },
+        204: {
+            title: "Flashlight IV",
+            description: "Req: 1,300,000 Chemicals",
+            cost: new Decimal(99999999),
+            unlocked() { return inChallenge("V", 11) },
+            style(){
+                {
+                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
+                }
+            },
+        },
+        205: {
+            title: "Flashlight V",
+            description: "Req: 63 Total Chemical Buyables",
+            cost: new Decimal(99999999),
+            unlocked() { return inChallenge("V", 11) },
+            style(){
+                {
+                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
+                }
             },
         },
     },

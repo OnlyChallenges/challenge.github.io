@@ -208,6 +208,16 @@ obs {
   100%{background-position:0% 50%}
 }
 
+@keyframes pulse2 {
+	0%, 100% {
+	  background-color: #8b8b8b;
+	  color: #3d3d3d;
+	}
+	50% {
+	  background-color: #616161;
+	  color: #c0c0c0;
+	}
+  }
 
 fail {
 	color: #d75c15;
