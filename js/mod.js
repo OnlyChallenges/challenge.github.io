@@ -9,7 +9,7 @@ let modInfo = {
   initialStartPoints: new Decimal(0), // Used for hard resets & Memory loss reset
   memoryLeakProt: null, 
   offlineLimit: 3,  // 3 Hours of Offline Time Mode
-  demoTime: new Decimal(4000000), // 1,300 Seconds
+  demoTime: new Decimal("1e309"), // 1,300 Seconds
   devTime: new Decimal("1e999"), // Overclocking Infinity;
 }
 
@@ -89,6 +89,8 @@ function getPointGen() {
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
   if (player.V.unlocked) gain = gain.times(tmp.V.infectEff.plus(1).pow(0.6))
   if (player.timePlayed > modInfo.demoTime) gain = gain.div(1e200) // Demo Mode is over
+
+  if (inChallenge("V", 11)) gain = gain.pow(0.8)
   return gain
 }
 

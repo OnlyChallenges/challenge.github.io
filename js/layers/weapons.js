@@ -73,6 +73,7 @@ addLayer("V", {
         if (getBuyableAmount('V', 21).gte(1)) eff = eff.times(buyableEffect('V', 21))
         if (hasUpgrade("V", 11)) eff = eff.times(1.3)
         if (player.V.assists > 0) eff = eff.times(tmp.V.assistEff)
+        if (inChallenge("V", 11)) eff = new Decimal(0)
         return eff;
     },
     effBase() {
@@ -81,11 +82,11 @@ addLayer("V", {
     },
 
     update(diff) {
-            player.V.kills = player.V.kills.plus(tmp.V.effect.times(diff));
-            player.V.streak = player.V.streak.plus(tmp.V.killEff.times(diff));
-            player.V.infects = player.V.infects.plus(tmp.V.streakEff.times(diff));
-            player.V.coins = player.V.coins.plus(tmp.V.infectEff.times(diff));
-            player.V.assists = player.V.assists.plus(tmp.V.assistEff.times(diff).pow(0.8));
+        player.V.kills = player.V.kills.plus(tmp.V.effect.times(diff));
+        player.V.streak = player.V.streak.plus(tmp.V.killEff.times(diff));
+        player.V.infects = player.V.infects.plus(tmp.V.streakEff.times(diff));
+        player.V.coins = player.V.coins.plus(tmp.V.infectEff.times(diff));
+        player.V.assists = player.V.assists.plus(tmp.V.assistEff.times(diff).pow(0.8));
     },
 
     doReset(resettingLayer) {
@@ -107,6 +108,7 @@ addLayer("V", {
         let gen = player.V.kills.plus(0).pow(this.killExp())
         gen = gen.times(this.killMult())
         if (!player.V.unlocked) gen = new Decimal(0)
+        if (inChallenge("V", 11)) gen = new Decimal(0)
         return gen
     },
 
@@ -123,7 +125,8 @@ addLayer("V", {
     assistEff() {
         let gen = player.V.assists.plus(1).pow(this.assistExp())
         gen = gen.times(this.assistMult())
-        if (!hasUpgrade("V", 12)) gen = new Decimal(0)
+        if (!hasUpgrade("V", 12)) gen = new Decimal(1)
+        if (inChallenge("V", 11)) gen = new Decimal(1)
         return gen
     },
 
@@ -142,6 +145,7 @@ addLayer("V", {
         let gen = player.V.streak.plus(0).pow(this.streakExp())
         gen = gen.times(this.streakMult())
         if (!player.V.unlocked) gen = new Decimal(0)
+        if (inChallenge("V", 11)) gen = new Decimal(0)
         return gen
     },
 
@@ -160,6 +164,7 @@ addLayer("V", {
         let gen = player.V.infects.plus(0).pow(this.infectExp())
         gen = gen.times(this.infectMult())
         if (!player.V.unlocked) gen = new Decimal(0)
+        if (inChallenge("V", 11)) gen = new Decimal(0)
         return gen
     },
 
@@ -177,6 +182,7 @@ addLayer("V", {
         let gen = player.V.coins.plus(0).pow(this.coinExp())
         gen = gen.times(this.coinMult())
         if (!player.V.unlocked) gen = new Decimal(1)
+        if (inChallenge("V", 11)) gen = new Decimal(1)
         return gen
     },
 
@@ -185,7 +191,7 @@ addLayer("V", {
         return damage
     },
 
-    tierOneUpgrades(){
+    tierOneUpgrades() {
         let tier1 = new Decimal(0)
         if (hasUpgrade("V", 11)) tier1 = tier1.add(1)
         if (hasUpgrade("V", 12)) tier1 = tier1.add(1)
@@ -222,21 +228,22 @@ addLayer("V", {
                     return 'You have ' + formatWhole(player.V.streak) + " <text style='color:lime'>Streak</text>, which boosts '<text style='color:cyan'>Infects</text>' gain by +" + format(tmp.V.streakEff) + '/sec'
                 }, {}],
                 ["display-text", function () {
-                    return 'You have ' + formatWhole(player.V.infects) + " <text style='color:cyan'>Infects</text>, which boosts '<text style='color:yellow'>Coins</text>' gain & <text style='color:#b76ce6'>crystals</text> (at an reduced rate) by +" + format(tmp.V.infectEff) + '/sec (' + format(tmp.V.infectEff.plus(1).pow(0.6)) + 'x)' 
+                    return 'You have ' + formatWhole(player.V.infects) + " <text style='color:cyan'>Infects</text>, which boosts '<text style='color:yellow'>Coins</text>' gain & <text style='color:#b76ce6'>crystals</text> (at an reduced rate) by +" + format(tmp.V.infectEff) + '/sec (' + format(tmp.V.infectEff.plus(1).pow(0.6)) + 'x)'
                 }, {}],
                 ["display-text", function () {
                     return 'You have ' + formatWhole(player.V.coins) + " <text style='color:yellow'>Coins</text>, which boosts <text style='color:skyblue'>chemical</text> gain by " + format(tmp.V.coinEff) + 'x'
                 }, {}],
                 ["display-text", function () {
-                    if (player.V.assists > 0 ) return 'You have ' + formatWhole(player.V.assists) + " <text style='color:blue'>Assists</text>, which boosts <text style='color:red'>kill</text> gain & lower <text style='color:orange'>iso</text> req (at an reduced rate) by " + format(tmp.V.assistEff) + 'x (/' + format(tmp.V.assistEff.pow(0.4)) + ')' 
+                    if (player.V.assists > 0) return 'You have ' + formatWhole(player.V.assists) + " <text style='color:blue'>Assists</text>, which boosts <text style='color:red'>kill</text> gain & lower <text style='color:orange'>iso</text> req (at an reduced rate) by " + format(tmp.V.assistEff) + 'x (/' + format(tmp.V.assistEff.pow(0.4)) + ')'
                     else return ''
                 }, {}],
                 "blank",
                 "h-line",
                 "blank",
                 ["display-text",
-                    function () { 
-                        return 'You are doing ' + formatWhole(tmp[this.layer].avgDamage) + " Average Damage<br>That's " + format((tmp[this.layer].avgDamage).div(250)) +" Experiment Kills/sec!<br><spoiler>Formula: (((d1*(type)+WLVs)+(d2*(type)+WLVs))/2)^((1.05~1.15)=~Kills)</spoiler>" },
+                    function () {
+                        return 'You are doing ' + formatWhole(tmp[this.layer].avgDamage) + " Average Damage<br>That's " + format((tmp[this.layer].avgDamage).div(250)) + " Experiment Kills/sec!<br><spoiler>Formula: (((d1*(type)+WLVs)+(d2*(type)+WLVs))/2)^((1.05~1.15)=~Kills)</spoiler>"
+                    },
                     {}],
                 "buyables",
                 "blank",
@@ -269,16 +276,19 @@ addLayer("V", {
                 "blank",
                 "milestones",
                 "h-line",
+                "challenges",
+                "h-line",
                 ["display-text", function () {
-                    if (hasUpgrade("V", 12)) return formatWhole(player[this.layer].kills)+ " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>;" + formatWhole(player[this.layer].assists) + " <text style='color:blue'>A</text>;"
-                    else return formatWhole(player[this.layer].kills)+ " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>;"
+                    if (hasUpgrade("V", 12)) return formatWhole(player[this.layer].kills) + " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>; " + formatWhole(player[this.layer].assists) + " <text style='color:blue'>A</text>;"
+                    else return formatWhole(player[this.layer].kills) + " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>;"
                 }, {}],
                 ["display-text",
                     function () {
-                        return "Tier 1 Upgrades (" + formatWhole(tmp[this.layer].tierOneUpgrades) +"/10)"  },
+                        return "Tier 1 Upgrades (" + formatWhole(tmp[this.layer].tierOneUpgrades) + "/10)"
+                    },
                     {}],
                 "blank",
-                ["upgrades",[1]],
+                ["upgrades", [1]],
                 "blank",
                 "h-line",
 
@@ -295,8 +305,8 @@ addLayer("V", {
             effectDescription: `Keep all Crystal Upgrades & Buffs on all resets`,
             done() { return player.V.streak.gte(1e15) },
             style() {
-                if(!hasMilestone(this.layer, this.id)){return ''}
-                else return {'background-color':'lime', 'color':'blue', 'border-color':'green'}
+                if (!hasMilestone(this.layer, this.id)) { return '' }
+                else return { 'background-color': 'lime', 'color': 'blue', 'border-color': 'green' }
             },
         },
         12: {
@@ -329,9 +339,9 @@ addLayer("V", {
     buyables: {
         11: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Baseball Bat<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                if (getBuyableAmount(this.layer, this.id) > 0) { return "Baseball Bat<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id)) + "]<br>" }
                 else return "Baseball Bat<br> [LV. 0]<br>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.45)
@@ -352,7 +362,7 @@ addLayer("V", {
                 return damage
             },
             display() {
-                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne)+" - "+formatWhole(tmp[this.layer].buyables[this.id].damageTwo)+"}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Kills<br>Effect: Boost 'Coins' gain by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne) + " - " + formatWhole(tmp[this.layer].buyables[this.id].damageTwo) + "}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Kills<br>Effect: Boost 'Coins' gain by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
             },
             canAfford() {
                 return player[this.layer].kills.gte(this.cost())
@@ -369,6 +379,7 @@ addLayer("V", {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
+                if (inChallenge("V", 11)) eff = new Decimal(1)
                 return eff
             },
             style() {
@@ -379,9 +390,9 @@ addLayer("V", {
         },
         12: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Katana<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                if (getBuyableAmount(this.layer, this.id) > 0) { return "Katana<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id)) + "]<br>" }
                 else return "Katana<br> [LV. 0]<br>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.33)
@@ -402,7 +413,7 @@ addLayer("V", {
                 return damage
             },
             display() {
-                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne)+" - "+formatWhole(tmp[this.layer].buyables[this.id].damageTwo)+"}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Coins<br>Effect: Boost 'Infect' gain by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne) + " - " + formatWhole(tmp[this.layer].buyables[this.id].damageTwo) + "}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Coins<br>Effect: Boost 'Infect' gain by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
             },
             canAfford() {
                 return player[this.layer].coins.gte(this.cost())
@@ -418,7 +429,8 @@ addLayer("V", {
                 let expo = new Decimal(1.04)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
-                    if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                    if (inChallenge("V", 11)) eff = new Decimal(1)
                 return eff
             },
             style() {
@@ -429,9 +441,9 @@ addLayer("V", {
         },
         13: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Baton<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                if (getBuyableAmount(this.layer, this.id) > 0) { return "Baton<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id)) + "]<br>" }
                 else return "Baton<br> [LV. 0]<br>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.6)
@@ -452,7 +464,7 @@ addLayer("V", {
                 return damage
             },
             display() {
-                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne)+" - "+formatWhole(tmp[this.layer].buyables[this.id].damageTwo)+"}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Streaks<br>Effect: Lower Weapon requirement by /" + format(tmp[this.layer].buyables[this.id].effect) + ""
+                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne) + " - " + formatWhole(tmp[this.layer].buyables[this.id].damageTwo) + "}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Streaks<br>Effect: Lower Weapon requirement by /" + format(tmp[this.layer].buyables[this.id].effect) + ""
             },
             canAfford() {
                 return player[this.layer].streak.gte(this.cost())
@@ -468,7 +480,8 @@ addLayer("V", {
                 let expo = new Decimal(1.01)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
-                    if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                    if (inChallenge("V", 11)) eff = new Decimal(1)
                 return eff
             },
             style() {
@@ -479,9 +492,9 @@ addLayer("V", {
         },
         21: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Fireaxe<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                if (getBuyableAmount(this.layer, this.id) > 0) { return "Fireaxe<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id)) + "]<br>" }
                 else return "Fireaxe<br> [LV. 0]<br>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.22)
@@ -502,7 +515,7 @@ addLayer("V", {
                 return damage
             },
             display() {
-                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne)+" - "+formatWhole(tmp[this.layer].buyables[this.id].damageTwo)+"}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Streaks<br>Effect: Weapon Effect is boosted by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne) + " - " + formatWhole(tmp[this.layer].buyables[this.id].damageTwo) + "}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Streaks<br>Effect: Weapon Effect is boosted by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
             },
             canAfford() {
                 return player[this.layer].streak.gte(this.cost())
@@ -518,6 +531,7 @@ addLayer("V", {
                 let expo = new Decimal(1.01)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                    if (inChallenge("V", 11)) eff = new Decimal(1)
                 return eff
             },
             style() {
@@ -528,9 +542,9 @@ addLayer("V", {
         },
         22: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Wave 2"}
+                if (getBuyableAmount(this.layer, this.id) > 0) { return "Wave 2" }
                 else return "Wave 1<br>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.25)
@@ -540,7 +554,7 @@ addLayer("V", {
                 return spec
             },
             display() {
-                return "Requirement: " + formatWhole(tmp[this.layer].avgDamage)+"/" + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Average Damage<br>Effect: Boost all buyables around this one by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+                return "Requirement: " + formatWhole(tmp[this.layer].avgDamage) + "/" + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Average Damage<br>Effect: Boost all buyables around this one by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
             },
             canAfford() {
                 return (player[this.layer].avgdamage.gte(this.cost()))
@@ -554,6 +568,7 @@ addLayer("V", {
                 let expo = new Decimal(1.03)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                    if (inChallenge("V", 11)) eff = new Decimal(1)
                 return eff
             },
             style() {
@@ -564,9 +579,9 @@ addLayer("V", {
         },
         23: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Crystalized Baton<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                if (getBuyableAmount(this.layer, this.id) > 0) { return "Crystalized Baton<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id)) + "]<br>" }
                 else return "Crystalized Baton<br> [LV. 0]<br>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.3)
@@ -587,7 +602,7 @@ addLayer("V", {
                 return damage
             },
             display() {
-                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne)+" - "+formatWhole(tmp[this.layer].buyables[this.id].damageTwo)+"}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Coins<br>Effect: Boost crystal gain and 'Streak' gain (at an reduced rate) by " + format(tmp[this.layer].buyables[this.id].effect) + "x (" +  + format(tmp[this.layer].buyables[this.id].effect.pow(0.45)) + "x)"
+                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne) + " - " + formatWhole(tmp[this.layer].buyables[this.id].damageTwo) + "}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Coins<br>Effect: Boost crystal gain and 'Streak' gain (at an reduced rate) by " + format(tmp[this.layer].buyables[this.id].effect) + "x (" + + format(tmp[this.layer].buyables[this.id].effect.pow(0.45)) + "x)"
             },
             canAfford() {
                 return player[this.layer].coins.gte(this.cost())
@@ -603,6 +618,7 @@ addLayer("V", {
                 let expo = new Decimal(1.04)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                    if (inChallenge("V", 11)) eff = new Decimal(1)
                 return eff
             },
             style() {
@@ -613,9 +629,9 @@ addLayer("V", {
         },
         31: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Pipe<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                if (getBuyableAmount(this.layer, this.id) > 0) { return "Pipe<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id)) + "]<br>" }
                 else return "Pipe<br> [LV. 0]<br>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.12)
@@ -636,7 +652,7 @@ addLayer("V", {
                 return damage
             },
             display() {
-                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne)+" - "+formatWhole(tmp[this.layer].buyables[this.id].damageTwo)+"}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Kills<br>Effect: Boost the 1st row of Buyable Weapons by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne) + " - " + formatWhole(tmp[this.layer].buyables[this.id].damageTwo) + "}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Kills<br>Effect: Boost the 1st row of Buyable Weapons by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
             },
             canAfford() {
                 return player[this.layer].kills.gte(this.cost())
@@ -652,6 +668,7 @@ addLayer("V", {
                 let expo = new Decimal(1.04)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                    if (inChallenge("V", 11)) eff = new Decimal(1)
                 return eff
             },
             style() {
@@ -662,9 +679,9 @@ addLayer("V", {
         },
         32: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Machete<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                if (getBuyableAmount(this.layer, this.id) > 0) { return "Machete<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id)) + "]<br>" }
                 else return "Machete<br> [LV. 0]<br>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.14)
@@ -685,7 +702,7 @@ addLayer("V", {
                 return damage
             },
             display() {
-                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne)+" - "+formatWhole(tmp[this.layer].buyables[this.id].damageTwo)+"}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Infects<br>Effect: Double Chemical gain everytime (" + formatWhole(tmp[this.layer].buyables[this.id].effect) + "x)"
+                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne) + " - " + formatWhole(tmp[this.layer].buyables[this.id].damageTwo) + "}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Infects<br>Effect: Double Chemical gain everytime (" + formatWhole(tmp[this.layer].buyables[this.id].effect) + "x)"
             },
             canAfford() {
                 return player[this.layer].infects.gte(this.cost())
@@ -701,6 +718,7 @@ addLayer("V", {
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                    if (inChallenge("V", 11)) eff = new Decimal(1)
                 return eff
             },
             style() {
@@ -711,9 +729,9 @@ addLayer("V", {
         },
         33: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) > 0) {return "Combat Knife<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id))+"]<br>"}
+                if (getBuyableAmount(this.layer, this.id) > 0) { return "Combat Knife<br> [LV. " + formatWhole(getBuyableAmount(this.layer, this.id)) + "]<br>" }
                 else return "Combat Knife<br> [LV. 0]<br>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.16)
@@ -733,7 +751,7 @@ addLayer("V", {
                 return damage
             },
             display() {
-                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne)+" - "+formatWhole(tmp[this.layer].buyables[this.id].damageTwo)+"}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Kills<br>Effect: Lower all (except this one & Waves) buyable costs (/" + format(tmp[this.layer].buyables[this.id].effect) + ")"
+                return "Damage Range: {" + formatWhole(tmp[this.layer].buyables[this.id].damageOne) + " - " + formatWhole(tmp[this.layer].buyables[this.id].damageTwo) + "}<br>Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Kills<br>Effect: Lower all (except this one & Waves) buyable costs (/" + format(tmp[this.layer].buyables[this.id].effect) + ")"
             },
             canAfford() {
                 return player[this.layer].kills.gte(this.cost())
@@ -749,12 +767,38 @@ addLayer("V", {
                 let expo = new Decimal(1.02)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
+                    if (inChallenge("V", 11)) eff = new Decimal(1)
                 return eff
             },
             style() {
                 return {
                     background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
                 }
+            },
+        },
+    },
+
+    challenges: {
+        11: {
+            name: "Power Outage",
+            challengeDescription:
+                `All Weapon Buyable Effects & Buffs are disabled.<br>
+            ^0.8 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster<br> <text style='color:orange'>Isotope</text> requirement scales faster<br>`,
+            canComplete: function () { return player.points.gte(8174527630) },
+            goalDescription: "<text style='color:lime'>Human Population</text> = <text style='color:#b76ce6'>Crystals</text>",
+            effect() {
+                let effect1 = (player.P.points.max(1).add(1).pow(0.02).max(1).min(10));
+                return effect1
+            },
+            rewardDescription() {
+                let reward = "<text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges[this.id].effect) + ")"
+                return reward
+            },
+            unlocked() {
+                return player[this.layer].assists.gte(100)
+            },
+            style() {
+                return { 'background-color': 'grey', 'color': 'white' }
             },
         },
     },

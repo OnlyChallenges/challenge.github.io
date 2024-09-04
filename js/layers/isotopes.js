@@ -80,6 +80,7 @@ addLayer("F", {
     type: "static",
     exponent() {
         let ex = new Decimal(1.5)
+        if (inChallenge("V", 11)) ex = new Decimal(1.65)
         return ex
     },
     gainMult() {
@@ -88,6 +89,7 @@ addLayer("F", {
     },
     gainExp() {
         let exp = new Decimal(1)
+        if (inChallenge("V", 11)) exp = new Decimal(0.9)
         return exp
     },
     canBuyMax() { return hasMilestone('F', 11) },
