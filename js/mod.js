@@ -75,7 +75,7 @@ function getPointGen() {
   if (hasUpgrade('F', 33)) gain = gain.times(upgradeEffect('F', 33))
   if (hasUpgrade('SP', 23)) gain = gain.times(upgradeEffect('SP', 23))
   if (hasUpgrade('F', 11)) gain = gain.times(1.75)
-  if (hasUpgrade('SP', 11)) gain = gain.times(1.5)
+  if (hasUpgrade('SP', 11)) gain = gain.times(upgradeEffect('SP', 11))
   if (hasUpgrade('F', 13)) gain = gain.pow(1.05)
   if (hasUpgrade('SP', 13)) gain = gain.times(3.33)
   if (hasUpgrade('P', 23)) gain = gain.pow(1.035)
@@ -84,6 +84,7 @@ function getPointGen() {
   if (hasMilestone('W', 11)) gain = gain.times(5)
   if (hasUpgrade('W', 11)) gain = gain.pow(1.075)
   if (hasUpgrade('W', 14)) gain = gain.times(upgradeEffect('W', 14))
+  if (getBuyableAmount('V', 23).gte(1)) gain = gain.times(buyableEffect('V', 23))
   if (getBuyableAmount('P', 11).gte(1)) gain = gain.times(buyableEffect('P', 11))
   if (player.SP.unlocked) gain = gain.times(tmp.SP.generationEff)
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
@@ -172,7 +173,7 @@ function getSinRat(period = Math.sqrt(488)) {
 var displayThings = [
   function () {
     let x = getUndulatingColor()
-    let a = "<logic>Endgame</logic>: " + colorText("b", x, "Wave 4")
+    let a = "<logic>Endgame</logic>: " + colorText("b", x, "Power Outage <text style='text-shadow: white 1.75px 1.75px 10px; color:yellow;'>IV</text>")
     return a
   },
   function () {

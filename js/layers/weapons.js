@@ -74,6 +74,7 @@ addLayer("V", {
         if (hasUpgrade("V", 11)) eff = eff.times(1.3)
         if (player.V.assists > 0) eff = eff.times(tmp.V.assistEff)
         if (inChallenge("V", 11)) eff = new Decimal(0)
+        if (hasChallenge("V", 11)) eff = eff.times(tmp[this.layer].challenges["11"].reward1)
         return eff;
     },
     effBase() {
@@ -277,7 +278,9 @@ addLayer("V", {
                 "milestones",
                 "h-line",
                 "challenges",
-                ["upgrades", [20]],
+                ["display-text", function () {
+                   if (challengeCompletions("V", 11) == 1) return "Power Outage Challenge Rewards:<br> 1st Reward: <text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges["11"].reward1) + ")"
+                }, {}],
                 "h-line",
                 ["display-text", function () {
                     if (hasUpgrade("V", 12)) return formatWhole(player[this.layer].kills) + " <text style='color:red'>K</text>; " + formatWhole(player[this.layer].streak) + " <text style='color:lime'>S</text>; " + formatWhole(player[this.layer].infects) + " <text style='color:cyan'>I</text>; " + formatWhole(player[this.layer].coins) + " <text style='color:yellow'>C</text>; " + formatWhole(player[this.layer].assists) + " <text style='color:blue'>A</text>;"
@@ -380,7 +383,8 @@ addLayer("V", {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
-                if (inChallenge("V", 11)) eff = new Decimal(1)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 return eff
             },
             style() {
@@ -431,7 +435,8 @@ addLayer("V", {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
-                    if (inChallenge("V", 11)) eff = new Decimal(1)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 return eff
             },
             style() {
@@ -482,7 +487,8 @@ addLayer("V", {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
-                    if (inChallenge("V", 11)) eff = new Decimal(1)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 return eff
             },
             style() {
@@ -532,7 +538,8 @@ addLayer("V", {
                 let expo = new Decimal(1.01)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
-                    if (inChallenge("V", 11)) eff = new Decimal(1)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 return eff
             },
             style() {
@@ -569,7 +576,8 @@ addLayer("V", {
                 let expo = new Decimal(1.03)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
-                    if (inChallenge("V", 11)) eff = new Decimal(1)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 return eff
             },
             style() {
@@ -619,7 +627,8 @@ addLayer("V", {
                 let expo = new Decimal(1.04)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
-                    if (inChallenge("V", 11)) eff = new Decimal(1)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 return eff
             },
             style() {
@@ -669,7 +678,8 @@ addLayer("V", {
                 let expo = new Decimal(1.04)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
-                    if (inChallenge("V", 11)) eff = new Decimal(1)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 return eff
             },
             style() {
@@ -719,7 +729,8 @@ addLayer("V", {
                 let expo = new Decimal(1)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
-                    if (inChallenge("V", 11)) eff = new Decimal(1)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 return eff
             },
             style() {
@@ -768,7 +779,8 @@ addLayer("V", {
                 let expo = new Decimal(1.02)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
-                    if (inChallenge("V", 11)) eff = new Decimal(1)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 return eff
             },
             style() {
@@ -781,27 +793,45 @@ addLayer("V", {
 
     challenges: {
         11: {
-            name: "Power Outage",
-            challengeDescription:
-                `All Weapon Buffs are disabled.<br>Unlock Flashlight Upgrades<br>
-            ^0.8 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster<br> <text style='color:orange'>Isotope</text> requirement scales faster<br>`,
-            canComplete: function () { return player.points.gte(8174527630) },
-            goalDescription: "<text style='color:lime'>Human Population</text> = <text style='color:#b76ce6'>Crystals</text>",
-            effect() {
+            name() { return "Power Outage <text style='text-shadow: white 1.75px 1.75px 10px; color:yellow;'>" + convertToRoman(challengeCompletions("V", 11) + 1) + "</text>" },
+            challengeDescription() {
+                if (challengeCompletions("V", 11) == 2) return `<text style='text-shadow: orange 1.75px 1.75px 10px; color:red;'>Phase 3</text><br><text style='color:darkgreen'>Weapon</text> Generation Stats are disabled.<br>^0.7 <text style='color:darkgreen'>Weapon</text> Buyable Effects.<br>^0.6 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.7)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.4)<br>`
+                else if (challengeCompletions("V", 11) == 1) return `<text style='text-shadow: orange 1.75px 1.75px 10px; color:red;'>Phase 2</text> - Explosive Walkways<br><text style='color:darkgreen'>Weapon</text> Generation Stats are disabled.<br>^0.8 <text style='color:darkgreen'>Weapon</text> Buyable Effects.<br>^0.7 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.6)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.25)<br>`
+                else return `<text style='text-shadow: orange 1.75px 1.75px 10px; color:red;'>Phase 1</text><br><text style='color:darkgreen'>Weapon</text> Generation Stats are disabled.<br>^0.9 <text style='color:darkgreen'>Weapon</text> Buyable Effects.<br>^0.8 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.4)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.1)<br>`
+            },
+            canComplete: function () { 
+                if (challengeCompletions("V", 11) == 1) return player.points.gte(9.1e15)
+                else return player.points.gte(8175023522) 
+            }, // Recorded On Sep 6th, 2024
+            goalDescription() {
+                let basetext = "<text style='color:lime'>Human Population</text> = <text style='color:#b76ce6'>Crystals</text>"
+                if (challengeCompletions("V", 11) == 1) basetext = "<text style='color:orange'>LITF</text>^5 = <text style='color:#b76ce6'>Crystals</text><br><spoiler>There are 457 lights in the facility</spoiler>"
+                return basetext
+            },
+            completionLimit() { return new Decimal(5) },
+            reward1() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.02).max(1).min(10));
+                if (inChallenge("V", 11)) effect1 = new Decimal(1)
+                return effect1
+            },
+            reward2() {
+                let effect1 = (player.points.max(1).add(1).pow(0.001).max(1).min(10));
+                if (inChallenge("V", 11)) effect1 = new Decimal(1)
                 return effect1
             },
             rewardDescription() {
-                let reward = "<text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges[this.id].effect) + ")"
+                let reward = "<text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges[this.id].reward1) + ")"
+                if (challengeCompletions("V", 11) == 1) reward = "Divide <text style='color:darkgreen'>Weapon</text> Requirement by /" + format(tmp[this.layer].challenges[this.id].reward2)
                 return reward
             },
             unlocked() {
                 return player[this.layer].assists.gte(100)
             },
-            style(){
+            style() {
                 {
-                    if (inChallenge("V", 11)) return {animation: "pulse2 18s infinite"} 
-                    else return {background: "#616161", color: "white"}
+                    if (inChallenge("V", 11) && this.canComplete() == false) return { animation: "pulse2 18s infinite", width: "400px" }
+                    if (inChallenge("V", 11) && this.canComplete() == true) return {background: "#ffbf00", color: "black", width: "400px"}
+                    else return { background: "#585959", color: "white", width: "400px" }
                 }
             },
         },
@@ -912,61 +942,6 @@ addLayer("V", {
             effectDisplay() {
                 let text = `+${format(upgradeEffect(this.layer, this.id))}x`;
                 return text;
-            },
-        },
-        201: {
-            title: "Flashlight I",
-            description: "Req: 30,000 Crystals",
-            cost: new Decimal(99999999),
-            unlocked() { return inChallenge("V", 11) },
-            style(){
-                {
-                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
-                }
-            },
-        },
-        202: {
-            title: "Flashlight II",
-            description: "Req: 2 Isotopes",
-            cost: new Decimal(99999999),
-            unlocked() { return inChallenge("V", 11) },
-            style(){
-                {
-                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
-                }
-            },
-        },
-        203: {
-            title: "Flashlight III",
-            description: "Req: 14,000 Experiment Dust",
-            cost: new Decimal(99999999),
-            unlocked() { return inChallenge("V", 11) },
-            style(){
-                {
-                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
-                }
-            },
-        },
-        204: {
-            title: "Flashlight IV",
-            description: "Req: 1,300,000 Chemicals",
-            cost: new Decimal(99999999),
-            unlocked() { return inChallenge("V", 11) },
-            style(){
-                {
-                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
-                }
-            },
-        },
-        205: {
-            title: "Flashlight V",
-            description: "Req: 63 Total Chemical Buyables",
-            cost: new Decimal(99999999),
-            unlocked() { return inChallenge("V", 11) },
-            style(){
-                {
-                    return {border: "2px dotted white", background: "rgba(0, 0, 0, 0)", color: "white"}
-                }
             },
         },
     },

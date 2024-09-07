@@ -80,7 +80,7 @@ addLayer("F", {
     type: "static",
     exponent() {
         let ex = new Decimal(1.5)
-        if (inChallenge("V", 11)) ex = new Decimal(1.65)
+        if (inChallenge("V", 11)) ex = new Decimal(1.6)
         return ex
     },
     gainMult() {
@@ -255,7 +255,7 @@ addLayer("F", {
         },
         22: {
             title: "Chemicalize Isotopes<br>[ <text style='color:darkred'>I-8</text> ]",
-            description: "<text style='color:skyblue'>Chemicals</text> boosts <text style='color:pink'>E-4</text>",
+            description: "<text style='color:skyblue'>Chemicals</text> boosts <text style='color:purple'>E-4</text>",
             cost() {return new Decimal(7) },
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.065)).max(1).min(20);

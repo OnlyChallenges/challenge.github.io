@@ -166,7 +166,8 @@ addLayer("P", {
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.52)
-                if (inChallenge("V", 11)) exp1 = new Decimal(1.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) exp1 = exp1.add(.4)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) exp1 = exp1.add(.5)
                 let exp2 = new Decimal(1.04)
                 let costdef = new Decimal(15)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
@@ -206,7 +207,8 @@ addLayer("P", {
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.52)
-                if (inChallenge("V", 11)) exp1 = new Decimal(1.85)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) exp1 = exp1.add(.4)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) exp1 = exp1.add(.5)
                 let exp2 = new Decimal(1.04)
                 let costdef = new Decimal(5)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()

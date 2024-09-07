@@ -155,6 +155,7 @@ addLayer("SP", {
         if (!player.SP.unlocked) gen = new Decimal(1)
         if (hasUpgrade('F', 16)) gen = gen.times(upgradeEffect('F', 16))
         if (hasUpgrade('V', 15)) gen = gen.times(upgradeEffect('V', 15))
+            if (hasUpgrade('F', 22)) gen = gen.times(upgradeEffect('F', 22).pow(0.6))
         return gen
     },
 
@@ -173,8 +174,8 @@ addLayer("SP", {
         cols: 5,
         11: {
             fullDisplay()
-            { if (!player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
-              else if (player.SP.unlocked) return ("<h3>Nyko<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
+            { if (!player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
+              else if (player.SP.unlocked) return ("<h3>Nyko<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by "+formatWhole((this.effect()-1)*100)+"%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
             },
             currencyInternalName: "generation",
             currencyLayer: "SP",
@@ -182,6 +183,11 @@ addLayer("SP", {
             color2() { return '#a859d9' },
             cost() { return new Decimal(100) },
             canAfford() { return player.SP.generation.gte(this.cost()) },
+            effect() { 
+                let eff = new Decimal(1.5)
+                if (hasUpgrade('F', 15)) return eff = eff.times(upgradeEffect('F', 15))
+                return eff
+            },
             style() {
                 if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
                 else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
