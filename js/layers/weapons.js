@@ -795,9 +795,9 @@ addLayer("V", {
         11: {
             name() { return "Power Outage <text style='text-shadow: white 1.75px 1.75px 10px; color:yellow;'>" + convertToRoman(challengeCompletions("V", 11) + 1) + "</text>" },
             challengeDescription() {
-                if (challengeCompletions("V", 11) == 2) return `<text style='text-shadow: orange 1.75px 1.75px 10px; color:red;'>Phase 3</text><br><text style='color:darkgreen'>Weapon</text> Generation Stats are disabled.<br>^0.7 <text style='color:darkgreen'>Weapon</text> Buyable Effects.<br>^0.6 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.7)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.4)<br>`
-                else if (challengeCompletions("V", 11) == 1) return `<text style='text-shadow: orange 1.75px 1.75px 10px; color:red;'>Phase 2</text> - Explosive Walkways<br><text style='color:darkgreen'>Weapon</text> Generation Stats are disabled.<br>^0.8 <text style='color:darkgreen'>Weapon</text> Buyable Effects.<br>^0.7 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.6)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.25)<br>`
-                else return `<text style='text-shadow: orange 1.75px 1.75px 10px; color:red;'>Phase 1</text><br><text style='color:darkgreen'>Weapon</text> Generation Stats are disabled.<br>^0.9 <text style='color:darkgreen'>Weapon</text> Buyable Effects.<br>^0.8 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.4)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.1)<br>`
+                if (challengeCompletions("V", 11) == 2) return `<h5 style='opacity:0.5'>(You can re-enter this challenge multiple times)</h5><text style='color:green'>Weapon</text> Generation Stats are disabled.<br>^0.7 <text style='color:green'>Weapon</text> Buyable Effects.<br>^0.6 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.7)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.4)<br>`
+                else if (challengeCompletions("V", 11) == 1) return `<h5 style='opacity:0.5'>(You can re-enter this challenge multiple times)</h5><text style='color:green'>Weapon</text> Generation Stats are disabled.<br>^0.8 <text style='color:green'>Weapon</text> Buyable Effects.<br>^0.7 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.6)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.25)<br>`
+                else return `<h5 style='opacity:0.5'>(You can re-enter this challenge multiple times)</h5><text style='color:green'>Weapon</text> Generation Stats are disabled.<br>^0.9 <text style='color:green'>Weapon</text> Buyable Effects.<br>^0.8 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.4)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.1)<br>`
             },
             canComplete: function () { 
                 if (challengeCompletions("V", 11) == 1) return player.points.gte(9.1e15)
@@ -814,14 +814,19 @@ addLayer("V", {
                 if (inChallenge("V", 11)) effect1 = new Decimal(1)
                 return effect1
             },
+            reward1alt() {
+                let effect1 = (player.P.points.max(1).add(1).pow(0.035).max(1).min(10));
+                if (inChallenge("V", 11)) effect1 = new Decimal(1)
+                return effect1
+            },
             reward2() {
-                let effect1 = (player.points.max(1).add(1).pow(0.001).max(1).min(10));
+                let effect1 = (player.points.max(1).add(1).pow(0.01).max(1).min(10));
                 if (inChallenge("V", 11)) effect1 = new Decimal(1)
                 return effect1
             },
             rewardDescription() {
                 let reward = "<text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges[this.id].reward1) + ")"
-                if (challengeCompletions("V", 11) == 1) reward = "Divide <text style='color:darkgreen'>Weapon</text> Requirement by /" + format(tmp[this.layer].challenges[this.id].reward2)
+                if (challengeCompletions("V", 11) == 1) reward = "<br>Divide <text style='color:green'>Weapon</text> Requirement by /" + format(tmp[this.layer].challenges[this.id].reward2) + "<h5 style='opacity:0.5'>(Based on crystals)</h5>Improve 1st Reward of <text style='text-shadow: white 1.75px 1.75px 10px; color:yellow;'>PO</text> (x<text style='color:red'>" + format(tmp[this.layer].challenges[this.id].reward1) + "</text> -> x<text style='color:lime'>" + format(tmp[this.layer].challenges[this.id].reward1alt) + "</text>)" 
                 return reward
             },
             unlocked() {
@@ -829,8 +834,12 @@ addLayer("V", {
             },
             style() {
                 {
-                    if (inChallenge("V", 11) && this.canComplete() == false) return { animation: "pulse2 18s infinite", width: "400px" }
-                    if (inChallenge("V", 11) && this.canComplete() == true) return {background: "#ffbf00", color: "black", width: "400px"}
+                    if (inChallenge("V", 11) && this.canComplete() == false && challengeCompletions("V", 11) == 1) return { animation: "pulse2 18s infinite", width: "400px", height: "360px" }
+                    if (inChallenge("V", 11) && this.canComplete() == true  && challengeCompletions("V", 11) == 1) return {background: "#ffbf00", color: "black", width: "400px", height: "360px"}
+                    if (inChallenge("V", 11) && this.canComplete() == false && challengeCompletions("V", 11) == 0) return { animation: "pulse2 18s infinite", width: "400px"}
+                    if (inChallenge("V", 11) && this.canComplete() == true  && challengeCompletions("V", 11) == 0) return {background: "#ffbf00", color: "black", width: "400px"}
+                    if (challengeCompletions("V", 11) == 1) return { background: "#585959", color: "white", width: "400px", height: "360px" }
+                    if (challengeCompletions("V", 11) == 0) return { background: "#585959", color: "white", width: "400px" }
                     else return { background: "#585959", color: "white", width: "400px" }
                 }
             },
