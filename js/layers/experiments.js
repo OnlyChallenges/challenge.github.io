@@ -28,6 +28,10 @@ addLayer("SP", {
             "background": (player.SP.unlocked || canReset("SP")) ? "radial-gradient(#a733dc, #ab13bf)" : "#bf8f8f",
         }
     },
+    doReset(resettingLayer) {
+        player.V.chaltime = player.V.chaltime.div(1.1)
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
+    },
     componentStyles: {
         "prestige-button": {
             background() {

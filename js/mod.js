@@ -91,7 +91,9 @@ function getPointGen() {
   if (player.V.unlocked) gain = gain.times(tmp.V.infectEff.plus(1).pow(0.6))
   if (player.timePlayed > modInfo.demoTime) gain = gain.div(1e200) // Demo Mode is over
 
-  if (inChallenge("V", 11)) gain = gain.pow(0.8)
+  if (inChallenge("V", 11) && challengeCompletions("V", 11) == 2) gain = gain.pow(0.49)
+  if (inChallenge("V", 11) && challengeCompletions("V", 11) == 1) gain = gain.pow(0.7)
+  if (inChallenge("V", 11) && challengeCompletions("V", 11) == 0) gain = gain.pow(0.8)
   return gain
 }
 

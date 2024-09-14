@@ -12,11 +12,14 @@ addLayer("V", {
             coins: new Decimal(0),
             assists: new Decimal(0),
             avgdamage: new Decimal(0),
+
+            chaltime: new Decimal(0),
         }
     },
     requires() {
         let requirement = new Decimal(1e9)
         if (getBuyableAmount('V', 13).gte(1)) requirement = requirement.div(buyableEffect('V', 13))
+        if (hasChallenge("V", 11) && challengeCompletions("V", 11) >= 2) requirement = requirement.div(tmp[this.layer].challenges["11"].reward2)
         return requirement
 
     },
@@ -74,7 +77,7 @@ addLayer("V", {
         if (hasUpgrade("V", 11)) eff = eff.times(1.3)
         if (player.V.assists > 0) eff = eff.times(tmp.V.assistEff)
         if (inChallenge("V", 11)) eff = new Decimal(0)
-        if (hasChallenge("V", 11)) eff = eff.times(tmp[this.layer].challenges["11"].reward1)
+        if (hasChallenge("V", 11) && challengeCompletions("V", 11) >= 1) eff = eff.times(tmp[this.layer].challenges["11"].reward1)
         return eff;
     },
     effBase() {
@@ -83,6 +86,7 @@ addLayer("V", {
     },
 
     update(diff) {
+        if (inChallenge("V", 11)) player.V.chaltime = player.V.chaltime.plus(new Decimal(1).times(diff))
         player.V.kills = player.V.kills.plus(tmp.V.effect.times(diff));
         player.V.streak = player.V.streak.plus(tmp.V.killEff.times(diff));
         player.V.infects = player.V.infects.plus(tmp.V.streakEff.times(diff));
@@ -91,7 +95,8 @@ addLayer("V", {
     },
 
     doReset(resettingLayer) {
-        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer)
+        player.V.chaltime = new Decimal(0)
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
     },
 
     killExp() {
@@ -279,7 +284,8 @@ addLayer("V", {
                 "h-line",
                 "challenges",
                 ["display-text", function () {
-                   if (challengeCompletions("V", 11) == 1) return "Power Outage Challenge Rewards:<br> 1st Reward: <text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges["11"].reward1) + ")"
+                    if (challengeCompletions("V", 11) == 1) return "Power Outage Challenge Rewards:<br> 1st Reward: <text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges["11"].reward1) + ")"
+                    if (challengeCompletions("V", 11) == 2) return "Power Outage Challenge Rewards:<br> 1st Reward: <text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges["11"].reward1) + ")<br>2nd Reward: Divide <text style='color:green'>Weapon</text> Requirement by /" + format(tmp[this.layer].challenges["11"].reward2)
                 }, {}],
                 "h-line",
                 ["display-text", function () {
@@ -385,6 +391,7 @@ addLayer("V", {
                 if (getBuyableAmount('V', 31).gte(1)) eff = eff.times(buyableEffect('V', 31))
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
             style() {
@@ -437,6 +444,7 @@ addLayer("V", {
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
             style() {
@@ -489,6 +497,7 @@ addLayer("V", {
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
             style() {
@@ -540,6 +549,7 @@ addLayer("V", {
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
             style() {
@@ -578,6 +588,7 @@ addLayer("V", {
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
             style() {
@@ -629,6 +640,7 @@ addLayer("V", {
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
             style() {
@@ -680,6 +692,7 @@ addLayer("V", {
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
             style() {
@@ -731,6 +744,7 @@ addLayer("V", {
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
             style() {
@@ -781,6 +795,7 @@ addLayer("V", {
                 if (getBuyableAmount('V', 22).gte(1)) eff = eff.times(buyableEffect('V', 22))
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) eff = eff.pow(0.9)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
             style() {
@@ -795,38 +810,52 @@ addLayer("V", {
         11: {
             name() { return "Power Outage <text style='text-shadow: white 1.75px 1.75px 10px; color:yellow;'>" + convertToRoman(challengeCompletions("V", 11) + 1) + "</text>" },
             challengeDescription() {
-                if (challengeCompletions("V", 11) == 2) return `<h5 style='opacity:0.5'>(You can re-enter this challenge multiple times)</h5><text style='color:green'>Weapon</text> Generation Stats are disabled.<br>^0.7 <text style='color:green'>Weapon</text> Buyable Effects.<br>^0.6 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.7)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.4)<br>`
+                if (challengeCompletions("V", 11) == 2) return `<h5 style='opacity:0.5'>(You can re-enter this challenge multiple times)</h5><text style='color:green'>Weapon</text> Generation Stats are disabled.<br>^0.5 <text style='color:green'>Weapon</text> Buyable Effects.<br>^^0.7 <text style='color:#b76ce6'>Crystal</text> Gain<h5 style='opacity:0.5'>( Teteration!! x^(0.7*0.7) )</h5><text style='color:skyblue'>Chemical</text> Buyables scales faster (+^1.25)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.8)<br>`
                 else if (challengeCompletions("V", 11) == 1) return `<h5 style='opacity:0.5'>(You can re-enter this challenge multiple times)</h5><text style='color:green'>Weapon</text> Generation Stats are disabled.<br>^0.8 <text style='color:green'>Weapon</text> Buyable Effects.<br>^0.7 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.6)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.25)<br>`
                 else return `<h5 style='opacity:0.5'>(You can re-enter this challenge multiple times)</h5><text style='color:green'>Weapon</text> Generation Stats are disabled.<br>^0.9 <text style='color:green'>Weapon</text> Buyable Effects.<br>^0.8 <text style='color:#b76ce6'>Crystal</text> Gain<br> <text style='color:skyblue'>Chemical</text> Buyables scales faster (+^.4)<br> <text style='color:orange'>Isotope</text> requirement scales faster (+^.1)<br>`
             },
-            canComplete: function () { 
+            canComplete: function () {
+                let challengeincrease = new Decimal(10).pow(player[this.layer].chaltime.pow(0.36).plus(1).min(20))
                 if (challengeCompletions("V", 11) == 1) return player.points.gte(9.1e15)
-                else return player.points.gte(8175023522) 
+                if (challengeCompletions("V", 11) == 2) return player.P.points.gte(challengeincrease)
+                else return player.points.gte(8175023522)
             }, // Recorded On Sep 6th, 2024
             goalDescription() {
                 let basetext = "<text style='color:lime'>Human Population</text> = <text style='color:#b76ce6'>Crystals</text>"
                 if (challengeCompletions("V", 11) == 1) basetext = "<text style='color:orange'>LITF</text>^5 = <text style='color:#b76ce6'>Crystals</text><br><spoiler>There are 457 lights in the facility</spoiler>"
+                if (challengeCompletions("V", 11) == 2) basetext = "<text style='color:red'>"+formatWhole(new Decimal(10).pow(player[this.layer].chaltime.pow(0.36).plus(1).min(20))) + " </text><text style='color:skyblue'>Chemicals</text><br>Current Scale: ^<text style='color:yellow'>"+format(player[this.layer].chaltime.pow(0.36).plus(1).min(20))+"</text> ("+formatWhole(player[this.layer].chaltime)+"s)"+"<h5 style='opacity:0.5'>(Requirement scales overtime... but reseting layers lowers the scale by .01 each time)</h5>"
                 return basetext
             },
-            completionLimit() { return new Decimal(5) },
+            completionLimit() { return new Decimal(3) },
             reward1() {
-                let effect1 = (player.P.points.max(1).add(1).pow(0.02).max(1).min(10));
+                let effect1 = (player.P.points.max(1).add(1).pow(0.02).max(1));
                 if (inChallenge("V", 11)) effect1 = new Decimal(1)
+                if (challengeCompletions("V", 11) >= 2) effect1 = (player.P.points.max(1).add(1).pow(0.035).max(1))
                 return effect1
             },
             reward1alt() {
-                let effect1 = (player.P.points.max(1).add(1).pow(0.035).max(1).min(10));
+                let effect1 = (player.P.points.max(1).add(1).pow(0.035).max(1));
                 if (inChallenge("V", 11)) effect1 = new Decimal(1)
                 return effect1
             },
             reward2() {
-                let effect1 = (player.points.max(1).add(1).pow(0.01).max(1).min(10));
+                let effect1 = (player.points.max(1).add(1).pow(0.01).max(1));
                 if (inChallenge("V", 11)) effect1 = new Decimal(1)
                 return effect1
             },
+            reward3() {
+                let effect1 = (player.V.assists.max(1).add(1).pow(0.22).max(1));
+                if (inChallenge("V", 11)) effect1 = new Decimal(1)
+                return effect1
+            },
+            onExit() {
+                player.V.chaltime = new Decimal(0)
+
+            },
             rewardDescription() {
                 let reward = "<text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges[this.id].reward1) + ")"
-                if (challengeCompletions("V", 11) == 1) reward = "<br>Divide <text style='color:green'>Weapon</text> Requirement by /" + format(tmp[this.layer].challenges[this.id].reward2) + "<h5 style='opacity:0.5'>(Based on crystals)</h5>Improve 1st Reward of <text style='text-shadow: white 1.75px 1.75px 10px; color:yellow;'>PO</text> (x<text style='color:red'>" + format(tmp[this.layer].challenges[this.id].reward1) + "</text> -> x<text style='color:lime'>" + format(tmp[this.layer].challenges[this.id].reward1alt) + "</text>)" 
+                if (challengeCompletions("V", 11) == 1) reward = "<br>Divide <text style='color:green'>Weapon</text> Requirement by /" + format(tmp[this.layer].challenges[this.id].reward2) + "<h5 style='opacity:0.5'>(Based on crystals)</h5>Improve 1st Reward of <text style='text-shadow: white 1.75px 1.75px 10px; color:yellow;'>PO</text> (x<text style='color:red'>" + format(tmp[this.layer].challenges[this.id].reward1) + "</text> -> x<text style='color:lime'>" + format(tmp[this.layer].challenges[this.id].reward1alt) + "</text>)"
+                if (challengeCompletions("V", 11) == 2) reward = "<br><text style='color:#b76ce6'>Crystals</text> are boosted based on <text style='color:blue'>Assists</text> (x" + format(tmp[this.layer].challenges[this.id].reward3) + ")"
                 return reward
             },
             unlocked() {
@@ -834,10 +863,13 @@ addLayer("V", {
             },
             style() {
                 {
+                    if (inChallenge("V", 11) && this.canComplete() == false && challengeCompletions("V", 11) == 2) return { animation: "pulse2 18s infinite", width: "400px", height: "350px" }
+                    if (inChallenge("V", 11) && this.canComplete() == true && challengeCompletions("V", 11) == 2) return { background: "#ffbf00", color: "black", width: "400px", height: "350px" }
                     if (inChallenge("V", 11) && this.canComplete() == false && challengeCompletions("V", 11) == 1) return { animation: "pulse2 18s infinite", width: "400px", height: "360px" }
-                    if (inChallenge("V", 11) && this.canComplete() == true  && challengeCompletions("V", 11) == 1) return {background: "#ffbf00", color: "black", width: "400px", height: "360px"}
-                    if (inChallenge("V", 11) && this.canComplete() == false && challengeCompletions("V", 11) == 0) return { animation: "pulse2 18s infinite", width: "400px"}
-                    if (inChallenge("V", 11) && this.canComplete() == true  && challengeCompletions("V", 11) == 0) return {background: "#ffbf00", color: "black", width: "400px"}
+                    if (inChallenge("V", 11) && this.canComplete() == true && challengeCompletions("V", 11) == 1) return { background: "#ffbf00", color: "black", width: "400px", height: "360px" }
+                    if (inChallenge("V", 11) && this.canComplete() == false && challengeCompletions("V", 11) == 0) return { animation: "pulse2 18s infinite", width: "400px" }
+                    if (inChallenge("V", 11) && this.canComplete() == true && challengeCompletions("V", 11) == 0) return { background: "#ffbf00", color: "black", width: "400px" }
+                    if (challengeCompletions("V", 11) == 2) return { background: "#585959", color: "white", width: "400px", height: "350px" }
                     if (challengeCompletions("V", 11) == 1) return { background: "#585959", color: "white", width: "400px", height: "360px" }
                     if (challengeCompletions("V", 11) == 0) return { background: "#585959", color: "white", width: "400px" }
                     else return { background: "#585959", color: "white", width: "400px" }

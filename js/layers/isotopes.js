@@ -21,6 +21,12 @@ addLayer("F", {
         return requirement
 
     },
+
+    doReset(resettingLayer) {
+        player.V.chaltime = player.V.chaltime.div(1.1)
+        if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
+    },
+
     branches: ["V"],
     nodeStyle() {
         return {
@@ -81,6 +87,8 @@ addLayer("F", {
     exponent() {
         let ex = new Decimal(1.5)
         if (inChallenge("V", 11)) ex = new Decimal(1.6)
+        if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) ex = new Decimal(1.75)
+        if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) ex = new Decimal(2.3)
         return ex
     },
     gainMult() {

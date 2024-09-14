@@ -71,6 +71,7 @@ addLayer("P", {
     ],
     layerShown() { return true },
     doReset(resettingLayer) {
+        player.V.chaltime = player.V.chaltime.div(1.01)
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
         if (hasMilestone('V', 11)) player.P.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25");
         if (hasMilestone('V', 15)) player.F.upgrades.push("36");
@@ -168,6 +169,7 @@ addLayer("P", {
                 let exp1 = new Decimal(1.52)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) exp1 = exp1.add(.4)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) exp1 = exp1.add(.5)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) exp1 = exp1.add(1.25)
                 let exp2 = new Decimal(1.04)
                 let costdef = new Decimal(15)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
@@ -209,6 +211,7 @@ addLayer("P", {
                 let exp1 = new Decimal(1.52)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 0)) exp1 = exp1.add(.4)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) exp1 = exp1.add(.5)
+                if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) exp1 = exp1.add(1.25)
                 let exp2 = new Decimal(1.04)
                 let costdef = new Decimal(5)
                 let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
