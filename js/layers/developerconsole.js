@@ -3,7 +3,8 @@ addLayer("Dev", {
     symbol: "/", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() {
         return {
-            unlocked: true
+            unlocked: true,
+            hardmode: new Decimal(0)
         }
     },
     color: "#5DE18A",
@@ -66,6 +67,27 @@ addLayer("Dev", {
             canClick: true,
             onClick() {
                 return player.devSpeed = 1
+            },
+            style() {
+                return {
+                    'background-color': tmp.Dev.color,
+                }
+            },
+        },
+        15: {
+            title: "Type Commands",
+            display: "Input commands",
+            canClick: true,
+            onClick() {
+                let input = (prompt("Developer Command Prompt"));
+                if (input == "/negative")
+                    return player.timePlayed = -"1e10"
+                if (input == "/achievementcheat")
+                    return tmp.A.aP = 1e7
+                if (input == "/hardmode")
+                    return player.Dev.hardmode = 1
+                if (input == "/normalmode")
+                    return player.Dev.hardmode = 0
             },
             style() {
                 return {
