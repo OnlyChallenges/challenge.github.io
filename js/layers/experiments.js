@@ -117,7 +117,7 @@ addLayer("SP", {
         return dis
     },
     hotkeys: [
-        { key: "s", description: "S: Reset for Super Powder", onPress() { if (canReset(this.layer) && player.SP.unlocked) doReset(this.layer) } },
+        { key: "e", description: "e: Reset for Experiments", onPress() { if (canReset(this.layer) && player.SP.unlocked) doReset(this.layer) } },
     ],
     layerShown() { return hasUpgrade('P', 23) || player.SP.unlocked || player.F.unlocked },
 

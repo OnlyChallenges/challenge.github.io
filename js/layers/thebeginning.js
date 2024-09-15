@@ -67,7 +67,7 @@ addLayer("P", {
         return exp
     },
     hotkeys: [
-        { key: "p", description: "p: Reset for Powder", onPress() { if (canReset(this.layer) && player.P.unlocked) doReset(this.layer) } },
+        { key: "c", description: "c: Reset for Crystals", onPress() { if (canReset(this.layer) && player.P.unlocked) doReset(this.layer) } },
     ],
     layerShown() { return true },
     doReset(resettingLayer) {

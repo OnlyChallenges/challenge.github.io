@@ -8,22 +8,30 @@ let modInfo = {
   discordLink: "https://discord.gg/QjceJTB8uV", // Non-Custom Link
   initialStartPoints: new Decimal(0), // Used for hard resets & Memory loss reset
   memoryLeakProt: null, 
-  offlineLimit: 3,  // 3 Hours of Offline Time Mode
-  demoTime: new Decimal("1e309"), // 1,300 Seconds
+  offlineLimit: 1,  // 1 Hours of Offline Time Mode
+  demoTime: new Decimal(7000), // 7,000 Seconds
   devTime: new Decimal("1e999"), // Overclocking Infinity;
 }
 
 let VERSION = {
-  num: "0.0.3.1-DEMO", // Version
+  num: "0.1-DEMO", // Version
   ver: "Changelog", // Post-Version
-  name: "Baseball Conundrum", // Version Name Type
+  name: "Weaponizing The Facility", // Version Name Type
 }
 
 let changelog = `<h1>Changelog:</h1><br><br>
  <h5 style="opacity:0.5">Tip: Click and hold on a spoiler (White Boxes) to reveal it.</h5><br>
 
+ <h2>v0.1: <h2 style='color:red'>Weaponizing The Facility</h2></h2><br><br>
+ - Added <spoiler>Weapons</spoiler><br>
+ - Improved <spoiler>Isotope Functions</spoiler><br>
+ - Added several other things into content<br>
+ - Added 5 Achievements<br>
+ - Increased Demotime by 5x<br>
+ - Fixed Several Memory Leaks<br>
+ - Reduced Offline time to 1 hour<br><br>
+
  <h2>v0.0.3: <h2 style='color:skyblue'>Challenging Approach</h2></h2><br><br>
- - Added Two <spoiler>Challenges past Vaccines</spoiler><br>
  - Improved <spoiler>Experiment</spoiler> information shown<br>
  - Hidden all aspects of spoilers in changelog & ingame by adding ??????<br>
  - Improved crystal gain slightly<br><br>
@@ -79,8 +87,6 @@ function getPointGen() {
   if (hasUpgrade('F', 13)) gain = gain.pow(1.05)
   if (hasUpgrade('SP', 13)) gain = gain.times(3.33)
   if (hasUpgrade('P', 23)) gain = gain.pow(1.035)
-  if (hasUpgrade('F', 34)) gain = gain.times(1.3)
-  if (hasUpgrade('F', 34)) gain = gain.times(1.6)
   if (hasMilestone('W', 11)) gain = gain.times(5)
   if (hasUpgrade('W', 11)) gain = gain.pow(1.075)
   if (hasUpgrade('W', 14)) gain = gain.times(upgradeEffect('W', 14))
@@ -175,7 +181,7 @@ function getSinRat(period = Math.sqrt(488)) {
 var displayThings = [
   function () {
     let x = getUndulatingColor()
-    let a = "<logic>Endgame</logic>: " + colorText("b", x, "Power Outage <text style='text-shadow: white 1.75px 1.75px 10px; color:yellow;'>IV</text>")
+    let a = "<logic>Endgame</logic>: " + colorText("b", x, "Blood Moon <text style='text-shadow: orange 1.75px 1.75px 10px; color:red;'>I</text>")
     return a
   },
   function () {
