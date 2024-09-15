@@ -91,7 +91,7 @@ addLayer("V", {
         player.V.streak = player.V.streak.plus(tmp.V.killEff.times(diff));
         player.V.infects = player.V.infects.plus(tmp.V.streakEff.times(diff));
         player.V.coins = player.V.coins.plus(tmp.V.infectEff.times(diff));
-        player.V.assists = player.V.assists.plus(tmp.V.assistEff.times(diff).pow(0.8));
+        if (hasUpgrade("V", 12)) player.V.assists = player.V.assists.plus(tmp.V.assistEff.times(diff).pow(0.8));
     },
 
     doReset(resettingLayer) {

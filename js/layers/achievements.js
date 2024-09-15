@@ -31,6 +31,16 @@ addLayer("A", {
                 ["achievements", [1, 2, 3, 4, 5, 6, 7, 8, 9]],
                 "blank",
                 "h-line",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "blank",
+                "clickables",
             ],
         },
     },
@@ -299,5 +309,23 @@ addLayer("A", {
                 else if (hasAchievement(this.layer, this.id)) { return { 'background-color': 'green', 'color': 'white' } }
             },
         },
-    }
+    },
+
+    clickables: {
+        11: {
+            title: "Enable Developer Console",
+            display: "Shows a Dev Console/Layer",
+            canClick: true,
+            onClick() {
+                if (confirm("WARNING!!!: This is for the game developer. You can use this if you need help. -vali"))
+                    return player[this.layer].secret = 1
+            },
+            style() {
+                return {
+                    'background-color': tmp.A.color,
+                }
+            },
+        },
+    },
+
 })

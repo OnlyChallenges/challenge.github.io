@@ -3,7 +3,7 @@ let modInfo = {
   id: "spacebird", // This will run all memory on this id, so any other type of "NG" will not run this id
   author: "vali", // author data
   pointsName: "crystals", // based memory resource (Total Memory Values: 193)
-  modFiles: ["tree.js", "layers/thebeginning.js", "layers/achievements.js", "layers/isotopes.js", "layers/experiments.js", "layers/weapons.js", "layers/developers.js"],
+  modFiles: ["tree.js", "layers/thebeginning.js", "layers/achievements.js", "layers/isotopes.js", "layers/experiments.js", "layers/weapons.js", "layers/developers.js", "layers/developerconsole.js"],
   discordName: "Solstice Studios", // Pre-setted to FoR
   discordLink: "https://discord.gg/QjceJTB8uV", // Non-Custom Link
   initialStartPoints: new Decimal(0), // Used for hard resets & Memory loss reset
