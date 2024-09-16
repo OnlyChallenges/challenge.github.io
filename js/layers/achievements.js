@@ -139,6 +139,8 @@ addLayer("A", {
         if (hasAchievement('A', 31)) form = form.add(100)
         if (hasAchievement('A', 32)) form = form.add(150)
         if (hasAchievement('A', 33)) form = form.add(180)
+
+        if (player.Dev.command2 == 1) form = form.add(250)
         return form
     },
 

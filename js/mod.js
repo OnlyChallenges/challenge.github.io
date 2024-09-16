@@ -7,7 +7,7 @@ let modInfo = {
   discordName: "Solstice Studios", // Pre-setted to FoR
   discordLink: "https://discord.gg/QjceJTB8uV", // Non-Custom Link
   initialStartPoints: new Decimal(0), // Used for hard resets & Memory loss reset
-  memoryLeakProt: null, 
+  memoryLeakProt: null,
   offlineLimit: 1,  // 1 Hours of Offline Time Mode
   demoTime: new Decimal(7000), // 7,000 Seconds
   devTime: new Decimal("1e999"), // Overclocking Infinity;
@@ -96,8 +96,9 @@ function getPointGen() {
   if (player.A.unlocked) gain = gain.times(tmp.A.effect)
   if (player.V.unlocked) gain = gain.times(tmp.V.infectEff.plus(1).pow(0.6))
   if (player.timePlayed > modInfo.demoTime) gain = gain.div(1e200) // Demo Mode is over
-  if (player.Dev.hardmode ==1) gain = gain.pow(0.7)
-
+  if (player.Dev.hardmode == 1) gain = gain.pow(0.7)
+  if (player.Dev.hardmode == 2) gain = gain.pow(0.65)
+  if (player.Dev.hardmode == 3) gain = gain.pow(0.57)
   if (inChallenge("V", 11) && challengeCompletions("V", 11) == 2) gain = gain.pow(0.49)
   if (inChallenge("V", 11) && challengeCompletions("V", 11) == 1) gain = gain.pow(0.7)
   if (inChallenge("V", 11) && challengeCompletions("V", 11) == 0) gain = gain.pow(0.8)
@@ -106,7 +107,7 @@ function getPointGen() {
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
-  return { devSpeed : new Decimal(1)}
+  return { devSpeed: new Decimal(1) }
 }
 
 function convertToB16(n) {
@@ -181,6 +182,14 @@ function getSinRat(period = Math.sqrt(488)) {
 // Display extra things at the top of the page
 var displayThings = [
   function () {
+    let x = player.Dev.hardmode
+    let text = ''
+    if (x == 1) text = "You're Currently in <text style='text-shadow: red 2.25px 2.25px 10px; color:yellow;'>Hard Mode</text><br>(^0.7 Crystal Gain Nerf)"
+    if (x == 2) text = "You're Currently in <text style='text-shadow: yellow 2.25px 2.25px 10px; color:purple;'>Insane Mode</text><br>(^0.65 Crystal Gain Nerf)"
+    if (x == 3) text = "You're Currently in <text style='text-shadow: white 2.25px 2.25px 10px; color:red;'>Impossible Mode</text><br>(^0.57 Crystal Gain Nerf)"
+    return text
+  },
+  function () {
     let x = getUndulatingColor()
     let a = "<logic>Endgame</logic>: " + colorText("b", x, "Blood Moon <text style='text-shadow: orange 1.75px 1.75px 10px; color:red;'>I</text>")
     return a
@@ -188,7 +197,7 @@ var displayThings = [
   function () {
     let x = player.timePlayed
     let y = modInfo.demoTime
-    let a = "Demo Mode: <text style='color:skyblue'>" + formatWhole(y-x) + "</text> seconds remaining..."
+    let a = "Demo Mode: <text style='color:skyblue'>" + formatWhole(y - x) + "</text> seconds remaining..."
     if (x > y) a = "Demo is over! Thanks for playing"
     return a
   },
@@ -206,26 +215,26 @@ function isEndgame() {
 // Less important things beyond this point!
 
 // Style for the background, can be a function
-var backgroundStyle = function(){
-  let backSty = {"background-image": "rgb(0, 0, 0)"}
-    if (getThemeName() == "default") backSty = {
-            "background-image":
-            "linear-gradient(#000 30px,transparent 0),linear-gradient(270deg,red 1px,transparent 0)",
-            "z-index" : 0.5,
-            "background-size":"32px 32px,32px 32px",
-            "background-position":""+(player.timePlayed)%100+"%"
-      }
-    if (getThemeName() == "powdery") backSty = {
-        'background': 'linear-gradient(135deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px),linear-gradient(45deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px)0 64px',
-        'background-color':'black',
-        'background-size':'64px 128px',
-        "background-position":"100%"+" "+(player.timePlayed%100)+"%"+" "+(player.timePlayed%100)+"%"
-      }
+var backgroundStyle = function () {
+  let backSty = { "background-image": "rgb(0, 0, 0)" }
+  if (getThemeName() == "default") backSty = {
+    "background-image":
+      "linear-gradient(#000 30px,transparent 0),linear-gradient(270deg,red 1px,transparent 0)",
+    "z-index": 0.5,
+    "background-size": "32px 32px,32px 32px",
+    "background-position": "" + (player.timePlayed) % 100 + "%"
+  }
+  if (getThemeName() == "powdery") backSty = {
+    'background': 'linear-gradient(135deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px),linear-gradient(45deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px)0 64px',
+    'background-color': 'black',
+    'background-size': '64px 128px',
+    "background-position": "100%" + " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
+  }
   return backSty
 }
 
 function maxTickLength() {
-  return(3600)
+  return (3600)
 }
 
 // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
