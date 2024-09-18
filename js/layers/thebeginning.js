@@ -226,7 +226,7 @@ addLayer("P", {
         rows: 5,
         cols: 5,
         11: {
-            title: "Simplicity<br>[ <text style='color:skyblue'>P-1</text> ]",
+            title: "The Idea<br>[ <text style='color:skyblue'>P-1</text> ]",
             description: "<br>Boost <text style='color:#b76ce6'>crystal</text> gain by 35%",
             color(){return '#1b39a6'},
             color2(){return '#5b85b3'},
@@ -235,11 +235,11 @@ addLayer("P", {
             style() {
                 if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
                 else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px', 'background-image':'repeating-linear-gradient(45deg, hsla(0,0%,100%,.2), hsla(0,0%,100%,.2) 15px, transparent 0, transparent 30px);'}
             },
         },
         12: {
-            title: "The Idea<br>[ <text style='color:skyblue'>P-2</text> ]",
+            title: "Conception<br>[ <text style='color:skyblue'>P-2</text> ]",
             description: "<br>Decrease <text style='color:#5b85b3'>chemical</text> requirement slightly...",
             unlocked() { return hasUpgrade('P', 11) },
             color(){return '#1b39a6'},
@@ -293,7 +293,7 @@ addLayer("P", {
             },
         },
         15: {
-            title: "Versions<br>[ <text style='color:skyblue'>P-5</text> ]",
+            title: "Workplace<br>[ <text style='color:skyblue'>P-5</text> ]",
             description: "<br>Decrease <text style='color:#5b85b3'>chemical</text> gain by 11.5%, but increase <text style='color:#b76ce6'>crystal</text> gain by 90%",
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
@@ -333,7 +333,7 @@ addLayer("P", {
             },
         },
         22: {
-            title: "System.Start<br>[ <text style='color:skyblue'>P-7</text> ]",
+            title: "Scripting<br>[ <text style='color:skyblue'>P-7</text> ]",
             description: "<br><text style='color:#5b85b3'>Chemicals</text> boosts itself (Additive)",
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
@@ -358,7 +358,7 @@ addLayer("P", {
             },
         },
         23: {
-            title: "Beta Test<br>[ <text style='color:skyblue'>P-8</text> ]",
+            title: "1.0.0<br>[ <text style='color:skyblue'>P-8</text> ]",
             description: "<br>Unlock Two Layers, also boost <text style='color:#b76ce6'>crystal</text> gain by ^1.035",
             unlocked() { return hasUpgrade('P', 22) },
             color(){return '#f54260'},

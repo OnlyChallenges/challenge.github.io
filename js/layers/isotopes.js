@@ -28,18 +28,6 @@ addLayer("F", {
     },
 
     branches: ["V"],
-    nodeStyle() {
-        return {
-            "background": (player.F.unlocked || canReset("F")) ? "radial-gradient(#e0c287, #d1863b)" : "#bf8f8f",
-        }
-    },
-    componentStyles: {
-        "prestige-button": {
-            background() {
-                return (canReset("F")) ? "radial-gradient(#e0c287, #d1863b)" : "#bf8f8f"
-            },
-        },
-    },
     tabFormat: {
         "Test Lab": {
             content: [
@@ -336,6 +324,8 @@ addLayer("F", {
             description: "<br>Lower <br><text style='color:purple'>Experiment</text> Requirement based on <text style='color:skyblue'>Chemicals</text>",
             cost() { return new Decimal(13500000000)},
             currencyDisplayName: "Chemicals",
+            currencyInternalName: "points",
+            currencyLayer: "P",
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.075)).max(1).min(15);
                 return effect1

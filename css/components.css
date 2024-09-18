@@ -276,8 +276,7 @@
 	background-size: 300% 300%;
 	background-position: 0% 0%;
 	animation: climb 100s linear infinite;
-	border: 3px solid rgb(110, 177, 203);
-	box-shadow: 0px 5px 3px rgb(110, 177, 203);
+	border: 3px solid rgb(127, 110, 203);
 }
 .P.reset.can{
 	color: black;
@@ -326,6 +325,21 @@
 	box-shadow: 2px 6px 3px rgb(17, 163, 115);
 }
 
+#F{
+	color: black;
+	text-shadow: rgb(233, 255, 106) 2.25px 2.25px 10px ;
+	background: rgb(216, 184, 44);
+	background-image:repeating-linear-gradient(70deg,
+      hsla(69, 79%, 44%, 0.26),
+      hsla(59, 87%, 49%, 0.425) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 120s linear infinite;
+	border: 3px solid rgb(231, 219, 55);
+}
+
 @keyframes climb {
 	0% {
 		background-position: 0% 0%;
@@ -337,6 +351,7 @@
 		background-position: 200% 0%;
 	}
 }
+
 
 @keyframes main {
 	0% {
