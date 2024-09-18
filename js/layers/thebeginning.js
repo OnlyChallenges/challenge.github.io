@@ -21,18 +21,6 @@ addLayer("P", {
         if (player.P.points.gte(1e10)) pass = new Decimal(0)
         return pass
     },
-    nodeStyle() {
-        return {
-            "background": (player.P.unlocked || canReset("P")) ? "radial-gradient(#5b85b3, #333232)" : "#bf8f8f",
-        }
-    },
-    componentStyles: {
-        "prestige-button": {
-            background() {
-                return (canReset("P")) ? "radial-gradient(#5b85b3, #333232)" : "#bf8f8f"
-            },
-        },
-    },
     color: "#5b85b3",
     resource: "chemicals",
     baseResource: "crystals",
@@ -193,18 +181,13 @@ addLayer("P", {
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
             },
-            style() {
-                return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#5b85b3, #333232)" : "#bf8f8f"),
-                }
-            },
         },
         12: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) >= 25) {return "Chem<sub><text style='color:yellow'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
-                else if (getBuyableAmount(this.layer, this.id) >= 10) {return "Chem<sub><text style='color:orange'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
-                else if (getBuyableAmount(this.layer, this.id) > 0) {return "Chem<sub><text style='color:darkred'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
-                else return "Chem<sub>0</sub>"
+                if (getBuyableAmount(this.layer, this.id) >= 25) {return "Science<sub><text style='color:yellow'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
+                else if (getBuyableAmount(this.layer, this.id) >= 10) {return "Science<sub><text style='color:orange'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
+                else if (getBuyableAmount(this.layer, this.id) > 0) {return "Science<sub><text style='color:darkred'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
+                else return "Science<sub>0</sub>"
             },  
             unlocked() { return true },
             cost(x) {
@@ -234,11 +217,6 @@ addLayer("P", {
                 let expo = new Decimal(1.035)
                 let eff = base1.pow(Decimal.pow(base2, expo))
                 return eff
-            },
-            style() {
-                return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#5b85b3, #333232)" : "#bf8f8f"),
-                }
             },
         },
     },
