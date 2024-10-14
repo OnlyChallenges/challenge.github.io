@@ -125,23 +125,33 @@ var systemComponents = {
     'info-tab': {
         template: `
         <div>
-        <h2>{{modInfo.name}}</h2>
+        <h2><fail>{{modInfo.name}}</fail></h2>
         <br>
-        <h3>{{VERSION.withName}}</h3>
+        <h3><rainbow>{{VERSION.withName}}</rainbow></h3>
         <span v-if="modInfo.author">
             <br>
+<<<<<<< HEAD
             Made by {{modInfo.author}} / Acythe3  // Heavily Inspired by The Camellia Tree & The Plant Tree
+=======
+            Made by <a>{{modInfo.author}}<a>	
+>>>>>>> c64a7f351b7e4790f3d78de86f1ba72cf8a4fbe7
         </span>
         <br>
-        The Modding Tree <a v-bind:href="'https://github.com/Acamaeda/The-Modding-Tree/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum}}</a> by Acamaeda
+        Github Original Version || <a v-bind:href="'https://github.com/Acamaeda/The-Modding-Tree/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum}}</a>
         <br>
-        The Prestige Tree made by Jacorb and Aarex
-		<br><br>
-		<div class="link" onclick="showTab('changelog-tab')">Changelog</div><br>
+        <br>
+        Github E205 Mechanics Version || <a v-bind:href="'https://github.com/OnlyChallenges/challenge.github.io/blob/master/changelog.md'" target="_blank" class="link" v-bind:style = "{'font-size': '14px', 'display': 'inline'}" >{{TMT_VERSION.tmtNum2}} (Vali's Recode)</a>
+        <br>
+		<br>
+		<div class="link" onclick="showTab('changelog-tab')">Changelog / Devlog</div><br>
         <span v-if="modInfo.discordLink"><a class="link" v-bind:href="modInfo.discordLink" target="_blank">{{modInfo.discordName}}</a><br></span>
+<<<<<<< HEAD
+=======
+        <a class="link" href="https://discord.com/e205" target="_blank" v-bind:style="modInfo.discordLink ? {'font-size': '16px'} : {}">Experiment-205 Discord</a><br>
+>>>>>>> c64a7f351b7e4790f3d78de86f1ba72cf8a4fbe7
 		<br><br>
-        Time Played: {{ formatTime(player.timePlayed) }}<br><br>
-        <h3>Hotkeys</h3><br>
+        Time Played: <corrupt>{{ formatTime(player.timePlayed) }}</corrupt><br><br>
+        <h2>Hotkeys</h2><br>
         <span v-for="key in hotkeys" v-if="player[key.layer].unlocked && tmp[key.layer].hotkeys[key.id].unlocked"><br>{{key.description}}</span></div>
     `
     },

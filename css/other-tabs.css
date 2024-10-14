@@ -1,0 +1,243 @@
+
+#optionWheel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+}
+
+#optionWheel:hover {
+	transform: rotate(360deg);
+}
+
+#info {
+	font-size: 20px;
+	color: white;
+	position: absolute;
+	top: 50px;
+	left: 4px;
+	cursor: pointer;
+	width: 40px;
+	height: 40px;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #02f2f2;
+}
+
+#info:hover {
+	transform: scale(1.2, 1.2);
+	text-shadow: 5px 0 10px #02f2f2,
+              -3px 0 12px #02f2f2;
+}
+
+#discord {
+	position: absolute;
+	top: 120px;
+	left: 4px;
+	width: 40px;
+	height: 40px;
+}
+
+#discord img {
+	width: 100%;
+	height: 100%;
+}
+
+#discord-links {
+	position: absolute;
+	top: 0;
+	padding-top: 44px;
+	left: -244px;
+	width: 200px;
+	transition: left .3s ease;
+}
+
+#discord:hover #discord-links {
+	left: -4px;
+}
+
+#version {
+	position: absolute;
+	right: 4px;
+	top: 4px;
+	text-align: right;
+	color: var(--points);
+	text-shadow: 0 0 10px var(--points);
+	cursor: pointer;
+}
+
+#version:hover {
+	transform: scale(1.1, 1.1);
+	right: 4.8px;
+}
+
+a {
+	color: #007fff;
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
+red {
+	color: #7d0b1e;
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
+logic {
+	color: #d896a3;
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
+rainbow {
+ background-image: repeating-linear-gradient(45deg, orange, red, violet, indigo, blue, green, yellow, orange, red, violet, indigo);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: rain 7.3s ease infinite;
+}
+@keyframes rain {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
+corrupt {
+ background-image: repeating-linear-gradient(65deg, green, lime, green, orange, green, lime, green, orange, green);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: another 6.3s ease infinite;
+}
+@keyframes another {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
+ruins {
+ background-image: repeating-linear-gradient(65deg, red, pink, white, purple, pink, white, purple, pink, indigo, purple, red);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: lay 5.8s ease infinite;
+}
+@keyframes lay {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
+water {
+ background-image: repeating-linear-gradient(65deg, blue, cyan, blue, white, blue, cyan, white, blue, cyan, cyan);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: boop 6s linear infinite;
+}
+@keyframes boop {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
+levelup {
+ background-image: repeating-linear-gradient(77deg, green, blue, lime, blue, lime, cyan, white, cyan, lime);
+ text-decoration-line: none;
+ font-size: 22px;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: lv 6.1s ease infinite;
+}
+@keyframes lv {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
+server {
+ background-image: repeating-linear-gradient(33deg, orange, yellow, cyan, lime, orange, pink, yellow, red, violet, orange, yellow);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: room 4.2s ease infinite;
+}
+@keyframes room {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
+obs {
+ background-image: repeating-linear-gradient(122deg, orange, white, orange, yellow, lime, blue, indigo, pink, orange, yellow, white);
+ text-decoration-line: none;
+ cursor: pointer;
+ background-size: 900% 900%;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ animation: observe 6.1s ease infinite;
+}
+@keyframes observe {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 25%}
+  100%{background-position:0% 50%}
+}
+
+
+fail {
+	color: #d75c15;
+	text-decoration-line: none;
+	text-shadow: 5px 0 10px #7d0b1e;
+	cursor: pointer;
+}
+
+help {
+color: rgba(150, 150, 150, 0.07);
+	text-decoration-line: none;
+	cursor: pointer;
+}
+
+.link {
+	display: block;
+	font-size: 20px;
+	color: #41f5f5;
+	cursor: pointer;
+	font-family: "Lucida Console", "Courier New", monospace;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #02f2f2;
+	text-decoration: none;
+}
+
+.link:hover {
+	transform: scale(1.2, 1.2);
+	text-shadow: 5px 0 10px #02f2f2,
+              -3px 0 12px #02f2f2;
+}
+
+.opt {
+	height: 100px;
+	width: 100px;
+	border-radius: 25%;
+	border: 4px solid;
+	background-color: var(--color);
+	border-color: rgba(0, 0, 0, 0.125);
+	color: rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+
+.opt:hover {
+	background-color: #439ea3;
+}

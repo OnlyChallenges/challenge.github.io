@@ -1,5 +1,6 @@
 let modInfo = {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	name: "The Experimental Tree",
 	id: "experiments",
 	author: "Ozvali",
@@ -21,10 +22,22 @@ let modInfo = {
 	initialStartPoints: new Decimal (1), // Used for hard resets and new players
 	offlineLimit: 0.001,  // In hours
 >>>>>>> 9e46e8a36312723afcba7370a0f30f267d5289a7
+=======
+  name: "Tree of Abyssal Demise",
+  id: "mymod",
+  author: "vali (snor mimi)",
+  pointsName: "points",
+  modFiles: ["tree.js", "layers/custom_test.js", "layers/achievements.js"],
+  discordName: "",
+  discordLink: "",
+  initialStartPoints: new Decimal(0), // Used for hard resets and new players
+  offlineLimit: 0,  // In hours
+>>>>>>> c64a7f351b7e4790f3d78de86f1ba72cf8a4fbe7
 }
 
 // Set your version in num and name
 let VERSION = {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	num: "2.0_betatest_1",
 	name: "Another World?",
@@ -382,25 +395,92 @@ let changelog = `<h1>Changelog:</h1><br>
 	        - Endgame: None.<br>`
 
 let winText = `You've reached the end! Thanks for playtesting!`
+=======
+  num: "1.3.1",
+  name: "Some more stuff",
+}
+
+let changelog = `<h1>Changelog:</h1><br><br>
+<h2>v1.3.1: New Content</h2><br>
+- Added Crit at Zone 4<br>
+- Added Counter at Zone 4<br>
+- Added Regen at Zone 6<br>
+- Rebalanced XP Requirement past level 27<br>
+- Fixed Attack & Defense Stats<br>
+- Readjusted Shield Effects from Enemies<br>
+- Added 4 Achievements<br><br>
+
+<h3>v1.3: Zone 6</h3><br>
+- Added Zone 6 (<ruins>Reality</ruins>)<br>[Level 30 - 39]<br>
+> Added 3 Enemies<br>
+- Fixed some Pre-L30 Bugs<br>
+- Fixed Enemy Damage<br>
+- Fixed Shield Protection Damage<br>
+- Fixed 2 Achievements<br><br>
+
+<h3>v1.2: Zone 5</h3><br>
+- Added Zone 5 (<obs>Observatory</obs>)<br>[Level 27 - 30~]<br>
+> Added <obs>Vixtra</obs><br>
+> Added <obs>Wenyi</obs><br>
+> Added <obs>Deep</obs><br>
+- Increased Level Cap to Level 30 (For now)<br>
+- Readjusted Max Damage Pre-20<br>
+- Fixed Sheild Manipluation<br>
+- Added Thousands Format (Used to make it easier for myself instead of seeing a number like 139,392,139,402,130,000 or 1.4e12...<br>
+- Refixed Storyline to end at Zone 4<br><br>
+- [WIP] <ruins>Added An Debuff</ruins><br>
+- [WIP] <ruins>Bonus Sheild Mechanics</ruins><br>
+- [WIP] <ruins>Bonus Attack Damage on Critical Change Impact</ruins><br><br>
+- <help> Bro I am not canonically an Avali</help><br>
+
+ <h3>v1.1: Zone 4</h3><br>
+  - Added Zone 4 (<rainbow>Garden</rainbow>)<br>[Level 19 - 26]<br>
+  > Added <server>Morgan</server><br>
+  > Added <server>Lovebeast</server><br>
+  > Added <server>Deep</server><br>
+  - Increased Level Cap to Level 26<br>
+  - Refixed Attack & Heal Vectors<br>
+  - Added Experiment Boost Damage<br>
+  _ Readjusted Experience & Experiment Health<br>
+  - Added Storyline & Experiment Log<br><br>
+  - [WIP] Added 3 NPC Dialogues for Zone 4 [<ruins>...It's a secret</ruins>]<br>
+  - [WIP] Experiment Coating (Sheild)<br>
+  - [WIP] Weapon Critting% (2.5x Damage)<br><br>
+
+
+ <h3>v1.0: Zone 3</h3><br>
+  - Added Zone 3 (<server>Server Room</server>)<br>[Level 11 - 18]<br>
+  > Added <rainbow>Hallow</rainbow><br>
+  > Added <rainbow>Virux</rainbow><br>
+  > Added <rainbow>Cyberruin</rainbow><br><br>
+  - Increased the level cap to 18<br>
+  - Added Attack Cooldown<br>
+  - Added Secret Hug Ability<br> that will hug plasma because I want it there >:D<br><br>
+
+
+	`
+let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
+>>>>>>> c64a7f351b7e4790f3d78de86f1ba72cf8a4fbe7
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
 var doNotCallTheseFunctionsEveryTick = ["blowUpEverything"]
 
-function getStartPoints(){
-    return new Decimal(modInfo.initialStartPoints)
+function getStartPoints() {
+  return new Decimal(modInfo.initialStartPoints)
 }
 
 // Determines if it should show points/sec
-function canGenPoints(){
-	return true
+function canGenPoints() {
+  return true
 }
 
 // Calculate points/sec!
 function getPointGen() {
-	if(!canGenPoints())
-		return new Decimal(0)
+  if (!canGenPoints())
+    return new Decimal(0)
 
+<<<<<<< HEAD
 	let gain = new Decimal(1)
 <<<<<<< HEAD
 	// C Upgrades
@@ -499,14 +579,23 @@ if (inChallenge('Ab', 11) && hasUpgrade('Ab', 22)) gain = gain.pow(1.3)
 if (hasUpgrade('kP', 14)) gain = gain.pow(1.2)
 >>>>>>> 9e46e8a36312723afcba7370a0f30f267d5289a7
 	return gain
+=======
+  let gain = new Decimal(5.6)
+
+  if (player.points > 2.5) gain = new Decimal(0.0001)
+  return gain
+>>>>>>> c64a7f351b7e4790f3d78de86f1ba72cf8a4fbe7
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
-function addedPlayerData() { return {
-}}
+function addedPlayerData() {
+  return {
+  }
+}
 
 // Display extra things at the top of the page
 var displayThings = [
+<<<<<<< HEAD
 <<<<<<< HEAD
 	"<a>Endgame: 1 Soul - Timeline 2</a><br>"
 	
@@ -521,16 +610,23 @@ function(){
 return cha
 },
 >>>>>>> 9e46e8a36312723afcba7370a0f30f267d5289a7
+=======
+  "Battling & Achievements Only :)"
+>>>>>>> c64a7f351b7e4790f3d78de86f1ba72cf8a4fbe7
 ]
 
 
 // Determines when the game "ends"
 function isEndgame() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	return player.SL.points.gte(1)
 =======
 	return player.kP.points.gte(new Decimal(40))
 >>>>>>> 9e46e8a36312723afcba7370a0f30f267d5289a7
+=======
+  return player.points.gte(new Decimal("e280000000"))
+>>>>>>> c64a7f351b7e4790f3d78de86f1ba72cf8a4fbe7
 }
 
 
@@ -543,10 +639,15 @@ var backgroundStyle = {
 
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {
-	return(3600) // Default is 1 hour which is just arbitrarily large
+  return (3600) // Default is 1 hour which is just arbitrarily large
 }
 
 // Use this if you need to undo inflation from an older version. If the version is older than the version that fixed the issue,
 // you can cap their current resources with this.
+<<<<<<< HEAD
 function fixOldSave(oldVersion){
 }
+=======
+function fixOldSave(oldVersion) {
+}
+>>>>>>> c64a7f351b7e4790f3d78de86f1ba72cf8a4fbe7
