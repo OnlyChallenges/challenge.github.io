@@ -69,9 +69,15 @@
 	border-color: rgba(0, 0, 0, 0.125);
 	color: rgba(0, 0, 0, 0.5);
 	width: 300px;
+<<<<<<< HEAD:assets/style/components.css
 	height: 375px;
 	font-size: 14.5px;
 	border-radius: 10%;
+=======
+	height: 400px;
+	font-size: 14.25px;
+	border-radius: 15%;
+>>>>>>> 9e46e8a36312723afcba7370a0f30f267d5289a7:css/components.css
 }
 
 .challenge.done {
