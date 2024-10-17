@@ -186,35 +186,40 @@
 #buyable-P-11.buyable.tooltipBox.can{
 	color: black;
 	text-shadow: rgb(64, 52, 224) 2.25px 2.25px 10px ;
-	background: rgb(75, 177, 218);
+	background: rgb(9, 129, 177);
 	background-image:repeating-linear-gradient(45deg,
-      hsla(0,0%,100%,.2),
-      hsla(0,0%,100%,.2) 15px,
+      hsla(204, 91%, 69%, 0.45),
+      hsla(204, 91%, 69%, 0.45) 15px,
       transparent 0,
       transparent 30px),
       repeating-linear-gradient(-45deg,
-      hsla(0,0%,100%,.2),
-      hsla(0,0%,100%,.2) 15px,
+      hsla(204, 91%, 69%, 0.45),
+      hsla(204, 91%, 69%, 0.45) 15px,
+      transparent 0,
+      transparent 30px),
+	  repeating-linear-gradient(90deg,
+      hsla(204, 91%, 69%, 0.45),
+      hsla(204, 91%, 69%, 0.45) 15px,
       transparent 0,
       transparent 30px);
 	background-size: 1000% 1000%;
 	background-position: 0% 0%;
 	animation: climb 120s linear infinite;
 	border: 3px solid rgb(110, 177, 203);
-	box-shadow: -10px 0px 3px rgb(61, 72, 77);
+	box-shadow: -10px 0px 3px rgb(61, 72, 77,0.3);
 }
 
 #buyable-P-11.buyable.tooltipBox.locked{
 	color: black;
 	background: rgb(202, 12, 12);
 	background-image:repeating-linear-gradient(45deg,
-      hsla(0,0%,100%,.2),
-      hsla(0,0%,100%,.2) 15px,
+      hsla(0,0%,100%,.1),
+      hsla(0,0%,100%,.1) 15px,
       transparent 0,
       transparent 30px),
       repeating-linear-gradient(-45deg,
-      hsla(0,0%,100%,.2),
-      hsla(0,0%,100%,.2) 15px,
+      hsla(0,0%,100%,.1),
+      hsla(0,0%,100%,.1) 15px,
       transparent 0,
       transparent 30px);
 	background-size: 1000% 1000%;
@@ -245,22 +250,27 @@
 #buyable-P-12.buyable.tooltipBox.can{
 	color: black;
 	text-shadow: rgb(64, 52, 224) 2.25px 2.25px 10px ;
-	background: rgb(75, 177, 218);
+	background: rgb(9, 129, 177);
 	background-image:repeating-linear-gradient(45deg,
-      hsla(0,0%,100%,.2),
-      hsla(0,0%,100%,.2) 15px,
-      transparent 0,
-      transparent 30px),
-      repeating-linear-gradient(-45deg,
-      hsla(0,0%,100%,.2),
-      hsla(0,0%,100%,.2) 15px,
-      transparent 0,
-      transparent 30px);
+	hsla(204, 91%, 69%, 0.45),
+	hsla(204, 91%, 69%, 0.45) 15px,
+	transparent 0,
+	transparent 30px),
+	repeating-linear-gradient(-45deg,
+	hsla(204, 91%, 69%, 0.45),
+	hsla(204, 91%, 69%, 0.45) 15px,
+	transparent 0,
+	transparent 30px),
+	repeating-linear-gradient(90deg,
+	hsla(204, 91%, 69%, 0.45),
+	hsla(204, 91%, 69%, 0.45) 15px,
+	transparent 0,
+	transparent 30px);
 	background-size: 1000% 1000%;
 	background-position: 0% 0%;
 	animation: revclimb 120s linear infinite;
 	border: 3px solid rgb(110, 177, 203);
-	box-shadow: 10px 0px 3px rgb(61, 72, 77);
+	box-shadow: 10px 0px 3px rgb(61, 72, 77,0.3);
 }
 
 

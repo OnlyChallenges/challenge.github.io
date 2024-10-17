@@ -5,6 +5,7 @@ addLayer("V", {
         return {
             unlocked: false,
             spec: false,
+            underwater: false,
             points: new Decimal(0),
             kills: new Decimal(0),
             streak: new Decimal(0),
@@ -13,7 +14,20 @@ addLayer("V", {
             assists: new Decimal(0),
             avgdamage: new Decimal(0),
 
+            oxygen: new Decimal(100),
+            oxygenMax: new Decimal(100),
+            scrap: new Decimal(0),
+            gears: new Decimal(0),
+            scrapFound: new Decimal(0),
+            scrapMax: new Decimal(10),
+            drown: new Decimal(0),
+            health: new Decimal(0),
+            blood: new Decimal(0),
             chaltime: new Decimal(0),
+            clickableTime: new Decimal(0),
+            clickableTime2: new Decimal(0),
+            focus: new Decimal(0),
+            spectime: new Decimal(316),
         }
     },
     requires() {
@@ -92,6 +106,20 @@ addLayer("V", {
         player.V.infects = player.V.infects.plus(tmp.V.streakEff.times(diff));
         player.V.coins = player.V.coins.plus(tmp.V.infectEff.times(diff));
         if (hasUpgrade("V", 12)) player.V.assists = player.V.assists.plus(tmp.V.assistEff.times(diff).pow(0.8));
+        if (inChallenge("V", 12)) player.V.blood = player.V.blood.plus(new Decimal(1).times(diff))
+        if (inChallenge("V", 21)) player.V.health = player.V.health.minus(new Decimal(0.2).times(diff))
+        if (player.V.clickableTime > 0) player.V.clickableTime = player.V.clickableTime.minus(new Decimal(1).times(diff)).max(0)
+        if (player.V.clickableTime2 > 0) player.V.clickableTime2 = player.V.clickableTime2.minus(new Decimal(1).times(diff)).max(0)
+        if (player.V.focus > 0) player.V.focus = player.V.focus.minus(new Decimal(1).times(diff)).max(0)
+        if (player.V.underwater == true) player.V.oxygen = player.V.oxygen.minus(new Decimal(tmp.V.lossBreathing).times(diff)).max(0)
+        if (player.V.underwater == false) player.V.oxygen = player.V.oxygen.plus(new Decimal(tmp.V.breathing).times(diff)).min(tmp.V.oxygenSwimMax)
+        if (player.V.underwater == true) player.V.scrapFound = player.V.scrapFound.plus(new Decimal(tmp.V.scrapGain).times(diff)).min(tmp.V.scrapSwimMax)
+        if (player.V.underwater == false) player.V.scrap = player.V.scrap.add(player.V.scrapFound)
+        if (player.V.underwater == false) player.V.scrapFound = new Decimal(0)
+        if (player.V.oxygen == 0) player.V.drown = player.V.drown.plus(1)
+        if (player.V.oxygen == 0) player.V.underwater = false
+        if (player.V.oxygen == 0) player.V.scrapFound = new Decimal(0)
+        if (player.V.oxygen == 0) player.V.scrap = new Decimal(0)
     },
 
     doReset(resettingLayer) {
@@ -206,13 +234,93 @@ addLayer("V", {
         return tier1
     },
 
+    barrierBleed() {
+        let logger = player.points.log10().log10()
+        let bleed = new Decimal(1).div(logger.pow(2)).div(1.05)
+        if (player.points < 1e10) bleed = new Decimal(1)
+        return bleed
+    },
+
+    barrierBleed2() {
+        let logger = player.points.log10().log10()
+        let bleed = new Decimal(1).div(logger.pow(2)).div(1.075)
+        if (player.points < 1e10) bleed = new Decimal(1)
+        return bleed
+    },
+
+    barrierBleed3() {
+        let booster = player.points.pow(0.15)
+        let bleed = new Decimal(2).times(booster)
+        if (player.points < 1e20) bleed = new Decimal(2)
+        return bleed
+    },
+
+    softCaps() {
+        let softs = new Decimal(0)
+        if (player.points >= 1e10) softs = softs.add(1)
+        if (player.points >= 1e20) softs = softs.add(1)
+        if (player.points >= 1e150) softs = softs.add(1)
+        if (player.P.points >= 1e28) softs = softs.add(1)
+        return softs
+    },
+
+    scrapEff() {
+        return player.V.scrap.add(1).pow(0.2)
+    },
+
+    scrapSwimMax() {
+        let swim = new Decimal(10)
+        if (getBuyableAmount("V", 41).gte(1)) swim = swim.times(buyableEffect("V", 41))
+        return swim
+    },
+
+    oxygenSwimMax() {
+        let oxy = new Decimal(100)
+        if (getBuyableAmount("V", 51).gte(1)) oxy = oxy.times(buyableEffect("V", 51))
+        return oxy
+    },
+
+    breathing() {
+        let air = new Decimal(2.8)
+        if (getBuyableAmount("V", 51).gte(1)) air = air.times(buyableEffect("V", 51).times(0.6))
+        return air
+    },
+
+    lossBreathing() {
+        let loss = new Decimal(2.25)
+        if (getBuyableAmount("V", 52).gte(1)) loss = loss.times(buyableEffect("V", 52).times(1.3))
+        if (player.V.focus > 0) loss = loss.times(0.75)
+        return loss
+    },
+    scrapGain() {
+        let gain = new Decimal(0.2)
+        if (getBuyableAmount("V", 42).gte(1)) gain = gain.times(buyableEffect("V", 42))
+        if (getBuyableAmount("V", 61).gte(1)) gain = gain.times(buyableEffect("V", 61).max(1))
+        return gain
+    },
+
+    gearform() {
+        if (player.V.scrap < 1) return new Decimal(0)
+        else return player.V.scrap.pow(0.1).minus(1.2).max(0)
+    },
+
+    gearEff() {
+        return player.V.gears.pow(0.4).div(13)
+    },
+
+    challengeScaler() {
+        let a = new Decimal(player.V.oxygen)
+        let b = new Decimal(tmp.V.oxygenSwimMax)
+        let final = a/b
+        return final
+    },
+
     tabFormat: {
         "Facility": {
             content: [
                 "main-display",
                 "prestige-button",
                 "blank",
-
                 "h-line",
                 ["display-text",
                     function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystals</text>" },
@@ -251,10 +359,9 @@ addLayer("V", {
                         return 'You are doing ' + formatWhole(tmp[this.layer].avgDamage) + " Average Damage<br>That's " + format((tmp[this.layer].avgDamage).div(250)) + " Experiment Kills/sec!<br><spoiler>Formula: (((d1*(type)+WLVs)+(d2*(type)+WLVs))/2)^((1.05~1.15)=~Kills)</spoiler>"
                     },
                     {}],
-                "buyables",
+                ["buyables", [1, 2, 3]],
                 "blank",
                 "h-line",
-
             ],
             buttonStyle() { return { 'background': 'linear-gradient(to right,green 40%, #13d165 60%)', 'color': 'black', 'box-shadow': '2px 2px 2px green' } },
         },
@@ -263,7 +370,8 @@ addLayer("V", {
                 "main-display",
                 "prestige-button",
                 "blank",
-
+                ["infobox", "w1"],
+                "blank",
                 "h-line",
                 ["display-text",
                     function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystals</text>" },
@@ -282,6 +390,10 @@ addLayer("V", {
                 "blank",
                 "milestones",
                 "h-line",
+                "blank",
+                ["display-text",
+                    function () { return "<h3 style='color:grey;text-shadow: red 0px 0px 5px'>The Events of Chaos</text>" },
+                    {}],
                 "challenges",
                 ["display-text", function () {
                     if (challengeCompletions("V", 11) == 1) return "Power Outage Challenge Rewards:<br> 1st Reward: <text style='color:red'>Kills</text> are boosted by <text style='color:skyblue'>Chemicals</text> (x" + format(tmp[this.layer].challenges["11"].reward1) + ")"
@@ -304,6 +416,86 @@ addLayer("V", {
 
             ],
             buttonStyle() { return { 'background': 'linear-gradient(to right,lime 30%, #13d165 70%)', 'color': 'black', 'box-shadow': '2px 2px 2px lime' } },
+        },
+        "Underwater": {
+            content: [
+                "blank",
+                ["bar", "oxygen"],
+                ["bar", "scrap"],
+                ["display-text",
+                    function () {
+
+                        if (player.V.focus > 0) return "<text style='color:red;text-shadow: orange 2px 1px 3px'>Dead-Eye Swimming</text> is active for " + formatWhole(player.V.focus) + "s<br>(Oxygen Loss ↓25%)"
+
+                    },
+                    {}],
+                ["clickables", [1]],
+                ["display-text",
+                    function () { return "<text style='color:cyan'>You have drowned " + formatWhole(player.V.drown) + " time(s), which makes all <text style='color:grey'>Scrap Buyables</text> weaker by <text style='color:red;text-shadow: cyan 2px 1px 3px'>" + format(player.V.drown.times(1.25)) + " </text>%</text>" },
+                    {}],
+                "blank",
+                "h-line",
+                "blank",
+                ["display-text",
+                    function () { return "You have " + formatWhole(player.V.scrap) + " <text style='color:grey'>Scrap</text>(s), which boosts all Stats (on this layer; except <text style='color:grey'>Scrap</text>) by " + format(tmp.V.scrapEff) + "x" },
+                    {}],
+                ["display-text",
+                    function () { return "You have " + format(player.V.gears) + " <text style='color:pink'>Gears</text>(s), which boosts all <text style='color:grey'>Scrap Buyables</text> by " + format(tmp.V.gearEff.times(100)) + "%" },
+                    {}],
+                ["display-text",
+                    function () {
+                        if (player.V.scrap.gte(1)) return "Developers are unlocked at 1,000,000,000 <text style='color:grey'>Scrap</text> (" + format((player.V.scrap.log10().times(100)).div(10)) + "%)"
+                        else return "Developers are unlocked at 1,000,000,000 <text style='color:grey'>Scrap</text> (0%)"
+                    },
+                    {}],
+                "blank",
+                ["buyables", [4, 5,6]],
+            ],
+            buttonStyle() { return { 'background': 'linear-gradient(to right,blue 40%, cyan 60%)', 'color': 'black', 'box-shadow': '2px 2px 2px blue', 'border': 'skyblue' } },
+        },
+        "Softcaps": {
+            content: [
+                ["display-text",
+                    function () {
+                        if (player.points >= 1e10) return "<text style='color:red;text-shadow:yellow 3px 3px 10px'>Barrier Bleed</text> Nerf (Starts at 1e10 <text style='color:#b76ce6'>crystals</text>) [<text style='color:green;text-shadow:lime 3px 3px 10px'>ACTIVE</text>]:<br>^" + format(tmp[this.layer].barrierBleed) + " <text style='color:#b76ce6'>crystal</text> gain<br><text style='color:skyblue'>Chemical Buyables</text> are much weaker by ^" + format(tmp[this.layer].barrierBleed2)
+                        else return "<text style='color:red;text-shadow:yellow 3px 3px 10px'>Barrier Bleed</text> Nerf (Starts at 1e10 <text style='color:#b76ce6'>crystals</text>) [<text style='color:red;text-shadow:orange 3px 3px 10px'>INACTIVE</text>]:<br>^" + format(tmp[this.layer].barrierBleed) + " <text style='color:#b76ce6'>crystal</text> gain<br><text style='color:skyblue'>Chemical Buyables</text> are much weaker by ^" + format(tmp[this.layer].barrierBleed2)
+                    },
+                    {}],
+                "blank",
+                "h-line",
+                "blank",
+                ["display-text",
+                    function () {
+                        if (player.points >= 1e20) return "<text style='color:red;text-shadow:yellow 3px 3px 10px'>Barrier Bleed</text> Nerf 2 (Starts at 1e20 <text style='color:#b76ce6'>crystals</text>) [<text style='color:green;text-shadow:lime 3px 3px 10px'>ACTIVE</text>]:<br> +" + format(tmp[this.layer].barrierBleed3) + "x All<text style='color:green'> Experiment</text> Health<br>All Weapons are 30% weaker"
+                        else return "<text style='color:red;text-shadow:yellow 3px 3px 10px'>Barrier Bleed</text> Nerf 2 (Starts at 1e20 <text style='color:#b76ce6'>crystals</text>) [<text style='color:red;text-shadow:orange 3px 3px 10px'>INACTIVE</text>]:<br> +" + format(tmp[this.layer].barrierBleed3) + "x All<text style='color:green'> Experiment</text> Health<br>All Weapons are 30% weaker"
+                    },
+                    {}],
+                "blank",
+                "h-line",
+                "blank",
+                ["display-text",
+                    function () {
+                        if (player.P.points >= 1e28) return "<text style='color:cyan;text-shadow:blue 3px 3px 10px'>Drowning</text> Nerf (Starts at 1e28 <text style='color:skyblue'>chemicals</text>) [<text style='color:green;text-shadow:lime 3px 3px 10px'>ACTIVE</text>]:<br>Triggers 1 Time!<br> Lose the ability to gain <text style='color:lightblue;text-shadow:cyan 3px 3px 10px'>assists</text><br> <text style='color:green'>Experiments</text> now inflict '<text style='color:grey;text-shadow: lightgrey 0px 0px 5px'>Pure Drown</text>' towards you in challenges<br> <h5 style='opacity:0.5'>'Pure Drown' causes chemical decay (-5%/sec); Effect is active inside challenge at all times</h5><br>"
+                        else return "<text style='color:cyan;text-shadow:blue 3px 3px 10px'>Drowning</text> Nerf (Starts at 1e28 <text style='color:skyblue'>chemicals</text>) [<text style='color:red;text-shadow:orange 3px 3px 10px'>INACTIVE</text>]:<br>Triggers 1 Time!<br> Lose the ability to gain <text style='color:lightblue;text-shadow:cyan 3px 3px 10px'>assists</text><br> <text style='color:green'>Experiments</text> now inflict '<text style='color:grey;text-shadow: lightgrey 0px 0px 5px'>Pure Drown</text>' towards you in challenges<br> <h5 style='opacity:0.5'>'Pure Drown' causes chemical decay (-5%/sec); Effect is active inside challenge at all times</h5><br>"
+                    },
+                    {}],
+                "h-line",
+                "blank",
+                ["display-text",
+                    function () { return "<text style='color:lime;text-shadow:green 3px 3px 10px'>Poison</text> Nerf (Starts at 1e150 <text style='color:#b76ce6'>crystals</text>) [<text style='color:red;text-shadow:orange 3px 3px 10px'>INACTIVE</text>]:<br><text style='color:green'>Experiments</text></text> now inflict '<text style='color:lime;text-shadow: green 0px 0px 5px'>Acidic Stare</text>' towards you every 15 seconds<br><text style='color:skyblue'>Chemical Buyables</text> no longer boost anything<br><h5 style='opacity:0.5'>'Acidic Stare' causes weapons effects to be set to 0, lasts for 5 seconds</h5><br>" },
+                    {}],
+            ],
+            buttonStyle() { return { 'background': 'linear-gradient(to right,red 30%, orange 70%)', 'color': 'black', 'box-shadow': '2px 2px 2px red', 'border': 'red' } },
+        },
+    },
+
+
+    infoboxes: {
+        w1: {
+            title: "Only the beginning...",
+            titleStyle: { 'color': '#000000' },
+            body() { return "Weapons... we all know them... we all love them...<br><spoiler>Power Outage</spoiler> & <spoiler>Blood Moon</spoiler> are the only challenges so far<br>Weapon Buyables give Damage depending on the level & contribution towards it. Get enough minimum damage and you'll be able to sweap the experiments on that floor! How far can you go?<br><br> Floors Remaining: <text style='color:yellow'>0</text>/<text style='color:red'>5</text>" },
+            bodyStyle: { 'background-color': "green" }
         },
     },
 
@@ -394,11 +586,6 @@ addLayer("V", {
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
-            style() {
-                return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
-                }
-            },
         },
         12: {
             title() {
@@ -446,11 +633,6 @@ addLayer("V", {
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
-            },
-            style() {
-                return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
-                }
             },
         },
         13: {
@@ -500,11 +682,6 @@ addLayer("V", {
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
-            style() {
-                return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
-                }
-            },
         },
         21: {
             title() {
@@ -551,11 +728,6 @@ addLayer("V", {
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
-            },
-            style() {
-                return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
-                }
             },
         },
         22: {
@@ -643,11 +815,6 @@ addLayer("V", {
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
-            style() {
-                return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
-                }
-            },
         },
         31: {
             title() {
@@ -694,11 +861,6 @@ addLayer("V", {
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 1)) eff = eff.pow(0.8)
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
-            },
-            style() {
-                return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
-                }
             },
         },
         32: {
@@ -747,11 +909,6 @@ addLayer("V", {
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
-            style() {
-                return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
-                }
-            },
         },
         33: {
             title() {
@@ -798,10 +955,314 @@ addLayer("V", {
                 if (inChallenge("V", 11) && (challengeCompletions("V", 11) == 2)) eff = eff.pow(0.5)
                 return eff
             },
+        },
+        41: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) >= 100) { return "More Scraps<br>[<text style='color:blue'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 50) { return "More Scraps<br>[<text style='color:green'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 25) { return "More Scraps<br>[<text style='color:yellow'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 10) { return "More Scraps<br>[<text style='color:orange'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) > 0) { return "More Scraps<br>[<text style='color:darkred'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else return "More Scraps"
+            },
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.11)
+                let exp2 = new Decimal(1.01)
+                let costdef = new Decimal(10)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Scraps<br>Effect: Boost Scrap Swim Max by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+            },
+            canAfford() {
+                return player[this.layer].scrap.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].scrap = player[this.layer].scrap.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.15)
+                let base2 = x
+                let expo = new Decimal(1.02)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                if (player.V.drown > 0) eff = eff.times(new Decimal(1).minus(player.V.drown.times(1.25).div(100)))
+                if (player.V.gears > 0) eff = eff.times(new Decimal(1).add(tmp.V.gearEff))
+                return eff
+            },
+        },
+        42: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) >= 100) { return "Heavy Breathing<br>[<text style='color:blue'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 50) { return "Heavy Breathing<br>[<text style='color:green'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 25) { return "Heavy Breathing<br>[<text style='color:yellow'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 10) { return "Heavy Breathing<br>[<text style='color:orange'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) > 0) { return "Heavy Breathing<br>[<text style='color:darkred'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else return "Heavy Breathing"
+            },
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.4)
+                let exp2 = new Decimal(1.01)
+                let costdef = new Decimal(40)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Scraps<br>Effect: Boost Scrap Gain/sec by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+            },
+            canAfford() {
+                return player[this.layer].scrap.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].scrap = player[this.layer].scrap.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(2.1)
+                let base2 = x
+                let expo = new Decimal(1.02)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                if (player.V.drown > 0) eff = eff.times(new Decimal(1).minus(player.V.drown.times(1.25).div(100)))
+                if (player.V.gears > 0) eff = eff.times(new Decimal(1).add(tmp.V.gearEff))
+                if (getBuyableAmount("V", 42) == 0) eff = new Decimal(1)
+                return eff
+            },
+        },
+        51: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) >= 100) { return "Equipment<br>[<text style='color:blue'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 50) { return "Equipment<br>[<text style='color:green'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 25) { return "Equipment<br>[<text style='color:yellow'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 10) { return "Equipment<br>[<text style='color:orange'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) > 0) { return "Equipment<br>[<text style='color:darkred'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else return "Equipment"
+            },
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.13)
+                let exp2 = new Decimal(1.01)
+                let costdef = new Decimal(75)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Scraps<br>Effect: Increase Oxygen Level & Breathing Capabilities by " + format(tmp[this.layer].buyables[this.id].effect) + "x"
+            },
+            canAfford() {
+                return player[this.layer].scrap.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].scrap = player[this.layer].scrap.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.27)
+                let base2 = x
+                let expo = new Decimal(1.02)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                if (player.V.drown > 0) eff = eff.times(new Decimal(1).minus(player.V.drown.times(1.25).div(100)))
+                if (player.V.gears > 0) eff = eff.times(new Decimal(1).add(tmp.V.gearEff))
+                if (getBuyableAmount("V", 51) == 0) eff = new Decimal(1)
+                return eff
+            },
+        },
+        52: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) >= 100) { return "Risky Movement<br>[<text style='color:blue'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 50) { return "Risky Movement<br>[<text style='color:green'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 25) { return "Risky Movement<br>[<text style='color:yellow'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 10) { return "Risky Movement<br>[<text style='color:orange'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) > 0) { return "Risky Movement<br>[<text style='color:darkred'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else return "Risky Movement"
+            },
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.47)
+                let exp2 = new Decimal(1.01)
+                let costdef = new Decimal(200)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Scraps<br>Effect: Increase Scrap Gain/sec significantly by " + format(tmp[this.layer].buyables[this.id].effect) + "x, but lose oxygen faster..."
+            },
+            canAfford() {
+                return player[this.layer].scrap.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].scrap = player[this.layer].scrap.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.4)
+                let base2 = x
+                let expo = new Decimal(1.02)
+                let eff = base1.pow(Decimal.pow(base2, expo))
+                if (player.V.drown > 0) eff = eff.div(new Decimal(100).minus(player.V.drown.times(1.25))).times(100)
+                if (player.V.gears > 0) eff = eff.times(new Decimal(1).add(tmp.V.gearEff))
+                if (getBuyableAmount("V", 52) == 0) eff = new Decimal(1)
+                return eff
+            },
+        },
+        61: {
+            title() {
+                if (getBuyableAmount(this.layer, this.id) >= 100) { return "Infected Water<br>[<text style='color:blue'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 50) { return "Infected Water<br>[<text style='color:green'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 25) { return "Infected Water<br>[<text style='color:yellow'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 10) { return "Infected Water<br>[<text style='color:orange'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) > 0) { return "Infected Water<br>[<text style='color:darkred'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else return "Infected Water"
+            },
+            unlocked() { return true },
+            cost(x) {
+                let exp1 = new Decimal(1.47)
+                let exp2 = new Decimal(1.01)
+                let costdef = new Decimal(1500)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                return spec
+            },
+            display() {
+                return "Cost: " + formatWhole(tmp[this.layer].buyables[this.id].cost) + " Scraps<br>Effect: Increase Scrap Gain/sec, but decreases depending on your oxygen remaining<br><br>Current Effect: <text style='color:cyan'>" + format(tmp[this.layer].buyables[this.id].effect)+"</text>x<br>Original Effect: <text style='color:lime'>" + format(tmp[this.layer].buyables[this.id].effect2) + "</text>x"
+            },
+            canAfford() {
+                return player[this.layer].scrap.gte(this.cost())
+            },
+            buy() {
+                let cost = new Decimal(1)
+                player[this.layer].scrap = player[this.layer].scrap.sub(this.cost().mul(cost))
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            effect(x) {
+                let base1 = new Decimal(1.6)
+                let base2 = x
+                let expo = new Decimal(1)
+                let eff = tmp[this.layer].challengeScaler
+                let effmain = base1.pow(Decimal.pow(base2, expo)).times(new Decimal(1).times(eff)).max(1)
+                if (getBuyableAmount("V", 61) == 0) effmain = new Decimal(1)
+                return effmain
+            },
+            effect2(x = getBuyableAmount("V", 61)) {
+                let base1 = new Decimal(1.6)
+                let base2 = x
+                let expo = new Decimal(1)
+                let effmain = base1.pow(Decimal.pow(base2, expo)).max(1)
+                if (getBuyableAmount("V", 61) == 0) effmain = new Decimal(1)
+                return effmain
+            },
+        },
+    },
+
+    clickables: {
+        11: {
+            title() {
+                if (player.V.clickableTime2 > 0) return ""
+                else return "Dead-Eye Swimming"
+            },
+            display() {
+                if (player.V.clickableTime2 > 0) return formatWhole(player.V.clickableTime2) + " Seconds Remaining"
+                else return "Focus all of your breathing into collecting scrap<br>Lowers the loss of oxygen by 25% for 15 seconds!"
+            },
+            canClick() {
+                if (player.V.clickableTime2 > 0) return false
+                else return true
+
+            },
+            onClick() {
+                player.V.clickableTime2 = new Decimal(90)
+                player.V.focus = new Decimal(15)
+            },
+            style() {
+                if (player.V.clickableTime2 > 0) return { 'background-color': 'red', "background-image": "repeating-linear-gradient(45deg, hsla(204, 48%, 17%, 0.7), hsla(204, 48%, 17%, 0.7) 15px, transparent 0, transparent 30px)", "background-size": "1000% 1000%", "background-position": "0% 0%", "border": "2px solid red", "width": "140px", "animation": "main 150s infinite", "color": "white", "text-shadow": "rgb(6, 12, 20) 3px 3px 10px" }
+                else return {
+                    'background-color': '#f08078', "background-image": "repeating-radial-gradient(circle at center, hsla(4, 94%, 41%, 0.5), hsla(4, 94%, 41%, 0.5) 15px, transparent 0, transparent 30px)", "background-size": "100% 100%", "background-position": "0% 0%", "border": "2px solid red", "width": "140px", "animation": "main 150s infinite", "color": "white", "text-shadow": "rgb(6, 12, 20) 3px 3px 10px"
+                }
+            },
+        },
+        12: {
+            title() {
+                if (player.V.underwater == true) return "Exit the Water"
+                else return "Enter the Water"
+            },
+            display: "Scavage for Scrap Materials<br>If your oxygen hits 0, all of your scrap is gone due to drowning",
+            canClick: true,
+            onClick() {
+                if (player.V.underwater == true) return player.V.underwater = false
+                else return player.V.underwater = true
+            },
             style() {
                 return {
-                    background: (tmp[this.layer].buyables[this.id].canAfford ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"),
+                    'background-color': 'cyan', "background-image": "repeating-linear-gradient(135deg, hsla(204, 48%, 17%, 0.134), hsla(204, 48%, 17%, 0.134) 15px, transparent 0, transparent 30px)", "background-size": "1000% 1000%", "background-position": "0% 0%", "border": "2px solid blue", "width": "275px", "animation": "main 150s infinite", "color": "blue", "text-shadow": "rgb(6, 12, 20) 3px 3px 10px"
                 }
+            },
+        },
+        13: {
+            title() {
+                if (player.V.clickableTime > 0) return ""
+                else return "Mechanical Engineering"
+            },
+            display() {
+                if (player.V.clickableTime > 0) return formatWhole(player.V.clickableTime) + " Seconds Remaining"
+                else return "Transfer Scrap Pieces to Gears<br>(+" + format(tmp.V.gearform) + " Gears)"
+            },
+            canClick() {
+                if (player.V.clickableTime > 0) return false
+                else return true
+
+            },
+            onClick() {
+                player.V.gears = player.V.gears.add(tmp.V.gearform)
+                player.V.clickableTime = new Decimal(45)
+                player.V.scrap = new Decimal(0)
+            },
+            style() {
+                if (player.V.clickableTime > 0) return { 'background-color': 'red', "background-image": "repeating-linear-gradient(45deg, hsla(204, 48%, 17%, 0.7), hsla(204, 48%, 17%, 0.7) 15px, transparent 0, transparent 30px)", "background-size": "1000% 1000%", "background-position": "0% 0%", "border": "2px solid red", "width": "140px", "animation": "main 150s infinite", "color": "white", "text-shadow": "rgb(6, 12, 20) 3px 3px 10px" }
+                else return {
+                    'background-color': 'grey', "background-image": "repeating-linear-gradient(45deg, hsla(204, 48%, 17%, 0.134), hsla(204, 48%, 17%, 0.134) 15px, transparent 0, transparent 30px)", "background-size": "1000% 1000%", "background-position": "0% 0%", "border": "2px solid grey", "width": "140px", "animation": "main 150s infinite", "color": "white", "text-shadow": "rgb(6, 12, 20) 3px 3px 10px"
+                }
+            },
+        },
+    },
+
+    bars: {
+        oxygen: {
+            direction: RIGHT,
+            width: 500,
+            height: 60,
+            fillStyle() {
+                if (player.V.focus > 0) return { 'background-color': '#070173' }
+                else return { 'background-color': "blue" }
+
+            },
+            borderStyle() { return { "border-color": "skyblue" } },
+            progress() {
+                let prog = player.V.oxygen.div(100)
+                return prog
+            },
+            display() {
+                if (player.V.underwater == false) return "Oxygen Level: " + formatWhole(player.V.oxygen.div(tmp.V.oxygenSwimMax).times(100)) + "%<br>( " + formatWhole(player.V.oxygen) + " / " + formatWhole(tmp.V.oxygenSwimMax) + " ) [↑<text style='color:lime'>" + format(tmp.V.breathing) + "</text>/s]"
+                else return "Oxygen Level: " + formatWhole(player.V.oxygen.div(tmp.V.oxygenSwimMax).times(100)) + "%<br>( " + formatWhole(player.V.oxygen) + " / " + formatWhole(tmp.V.oxygenSwimMax) + " ) [↓<text style='color:red'>" + format(tmp.V.lossBreathing) + "</text>/s]"
+            },
+        },
+        scrap: {
+            direction: RIGHT,
+            width: 500,
+            height: 35,
+            instant: true,
+            fillStyle: { 'background-color': "grey" },
+            borderStyle() { return { "border-color": "darkgrey" } },
+            progress() {
+                let prog = player.V.scrapFound.div(tmp.V.scrapSwimMax)
+                return prog
+            },
+            display() {
+                return "Scraps Found: " + formatWhole(player.V.scrapFound) + "/" + formatWhole(tmp.V.scrapSwimMax) + " (" + format(tmp.V.scrapGain) + "/s)"
             },
         },
     },
@@ -823,7 +1284,7 @@ addLayer("V", {
             goalDescription() {
                 let basetext = "<text style='color:lime'>Human Population</text> = <text style='color:#b76ce6'>Crystals</text>"
                 if (challengeCompletions("V", 11) == 1) basetext = "<text style='color:orange'>LITF</text>^5 = <text style='color:#b76ce6'>Crystals</text><br><spoiler>There are 457 lights in the facility</spoiler>"
-                if (challengeCompletions("V", 11) == 2) basetext = "<text style='color:red'>"+formatWhole(new Decimal(10).pow(player[this.layer].chaltime.pow(0.36).plus(1).min(20))) + " </text><text style='color:skyblue'>Chemicals</text><br>Current Scale: ^<text style='color:yellow'>"+format(player[this.layer].chaltime.pow(0.36).plus(1).min(20))+"</text> ("+formatWhole(player[this.layer].chaltime)+"s)"+"<h5 style='opacity:0.5'>(Requirement scales overtime... but reseting layers lowers the scale by .01 each time)</h5>"
+                if (challengeCompletions("V", 11) == 2) basetext = "<text style='color:red'>" + formatWhole(new Decimal(10).pow(player[this.layer].chaltime.pow(0.36).plus(1).min(20))) + " </text><text style='color:skyblue'>Chemicals</text><br>Current Scale: ^<text style='color:yellow'>" + format(player[this.layer].chaltime.pow(0.36).plus(1).min(20)) + "</text> (" + formatWhole(player[this.layer].chaltime) + "s)" + "<h5 style='opacity:0.5'>(Requirement scales overtime... but reseting layers lowers the scale by .01 each time)</h5>"
                 return basetext
             },
             completionLimit() { return new Decimal(3) },
@@ -873,6 +1334,76 @@ addLayer("V", {
                     if (challengeCompletions("V", 11) == 1) return { background: "#585959", color: "white", width: "400px", height: "360px" }
                     if (challengeCompletions("V", 11) == 0) return { background: "#585959", color: "white", width: "400px" }
                     else return { background: "#585959", color: "white", width: "400px" }
+                }
+            },
+        },
+        12: {
+            name() { return "<text style='color:#fc7d74'>Blood Moon</text> <text style='text-shadow: white 1.75px 1.75px 4px; color:red;'>" + convertToRoman(challengeCompletions("V", 12) + 1) + "</text>" },
+            challengeDescription() {
+                return `<h5 style='opacity:0.5'>(You can re-enter this challenge multiple times)</h5>All Weapon Stats are reduced sigificantly<br>You gain <text style='color:orange'>Blood</text> depending on the duration you're in this challenge, <text style='color:orange'>Blood</text> reduces crystal gain over time, if your gain is under 1, <text style='color:orange'>Blood</text> will reset.<br> Can you withstand the <text style='color:red'>bleeding</text>?`
+            },
+            canComplete: function () {
+                return player.V.blood.gte(300)
+            }, // Recorded On Sep 6th, 2024
+            goalDescription() {
+                let basetext = formatWhole(player.V.blood) + " / 300 <text style='color:orange'>Blood</text>"
+                return basetext
+            },
+            completionLimit() { return new Decimal(2) },
+            letchallengeFail() {
+                if (getPointGen() < 1)
+                    return run(layers["V"].challenges["12"].onExit)
+            },
+            onExit() {
+                player.V.blood = new Decimal(0)
+
+            },
+            rewardDescription() {
+                let reward = "Decrease the potency of the 1st Softcap"
+                return reward
+            },
+            unlocked() {
+                return player[this.layer].assists.gte(100)
+            },
+            style() {
+                {
+                    return { "color": "rgb(223, 222, 222)", "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", "background": " red", "background-image": "repeating-linear-gradient(45deg, hsla(204, 48%, 17%, 0.384), hsla(204, 48%, 17%, 0.842) 15px, transparent 0, transparent 30px)", "background-size": "1000% 1000%", "background-position": "0% 0%", "border": "2px solid red", "width": "400px", "animation": "main 240s infinite" }
+                }
+            },
+        },
+        21: {
+            name() { return "<text style='color:##f78f2'>Abyssal</text> <text style='text-shadow: white 1.75px 1.75px 4px; color:cyan;'>" + convertToRoman(challengeCompletions("V", 21) + 1) + "</text>" },
+            challengeDescription() {
+                return "<h5 style='opacity:0.5'>(You can re-enter this challenge multiple times)</h5>Weapons & Isotopes are useless<br><text style='color:lightblue'>Chemical Buyables</text> are severely nerfed<br>You now take '<text style='color:cyan'>Blue Damage</text>', which makes you lose health overtime. Due to the lack of regeneration, you're on a set pace to beat the challenge before running out of health. Can you beat the event?<br><br> Health Remaining: " + formatWhole(player.V.health) + " / <text style='color:lime'>135</text><h5 style='opacity:0.5'>(Blue Damage is not karma)</h5>"
+            },
+            canComplete: function () {
+                return player.points.gte(1e15)
+            }, // Recorded On Sep 6th, 2024
+            goalDescription() {
+                let basetext = "Reach 1e15 <text style='color:#b375f0'>Crystals</text>"
+                return basetext
+            },
+            completionLimit() { return new Decimal(2) },
+            letchallengeFail() {
+                if (player.V.health < 0.1)
+                    return run(layers["V"].challenges["21"].onEnter)
+            },
+            onEnter() {
+                doReset(this.layer, true)
+            },
+            onExit() {
+                player.V.health = new Decimal(135)
+            },
+            rewardDescription() {
+                let reward = "Power Outage & Blood Moon are 55% weaker"
+                return reward
+            },
+            unlocked() {
+                return player[this.layer].assists.gte(100)
+            },
+            style() {
+                {
+                    return { "color": "rgb(223, 222, 222)", "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", "background": " blue", "background-image": "repeating-radial-gradient(circle at center, hsla(204, 48%, 17%, 0.384), hsla(204, 48%, 17%, 0.842) 15px, transparent 0, transparent 30px)", "background-size": "250% 250%", "background-position": "0% 0%", "border": "2px solid cyan", "width": "800px", "animation": "main 240s infinite" }
                 }
             },
         },

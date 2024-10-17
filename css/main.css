@@ -132,3 +132,383 @@
 	animation: main 120s linear infinite;
 	border: 2px solid rgb(10, 136, 38);
 }
+
+.story-text{
+	color: rgb(223, 222, 222);
+	text-shadow: rgb(6, 12, 20) 3px 3px 10px ;
+	background: rgb(10, 184, 88);
+	background-image:repeating-linear-gradient(90deg,
+      hsla(204, 48%, 17%, 0.384),
+      hsla(204, 48%, 17%, 0.384) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	border: 2px solid rgb(10, 136, 38);
+}
+
+
+#buyable-V-41.buyable.tooltipBox.locked{
+	color: rgb(255, 255, 255);
+	background: rgb(77, 79, 82);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 180s linear infinite;
+	border: 3px solid rgb(138, 150, 153);
+}
+
+#buyable-V-41.buyable.tooltipBox.can{
+	color: rgb(255, 255, 255);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(38, 195, 235);
+	box-shadow: 5px 0px 2px rgb(61, 72, 77);
+}
+
+#buyable-V-42.buyable.tooltipBox.locked{
+	color: rgb(255, 255, 255);
+	background: rgb(77, 79, 82);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 180s linear infinite;
+	border: 3px solid rgb(138, 150, 153);
+}
+
+#buyable-V-42.buyable.tooltipBox.can{
+	color: rgb(255, 255, 255);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(38, 195, 235);
+	box-shadow: 5px 0px 2px rgb(61, 72, 77);
+}
+
+#buyable-V-51.buyable.tooltipBox.locked{
+	color: rgb(255, 255, 255);
+	background: rgb(77, 79, 82);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 180s linear infinite;
+	border: 3px solid rgb(138, 150, 153);
+}
+
+#buyable-V-51.buyable.tooltipBox.can{
+	color: rgb(255, 255, 255);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(38, 195, 235);
+	box-shadow: 5px 0px 2px rgb(61, 72, 77);
+}
+
+#buyable-V-52.buyable.tooltipBox.locked{
+	color: rgb(255, 255, 255);
+	background: rgb(77, 79, 82);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 180s linear infinite;
+	border: 3px solid rgb(138, 150, 153);
+}
+
+#buyable-V-52.buyable.tooltipBox.can{
+	color: rgb(255, 255, 255);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(38, 195, 235);
+	box-shadow: 5px 0px 2px rgb(61, 72, 77);
+}
+
+#buyable-V-61.buyable.tooltipBox.locked{
+	color: rgb(243, 143, 77);
+	background: rgb(77, 79, 82);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 180s linear infinite;
+	border: 3px solid rgb(138, 150, 153);
+}
+
+#buyable-V-61.buyable.tooltipBox.can{
+	color: rgb(243, 143, 77);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(38, 195, 235);
+	box-shadow: 5px 0px 2px rgb(61, 72, 77);
+}
+
+#buyable-V-11.buyable.tooltipBox.can{
+	color: rgb(0, 0, 0);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-radial-gradient(circle at center,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(18, 143, 49);
+	box-shadow: 5px 0px 1px rgb(61, 72, 77);
+}
+
+#buyable-V-12.buyable.tooltipBox.can{
+	color: rgb(0, 0, 0);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-linear-gradient(135deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.5) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(90deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.5) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(18, 143, 49);
+	box-shadow: 5px 0px 1px rgb(61, 72, 77);
+}
+#buyable-V-13.buyable.tooltipBox.can{
+	color: rgb(0, 0, 0);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-radial-gradient(circle at center,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(18, 143, 49);
+	box-shadow: 5px 0px 1px rgb(61, 72, 77);
+}
+#buyable-V-21.buyable.tooltipBox.can{
+	color: rgb(0, 0, 0);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-linear-gradient(135deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.5) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(90deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.5) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(18, 143, 49);
+	box-shadow: 5px 0px 1px rgb(61, 72, 77);
+}
+#buyable-V-23.buyable.tooltipBox.can{
+	color: rgb(0, 0, 0);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-linear-gradient(135deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.5) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(90deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.5) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(18, 143, 49);
+	box-shadow: 5px 0px 1px rgb(61, 72, 77);
+}
+
+#buyable-V-31.buyable.tooltipBox.can{
+	color: rgb(0, 0, 0);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-radial-gradient(circle at center,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(18, 143, 49);
+	box-shadow: 5px 0px 1px rgb(61, 72, 77);
+}
+
+#buyable-V-32.buyable.tooltipBox.can{
+	color: rgb(0, 0, 0);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-linear-gradient(135deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.5) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(90deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.5) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(18, 143, 49);
+	box-shadow: 5px 0px 1px rgb(61, 72, 77);
+}
+
+#buyable-V-33.buyable.tooltipBox.can{
+	color: rgb(0, 0, 0);
+	text-shadow: rgb(144, 141, 189) 2.25px 2.25px 10px ;
+	background: rgb(79, 45, 228);
+	background-image:repeating-radial-gradient(circle at center,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px),
+      repeating-linear-gradient(-45deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: revclimb 120s linear infinite;
+	border: 3px solid rgb(18, 143, 49);
+	box-shadow: 5px 0px 1px rgb(61, 72, 77);
+}

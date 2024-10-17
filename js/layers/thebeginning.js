@@ -119,8 +119,8 @@ addLayer("P", {
             buttonStyle(){return {'background':'linear-gradient(to right,skyblue 33%, blue 92%)','color':'black','box-shadow':'2px 2px 2px skyblue'}},
             style(){
                 return {
-                    'background': 'linear-gradient(135deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px)0 64px',
-                    'background-color':'black',
+                    'background': 'linear-gradient(135deg, darkblue 22px, skyblue 22px, skyblue 24px, transparent 24px, transparent 67px, cyan 67px, cyan 69px, transparent 69px),linear-gradient(225deg, darkblue 22px, blue 22px, blue 24px, transparent 24px, transparent 67px, #4e1db8 67px, #4e1db8 69px, transparent 69px)0 64px',
+                    'background-color':'darkblue',
                     'background-size':'64px 128px',
                     "background-position":"100%"+" "+(player.timePlayed%200)+"%"
                 }
@@ -179,6 +179,7 @@ addLayer("P", {
                 let base2 = x
                 let expo = new Decimal(1.02)
                 let eff = base1.pow(Decimal.pow(base2, expo))
+                if (player.V.unlocked) eff = eff.pow(tmp.V.barrierBleed2)
                 return eff
             },
         },
@@ -216,6 +217,7 @@ addLayer("P", {
                 let base2 = x
                 let expo = new Decimal(1.035)
                 let eff = base1.pow(Decimal.pow(base2, expo))
+                if (player.V.unlocked) eff = eff.pow(tmp.V.barrierBleed2)
                 return eff
             },
         },

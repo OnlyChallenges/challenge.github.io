@@ -102,6 +102,8 @@ function getPointGen() {
   if (inChallenge("V", 11) && challengeCompletions("V", 11) == 2) gain = gain.pow(0.49)
   if (inChallenge("V", 11) && challengeCompletions("V", 11) == 1) gain = gain.pow(0.7)
   if (inChallenge("V", 11) && challengeCompletions("V", 11) == 0) gain = gain.pow(0.8)
+  if (player.V.unlocked) gain = gain.pow(tmp.V.barrierBleed)
+  if (inChallenge("V", 12) && player.V.blood > 1) gain = gain.div(player.V.blood).pow(3)
   return gain
 }
 
@@ -201,6 +203,13 @@ var displayThings = [
     if (x > y) a = "Demo is over! Thanks for playing"
     return a
   },
+  function () {
+    let softs = tmp["V"].softCaps
+    let a = "<text style='color:red;text-shadow: white 3.25px 2.25px 3px;'>"+ formatWhole(softs) + "</text> Softcaps Active..."
+    if (softs == 1) a = "<text style='color:red;text-shadow: white 3.25px 2.25px 3px;'>"+formatWhole(softs) + "</text> Softcap Active..."
+    if (softs == 0) a = ''
+    return a
+  },
 ]
 
 // "<logic>Endgame</logic>: " + colorText("b", x, "45,000 Chemicals"
@@ -217,10 +226,25 @@ function isEndgame() {
 // Style for the background, can be a function
 var backgroundStyle = function () {
   let backSty = { "background-image": "rgb(0, 0, 0)" }
-  if (getThemeName() == "default") backSty = {
-    "background-image":
-      "linear-gradient(#000 30px,transparent 0),linear-gradient(270deg,red 1px,transparent 0)",
+  if (getThemeName() == "default" && player.V.underwater == false) backSty = {
+    "color": "grey",
+    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
+    "background": " black", 
+    "background-image": "repeating-radial-gradient(circle at center, hsla(204, 48%, 17%, 0.6), hsla(204, 48%, 17%, 0.842) 15px, transparent 0, transparent 30px)", 
+    "animation": "main 240s infinite",
     "z-index": 0.5,
+    "background-color": '#0f228a',
+    "background-size": "32px 32px,32px 32px",
+    "background-position": "" + (player.timePlayed) % 100 + "%"
+  }
+  if (getThemeName() == "default" && player.V.underwater == true) backSty = {
+"color": "grey",
+    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
+    "background": " black", 
+    "background-image": "repeating-radial-gradient(circle at center, hsla(204, 48%, 17%, 0.6), hsla(204, 48%, 17%, 0.842) 15px, transparent 0, transparent 30px)", 
+    "animation": "main 240s infinite",
+    "z-index": 0.5,
+    "background-color": '#0f228a',
     "background-size": "32px 32px,32px 32px",
     "background-position": "" + (player.timePlayed) % 100 + "%"
   }
