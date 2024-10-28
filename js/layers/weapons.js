@@ -75,7 +75,7 @@ addLayer("V", {
         { key: "w", description: "w: Reset for Weapons", onPress() { if (canReset(this.layer) && player.V.unlocked) doReset(this.layer) } },
     ],
     layerShown() {
-        let lay = true
+        let lay = false
         if (hasAchievement('A', 17)) lay = true
         return lay
     },
@@ -1351,7 +1351,7 @@ addLayer("V", {
             },
             completionLimit() { return new Decimal(2) },
             letchallengeFail() {
-                if (getPointGen() < 1)
+                if ((player.V.health < 0.1) && inChallenge("V", this.id))
                     return run(layers["V"].challenges["12"].onExit)
             },
             onExit() {
@@ -1385,7 +1385,7 @@ addLayer("V", {
             },
             completionLimit() { return new Decimal(2) },
             letchallengeFail() {
-                if (player.V.health < 0.1)
+                if ((player.V.health < 0.1) && inChallenge("V", 21))
                     return run(layers["V"].challenges["21"].onEnter)
             },
             onEnter() {

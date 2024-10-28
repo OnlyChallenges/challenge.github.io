@@ -45,7 +45,7 @@ addLayer("SP", {
                 "main-display",
                 "prestige-button",
                 "blank",
-                
+
                 "h-line",
                 ["display-text",
                     function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystals</text>" },
@@ -54,23 +54,23 @@ addLayer("SP", {
                     function () { return 'You have ' + formatWhole(player.P.points) + " <text style='color:skyblue'>chemicals</text>" },
                     {}],
                 ["display-text",
-                    function () { 
-                        
-                        if (player.F.unlocked) return 'You have ' + formatWhole(player.F.points) + " <text style='color:orange'>isotopes</text>" 
+                    function () {
+
+                        if (player.F.unlocked) return 'You have ' + formatWhole(player.F.points) + " <text style='color:orange'>isotopes</text>"
                         else if (!player.F.unlocked) return "?????????????????????????????"
                     },
                     {}],
 
                 "blank",
                 ["display-text", function () {
-                    
-                    
+
+
                     if (player.SP.unlocked) return 'You have ' + formatWhole(player.SP.generation) + " <text style='color:#5d56e8'>Experiment Dust</text>, which boosts <text style='color:#b76ce6'>crystal</text> gain by " + format(tmp.SP.generationEff.minus(1).times(100)) + '%'
                     else if (!player.SP.unlocked) return "??????????????????????????????????????????????????????????????"
 
                 }, {}],
 
-        
+
                 ["display-text", function () {
                     if (hasUpgrade('F', 36)) return 'You have ' + format(player.SP.generation2) + ' Ultra Power, which boosts Powder Gain, +' + format(tmp.SP.generation2Eff.minus(1).times(100)) + '%'
                 }, {}],
@@ -84,10 +84,11 @@ addLayer("SP", {
             buttonStyle() { return { 'background': 'linear-gradient(to right,purple 40%, #b76ce6 60%)', 'color': 'black', 'box-shadow': '2px 2px 2px purple' } },
             style() {
                 return {
-                    'background': 'linear-gradient(135deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px)0 64px',
+                    'background': 'black',
                     'background-color': 'black',
-                    'background-size': '64px 128px',
-                    "background-position": "100%" + " " + (player.timePlayed % 200) + "%"
+                    "background-image": "repeating-radial-gradient(circle at center, hsla(269, 89%, 27%, 0.4), hsla(269, 89%, 27%, 0.842) 15px, transparent 0, transparent 30px)",
+                    'background-size': '128px 128px',
+                    "background-position": " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
                 }
             },
         },
@@ -159,7 +160,7 @@ addLayer("SP", {
         if (!player.SP.unlocked) gen = new Decimal(1)
         if (hasUpgrade('F', 16)) gen = gen.times(upgradeEffect('F', 16))
         if (hasUpgrade('V', 15)) gen = gen.times(upgradeEffect('V', 15))
-            if (hasUpgrade('F', 22)) gen = gen.times(upgradeEffect('F', 22).pow(0.6))
+        if (hasUpgrade('F', 22)) gen = gen.times(upgradeEffect('F', 22).pow(0.6))
         return gen
     },
 
@@ -177,9 +178,9 @@ addLayer("SP", {
         rows: 5,
         cols: 5,
         11: {
-            fullDisplay()
-            { if (!player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
-              else if (player.SP.unlocked) return ("<h3>Nyko<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by "+formatWhole((this.effect()-1)*100)+"%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
+            fullDisplay() {
+                if (!player.SP.unlocked) return ("<h3>Falsification<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 50%<br><br>Cost: ???????????????????")
+                else if (player.SP.unlocked) return ("<h3>Nyko<br>[ <text style='color:pink'>E-1</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by " + formatWhole((this.effect() - 1) * 100) + "%<br><br>Cost: 100 <text style='color:#5d56e8'>Experiment Dust</text>")
             },
             currencyInternalName: "generation",
             currencyLayer: "SP",
@@ -187,7 +188,7 @@ addLayer("SP", {
             color2() { return '#a859d9' },
             cost() { return new Decimal(100) },
             canAfford() { return player.SP.generation.gte(this.cost()) },
-            effect() { 
+            effect() {
                 let eff = new Decimal(1.5)
                 if (hasUpgrade('F', 15)) return eff = eff.times(upgradeEffect('F', 15))
                 return eff
@@ -200,7 +201,7 @@ addLayer("SP", {
         },
         12: {
             fullDisplay:
-            ("<h3>Abys<br>[ <text style='color:pink'>E-2</text> ]</h3><br><br>Boost <text style='color:skyblue'>P-7</text> Effect by 110%<br><br>Cost: 650 <text style='color:#5d56e8'>Experiment Dust</text>"),
+                ("<h3>Abys<br>[ <text style='color:pink'>E-2</text> ]</h3><br><br>Boost <text style='color:skyblue'>P-7</text> Effect by 110%<br><br>Cost: 650 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 11) },
@@ -216,7 +217,7 @@ addLayer("SP", {
         },
         13: {
             fullDisplay:
-            ("<h3>False Experiments<br>[ <text style='color:pink'>E-3</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 333%<br><br>Cost: 2,500 <text style='color:#5d56e8'>Experiment Dust</text>"),
+                ("<h3>False Experiments<br>[ <text style='color:pink'>E-3</text> ]</h3><br><br>Boost <text style='color:#b76ce6'>crystal</text> gain by 333%<br><br>Cost: 2,500 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 12) },
@@ -232,7 +233,7 @@ addLayer("SP", {
         },
         14: {
             fullDisplay:
-            ("<h3>Experimental Fusion<br>[ <text style='color:pink'>E-4</text> ]</h3><br><br> <text style='color:#5d56e8'>Experiment Dust</text> Effect is boosted by 45%<br><br>Cost: 32,500 <text style='color:#5d56e8'>Experiment Dust</text>"),
+                ("<h3>Experimental Fusion<br>[ <text style='color:pink'>E-4</text> ]</h3><br><br> <text style='color:#5d56e8'>Experiment Dust</text> Effect is boosted by 45%<br><br>Cost: 32,500 <text style='color:#5d56e8'>Experiment Dust</text>"),
             currencyInternalName: "generation",
             currencyLayer: "SP",
             unlocked() { return hasUpgrade('SP', 13) },

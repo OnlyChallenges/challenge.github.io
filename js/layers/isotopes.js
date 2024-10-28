@@ -42,8 +42,8 @@ addLayer("F", {
                     function () { return 'You have ' + formatWhole(player.P.points) + " <text style='color:skyblue'>chemicals</text>" },
                     {}],
                 ["display-text",
-                    function () { 
-                        if (player.SP.unlocked) return 'You have ' + formatWhole(player.SP.points) + " <text style='color:#a733dc'>experiments</text>" 
+                    function () {
+                        if (player.SP.unlocked) return 'You have ' + formatWhole(player.SP.points) + " <text style='color:#a733dc'>experiments</text>"
                         else if (!player.SP.unlocked) return "?????????????????????????????"
                     },
                     {}],
@@ -58,10 +58,11 @@ addLayer("F", {
             buttonStyle() { return { 'background': 'linear-gradient(to right,orange 33%, yellow 63%)', 'color': 'black', 'box-shadow': '2px 2px 2px orange' } },
             style() {
                 return {
-                    'background': 'linear-gradient(135deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px),linear-gradient(225deg, #000000 22px, #616362 22px, #616362 24px, transparent 24px, transparent 67px, #616362 67px, #616362 69px, transparent 69px)0 64px',
-                    'background-color': 'black',
-                    'background-size': '64px 128px',
-                    "background-position": "100%" + " " + (player.timePlayed % 200) + "%"
+                    'background': '#573903',
+                    'background-color': '#573903',
+                    "background-image": "repeating-linear-gradient(45deg, hsla(42, 82%, 56%, 0.4), hsla(42, 82%, 56%, 0.7), 15px, transparent 0, transparent 30px), repeating-linear-gradient(135deg, hsla(42, 82%, 56%, 0.8), hsla(42, 82%, 56%, 0.8), 15px, transparent 0, transparent 30px)",
+                    'background-size': '128px 128px',
+                    "background-position": " " + ((player.timePlayed) % 100) + "%"
                 }
             },
         },
@@ -201,7 +202,7 @@ addLayer("F", {
         16: {
             title: "Experiment Isotope Type XI<br>[ <text style='color:darkred'>I-6</text> ]",
             description: "<br>Across it all; it's only you.<br>Boost <text style='color:#5d56e8'>Experiment Dust</text> based on <text style='color:orange'>Isotopes</text>",
-            cost() {return new Decimal(140000) },
+            cost() { return new Decimal(140000) },
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.295)).max(1).min(150);
                 return effect1
@@ -228,7 +229,7 @@ addLayer("F", {
         21: {
             title: "Cooldown Maker<br>[ <text style='color:darkred'>I-7</text> ]",
             description: "<br><text style='color:#b76ce6'>Crystal</text> boosts <text style='color:#5b85b3'>Chemicals</text>",
-            cost() {return new Decimal(5) },
+            cost() { return new Decimal(5) },
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.08)).max(1).min(7);
                 return effect1
@@ -251,7 +252,7 @@ addLayer("F", {
         22: {
             title: "Chemicalize Isotopes<br>[ <text style='color:darkred'>I-8</text> ]",
             description: "<br><text style='color:skyblue'>Chemicals</text> boosts <text style='color:purple'>E-4</text>",
-            cost() {return new Decimal(7) },
+            cost() { return new Decimal(7) },
             effect() {
                 let effect1 = (player.P.points.max(1).add(1).pow(0.065)).max(1).min(20);
                 if (hasUpgrade('F', 31)) effect1 = effect1.times(upgradeEffect('F', 31))
@@ -275,7 +276,7 @@ addLayer("F", {
         23: {
             title: "Isotopes = Experiments<br>[ <text style='color:darkred'>I-9</text> ]",
             description: "<br><text style='color:orange'>Isotopes</text> decreases <text style='color:purple'>Experiment</text> Requirement",
-            cost(){ return new Decimal(8)},
+            cost() { return new Decimal(8) },
             effect() {
                 let effect1 = (player.F.points.max(1).add(1).pow(0.7)).max(1).min(25);
                 if (hasUpgrade('P', 25)) effect1 = effect1.times(upgradeEffect('P', 25))
@@ -299,7 +300,7 @@ addLayer("F", {
         24: {
             title: "Dustive Touch<br>[ <text style='color:darkred'>I-10</text> ]",
             description: "<br><text style='color:#5d56e8'>Experiment Dust</text> boosts <text style='color:#b76ce6'>crystal</text> gain",
-            cost(){ return new Decimal(9)},
+            cost() { return new Decimal(9) },
             effect() {
                 let effect1 = (player.SP.points.max(1).add(1).pow(0.31)).max(1).min(13);
                 return effect1
@@ -322,7 +323,7 @@ addLayer("F", {
         25: {
             title: "Chemical Reunion<br>[ <text style='color:darkred'>I-11</text> ]",
             description: "<br>Lower <br><text style='color:purple'>Experiment</text> Requirement based on <text style='color:skyblue'>Chemicals</text>",
-            cost() { return new Decimal(13500000000)},
+            cost() { return new Decimal(13500000000) },
             currencyDisplayName: "Chemicals",
             currencyInternalName: "points",
             currencyLayer: "P",
@@ -348,7 +349,7 @@ addLayer("F", {
         26: {
             title: "Insomnic Dreams<br>[ <text style='color:darkred'>I-12</text> ]",
             description: "<br>Reduce <text style='color:skyblue'>Chemical</text> Buyable Scaling slightly",
-            cost() { return new Decimal(7.77e11)},
+            cost() { return new Decimal(7.77e11) },
             unlocked() { return hasUpgrade('F', 25) },
             color() { return '#d1863b' },
             color2() { return '#e0c287' },

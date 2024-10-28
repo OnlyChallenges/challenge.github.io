@@ -73,7 +73,7 @@ addLayer("P", {
                 "blank",
                 "h-line",
                 ["display-text",
-                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystal</text>" },
+                    function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystals</text>" },
                     {}],
                 ["display-text",
                     function () { 
