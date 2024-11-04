@@ -191,6 +191,9 @@ var displayThings = [
     if (x == 3) text = "You're Currently in <text style='text-shadow: white 2.25px 2.25px 10px; color:red;'>Impossible Mode</text><br>(^0.57 Crystal Gain Nerf)"
     return text
   },
+  function(){
+    return "Estimated Time to Reach Endgame: 1.3942+e19 days"
+  },
   function () {
     let x = getUndulatingColor()
     let a = "<logic>Endgame</logic>: " + colorText("b", x, "Blood Moon <text style='text-shadow: orange 1.75px 1.75px 10px; color:red;'>I</text>")
@@ -203,6 +206,9 @@ var displayThings = [
     if (x > y) a = "Demo is over! Thanks for playing"
     return a
   },
+  //function() {
+   // return "Main Effect: " + format(tmp["V"].desmos1) +"<br> Effect 1: " + format(tmp["V"].desmos2)+"<br> Effect 2: " + format(tmp["V"].desmos3)+"<br> Exponent: " + format(tmp["V"].desmos4)
+  //},
   function () {
     let softs = tmp["V"].softCaps
     let a = "<text style='color:red;text-shadow: white 3.25px 2.25px 3px;'>"+ formatWhole(softs) + "</text> Softcaps Active..."

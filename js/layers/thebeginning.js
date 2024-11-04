@@ -10,7 +10,6 @@ addLayer("P", {
     requires() {
         let requirement = new Decimal(4.75)
         if (hasUpgrade('P', 12)) requirement = requirement.minus(1.75)
-
         return requirement
 
     },
@@ -44,7 +43,7 @@ addLayer("P", {
         if (hasUpgrade('W', 11)) gain = gain.pow(1.035)
         if (hasUpgrade('W', 13)) gain = gain.times(upgradeEffect('W', 13))
         if (player.SP.generation2 > 0) gain = gain.times(tmp.SP.generation2Eff)
-        if (player.V.unlocked) gain = gain.times(tmp.V.coinEff)
+        if (player.V.unlocked && tmp.V.coinEff >= 1) gain = gain.times(tmp.V.coinEff)
         if (getBuyableAmount('W', 12).gte(1)) gain = gain.times(buyableEffect('W', 12))
         if (getBuyableAmount('P', 12).gte(1)) gain = gain.times(buyableEffect('P', 12))
         if (getBuyableAmount('V', 32).gte(1)) gain = gain.times(buyableEffect('V', 32))

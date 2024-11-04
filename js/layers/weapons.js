@@ -28,6 +28,8 @@ addLayer("V", {
             clickableTime2: new Decimal(0),
             focus: new Decimal(0),
             spectime: new Decimal(316),
+
+            desmos2: new Decimal(1000),
         }
     },
     requires() {
@@ -42,13 +44,6 @@ addLayer("V", {
         return {
             "background": (player.V.unlocked || canReset("V")) ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f",
         }
-    },
-    componentStyles: {
-        "prestige-button": {
-            background() {
-                return (canReset("V")) ? "radial-gradient(#23d113, #13d1b8)" : "#bf8f8f"
-            },
-        },
     },
     position: 1,
     color: "#23d113",
@@ -75,7 +70,7 @@ addLayer("V", {
         { key: "w", description: "w: Reset for Weapons", onPress() { if (canReset(this.layer) && player.V.unlocked) doReset(this.layer) } },
     ],
     layerShown() {
-        let lay = false
+        let lay = true
         if (hasAchievement('A', 17)) lay = true
         return lay
     },
@@ -249,9 +244,9 @@ addLayer("V", {
     },
 
     barrierBleed3() {
-        let booster = player.points.pow(0.15)
-        let bleed = new Decimal(2).times(booster)
-        if (player.points < 1e20) bleed = new Decimal(2)
+        let booster = player.points.pow(0.1)
+        let bleed = new Decimal(1).times(booster)
+        if (player.points < 1e20) bleed = new Decimal(1)
         return bleed
     },
 
@@ -315,6 +310,32 @@ addLayer("V", {
         return final
     },
 
+    desmos1(){
+        // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
+        let a = new Decimal(player.points).log10().pow(1.3).max(1).min(1e20) 
+        let b = new Decimal(player.points).times(Math.sqrt(new Decimal(1.0001).log10())).pow(0.25).minus(1).max(0).min(1e20)
+        let b_2 = new Decimal(player.points).pow(0.5).log10().log10()
+        let c = new Decimal(a.times(b).pow(b_2)).max(1) 
+        return c
+    },
+    desmos2(){
+        // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
+        let b = new Decimal(player.points).times(Math.sqrt(new Decimal(1.0001).log10())).pow(0.25).minus(1).min(1e20).max(0)
+        return b
+    },
+    desmos3(){
+        // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
+        let a = new Decimal(player.points).log10().pow(1.3).min(1e20).max(1)
+        return a
+    },
+    desmos4(){
+        // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
+        let b_2 = new Decimal(player.points).pow(0.5).log10().log10()
+        return b_2
+    },
+
+
+
     tabFormat: {
         "Facility": {
             content: [
@@ -364,6 +385,15 @@ addLayer("V", {
                 "h-line",
             ],
             buttonStyle() { return { 'background': 'linear-gradient(to right,green 40%, #13d165 60%)', 'color': 'black', 'box-shadow': '2px 2px 2px green' } },
+            style() {
+                return {
+                    'background': '#535c55',
+                    'background-color': '#373837',
+                    "background-image": "repeating-radial-gradient(circle at center, hsla(166, 90%, 30%, 0.4), hsla(23, 90%, 30%, 0.842) 15px, transparent 0, transparent 30px)",
+                    'background-size': '64px 64px',
+                    "background-position": " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"
+                }
+            },
         },
         "Management": {
             content: [
@@ -487,6 +517,7 @@ addLayer("V", {
             ],
             buttonStyle() { return { 'background': 'linear-gradient(to right,red 30%, orange 70%)', 'color': 'black', 'box-shadow': '2px 2px 2px red', 'border': 'red' } },
         },
+
     },
 
 
@@ -740,7 +771,8 @@ addLayer("V", {
                 let exp1 = new Decimal(1.25)
                 let exp2 = new Decimal(1)
                 let costdef = new Decimal(1750)
-                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).floor()
+                let nerf = tmp[this.layer].barrierBleed3.max(1)
+                let spec = new Decimal(costdef).mul(Decimal.pow(exp1, x)).mul(Decimal.pow(x, Decimal.pow(exp2, x))).add(costdef).times(nerf).floor()
                 return spec
             },
             display() {

@@ -319,6 +319,38 @@
 	border: 3px solid rgb(161, 54, 54);
 }
 
+
+.V.reset.can{
+	color: black;
+	text-shadow: rgb(198, 224, 52) 2.25px 2.25px 10px ;
+	background: rgb(12, 160, 36);
+	background-image:repeating-linear-gradient(0deg,
+      hsla(0, 0%, 100%, 0.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 120s linear infinite;
+	border: 3px solid rgb(11, 145, 40);
+	box-shadow: 2px 5px 3px rgb(110, 177, 203);
+}
+
+.V.reset.locked{
+	color: black;
+	text-shadow: rgb(240, 156, 156) 2.25px 2.25px 10px ;
+	background: rgb(240, 156, 156);
+	background-image:repeating-linear-gradient(0deg,
+      hsla(0,0%,100%,.2),
+      hsla(0,0%,100%,.2) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 240s linear infinite;
+	border: 3px solid rgb(161, 54, 54);
+}
+
 #A{
 	color: black;
 	text-shadow: rgb(27, 235, 8) 2.25px 2.25px 10px ;
