@@ -1,13 +1,12 @@
 let modInfo = {
-  name: `The Facility`, // game name
-  id: "spacebird", // This will run all memory on this id, so any other type of "NG" will not run this id
-  author: "vali", // author data
-  pointsName: "crystals", // based memory resource (Total Memory Values: 193)
+  name: `The Facility`, // game name, kinda dead lol
+  id: "spacebird", // This will run all memory on this id, so any other type of "NG" will not run this id (do not spacebird my games)
+  author: "vali", // author data (duh)
+  pointsName: "crystals", // ooo shiny
   modFiles: ["tree.js", "layers/thebeginning.js", "layers/achievements.js", "layers/isotopes.js", "layers/experiments.js", "layers/weapons.js", "layers/developers.js", "layers/developerconsole.js"],
-  discordName: "Solstice Studios", // Pre-setted to FoR
-  discordLink: "https://discord.gg/QjceJTB8uV", // Non-Custom Link
-  initialStartPoints: new Decimal(0), // Used for hard resets & Memory loss reset
-  memoryLeakProt: null,
+  discordName: "Solstice Studios", // Pre-setted to Game Studio
+  discordLink: "", // Whats that?
+  initialStartPoints: new Decimal(0), // 0
   offlineLimit: 1,  // 1 Hours of Offline Time Mode
   demoTime: new Decimal(7000), // 7,000 Seconds
   devTime: new Decimal("1e999"), // Overclocking Infinity;
