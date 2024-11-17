@@ -24,6 +24,8 @@ addLayer("V", {
             health: new Decimal(0),
             blood: new Decimal(0),
             chaltime: new Decimal(0),
+
+            challengescaller: new Decimal(0),
             clickableTime: new Decimal(0),
             clickableTime2: new Decimal(0),
             focus: new Decimal(0),
@@ -229,6 +231,16 @@ addLayer("V", {
         return tier1
     },
 
+    challengeScale(){
+        let a = new Decimal(player.V.challengescaller)
+        let b = new Decimal(15).times(1.5)
+        let c = a * b
+        let d = new Decimal(player.V.challengescaller).pow(2)
+        let e = new Decimal(5)
+        let f = d + e
+        let final = c / f
+        return final 
+    },
     barrierBleed() {
         let logger = player.points.log10().log10()
         let bleed = new Decimal(1).div(logger.pow(2)).div(1.05)
@@ -309,6 +321,7 @@ addLayer("V", {
         let final = a/b
         return final
     },
+<<<<<<< HEAD
 
     desmos1(){
         // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
@@ -336,6 +349,9 @@ addLayer("V", {
 
 
 
+=======
+    
+>>>>>>> 72b2ec8cacf841efef5d516d635630e94c7ccb31
     tabFormat: {
         "Facility": {
             content: [
