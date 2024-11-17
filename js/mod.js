@@ -205,9 +205,6 @@ var displayThings = [
     if (x > y) a = "Demo is over! Thanks for playing"
     return a
   },
-  //function() {
-   // return "Main Effect: " + format(tmp["V"].desmos1) +"<br> Effect 1: " + format(tmp["V"].desmos2)+"<br> Effect 2: " + format(tmp["V"].desmos3)+"<br> Exponent: " + format(tmp["V"].desmos4)
-  //},
   function () {
     let softs = tmp["V"].softCaps
     let a = "<text style='color:red;text-shadow: white 3.25px 2.25px 3px;'>"+ formatWhole(softs) + "</text> Softcaps Active..."

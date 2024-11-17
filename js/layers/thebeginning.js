@@ -5,6 +5,7 @@ addLayer("P", {
         return {
             unlocked: true,
             points: new Decimal(0),
+            space: new Decimal(1),
         }
     },
     requires() {
@@ -63,6 +64,11 @@ addLayer("P", {
         if (hasMilestone('V', 11)) player.P.upgrades.push("11", "12", "13", "14", "15", "21", "22", "23", "24", "25");
         if (hasMilestone('V', 15)) player.F.upgrades.push("36");
     },
+
+    update(diff){
+        if (hasUpgrade("P", 41)) player[this.layer].space = player[this.layer].space.plus(new Decimal(0.075).times(diff));
+
+    },
     branches: ["F", "SP", "V", "W"],
     tabFormat: {
         "Spawn": {
@@ -75,10 +81,10 @@ addLayer("P", {
                     function () { return '<br>You have ' + formatWhole(player.points) + " <text style='color:#b76ce6'>crystals</text>" },
                     {}],
                 ["display-text",
-                    function () { 
-                        if (player.timePlayed < modInfo.demoTime) return "DEMO MODE: <text style='color:lime'>" + formatTitleTime(player.timePlayed) + "</text> / <text style='color:red'>"+ formatTitleTime(modInfo.demoTime) +"</text>"
+                    function () {
+                        if (player.timePlayed < modInfo.demoTime) return "DEMO MODE: <text style='color:lime'>" + formatTitleTime(player.timePlayed) + "</text> / <text style='color:red'>" + formatTitleTime(modInfo.demoTime) + "</text>"
                         if (player.timePlayed > modInfo.demoTime) return "DEMO OVER"
-                        },
+                    },
                     {}],
                 ["display-text",
                     function () {
@@ -90,7 +96,7 @@ addLayer("P", {
                         if (tmp[this.layer].passiveGeneration.lte(0) && !hasUpgrade('V', 13) && player.V.unlocked == true)
                             return ""
                         if (tmp[this.layer].passiveGeneration.gte(0.0001))
-                            return "+ " + colorText("b", x, formatWhole(tmp[this.layer].resetGain.times(tmp[this.layer].passiveGeneration)))  +" Powder/sec (+" + format(tmp[this.layer].passiveGeneration.times(100)) + "%)"
+                            return "+ " + colorText("b", x, formatWhole(tmp[this.layer].resetGain.times(tmp[this.layer].passiveGeneration))) + " Powder/sec (+" + format(tmp[this.layer].passiveGeneration.times(100)) + "%)"
                         if (player.P.points.gte(1e10) && tmp[this.layer].passiveGeneration.lte(0) && hasUpgrade('V', 13))
                             return "+ " + colorText("b", x, "0") + " Powder/sec (0%)"
                     },
@@ -104,28 +110,57 @@ addLayer("P", {
                             return "You do not have " + colorText("b", x, "Water Upgrade 11") + " Unlocked"
                         if (player.P.points.lte(1e50) && tmp[this.layer].passiveGeneration.gte(0.0001) && player.W.unlocked && hasUpgrade('W', 15))
                             return "Passive Cap Changed: 1e10 >>> 1e50"
-                     },
+                    },
                     {}],
                 "blank",
                 "h-line",
                 "buyables",
                 "h-line",
                 "blank",
-                "upgrades",
+                ["upgrades", [1,2,3]],
                 "blank",
-                
+
             ],
-            buttonStyle(){return {'background':'linear-gradient(to right,skyblue 33%, blue 92%)','color':'black','box-shadow':'2px 2px 2px skyblue'}},
-            style(){
+            buttonStyle() { return { 'background': 'linear-gradient(to right,skyblue 33%, blue 92%)', 'color': 'black', 'box-shadow': '2px 2px 2px skyblue' } },
+            style() {
                 return {
                     'background': 'linear-gradient(135deg, darkblue 22px, skyblue 22px, skyblue 24px, transparent 24px, transparent 67px, cyan 67px, cyan 69px, transparent 69px),linear-gradient(225deg, darkblue 22px, blue 22px, blue 24px, transparent 24px, transparent 67px, #4e1db8 67px, #4e1db8 69px, transparent 69px)0 64px',
-                    'background-color':'darkblue',
-                    'background-size':'64px 128px',
-                    "background-position":"100%"+" "+(player.timePlayed%200)+"%"
+                    'background-color': 'darkblue',
+                    'background-size': '64px 128px',
+                    "background-position": "100%" + " " + (player.timePlayed % 200) + "%"
                 }
             },
         },
+        "Canon Paths": {
+            content: [
+                function () {
+                    let x = ''
+                    if (hasUpgrade('P', 31)) x =
+                        ["display-text", "The <spaceroute>Space God</spaceroute> is delighted for your actions<br><i style='color: grey'>Why would this reality matter? How expansive is this world?</i> <br>You've taken the <spaceroute>Space Path</spaceroute><hr>You have <spaceroute>" + format(player[this.layer].space) + "</spaceroute> Quantum Foam"];
+                    else if (hasUpgrade('P', 32)) x =
+                        ["display-text", "The <matterroute>Matter God</matterroute> is delighted for your actions<br><i style='color: grey'>How far can I go? Does the matter in the universe really... matter?</i> <br>You've taken the <matterroute>Matter Path</matterroute><hr>"];
+                    return x
+                },
+                function () {
+                    let x = ''
+                    if (hasUpgrade("P", 31)) x =
+                    ["column", [
+                        "blank",
+                        ["upgrade", 41],
+                        ["blank",'55px'],
+                        ["row", [ ["upgrade", 42_1], ["blank",['170px','50px']]]],
+                        ["blank",'15px'],
+                        ["row", [ ["blank",['170px','50px']],["upgrade", 42_2]]],
+                    ]
+                    ]
+                    return x
+                }
+            ],
+            buttonStyle() { return { 'background': 'linear-gradient(to right,skyblue 33%, blue 92%)', 'color': 'black', 'box-shadow': '2px 2px 2px skyblue' } },
+
+        },
     },
+
     infoboxes: {
         lore: {
             title: "Tutorial",
@@ -144,13 +179,13 @@ addLayer("P", {
     buyables: {
         11: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) >= 100) {return "Chemical Improvement<br>[<text style='color:blue'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
-                else if (getBuyableAmount(this.layer, this.id) >= 50) {return "Chemical Improvement<br>[<text style='color:green'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
-                else if (getBuyableAmount(this.layer, this.id) >= 25) {return "Chemical Improvement<br>[<text style='color:yellow'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
-                else if (getBuyableAmount(this.layer, this.id) >= 10) {return "Chemical Improvement<br>[<text style='color:orange'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
-                else if (getBuyableAmount(this.layer, this.id) > 0) {return "Chemical Improvement<br>[<text style='color:darkred'>"+ convertToRoman(getBuyableAmount(this.layer, this.id))+ "</text>]"}
+                if (getBuyableAmount(this.layer, this.id) >= 100) { return "Chemical Improvement<br>[<text style='color:blue'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 50) { return "Chemical Improvement<br>[<text style='color:green'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 25) { return "Chemical Improvement<br>[<text style='color:yellow'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) >= 10) { return "Chemical Improvement<br>[<text style='color:orange'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
+                else if (getBuyableAmount(this.layer, this.id) > 0) { return "Chemical Improvement<br>[<text style='color:darkred'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</text>]" }
                 else return "Chemical Improvement"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.52)
@@ -184,11 +219,11 @@ addLayer("P", {
         },
         12: {
             title() {
-                if (getBuyableAmount(this.layer, this.id) >= 25) {return "Science<sub><text style='color:yellow'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
-                else if (getBuyableAmount(this.layer, this.id) >= 10) {return "Science<sub><text style='color:orange'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
-                else if (getBuyableAmount(this.layer, this.id) > 0) {return "Science<sub><text style='color:darkred'>"+convertToRoman(getBuyableAmount(this.layer, this.id))+"</sub></text>"}
+                if (getBuyableAmount(this.layer, this.id) >= 25) { return "Science<sub><text style='color:yellow'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</sub></text>" }
+                else if (getBuyableAmount(this.layer, this.id) >= 10) { return "Science<sub><text style='color:orange'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</sub></text>" }
+                else if (getBuyableAmount(this.layer, this.id) > 0) { return "Science<sub><text style='color:darkred'>" + convertToRoman(getBuyableAmount(this.layer, this.id)) + "</sub></text>" }
                 else return "Science<sub>0</sub>"
-            },  
+            },
             unlocked() { return true },
             cost(x) {
                 let exp1 = new Decimal(1.52)
@@ -229,50 +264,50 @@ addLayer("P", {
         11: {
             title: "The Idea<br>[ <text style='color:skyblue'>P-1</text> ]",
             description: "<br>Boost <text style='color:#b76ce6'>crystal</text> gain by 35%",
-            color(){return '#1b39a6'},
-            color2(){return '#5b85b3'},
-            cost() {return new Decimal(6)},
-            canAfford() {return player.P.points.gte(this.cost())},
+            color() { return '#1b39a6' },
+            color2() { return '#5b85b3' },
+            cost() { return new Decimal(6) },
+            canAfford() { return player.P.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px', 'background-image':'repeating-linear-gradient(45deg, hsla(0,0%,100%,.2), hsla(0,0%,100%,.2) 15px, transparent 0, transparent 30px);'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px', 'background-image': 'repeating-linear-gradient(45deg, hsla(0,0%,100%,.2), hsla(0,0%,100%,.2) 15px, transparent 0, transparent 30px);' }
             },
         },
         12: {
             title: "Conception<br>[ <text style='color:skyblue'>P-2</text> ]",
             description: "<br>Decrease <text style='color:#5b85b3'>chemical</text> requirement slightly...",
             unlocked() { return hasUpgrade('P', 11) },
-            color(){return '#1b39a6'},
-            color2(){return '#5b85b3'},
-            cost() {return new Decimal(13)},
-            canAfford() {return player.P.points.gte(this.cost())},
+            color() { return '#1b39a6' },
+            color2() { return '#5b85b3' },
+            cost() { return new Decimal(13) },
+            canAfford() { return player.P.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         13: {
             title: "Processing<br>[ <text style='color:skyblue'>P-3</text> ]",
             description: "<br>Improve <text style='color:#b76ce6'>crystal</text> gain by 66% but decrease <text style='color:#5b85b3'>chemical</text> gain by 7.5%",
-            cost() {return new Decimal(35)},
+            cost() { return new Decimal(35) },
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('P', 12) },
-            color(){return '#1b39a6'},
-            color2(){return '#5b85b3'},
-            canAfford() {return player.points.gte(this.cost())},
+            color() { return '#1b39a6' },
+            color2() { return '#5b85b3' },
+            canAfford() { return player.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         14: {
             title: "Developers<br>[ <text style='color:skyblue'>P-4</text> ]",
             description: "<br>Boost <text style='color:#b76ce6'>crystals</text> based on itself.",
-            cost(){return new Decimal(36)},
+            cost() { return new Decimal(36) },
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.109)).max(1).min(10);
                 if (hasUpgrade('F', 12)) effect1 = effect1.times(3)
@@ -284,13 +319,13 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 13) },
-            color(){return '#1b39a6'},
-            color2(){return '#5b85b3'},
-            canAfford() {return player.P.points.gte(this.cost())},
+            color() { return '#1b39a6' },
+            color2() { return '#5b85b3' },
+            canAfford() { return player.P.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         15: {
@@ -299,14 +334,14 @@ addLayer("P", {
             currencyDisplayName: "Crystals",
             currencyInternalName: "points",
             unlocked() { return hasUpgrade('P', 14) },
-            color(){return '#1b39a6'},
-            color2(){return '#5b85b3'},
-            cost() {return new Decimal(125)},
-            canAfford() {return player.points.gte(this.cost())},
+            color() { return '#1b39a6' },
+            color2() { return '#5b85b3' },
+            cost() { return new Decimal(125) },
+            canAfford() { return player.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         21: {
@@ -323,14 +358,14 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 15) },
-            color(){return '#1b39a6'},
-            color2(){return '#5b85b3'},
-            cost() {return new Decimal(150)},
-            canAfford() {return player.P.points.gte(this.cost())},
+            color() { return '#1b39a6' },
+            color2() { return '#5b85b3' },
+            cost() { return new Decimal(150) },
+            canAfford() { return player.P.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         22: {
@@ -348,28 +383,28 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 21) },
-            color(){return '#1b39a6'},
-            color2(){return '#5b85b3'},
-            cost() {return new Decimal(300)},
-            canAfford() {return player.points.gte(this.cost())},
+            color() { return '#1b39a6' },
+            color2() { return '#5b85b3' },
+            cost() { return new Decimal(300) },
+            canAfford() { return player.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         23: {
             title: "1.0.0<br>[ <text style='color:skyblue'>P-8</text> ]",
             description: "<br>Unlock Two Layers, also boost <text style='color:#b76ce6'>crystal</text> gain by ^1.035",
             unlocked() { return hasUpgrade('P', 22) },
-            color(){return '#f54260'},
-            color2(){return '#8f0e24'},
-            cost() {return new Decimal(250)},
-            canAfford() {return player.P.points.gte(this.cost())},
+            color() { return '#f54260' },
+            color2() { return '#8f0e24' },
+            cost() { return new Decimal(250) },
+            canAfford() { return player.P.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         24: {
@@ -385,18 +420,18 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 23) && (player.F.unlocked || player.SP.unlocked) },
-            color(){return '#1b39a6'},
-            color2(){return '#5b85b3'},
-            cost() {return new Decimal(10000)},
-            canAfford() {return player.P.points.gte(this.cost())},
+            color() { return '#1b39a6' },
+            color2() { return '#5b85b3' },
+            cost() { return new Decimal(10000) },
+            canAfford() { return player.P.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer,this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer,this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
             },
         },
         25: {
-            title: "Combination<br>[<red>P-10</red>]",
+            title: "Combination<br>[<text style='color:skyblue'>P-10</text>]",
             description: "<br><text style='color:#b76ce6'>Crystals</text> boosts SF-III Reduction<br>",
             effect() {
                 let effect1 = (player.points.max(1).add(1).pow(0.065)).max(1).min(20);
@@ -408,14 +443,114 @@ addLayer("P", {
                 return text;
             },
             unlocked() { return hasUpgrade('P', 24) && (hasUpgrade('F', 23)) },
-            color(){return '#1b39a6'},
-            color2(){return '#5b85b3'},
-            cost() {return new Decimal(1650000)},
-            canAfford() {return player.P.points.gte(this.cost())},
+            color() { return '#1b39a6' },
+            color2() { return '#5b85b3' },
+            cost() { return new Decimal(1650000) },
+            canAfford() { return player.P.points.gte(this.cost()) },
             style() {
-                if(!hasUpgrade(this.layer, this.id)&&!this.canAfford()){return ''}
-                else if(!hasUpgrade(this.layer, this.id)&&this.canAfford()){return {'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color(), 'background-color':'black', 'color':'white', 'height':'130px', 'width':'130px','border-color':'white'}}
-                else return {'background-color':this.color(), 'color':'white', 'border-color':'green', 'box-shadow':'inset 0px 0px 5px '+(player.timePlayed%2+5)+'px '+this.color2(), 'height':'130px', 'width':'130px'}
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
+        },
+        31: {
+            title: "Bird of Lacuna<br>[<text style='color:skyblue'>P-11a</text>]",
+            description: "<br><text style='color:red'>Kills</text> are boosted by the <text style='color:purple'>god of space</text><br>",
+            effect() {
+                let effect1 = Math.sqrt(tmp["V"].desmos1)
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id))}x`;
+                return text;
+            },
+            tooltip() { return "√^2(log(x^1.5)*(x√log(1)^0.22)^<text style='color:#a63ef0'>y</text><br><br>Exponent: <text style='color:#a63ef0'>" + format(tmp["V"].desmos4) + `</text><h5 style="opacity:0.5">(This is a CANON UPGRADE. You will keep this upgrade forever)</h5>"<i>Space... Time... Dimension... only these will bring three eyes of vision into a life of purpose. <text style='color:purple'>Enter my dimensional plane to understand the time of space</text></i>"<br><spaceroute>You will enter the Space Route if you proceed</spaceroute>.` },
+            unlocked() { return hasUpgrade('P', 25) },
+            color() { return '#5e1691' },
+            color2() { return '#5b85b3' },
+            cost() { return new Decimal(1e15) },
+            canAfford() { return player.P.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'purple', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
+        },
+        32: {
+            title: "Cat of Reality<br>[<text style='color:skyblue'>P-11b</text>]",
+            description: "<br><text style='color:skyblue'>Chemicals</text> are boosted by the <text style='color:lime'>god of matter</text><br>",
+            effect() {
+                let effect1 = tmp["V"].desmos2
+                return effect1
+            },
+            effectDisplay() {
+                let text = `+${format(upgradeEffect(this.layer, this.id))}x`;
+                return text;
+            },
+            tooltip() { return `√^3((log(x^0.1)*(x√log(10)))^<text style='color:green'>y</text><br><br>Exponent: <text style='color:green'>` + format(tmp["V"].desmos3) + `</text><br><br>"<i><text style='color:red'>Solid</text>... <text style='color:cyan'>Liquid</text>... <text style='color:pink'>Gas</text>... <text style='color:#bd6ffc'>Plasma</text>.. <text style='color:#bd6ffc'>that's my name</text>.</i>"` },
+            unlocked() { return hasUpgrade('P', 25) },
+            color() { return 'lime' },
+            color2() { return '#5b85b3' },
+            cost() { return new Decimal(1e15) },
+            canAfford() { return player.P.points.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return '' }
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height': '130px', 'width': '130px', 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'green', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height': '130px', 'width': '130px' }
+            },
+        },
+
+
+
+
+
+
+        // THIS IS SPACE PATH UPGRADES!!
+        41: {
+            title: "<spaceroute style='font-size:15px'>Universal Feather</spaceroute>",
+            description: `<text style='font-size:14px'>Start Producing Quantum Foam at a rate of 0.075</text><br><text style='color:grey'><i>"This will indeed get you going..."</i></text>`,
+            unlocked() { return hasUpgrade('P', 25) },
+            color() { return '#000000' },
+            color2() { return '#5e1691' },
+            cost() { return new Decimal(1) },
+            currencyDisplayName: "Quantum Foam",
+            canAfford() { return player[this.layer].space.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return {'height' : '200px', 'width' : "200px" }}
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height' : '200px', 'width' : "200px" , 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'purple', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height' : '200px', 'width' : "200px"  }
+            },
+        },
+        42_1: {
+            branches(){return [[41, "#a259eb"]]},
+            title: "<spaceroute style='font-size:12px'>Earth</spaceroute>",
+            description: `<text style='font-size:11px'>Double Quantum Gain</text><br><text style='color:grey'><i>"The starting point"</i></text>`,
+            unlocked() { return hasUpgrade('P', 41) },
+            color() { return '#000000' },
+            color2() { return '#5e1691' },
+            cost() { return new Decimal(3) },
+            currencyDisplayName: "Quantum Foam",
+            canAfford() { return player[this.layer].space.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return ''}
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height' : '130px', 'width' : "130px" , 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'purple', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height' : '130px', 'width' : "130px"  }
+            },
+        },
+        42_2: {
+            branches(){return [[41, "#a259eb"]]},
+            title: "<spaceroute style='font-size:12px'>Third Eye</spaceroute>",
+            description: `<text style='font-size:11px'>Quantum Foam boosts Crystal gain</text><br><text style='color:grey'><i>"I have more than two"</i></text>`,
+            unlocked() { return hasUpgrade('P', 41) },
+            color() { return '#000000' },
+            color2() { return '#5e1691' },
+            cost() { return new Decimal(6) },
+            currencyDisplayName: "Quantum Foam",
+            canAfford() { return player[this.layer].space.gte(this.cost()) },
+            style() {
+                if (!hasUpgrade(this.layer, this.id) && !this.canAfford()) { return ''}
+                else if (!hasUpgrade(this.layer, this.id) && this.canAfford()) { return { 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color(), 'background-color': 'black', 'color': 'white', 'height' : '130px', 'width' : "130px" , 'border-color': 'white' } }
+                else return { 'background-color': this.color(), 'color': 'white', 'border-color': 'purple', 'box-shadow': 'inset 0px 0px 5px ' + (player.timePlayed % 2 + 5) + 'px ' + this.color2(), 'height' : '130px', 'width' : "130px"  }
             },
         },
     },

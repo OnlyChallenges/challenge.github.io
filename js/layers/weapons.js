@@ -326,24 +326,27 @@ addLayer("V", {
     desmos1(){
         // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
         let a = new Decimal(player.points).log10().pow(1.3).max(1).min(1e20) 
-        let b = new Decimal(player.points).times(Math.sqrt(new Decimal(1.0001).log10())).pow(0.25).minus(1).max(0).min(1e20)
-        let b_2 = new Decimal(player.points).pow(0.5).log10().log10()
-        let c = new Decimal(a.times(b).pow(b_2)).max(1) 
+        let b = new Decimal(player.points).times(Math.sqrt(new Decimal(1.0001).log10())).pow(0.22).minus(1).max(0).min(1e20)
+        let b_2 = new Decimal(player.points).pow(0.5).log10().log10().max(0)
+        let c = new Decimal(Math.sqrt(a.times(b).pow(b_2))).max(1) 
         return c
     },
     desmos2(){
         // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
-        let b = new Decimal(player.points).times(Math.sqrt(new Decimal(1.0001).log10())).pow(0.25).minus(1).min(1e20).max(0)
-        return b
+        let a = new Decimal(player.points).log10().pow(0.1).max(1).min(1e20) 
+        let b = new Decimal(player.points).times(Math.sqrt(new Decimal(10).log10())).pow(0.25).minus(1).max(0).min(1e20)
+        let b_2 =new Decimal(player.points).log10().pow(0.18).max(1).min(1e20) 
+        let c = new Decimal(Math.sqrt(Math.sqrt(Math.sqrt(a.times(b).pow(b_2))))).max(1) 
+        return c
     },
     desmos3(){
         // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
-        let a = new Decimal(player.points).log10().pow(1.3).min(1e20).max(1)
-        return a
+        let b_2 =new Decimal(player.points).log10().pow(0.18).max(1).min(1e20) 
+        return b_2
     },
     desmos4(){
         // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
-        let b_2 = new Decimal(player.points).pow(0.5).log10().log10()
+        let b_2 = new Decimal(player.points).pow(0.5).log10().log10().max(0)
         return b_2
     },
 

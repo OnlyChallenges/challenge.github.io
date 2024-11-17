@@ -512,3 +512,24 @@
 	border: 3px solid rgb(18, 143, 49);
 	box-shadow: 5px 0px 1px rgb(61, 72, 77);
 }
+
+#upgrade-P-31 .tooltip{
+	width: 380px;
+}
+
+
+
+#upgrade-P-41.P.tooltipBox.upg.can{
+	color: black;
+	text-shadow: rgb(6, 12, 20) 3px 3px 10px ;
+	background: rgb(0, 0, 0);
+	background-image:repeating-linear-gradient(45deg,
+      hsla(204, 48%, 17%, 0.384),
+      hsla(204, 48%, 17%, 0.384) 15px,
+      transparent 0,
+      transparent 30px);
+	background-size: 1000% 1000%;
+	background-position: 0% 0%;
+	animation: main 120s linear infinite;
+	border: 2px solid rgb(10, 136, 38);
+}

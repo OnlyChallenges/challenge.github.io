@@ -246,6 +246,25 @@ spoiler {
 	}
 
 
+spaceroute {
+		background-image: repeating-linear-gradient(45deg, rgb(134, 46, 134), rgb(158, 133, 158), white);
+		text-decoration-line: none;
+		cursor: pointer;
+		background-size: 100% 100%;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	   }
+
+matterroute {
+		background-image: repeating-linear-gradient(45deg, rgb(66, 209, 126), rgb(21, 139, 90), rgb(5, 99, 70));
+		text-decoration-line: none;
+		cursor: pointer;
+		background-size: 100% 100%;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	   }
+
+
 .link {
 	display: block;
 	font-size: 20px;
