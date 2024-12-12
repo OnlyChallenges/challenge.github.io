@@ -1,9 +1,11 @@
+
+
 let modInfo = {
-  name: `The Floor Tree v0.0.1`,
+  name: `Solstice Studios`,
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "money",
-  modFiles: ["tree.js", "layers/floor1.js", "layers/floor2.js", "layers/floor3.js", "layers/floor4.js"],
+  modFiles: ["tree.js", "layers/newspaper.js", "layers/feburary.js"],
   discordName: "",
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
@@ -39,19 +41,18 @@ function getPointGen() {
   if (!canGenPoints())
     return new Decimal(0)
 
-  let gain = new Decimal(1)
-  if (getBuyableAmount('F1', 11).gte(1)) gain = gain.times(buyableEffect('F1', 11))
-  if (getBuyableAmount('F1', 12).gte(1)) gain = gain.times(buyableEffect('F1', 12))
-  if (getBuyableAmount('F2', 11).gte(1)) gain = gain.times(buyableEffect('F2', 11))
-  if (getBuyableAmount('F2', 13).gte(1)) gain = gain.times(buyableEffect('F2', 13))
-  if (getBuyableAmount('F3', 11).gte(1)) gain = gain.times(buyableEffect('F3', 11))
-  if (getBuyableAmount('F3', 13).gte(1)) gain = gain.times(buyableEffect('F3', 13))
-  if (getBuyableAmount('F4', 11).gte(1)) gain = gain.pow(buyableEffect('F4', 11))
-  if (getBuyableAmount('F4', 12).gte(1)) gain = gain.pow(buyableEffect('F4', 12))
-  if (getBuyableAmount('F4', 13).gte(1)) gain = gain.pow(buyableEffect('F4', 13))
+  let gain = new Decimal(0)
   return gain
 }
-
+const currentDate = new Date();
+const maintime = currentDate.getTime();
+const Jandate = new Date("2025-01-01");
+const Febtime = new Date("2025-02-01");
+const Jantime = Jandate.getTime();
+const date = currentDate.toLocaleDateString();
+const year = currentDate.getFullYear();
+const month2 = currentDate.getMonth();
+const day = currentDate.getDate();
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -104,10 +105,16 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 var displayThings = [
   function () {
     let x = getUndulatingColor()
-    let a = "Current endgame: " + colorText("b", x, "10 Super Boosters (F3)")
+    let a = "Next Newsletter: " + colorText("b", x, "Janurary 2025")
     return a
   }
 ]
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+const d = new Date();
+let month = months[d.getMonth()];
+
 // Style for the background, can be a function
 var backgroundStyle = {
 

@@ -29,7 +29,7 @@
 .tooltip { 
     pointer-events: none;
     text-align: center;
-    width: 250px;
+    width: 400px;
     font-size: 16px;
     line-height: 1.2;
     bottom: 100%;
@@ -37,7 +37,7 @@
     margin-bottom: 5px;
     transform: translateX(-50%);
     padding: 7px;
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: "8bitOperatorPlus-Bold", monospace;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -80,4 +80,84 @@
 
 .hl {
 	border-top: 3px solid var(--color);
+}
+
+padding {
+    padding: 10px 10px;
+}
+
+special {
+    font-size: 1em;
+    text-align: center;
+    font-weight: 600;
+    color: #000000ba;
+    animation: developer 15s ease infinite;
+  }
+
+@keyframes developer {
+    0% {
+        color: yellow;
+		text-shadow: rgba(0, 0, 0, 0) -3px -3px;
+	}
+    25% {
+        color: rgba(0, 0, 0, 0);
+		text-shadow: white 0px 0px;
+	}
+	50% {
+        color: yellow;
+		text-shadow: rgba(0, 0, 0, 0) 10px 10px;
+	}
+    75% {
+        color: rgba(0, 0, 0, 0);
+		text-shadow: white 0px 0px;
+	}
+	100% {
+        color: yellow;
+		text-shadow:  rgba(0, 0, 0, 0) -3px -3px;
+	}
+}
+
+power {
+    font-size: 1em;
+    text-align: center;
+    font-weight: 600;
+    color: #00000000;
+    animation: powerbox 3s ease infinite;
+  }
+
+@keyframes powerbox {
+    0% {
+        color: yellow;
+    }
+	50% {
+        color: rgba(0, 0, 0, 0);
+    }
+	100% {
+        color: yellow;
+	}
+}
+
+/* All Developer Chat Colors inside the Newsletter */
+orion {
+    color: cyan
+}
+
+jj {
+    color: lime
+}
+
+tidal {
+    color: rgb(201, 153, 7)
+}
+
+plasma {
+    color: rgb(74, 74, 223)
+}
+
+rory {
+    color: red
+}
+
+vali {
+    color: rgb(250, 125, 146)
 }
