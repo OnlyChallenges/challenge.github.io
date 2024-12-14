@@ -102,9 +102,78 @@ function getUndulatingColor(period = Math.sqrt(760)) {
   return "#" + String(a) + String(b) + String(c)
 }
 
+const playlist = [
+  new Audio('music/love.mp3'),
+  new Audio('music/showdown.mp3'),
+  new Audio('music/LINE.mp3'),
+  new Audio('music/fury.mp3'),
+  new Audio('music/retreating.mp3'),
+];
+let currentSongIndex = 0;
+function playNextSong() {
+  music = true
+  if (currentSongIndex < playlist.length) {
+    playlist[currentSongIndex].play();
+  } else {
+      currentSongIndex = null;
+      playlist[currentSongIndex].play()
+  }
+}
+function pauseMusic() {
+  music = false
+  playlist[currentSongIndex].pause()
+}
+function nextSong() {
+  playlist[currentSongIndex].pause();
+  playlist[currentSongIndex].currentTime = 0;
+  if (currentSongIndex == 4) {
+    currentSongIndex = 0
+  } else {
+    currentSongIndex++
+  };
+  playNextSong();
+}
+playlist[currentSongIndex].addEventListener('ended', function() {
+  if (currentSongIndex == 4) {
+      currentSongIndex = 0
+    } else {
+      currentSongIndex++
+    };
+  playNextSong();
+});
+
+
+
+
+let music = false
 
 // Less important things beyond this point!
 var displayThings = [
+  function () {
+    let base = ''
+    if (music == false) base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Start Music</button>`
+    if (music == true) base = `<button class="longUpg can" style="color:red" onclick="pauseMusic()">Pause Music</button>&nbsp;&nbsp;&nbsp;&nbsp; <button class="longUpg can" style="color:red"onclick="nextSong()">Next Song</button>`
+    return base
+  },
+  function () {
+
+
+    let songs = ''
+    if ((currentSongIndex == 0) && music) songs = "Now playing: <text style='color:pink'>Mother's Love - Undertale Yellow</text>"
+    if ((currentSongIndex == 1) && music) songs = "Now playing: <power>Showdown! - Undertale Yellow</power>"
+    if ((currentSongIndex == 2) && music) songs = "Now playing: <text style='color:grey'>END_OF_THE_LINE_ - Undertale Yellow</text>"
+    if ((currentSongIndex == 3) && music) songs = "Now playing: <text style='color:orange'>Trial by Fury - Undertale Yellow</text>"
+    if ((currentSongIndex == 4) && music) songs = "Now playing: <special style='animation: developer 7s ease infinite'>Enemy Retreating!- Undertale Yellow</special>"
+    return songs
+  },
+
+  function () {
+    let x = getUndulatingColor()
+    let songs = ''
+    if (music) songs = colorText("b", x, formatTime(playlist[currentSongIndex].currentTime) +" / " + formatTime(playlist[currentSongIndex].duration))
+    
+    return songs
+  },
   function () {
     var x = setInterval(function() {
 
@@ -130,7 +199,7 @@ var displayThings = [
           document.getElementById("demo").innerHTML = "EXPIRED";
         }
       }, 1000);
-    return `<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>`
+    return "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>"
   }
 ]
 
@@ -142,10 +211,52 @@ let month = months[d.getMonth()];
 // Style for the background, can be a function
 var backgroundStyle = function() {
     let backSty = { "background-image": "rgb(0, 0, 0)" }
-    backSty = {'background': 'linear-gradient(135deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px),linear-gradient(45deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px)0 64px',
-    'background-color': 'black',
-    'background-size': '64px 128px',
-    "background-position": "100%" + " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"}
+
+    if (currentSongIndex == 0) backSty = {"color": "grey",
+    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
+    "background": `linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(255, 0, 255, 0.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(111, 4, 73, 0.8), rgba(0,0,255,0) 70.71%)`,
+    "animation": "main 240s infinite",
+    "z-index": 0.5,
+    "background-color": '#000000',
+     }
+    if (currentSongIndex == 1) backSty = {"color": "grey",
+      "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
+      "background": `linear-gradient(217deg, rgba(216, 173, 29, 0.8), rgba(255,0,0,0) 70.71%),
+              linear-gradient(127deg, rgba(255, 255, 0, 0.8), rgba(0,255,0,0) 70.71%),
+              linear-gradient(336deg, rgba(148, 9, 9, 0.8), rgba(0,0,255,0) 70.71%)`,
+      "animation": "main 240s infinite",
+      "z-index": 0.5,
+      "background-color": '#000000',
+    }
+    if (currentSongIndex == 2) backSty = {"color": "grey",
+      "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
+      "background": `linear-gradient(217deg, rgba(158, 9, 146, 0.8), rgba(255,0,0,0) 70.71%),
+              linear-gradient(127deg, rgba(0, 0, 0, 0.8), rgba(0,255,0,0) 70.71%),
+              linear-gradient(336deg, rgba(88, 9, 148, 0.8), rgba(0,0,255,0) 70.71%)`,
+      "animation": "main 240s infinite",
+      "z-index": 0.5,
+      "background-color": '#000000',
+    }
+    if (currentSongIndex == 3) backSty = {"color": "grey",
+      "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
+      "background": `linear-gradient(217deg, rgba(184, 0, 0, 0.8), rgba(255,0,0,0) 70.71%),
+              linear-gradient(127deg, rgba(206, 6, 6, 0.8), rgba(0,255,0,0) 70.71%),
+              linear-gradient(336deg, rgba(118, 4, 4, 0.8), rgba(0,0,255,0) 70.71%)`,
+      "animation": "main 240s infinite",
+      "z-index": 0.5,
+      "background-color": '#000000',
+    }
+    if (currentSongIndex == 4) backSty = {"color": "grey",
+      "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
+      "background": `linear-gradient(217deg, rgba(106, 122, 0, 0.8), rgba(255,0,0,0) 70.71%),
+              linear-gradient(127deg, rgba(80, 87, 0, 0.8), rgba(0,255,0,0) 70.71%),
+              linear-gradient(336deg, rgba(40, 42, 7, 0.8), rgba(0,0,255,0) 70.71%)`,
+      "animation": "main 240s infinite",
+      "z-index": 0.5,
+      "background-color": '#000000',
+    }
     return backSty
 }
 

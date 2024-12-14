@@ -169,10 +169,10 @@
 .longUpg {
 	height: 50px;
 	width: 120px;
-	background: var(--points);
+	background: rgba(0, 0, 0, 0.815);
 	border-radius: 50%;
 	border: 2px solid;
-	border-color: rgba(0, 0, 0, 0.125);
+	border-color: rgba(255, 0, 0, 0.815);
 	font-size: 10px;
 }
 

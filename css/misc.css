@@ -123,6 +123,7 @@ power {
     font-weight: 600;
     color: #00000000;
     animation: powerbox 3s ease infinite;
+    transform: rotate(0deg);
   }
 
 @keyframes powerbox {
