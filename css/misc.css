@@ -137,26 +137,6 @@ power {
 	}
 }
 
-hide {
-    font-size: 1em;
-    text-align: center;
-    font-weight: 600;
-    color: #3634345d;
-    animation: secretbox 10s ease infinite;
-  }
-
-@keyframes secretbox {
-    0% {
-        color: #3634345d;
-    }
-	50% {
-        color: rgba(100, 97, 97, 0.105)
-    }
-	100% {
-        color: #3634345d;
-	}
-}
-
 /* All Developer Chat Colors inside the Newsletter */
 orion {
     color: cyan
