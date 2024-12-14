@@ -6,6 +6,7 @@ addLayer("D", {
         return {
             unlocked: false,
             points: new Decimal(0),
+            shown: false,
         }
     },
     haveTime() {
@@ -19,8 +20,14 @@ addLayer("D", {
         return requirement
 
     },
-
+    layerShown() {
+        let shown = player[this.layer].shown
+        return shown
+    },
     update(diff) {
+        if (Jantime <= maintime) player[this.layer].shown = true
+        else player[this.layer].shown = false
+
         if (Jantime <= maintime) player[this.layer].unlocked = true
         else player[this.layer].unlocked = false
         // If the Date is Janurary 1st, 2025; set the Newsletter being opened to true, else keep the newsletter locked until Janurary 1st, 2025
@@ -116,10 +123,6 @@ addLayer("D", {
         return exp
     },
     branches: ["F"],
-    hotkeys: [
-        { key: "1", description: "1: Reset for Floor 1", onPress() { if (canReset(this.layer) && player.F1.unlocked) doReset(this.layer) } },
-    ],
-    layerShown() { return true },
     doReset(resettingLayer) {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
     },

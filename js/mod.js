@@ -53,6 +53,8 @@ const date = currentDate.toLocaleDateString();
 const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
+
+const countDownDate = new Date("Jan 1, 2025").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -104,9 +106,31 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 // Less important things beyond this point!
 var displayThings = [
   function () {
-    let x = getUndulatingColor()
-    let a = "Next Newsletter: " + colorText("b", x, "Janurary 2025")
-    return a
+    var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+      
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+      
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+        // Display the result in the element with id="demo"
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+      
+        // If the count down is finished, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    return `<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>`
   }
 ]
 
@@ -116,8 +140,13 @@ const d = new Date();
 let month = months[d.getMonth()];
 
 // Style for the background, can be a function
-var backgroundStyle = {
-
+var backgroundStyle = function() {
+    let backSty = { "background-image": "rgb(0, 0, 0)" }
+    backSty = {'background': 'linear-gradient(135deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px),linear-gradient(45deg, #000000 22px, #361218 22px, #361218 24px, transparent 24px, transparent 67px, #361218 67px, #361218 69px, transparent 69px)0 64px',
+    'background-color': 'black',
+    'background-size': '64px 128px',
+    "background-position": "100%" + " " + (player.timePlayed % 100) + "%" + " " + (player.timePlayed % 100) + "%"}
+    return backSty
 }
 
 // You can change this if you have things that can be messed up by long tick lengths
