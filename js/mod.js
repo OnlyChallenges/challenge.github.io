@@ -115,8 +115,8 @@ function playNextSong() {
   if (currentSongIndex < playlist.length) {
     playlist[currentSongIndex].play();
   } else {
-      currentSongIndex = null;
-      playlist[currentSongIndex].play()
+    currentSongIndex = 0;
+    playlist[currentSongIndex].play()
   }
 }
 function pauseMusic() {
@@ -133,12 +133,12 @@ function nextSong() {
   };
   playNextSong();
 }
-playlist[currentSongIndex].addEventListener('ended', function() {
+playlist[currentSongIndex].addEventListener('ended', function () {
   if (currentSongIndex == 4) {
-      currentSongIndex = 0
-    } else {
-      currentSongIndex++
-    };
+    currentSongIndex = 0
+  } else {
+    currentSongIndex++
+  };
   playNextSong();
 });
 
@@ -170,35 +170,35 @@ var displayThings = [
   function () {
     let x = getUndulatingColor()
     let songs = ''
-    if (music) songs = colorText("b", x, formatTime(playlist[currentSongIndex].currentTime) +" / " + formatTime(playlist[currentSongIndex].duration))
-    
+    if (music) songs = colorText("b", x, formatTime(playlist[currentSongIndex].currentTime) + " / " + formatTime(playlist[currentSongIndex].duration))
+
     return songs
   },
   function () {
-    var x = setInterval(function() {
+    var x = setInterval(function () {
 
-        // Get today's date and time
-        var now = new Date().getTime();
-      
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
-      
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      
-        // Display the result in the element with id="demo"
-        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      // Get today's date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
-      
-        // If the count down is finished, write some text
-        if (distance < 0) {
-          clearInterval(x);
-          document.getElementById("demo").innerHTML = "EXPIRED";
-        }
-      }, 1000);
+
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
     return "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>"
   }
 ]
@@ -209,55 +209,60 @@ const d = new Date();
 let month = months[d.getMonth()];
 
 // Style for the background, can be a function
-var backgroundStyle = function() {
-    let backSty = { "background-image": "rgb(0, 0, 0)" }
+var backgroundStyle = function () {
+  let backSty = { "background-image": "rgb(0, 0, 0)" }
 
-    if (currentSongIndex == 0) backSty = {"color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
+  if (currentSongIndex == 0) backSty = {
+    "color": "grey",
+    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
     "background": `linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
             linear-gradient(127deg, rgba(255, 0, 255, 0.8), rgba(0,255,0,0) 70.71%),
             linear-gradient(336deg, rgba(111, 4, 73, 0.8), rgba(0,0,255,0) 70.71%)`,
     "animation": "main 240s infinite",
     "z-index": 0.5,
     "background-color": '#000000',
-     }
-    if (currentSongIndex == 1) backSty = {"color": "grey",
-      "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
-      "background": `linear-gradient(217deg, rgba(216, 173, 29, 0.8), rgba(255,0,0,0) 70.71%),
+  }
+  if (currentSongIndex == 1) backSty = {
+    "color": "grey",
+    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
+    "background": `linear-gradient(217deg, rgba(216, 173, 29, 0.8), rgba(255,0,0,0) 70.71%),
               linear-gradient(127deg, rgba(255, 255, 0, 0.8), rgba(0,255,0,0) 70.71%),
               linear-gradient(336deg, rgba(148, 9, 9, 0.8), rgba(0,0,255,0) 70.71%)`,
-      "animation": "main 240s infinite",
-      "z-index": 0.5,
-      "background-color": '#000000',
-    }
-    if (currentSongIndex == 2) backSty = {"color": "grey",
-      "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
-      "background": `linear-gradient(217deg, rgba(158, 9, 146, 0.8), rgba(255,0,0,0) 70.71%),
+    "animation": "main 240s infinite",
+    "z-index": 0.5,
+    "background-color": '#000000',
+  }
+  if (currentSongIndex == 2) backSty = {
+    "color": "grey",
+    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
+    "background": `linear-gradient(217deg, rgba(158, 9, 146, 0.8), rgba(255,0,0,0) 70.71%),
               linear-gradient(127deg, rgba(0, 0, 0, 0.8), rgba(0,255,0,0) 70.71%),
               linear-gradient(336deg, rgba(88, 9, 148, 0.8), rgba(0,0,255,0) 70.71%)`,
-      "animation": "main 240s infinite",
-      "z-index": 0.5,
-      "background-color": '#000000',
-    }
-    if (currentSongIndex == 3) backSty = {"color": "grey",
-      "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
-      "background": `linear-gradient(217deg, rgba(184, 0, 0, 0.8), rgba(255,0,0,0) 70.71%),
+    "animation": "main 240s infinite",
+    "z-index": 0.5,
+    "background-color": '#000000',
+  }
+  if (currentSongIndex == 3) backSty = {
+    "color": "grey",
+    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
+    "background": `linear-gradient(217deg, rgba(184, 0, 0, 0.8), rgba(255,0,0,0) 70.71%),
               linear-gradient(127deg, rgba(206, 6, 6, 0.8), rgba(0,255,0,0) 70.71%),
               linear-gradient(336deg, rgba(118, 4, 4, 0.8), rgba(0,0,255,0) 70.71%)`,
-      "animation": "main 240s infinite",
-      "z-index": 0.5,
-      "background-color": '#000000',
-    }
-    if (currentSongIndex == 4) backSty = {"color": "grey",
-      "text-shadow": "rgb(6, 12, 20) 3px 3px 10px", 
-      "background": `linear-gradient(217deg, rgba(106, 122, 0, 0.8), rgba(255,0,0,0) 70.71%),
+    "animation": "main 240s infinite",
+    "z-index": 0.5,
+    "background-color": '#000000',
+  }
+  if (currentSongIndex == 4) backSty = {
+    "color": "grey",
+    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
+    "background": `linear-gradient(217deg, rgba(106, 122, 0, 0.8), rgba(255,0,0,0) 70.71%),
               linear-gradient(127deg, rgba(80, 87, 0, 0.8), rgba(0,255,0,0) 70.71%),
               linear-gradient(336deg, rgba(40, 42, 7, 0.8), rgba(0,0,255,0) 70.71%)`,
-      "animation": "main 240s infinite",
-      "z-index": 0.5,
-      "background-color": '#000000',
-    }
-    return backSty
+    "animation": "main 240s infinite",
+    "z-index": 0.5,
+    "background-color": '#000000',
+  }
+  return backSty
 }
 
 // You can change this if you have things that can be messed up by long tick lengths
