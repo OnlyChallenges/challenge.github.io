@@ -111,7 +111,11 @@ var systemComponents = {
 		<span v-if="player.offTime !== undefined"  class="overlayThing">
 			<br>Offline Time: {{formatTime(player.offTime.remain)}}<br>
 		</span>
+		<span v-if="player.points.lt('1e1000')"  class="overlayThing"><br>You have </span>
+		<h2  class="overlayThing" id="points">{{formatWhole(player.points)}}</h2>
+		<span v-if="player.points.lt('1e1e6')"  class="overlayThing"> <debuff>$</debuff></span>
 		<br>
+		<button class="longUpg can" onclick="hardReset()" style='color:red'>HARD RESET</button>
 		<div v-for="thing in tmp.displayThings" class="overlayThing"><span v-if="thing" v-html="thing"></span></div>
 	</div>
 	`

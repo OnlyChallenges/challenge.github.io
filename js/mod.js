@@ -1,14 +1,14 @@
 
 
 let modInfo = {
-  name: `Solstice Studios`,
+  name: `Game of Chance`,
   id: "anothermod2",
   author: "vali (snor mimi)",
   pointsName: "money",
-  modFiles: ["tree.js", "layers/newspaper.js", "layers/feburary.js"],
+  modFiles: ["tree.js", "layers/gambling.js"],
   discordName: "",
   discordLink: "",
-  initialStartPoints: new Decimal(0), // Used for hard resets and new players
+  initialStartPoints: new Decimal(100), // Used for hard resets and new players
   offlineLimit: 0,  // In hours
 }
 
@@ -44,17 +44,7 @@ function getPointGen() {
   let gain = new Decimal(0)
   return gain
 }
-const currentDate = new Date();
-const maintime = currentDate.getTime();
-const Jandate = new Date("2025-01-01");
-const Febtime = new Date("2025-02-01");
-const Jantime = Jandate.getTime();
-const date = currentDate.toLocaleDateString();
-const year = currentDate.getFullYear();
-const month2 = currentDate.getMonth();
-const day = currentDate.getDate();
 
-const countDownDate = new Date("Jan 1, 2025").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -102,162 +92,20 @@ function getUndulatingColor(period = Math.sqrt(760)) {
   return "#" + String(a) + String(b) + String(c)
 }
 
-const playlist = [
-  new Audio('music/love.mp3'),
-  new Audio('music/showdown.mp3'),
-  new Audio('music/LINE.mp3'),
-  new Audio('music/fury.mp3'),
-  new Audio('music/retreating.mp3'),
-];
-let currentSongIndex = 0;
-function playNextSong() {
-  music = true
-  if (currentSongIndex < playlist.length) {
-    playlist[currentSongIndex].play();
-  } else {
-    currentSongIndex = 0;
-    playlist[currentSongIndex].play()
-  }
-}
-function pauseMusic() {
-  music = false
-  playlist[currentSongIndex].pause()
-}
-function nextSong() {
-  playlist[currentSongIndex].pause();
-  playlist[currentSongIndex].currentTime = 0;
-  if (currentSongIndex == 4) {
-    currentSongIndex = 0
-  } else {
-    currentSongIndex++
-  };
-  playNextSong();
-}
-playlist[currentSongIndex].addEventListener('ended', function () {
-  if (currentSongIndex == 4) {
-    currentSongIndex = 0
-  } else {
-    currentSongIndex++
-  };
-  playNextSong();
-});
-
-
-
-
-let music = false
-
 // Less important things beyond this point!
 var displayThings = [
-  function () {
-    let base = ''
-    if (music == false) base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Start Music</button>`
-    if (music == true) base = `<button class="longUpg can" style="color:red" onclick="pauseMusic()">Pause Music</button>&nbsp;&nbsp;&nbsp;&nbsp; <button class="longUpg can" style="color:red"onclick="nextSong()">Next Song</button>`
-    return base
-  },
-  function () {
-
-
-    let songs = ''
-    if ((currentSongIndex == 0) && music) songs = "Now playing: <text style='color:pink'>Mother's Love - Undertale Yellow</text>"
-    if ((currentSongIndex == 1) && music) songs = "Now playing: <power>Showdown! - Undertale Yellow</power>"
-    if ((currentSongIndex == 2) && music) songs = "Now playing: <text style='color:grey'>END_OF_THE_LINE_ - Undertale Yellow</text>"
-    if ((currentSongIndex == 3) && music) songs = "Now playing: <text style='color:orange'>Trial by Fury - Undertale Yellow</text>"
-    if ((currentSongIndex == 4) && music) songs = "Now playing: <special style='animation: developer 7s ease infinite'>Enemy Retreating!- Undertale Yellow</special>"
-    return songs
-  },
-
-  function () {
-    let x = getUndulatingColor()
-    let songs = ''
-    if (music) songs = colorText("b", x, formatTime(playlist[currentSongIndex].currentTime) + " / " + formatTime(playlist[currentSongIndex].duration))
-
-    return songs
-  },
-  function () {
-    var x = setInterval(function () {
-
-      // Get today's date and time
-      var now = new Date().getTime();
-
-      // Find the distance between now and the count down date
-      var distance = countDownDate - now;
-
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-      // Display the result in the element with id="demo"
-      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
-
-      // If the count down is finished, write some text
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
-      }
-    }, 1000);
-    return "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>"
-  }
+  
 ]
-
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-const d = new Date();
-let month = months[d.getMonth()];
 
 // Style for the background, can be a function
 var backgroundStyle = function () {
   let backSty = { "background-image": "rgb(0, 0, 0)" }
-
-  if (currentSongIndex == 0) backSty = {
+  backSty = {
     "color": "grey",
     "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
     "background": `linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
             linear-gradient(127deg, rgba(255, 0, 255, 0.8), rgba(0,255,0,0) 70.71%),
             linear-gradient(336deg, rgba(111, 4, 73, 0.8), rgba(0,0,255,0) 70.71%)`,
-    "animation": "main 240s infinite",
-    "z-index": 0.5,
-    "background-color": '#000000',
-  }
-  if (currentSongIndex == 1) backSty = {
-    "color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(216, 173, 29, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(255, 255, 0, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(148, 9, 9, 0.8), rgba(0,0,255,0) 70.71%)`,
-    "animation": "main 240s infinite",
-    "z-index": 0.5,
-    "background-color": '#000000',
-  }
-  if (currentSongIndex == 2) backSty = {
-    "color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(158, 9, 146, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(0, 0, 0, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(88, 9, 148, 0.8), rgba(0,0,255,0) 70.71%)`,
-    "animation": "main 240s infinite",
-    "z-index": 0.5,
-    "background-color": '#000000',
-  }
-  if (currentSongIndex == 3) backSty = {
-    "color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(184, 0, 0, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(206, 6, 6, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(118, 4, 4, 0.8), rgba(0,0,255,0) 70.71%)`,
-    "animation": "main 240s infinite",
-    "z-index": 0.5,
-    "background-color": '#000000',
-  }
-  if (currentSongIndex == 4) backSty = {
-    "color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(106, 122, 0, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(80, 87, 0, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(40, 42, 7, 0.8), rgba(0,0,255,0) 70.71%)`,
     "animation": "main 240s infinite",
     "z-index": 0.5,
     "background-color": '#000000',
