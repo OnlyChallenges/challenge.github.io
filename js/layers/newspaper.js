@@ -26,10 +26,10 @@ addLayer("D", {
     },
     update(diff) {
         if (Jantime <= maintime) player[this.layer].shown = true
-        else player[this.layer].shown = false
+        else player[this.layer].shown = true
 
         if (Jantime <= maintime) player[this.layer].unlocked = true
-        else player[this.layer].unlocked = false
+        else player[this.layer].unlocked = true
         // If the Date is Janurary 1st, 2025; set the Newsletter being opened to true, else keep the newsletter locked until Janurary 1st, 2025
         // Updates every 1/60th of a second.
     },
@@ -72,8 +72,8 @@ addLayer("D", {
                 <vali>Alright Alright, we know y'all love your goobers, and I believe they will too soon...</vali><br>
                 <vali>Mechanics... We have a few of them in mind or is already in the process of doing it. <br>My personal favorite:</vali> <power>Power Boxes</power><br>
                 <tidal>Heyyyyy... don't forget about the <text style='color:cyan'>Assist System</text>!</tidal><br><vali>Don't worry <tidal>Tidal</tidal> I didn't forget! How about you explain it to them. Again perhaps?</vali><br>
-                <tidal>Sure,</tidal>
-                <jj>Fortnite, Specifically OG Fortnite</jj>
+                <tidal>Sure, the <text style='color:cyan'>Assist System</text> was implimented in the early development stage of <water>V5.1</water> but had multiple bugs in it.<br>Overtime we've improved the system and hopefully it is ready to be released in <corrupt>V5.2</corrupt></tidal>
+                <plasma style='font-size: 110px'>KABOOM!!!!!!!!!!!</plasma><br><plasma style='font-size: 10px'>I hate coding</plasma>
                 `
             ]
         ],
