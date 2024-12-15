@@ -6,6 +6,8 @@ addLayer("D", {
         return {
             unlocked: true,
             points: new Decimal(0),
+            even: false,
+            black: false,
         }
     },
     tooltip: "Game of Chance",
@@ -34,33 +36,38 @@ addLayer("D", {
 
     tabFormat: {
         "Game of Chance": {
-        content: [
-            ["infobox", "lore"],
-            ["infobox", "chances"],
-            ["display-text", function() {
-                `
-                <input type="checkbox">Test</input>
-                `
-            },{}
-            ],
-        ],
-    },
-    
+            content: [
+                ["infobox", "lore"],
+                ["infobox", "chances"],
+                "h-line",
+                "blank",
+                ["display-text", function() 
+                    {
+                        let info = ''
+                        if (player[this.layer].black == false && player[this.layer].even == false) info = "You're rolling for Red & Odd"
+                        return info
+                }],
+                ["raw-html", ` <input type='checkbox' id='even' name='check' value='player[this.layer].even'style="margin:5px 0;width:30px;"> <label for="even">Roll for Even</label>`],
+                ["raw-html", ` <input type='checkbox' id='black' name='check' value='player[this.layer].black' style="margin:5px 0;width:30px;"> <label for="black">Roll for Black</label>`],
+                ["raw-html", ` <button type='submit'>Test</button>`],
+                ],
+        },
+
     },
 
     infoboxes: {
         lore: {
             title: "How to Play",
-            body: 
-            `
+            body:
+                `
                 You start with 100$, which you can use upon to take a <special>chance</special> of earning more, or lose some of it.<br>
                 You only have <orion>100 Simulations/Tries</orion> to get as much as possible, will you take the risk?
             `,
         },
         chances: {
             title: "Chances",
-            body: 
-            `
+            body:
+                `
                 Red or Black: 50%<br>
                 Odd or Even: 50%<br>
                 Red & Odd: 25% --- etc.<br>
