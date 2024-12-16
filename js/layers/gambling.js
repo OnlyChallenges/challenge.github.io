@@ -108,9 +108,9 @@ addLayer("D", {
 
                 player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
 
-                if (player[this.layer].highlowNum < player[this.layer].number) {(Math.floor(player.points.times(2)))};
+                if (player[this.layer].highlowNum < player[this.layer].number) {player.points.times(2)};
                 if (player[this.layer].highlowNum < player[this.layer].number) {(player[this.layer].correct = true)};
-                if (player[this.layer].highlowNum >= player[this.layer].number) {(Math.floor(player.points.div(3)))};
+                if (player[this.layer].highlowNum >= player[this.layer].number) {player.points.div(3)};
                 if (player[this.layer].highlowNum >= player[this.layer].number) {(player[this.layer].incorrect = true)};
 
                 player[this.layer].number = Math.floor((Math.random() * 100) + 1) 
@@ -134,9 +134,9 @@ addLayer("D", {
                 player[this.layer].incorrect = false;
                 player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
                 
-                if (player[this.layer].highlowNum == player[this.layer].number) {(Math.floor(player.points.pow(1.5)))};
+                if (player[this.layer].highlowNum == player[this.layer].number) {player.points.pow(1.5)};
                 if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)};
-                if (player[this.layer].highlowNum !== player[this.layer].number) {(Math.floor(player.points.times(0.1)))};
+                if (player[this.layer].highlowNum !== player[this.layer].number) {player.points.times(0.1)};
                 if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)};
                 // Money^1.5 boost
 
