@@ -29,7 +29,7 @@ addLayer("D", {
     RollHighOrLow(){
         player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1)
         return player[this.layer].highlowNum   
-    }
+    },
     layerShown() {
         let shown = true
         return shown
