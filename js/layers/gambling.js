@@ -116,22 +116,22 @@ addLayer("D", {
                 player[this.layer].correct = false 
                 player[this.layer].incorrect = false
                 RollHighOrLow()
-                if (player[this.layer].highlowNum < player[this.layer].number) {(Math.floor(player.points.times(2)))},
-                if (player[this.layer].highlowNum < player[this.layer].number) {(player[this.layer].correct = true)},
-                if (player[this.layer].highlowNum >= player[this.layer].number) {(Math.floor(player.points.div(3)))},
-                if (player[this.layer].highlowNum >= player[this.layer].number) {(player[this.layer].incorrect = true)},
+                if (player[this.layer].highlowNum < player[this.layer].number) {(Math.floor(player.points.times(2)))}
+                if (player[this.layer].highlowNum < player[this.layer].number) {(player[this.layer].correct = true)}
+                if (player[this.layer].highlowNum >= player[this.layer].number) {(Math.floor(player.points.div(3)))}
+                if (player[this.layer].highlowNum >= player[this.layer].number) {(player[this.layer].incorrect = true)}
 
                 RollNumber()
                 
             },
-            style() { return { 'background-color': tmp[this.layer].color, } },
+            style() { return { 'background-color': tmp[this.layer].color } },
         },
         12: {
             title: "Jackpot!",
             display() {
                 let dis = "THe Hidden Number is EXACTLY the same as the Base Number<br>(EX: 40 = 40)<br> <special>You'll lose 90% of your money if it's wrong... but get it right and you'll earn ^1.5 back!</special>"
                 return dis
-            }
+            },
             canClick() {
                 let click = true
                 return click
@@ -142,21 +142,17 @@ addLayer("D", {
                 player[this.layer].incorrect = false
                 RollHighOrLow()
                 
-                if (player[this.layer].highlowNum == player[this.layer].number) {(Math.floor(player.points.pow(1.5)))},
-                if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)},
-                if (player[this.layer].highlowNum !== player[this.layer].number) {(Math.floor(player.points.times(0.1)))},
-                if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)},
+                if (player[this.layer].highlowNum == player[this.layer].number) {(Math.floor(player.points.pow(1.5)))}
+                if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)}
+                if (player[this.layer].highlowNum !== player[this.layer].number) {(Math.floor(player.points.times(0.1)))}
+                if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)}
                 // Money^1.5 boost
 
                 RollNumber()
-            }
-            style() { return { 'background-color': tmp[this.layer].color}}
-        }
+            },
+            style() { return { 'background-color': tmp[this.layer].color}},
+        },
     },
-
-
-
-
 
     color: "#33AACC",
     baseAmount() { return player.points },
