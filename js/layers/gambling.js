@@ -114,9 +114,9 @@ addLayer("D", {
                 player[this.layer].correct = false 
                 player[this.layer].incorrect = false
                 RollHighOrLow()
-                if (player[this.layer].highlowNum < player[this.layer].number) {(Math.floor(player[this.layer].money.times(2)))},
+                if (player[this.layer].highlowNum < player[this.layer].number) {(Math.floor(player.points.times(2)))},
                 if (player[this.layer].highlowNum < player[this.layer].number) {(player[this.layer].correct = true)},
-                if (player[this.layer].highlowNum >= player[this.layer].number) {(Math.floor(player[this.layer].money.div(3)))},
+                if (player[this.layer].highlowNum >= player[this.layer].number) {(Math.floor(player.points.div(3)))},
                 if (player[this.layer].highlowNum >= player[this.layer].number) {(player[this.layer].incorrect = true)},
 
                 RollNumber()
@@ -139,9 +139,9 @@ addLayer("D", {
                 player[this.layer].incorrect = false
                 RollHighOrLow()
                 
-                if (player[this.layer].highlowNum == player[this.layer].number) {(Math.floor(player[this.layer].money.pow(1.5)))},
+                if (player[this.layer].highlowNum == player[this.layer].number) {(Math.floor(player.points.pow(1.5)))},
                 if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)},
-                if (player[this.layer].highlowNum !== player[this.layer].number) {(Math.floor(player[this.layer].money.times(0.1)))},
+                if (player[this.layer].highlowNum !== player[this.layer].number) {(Math.floor(player.points.times(0.1)))},
                 if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)},
                 // Money^1.5 boost
 
