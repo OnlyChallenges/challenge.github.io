@@ -46,6 +46,7 @@ addLayer("D", {
             "blank",
             "blank",
             ["display-text", function() {return "<orion>Simulation " + player[this.layer].simulation + "/100</orion>"},{}],
+            ["display-text", function() {return "You have " + player.points + "$"},{}],
             ["display-text", function() {return "You need 1e10 $ to unlock the next feature"},{}],
             ["display-text", function() {
                 // This will show what the number is current from what you've gotten"
