@@ -56,7 +56,7 @@ addLayer("D", {
             "blank",
             "blank",
             ["display-text", function() {return "<orion>Simulation " + simulation + "/100</orion>"}],
-            ["display-text", function() {return "You need 1e10 $ to unlock the next feature}],
+            ["display-text", function() {return "You need 1e10 $ to unlock the next feature"}],
             ["display-text", function() {
                 // This will show what the number is current from what you've gotten"
                 let basetext = "High or Low? The Current Number is " + number
@@ -67,8 +67,7 @@ addLayer("D", {
             },],
             ["clickables", [1]],
             ],
-    },
-    
+        },
     },
 
     infoboxes: {
