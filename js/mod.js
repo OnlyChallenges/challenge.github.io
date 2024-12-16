@@ -8,7 +8,7 @@ let modInfo = {
   modFiles: ["tree.js", "layers/gambling.js"],
   discordName: "",
   discordLink: "",
-  initialStartPoints: new Decimal(101), // Used for hard resets and new players
+  initialStartPoints: new Decimal(0), // Used for hard resets and new players
   offlineLimit: 0,  // In hours
 }
 
@@ -41,7 +41,7 @@ function getPointGen() {
   if (!canGenPoints())
     return new Decimal(0)
 
-  let gain = new Decimal(0)
+  let gain = new Decimal(player['D'].moneySec)
   return gain
 }
 
