@@ -47,7 +47,7 @@ addLayer("D", {
             "blank",
             "blank",
             ["display-text", function() {return "<orion>Simulation " + player[this.layer].simulation + "/100</orion>"},{}],
-            ["display-text", function() {return "You have " + player.points + "$"},{}],
+            ["display-text", function() {return "You have " + format(player.points) + "$ (" + formatWhole(player[this.layer].moneySec) + "$/sec)" },{}],
             ["display-text", function() {return "You need 1e10 $ to unlock the next feature"},{}],
             ["display-text", function() {
                 // This will show what the number is current from what you've gotten"
@@ -109,9 +109,9 @@ addLayer("D", {
 
                 player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
 
-                if (player[this.layer].highlowNum < player[this.layer].number) {player[this.layer].moneySec.times(2)};
+                if (player[this.layer].highlowNum < player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.times(2)};
                 if (player[this.layer].highlowNum < player[this.layer].number) {(player[this.layer].correct = true)};
-                if (player[this.layer].highlowNum >= player[this.layer].number) {player[this.layer].moneySec.div(3)};
+                if (player[this.layer].highlowNum >= player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.div(3)};
                 if (player[this.layer].highlowNum >= player[this.layer].number) {(player[this.layer].incorrect = true)};
 
                 player[this.layer].number = Math.floor((Math.random() * 100) + 1) 
@@ -135,9 +135,9 @@ addLayer("D", {
                 player[this.layer].incorrect = false;
                 player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
                 
-                if (player[this.layer].highlowNum == player[this.layer].number) {player[this.layer].moneySec.pow(1.5)};
+                if (player[this.layer].highlowNum == player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.pow(1.5)};
                 if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)};
-                if (player[this.layer].highlowNum !== player[this.layer].number) {player[this.layer].moneySec.times(0.1)};
+                if (player[this.layer].highlowNum !== player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.times(0.1)};
                 if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)};
                 // Money^1.5 boost
 
