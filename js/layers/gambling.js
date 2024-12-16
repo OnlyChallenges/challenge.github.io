@@ -55,13 +55,13 @@ addLayer("D", {
             "blank",
             "blank",
             "blank",
-            ["display-text", function() {return "<orion>Simulation " + simulation + "/100</orion>"},{}],
+            ["display-text", function() {return "<orion>Simulation " + player[this.layer].simulation + "/100</orion>"},{}],
             ["display-text", function() {return "You need 1e10 $ to unlock the next feature"},{}],
             ["display-text", function() {
                 // This will show what the number is current from what you've gotten"
-                let basetext = "High or Low? The Current Number is " + number
-                if (player[this.layer].incorrect) basetext = "That is incorrect! The Hidden Number was " + highlowNum + "! Let's try again...<br>High or Low? The Current Number is " + number + "!"
-                if (player[this.layer].correct) basetext = "You guessed right! The Hidden Number was " + highlowNum + "!<br>High or Low? The Current Number is " + number + "!"
+                let basetext = "High or Low? The Current Number is " + player[this.layer].number
+                if (player[this.layer].incorrect) basetext = "That is incorrect! The Hidden Number was " + player[this.layer].highlowNum + "! Let's try again...<br>High or Low? The Current Number is " +  player[this.layer].number + "!"
+                if (player[this.layer].correct) basetext = "You guessed right! The Hidden Number was " + player[this.layer].highlowNum + "!<br>High or Low? The Current Number is " +  player[this.layer].number + "!"
                 return basetext
 
             },{}],
