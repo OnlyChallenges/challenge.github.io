@@ -55,8 +55,8 @@ addLayer("D", {
             "blank",
             "blank",
             "blank",
-            ["display-text", function() {return "<orion>Simulation " + simulation + "/100</orion>"}],
-            ["display-text", function() {return "You need 1e10 $ to unlock the next feature"}],
+            ["display-text", function() {return "<orion>Simulation " + simulation + "/100</orion>"},{}],
+            ["display-text", function() {return "You need 1e10 $ to unlock the next feature"},{}],
             ["display-text", function() {
                 // This will show what the number is current from what you've gotten"
                 let basetext = "High or Low? The Current Number is " + number
@@ -64,7 +64,7 @@ addLayer("D", {
                 if (player[this.layer].correct) basetext = "You guessed right! The Hidden Number was " + highlowNum + "!<br>High or Low? The Current Number is " + number + "!"
                 return basetext
 
-            },],
+            },{}],
             ["clickables", [1]],
             ],
         },
@@ -111,16 +111,16 @@ addLayer("D", {
                 return click
             },
             onClick() {
-                player[this.layer].simulation++
-                player[this.layer].correct = false 
-                player[this.layer].incorrect = false
-                RollHighOrLow()
-                if (player[this.layer].highlowNum < player[this.layer].number) {(Math.floor(player.points.times(2)))}
-                if (player[this.layer].highlowNum < player[this.layer].number) {(player[this.layer].correct = true)}
-                if (player[this.layer].highlowNum >= player[this.layer].number) {(Math.floor(player.points.div(3)))}
-                if (player[this.layer].highlowNum >= player[this.layer].number) {(player[this.layer].incorrect = true)}
+                player[this.layer].simulation++;
+                player[this.layer].correct = false; 
+                player[this.layer].incorrect = false;
+                RollHighOrLow();
+                if (player[this.layer].highlowNum < player[this.layer].number) {(Math.floor(player.points.times(2)))};
+                if (player[this.layer].highlowNum < player[this.layer].number) {(player[this.layer].correct = true)};
+                if (player[this.layer].highlowNum >= player[this.layer].number) {(Math.floor(player.points.div(3)))};
+                if (player[this.layer].highlowNum >= player[this.layer].number) {(player[this.layer].incorrect = true)};
 
-                RollNumber()
+                RollNumber();
                 
             },
             style() { return { 'background-color': tmp[this.layer].color } },
@@ -136,18 +136,18 @@ addLayer("D", {
                 return click
             },
             onClick() {
-                player[this.layer].simulation++
-                player[this.layer].correct = false 
-                player[this.layer].incorrect = false
-                RollHighOrLow()
+                player[this.layer].simulation++;
+                player[this.layer].correct = false; 
+                player[this.layer].incorrect = false;
+                RollHighOrLow();
                 
-                if (player[this.layer].highlowNum == player[this.layer].number) {(Math.floor(player.points.pow(1.5)))}
-                if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)}
-                if (player[this.layer].highlowNum !== player[this.layer].number) {(Math.floor(player.points.times(0.1)))}
-                if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)}
+                if (player[this.layer].highlowNum == player[this.layer].number) {(Math.floor(player.points.pow(1.5)))};
+                if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)};
+                if (player[this.layer].highlowNum !== player[this.layer].number) {(Math.floor(player.points.times(0.1)))};
+                if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)};
                 // Money^1.5 boost
 
-                RollNumber()
+                RollNumber();
             },
             style() { return { 'background-color': tmp[this.layer].color}},
         },
@@ -156,7 +156,7 @@ addLayer("D", {
     color: "#33AACC",
     baseAmount() { return player.points },
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    type: "normal",
+    type: "none",
     exponent() {
         let ex = new Decimal(1.077)
         return ex
