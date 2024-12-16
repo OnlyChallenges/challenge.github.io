@@ -20,16 +20,6 @@ addLayer("D", {
         return requirement
 
     },
-
-    RollNumber(){
-        player[this.layer].number = Math.floor((Math.random() * 100) + 1)
-        return player[this.layer].number
-    },
-
-    RollHighOrLow(){
-        player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1)
-        return player[this.layer].highlowNum   
-    },
     layerShown() {
         let shown = true
         return shown
@@ -114,13 +104,15 @@ addLayer("D", {
                 player[this.layer].simulation++;
                 player[this.layer].correct = false; 
                 player[this.layer].incorrect = false;
-                RollHighOrLow();
+
+                player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
+
                 if (player[this.layer].highlowNum < player[this.layer].number) {(Math.floor(player.points.times(2)))};
                 if (player[this.layer].highlowNum < player[this.layer].number) {(player[this.layer].correct = true)};
                 if (player[this.layer].highlowNum >= player[this.layer].number) {(Math.floor(player.points.div(3)))};
                 if (player[this.layer].highlowNum >= player[this.layer].number) {(player[this.layer].incorrect = true)};
 
-                RollNumber();
+                player[this.layer].number = Math.floor((Math.random() * 100) + 1) 
                 
             },
             style() { return { 'background-color': tmp[this.layer].color } },
@@ -139,7 +131,7 @@ addLayer("D", {
                 player[this.layer].simulation++;
                 player[this.layer].correct = false; 
                 player[this.layer].incorrect = false;
-                RollHighOrLow();
+                player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
                 
                 if (player[this.layer].highlowNum == player[this.layer].number) {(Math.floor(player.points.pow(1.5)))};
                 if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)};
@@ -147,7 +139,7 @@ addLayer("D", {
                 if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)};
                 // Money^1.5 boost
 
-                RollNumber();
+                player[this.layer].number = Math.floor((Math.random() * 100) + 1) 
             },
             style() { return { 'background-color': tmp[this.layer].color}},
         },
