@@ -67,8 +67,8 @@ addLayer("D", {
             title: "How to Play",
             body: 
             `
-                You start with 100$, which you can use upon to take a <special>chance</special> of earning more, or lose some of it.<br>
-                You only have <orion>100 Simulations/Tries</orion> to get as much as possible, will you take the risk?
+                You start with 1$/sec, which you can use upon to take a <special>chance</special> of earning more, or lose some of it.<br>
+                You only have <orion>100 Simulations/Tries</orion> to get as much as possible, will you take the risk? You're required to meet a standard every <plasma>25 simulations</plasma>
             `,
         },
         chances: {
@@ -137,13 +137,40 @@ addLayer("D", {
                 
                 if (player[this.layer].highlowNum == player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.pow(1.5)};
                 if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)};
-                if (player[this.layer].highlowNum !== player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.times(0.1)};
+                if (player[this.layer].highlowNum !== player[this.layer].number) {player.points = player.points.pow(0.1)};
                 if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)};
                 // Money^1.5 boost
 
                 player[this.layer].number = Math.floor((Math.random() * 100) + 1) 
             },
             style() { return { 'background-color': tmp[this.layer].color}},
+        },
+        13: {
+            title: "High Number",
+            display() {
+                let dis = "The Hidden Number is higher than the Base Number<br>(EX: 71 > 50)"
+                return dis
+            },
+            canClick() {
+                let click = true
+                return click
+            },
+            onClick() {
+                player[this.layer].simulation++;
+                player[this.layer].correct = false; 
+                player[this.layer].incorrect = false;
+
+                player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
+
+                if (player[this.layer].highlowNum > player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.times(2)};
+                if (player[this.layer].highlowNum > player[this.layer].number) {(player[this.layer].correct = true)};
+                if (player[this.layer].highlowNum <= player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.div(3)};
+                if (player[this.layer].highlowNum <= player[this.layer].number) {(player[this.layer].incorrect = true)};
+
+                player[this.layer].number = Math.floor((Math.random() * 100) + 1) 
+                
+            },
+            style() { return { 'background-color': tmp[this.layer].color } },
         },
     },
 
