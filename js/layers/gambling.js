@@ -137,7 +137,7 @@ addLayer("D", {
                 
                 if (player[this.layer].highlowNum == player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.pow(1.5)};
                 if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)};
-                if (player[this.layer].highlowNum !== player[this.layer].number) {player.points = player.points.pow(0.1)};
+                if (player[this.layer].highlowNum !== player[this.layer].number) {player.points = player.points.pow(0.1) && player[this.layer].moneySec.div(5)};
                 if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)};
                 // Money^1.5 boost
 
