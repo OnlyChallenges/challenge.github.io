@@ -5,9 +5,13 @@ addLayer("D", {
     startData() {
         return {
             unlocked: true,
+            correct: false,
+            incorrect: false,
             points: new Decimal(0),
-            even: false,
-            black: false,
+            number: new Decimal(50),
+            highlowNum: new Decimal(0),
+            simulation: new Decimal(1),
+            moneySec: new Decimal(1),
         }
     },
     tooltip: "Game of Chance",
@@ -36,52 +40,144 @@ addLayer("D", {
 
     tabFormat: {
         "Game of Chance": {
-            content: [
-                ["infobox", "lore"],
-                ["infobox", "chances"],
-                "h-line",
-                "blank",
-                ["display-text", function() 
-                    {
-                        let info = ''
-                        if (player[this.layer].black == false && player[this.layer].even == false) info = "You're rolling for Red & Odd"
-                        return info
-                }],
-                ["raw-html", ` <input type='checkbox' id='even' name='check' value='player[this.layer].even'style="margin:5px 0;width:30px;"> <label for="even">Roll for Even</label>`],
-                ["raw-html", ` <input type='checkbox' id='black' name='check' value='player[this.layer].black' style="margin:5px 0;width:30px;"> <label for="black">Roll for Black</label>`],
-                ["raw-html", ` <button type='submit'>Test</button>`],
-                ],
-        },
+        content: [
+            ["infobox", "lore"],
+            ["infobox", "chances"],
+            "blank",
+            "blank",
+            "blank",
+            ["display-text", function() {return "<orion>Simulation " + player[this.layer].simulation + "/100</orion>"},{}],
+            ["display-text", function() {return "You have " + format(player.points) + "$ (" + formatWhole(player[this.layer].moneySec) + "$/sec)" },{}],
+            ["display-text", function() {return "You need 1e10 $ to unlock the next feature"},{}],
+            ["display-text", function() {
+                // This will show what the number is current from what you've gotten"
+                let basetext = "High or Low? The Current Number is " + player[this.layer].number
+                if (player[this.layer].incorrect) basetext = "That is incorrect! The Hidden Number was " + player[this.layer].highlowNum + "! Let's try again...<br>High or Low? The Current Number is " +  player[this.layer].number + "!"
+                if (player[this.layer].correct) basetext = "You guessed right! The Hidden Number was " + player[this.layer].highlowNum + "!<br>High or Low? The Current Number is " +  player[this.layer].number + "!"
+                return basetext
 
+            },{}],
+            ["clickables", [1]],
+            ],
+        },
     },
 
     infoboxes: {
         lore: {
             title: "How to Play",
-            body:
-                `
-                You start with 100$, which you can use upon to take a <special>chance</special> of earning more, or lose some of it.<br>
-                You only have <orion>100 Simulations/Tries</orion> to get as much as possible, will you take the risk?
+            body: 
+            `
+                You start with 1$/sec, which you can use upon to take a <special>chance</special> of earning more, or lose some of it.<br>
+                You only have <orion>100 Simulations/Tries</orion> to get as much as possible, will you take the risk? You're required to meet a standard every <plasma>25 simulations</plasma>
             `,
         },
         chances: {
             title: "Chances",
-            body:
-                `
-                Red or Black: 50%<br>
-                Odd or Even: 50%<br>
-                Red & Odd: 25% --- etc.<br>
-                Number (1 - 100): 1%<br>
-                Green: 1%<br>
-                Perfect Outcome (Green, Number, Even/Odd): 0.005%
+            body: 
+            `
+                High or Low has a dependancy chance depending on the current number, and the hidden number, ranging from 1%~99%, depending on what side you choose from. It is best to go with the side that has the highest chance.<br>Jackpot is always 1% so it's luck of getting that.<br>At the end of the simulations, I will show a counter of the amount of times of each side has happened.
             `,
 
         }
     },
+
+
+
+
+
+
+
+
+
+
+
+    clickables: {
+        11: {
+            title: "Low Number",
+            display() {
+                let dis = "The Hidden Number is lower than the Base Number<br>(EX: 19 < 50)"
+                return dis
+            },
+            canClick() {
+                let click = true
+                return click
+            },
+            onClick() {
+                player[this.layer].simulation++;
+                player[this.layer].correct = false; 
+                player[this.layer].incorrect = false;
+
+                player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
+
+                if (player[this.layer].highlowNum < player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.times(2)};
+                if (player[this.layer].highlowNum < player[this.layer].number) {(player[this.layer].correct = true)};
+                if (player[this.layer].highlowNum >= player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.div(3)};
+                if (player[this.layer].highlowNum >= player[this.layer].number) {(player[this.layer].incorrect = true)};
+
+                player[this.layer].number = Math.floor((Math.random() * 100) + 1) 
+                
+            },
+            style() { return { 'background-color': tmp[this.layer].color } },
+        },
+        12: {
+            title: "Jackpot!",
+            display() {
+                let dis = "THe Hidden Number is EXACTLY the same as the Base Number<br>(EX: 40 = 40)<br> <special>You'll lose 90% of your money if it's wrong... but get it right and you'll earn ^1.5 back!</special>"
+                return dis
+            },
+            canClick() {
+                let click = true
+                return click
+            },
+            onClick() {
+                player[this.layer].simulation++;
+                player[this.layer].correct = false; 
+                player[this.layer].incorrect = false;
+                player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
+                
+                if (player[this.layer].highlowNum == player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.pow(1.5)};
+                if (player[this.layer].highlowNum == player[this.layer].number) {(player[this.layer].correct = true)};
+                if (player[this.layer].highlowNum !== player[this.layer].number) {player.points = player.points.pow(0.1)};
+                if (player[this.layer].highlowNum !== player[this.layer].number) {(player[this.layer].incorrect = true)};
+                // Money^1.5 boost
+
+                player[this.layer].number = Math.floor((Math.random() * 100) + 1) 
+            },
+            style() { return { 'background-color': tmp[this.layer].color}},
+        },
+        13: {
+            title: "High Number",
+            display() {
+                let dis = "The Hidden Number is higher than the Base Number<br>(EX: 71 > 50)"
+                return dis
+            },
+            canClick() {
+                let click = true
+                return click
+            },
+            onClick() {
+                player[this.layer].simulation++;
+                player[this.layer].correct = false; 
+                player[this.layer].incorrect = false;
+
+                player[this.layer].highlowNum = Math.floor((Math.random() * 100) + 1) 
+
+                if (player[this.layer].highlowNum > player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.times(2)};
+                if (player[this.layer].highlowNum > player[this.layer].number) {(player[this.layer].correct = true)};
+                if (player[this.layer].highlowNum <= player[this.layer].number) {player[this.layer].moneySec = player[this.layer].moneySec.div(3)};
+                if (player[this.layer].highlowNum <= player[this.layer].number) {(player[this.layer].incorrect = true)};
+
+                player[this.layer].number = Math.floor((Math.random() * 100) + 1) 
+                
+            },
+            style() { return { 'background-color': tmp[this.layer].color } },
+        },
+    },
+
     color: "#33AACC",
     baseAmount() { return player.points },
     row: 0, // Row the layer is in on the tree (0 is the first row)
-    type: "normal",
+    type: "none",
     exponent() {
         let ex = new Decimal(1.077)
         return ex
