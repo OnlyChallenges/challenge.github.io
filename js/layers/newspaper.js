@@ -163,22 +163,19 @@ addLayer("D", {
                     "blank",
                     ["display-text",
                         `
-                    <text style='color:orange ; font-size: 24px'>Progress on next Update</text><br>
-                    <text style='color:lightgrey ; font-size: 16px'><special>Stable</special></text><br>
-                    <img src='img/newsletter.png', style='height: 280px ; width 400px'></img><br>
-                    <vali>Currently, it's smooth sailing! With</vali> <plasma>Plasma</plasma> <vali>&</vali> <orion>Orion</orion> <vali>finishing up the final touches on<br>their amazing experiments! Might get "Prickly" they've been saying...</vali><br>
-                    <plasma>I added my snail boi, I believe we're doing alright :3</plasma><br><rory>Hey! Let me chime in here! Y'all seen Thorn?! They're a Chupacabra ^-^</rory><br>
-                    <img src='img/thorn.png', style='height: 280px ; width 400px'></img><br><br><br>
-                    `,
-                    ],
-                    "blank",
-                    "h-line",
-                    "blank",
-                    ["display-text",
-                        `
-                    <vali>Thank you for checking out this Newsletter, I hope you got to see some intresting things!<br>If not, maybe next time!</vali><br>
-    
-                    <text style='font-size: 24px'><server>Happy New Year!</server></text>
+                    <text style='color:orange ; font-size: 24px'>Credits</text><br>
+                    Website Programming by <vali>vali</vali><br>
+                    My emotional support goober: <plasma>Plasma</plasma><br>
+                    My Community Manager: <power>Daizy</power><br>
+                    All of my Developers.<br>
+                    All of my Staff.<br>
+
+                    Thank you for being here...<br>
+                    Especially every single one of you.<br><br>
+
+                    If you see this <text style='color:red'>Ari</text>. Thank you for even starting this project. <br>This wouldn't have happen without your decisions.<br>
+
+                    See you for the Feburary Newsletter!
                     `,
                     ],
                     "blank",
