@@ -54,7 +54,7 @@ const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2025-01-01T00:00:00.000-05:00").getTime()
+const countDownDate = new Date("2025-02-01T00:00:00.000-05:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -195,7 +195,7 @@ var displayThings = [
         + minutes + "m " + seconds + "s ";
 
       // If the count down is finished, write some text
-      if (Jantime <= maintime) {
+      if (Febtime <= maintime) {
         document.getElementById("demo").innerHTML = ""
       }
     }, 1000);
