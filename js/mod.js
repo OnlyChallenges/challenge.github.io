@@ -46,15 +46,15 @@ function getPointGen() {
 }
 const currentDate = new Date();
 const maintime = currentDate.getTime();
-const Jandate = new Date("2025-01-01");
-const Febtime = new Date("2025-02-01");
+const Jandate = new Date("2025-01-01T00:00:00.000-05:00");
+const Febtime = new Date("2025-02-01T00:00:00.000-05:00").getTime();
 const Jantime = Jandate.getTime();
 const date = currentDate.toLocaleDateString();
 const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("Jan 1, 2025").getTime()
+const countDownDate = new Date("2025-01-01T00:00:00.000-05:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -151,8 +151,8 @@ let music = false
 var displayThings = [
   function () {
     let base = ''
-    if (music == false) base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Start Music</button>`
-    if (music == true) base = `<button class="longUpg can" style="color:red" onclick="pauseMusic()">Pause Music</button>&nbsp;&nbsp;&nbsp;&nbsp; <button class="longUpg can" style="color:red"onclick="nextSong()">Next Song</button>`
+    //base = `<button class="longUpg can" style="color:red" onclick="hardReset(true)">Reset</button>`
+    //if (music == true) base = `<button class="longUpg can" style="color:red" onclick="pauseMusic()">Pause Music</button>&nbsp;&nbsp;&nbsp;&nbsp; <button class="longUpg can" style="color:red"onclick="nextSong()">Next Song</button>`
     return base
   },
   function () {
@@ -183,6 +183,7 @@ var displayThings = [
       // Find the distance between now and the count down date
       var distance = countDownDate - now;
 
+
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -194,17 +195,15 @@ var displayThings = [
         + minutes + "m " + seconds + "s ";
 
       // If the count down is finished, write some text
-      if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
+      if (Jantime <= maintime) {
+        document.getElementById("demo").innerHTML = ""
       }
     }, 1000);
-    return "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>"
+    return "<br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>"
   }
 ]
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
 const d = new Date();
 let month = months[d.getMonth()];
 
@@ -215,8 +214,8 @@ var backgroundStyle = function () {
   if (currentSongIndex == 0) backSty = {
     "color": "grey",
     "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
-            linear-gradient(127deg, rgba(255, 0, 255, 0.8), rgba(0,255,0,0) 70.71%),
+    "background": `linear-gradient(217deg, rgba(104, 11, 11, 0.67), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(129, 24, 129, 0.8), rgba(0,255,0,0) 70.71%),
             linear-gradient(336deg, rgba(111, 4, 73, 0.8), rgba(0,0,255,0) 70.71%)`,
     "animation": "main 240s infinite",
     "z-index": 0.5,
