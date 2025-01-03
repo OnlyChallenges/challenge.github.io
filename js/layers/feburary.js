@@ -1,6 +1,6 @@
 addLayer("F", {
     name: "F", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "Solstice S-2", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "Feburary", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() {
         return {
             unlocked: false,
@@ -22,7 +22,7 @@ addLayer("F", {
 
     update(diff) {
         if (Febtime <= maintime) player[this.layer].shown = true
-        else player[this.layer].shown = false
+        else player[this.layer].shown = true
 
         if (Febtime <= maintime) player[this.layer].unlocked = true
         else player[this.layer].unlocked = false

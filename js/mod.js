@@ -10,6 +10,7 @@ let modInfo = {
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
   offlineLimit: 0,  // In hours
+  changelogfound: false
 }
 
 // Set your version in num and name
@@ -19,9 +20,14 @@ let VERSION = {
   name: "Nothing",
 }
 
-let changelog = `<h1>Changelog:</h1><br><br>
-	`
+let changelog = `<power><h2>Secret Place...</h2></power><br>
+  How... How did you even find this!?<br><br>...<br><br>You deserve something for finding this I guess...<br><br>...<br><br>
+  <vali>Here's a music player :)</vali><br> - The Founder of the Facility<br><br><br>`
 let winText = `You've started to make vaccines? Start to make the cure...`
+
+function changeLog(x) {
+  return modInfo.changelogfound = x
+}
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -103,11 +109,11 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 }
 
 const playlist = [
-  new Audio('music/love.mp3'),
-  new Audio('music/showdown.mp3'),
-  new Audio('music/LINE.mp3'),
-  new Audio('music/fury.mp3'),
-  new Audio('music/retreating.mp3'),
+  new Audio('music/poweroutage.mp3'),
+  new Audio('music/bloodmoon.mp3'),
+  new Audio('music/mainmusic.mp3'),
+  new Audio('music/poweroutage_hallo.mp3'),
+  new Audio('music/hidden.mp3'),
 ];
 let currentSongIndex = 0;
 function playNextSong() {
@@ -151,20 +157,24 @@ let music = false
 var displayThings = [
   function () {
     let base = ''
-    //base = `<button class="longUpg can" style="color:red" onclick="hardReset(true)">Reset</button>`
-    //if (music == true) base = `<button class="longUpg can" style="color:red" onclick="pauseMusic()">Pause Music</button>&nbsp;&nbsp;&nbsp;&nbsp; <button class="longUpg can" style="color:red"onclick="nextSong()">Next Song</button>`
+    if (modInfo.changelogfound == true) base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Play Music</button>`
+    if (music == true && modInfo.changelogfound == true) base = `<button class="longUpg can" style="color:red" onclick="pauseMusic()">Pause Music</button>&nbsp;&nbsp;&nbsp;&nbsp; <button class="longUpg can" style="color:red"onclick="nextSong()">Next Song</button>`
     return base
   },
   function () {
 
 
     let songs = ''
-    if ((currentSongIndex == 0) && music) songs = "Now playing: <text style='color:pink'>Mother's Love - Undertale Yellow</text>"
-    if ((currentSongIndex == 1) && music) songs = "Now playing: <power>Showdown! - Undertale Yellow</power>"
-    if ((currentSongIndex == 2) && music) songs = "Now playing: <text style='color:grey'>END_OF_THE_LINE_ - Undertale Yellow</text>"
-    if ((currentSongIndex == 3) && music) songs = "Now playing: <text style='color:orange'>Trial by Fury - Undertale Yellow</text>"
-    if ((currentSongIndex == 4) && music) songs = "Now playing: <special style='animation: developer 7s ease infinite'>Enemy Retreating!- Undertale Yellow</special>"
+    if ((currentSongIndex == 0) && music) songs = "Now Playing: <text style='color:grey'>Power Outage</text>"
+    if ((currentSongIndex == 1) && music) songs = "Now playing: <text style='color:red'>Blood Moon <corrupt>[CORRUPTED]</corrupt></text>"
+    if ((currentSongIndex == 2) && music) songs = "Now Playing: <text style='color:orange'>Main Music(Halloween) (0.66x Speed)</text>"
+    if ((currentSongIndex == 3) && music) songs = "Now Playing: <text style='color:darkgrey'>Power Outage (Halloween)</text>"
+    if ((currentSongIndex == 4) && music) songs = "Now Playing: <text style='color:blue'>Power Outage (Rare Song Event)</text>"
     return songs
+  },
+  function() {
+    if ((currentSongIndex == 1)) playlist[currentSongIndex].playbackRate = 0.85
+    else playlist[currentSongIndex].playbackRate = 1
   },
 
   function () {
@@ -198,8 +208,9 @@ var displayThings = [
       if (Febtime <= maintime) {
         document.getElementById("demo").innerHTML = ""
       }
-    }, 1000);
-    return "<br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>"
+    }, 100);
+    let a = `<br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>`
+    return a
   }
 ]
 
@@ -224,9 +235,9 @@ var backgroundStyle = function () {
   if (currentSongIndex == 1) backSty = {
     "color": "grey",
     "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(216, 173, 29, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(255, 255, 0, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(148, 9, 9, 0.8), rgba(0,0,255,0) 70.71%)`,
+    "background": `linear-gradient(217deg, rgba(170, 13, 13, 0.9), rgba(255,0,0,0) 70.71%),
+              linear-gradient(127deg, rgba(233, 142, 7, 0.8), rgba(0,255,0,0) 70.71%),
+              linear-gradient(336deg, rgba(216, 8, 8, 0.65), rgba(0,0,255,0) 70.71%)`,
     "animation": "main 240s infinite",
     "z-index": 0.5,
     "background-color": '#000000',
@@ -234,9 +245,9 @@ var backgroundStyle = function () {
   if (currentSongIndex == 2) backSty = {
     "color": "grey",
     "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(158, 9, 146, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(0, 0, 0, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(88, 9, 148, 0.8), rgba(0,0,255,0) 70.71%)`,
+    "background": `linear-gradient(217deg, rgba(194, 95, 3, 0.8), rgba(255,0,0,0) 70.71%),
+              linear-gradient(127deg, rgba(204, 135, 7, 0.8), rgba(0,255,0,0) 70.71%),
+              linear-gradient(336deg, rgba(250, 154, 11, 0.8), rgba(0,0,255,0) 70.71%)`,
     "animation": "main 240s infinite",
     "z-index": 0.5,
     "background-color": '#000000',
@@ -244,9 +255,9 @@ var backgroundStyle = function () {
   if (currentSongIndex == 3) backSty = {
     "color": "grey",
     "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(184, 0, 0, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(206, 6, 6, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(118, 4, 4, 0.8), rgba(0,0,255,0) 70.71%)`,
+    "background": `linear-gradient(217deg, rgba(104, 92, 92, 0.8), rgba(255,0,0,0) 70.71%),
+              linear-gradient(127deg, rgba(48, 45, 45, 0.8), rgba(0,255,0,0) 70.71%),
+              linear-gradient(336deg, rgba(141, 141, 141, 0.8), rgba(0,0,255,0) 70.71%)`,
     "animation": "main 240s infinite",
     "z-index": 0.5,
     "background-color": '#000000',
@@ -254,9 +265,9 @@ var backgroundStyle = function () {
   if (currentSongIndex == 4) backSty = {
     "color": "grey",
     "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(106, 122, 0, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(80, 87, 0, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(40, 42, 7, 0.8), rgba(0,0,255,0) 70.71%)`,
+    "background": `linear-gradient(217deg, rgba(0, 77, 122, 0.8), rgba(255,0,0,0) 70.71%),
+              linear-gradient(127deg, rgba(34, 34, 33, 0.8), rgba(0,255,0,0) 70.71%),
+              linear-gradient(336deg, rgba(90, 90, 87, 0.8), rgba(0,0,255,0) 70.71%)`,
     "animation": "main 240s infinite",
     "z-index": 0.5,
     "background-color": '#000000',
