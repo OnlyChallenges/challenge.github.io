@@ -25,13 +25,14 @@ addLayer("D", {
     },
     nodeStyle() {
         return {
-            "background": (player.D.unlocked || canReset("D")) ? "radial-gradient(#33AACC, #1703fc)" : "#bf8f8f",
+            "background": "radial-gradient(circle at bottom, rgb(66, 1, 109) 0, purple 100%)",
+	        "border": "1px dashed orange",
         }
     },
     componentStyles: {
         "prestige-button": {
             background() {
-                return (canReset("D")) ? "radial-gradient(#33AACC, #1703fc)" : "#bf8f8f"
+                return (canReset("D")) ? "radial-gradient(#701e87, #701e87)" : "#bf8f8f"
             },
         },
     },
@@ -212,7 +213,7 @@ addLayer("D", {
 
 
 
-    color: "#33AACC",
+    color: "#701e87",
     baseAmount() { return player.points },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     type: "normal",

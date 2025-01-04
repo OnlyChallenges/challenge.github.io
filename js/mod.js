@@ -2,7 +2,7 @@
 
 let modInfo = {
   name: `Solstice Studios`,
-  id: "anothermod2",
+  id: "anothermod1",
   author: "vali (snor mimi)",
   pointsName: "money",
   modFiles: ["tree.js", "layers/newspaper.js", "layers/feburary.js"],
@@ -148,7 +148,23 @@ playlist[currentSongIndex].addEventListener('ended', function () {
   playNextSong();
 });
 
+var x = setInterval(function () {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
 
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  let special = "(Only " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds left...)"
+  var text = ["(Do you seriously think that the fireaxe is the best weapon in the game?)", "(Heard of detoration?)", "(Who's your favorite developer...)", "(Sticks and Stones, Break my bones, do not let the experiments find me.)", "(When did the game come out? Around 2020...ish?)", "( 'Where can I find the green dog goober!???? :((((((' )", "(Huh? You choose to watch the timer? How intresting...)", "(🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿)", "(Wouldn't this be counted as a... 'news ticker'..?)", special];
+  var news = text[Math.floor(Math.random() * text.length)];
+  document.getElementById("news").innerHTML = news
+  
+  // If the count down is finished, write some text
+}, 7000);
 
 
 let music = false
@@ -209,8 +225,11 @@ var displayThings = [
         document.getElementById("demo").innerHTML = ""
       }
     }, 100);
-    let a = `<br><br><br><br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>`
+    let a = `<br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>`
     return a
+  },
+  function () {
+    return `<i style='font-size: 11px'><h3 id="news" style='color:grey ; opacity:0.6'></h3></i>`
   }
 ]
 
@@ -220,59 +239,59 @@ let month = months[d.getMonth()];
 
 // Style for the background, can be a function
 var backgroundStyle = function () {
-  let backSty = { "background-image": "rgb(0, 0, 0)" }
+  // let backSty = { "background-image": "rgb(0, 0, 0)" }
 
-  if (currentSongIndex == 0) backSty = {
-    "color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(104, 11, 11, 0.67), rgba(255,0,0,0) 70.71%),
-            linear-gradient(127deg, rgba(129, 24, 129, 0.8), rgba(0,255,0,0) 70.71%),
-            linear-gradient(336deg, rgba(111, 4, 73, 0.8), rgba(0,0,255,0) 70.71%)`,
-    "animation": "main 240s infinite",
-    "z-index": 0.5,
-    "background-color": '#000000',
-  }
-  if (currentSongIndex == 1) backSty = {
-    "color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(170, 13, 13, 0.9), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(233, 142, 7, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(216, 8, 8, 0.65), rgba(0,0,255,0) 70.71%)`,
-    "animation": "main 240s infinite",
-    "z-index": 0.5,
-    "background-color": '#000000',
-  }
-  if (currentSongIndex == 2) backSty = {
-    "color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(194, 95, 3, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(204, 135, 7, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(250, 154, 11, 0.8), rgba(0,0,255,0) 70.71%)`,
-    "animation": "main 240s infinite",
-    "z-index": 0.5,
-    "background-color": '#000000',
-  }
-  if (currentSongIndex == 3) backSty = {
-    "color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(104, 92, 92, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(48, 45, 45, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(141, 141, 141, 0.8), rgba(0,0,255,0) 70.71%)`,
-    "animation": "main 240s infinite",
-    "z-index": 0.5,
-    "background-color": '#000000',
-  }
-  if (currentSongIndex == 4) backSty = {
-    "color": "grey",
-    "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-    "background": `linear-gradient(217deg, rgba(0, 77, 122, 0.8), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(34, 34, 33, 0.8), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(90, 90, 87, 0.8), rgba(0,0,255,0) 70.71%)`,
-    "animation": "main 240s infinite",
-    "z-index": 0.5,
-    "background-color": '#000000',
-  }
-  return backSty
+  // if (currentSongIndex == 0) backSty = {
+  //   "color": "grey",
+  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
+  //   "background": `linear-gradient(217deg, rgba(104, 11, 11, 0.67), rgba(255,0,0,0) 70.71%),
+  //           linear-gradient(127deg, rgba(129, 24, 129, 0.8), rgba(0,255,0,0) 70.71%),
+  //           linear-gradient(336deg, rgba(111, 4, 73, 0.8), rgba(0,0,255,0) 70.71%)`,
+  //   "animation": "main 240s infinite",
+  //   "z-index": 0.5,
+  //   "background-color": '#000000',
+  // }
+  // if (currentSongIndex == 1) backSty = {
+  //   "color": "grey",
+  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
+  //   "background": `linear-gradient(217deg, rgba(170, 13, 13, 0.9), rgba(255,0,0,0) 70.71%),
+  //             linear-gradient(127deg, rgba(233, 142, 7, 0.8), rgba(0,255,0,0) 70.71%),
+  //             linear-gradient(336deg, rgba(216, 8, 8, 0.65), rgba(0,0,255,0) 70.71%)`,
+  //   "animation": "main 240s infinite",
+  //   "z-index": 0.5,
+  //   "background-color": '#000000',
+  // }
+  // if (currentSongIndex == 2) backSty = {
+  //   "color": "grey",
+  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
+  //   "background": `linear-gradient(217deg, rgba(194, 95, 3, 0.8), rgba(255,0,0,0) 70.71%),
+  //             linear-gradient(127deg, rgba(204, 135, 7, 0.8), rgba(0,255,0,0) 70.71%),
+  //             linear-gradient(336deg, rgba(250, 154, 11, 0.8), rgba(0,0,255,0) 70.71%)`,
+  //   "animation": "main 240s infinite",
+  //   "z-index": 0.5,
+  //   "background-color": '#000000',
+  // }
+  // if (currentSongIndex == 3) backSty = {
+  //   "color": "grey",
+  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
+  //   "background": `linear-gradient(217deg, rgba(104, 92, 92, 0.8), rgba(255,0,0,0) 70.71%),
+  //             linear-gradient(127deg, rgba(48, 45, 45, 0.8), rgba(0,255,0,0) 70.71%),
+  //             linear-gradient(336deg, rgba(141, 141, 141, 0.8), rgba(0,0,255,0) 70.71%)`,
+  //   "animation": "main 240s infinite",
+  //   "z-index": 0.5,
+  //   "background-color": '#000000',
+  // }
+  // if (currentSongIndex == 4) backSty = {
+  //   "color": "grey",
+  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
+  //   "background": `linear-gradient(217deg, rgba(0, 77, 122, 0.8), rgba(255,0,0,0) 70.71%),
+  //             linear-gradient(127deg, rgba(34, 34, 33, 0.8), rgba(0,255,0,0) 70.71%),
+  //             linear-gradient(336deg, rgba(90, 90, 87, 0.8), rgba(0,0,255,0) 70.71%)`,
+  //   "animation": "main 240s infinite",
+  //   "z-index": 0.5,
+  //   "background-color": '#000000',
+  // }
+  // return backSty
 }
 
 // You can change this if you have things that can be messed up by long tick lengths
