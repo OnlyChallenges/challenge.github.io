@@ -226,11 +226,8 @@ var displayThings = [
       }
     }, 100);
     let a = `<br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>`
-    return a
+    return `If you're seeing this, then I (vali), has given up all hope and decided to not be here anymore.<br>Take care everyone.`
   },
-  function () {
-    return `<i style='font-size: 11px'><h3 id="news" style='color:grey ; opacity:0.6'></h3></i>`
-  }
 ]
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
