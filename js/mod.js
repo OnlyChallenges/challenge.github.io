@@ -2,15 +2,17 @@
 
 let modInfo = {
   name: `Solstice Studios`,
-  id: "anothermod1",
+  id: "anothermod3",
   author: "vali (snor mimi)",
   pointsName: "money",
-  modFiles: ["tree.js", "layers/newspaper.js", "layers/feburary.js"],
+  modFiles: ["tree.js"],
   discordName: "",
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
   offlineLimit: 0,  // In hours
-  changelogfound: false
+  changelogfound: false,
+  Story: 0,
+  End: 0
 }
 
 // Set your version in num and name
@@ -60,7 +62,7 @@ const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2025-02-01T00:00:00.000-05:00").getTime()
+const countDownDate = new Date("2025-02-27T00:00:00.000-05:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -109,11 +111,8 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 }
 
 const playlist = [
-  new Audio('music/poweroutage.mp3'),
-  new Audio('music/bloodmoon.mp3'),
-  new Audio('music/mainmusic.mp3'),
-  new Audio('music/poweroutage_hallo.mp3'),
-  new Audio('music/hidden.mp3'),
+  new Audio('music/reality.mp3'),
+
 ];
 let currentSongIndex = 0;
 function playNextSong() {
@@ -148,57 +147,74 @@ playlist[currentSongIndex].addEventListener('ended', function () {
   playNextSong();
 });
 
-var x = setInterval(function () {
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
-
-      // Time calculations for days, hours, minutes and seconds
-      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  let special = "(Only " + days + " days, " + hours + " hours, " + minutes + " minutes, " + seconds + " seconds left...)"
-  var text = ["(Do you seriously think that the fireaxe is the best weapon in the game?)", "(Heard of detoration?)", "(Who's your favorite developer...)", "(Sticks and Stones, Break my bones, do not let the experiments find me.)", "(When did the game come out? Around 2020...ish?)", "( 'Where can I find the green dog goober!???? :((((((' )", "(Huh? You choose to watch the timer? How intresting...)", "(🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿🗿)", "(Wouldn't this be counted as a... 'news ticker'..?)", special];
-  var news = text[Math.floor(Math.random() * text.length)];
-  document.getElementById("news").innerHTML = news
-  
-  // If the count down is finished, write some text
-}, 7000);
-
-
 let music = false
+
+function proceed() {
+  if (modInfo.Story < 13 && modInfo.End == 0) {
+    modInfo.Story++
+  } else
+    modInfo.End++
+};
 
 // Less important things beyond this point!
 var displayThings = [
   function () {
-    let base = ''
-    if (modInfo.changelogfound == true) base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Play Music</button>`
-    if (music == true && modInfo.changelogfound == true) base = `<button class="longUpg can" style="color:red" onclick="pauseMusic()">Pause Music</button>&nbsp;&nbsp;&nbsp;&nbsp; <button class="longUpg can" style="color:red"onclick="nextSong()">Next Song</button>`
+    let base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Start Article...</button>`
+    if (music == true && modInfo.End == 0) base = '<button class="longUpg can" style="color:red" onclick="proceed()">Proceed...</button>'
+    if (modInfo.End == 1) base = ''
     return base
   },
   function () {
-
-
-    let songs = ''
-    if ((currentSongIndex == 0) && music) songs = "Now Playing: <text style='color:grey'>Power Outage</text>"
-    if ((currentSongIndex == 1) && music) songs = "Now playing: <text style='color:red'>Blood Moon <corrupt>[CORRUPTED]</corrupt></text>"
-    if ((currentSongIndex == 2) && music) songs = "Now Playing: <text style='color:orange'>Main Music(Halloween) (0.66x Speed)</text>"
-    if ((currentSongIndex == 3) && music) songs = "Now Playing: <text style='color:darkgrey'>Power Outage (Halloween)</text>"
-    if ((currentSongIndex == 4) && music) songs = "Now Playing: <text style='color:blue'>Power Outage (Rare Song Event)</text>"
-    return songs
-  },
-  function() {
-    if ((currentSongIndex == 1)) playlist[currentSongIndex].playbackRate = 0.85
-    else playlist[currentSongIndex].playbackRate = 1
+    if (music == false) return ''
+    if (modInfo.End == 1) return ''
+    else return `Janurary 4th, 2025 - Mentally Unstable.`
   },
 
   function () {
-    let x = getUndulatingColor()
-    let songs = ''
-    if (music) songs = colorText("b", x, formatTime(playlist[currentSongIndex].currentTime) + " / " + formatTime(playlist[currentSongIndex].duration))
+    let text = ''
+    let story = text
+    if (modInfo.Story == 1 && modInfo.End == 0) story += `<br><br>I've been slowly losing my sanity with everything and everyone.<br>What do I do... Do I keep working on the project and just, move on?`
+    if (modInfo.Story == 2 && modInfo.End == 0) story += `<br><br>I've been slowly losing my sanity with everything and everyone.<br>What do I do... Do I keep working on the project and just, move on?<br><br>Does my life matter? Or serve a purpose for everyone to be by anyone's side...?`
+    if (modInfo.Story == 3 && modInfo.End == 0) story += `<br><br>I've been slowly losing my sanity with everything and everyone.<br>What do I do... Do I keep working on the project and just, move on?<br><br>Does my life matter? Or serve a purpose for everyone to be by anyone's side...?<br><br>Should I remove their creations...? Or just keep it towards the game... I never paid them for it...<br>I don't know what to do...`
+    if (modInfo.Story >= 4 && modInfo.End == 0) story += `<br><br>I've been slowly losing my sanity with everything and everyone.<br>What do I do... Do I keep working on the project and just, move on?<br><br>Does my life matter? Or serve a purpose for everyone to be by anyone's side...?<br><br>Should I remove their creations...? Or just keep it towards the game... I never paid them for it...<br>I don't know what to do...<br><br>I've figured it out! Wait no that won't work, everyone will hate me more...<br><br><br>`
+    return story
+  },
+  function () {
+    if (modInfo.Story < 5) return ''
+    if (modInfo.End == 1) return ''
+    else return `Janurary 5th, 2025 - Non-Redemptive.`
+  },
 
-    return songs
+  function () {
+    let text = ''
+    let story = text
+    if (modInfo.Story == 6 && modInfo.End == 0) story += `<br><br>Nothing I'll do will save the game... I don't have the experience nor do I have to skill to do it...<br>Should I start developing alone...?`
+    if (modInfo.Story == 7 && modInfo.End == 0) story += `<br><br>Nothing I'll do will save the game... I don't have the experience nor do I have to skill to do it...<br>Should I start developing alone...?<br><br>I'm going to have to learn everything alone. I can't entirely abandon the game... We've come so far, only for my <text style='color:red'>behavior</text> to get in the way...`
+    if (modInfo.Story == 8 && modInfo.End == 0) story += `<br><br>Nothing I'll do will save the game... I don't have the experience nor do I have to skill to do it...<br>Should I start developing alone...?<br><br>I'm going to have to learn everything alone. I can't entirely abandon the game... We've come so far, only for my <text style='color:red'>behavior</text> to get in the way...<br><br>Everything should fall back on me, not them. They don't deserve the damage I've caused to them.<br>I need to finish this project, no matter the hatred I get for a bad circumstance.`
+    if (modInfo.Story >= 9 && modInfo.End == 0) story += `<br><br>Nothing I'll do will save the game... I don't have the experience nor do I have to skill to do it...<br>Should I start developing alone...?<br><br>I'm going to have to learn everything alone. I can't entirely abandon the game... We've come so far, only for my <text style='color:red'>behavior</text> to get in the way...<br><br>Everything should fall back on me, not them. They don't deserve the damage I've caused to them.<br>I need to finish this project, no matter the hatred I get for a bad circumstance.<br><br>No one cares anymore, my own brother is bothering me about my health.<br>I need to finish.<br><br>`
+    return story
+  },
+  function () {
+    if (modInfo.Story < 10) return ''
+    if (modInfo.End == 1) return ''
+    else return `Janurary 6th, 2025 - Facade of a Show`
+  },
+
+  function () {
+    let text = ''
+    let story = text
+    if (modInfo.Story == 11 && modInfo.End == 0) story += `<br>I don't care if I die in the chair I'm typing this in.<br>This project will be finished soon...`
+    if (modInfo.Story >= 12 && modInfo.End == 0) story += `<br>I don't care if I die in the chair I'm typing this in.<br>This project will be finished soon...<br><br>Everyone I know for friends are just fake... Everything leading up to this is just to cause hurt and pain towards them.<br>Waste of energy I am. I need to finish...<br>`
+    return story
+  },
+  function () {
+    if (modInfo.Story < 13) return ''
+    if (modInfo.End == 1) return ''
+    else return `<br>I am sorry, but I need to work on this alone.<br>Everyone deserves better. I need to finish..`
+  },
+  function () {
+    if (modInfo.End == 0) return ''
+    else return `Time Until Final Update:`
   },
   function () {
     var x = setInterval(function () {
@@ -225,8 +241,9 @@ var displayThings = [
         document.getElementById("demo").innerHTML = ""
       }
     }, 100);
-    let a = `<br><br><br><br><br><br><br><br><br><br><power><text id='demo' style='font-size:38px'></text></power>`
-    return `If you're seeing this, then I (vali), has given up all hope and decided to not be here anymore.<br>Take care everyone.`
+    let a = `<power><text id='demo' style='font-size:38px'></text></power>`
+    if (modInfo.End == 0) return a = ''
+    return a
   },
 ]
 

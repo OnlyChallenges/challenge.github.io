@@ -41,11 +41,6 @@
 
 <body onload="load()" onmousemove="updateMouse(event)">
 	<div id="app">
-
-		<div class="main"></div>
-		<div class="main2"></div>
-		<div class="main3"></div>
-		<div class="main4"></div>
 		<canvas id="treeCanvas" class="canvas" v-if="!(tmp.gameEnded && !player.keepGoing)"></canvas>
 		<div id="treeOverlay"
 			v-if="!(tmp.gameEnded && !player.keepGoing) && (player.tab === 'none' || tmp.other.splitScreen || !readData(layoutInfo.showTree))"
@@ -54,9 +49,9 @@
 			col: (player.tab !== 'none' && player.navTab !== 'none'), 
 			left: (player.tab !== 'none' && player.navTab !== 'none')}"
 			:style="{'margin-top': !readData(layoutInfo.showTree) && player.tab == 'info-tab' ? '50px' : ''}">
-			<div id="version" onclick="showTab('changelog-tab'); changeLog(true)" class="overlayThing"
+			<!-- <div id="version" onclick="showTab('changelog-tab'); changeLog(true)" class="overlayThing"
 				style="opacity: 0.025; color:red;">
-				{{VERSION.withoutName}}</div>
+				{{VERSION.withoutName}}</div> -->
 			<button
 				v-if="((player.navTab == 'none' && (tmp[player.tab].row == 'side' || tmp[player.tab].row == 'otherside' || player[player.tab].prevTab)) || player[player.navTab]?.prevTab)"
 				class="other-back overlayThing"
