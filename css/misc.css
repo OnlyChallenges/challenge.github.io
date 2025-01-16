@@ -183,3 +183,26 @@ rory {
 vali {
     color: rgb(250, 125, 146)
 }
+
+bat {
+    color: red;
+    animation: reality 10s linear infinite;
+}
+
+@keyframes reality {
+    0% {
+        color: red
+    }
+    25% {
+        color:rgb(185, 129, 129)
+    }
+    50% {
+        color: grey
+    }
+    75% {
+        color:rgb(185, 129, 129)
+    }
+    100% {
+        color: red
+    }
+}

@@ -2,10 +2,10 @@
 
 let modInfo = {
   name: `Solstice Studios`,
-  id: "anothermod3",
+  id: "anothermod4",
   author: "vali (snor mimi)",
   pointsName: "money",
-  modFiles: ["tree.js", "layers/newspaper.js", "layers/feburary.js", "layers/wiki.js"],
+  modFiles: ["tree.js", "layers/newspaper.js", "layers/feburary.js"],
   discordName: "",
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
