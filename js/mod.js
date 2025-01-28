@@ -60,7 +60,7 @@ const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2025-01-17T00:00:00.000-05:00").getTime()
+const countDownDate = new Date("2025-02-01T00:00:00.000-05:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -156,7 +156,7 @@ var displayThings = [
   //   return base
   // },
   function() {
-    return "Solo Development Motivation Arc"
+    return "Next Newsletter Update"
   },
   function () {
     var x = setInterval(function () {
@@ -194,61 +194,7 @@ const d = new Date();
 let month = months[d.getMonth()];
 
 // Style for the background, can be a function
-var backgroundStyle = function () {
-  // let backSty = { "background-image": "rgb(0, 0, 0)" }
-
-  // if (currentSongIndex == 0) backSty = {
-  //   "color": "grey",
-  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-  //   "background": `linear-gradient(217deg, rgba(104, 11, 11, 0.67), rgba(255,0,0,0) 70.71%),
-  //           linear-gradient(127deg, rgba(129, 24, 129, 0.8), rgba(0,255,0,0) 70.71%),
-  //           linear-gradient(336deg, rgba(111, 4, 73, 0.8), rgba(0,0,255,0) 70.71%)`,
-  //   "animation": "main 240s infinite",
-  //   "z-index": 0.5,
-  //   "background-color": '#000000',
-  // }
-  // if (currentSongIndex == 1) backSty = {
-  //   "color": "grey",
-  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-  //   "background": `linear-gradient(217deg, rgba(170, 13, 13, 0.9), rgba(255,0,0,0) 70.71%),
-  //             linear-gradient(127deg, rgba(233, 142, 7, 0.8), rgba(0,255,0,0) 70.71%),
-  //             linear-gradient(336deg, rgba(216, 8, 8, 0.65), rgba(0,0,255,0) 70.71%)`,
-  //   "animation": "main 240s infinite",
-  //   "z-index": 0.5,
-  //   "background-color": '#000000',
-  // }
-  // if (currentSongIndex == 2) backSty = {
-  //   "color": "grey",
-  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-  //   "background": `linear-gradient(217deg, rgba(194, 95, 3, 0.8), rgba(255,0,0,0) 70.71%),
-  //             linear-gradient(127deg, rgba(204, 135, 7, 0.8), rgba(0,255,0,0) 70.71%),
-  //             linear-gradient(336deg, rgba(250, 154, 11, 0.8), rgba(0,0,255,0) 70.71%)`,
-  //   "animation": "main 240s infinite",
-  //   "z-index": 0.5,
-  //   "background-color": '#000000',
-  // }
-  // if (currentSongIndex == 3) backSty = {
-  //   "color": "grey",
-  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-  //   "background": `linear-gradient(217deg, rgba(104, 92, 92, 0.8), rgba(255,0,0,0) 70.71%),
-  //             linear-gradient(127deg, rgba(48, 45, 45, 0.8), rgba(0,255,0,0) 70.71%),
-  //             linear-gradient(336deg, rgba(141, 141, 141, 0.8), rgba(0,0,255,0) 70.71%)`,
-  //   "animation": "main 240s infinite",
-  //   "z-index": 0.5,
-  //   "background-color": '#000000',
-  // }
-  // if (currentSongIndex == 4) backSty = {
-  //   "color": "grey",
-  //   "text-shadow": "rgb(6, 12, 20) 3px 3px 10px",
-  //   "background": `linear-gradient(217deg, rgba(0, 77, 122, 0.8), rgba(255,0,0,0) 70.71%),
-  //             linear-gradient(127deg, rgba(34, 34, 33, 0.8), rgba(0,255,0,0) 70.71%),
-  //             linear-gradient(336deg, rgba(90, 90, 87, 0.8), rgba(0,0,255,0) 70.71%)`,
-  //   "animation": "main 240s infinite",
-  //   "z-index": 0.5,
-  //   "background-color": '#000000',
-  // }
-  // return backSty
-}
+var backgroundStyle = ("background-image: url('supernova.jpg')")
 
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {

@@ -86,10 +86,18 @@ addLayer("W", {
                                     "blank",
                                     "blank",
                                     ["display-text","<i>Description</i><br><bat>Batters Up!</bat>"],
+                                    
                                 ]],
                                 "h-line",
                                 ["infobox","lore"],
-                                ["display-text","The Bat is the most common and easiest weapon to obtain for all Players.<br>It is located in the Main Lobby or in the Crystal Containment Spawn.<br> Due to its accessibility, it poses as a great weapon against the Experiments; making quick work of them when used by several players.<br>The Bat can be purchased for 10 coins at the Showork Shop, or 15 coins at the Crystal Containment Spawn."]],
+                                ["display-text",`
+                                    The Bat is the most common and easiest weapon to obtain for all Players.
+                                    <br>It is located in the Main Lobby or in the.
+                                    <br> Due to its accessibility, it poses as a great weapon against the Experiments; making quick work of them when used by several players.
+                                    <br>The Bat can be purchased for 10 coins at the Showork Shop, or 15 coins at the Crystal Containment Spawn.`
+                                ],   
+                            ],
+                                
                             ],
                             ["blank",['30px','50px']]]
                         ],

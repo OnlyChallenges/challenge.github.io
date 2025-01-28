@@ -2,11 +2,17 @@
 body {
 	color: var(--color);
 	overflow: hidden;
-	--background: #0f0f0f;
+	background: #0f0f0f;
 	--color: #dfdfdf;
 	--points: #ffffff;
-	background: radial-gradient(circle at bottom, rgb(66, 1, 109) 0, black 100%);
+	background-image: url('../../img/supernova.jpg');
+	backdrop-filter: brightness(50%) blur(30px);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
 }
+
+
 
 .main {
     position: fixed;

@@ -84,7 +84,7 @@ addLayer("D", {
                 It's a really intresting concept and we hope we can expand upon it more in later devlogs</jj><br>
                 <img src='img/power.png', style='height: 280px ; width 400px'></img><br>
                 <corrupt>Ventilation System</corrupt> <vali>will be in the next biggest update, adding a way to teleport to the "Main World" from the Human or Experiment's Safe zones. You heard of the new safe zones right. Well... No Barriers! My Favorite!<br>We're moving away from barriers and implimenting a new way of entering the area. <br>AFK? Just chill in there until you're ready.<br>Regeneration will no longer be disabled inside the safe zone.<br>It does take quite a while to even get back into the safe zones. To prevent trying to use them when in combat. You'll be unable to use them unless you haven't been hit within 10 seconds. I'm talking a bit too much into it, we'll explain more in devlogs</vali>
-                <img src='img/vents.png', style='height: 280px ; width 400px'></img><br>
+                <img src='img/vents.png', style='height: 280px ; width: 400px'></img><br>
                 `],
                 "blank",
                 "h-line",
