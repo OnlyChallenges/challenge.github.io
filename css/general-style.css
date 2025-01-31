@@ -5,12 +5,10 @@ body {
 	background: #0f0f0f;
 	--color: #dfdfdf;
 	--points: #ffffff;
-	background-image: url('../../img/supernova.jpg');
-	backdrop-filter: brightness(50%) blur(30px);
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
+
+	
 }
+
 
 
 
