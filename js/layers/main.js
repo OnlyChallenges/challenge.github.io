@@ -4,6 +4,7 @@ addLayer("L", {
     startData() {
         return {
             unlocked: true,
+            // All Basic Stat Data
             zone: new Decimal(1),
             level: new Decimal(1),
             health: new Decimal(20),
