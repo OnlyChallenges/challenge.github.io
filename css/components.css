@@ -11,12 +11,12 @@
 .achievement {
 	height: 90px;
 	width: 90px;
-	border-radius: 25%;
-	border: 2px solid;
-	border-color: rgba(0, 0, 0, 0.125);
+	border-radius: 0%;
+	border: 3px solid;
+	border-color: rgba(46, 27, 2, 0.45);
 	font-size: 10px;
-	color: white;
-	text-shadow: 0 0 2px transparent;
+	color: rgb(247, 77, 65);
+	text-shadow: 0 0 2px rgba(235, 219, 198, 0.6);
 }
 .achievement:hover {
 	box-shadow: 0 0 10px var(--points);

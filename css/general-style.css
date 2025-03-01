@@ -74,6 +74,15 @@ body {
   animation: zoom 17s alternate infinite; 
 }
 
+@keyframes zoom {
+    0%{
+        transform: scale(0.7);
+    }
+    100%{
+        transform: scale(1.8);
+    }
+}
+
 /* General text */
 h1, h2, h3, b, input {
 	display: inline;

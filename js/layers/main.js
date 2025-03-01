@@ -606,9 +606,11 @@ addLayer("L", {
 
                     return func
                 }, {}],
-                "blank",
-                "blank",
-                ["clickables", [1]],
+                ["clickables", [function() {
+                    let x = 1
+                    if (player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7)) x = 0
+                    return x
+                },]],
                 ["display-text", function () {
                     let func = "* You need 2.5 Points per Attack, Heal, or Flee action!"
                     if (player.L.health <= 0) func = "* You have been killed..."
@@ -619,8 +621,10 @@ addLayer("L", {
                 ["display-text", function () {
                     let func = " "
                     if (player.L.crit == 2) func = "<fail>Critical Hit!</fail>"
-                    if (player.L.counter == 5) func = "<fail>Enemy Counter! (2x Damage Taken)</fail>"
-                    if (player.L.crit == 2 && player.L.counter == 5) func = "<fail>Critical Hit but Enemy Countered! (Take 3x Damage & Crit Fails)</fail>"
+                    if (player.L.counter == 5 && player.L.AI == 1) func = "<fail>Enemy Counter! (2x Damage Taken)</fail>"
+                    if (player.L.counter == 5 && player.L.AI == 2) func = "<fail>Enemy Counter but healed! (Nothing happened)</fail>"
+                    if (player.L.crit == 2 && player.L.counter == 5 && player.L.AI == 1) func = "<fail>Critical Hit but Enemy Countered! (Take 3x Damage & Crit Fails)</fail>"
+                    if (player.L.crit == 2 && player.L.counter == 5 && player.L.AI == 2) func = "<fail>Critical Hit but Enemy Healed!! (Crit Fails and nothing happens)</fail>"
                     return func
                 }, {}],
                 "blank",
@@ -763,7 +767,7 @@ addLayer("L", {
                 "blank",
                 "blank",
                 ["display-text", function () {
-                    if (player.L.zone == 2 || player.L.zone == 3 || player.L.zone == 4 || player.L.zone == 5) return `
+                    if (player.L.zone == 2 || player.L.zone == 3 || player.L.zone == 4 || player.L.zone == 5 || player.L.zone == 6) return `
                     
                     ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
 
@@ -789,7 +793,7 @@ addLayer("L", {
                 "blank",
                 "blank",
                 ["display-text", function () {
-                    if (player.L.zone == 3 || player.L.zone == 4 || player.L.zone == 5) return `
+                    if (player.L.zone == 3 || player.L.zone == 4 || player.L.zone == 5 || player.L.zone == 6) return `
                     
                     ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
 
@@ -815,7 +819,7 @@ addLayer("L", {
                 "blank",
                 "blank",
                 ["display-text", function () {
-                    if (player.L.zone == 4 || player.L.zone == 5) return `
+                    if (player.L.zone == 4 || player.L.zone == 5 || player.L.zone == 6) return `
                     
                     ~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
 
@@ -880,7 +884,7 @@ addLayer("L", {
                 }, {}],
                 "blank",
                 ["display-text", function () {
-                    if (player.L.zone == 2 || player.L.zone == 3 || player.L.zone == 4 || player.L.zone == 5) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+                    if (player.L.zone == 2 || player.L.zone == 3 || player.L.zone == 4 || player.L.zone == 5 || player.L.zone == 6) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
                     
                     Zone 2 (<corrupt>Library</corrupt>):<br><br>
 
@@ -906,7 +910,7 @@ addLayer("L", {
                 }, {}],
                 "blank",
                 ["display-text", function () {
-                    if (player.L.zone == 3 || player.L.zone == 4 || player.L.zone == 5) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+                    if (player.L.zone == 3 || player.L.zone == 4 || player.L.zone == 5 || player.L.zone == 6) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
                 
                     Zone 3 (<server>Server Room</server>):<br><br>
 
@@ -932,7 +936,7 @@ addLayer("L", {
                 }, {}],
                 "blank",
                 ["display-text", function () {
-                    if (player.L.zone == 4 || player.L.zone == 5) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+                    if (player.L.zone == 4 || player.L.zone == 5 || player.L.zone == 6) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
                 
                 Zone 4 (<rainbow>Garden</rainbow>):<br><br>
 
@@ -958,7 +962,7 @@ addLayer("L", {
                 }, {}],
                 "blank",
                 ["display-text", function () {
-                    if (player.L.zone == 5) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
+                    if (player.L.zone == 5 || player.L.zone == 6) return `~~~~~~~~~~~~~~~~~~~~~~~~~~<br><br>
                 
                 Zone 5 (<obs>Observatory</obs>): <br>[Blue Means Shield!]<br><br>
 
