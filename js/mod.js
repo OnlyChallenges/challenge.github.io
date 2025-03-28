@@ -5,7 +5,7 @@ let modInfo = {
   id: "anothermod4",
   author: "vali (snor mimi)",
   pointsName: "money",
-  modFiles: ["tree.js", "layers/newspaper.js", "layers/feburary.js"],
+  modFiles: ["tree.js", "layers/update.js"],
   discordName: "",
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
@@ -54,13 +54,14 @@ const currentDate = new Date();
 const maintime = currentDate.getTime();
 const Jandate = new Date("2025-01-01T00:00:00.000-05:00");
 const Febtime = new Date("2025-02-01T00:00:00.000-05:00").getTime();
+const Foolstime = new Date("2025-04-01T00:00:00.000-05:00").getTime();
 const Jantime = Jandate.getTime();
 const date = currentDate.toLocaleDateString();
 const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2025-02-01T00:00:00.000-05:00").getTime()
+const countDownDate = new Date("2025-04-01T00:00:00.000-05:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -155,35 +156,35 @@ var displayThings = [
   //   if (modInfo.End == 1) base = ''
   //   return base
   // },
-  // function () {
-  //   var x = setInterval(function () {
+  function () {
+    var x = setInterval(function () {
 
-  //     // Get today's date and time
-  //     var now = new Date().getTime();
+      // Get today's date and time
+      var now = new Date().getTime();
 
-  //     // Find the distance between now and the count down date
-  //     var distance = countDownDate - now;
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
 
 
-  //     // Time calculations for days, hours, minutes and seconds
-  //     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  //     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  //     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  //     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  //     // Display the result in the element with id="demo"
-  //     document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  //       + minutes + "m " + seconds + "s ";
+      // Display the result in the element with id="demo"
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
 
-  //     // If the count down is finished, write some text
-  //     if (Febtime <= maintime) {
-  //       document.getElementById("demo").innerHTML = ""
-  //     }
-  //   }, 100);
-  //   let a = `<power><text id='demo' style='font-size:38px'></text></power>`
-  //   if (modInfo.End == 0) return a = ''
-  //   return a
-  // },
+      // If the count down is finished, write some text
+      if (Foolstime  <= maintime) {
+        document.getElementById("demo").innerHTML = ""
+      }
+    }, 100);
+    let a = `<power><text id='demo' style='font-size:38px'></text></power>`
+    if (modInfo.End == 0) return a = ''
+    return a
+  },
 ]
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

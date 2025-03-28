@@ -196,6 +196,15 @@ obs {
   100%{background-position:0% 50%}
 }
 
+seeme {
+	background-image: repeating-linear-gradient(90deg, white, red, black, black);
+	text-decoration-line: none;
+	cursor: pointer;
+	background-size: 100% 100%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 
 fail {
 	color: #d75c15;

@@ -48,5 +48,100 @@
 	display: block;
 	position:absolute;
 	z-index: 99999;
+
 	background-size:contain;
+}
+
+metabox {
+	color: rgb(0, 0, 0);
+	text-shadow: 5px 5px #d6861dde, -5px -5px #1d9bd6c5;
+	animation: linear 5s metamove infinite;
+}
+
+chalbox {
+	color: rgb(179, 160, 160);
+	text-shadow: 4px 4px #78e646ee, -4px -4px #dc49fac5;
+	animation: ease-in-out 6s metamove3 infinite;
+}
+
+fatigue {
+	color: rgb(184, 183, 183);
+	text-shadow: 2px 2px #e7eb1cde, -2px -2px #f52f2fc5;
+	animation: ease-in-out 5s metamove2 infinite;
+	font-size: 13px;
+}
+
+nullwashere {
+	color: rgb(184, 183, 183);
+	text-shadow: 2px 2px #e7eb1cde, -2px -2px #f52f2fc5;
+	animation: ease-in-out 3s null infinite;
+	font-size: 13px;
+}
+
+@keyframes metamove {
+	0% {
+		text-shadow: 5px 5px #d6861dde, -5px -5px #1d9bd6c5;
+	}
+	25% {
+		text-shadow: 5px -5px #d6861dde, -5px 5px #1d9bd6c5;
+	}
+	50% {
+		text-shadow: -5px -5px #d6861dde, 5px 5px #1d9bd6c5;
+	}
+	75% {
+		text-shadow: -5px 5px #d6861dde, 5px -5px #1d9bd6c5;
+	}
+}
+
+@keyframes metamove2 {
+	0% {
+		text-shadow: 2px 2px #e7eb1cde, -2px -2px #f52f2fc5;
+	}
+	25% {
+		text-shadow: 2px -2px #f52f2fc5, -2px 2px #e7eb1cde;
+	}
+	50% {
+		text-shadow: -2px -2px #e7eb1cde, 2px 2px #f52f2fc5;
+	}
+	75% {
+		text-shadow: -2px 2px #f52f2fc5, 2px -2px #e7eb1cde;
+	}
+}
+
+@keyframes metamove3 {
+	0% {
+		text-shadow: 4px 4px #78e646ee, -4px -4px #dc49fac5;
+	}
+	25% {
+		text-shadow: 4px -4px #dc49fac5, -4px 4px #78e646ee;
+	}
+	50% {
+		text-shadow: -4px -4px #78e646ee, 4px 4px #dc49fac5;
+	}
+	75% {
+		text-shadow: -4px 4px #dc49fac5, 4px -4px #78e646ee;
+	}
+}
+
+@keyframes null {
+	0% {
+		text-shadow: -4px 4px #cc1b1bee, -13px -4px #5c0300c5;
+		color:#000000
+	}
+	25% {
+		text-shadow: 4px -2px #b9c737c5, -4px 8px #2851c2ee;
+		color:#dd1313
+	}
+	50% {
+		text-shadow: -7px -8px #78e646ee, 4px 1px #da35ffc5;
+		color:#000000
+	}
+	75% {
+		text-shadow: -4px 6px #dc49fac5, 8px -4px #0b1805ee;
+		color:#666262
+	}
+	100% {
+		text-shadow: -4px 4px #cc1b1bee, -13px -4px #5c0300c5;
+		color:#000000
+	}
 }
