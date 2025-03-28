@@ -1,8 +1,8 @@
 
 
 let modInfo = {
-  name: `Solstice Studios`,
-  id: "anothermod4",
+  name: `err.game`,
+  id: "null",
   author: "vali (snor mimi)",
   pointsName: "money",
   modFiles: ["tree.js", "layers/update.js"],
