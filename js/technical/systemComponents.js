@@ -26,6 +26,7 @@ var systemComponents = {
 					}
 					else
 						showTab(layer, prev)
+						playNextSong()
 				}
 				else {run(layers[layer].onClick, layers[layer])}
 			}"

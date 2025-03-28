@@ -110,7 +110,7 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 }
 
 const playlist = [
-  new Audio('music/reality.mp3'),
+  new Audio('music/menu1.ogg'),
 
 ];
 let currentSongIndex = 0;
