@@ -54,14 +54,14 @@ const currentDate = new Date();
 const maintime = currentDate.getTime();
 const Jandate = new Date("2025-01-01T00:00:00.000-05:00");
 const Febtime = new Date("2025-02-01T00:00:00.000-05:00").getTime();
-const Foolstime = new Date("2025-04-01T00:00:00.000-05:00").getTime();
+const Foolstime = new Date("2025-05-22T00:00:00.000-05:00").getTime();
 const Jantime = Jandate.getTime();
 const date = currentDate.toLocaleDateString();
 const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2025-04-01T00:00:00.000-05:00").getTime()
+const countDownDate = new Date("2025-05-22T00:00:00.000-05:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -150,6 +150,7 @@ let music = false
 
 // Less important things beyond this point!
 var displayThings = [
+     function () { return "The end is near..." },
   // function () {
   //   let base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Start Article...</button>`
   //   if (music == true && modInfo.End == 0) base = '<button class="longUpg can" style="color:red" onclick="proceed()">Proceed...</button>'
