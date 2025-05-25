@@ -189,7 +189,7 @@ var displayThings = [
     if (modInfo.End == 0) return a = ''
     return a
   },
-  function () { return "<i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i>" },
+  function () { return "<i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i><br><text style='color:#0f0f0f;font-size:12px'>You found some secret stuff on the page<br>You're probably wondering what's going on?<br>Well. Raymond decided to go take a break inside FoR for about 3 months...<br>It's ok, he's doing alright, he just needs a well deserved nap.<br>Facility of Redemption will be back sometimes in September!<br><br> We love all of y'all.</text>" },
 ]
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
