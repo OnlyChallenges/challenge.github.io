@@ -1,11 +1,11 @@
 
 
 let modInfo = {
-  name: `err.game`,
+  name: `The clock is ticking...`,
   id: "null",
   author: "vali (snor mimi)",
   pointsName: "money",
-  modFiles: ["tree.js", "layers/update.js"],
+  modFiles: ["tree.js"],
   discordName: "",
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
@@ -54,14 +54,14 @@ const currentDate = new Date();
 const maintime = currentDate.getTime();
 const Jandate = new Date("2025-01-01T00:00:00.000-05:00");
 const Febtime = new Date("2025-02-01T00:00:00.000-05:00").getTime();
-const Foolstime = new Date("2025-05-22T00:00:00.000-05:00").getTime();
+const Foolstime = new Date("2025-09-01T00:00:00.000-05:00").getTime();
 const Jantime = Jandate.getTime();
 const date = currentDate.toLocaleDateString();
 const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2025-05-22T00:00:00.000-05:00").getTime()
+const countDownDate = new Date("2025-09-01T00:00:00.000-05:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -150,7 +150,7 @@ let music = false
 
 // Less important things beyond this point!
 var displayThings = [
-     function () { return "The end is near..." },
+     function () { return "<br><br><br><br><br><br><br><br><br><br><br><br>" },
   // function () {
   //   let base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Start Article...</button>`
   //   if (music == true && modInfo.End == 0) base = '<button class="longUpg can" style="color:red" onclick="proceed()">Proceed...</button>'
@@ -176,16 +176,20 @@ var displayThings = [
       // Display the result in the element with id="demo"
       document.getElementById("demo").innerHTML = days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
+        document.title = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
 
       // If the count down is finished, write some text
       if (Foolstime  <= maintime) {
         document.getElementById("demo").innerHTML = ""
+        
       }
     }, 100);
-    let a = `<power><text id='demo' style='font-size:38px'></text></power>`
+    let a = `<text id='demo' style='font-size:38px'></text>`
     if (modInfo.End == 0) return a = ''
     return a
   },
+  function () { return "<i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i>" },
 ]
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
