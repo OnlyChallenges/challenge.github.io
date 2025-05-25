@@ -2,10 +2,9 @@
 body {
 	color: var(--color);
 	overflow: hidden;
-	background: #0f0f0f;
+	background: linear-gradient(180deg ,#0f0f0f 13%, #e70808 100%);
 	--color: #dfdfdf;
 	--points: #ffffff;
-	background-image: url('../../img/aqua.png');
 	backdrop-filter: brightness(50%) blur(16px);
 	background-repeat: no-repeat;
 	background-attachment: fixed;

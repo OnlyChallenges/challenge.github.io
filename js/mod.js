@@ -62,6 +62,7 @@ const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
 const countDownDate = new Date("2025-09-01T00:00:00.000-05:00").getTime()
+const countDownDate2 = new Date("2025-05-29T00:00:00.000-05:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -165,7 +166,7 @@ var displayThings = [
 
       // Find the distance between now and the count down date
       var distance = countDownDate - now;
-
+      var specialdistance = countDownDate2 - now;
 
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -173,23 +174,38 @@ var displayThings = [
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+      var days2 = Math.floor(specialdistance / (1000 * 60 * 60 * 24));
+      var hours2 = Math.floor((specialdistance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes2 = Math.floor((specialdistance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds2 = Math.floor((specialdistance % (1000 * 60)) / 1000);
+
       // Display the result in the element with id="demo"
-      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
+      document.getElementById("anim1").innerHTML = days + "d "
+      document.getElementById("anim2").innerHTML = hours + "h "
+      document.getElementById("anim3").innerHTML = minutes + "m "
+      document.getElementById("anim4").innerHTML = seconds + "s "
+      document.getElementById('waiting').innerHTML = days2 + "d " + hours2 + "h "
+        + minutes2 + "m " + seconds2 + "s" + " remaining"
         document.title = days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
 
       // If the count down is finished, write some text
       if (Foolstime  <= maintime) {
-        document.getElementById("demo").innerHTML = ""
+        document.getElementById("anim1").innerHTML = ""
         
       }
     }, 100);
-    let a = `<text id='demo' style='font-size:38px'></text>`
+    let a = `<anim1><text id='anim1' style='font-size:38px'></text></anim1><anim2><text id='anim2' style='font-size:38px'></text></anim2><anim3><text id='anim3' style='font-size:38px'></text></anim3><anim4><text id='anim4' style='font-size:38px'></text></anim4>`
     if (modInfo.End == 0) return a = ''
     return a
   },
-  function () { return "<i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i><br><text style='color:#0f0f0f;font-size:12px'>You found some secret stuff on the page<br>You're probably wondering what's going on?<br>Well. Raymond decided to go take a break inside FoR for about 3 months...<br>It's ok, he's doing alright, he just needs a well deserved nap.<br>Facility of Redemption will be back sometimes in September!<br><br> We love all of y'all.</text>" },
+  function () { return "<i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i><br><br>" },
+  function() { 
+    let x = getUndulatingColor()
+		let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
+    return a },
+  function() { return "<i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"
+  }
 ]
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
