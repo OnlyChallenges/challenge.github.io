@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie-edge">
 
 	<link rel="stylesheet" type="text/css" href="css/system-style.css" />
 	<link rel="stylesheet" type="text/css" href="css/bars.css" />
@@ -35,12 +37,13 @@
 	<script src="js/utils/themes.js"></script>
 
 
+
 </head>
-
-
 
 <body onload="load()" onmousemove="updateMouse(event)">
 	<div id="app">
+
+
 		<canvas id="treeCanvas" class="canvas" v-if="!(tmp.gameEnded && !player.keepGoing)"></canvas>
 		<div id="treeOverlay"
 			v-if="!(tmp.gameEnded && !player.keepGoing) && (player.tab === 'none' || tmp.other.splitScreen || !readData(layoutInfo.showTree))"
@@ -85,11 +88,6 @@
 				</div>
 			</transition-group>
 		</div>
-		<div class="particle-container">
-			<div v-for="particle,index in particles">
-				<particle :data="particle" :index="index" v-bind:key="'b' + particle.id"></particle>
-			</div>
-		</div>
 
 		<div v-if="player.navTab !== 'none' && player.tab !== 'none' && !(tmp.gameEnded && !player.keepGoing)"
 			onscroll="resizeCanvas()"
@@ -103,4 +101,6 @@
 
 		</div>
 	</div>
+
 </body>
+</html>

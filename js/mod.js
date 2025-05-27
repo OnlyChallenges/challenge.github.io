@@ -195,11 +195,11 @@ var displayThings = [
         
       }
     }, 100);
-    let a = `<anim1><text id='anim1' style='font-size:38px'></text></anim1><anim2><text id='anim2' style='font-size:38px'></text></anim2><anim3><text id='anim3' style='font-size:38px'></text></anim3><anim4><text id='anim4' style='font-size:38px'></text></anim4>`
+    let a = `<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text>`
     if (modInfo.End == 0) return a = ''
     return a
   },
-  function () { return "<i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i><br><br>" },
+  function () { return "<br><i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i><br><br>" },
   function() { 
     let x = getUndulatingColor()
 		let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
