@@ -65,10 +65,12 @@ addLayer("D", {
                     ["display-text", `<i><text style='color:#575859;font-size:9px'>Seems like there's nothing here...</text></i><br><br>`]
                 ];
 
-            if (player["D"].page > 0) content = [
+            if (player["D"].page >= 0) content = [
                     ["display-text",
                         `<i><text style='color:#575859;font-size:9px'>Suprised you found this... Facility of Redemption has been under heavy supervision by Raymond<br>You might get lore sometime.... don't tell anyone though. This is a secret...</text></i>
-                `,],]
+                `,],
+                    ["clickable", 12],
+            ]
 
             return content
         },
@@ -107,18 +109,19 @@ addLayer("D", {
 
     clickables: {
         11: {
-            title: "Go back",
+            title: "{secretDialogue_button}",
             canClick() {
                 let click = true
-                if (player[this.layer].page <= 0) click = false
+                // if (player[this.layer].page <= 0) click = false
                 return click
             },
             onClick() {
-                player[this.layer].page = player[this.layer].page.minus(1)
+                player[this.layer].page = new Decimal(-1)
             },
             style() {
                 return {
-                    'background-color': tmp.D.color,
+                    'background-color': "#49123d",
+                    'width': "240px",
                 }
             },
         },
