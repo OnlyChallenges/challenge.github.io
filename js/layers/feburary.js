@@ -65,6 +65,12 @@ addLayer("F", {
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);
     },
 
+    infoboxes: {
+    test: {
+        title: "Test",
+        body() { return "bar" },
+    },
+    },
 
     tabFormat:
         function () {

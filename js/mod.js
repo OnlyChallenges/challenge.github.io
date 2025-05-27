@@ -5,7 +5,7 @@ let modInfo = {
   id: "clock",
   author: "vali (snor mimi)",
   pointsName: "money",
-  modFiles: ["tree.js"],
+  modFiles: ["tree.js", "layers/newspaper.js"],
   discordName: "",
   discordLink: "",
   initialStartPoints: new Decimal(0), // Used for hard resets and new players
@@ -112,7 +112,7 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 
 const playlist = [
   new Audio('music/menu1.ogg'),
-
+  new Audio('music/menu3.ogg'),
 ];
 let currentSongIndex = 0;
 function playNextSong() {
@@ -148,6 +148,8 @@ playlist[currentSongIndex].addEventListener('ended', function () {
 });
 
 let music = false
+
+
 
 // Less important things beyond this point!
 var displayThings = [
@@ -205,6 +207,8 @@ var displayThings = [
 		let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
     return a },
   function() { return "<i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"
+  },
+    function() { return `<i><text style='color:#575859;font-size:9px'>{error:may29th.js failed to load styling assets under this text}</text></i><br>`
   }
 ]
 

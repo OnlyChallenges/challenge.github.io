@@ -3,24 +3,24 @@ var themes = ["default", "aqua"]
 
 var colors = {
 	default: {
-		1: "#ffffff",//Branch color 1
-		2: "#bfbfbf",//Branch color 2
-		3: "#7f7f7f",//Branch color 3
+		1: "rgba(0, 0, 0, 0.01)",//Branch color 1
+		2: "rgba(0, 0, 0, 0.01)",//Branch color 2
+		3: "rgba(0, 0, 0, 0.01)",//Branch color 3
 		color: "#dfdfdf",
 		points: "#ffffff",
 		locked: "#bf8f8f",
 		background: "#0f0f0f",
-		background_tooltip: "rgba(0, 0, 0, 0.75)",
+		background_tooltip: "rgba(0, 0, 0, 0.01)",
 	},
 	aqua: {
 		1: "#bfdfff",
-		2: "#8fa7bf",
+		2: "rgba(0, 0, 0, 0.01)",
 		3: "#5f6f7f",
 		color: "#bfdfff",
 		points: "#dfefff",
 		locked: "#c4a7b3",
 		background: "#001f3f",
-		background_tooltip: "rgba(0, 15, 31, 0.75)",
+		background_tooltip: "rgba(0, 15, 31, 0.01)",
 	},
 }
 function changeTheme() {

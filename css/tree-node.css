@@ -7,7 +7,7 @@
 	box-shadow: var(--hqProperty2a), var(--hqProperty2b);
 	font-size: 35px;
 	font-family: "8bitOperatorPlus-Bold", monospace;
-	color: rgba(0, 0, 0, 0.5);
+	color: rgba(0, 0, 0, 0.2);
 	text-shadow: var(--hqProperty3);
 	padding: 0;
 	margin: 0 10px 0 10px;
@@ -26,7 +26,7 @@
 	box-shadow: var(--hqProperty2a), var(--hqProperty2b);
 	font-size: 40px;
 	font-family: "8bitOperatorPlus-Bold", monospace;
-	color: rgba(0, 0, 0, 0.5);
+	color: rgba(0, 0, 0, 0.2);
 	text-shadow: var(--hqProperty3);
 	padding: 0;
 }
