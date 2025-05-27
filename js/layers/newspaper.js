@@ -65,26 +65,9 @@ addLayer("D", {
                     ["display-text", `<i><text style='color:#575859;font-size:9px'>Seems like there's nothing here...</text></i><br><br>`]
                 ];
 
-            if (player["D"].page == 0) content = [
+            if (player["D"].page > 0) content = [
                     ["display-text",
-                        `What are you doing?
-                `,],]
-            if (player["D"].page == 1) content = [
-                                    ["display-text",
-                        `What are you doing?
-                `,],]
-
-            if (player["D"].page == 2) content = [
-                                    ["display-text",
-                        `What are you doing?
-                `,],]
-            if (player["D"].page == 3) content = [
-                                   ["display-text",
-                        `What are you doing?
-                `,],]
-                if (player["D"].page == 4) content = [
-                                    ["display-text",
-                        `What are you doing?
+                        `<i><text style='color:#575859;font-size:9px'>Suprised you found this... Facility of Redemption has been under heavy supervision by Raymond<br>You might get lore sometime.... don't tell anyone though. This is a secret...</text></i>
                 `,],]
 
             return content
