@@ -69,7 +69,7 @@ addLayer("D", {
                     ["display-text",
                         `<i><text style='color:#575859;font-size:9px'>Suprised you found this... Facility of Redemption has been under heavy supervision by Raymond<br>You might get lore sometime.... don't tell anyone though. This is a secret...</text></i>
                 `,],
-                    ["clickable", 12],
+                    ["clickable", 11],
             ]
 
             return content
