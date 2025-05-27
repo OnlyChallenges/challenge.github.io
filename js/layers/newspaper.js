@@ -116,7 +116,7 @@ addLayer("D", {
                 return click
             },
             onClick() {
-                player[this.layer].page = new Decimal(-1)
+                player[this.layer].page = player[this.layer].page.minus(player[this.layer].page+1)
             },
             style() {
                 return {
