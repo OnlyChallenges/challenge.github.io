@@ -111,7 +111,10 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 }
 
 const playlist = [
+  new Audio('music/mainmusic.mp3'),
   new Audio('music/hidden.mp3'),
+  new Audio('music/poweroutage.mp3'),
+  new Audio()
 ];
 let currentSongIndex = 0;
 function playNextSong() {
