@@ -15,7 +15,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.1_5 ",
+  num: "0.2.3 ",
   ver: "Changelog",
   name: " @Ozvali",
 }
@@ -112,10 +112,34 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 
 const playlist = [
   new Audio('music/mainmusic.mp3'),
-  new Audio('music/hidden.mp3'),
   new Audio('music/poweroutage.mp3'),
-  new Audio()
+  new Audio('music/poweroutage2.mp3'),
+  new Audio('music/poweroutage_hallo.mp3'),
+  new Audio('music/raymond.mp3'),
+  new Audio('music/menu1.ogg'),
+  new Audio('music/wrong.ogg'),
 ];
+
+const playlistName = [
+  "FoR - Main Music Theme",
+  "FoR - Power Outage Theme",
+  "FoR - The Foundry Theme",
+  "FoR - Power Outage Halloween Theme",
+  "FoR - Raymond's Shop! Theme",
+  "??? - An Unknown Presence Theme",
+  "F!oH - ????? Theme"
+];
+
+const songColors = [
+  "#ff0000",
+  "#dbb621",
+  "#ba6e09",
+  "#1c368c",
+  "#861eba",
+  "#3f3d40",
+  "#121112",
+];
+
 let currentSongIndex = 0;
 function playNextSong() {
   music = true
@@ -133,7 +157,7 @@ function pauseMusic() {
 function nextSong() {
   playlist[currentSongIndex].pause();
   playlist[currentSongIndex].currentTime = 0;
-  if (currentSongIndex == 4) {
+  if (currentSongIndex == 6) {
     currentSongIndex = 0
   } else {
     currentSongIndex++
@@ -141,7 +165,7 @@ function nextSong() {
   playNextSong();
 }
 playlist[currentSongIndex].addEventListener('ended', function () {
-  if (currentSongIndex == 4) {
+  if (currentSongIndex == 6) {
     currentSongIndex = 0
   } else {
     currentSongIndex++
@@ -223,6 +247,8 @@ let month = months[d.getMonth()];
 // Style for the background, can be a function
 var backgroundStyle = ("background-image: url('supernova.jpg')")
 
+var CurrentSong = "Play Next Song"
+
 var timePerLetter = 70;
 var newLineCharacter = '|';
 var active = false;
@@ -251,6 +277,11 @@ function printOut(text) {
 
 function RestartDialogues() {
   player["D"].dialogue = new Decimal(0)
+}
+
+function updateText() {
+  document.getElementById("music").innerHTML = playlistName[currentSongIndex];
+  document.body.style.setProperty("--song", songColors[currentSongIndex]);
 }
 
 

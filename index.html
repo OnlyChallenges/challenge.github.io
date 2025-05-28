@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="ie-edge">
@@ -57,9 +58,12 @@
 			col: (player.tab !== 'none' && player.navTab !== 'none'), 
 			left: (player.tab !== 'none' && player.navTab !== 'none')}"
 			:style="{'margin-top': !readData(layoutInfo.showTree) && player.tab == 'info-tab' ? '50px' : ''}">
-			<div id="version" class="overlayThing"
-				style="opacity: 0.5; color:rgb(217, 255, 0);">
+			<div id="version" class="overlayThing" style="opacity: 0.5; color:rgb(217, 255, 0);">
 				{{VERSION.withName}}</div>
+			<div id="music" class="overlayThing" style="opacity: 0.5; color:rgb(54, 255, 54);">
+				{{playlistName[currentSongIndex]}}</div>
+			<button id="music2" class="overlayThing" style="opacity: 1; color:rgb(231, 229, 222); ; border: 2px;" onclick="nextSong() ; updateText()">
+				{{CurrentSong}}</button>
 			<button
 				v-if="((player.navTab == 'none' && (tmp[player.tab].row == 'side' || tmp[player.tab].row == 'otherside' || player[player.tab].prevTab)) || player[player.navTab]?.prevTab)"
 				class="other-back overlayThing"
@@ -108,4 +112,5 @@
 	</div>
 
 </body>
+
 </html>

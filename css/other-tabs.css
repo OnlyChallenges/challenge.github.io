@@ -72,6 +72,37 @@
 	right: 4.8px;
 }
 
+#music {
+	position: absolute;
+	bottom: 4px;
+	left: 4px;
+	text-align: left;
+	color: var(--points);
+	text-shadow: 0 0 10px var(--points);
+	cursor: pointer;
+}
+
+#music:hover {
+	transform: scale(1.1, 1.1);
+	left: 4.8px;
+}
+
+#music2 {
+	position: absolute;
+	bottom: 25px;
+	left: 2px;
+	text-align: left;
+	color: var(--points);
+	text-shadow: 0 0 10px var(--points);
+	background-color: var(--song);
+	cursor: pointer;
+}
+
+#music2:hover {
+	transform: scale(1.1, 1.1);
+	left: 4.8px;
+}
+
 a {
 	color: #007fff;
 	text-decoration-line: none;
