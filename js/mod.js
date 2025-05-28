@@ -15,7 +15,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.3 ",
+  num: "0.2.3_may29-alpha ",
   ver: "Changelog",
   name: " @Ozvali",
 }
@@ -118,16 +118,18 @@ const playlist = [
   new Audio('music/raymond.mp3'),
   new Audio('music/menu1.ogg'),
   new Audio('music/wrong.ogg'),
+  new Audio('music/unknown.ogg'),
 ];
 
 const playlistName = [
-  "FoR - Main Music Theme",
+  "FoR - Main Music Theme (33% slower)",
   "FoR - Power Outage Theme",
   "FoR - The Foundry Theme",
   "FoR - Power Outage Halloween Theme",
   "FoR - Raymond's Shop! Theme",
   "??? - An Unknown Presence Theme",
-  "F!oH - ????? Theme"
+  "Facility!Tale- Crystal Caves Theme",
+  "Facility!Tale - Crystal Caves (Genocide) Theme",
 ];
 
 const songColors = [
@@ -137,7 +139,8 @@ const songColors = [
   "#1c368c",
   "#861eba",
   "#3f3d40",
-  "#121112",
+  "#8f8f8f",
+  "#000000",
 ];
 
 let currentSongIndex = 0;
@@ -157,7 +160,7 @@ function pauseMusic() {
 function nextSong() {
   playlist[currentSongIndex].pause();
   playlist[currentSongIndex].currentTime = 0;
-  if (currentSongIndex == 6) {
+  if (currentSongIndex == 7) {
     currentSongIndex = 0
   } else {
     currentSongIndex++
@@ -165,7 +168,7 @@ function nextSong() {
   playNextSong();
 }
 playlist[currentSongIndex].addEventListener('ended', function () {
-  if (currentSongIndex == 6) {
+  if (currentSongIndex == 7) {
     currentSongIndex = 0
   } else {
     currentSongIndex++
@@ -214,8 +217,7 @@ var displayThings = [
       document.getElementById("anim4").innerHTML = seconds + "s "
       document.getElementById('waiting').innerHTML = days2 + "d " + hours2 + "h "
         + minutes2 + "m " + seconds2 + "s" + " remaining"
-      document.title = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
+      document.title = "FoR Page: " + VERSION.withoutName;
 
       // If the count down is finished, write some text
       if (Foolstime <= maintime) {
@@ -261,8 +263,8 @@ function printOut(text) {
           switch (text[j]) {
             case newLineCharacter:
               setTimeout($('#dialogue').append('<br>'), timePerLetter);
-                  active = false
-                  document.getElementById("dialogues").disabled = false;
+              active = false
+              document.getElementById("dialogues").disabled = false;
               break;
             default:
               setTimeout($('#dialogue').append(text[j]), timePerLetter);
@@ -297,7 +299,7 @@ const DialogueOneArray = [
   "Tony: We can relax for a little bit... won't hurt anyone.|",
   "Raymond: They're going to be at our butts about it... and you know it.|",
   "Tony: Ok... Ok... It's not that big of a deal alright?|",
-  "Raymond ...|", 
+  "Raymond ...|",
 ]
 
 // You can change this if you have things that can be messed up by long tick lengths
