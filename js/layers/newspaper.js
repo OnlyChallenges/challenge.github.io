@@ -6,7 +6,7 @@ addLayer("D", {
         return {
             unlocked: false,
             points: new Decimal(0),
-            page: new Decimal(0),
+            page: new Decimal(-1),
             shown: true,
         }
     },
