@@ -22,13 +22,21 @@ addLayer("D", {
         return player.points.gte(1000)
     },
     update(diff) {
-        if (countDownDate <= maintime) player[this.layer].unlocked = true
-        else player[this.layer].unlocked = true
+        if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") player[this.layer].page = 0
+        else player[this.layer].page = 0
         // If the Date is Janurary 1st, 2025; set the Newsletter being opened to true, else keep the newsletter locked until Janurary 1st, 2025
         // Updates every 1/60th of a second.
     },
     nodeStyle() {
-        return {
+        if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") return {
+            // "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,1) 0, rgba(100,44,1,1) 100%)",
+            // "border": "1px dashed rgba(0,0,0,1)",
+            // "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
+            "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,.01) 0, rgba(100,44,1,.01) 100%)",
+            "border": "1px dashed rgba(0,0,0,0.01)",
+            "box-shadow": "0px 0px 0px rgba(0, 0, 0, 0.01)"
+        }
+        else return {
             "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,.01) 0, rgba(100,44,1,.01) 100%)",
             "border": "1px dashed rgba(0,0,0,0.01)",
             "box-shadow": "0px 0px 0px rgba(0, 0, 0, 0.01)"
@@ -49,21 +57,7 @@ addLayer("D", {
                 [["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
                     "blank",
                     "blank",
-                    "blank",
-                    "h-line",
-                    "blank",
-                    "blank",
-                ["display-text",
-                    `{dialogueParagraph_Title}<i><text style='color:#575859;font-size:9px'>Raymond</text></i><br><br>{dialogueParagraph_Info<i><text style='color:#575859;font-size:9px'>May 29th</text></i>}
-                `,
-                ],
-                    "blank",
-                    "h-line",
-                    "blank",
-                ["clickable", 12],
-                    "blank",
-                    "blank",
-                ["display-text", `<i><text style='color:#575859;font-size:9px'>Seems like there's nothing here...</text></i><br><br>`]
+                ["display-text", `<i><text style='color:#575859;font-size:9px'>...</text></i><br><br>`]
                 ];
 
             if (player["D"].page > 1) content = [
@@ -73,13 +67,22 @@ addLayer("D", {
                 "blank",
                 "h-line",
                 "blank",
+                 ["display-text",
+                    `<i>May 29th, 2025 - The first sign from the Developers</i><br><i><text style='color:#575859;font-size:9px'>Written & Programmed by Ozvali.</text></i>
+                `,
+                ],
                 "blank",
                 ["display-text",
-                    `<i><text style='color:#575859;font-size:9px'>Suprised you found this... Facility of Redemption has been under heavy supervision by Raymond<br>You might get lore sometime.... don't tell anyone though. This is a secret...</text></i>
+                    `<i>5468657927726520747279696E6720746F20666967757265206F7574207768617420746F20646F2E2E2E</i>
+                `,
+                ],
+
+                ["display-text",
+                    `<i><text style='color:#575859;font-size:9px'>It dtz ymnsp ymjd btzqi zsijwxyfsi ymj lfrj hqtxnsl?</text></i>
                 `,],
                 ["clickable", 11],
                 "blank",
-                ["raw-html", "<div id='dialogue'></div>"],
+                ["raw-html", "<div id='dialogue' style='font-size:13px'></div>"],
             ]
 
             return content

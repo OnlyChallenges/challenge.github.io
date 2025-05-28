@@ -239,7 +239,7 @@ var displayThings = [
     return "<i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"
   },
   function () {
-    return `<i><text style='color:#575859;font-size:9px'>{error:may29th.js failed to load styling assets under this text}</text></i><br>`
+    return `<i><text style='color:#575859;font-size:9px'>Change the song until something appears here... (Works in v0.2.4_may29)</text></i><br>`
   }
 ]
 
@@ -251,8 +251,9 @@ var backgroundStyle = ("background-image: url('supernova.jpg')")
 
 var CurrentSong = "Play Next Song"
 
-var timePerLetter = 70;
+var timePerLetter = 45;
 var newLineCharacter = '|';
+var newLineCharacter2 = '~';
 var active = false;
 function printOut(text) {
   for (var i = 0; i < text.length; i++) {
@@ -265,6 +266,9 @@ function printOut(text) {
               setTimeout($('#dialogue').append('<br>'), timePerLetter);
               active = false
               document.getElementById("dialogues").disabled = false;
+              break;
+            case newLineCharacter2:
+              setTimeout($('#dialogue').append('<br>'), timePerLetter);
               break;
             default:
               setTimeout($('#dialogue').append(text[j]), timePerLetter);
@@ -288,18 +292,19 @@ function updateText() {
 
 
 const DialogueOneArray = [
-  "Raymond: Carter... You do know that everything matters here... right?|",
-  "Carter: Yeah Yeah... I know...|",
-  "Raymond: If you know then why did you even bother with the experiments...|",
-  "Carter: Huh? What do you mean by that Raymond...|",
-  "Raymond: Dude... You know that we have a couple months from now to make sure the place is clean... right?|",
-  "Carter: ...Y-yeah...|",
-  "Tony: Look man, don't be so stressed about it... it's just some weeks...|",
-  "Carter: Y-you're right...|",
-  "Tony: We can relax for a little bit... won't hurt anyone.|",
-  "Raymond: They're going to be at our butts about it... and you know it.|",
-  "Tony: Ok... Ok... It's not that big of a deal alright?|",
-  "Raymond ...|",
+  "5261796D6F6E643A204361727465722E2E2E20596F7520646F206B6E6F7720746861742065766572797468696E67206D61747465727320686572652E2E2E2072696768743F|",
+  "4361727465723A205965616820596561682E2E2E2049206B6E6F772E2E2E|",
+  "5261796D6F6E643A20496620796F75206B6E6F772E2E2E207768792064696420796F7520626F7468657220746865206578706572696D656E74732E2E2E|",
+  "4361727465723A204875683F205768617420646F20796F75206D65616E20627920746861742E2E2E|",
+  "5261796D6F6E643A20447564652E2E2E20596F75206B6E6F7720746861742077652068617665206120636F75706C65206D6F6E7468732066726F6D206E6F7720746F206D616B6520737572652074686520706C61636520697320636C65616E2E2E2E|",
+  "4361727465723A202E2E2E592D796561682E2E2E|",
+  "546F6E793A204C6F6F6B206D616E2C20646F6E277420626520736F2073747265737365642061626F75742069742E2E2E2069742773206A757374206120666577207765656B732E2E2E7C|",
+  "4361727465723A20592D796F752772652072696768742E2E2E7C|",
+  "546F6E793A2057652063616E2072656C617820666F722061206C6974746C65206269742E2E2E20776F6E2774206875727420616E796F6E652E|",
+  "5261796D6F6E643A205468657927726520676F696E6720746F206265206174206F75722062757474732061626F75742069742E2E2E20616E6420796F75206B6E6F772069742E|",
+  "546F6E793A204F6B2E2E2E204F6B2E2E2E2049742773206E6F74207468617420626967206F662061206465616C20616C72696768743F|",
+  "5261796D6F6E643A2E2E2E|",
+  "~The Reason the game was closed: ~This was so that the developers could take a break.~Due to 'model based issues' we were forced to close the game until we can get new models into the game.~We are trying our best to make sure that the game can be running properly.~This also gives us time to work on some new things!~The biggest one being--.~ERROR.June3rd.js missing~~You may click on the Dialogue Box again or Leave this tab to refresh the dialogues~",
 ]
 
 // You can change this if you have things that can be messed up by long tick lengths
