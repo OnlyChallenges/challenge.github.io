@@ -6,7 +6,7 @@ addLayer("D", {
         return {
             unlocked: false,
             points: new Decimal(0),
-            page: new Decimal(-1),
+            page: new Decimal(0),
             shown: true,
         }
     },
@@ -29,7 +29,7 @@ addLayer("D", {
     nodeStyle() {
         return {
             "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,.01) 0, rgba(100,44,1,.01) 100%)",
-	        "border": "1px dashed rgba(0,0,0,0.01)",
+            "border": "1px dashed rgba(0,0,0,0.01)",
             "box-shadow": "0px 0px 0px rgba(0, 0, 0, 0.01)"
         }
     },
@@ -44,32 +44,39 @@ addLayer("D", {
     tabFormat:
         function () {
             let content =
-                
-                [["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text>"],
+
+                [["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
+                    "blank",
+                    "blank",
+                    "blank",
+                    "h-line",
+                    "blank",
+                    "blank",
+                ["display-text",
+                    `{dialogueParagraph_Title}<i><text style='color:#575859;font-size:9px'>Raymond</text></i><br><br>{dialogueParagraph_Info<i><text style='color:#575859;font-size:9px'>May 29th</text></i>}
+                `,
+                ],
+                    "blank",
+                    "h-line",
+                    "blank",
+                ["clickable", 12],
+                    "blank",
+                    "blank",
+                ["display-text", `<i><text style='color:#575859;font-size:9px'>Seems like there's nothing here...</text></i><br><br>`]
+                ];
+
+            if (player["D"].page > 1) content = [
+                ["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
                 "blank",
                 "blank",
                 "blank",
                 "h-line",
                 "blank",
                 "blank",
-                    ["display-text",
-                        `{dialogueParagraph_Title}<i><text style='color:#575859;font-size:9px'>Raymond</text></i><br><br>{dialogueParagraph_Info<i><text style='color:#575859;font-size:9px'>May 29th</text></i>}
-                `,
-                    ],
-                    "blank",
-                    "h-line",
-                    "blank",
-                    ["clickable", 12],
-                    "blank",
-                    "blank",
-                    ["display-text", `<i><text style='color:#575859;font-size:9px'>Seems like there's nothing here...</text></i><br><br>`]
-                ];
-
-            if (player["D"].page >= 0) content = [
-                    ["display-text",
-                        `<i><text style='color:#575859;font-size:9px'>Suprised you found this... Facility of Redemption has been under heavy supervision by Raymond<br>You might get lore sometime.... don't tell anyone though. This is a secret...</text></i>
+                ["display-text",
+                    `<i><text style='color:#575859;font-size:9px'>Suprised you found this... Facility of Redemption has been under heavy supervision by Raymond<br>You might get lore sometime.... don't tell anyone though. This is a secret...</text></i>
                 `,],
-                    ["clickable", 11],
+                ["clickable", 11],
             ]
 
             return content
@@ -116,7 +123,7 @@ addLayer("D", {
                 return click
             },
             onClick() {
-                player[this.layer].page = player[this.layer].page.minus(player[this.layer].page.add(1))
+                player["D"].page = player[this.layer].page.minus(1)
             },
             style() {
                 return {
