@@ -4,13 +4,14 @@ addLayer("D", {
 
     startData() {
         return {
-            unlocked: false,
+            unlocked: true,
             points: new Decimal(0),
             page: new Decimal(-1),
             shown: true,
+            dialogue: new Decimal(0),
         }
     },
-    tooltip: "Janurary 2025 Solstice Studio Newsletter",
+    tooltip: "∅",
     tooltipLocked: "∅",
 
     layerShown() {
@@ -22,7 +23,7 @@ addLayer("D", {
     },
     update(diff) {
         if (countDownDate <= maintime) player[this.layer].unlocked = true
-        else player[this.layer].unlocked = false
+        else player[this.layer].unlocked = true
         // If the Date is Janurary 1st, 2025; set the Newsletter being opened to true, else keep the newsletter locked until Janurary 1st, 2025
         // Updates every 1/60th of a second.
     },
@@ -77,6 +78,8 @@ addLayer("D", {
                     `<i><text style='color:#575859;font-size:9px'>Suprised you found this... Facility of Redemption has been under heavy supervision by Raymond<br>You might get lore sometime.... don't tell anyone though. This is a secret...</text></i>
                 `,],
                 ["clickable", 11],
+                "blank",
+                ["raw-html", "<div id='dialogue'></div>"],
             ]
 
             return content
@@ -116,14 +119,21 @@ addLayer("D", {
 
     clickables: {
         11: {
-            title: "{secretDialogue_button}",
+            title() {return "<< Dialogue #" + formatWhole(player[this.layer].dialogue) + "/" + formatWhole(DialogueOneArray.length) + " >>"},
             canClick() {
                 let click = true
-                // if (player[this.layer].page <= 0) click = false
+                if (active == true) click = false
                 return click
             },
             onClick() {
-                player["D"].page = player[this.layer].page.minus(1)
+                let i = player[this.layer].dialogue
+                if (player[this.layer].dialogue >= DialogueOneArray.length) document.getElementById('dialogue').innerHTML = ""
+                if (player[this.layer].dialogue >= DialogueOneArray.length) player[this.layer].dialogue = new Decimal(0)
+                printOut(DialogueOneArray[i])
+                active = true
+                document.getElementById("dialogues").disabled = true;
+                player[this.layer].dialogue = player[this.layer].dialogue.add(1)
+
             },
             style() {
                 return {

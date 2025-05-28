@@ -227,7 +227,9 @@ bat {
 	transform: translateY(-20px);
 }
 
-
+#dialogue {
+  white-space: pre-line;
+}
 
 @-webkit-keyframes move1 {
 	from {

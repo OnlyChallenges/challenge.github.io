@@ -2,13 +2,39 @@
 body {
 	color: var(--color);
 	overflow: hidden;
-	background: linear-gradient(180deg ,#0f0f0f 13%, #e70808 100%);
+	background: linear-gradient(180deg ,#0f0f0f 0.5%, #e70808 100%);
 	--color: #dfdfdf;
 	--points: #ee3a1afff;
 	backdrop-filter: brightness(50%) blur(16px);
+	animation: bg 15s infinite alternate;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+}
+
+
+@keyframes bg {
+	0% {background: linear-gradient(180deg ,#0f0f0f 0.5%, #ff0000 100%);}
+	5% {background: linear-gradient(180deg ,#0f0f0f 1%, #ff0000 100%);}
+	10% {background: linear-gradient(180deg ,#0f0f0f 3%, #ff0000 100%);}
+	15% {background: linear-gradient(180deg ,#0f0f0f 5%, #ff0000 100%);}
+	20% {background: linear-gradient(180deg ,#0f0f0f 8%, #ff0000 100%);}
+	25% {background: linear-gradient(180deg ,#0f0f0f 10%, #ff0000 100%);}
+	30% {background: linear-gradient(180deg ,#0f0f0f 12%, #ff0000 100%);}
+	35% {background: linear-gradient(180deg ,#0f0f0f 14%, #ff0000 100%);}
+	40% {background: linear-gradient(180deg ,#0f0f0f 16%, #ff0000 100%);}	
+	45% {background: linear-gradient(180deg ,#0f0f0f 18%, #ff0000 100%);}
+	50% {background: linear-gradient(180deg ,#0f0f0f 20%, #ff0000 100%);}
+	55% {background: linear-gradient(180deg ,#0f0f0f 23%, #ff0000 100%);}
+	60% {background: linear-gradient(180deg ,#0f0f0f 26%, #ff0000 100%);}
+	65% {background: linear-gradient(180deg ,#0f0f0f 27%, #ff0000 100%);}
+	70% {background: linear-gradient(180deg ,#0f0f0f 29%, #ff0000 100%);}
+	75% {background: linear-gradient(180deg ,#0f0f0f 32%, #ff0000 100%);}
+	80% {background: linear-gradient(180deg ,#0f0f0f 34%, #ff0000 100%);}
+	85% {background: linear-gradient(180deg ,#0f0f0f 36%, #ff0000 100%);}
+	90% {background: linear-gradient(180deg ,#0f0f0f 37%, #ff0000 100%);}
+	95% {background: linear-gradient(180deg ,#0f0f0f 40%, #ff0000 100%);}
+	100% {background: linear-gradient(180deg ,#0f0f0f 43%, #ff0000 100%);}
 }
 
 

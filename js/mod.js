@@ -15,9 +15,9 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.0.1.1",
+  num: "0.2.1_5 ",
   ver: "Changelog",
-  name: "Nothing",
+  name: " @Ozvali",
 }
 
 let changelog = `<power><h2>Secret Place...</h2></power><br>
@@ -111,8 +111,7 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 }
 
 const playlist = [
-  new Audio('music/menu1.ogg'),
-  new Audio('music/menu3.ogg'),
+  new Audio('music/hidden.mp3'),
 ];
 let currentSongIndex = 0;
 function playNextSong() {
@@ -153,7 +152,7 @@ let music = false
 
 // Less important things beyond this point!
 var displayThings = [
-     function () { return "<br><br><br><br><br><br><br><br><br><br><br><br>" },
+  function () { return "<br><br><br><br><br><br><br><br><br><br><br><br>" },
   // function () {
   //   let base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Start Article...</button>`
   //   if (music == true && modInfo.End == 0) base = '<button class="longUpg can" style="color:red" onclick="proceed()">Proceed...</button>'
@@ -188,13 +187,13 @@ var displayThings = [
       document.getElementById("anim4").innerHTML = seconds + "s "
       document.getElementById('waiting').innerHTML = days2 + "d " + hours2 + "h "
         + minutes2 + "m " + seconds2 + "s" + " remaining"
-        document.title = days + "d " + hours + "h "
+      document.title = days + "d " + hours + "h "
         + minutes + "m " + seconds + "s ";
 
       // If the count down is finished, write some text
-      if (Foolstime  <= maintime) {
+      if (Foolstime <= maintime) {
         document.getElementById("anim1").innerHTML = ""
-        
+
       }
     }, 100);
     let a = `<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text>`
@@ -202,22 +201,70 @@ var displayThings = [
     return a
   },
   function () { return "<br><i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i><br><br>" },
-  function() { 
+  function () {
     let x = getUndulatingColor()
-		let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
-    return a },
-  function() { return "<i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"
+    let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
+    return a
   },
-    function() { return `<i><text style='color:#575859;font-size:9px'>{error:may29th.js failed to load styling assets under this text}</text></i><br>`
+  function () {
+    return "<i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"
+  },
+  function () {
+    return `<i><text style='color:#575859;font-size:9px'>{error:may29th.js failed to load styling assets under this text}</text></i><br>`
   }
 ]
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const d = new Date();
 let month = months[d.getMonth()];
-
 // Style for the background, can be a function
 var backgroundStyle = ("background-image: url('supernova.jpg')")
+
+var timePerLetter = 70;
+var newLineCharacter = '|';
+var active = false;
+function printOut(text) {
+  for (var i = 0; i < text.length; i++) {
+
+    setTimeout(
+      function (j) {
+        return function () {
+          switch (text[j]) {
+            case newLineCharacter:
+              setTimeout($('#dialogue').append('<br>'), timePerLetter);
+                  active = false
+                  document.getElementById("dialogues").disabled = false;
+              break;
+            default:
+              setTimeout($('#dialogue').append(text[j]), timePerLetter);
+          }
+        }
+      }(i),
+      timePerLetter * i
+    );
+
+  }
+}
+
+function RestartDialogues() {
+  player["D"].dialogue = new Decimal(0)
+}
+
+
+const DialogueOneArray = [
+  "Raymond: Carter... You do know that everything matters here... right?|",
+  "Carter: Yeah Yeah... I know...|",
+  "Raymond: If you know then why did you even bother with the experiments...|",
+  "Carter: Huh? What do you mean by that Raymond...|",
+  "Raymond: Dude... You know that we have a couple months from now to make sure the place is clean... right?|",
+  "Carter: ...Y-yeah...|",
+  "Tony: Look man, don't be so stressed about it... it's just some weeks...|",
+  "Carter: Y-you're right...|",
+  "Tony: We can relax for a little bit... won't hurt anyone.|",
+  "Raymond: They're going to be at our butts about it... and you know it.|",
+  "Tony: Ok... Ok... It's not that big of a deal alright?|",
+  "Raymond ...|", 
+]
 
 // You can change this if you have things that can be messed up by long tick lengths
 function maxTickLength() {

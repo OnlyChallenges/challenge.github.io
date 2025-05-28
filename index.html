@@ -35,6 +35,7 @@
 	<script src="js/utils/options.js"></script>
 	<script src="js/utils/save.js"></script>
 	<script src="js/utils/themes.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
 
@@ -56,9 +57,9 @@
 			col: (player.tab !== 'none' && player.navTab !== 'none'), 
 			left: (player.tab !== 'none' && player.navTab !== 'none')}"
 			:style="{'margin-top': !readData(layoutInfo.showTree) && player.tab == 'info-tab' ? '50px' : ''}">
-			<!-- <div id="version" onclick="showTab('changelog-tab'); changeLog(true)" class="overlayThing"
-				style="opacity: 0.025; color:red;">
-				{{VERSION.withoutName}}</div> -->
+			<div id="version" class="overlayThing"
+				style="opacity: 0.5; color:rgb(217, 255, 0);">
+				{{VERSION.withName}}</div>
 			<button
 				v-if="((player.navTab == 'none' && (tmp[player.tab].row == 'side' || tmp[player.tab].row == 'otherside' || player[player.tab].prevTab)) || player[player.navTab]?.prevTab)"
 				class="other-back overlayThing"

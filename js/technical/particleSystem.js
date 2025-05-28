@@ -127,7 +127,6 @@ const newParticles = {
 }
 
 
-
 function updateMouse(event) {
     mouseX = event.clientX
     mouseY = event.clientY
