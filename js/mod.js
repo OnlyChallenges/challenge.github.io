@@ -15,7 +15,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.3_may29-alpha ",
+  num: "0.2.4_may29-release ",
   ver: "Changelog",
   name: " @Ozvali",
 }
@@ -61,8 +61,8 @@ const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2025-09-01T00:00:00.000-05:00").getTime()
-const countDownDate2 = new Date("2025-05-29T00:00:00.000-05:00").getTime()
+const countDownDate = new Date("2025-09-01T00:00:00.000-04:00").getTime()
+const countDownDate2 = new Date("2025-06-03T00:00:00.000-04:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -127,7 +127,7 @@ const playlistName = [
   "FoR - The Foundry Theme",
   "FoR - Power Outage Halloween Theme",
   "FoR - Raymond's Shop! Theme",
-  "??? - An Unknown Presence Theme",
+  "✺✺✺ - An Unknown Presence Theme",
   "Facility!Tale- Crystal Caves Theme",
   "Facility!Tale - Crystal Caves (Genocide) Theme",
 ];
@@ -178,8 +178,6 @@ playlist[currentSongIndex].addEventListener('ended', function () {
 
 let music = false
 
-
-
 // Less important things beyond this point!
 var displayThings = [
   function () { return "<br><br><br><br><br><br><br><br><br><br><br><br>" },
@@ -217,7 +215,8 @@ var displayThings = [
       document.getElementById("anim4").innerHTML = seconds + "s "
       document.getElementById('waiting').innerHTML = days2 + "d " + hours2 + "h "
         + minutes2 + "m " + seconds2 + "s" + " remaining"
-      document.title = "FoR Page: " + VERSION.withoutName;
+      if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") document.title = "✺✺✺✺✺✺✺✺✺"
+      else document.title = "FoR Page: " + VERSION.withoutName;
 
       // If the count down is finished, write some text
       if (Foolstime <= maintime) {
@@ -229,12 +228,12 @@ var displayThings = [
     if (modInfo.End == 0) return a = ''
     return a
   },
-  function () { return "<br><i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i><br><br>" },
-  function () {
-    let x = getUndulatingColor()
-    let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
-    return a
-  },
+  function () {return `<i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i><br>`},
+  // function () {
+  //   let x = getUndulatingColor()
+  //   let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
+  //   return a
+  // },
   function () {
     return "<i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"
   },
@@ -251,7 +250,7 @@ var backgroundStyle = ("background-image: url('supernova.jpg')")
 
 var CurrentSong = "Play Next Song"
 
-var timePerLetter = 45;
+var timePerLetter = 40;
 var newLineCharacter = '|';
 var newLineCharacter2 = '~';
 var active = false;
@@ -288,6 +287,11 @@ function RestartDialogues() {
 function updateText() {
   document.getElementById("music").innerHTML = playlistName[currentSongIndex];
   document.body.style.setProperty("--song", songColors[currentSongIndex]);
+
+  const favicon = document.getElementById("logo");
+
+  if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") favicon.setAttribute("href", "img/server-icon.png");
+  else favicon.setAttribute("href", "img/infected.png");
 }
 
 
@@ -304,7 +308,7 @@ const DialogueOneArray = [
   "5261796D6F6E643A205468657927726520676F696E6720746F206265206174206F75722062757474732061626F75742069742E2E2E20616E6420796F75206B6E6F772069742E|",
   "546F6E793A204F6B2E2E2E204F6B2E2E2E2049742773206E6F74207468617420626967206F662061206465616C20616C72696768743F|",
   "5261796D6F6E643A2E2E2E|",
-  "~The Reason the game was closed: ~This was so that the developers could take a break.~Due to 'model based issues' we were forced to close the game until we can get new models into the game.~We are trying our best to make sure that the game can be running properly.~This also gives us time to work on some new things!~The biggest one being--.~ERROR.June3rd.js missing~~You may click on the Dialogue Box again or Leave this tab to refresh the dialogues~",
+  "~The Reason the game was closed: ~This was so that the developers could take a break.~Due to 'model based issues' we were forced to close the game until we can get new models into the game.~We are trying our best to make sure that the game can be running properly.~This also gives us time to work on some new things!~The biggest one being--.~ERROR.June3rd.js missing~~You may click on the Dialogue Box again or Leave this tab to refresh the dialogues|",
 ]
 
 // You can change this if you have things that can be messed up by long tick lengths

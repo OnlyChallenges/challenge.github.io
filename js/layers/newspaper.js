@@ -1,6 +1,11 @@
 addLayer("D", {
     name: "D", // This is optional, only used in a few places, If absent it just uses the layer id.
-    symbol: "", // This appears on the layer's node. Default is the id with the first letter capitalized
+
+    symbol() {
+        if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") return "May 29"
+        else return ""
+        return ""
+    }, // This appears on the layer's node. Default is the id with the first letter capitalized
 
     startData() {
         return {
@@ -22,19 +27,16 @@ addLayer("D", {
         return player.points.gte(1000)
     },
     update(diff) {
-        if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") player[this.layer].page = 0
+        if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") player[this.layer].page = 2
         else player[this.layer].page = 0
         // If the Date is Janurary 1st, 2025; set the Newsletter being opened to true, else keep the newsletter locked until Janurary 1st, 2025
         // Updates every 1/60th of a second.
     },
     nodeStyle() {
         if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") return {
-            // "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,1) 0, rgba(100,44,1,1) 100%)",
-            // "border": "1px dashed rgba(0,0,0,1)",
-            // "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
-            "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,.01) 0, rgba(100,44,1,.01) 100%)",
-            "border": "1px dashed rgba(0,0,0,0.01)",
-            "box-shadow": "0px 0px 0px rgba(0, 0, 0, 0.01)"
+            "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,1) 0, rgba(100,44,1,1) 100%)",
+            "border": "1px dashed rgba(0,0,0,1)",
+            "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
         }
         else return {
             "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,.01) 0, rgba(100,44,1,.01) 100%)",
@@ -57,7 +59,7 @@ addLayer("D", {
                 [["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
                     "blank",
                     "blank",
-                ["display-text", `<i><text style='color:#575859;font-size:9px'>...</text></i><br><br>`]
+                ["display-text", `<i><text style='color:#575859;font-size:9px'>...</text></i><br><br>`],
                 ];
 
             if (player["D"].page > 1) content = [
@@ -82,7 +84,7 @@ addLayer("D", {
                 `,],
                 ["clickable", 11],
                 "blank",
-                ["raw-html", "<div id='dialogue' style='font-size:13px'></div>"],
+                ["raw-html", "<div id='dialogue' style='font-size:12.5px'></div>"],
             ]
 
             return content
