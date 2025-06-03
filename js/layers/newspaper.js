@@ -3,6 +3,7 @@ addLayer("D", {
 
     symbol() {
         if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") return "May 29"
+         else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") return "June 3"
         else return ""
         return ""
     }, // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -27,7 +28,8 @@ addLayer("D", {
         return player.points.gte(1000)
     },
     update(diff) {
-        if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") player[this.layer].page = 2
+        if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") player[this.layer].page = 1
+        else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") player[this.layer].page = 2
         else player[this.layer].page = 0
         // If the Date is Janurary 1st, 2025; set the Newsletter being opened to true, else keep the newsletter locked until Janurary 1st, 2025
         // Updates every 1/60th of a second.
@@ -35,6 +37,11 @@ addLayer("D", {
     nodeStyle() {
         if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") return {
             "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,1) 0, rgba(100,44,1,1) 100%)",
+            "border": "1px dashed rgba(0,0,0,1)",
+            "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
+        }
+        else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") return {
+            "background": "radial-gradient(circle at bottom, rgb(69, 207, 27) 0, rgb(50, 241, 82) 100%)",
             "border": "1px dashed rgba(0,0,0,1)",
             "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
         }
@@ -62,7 +69,7 @@ addLayer("D", {
                 ["display-text", `<i><text style='color:#575859;font-size:9px'>...</text></i><br><br>`],
                 ];
 
-            if (player["D"].page > 1) content = [
+            if (player["D"].page == 1) content = [
                 ["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
                 "blank",
                 "blank",
@@ -85,8 +92,27 @@ addLayer("D", {
                 ["clickable", 11],
                 "blank",
                 ["raw-html", "<div id='dialogue' style='font-size:12.5px'></div>"],
-            ]
-
+            ];
+            else if (player["D"].page == 2) content = [
+                ["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
+                "blank",
+                "blank",
+                "blank",
+                "h-line",
+                "blank",
+                 ["display-text",
+                    `<i>June 3rd, 2025 - Progression leads to Infection</i><br><i><text style='color:#575859;font-size:9px'>Written & Programmed by Ozvali.</text></i>
+                `,
+                ],
+                "blank",
+                "blank",
+                ["display-text",
+                    `I'll be honest here, I've barely touched the game since May 29th, probably fixing some stuff...<br> improving some things. But not alot...<br>I've been playing <i>SaR-P Minecraft w/Tidal</i> and been taking a break on the game for a little..<br> I know you want to see content updates. It'll be here SOON I promise!!<br>Just taking a break and enjoying my summer before getting hammed with reality.<br>
+                     <img src='img/minecraft.png', style='height: 280px ; width: 480px'></img><br><br>
+                     Huh? The text cut off in the May 29th Page? Oh! I'll tell you.<br>Shop GUI! I seriously wanted to add this for a while, and wanted to add skins towards weapons!!<br>Also hopefully fix the database bugs.. many things to do! Summer has just started! See you on the 8th!
+                `,
+                ],
+            ];
             return content
         },
 

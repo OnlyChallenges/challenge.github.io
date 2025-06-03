@@ -15,7 +15,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.4_may29-release ",
+  num: "0.2.5_june3-release ",
   ver: "Changelog",
   name: " @Ozvali",
 }
@@ -62,7 +62,7 @@ const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
 const countDownDate = new Date("2025-09-01T00:00:00.000-04:00").getTime()
-const countDownDate2 = new Date("2025-06-03T00:00:00.000-04:00").getTime()
+const countDownDate2 = new Date("2025-06-08T00:00:00.000-04:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
