@@ -4,6 +4,7 @@ addLayer("D", {
     symbol() {
         if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") return "May 29"
          else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") return "June 3"
+         else if (playlistName[currentSongIndex] == "Deltarune Ch4 - With Hope Crossed On Our Hearts") return "June 10"
         else return ""
         return ""
     }, // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -30,6 +31,7 @@ addLayer("D", {
     update(diff) {
         if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") player[this.layer].page = 1
         else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") player[this.layer].page = 2
+        else if (playlistName[currentSongIndex] == "Deltarune Ch4 - With Hope Crossed On Our Hearts") player[this.layer].page = 3
         else player[this.layer].page = 0
         // If the Date is Janurary 1st, 2025; set the Newsletter being opened to true, else keep the newsletter locked until Janurary 1st, 2025
         // Updates every 1/60th of a second.
@@ -42,6 +44,11 @@ addLayer("D", {
         }
         else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") return {
             "background": "radial-gradient(circle at bottom, rgb(69, 207, 27) 0, rgb(50, 241, 82) 100%)",
+            "border": "1px dashed rgba(0,0,0,1)",
+            "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
+        }
+        else if (playlistName[currentSongIndex] == "Deltarune Ch4 - With Hope Crossed On Our Hearts") return {
+            "background": "radial-gradient(circle at bottom, rgb(54, 27, 207) 0, rgb(37, 6, 212) 100%)",
             "border": "1px dashed rgba(0,0,0,1)",
             "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
         }
@@ -110,6 +117,34 @@ addLayer("D", {
                     `I'll be honest here, I've barely touched the game since May 29th, probably fixing some stuff...<br> improving some things. But not alot...<br>I've been playing <i>SaR-P Minecraft w/Tidal</i> and been taking a break on the game for a little..<br> I know you want to see content updates. It'll be here SOON I promise!!<br>Just taking a break and enjoying my summer before getting hammed with reality.<br>
                      <img src='img/minecraft.png', style='height: 280px ; width: 480px'></img><br><br>
                      Huh? The text cut off in the May 29th Page? Oh! I'll tell you.<br>Shop GUI! I seriously wanted to add this for a while, and wanted to add skins towards weapons!!<br>Also hopefully fix the database bugs.. many things to do! Summer has just started! See you on the 8th!
+                `,
+                ],
+            ];
+            else if (player["D"].page == 3) content = [
+                ["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
+                "blank",
+                "blank",
+                "blank",
+                "h-line",
+                "blank",
+                 ["display-text",
+                    `<i>June 10th, 2025 - Real-life Retentions</i><br><i><text style='color:#6bfaf5'>An incredible light shines through the facility</text></i><br><i><text style='color:#575859;font-size:9px'>Written & Programmed by Ozvali.</text></i>
+                `,
+                ],
+                "blank",
+                "blank",
+                ["display-text",
+                    `<text style='color:#a35bf5'>My motivation is slowly becoming lost as I'm dealing with IRL Relations<br>I'm trying my best to work on the game whenever I can, even though I want to enjoy my summer..<br>It's extremely stressful to find Modelers to work on the game..<br>If you're a modeler and you see this, you can message me...<br>but that isn't really important... when will the game reopen?<br>Hopefully around September... if everything goes well<br>
+                    If not... it'll be open around October with alot of content either added or near removed.<br>Trying my best here...<br></text>
+                    <img src='img/anhouse.png', style='height: 360px ; width: 560px'></img><br>
+                    <i><text style='color:black;font-size:12px'>~<text style='color:#a35bf5'>Ozvali's</text> & <text style='color:orange'>Tidal's</text> Room in a Group House~</text></i><br><br>
+                    <text style='color:orange'>We're honestly trying to get this stuff fixed, can't really blame him for wanting time off<br>Game Development is stressful, y'all need to understand this slightly<br>He wants to add this and that, but is struggling to do so with this modeling issue in hand...<br>I'm here for him...</text><br><br><br>
+                    <text style='color:pink'>Hey! Kris, It'll be alright! I promise we'll get through this together, with Ralsei with us by our side!</text><br>
+                    <text style='color:#3de823'>Yeah Kris! We're here for you, no matter the pain you take, we'll be here to take it, okay?</text><br>
+                    <text style='color:#a35bf5'>(* Your <text style='color:red'>SOUL</text> shines with passion and light.)<br></text>
+                    <text style='color:#a35bf5'>(* You nod and smile.)<br></text>
+                    <text style='color:#a35bf5'>(* You calm down and breathe.)<br></text>
+                    <seeme>Can I keep this game alive...?<br><br><br></seeme>
                 `,
                 ],
             ];

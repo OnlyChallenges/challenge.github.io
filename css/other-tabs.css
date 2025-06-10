@@ -318,7 +318,7 @@ obs {
 }
 
 seeme {
-	background-image: repeating-linear-gradient(90deg, white, red, black, black);
+	background-image: repeating-linear-gradient(90deg, #a35bf5, #a35bf5, white, white);
 	text-decoration-line: none;
 	cursor: pointer;
 	background-size: 100% 100%;

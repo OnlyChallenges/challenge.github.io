@@ -15,7 +15,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.5_june3-release ",
+  num: "0.2.6_june10-release ",
   ver: "Changelog",
   name: " @Ozvali",
 }
@@ -62,7 +62,7 @@ const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
 const countDownDate = new Date("2025-09-01T00:00:00.000-04:00").getTime()
-const countDownDate2 = new Date("2025-06-08T00:00:00.000-04:00").getTime()
+const countDownDate2 = new Date("2025-06-15T00:00:00.000-04:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -112,7 +112,7 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 
 const playlist = [
   new Audio('music/mainmusic.mp3'),
-  new Audio('music/poweroutage.mp3'),
+  new Audio('music/hope.mp3'),
   new Audio('music/poweroutage2.mp3'),
   new Audio('music/poweroutage_hallo.mp3'),
   new Audio('music/raymond.mp3'),
@@ -123,7 +123,7 @@ const playlist = [
 
 const playlistName = [
   "FoR - Main Music Theme (33% slower)",
-  "FoR - Power Outage Theme",
+  "Deltarune Ch4 - With Hope Crossed On Our Hearts",
   "FoR - The Foundry Theme",
   "FoR - Power Outage Halloween Theme",
   "FoR - Raymond's Shop! Theme",
@@ -134,7 +134,7 @@ const playlistName = [
 
 const songColors = [
   "#ff0000",
-  "#dbb621",
+  "#6bfaf5",
   "#ba6e09",
   "#1c368c",
   "#861eba",
