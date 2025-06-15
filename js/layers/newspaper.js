@@ -5,6 +5,7 @@ addLayer("D", {
         if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") return "May 29"
          else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") return "June 3"
          else if (playlistName[currentSongIndex] == "Deltarune Ch4 - With Hope Crossed On Our Hearts") return "June 10"
+         else if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") return "June 15"
         else return ""
         return ""
     }, // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -16,6 +17,7 @@ addLayer("D", {
             page: new Decimal(-1),
             shown: true,
             dialogue: new Decimal(0),
+            value: new Decimal(0),
         }
     },
     tooltip: "∅",
@@ -32,6 +34,7 @@ addLayer("D", {
         if (playlistName[currentSongIndex] == "Facility!Tale - Crystal Caves (Genocide) Theme") player[this.layer].page = 1
         else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") player[this.layer].page = 2
         else if (playlistName[currentSongIndex] == "Deltarune Ch4 - With Hope Crossed On Our Hearts") player[this.layer].page = 3
+        else if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") player[this.layer].page = 4
         else player[this.layer].page = 0
         // If the Date is Janurary 1st, 2025; set the Newsletter being opened to true, else keep the newsletter locked until Janurary 1st, 2025
         // Updates every 1/60th of a second.
@@ -52,6 +55,11 @@ addLayer("D", {
             "border": "1px dashed rgba(0,0,0,1)",
             "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
         }
+                else if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") return {
+            "background": "radial-gradient(circle at bottom, rgb(165, 22, 209) 0, rgb(122, 4, 146) 100%)",
+            "border": "1px dashed rgba(0,0,0,1)",
+            "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
+        }
         else return {
             "background": "radial-gradient(circle at bottom, rgba(109, 44, 1,.01) 0, rgba(100,44,1,.01) 100%)",
             "border": "1px dashed rgba(0,0,0,0.01)",
@@ -69,20 +77,11 @@ addLayer("D", {
     tabFormat:
         function () {
             let content =
-
-                [["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
-                    "blank",
-                    "blank",
+                [
                 ["display-text", `<i><text style='color:#575859;font-size:9px'>...</text></i><br><br>`],
                 ];
 
             if (player["D"].page == 1) content = [
-                ["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
-                "blank",
-                "blank",
-                "blank",
-                "h-line",
-                "blank",
                  ["display-text",
                     `<i>May 29th, 2025 - The first sign from the Developers</i><br><i><text style='color:#575859;font-size:9px'>Written & Programmed by Ozvali.</text></i>
                 `,
@@ -101,11 +100,6 @@ addLayer("D", {
                 ["raw-html", "<div id='dialogue' style='font-size:12.5px'></div>"],
             ];
             else if (player["D"].page == 2) content = [
-                ["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
-                "blank",
-                "blank",
-                "blank",
-                "h-line",
                 "blank",
                  ["display-text",
                     `<i>June 3rd, 2025 - Progression leads to Infection</i><br><i><text style='color:#575859;font-size:9px'>Written & Programmed by Ozvali.</text></i>
@@ -121,12 +115,6 @@ addLayer("D", {
                 ],
             ];
             else if (player["D"].page == 3) content = [
-                ["raw-html", "<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><br><i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"],
-                "blank",
-                "blank",
-                "blank",
-                "h-line",
-                "blank",
                  ["display-text",
                     `<i>June 10th, 2025 - Real-life Retentions</i><br><i><text style='color:#6bfaf5'>An incredible light shines through the facility</text></i><br><i><text style='color:#575859;font-size:9px'>Written & Programmed by Ozvali.</text></i>
                 `,
@@ -145,6 +133,31 @@ addLayer("D", {
                     <text style='color:#a35bf5'>(* You nod and smile.)<br></text>
                     <text style='color:#a35bf5'>(* You calm down and breathe.)<br></text>
                     <seeme>Can I keep this game alive...?<br><br><br></seeme>
+                `,
+                ],
+            ];
+            else if (player["D"].page == 4) content = [
+                 ["display-text",
+                    `<i>June 15th, 2025 - ...</i><br><i><text style='color:#575859;font-size:9px'>Written & Programmed by Ozvali.</text></i>
+                `,
+                ],
+                "blank",
+                "blank",
+                ["display-text",
+                    `Development isn't going so well. I'm struggling to even code with Lua. Might be a burn out on that language...<br>
+                    What do I do? This is mentally challenging.<br>
+                    There's only so many days within a summer that I can finish this. Am I able to even get this back open?<br>
+                    Can people really play with this? Do I have to close some of the map to even... let people play?<br>
+                    Why do we have to revolve around a single issue, which becomes <text style='color:yellow'>"Game Threatening"</text>.<br>
+                    "Reputation", there's way too much on my shoulder. Real life is getting to me, and I want to enjoy the last moments before...<br>
+                    I can't...<br>
+                    ...<br>
+                    I just can't...<br>
+                    ...<br>
+                    <text style='color:red'>Couldn't listen, could you?</text><br>
+                    ...<br>
+                    Only a single person would understand what that ment...<br><br>
+                    June 20th will hopefully bring better news...<br>
                 `,
                 ],
             ];

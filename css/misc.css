@@ -219,7 +219,7 @@ bat {
 }
 
 #anim1 {
-	color: rgba(255, 255, 255, 1);
+	color: var(--None);
 	animation: move1 3s infinite alternate;
 	-webkit-animation: move1 3s infinite alternate;
 	position: relative;
@@ -234,29 +234,29 @@ bat {
 @-webkit-keyframes move1 {
 	from {
 		transform: translateY(-20px);
-		color: #ffff;
+		color: var(--None);
 	}
 
 	to {
 		transform: translateY(20px);
-		color: var(--song)
+		color: var(--FoR)
 	}
 }
 
 @keyframes move1 {
 	from {
 		transform: translateY(-20px);
-		color: #ffff;
+		color: var(--None);
 	}
 
 	to {
 		transform: translateY(20px);
-		color: var(--song)
+		color: var(--FoR)
 	}
 }
 
 #anim2 {
-	color: rgba(255, 255, 255, 1);
+	color: var(--None);
 	animation: move1 3s infinite alternate;
 	-webkit-animation: move1 3s infinite alternate;
 	-webkit-animation-delay: 1s;
@@ -267,7 +267,7 @@ bat {
 }
 
 #anim3 {
-	color: rgba(255, 255, 255, 1);
+	color: var(--None);
 	animation: move1 3s infinite alternate;
 	-webkit-animation: move1 3s infinite alternate;
 	-webkit-animation-delay: 2s;
@@ -278,7 +278,7 @@ bat {
 }
 
 #anim4 {
-	color: rgba(255, 255, 255, 1);
+	color: var(--None);
 	animation: move1 3s infinite alternate;
 	-webkit-animation: move1 3s infinite alternate;
 	-webkit-animation-delay: 3s;

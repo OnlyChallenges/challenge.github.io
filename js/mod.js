@@ -15,7 +15,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.2.6_june10-release ",
+  num: "0.3.0-release ",
   ver: "Changelog",
   name: " @Ozvali",
 }
@@ -72,6 +72,12 @@ function addedPlayerData() {
 // Display extra things at the top of the page
 
 
+
+function valuecheck(x) {
+  player["D"].value = new Decimal(x)
+}
+
+
 // Determines when the game "ends"
 function isEndgame() {
   return player.points.gte("1e5000")
@@ -119,6 +125,7 @@ const playlist = [
   new Audio('music/menu1.ogg'),
   new Audio('music/wrong.ogg'),
   new Audio('music/unknown.ogg'),
+  new Audio('music/reality.mp3'),
 ];
 
 const playlistName = [
@@ -130,6 +137,7 @@ const playlistName = [
   "✺✺✺ - An Unknown Presence Theme",
   "Facility!Tale- Crystal Caves Theme",
   "Facility!Tale - Crystal Caves (Genocide) Theme",
+  "FoR - The Slowdown In Development",
 ];
 
 const songColors = [
@@ -141,6 +149,31 @@ const songColors = [
   "#3f3d40",
   "#8f8f8f",
   "#000000",
+  "#e61c58",
+];
+
+const textColors = [
+  "#fff",
+  "#a39965",
+  "#dce627",
+  "#2fa0eb",
+  "#60f558",
+  "#ff0000",
+  "#b81f5c",
+  "#9c9c9c",
+  "#994b62",
+];
+
+const nameColors = [
+  "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
+  "linear-gradient(90deg,rgb(4, 117, 139) 15%,rgb(175, 21, 21) 100%)",
+  "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
+  "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
+  "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
+  "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
+  "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
+  "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
+  "linear-gradient(90deg,rgb(152, 15, 216) 22%,rgb(218, 22, 175) 100%)",
 ];
 
 let currentSongIndex = 0;
@@ -160,7 +193,7 @@ function pauseMusic() {
 function nextSong() {
   playlist[currentSongIndex].pause();
   playlist[currentSongIndex].currentTime = 0;
-  if (currentSongIndex == 7) {
+  if (currentSongIndex == 8) {
     currentSongIndex = 0
   } else {
     currentSongIndex++
@@ -168,7 +201,7 @@ function nextSong() {
   playNextSong();
 }
 playlist[currentSongIndex].addEventListener('ended', function () {
-  if (currentSongIndex == 7) {
+  if (currentSongIndex == 8) {
     currentSongIndex = 0
   } else {
     currentSongIndex++
@@ -177,6 +210,32 @@ playlist[currentSongIndex].addEventListener('ended', function () {
 });
 
 let music = false
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const d = new Date();
+
+function concatZero(timeFrame) {
+  return timeFrame < 10 ? '0'.concat(timeFrame) : timeFrame
+}
+
+setInterval(() => {
+  let date = new Date()
+  let d1 = date.getDate()
+  let month = months[date.getMonth()];
+  let sec = date.getSeconds()
+  let mon = date.getMinutes()
+  let hr = date.getHours()
+  if (player["D"].value == 1) return 'CLOCK DISABLED'
+  else document.getElementById('version3').innerHTML = ` ${month} ${d1} | ${concatZero((hr % 12) || 12)}:${concatZero(mon)}:${concatZero(sec)} ${hr >= 12 ? 'PM' : 'AM'}`
+  // 24 hour time
+
+}, 1000);
+  
+
+
+var Pages = "Pages: 4"
+
+
 
 // Less important things beyond this point!
 var displayThings = [
@@ -187,6 +246,7 @@ var displayThings = [
   //   if (modInfo.End == 1) base = ''
   //   return base
   // },
+
   function () {
     var x = setInterval(function () {
 
@@ -208,7 +268,10 @@ var displayThings = [
       var minutes2 = Math.floor((specialdistance % (1000 * 60 * 60)) / (1000 * 60));
       var seconds2 = Math.floor((specialdistance % (1000 * 60)) / 1000);
 
+
       // Display the result in the element with id="demo"
+
+      if (player["D"].value == 0) {
       document.getElementById("anim1").innerHTML = days + "d "
       document.getElementById("anim2").innerHTML = hours + "h "
       document.getElementById("anim3").innerHTML = minutes + "m "
@@ -217,6 +280,8 @@ var displayThings = [
         + minutes2 + "m " + seconds2 + "s" + " remaining"
       if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") document.title = "✺✺✺✺✺✺✺✺✺"
       else document.title = "FoR Page: " + VERSION.withoutName;
+      }
+      else ""
 
       // If the count down is finished, write some text
       if (Foolstime <= maintime) {
@@ -228,7 +293,7 @@ var displayThings = [
     if (modInfo.End == 0) return a = ''
     return a
   },
-  function () {return `<i><text style='color:#575859;font-size:9px'>We'll see you soon.</text></i><br>`},
+  function () { return `<i><text style='color:var(--None);font-size:9px'>We'll see you soon.</text></i><br>` },
   // function () {
   //   let x = getUndulatingColor()
   //   let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
@@ -238,17 +303,16 @@ var displayThings = [
     return "<i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"
   },
   function () {
-    return `<i><text style='color:#575859;font-size:9px'>Change the song until something appears here... (Works in v0.2.4_may29)</text></i><br>`
+    return `<i><text style='color:#575859;font-size:9px'>Change the song until something appears here...</text></i><br>`
   }
 ]
 
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-const d = new Date();
-let month = months[d.getMonth()];
 // Style for the background, can be a function
 var backgroundStyle = ("background-image: url('supernova.jpg')")
 
 var CurrentSong = "Play Next Song"
+
+
 
 var timePerLetter = 40;
 var newLineCharacter = '|';
@@ -285,12 +349,15 @@ function RestartDialogues() {
 }
 
 function updateText() {
-  document.getElementById("music").innerHTML = playlistName[currentSongIndex];
-  document.body.style.setProperty("--song", songColors[currentSongIndex]);
+  document.getElementById("music").innerHTML = playlistName[currentSongIndex]; // Music change, duh
+  document.body.style.setProperty("--FoR", songColors[currentSongIndex]); // Changes Background & Text Colors
+  document.body.style.setProperty("--song", nameColors[currentSongIndex]);
+  document.body.style.setProperty("--None", textColors[currentSongIndex]);
 
+  if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") document.body.style.setProperty("--DEV", `0deg`);
+  else document.body.style.setProperty("--DEV", `180deg`);
   const favicon = document.getElementById("logo");
-
-  if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") favicon.setAttribute("href", "img/server-icon.png");
+  if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") favicon.setAttribute("href", "img/broken_script.png"); // null
   else favicon.setAttribute("href", "img/infected.png");
 }
 

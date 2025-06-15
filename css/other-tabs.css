@@ -66,6 +66,26 @@
 	cursor: pointer;
 }
 
+#version2 {
+	position: absolute;
+	bottom: 45px;
+	right: 4px;
+	text-align: right;
+	color: var(--points);
+	text-shadow: 0 0 10px var(--points);
+	cursor: pointer;
+}
+
+#version3 {
+	position: absolute;
+	bottom: 25px;
+	right: 4px;
+	text-align: right;
+	color: var(--points);
+	text-shadow: 0 0 10px var(--points);
+	cursor: pointer;
+}
+
 #message-container {
 	width: 80%;
 	max-width: 1200px;
