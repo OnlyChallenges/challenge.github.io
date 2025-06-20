@@ -85,6 +85,16 @@
 	text-shadow: 0 0 10px var(--points);
 	cursor: pointer;
 }
+#version4 {
+	position: fixed;
+	top: 0;
+	left: 50%;
+	text-align: center;
+	color: var(--points);
+	text-shadow: 0 0 10px var(--points);
+	cursor: pointer;
+	transform: translateX(-50%);
+}
 
 #message-container {
 	width: 80%;
@@ -146,6 +156,22 @@
 }
 
 #music2:hover {
+	transform: scale(1.1, 1.1);
+	left: 4.8px;
+}
+
+#music3 {
+	position: absolute;
+	bottom: 50px;
+	left: 2px;
+	text-align: left;
+	color: var(--points);
+	text-shadow: 0 0 10px var(--points);
+	background-color: var(--song);
+	cursor: pointer;
+}
+
+#music3:hover {
 	transform: scale(1.1, 1.1);
 	left: 4.8px;
 }

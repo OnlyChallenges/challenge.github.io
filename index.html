@@ -60,12 +60,15 @@
 			<div id="version2" class="overlayThing" style="opacity: 0.75; color:var(--FoR);">
 				{{Pages}}</div>
 			<div id="version3" class="overlayThing" style="opacity: 0.75; color:var(--FoR);"></div>
+			<div id="version4" class="overlayThing" style="opacity: 0.75; color:var(--FoR);"></div>
 			<div id="version" class="overlayThing" style="opacity: 0.7; color:var(--FoR);">
 				{{VERSION.withName}}</div>
 			<div id="music" class="overlayThing" style="opacity: 0.9; background-image:var(--song); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 25px #000;">
 				{{playlistName[currentSongIndex]}}</div>
 			<button id="music2" class="overlayThing" style="opacity: 0.75; background-image:var(--song) ; border: 2px; -webkit-background-clip: text; -webkit-text-fill-color: transparent;" onclick="nextSong() ; updateText()">
 				{{CurrentSong}}</button>
+				<button id="music3" class="overlayThing" style="opacity: 0.75; background-image:var(--song) ; border: 2px; -webkit-background-clip: text; -webkit-text-fill-color: transparent;" onclick="pauseMusic() ; updateText()">
+				Pause Music?</button>
 			<button
 				v-if="((player.navTab == 'none' && (tmp[player.tab].row == 'side' || tmp[player.tab].row == 'otherside' || player[player.tab].prevTab)) || player[player.navTab]?.prevTab)"
 				class="other-back overlayThing"

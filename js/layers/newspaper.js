@@ -6,6 +6,7 @@ addLayer("D", {
          else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") return "June 3"
          else if (playlistName[currentSongIndex] == "Deltarune Ch4 - With Hope Crossed On Our Hearts") return "June 10"
          else if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") return "June 15"
+         else if (playlistName[currentSongIndex] == "Deltarune Ch4 - The Third Sanctuary" && playlist[currentSongIndex].currentTime >= 25.05) return "June 20"
         else return ""
         return ""
     }, // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -35,7 +36,10 @@ addLayer("D", {
         else if (playlistName[currentSongIndex] == "FoR - Raymond's Shop! Theme") player[this.layer].page = 2
         else if (playlistName[currentSongIndex] == "Deltarune Ch4 - With Hope Crossed On Our Hearts") player[this.layer].page = 3
         else if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") player[this.layer].page = 4
+        else if (playlistName[currentSongIndex] == "Deltarune Ch4 - The Third Sanctuary" && playlist[currentSongIndex].currentTime >= 25.05) player[this.layer].page = 5
         else player[this.layer].page = 0
+
+        darkSanctuary()
         // If the Date is Janurary 1st, 2025; set the Newsletter being opened to true, else keep the newsletter locked until Janurary 1st, 2025
         // Updates every 1/60th of a second.
     },
@@ -55,8 +59,13 @@ addLayer("D", {
             "border": "1px dashed rgba(0,0,0,1)",
             "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
         }
-                else if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") return {
+        else if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") return {
             "background": "radial-gradient(circle at bottom, rgb(165, 22, 209) 0, rgb(122, 4, 146) 100%)",
+            "border": "1px dashed rgba(0,0,0,1)",
+            "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
+        }
+        else if (playlistName[currentSongIndex] == "Deltarune Ch4 - The Third Sanctuary" && (playlist[currentSongIndex].currentTime >= 25.05)) return {
+            "background": "radial-gradient(circle at bottom, rgb(58, 181, 230) 0, rgb(25, 4, 146) 100%)",
             "border": "1px dashed rgba(0,0,0,1)",
             "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
         }
@@ -160,6 +169,141 @@ addLayer("D", {
                     June 20th will hopefully bring better news...<br>
                 `,
                 ],
+            ];
+            else if (player["D"].page == 5 && Darkness == 1) content = [
+                ["display-text", `
+                <text style='color:blue ; font-size: 24px'>Section 1</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>The beginning of ????</special></text><br><br>
+                <text style='color:#ac1dc2'>W-whoa... there's a lot of stuff here...<br>Kris... Do you know where we should go?<br>Yeah... you're probably right... we need to find Ralsei.</text><br>
+                <text style='color:red'>(* You proceed through the facility, looking for a Prince of Darkness. . .)</text><br>
+                <text style='color:red'>(* You search through rooms, offices, windows, looking for them. . .)</text><br>
+                <text style='color:#ac1dc2'>Where is he? I figured he would be here by now... We saw him in Castle Town not even two minutes ago!</text><br>
+                <text style='color:red'>(* You hear a faint call for <text style='color:cyan'>Kris's</text> name.)</text><br>
+                <text style='color:#ac1dc2'>Ralsei?! Where are you?</text><br><br>
+                `],
+            ];
+            else if (player["D"].page == 5 && Darkness == 2) content = [
+                ["display-text", `
+                <text style='color:blue ; font-size: 24px'>Section 1</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>The beginning of the Facility</special></text><br><br>
+                <text style='color:#ac1dc2'>W-whoa... there's a lot of stuff here...<br>Kris... Do you know where we should go?<br>Yeah... you're probably right... we need to find Ralsei.</text><br>
+                <text style='color:red'>(* You proceed through the facility, looking for a Prince of Darkness. . .)</text><br>
+                <text style='color:red'>(* You search through rooms, offices, windows, looking for them. . .)</text><br>
+                <text style='color:#ac1dc2'>Where is he? I figured he would be here by now... We saw him in Castle Town not even two minutes ago!</text><br>
+                <text style='color:red'>(* You hear a faint call for <text style='color:cyan'>Kris's</text> name.)</text><br>
+                <text style='color:#ac1dc2'>Ralsei?! Where are you?</text><br><br>
+                `],
+                "h-line",
+                "blank",
+                ["display-text", `
+                <text style='color:cyan ; font-size: 24px'>Section 2</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>Into the Facility</special></text><br><br>
+                <text style='color:lime'>I'm over here! Near the Office area... I believe...</text><br>
+                <text style='color:red'>(* You are Susie go to the Offices are discover Ralsei leaning down look at one of the vents)</text><br>
+                <text style='color:#ac1dc2'>R-Ralsei...? What are you doing?</text><br>
+                <text style='color:lime'>O-oh! N-nothing Susie... Well.. Doing something...<br>I saw something move inside the vents and I couldn't figure out what...</text><br>
+                <text style='color:red'>(* Your hand shakes slightly, wanting to move Ralsei away from it.)</text><br>
+                <text style='color:#ac1dc2'>Kris...? Are you ok? Your hand is shaking a little.</text><br>
+                <text style='color:red'>(* All you could do is stand there. . .)</text><br><br>
+                `],
+            ];
+            else if (player["D"].page == 5 && Darkness == 3) content = [
+                ["display-text", `
+                <text style='color:blue ; font-size: 24px'>Section 1</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>The beginning of the Facility</special></text><br><br>
+                <text style='color:#ac1dc2'>W-whoa... there's a lot of stuff here...<br>Kris... Do you know where we should go?<br>Yeah... you're probably right... we need to find Ralsei.</text><br>
+                <text style='color:red'>(* You proceed through the facility, looking for a Prince of Darkness. . .)</text><br>
+                <text style='color:red'>(* You search through rooms, offices, windows, looking for them. . .)</text><br>
+                <text style='color:#ac1dc2'>Where is he? I figured he would be here by now... We saw him in Castle Town not even two minutes ago!</text><br>
+                <text style='color:red'>(* You hear a faint call for <text style='color:cyan'>Kris's</text> name.)</text><br>
+                <text style='color:#ac1dc2'>Ralsei?! Where are you?</text><br><br>
+                `],
+                "h-line",
+                "blank",
+                ["display-text", `
+                <text style='color:cyan ; font-size: 24px'>Section 2</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>Into the Facility</special></text><br><br>
+                <text style='color:lime'>I'm over here! Near the Office area... I believe...</text><br>
+                <text style='color:red'>(* You are Susie go to the Offices are discover Ralsei leaning down look at one of the vents)</text><br>
+                <text style='color:#ac1dc2'>R-Ralsei...? What are you doing?</text><br>
+                <text style='color:lime'>O-oh! N-nothing Susie... Well.. Doing something...<br>I saw something move inside the vents and I couldn't figure out what...</text><br>
+                <text style='color:red'>(* Your hand shakes slightly, wanting to move Ralsei away from it.)</text><br>
+                <text style='color:#ac1dc2'>Kris...? Are you ok? Your hand is shaking a little.</text><br>
+                <text style='color:red'>(* All you could do is stand there. . .)</text><br><br>
+                
+                `],
+                "h-line",
+                "blank",
+                ["display-text", `
+                <text style='color:purple ; font-size: 24px'>Section 3</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>An Unknown Encounter</special></text><br><br>
+                <text style='color:red'>(* You sense something coming out of the vent, you pull your baseball bat out.)</text><br>
+                <text style='color:lime'>Kris...? W-What are you doing with t-that?</text><br>
+                <text style='color:cyan'>(* Kris attacks the vent with the baseball bat. Something's moving!)</text><br>
+                <text style='color:#ac1dc2'>W-What the?!</text><br>
+                <text style='color:grey'>* Nyko appears out of the vent!</text><br>
+                <text style='color:#ac1dc2'>K-Kris... W-What is that thing???</text><br>
+                <text style='color:lime'>L-looks like a c-creature...? We s-should spare it...</text><br>
+                <text style='color:cyan'>N-no... W-we need to <text style='color:red'>kill</text> it.</text><br>
+                <text style='color:#ac1dc2'>Already ahead of you Kris...</text><br>
+                `],
+            ];
+            else if (player["D"].page == 5 && Darkness == 4) content = [
+                ["display-text", `
+                <text style='color:blue ; font-size: 24px'>Section 1</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>The beginning of the Facility</special></text><br><br>
+                <text style='color:#ac1dc2'>W-whoa... there's a lot of stuff here...<br>Kris... Do you know where we should go?<br>Yeah... you're probably right... we need to find Ralsei.</text><br>
+                <text style='color:red'>(* You proceed through the facility, looking for a Prince of Darkness. . .)</text><br>
+                <text style='color:red'>(* You search through rooms, offices, windows, looking for them. . .)</text><br>
+                <text style='color:#ac1dc2'>Where is he? I figured he would be here by now... We saw him in Castle Town not even two minutes ago!</text><br>
+                <text style='color:red'>(* You hear a faint call for <text style='color:cyan'>Kris's</text> name.)</text><br>
+                <text style='color:#ac1dc2'>Ralsei?! Where are you?</text><br><br>
+                `],
+                "h-line",
+                "blank",
+                ["display-text", `
+                <text style='color:cyan ; font-size: 24px'>Section 2</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>Into the Facility</special></text><br><br>
+                <text style='color:lime'>I'm over here! Near the Office area... I believe...</text><br>
+                <text style='color:red'>(* You are Susie go to the Offices are discover Ralsei leaning down look at one of the vents)</text><br>
+                <text style='color:#ac1dc2'>R-Ralsei...? What are you doing?</text><br>
+                <text style='color:lime'>O-oh! N-nothing Susie... Well.. Doing something...<br>I saw something move inside the vents and I couldn't figure out what...</text><br>
+                <text style='color:red'>(* Your hand shakes slightly, wanting to move Ralsei away from it.)</text><br>
+                <text style='color:#ac1dc2'>Kris...? Are you ok? Your hand is shaking a little.</text><br>
+                <text style='color:red'>(* All you could do is stand there. . .)</text><br><br>
+                
+                `],
+                "h-line",
+                "blank",
+                ["display-text", `
+                <text style='color:purple ; font-size: 24px'>Section 3</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>An Unknown Encounter</special></text><br><br>
+                <text style='color:red'>(* You sense something coming out of the vent, you pull your baseball bat out.)</text><br>
+                <text style='color:lime'>Kris...? W-What are you doing with t-that?</text><br>
+                <text style='color:cyan'>(* Kris attacks the vent with the baseball bat. Something's moving!)</text><br>
+                <text style='color:#ac1dc2'>W-What the?!</text><br>
+                <text style='color:grey'>* Nyko appears out of the vent!</text><br>
+                <text style='color:#ac1dc2'>K-Kris... W-What is that thing???</text><br>
+                <text style='color:lime'>L-looks like a c-creature...? We s-should spare it...</text><br>
+                <text style='color:cyan'>N-no... W-we need to <text style='color:red'>kill</text> it.</text><br>
+                <text style='color:#ac1dc2'>Already ahead of you Kris...</text><br>
+                
+                
+                `],
+                "h-line",
+                "blank",
+                ["display-text", `
+                <text style='color:pink ; font-size: 24px'>Section 4</text><br>
+                <text style='color:lightgrey ; font-size: 18px'><special>...?</special></text><br><br>
+                <text style='color:red'>(* You sense a determined soul speak to you.)</text><br><br>
+
+                Heyo! Thanks for checking back onto the website, Development... How's it going?<br>
+                It's going alright. My mindset is tackling Lua again and I'm still searching for people!<br>
+                I've been very motivated to do stuff recently as I'm going through a process of moving out sometime next month or the month afterwards.<br>
+                Doesn't mean I won't stop sharing stuff, or showing any leaks... Hopefully<br>
+                Hope everyone has a good weekend and I will talk to you shortly (or soon, either or!)<br><br>
+                `],
+                "blank",
             ];
             return content
         },

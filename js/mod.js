@@ -15,7 +15,7 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.3.0-release ",
+  num: "0.3.1.1-release ",
   ver: "Changelog",
   name: " @Ozvali",
 }
@@ -62,7 +62,7 @@ const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
 const countDownDate = new Date("2025-09-01T00:00:00.000-04:00").getTime()
-const countDownDate2 = new Date("2025-06-20T00:00:00.000-04:00").getTime()
+const countDownDate2 = new Date("2025-06-25T00:00:00.000-04:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -126,6 +126,7 @@ const playlist = [
   new Audio('music/wrong.ogg'),
   new Audio('music/unknown.ogg'),
   new Audio('music/reality.mp3'),
+  new Audio('music/church_zone3.ogg'),
 ];
 
 const playlistName = [
@@ -138,6 +139,7 @@ const playlistName = [
   "Facility!Tale- Crystal Caves Theme",
   "Facility!Tale - Crystal Caves (Genocide) Theme",
   "FoR - The Slowdown In Development",
+  "Deltarune Ch4 - The Third Sanctuary",
 ];
 
 const songColors = [
@@ -150,6 +152,7 @@ const songColors = [
   "#8f8f8f",
   "#000000",
   "#e61c58",
+  "#000",
 ];
 
 const textColors = [
@@ -162,6 +165,7 @@ const textColors = [
   "#b81f5c",
   "#9c9c9c",
   "#994b62",
+  "#000",
 ];
 
 const nameColors = [
@@ -174,12 +178,18 @@ const nameColors = [
   "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
   "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
   "linear-gradient(90deg,rgb(152, 15, 216) 22%,rgb(218, 22, 175) 100%)",
+  "linear-gradient(90deg,rgb(82, 229, 255) 22%,rgb(53, 121, 247) 100%)",
 ];
 
+
 let currentSongIndex = 0;
+let ve = false
+let Resume = "Pause Music"
+window.onload = playlist[currentSongIndex].play();
 function playNextSong() {
   music = true
   if (currentSongIndex < playlist.length) {
+    currentSongIndex = currentSongIndex
     playlist[currentSongIndex].play();
   } else {
     currentSongIndex = 0;
@@ -188,26 +198,75 @@ function playNextSong() {
 }
 function pauseMusic() {
   music = false
-  playlist[currentSongIndex].pause()
+  if (ve == false) { playlist[currentSongIndex].pause(); ve = true; Resume = "Resume Music" }
+  else { playlist[currentSongIndex].play(); ve = false; Resume = "Pause Music" }
 }
 function nextSong() {
   playlist[currentSongIndex].pause();
   playlist[currentSongIndex].currentTime = 0;
-  if (currentSongIndex == 8) {
+  if (currentSongIndex == 9) {
     currentSongIndex = 0
   } else {
     currentSongIndex++
   };
   playNextSong();
 }
-playlist[currentSongIndex].addEventListener('ended', function () {
-  if (currentSongIndex == 8) {
-    currentSongIndex = 0
-  } else {
-    currentSongIndex++
-  };
-  playNextSong();
+
+
+// ALL AUDIO SECTION
+
+playlist[0].addEventListener('ended', function () {
+     
+  nextSong(); // Plays the next song
+  updateText();
 });
+playlist[1].addEventListener('ended', function () {
+     
+  nextSong(); // Plays the next song
+  updateText();
+});
+playlist[2].addEventListener('ended', function () {
+     
+  nextSong(); // Plays the next song
+  updateText();
+});
+playlist[3].addEventListener('ended', function () {
+     
+  nextSong(); // Plays the next song
+  updateText();
+});
+playlist[4].addEventListener('ended', function () {
+     
+  nextSong(); // Plays the next song
+  updateText();
+});
+playlist[5].addEventListener('ended', function () {
+   
+  nextSong(); // Plays the next song
+  updateText();
+});
+playlist[6].addEventListener('ended', function () {
+   
+  nextSong(); // Plays the next song
+  updateText();
+});
+playlist[7].addEventListener('ended', function () {
+   
+  nextSong(); // Plays the next song
+  updateText();
+});
+playlist[8].addEventListener('ended', function () {
+   
+  nextSong(); // Plays the next song
+  updateText();
+});
+playlist[9].addEventListener('ended', function () {
+   
+  nextSong(); // Plays the next song
+  updateText();
+});
+
+
 
 let music = false
 
@@ -230,10 +289,10 @@ setInterval(() => {
   // 24 hour time
 
 }, 1000);
-  
 
 
-var Pages = "Pages: 4"
+
+var Pages = "Pages: 5"
 
 
 
@@ -272,17 +331,18 @@ var displayThings = [
       // Display the result in the element with id="demo"
 
       if (player["D"].value == 0) {
-      document.getElementById("anim1").innerHTML = days + "d "
-      document.getElementById("anim2").innerHTML = hours + "h "
-      document.getElementById("anim3").innerHTML = minutes + "m "
-      document.getElementById("anim4").innerHTML = seconds + "s "
-      document.getElementById('waiting').innerHTML = days2 + "d " + hours2 + "h "
-        + minutes2 + "m " + seconds2 + "s" + " remaining"
-      if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") document.title = "✺✺✺✺✺✺✺✺✺"
-      else document.title = "FoR Page: " + VERSION.withoutName;
+        document.getElementById("anim1").innerHTML = days + "d "
+        document.getElementById("anim2").innerHTML = hours + "h "
+        document.getElementById("anim3").innerHTML = minutes + "m "
+        document.getElementById("anim4").innerHTML = seconds + "s "
+        document.getElementById('waiting').innerHTML = days2 + "d " + hours2 + "h "
+          + minutes2 + "m " + seconds2 + "s" + " remaining"
+        if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") document.title = "✺✺✺✺✺✺✺✺✺"
+        else document.title = "FoR Page: " + VERSION.withoutName;
+        document.getElementById("version4").innerHTML = formatTime(playlist[currentSongIndex].currentTime) + " / " + formatTime(playlist[currentSongIndex].duration)
+
       }
       else ""
-
       // If the count down is finished, write some text
       if (Foolstime <= maintime) {
         document.getElementById("anim1").innerHTML = ""
@@ -303,7 +363,8 @@ var displayThings = [
     return "<i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"
   },
   function () {
-    return `<i><text style='color:#575859;font-size:9px'>Change the song until something appears here...</text></i><br>`
+    if (currentSongIndex == 9) return `<i><text style='color:#fff;font-size:15px'>Something will appear here shortly...</text></i><br>`
+    else return `<i><text style='color:#575859;font-size:9px'>Change the song until something appears here...</text></i><br>`
   }
 ]
 
@@ -348,17 +409,77 @@ function RestartDialogues() {
   player["D"].dialogue = new Decimal(0)
 }
 
+let Darkness = 0
+
+function darkSanctuary() {
+  // Start Church_Zone3.ogg
+  // Determine Special Backgroun Changes
+  if ((playlist[currentSongIndex].currentTime <= 25.05) && currentSongIndex == 9) {
+    document.body.style.setProperty("--FoR", "#000");
+    document.body.style.setProperty("--song", "linear-gradient(90deg,rgb(0, 0, 0) 22%,rgb(0, 0, 0) 100%)");
+    document.body.style.setProperty("--None", "#000");
+        document.body.style.setProperty("--Stars", "#000");
+      Darkness = 0
+    // Entering the 3rd Dark World
+  }
+  else if ((playlist[currentSongIndex].currentTime >= 25.05 && playlist[currentSongIndex].currentTime < 64.13) && currentSongIndex == 9) {
+    document.body.style.setProperty("--FoR", "#1a3dd9");
+    document.body.style.setProperty("--song", "linear-gradient(90deg,rgb(82, 229, 255) 22%,rgb(53, 121, 247) 100%)");
+    document.body.style.setProperty("--None", "#756548");
+    document.body.style.setProperty("--Stars", "#fff");
+    Darkness = 1
+    // The Beginning of the Propechy 
+  }
+  else if ((playlist[currentSongIndex].currentTime >= 64.13 && playlist[currentSongIndex].currentTime < 123.24) && currentSongIndex == 9) {
+    document.body.style.setProperty("--FoR", "#509ea1");
+    document.body.style.setProperty("--song", "linear-gradient(90deg,rgb(196, 47, 216) 22%,rgb(105, 195, 255) 100%)");
+    document.body.style.setProperty("--None", "#8b61ed");
+    document.body.style.setProperty("--Stars", "#faf9a7");
+    Darkness = 2
+    // Is this the right place Kris?
+  }
+  else if ((playlist[currentSongIndex].currentTime >= 123.24 && playlist[currentSongIndex].currentTime < 196.33) && currentSongIndex == 9) {
+    document.body.style.setProperty("--FoR", "#6483b0");
+    document.body.style.setProperty("--song", "linear-gradient(90deg,rgb(19, 147, 170) 22%,rgb(154, 35, 184) 100%)");
+    document.body.style.setProperty("--None", "#be29cf");
+    document.body.style.setProperty("--Stars", "#50d4b9");
+    Darkness = 3
+    // Is...Is that a... t-titan?!
+  }
+  else if ((playlist[currentSongIndex].currentTime >= 196.33 && playlist[currentSongIndex].currentTime < 244.5) && currentSongIndex == 9) {
+    document.body.style.setProperty("--FoR", "#be29cf");
+    document.body.style.setProperty("--song", "linear-gradient(90deg,rgb(194, 43, 156) 22%,rgb(83, 248, 185) 100%)");
+    document.body.style.setProperty("--None", "#756548");
+    document.body.style.setProperty("--Stars", "#faf9a7");
+    Darkness = 4
+    // Susie wait up! Don't read it!
+  }
+  else if ((playlist[currentSongIndex].currentTime >= 244.5 && currentSongIndex == 9)) {
+    document.body.style.setProperty("--FoR", "#000");
+    document.body.style.setProperty("--song", "linear-gradient(90deg,rgb(2, 2, 2) 22%,rgb(0, 0, 0) 100%)");
+    document.body.style.setProperty("--None", "#000");
+    document.body.style.setProperty("--Stars", "#000");
+    Darkness = 0
+    // Exiting the 3rd Dark World
+  }
+}
+
+
 function updateText() {
-  document.getElementById("music").innerHTML = playlistName[currentSongIndex]; // Music change, duh
+  if (player["D"].value == 0) document.getElementById("music").innerHTML = playlistName[currentSongIndex]; // Music change, duh
   document.body.style.setProperty("--FoR", songColors[currentSongIndex]); // Changes Background & Text Colors
   document.body.style.setProperty("--song", nameColors[currentSongIndex]);
   document.body.style.setProperty("--None", textColors[currentSongIndex]);
-
+  document.body.style.setProperty("--Stars", songColors[currentSongIndex]);
   if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") document.body.style.setProperty("--DEV", `0deg`);
+  else if (playlistName[currentSongIndex] == "Open Your Heart - Vs. Kris") document.body.style.setProperty("--DEV", `0deg`);
   else document.body.style.setProperty("--DEV", `180deg`);
   const favicon = document.getElementById("logo");
   if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") favicon.setAttribute("href", "img/broken_script.png"); // null
   else favicon.setAttribute("href", "img/infected.png");
+  if (ve == false) { document.getElementById("music3").innerHTML = "Pause Music?" }
+  else { document.getElementById("music3").innerHTML = "Resume Music?" }
+  Darkness = 0
 }
 
 
