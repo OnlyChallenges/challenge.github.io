@@ -176,6 +176,22 @@
 	left: 4.8px;
 }
 
+#secret {
+	position: absolute;
+	top: 4px;
+	left: 2px;
+	text-align: left;
+	color: var(--points);
+	text-shadow: 0 0 10px var(--points);
+	background-color: var(--song);
+	cursor: pointer;
+}
+
+#secret:hover {
+	transform: scale(1.1, 1.1);
+	left: 4.8px;
+}
+
 a {
 	color: #007fff;
 	text-decoration-line: none;

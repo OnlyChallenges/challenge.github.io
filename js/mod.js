@@ -15,14 +15,16 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.3.1.1-release ",
+  num: "0.3.2-release ",
   ver: "Changelog",
   name: " @Ozvali",
 }
 
 let changelog = `<power><h2>Secret Place...</h2></power><br>
   How... How did you even find this!?<br><br>...<br><br>You deserve something for finding this I guess...<br><br>...<br><br>
-  <vali>Here's a music player :)</vali><br> - The Founder of the Facility<br><br><br>`
+  That doesn't matter honestly...<br><br>
+  One of the names of the new experiments are...<br>
+  Karte... Tailspin... Deerue... Cosha... Seeshi?!!?!... Only time will tell...<br>`
 let winText = `You've started to make vaccines? Start to make the cure...`
 
 function changeLog(x) {
@@ -62,7 +64,7 @@ const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
 const countDownDate = new Date("2025-09-01T00:00:00.000-04:00").getTime()
-const countDownDate2 = new Date("2025-06-25T00:00:00.000-04:00").getTime()
+const countDownDate2 = new Date("2025-06-30T00:00:00.000-04:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -123,7 +125,7 @@ const playlist = [
   new Audio('music/poweroutage_hallo.mp3'),
   new Audio('music/raymond.mp3'),
   new Audio('music/menu1.ogg'),
-  new Audio('music/wrong.ogg'),
+  new Audio('music/heart.mp3'),
   new Audio('music/unknown.ogg'),
   new Audio('music/reality.mp3'),
   new Audio('music/church_zone3.ogg'),
@@ -136,7 +138,7 @@ const playlistName = [
   "FoR - Power Outage Halloween Theme",
   "FoR - Raymond's Shop! Theme",
   "✺✺✺ - An Unknown Presence Theme",
-  "Facility!Tale- Crystal Caves Theme",
+  "Vs. Kris - Open Your Heart",
   "Facility!Tale - Crystal Caves (Genocide) Theme",
   "FoR - The Slowdown In Development",
   "Deltarune Ch4 - The Third Sanctuary",
@@ -175,7 +177,7 @@ const nameColors = [
   "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
   "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
   "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
-  "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
+  "linear-gradient(90deg,rgb(255, 61, 54) 0.5%,rgb(54, 215, 255) 100%)",
   "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
   "linear-gradient(90deg,rgb(152, 15, 216) 22%,rgb(218, 22, 175) 100%)",
   "linear-gradient(90deg,rgb(82, 229, 255) 22%,rgb(53, 121, 247) 100%)",
@@ -292,7 +294,7 @@ setInterval(() => {
 
 
 
-var Pages = "Pages: 5"
+var Pages = "Pages: 6 || Secrets: 2"
 
 
 
@@ -410,8 +412,8 @@ function RestartDialogues() {
 }
 
 let Darkness = 0
-
 function darkSanctuary() {
+  const secretbutton = document.getElementById('secret');
   // Start Church_Zone3.ogg
   // Determine Special Backgroun Changes
   if ((playlist[currentSongIndex].currentTime <= 25.05) && currentSongIndex == 9) {
@@ -427,6 +429,7 @@ function darkSanctuary() {
     document.body.style.setProperty("--song", "linear-gradient(90deg,rgb(82, 229, 255) 22%,rgb(53, 121, 247) 100%)");
     document.body.style.setProperty("--None", "#756548");
     document.body.style.setProperty("--Stars", "#fff");
+
     Darkness = 1
     // The Beginning of the Propechy 
   }
@@ -451,6 +454,8 @@ function darkSanctuary() {
     document.body.style.setProperty("--song", "linear-gradient(90deg,rgb(194, 43, 156) 22%,rgb(83, 248, 185) 100%)");
     document.body.style.setProperty("--None", "#756548");
     document.body.style.setProperty("--Stars", "#faf9a7");
+    if (player["D"].value == 0) {secretbutton.disabled = false;
+    secretbutton.innerHTML = "Secret"};
     Darkness = 4
     // Susie wait up! Don't read it!
   }
@@ -459,6 +464,8 @@ function darkSanctuary() {
     document.body.style.setProperty("--song", "linear-gradient(90deg,rgb(2, 2, 2) 22%,rgb(0, 0, 0) 100%)");
     document.body.style.setProperty("--None", "#000");
     document.body.style.setProperty("--Stars", "#000");
+    if (player["D"].value == 0) {secretbutton.disabled = true,
+    secretbutton.innerHTML = ""};
     Darkness = 0
     // Exiting the 3rd Dark World
   }
@@ -479,6 +486,8 @@ function updateText() {
   else favicon.setAttribute("href", "img/infected.png");
   if (ve == false) { document.getElementById("music3").innerHTML = "Pause Music?" }
   else { document.getElementById("music3").innerHTML = "Resume Music?" }
+  if (currentSongIndex !== 9) {secretbutton.disabled = true,
+    secretbutton.innerHTML = ""};
   Darkness = 0
 }
 

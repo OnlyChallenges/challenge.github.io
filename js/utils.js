@@ -151,6 +151,8 @@ function showTab(name, prev) {
 	var toTreeTab = name == "none"
 	player.tab = name
 	if (tmp[name] && (tmp[name].row !== "side") && (tmp[name].row !== "otherside")) player.lastSafeTab = name
+
+	if (name == "changelog-tab") {valuecheck(1)}
 	updateTabFormats()
 	needCanvasUpdate = true
 	document.activeElement.blur()

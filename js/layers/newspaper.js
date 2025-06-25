@@ -7,6 +7,7 @@ addLayer("D", {
          else if (playlistName[currentSongIndex] == "Deltarune Ch4 - With Hope Crossed On Our Hearts") return "June 10"
          else if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") return "June 15"
          else if (playlistName[currentSongIndex] == "Deltarune Ch4 - The Third Sanctuary" && playlist[currentSongIndex].currentTime >= 25.05) return "June 20"
+         else if (playlistName[currentSongIndex] == "Vs. Kris - Open Your Heart") return "June 25"
         else return ""
         return ""
     }, // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -37,6 +38,7 @@ addLayer("D", {
         else if (playlistName[currentSongIndex] == "Deltarune Ch4 - With Hope Crossed On Our Hearts") player[this.layer].page = 3
         else if (playlistName[currentSongIndex] == "FoR - The Slowdown In Development") player[this.layer].page = 4
         else if (playlistName[currentSongIndex] == "Deltarune Ch4 - The Third Sanctuary" && playlist[currentSongIndex].currentTime >= 25.05) player[this.layer].page = 5
+        else if (playlistName[currentSongIndex] == "Vs. Kris - Open Your Heart") player[this.layer].page = 6
         else player[this.layer].page = 0
 
         darkSanctuary()
@@ -66,6 +68,11 @@ addLayer("D", {
         }
         else if (playlistName[currentSongIndex] == "Deltarune Ch4 - The Third Sanctuary" && (playlist[currentSongIndex].currentTime >= 25.05)) return {
             "background": "radial-gradient(circle at bottom, rgb(58, 181, 230) 0, rgb(25, 4, 146) 100%)",
+            "border": "1px dashed rgba(0,0,0,1)",
+            "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
+        }
+        else if (playlistName[currentSongIndex] == "Vs. Kris - Open Your Heart") return {
+            "background": "radial-gradient(circle at bottom, rgb(80, 79, 79) 0, rgb(146, 4, 4) 100%)",
             "border": "1px dashed rgba(0,0,0,1)",
             "box-shadow": "0px 0px 0px rgba(0, 0, 0, 1)"
         }
@@ -304,6 +311,19 @@ addLayer("D", {
                 Hope everyone has a good weekend and I will talk to you shortly (or soon, either or!)<br><br>
                 `],
                 "blank",
+            ];
+            else if (player["D"].page == 6) content = [
+                ["display-text", `
+                ... Damn this is a disappointing 5 day wait... just for this?<br>
+                Are you actually serious? I know I know...<br>
+                We're all a bit curious, it'll be a bit...<br>
+                But... you might be looking for something you seem to be missing on this website...<br>
+                It's not on this page...</br>
+                <text style='color:red'>maybe... "/secret.js" will help...?</text><br>
+                Huh? Try typing that in into the search bar... keep the website link in!</br>
+                `],
+
+
             ];
             return content
         },
