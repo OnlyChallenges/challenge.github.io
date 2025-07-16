@@ -63,7 +63,7 @@ const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2025-09-01T00:00:00.000-04:00").getTime()
+const countDownDate = new Date("2025-07-15T23:00:00.000-04:00").getTime()
 const countDownDate2 = new Date("2025-07-04T00:00:00.000-04:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
@@ -119,7 +119,7 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 }
 
 const playlist = [
-  new Audio('music/mainmusic.mp3'),
+  new Audio('music/facility.mp3'),
   new Audio('music/hope.mp3'),
   new Audio('music/poweroutage2.mp3'),
   new Audio('music/poweroutage_hallo.mp3'),
@@ -132,7 +132,7 @@ const playlist = [
 ];
 
 const playlistName = [
-  "FoR - Main Music Theme (33% slower)",
+  "Close to the end.",
   "Deltarune Ch4 - With Hope Crossed On Our Hearts",
   "FoR - The Foundry Theme",
   "FoR - Power Outage Halloween Theme",
@@ -145,7 +145,7 @@ const playlistName = [
 ];
 
 const songColors = [
-  "#ff0000",
+  "#a19898",
   "#6bfaf5",
   "#ba6e09",
   "#1c368c",
@@ -209,7 +209,7 @@ function nextSong() {
   if (currentSongIndex == 9) {
     currentSongIndex = 0
   } else {
-    currentSongIndex++
+    currentSongIndex = 0
   };
   playNextSong();
 }
@@ -294,7 +294,7 @@ setInterval(() => {
 
 
 
-var Pages = "Pages: 6 || Secrets: 2"
+var Pages = "The End."
 
 
 
@@ -333,10 +333,10 @@ var displayThings = [
       // Display the result in the element with id="demo"
 
       if (player["D"].value == 0) {
-        document.getElementById("anim1").innerHTML = days + "d "
-        document.getElementById("anim2").innerHTML = hours + "h "
-        document.getElementById("anim3").innerHTML = minutes + "m "
-        document.getElementById("anim4").innerHTML = seconds + "s "
+        document.getElementById("anim1").innerHTML = days + "d   "
+        document.getElementById("anim2").innerHTML = hours + "h   "
+        document.getElementById("anim3").innerHTML = minutes + "m   "
+        document.getElementById("anim4").innerHTML = seconds + "s   "
         document.getElementById('waiting').innerHTML = days2 + "d " + hours2 + "h "
           + minutes2 + "m " + seconds2 + "s" + " remaining"
         if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") document.title = "✺✺✺✺✺✺✺✺✺"
@@ -346,28 +346,23 @@ var displayThings = [
       }
       else ""
       // If the count down is finished, write some text
-      if (Foolstime <= maintime) {
-        document.getElementById("anim1").innerHTML = ""
+      if (countDownDate <= maintime) {
+        document.getElementById("anim1").innerHTML = "Check"
+        document.getElementById("anim2").innerHTML = "the"
+        document.getElementById("anim3").innerHTML = "game"
+        document.getElementById("anim4").innerHTML = "."
 
       }
     }, 100);
-    let a = `<text style='word-spacing:1.3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1> <anim2><div id='anim2' style='font-size:38px'></div></anim2> <anim3><div id='anim3' style='font-size:38px'></div></anim3> <anim4><div id='anim4' style='font-size:38px'></div></anim4></text>`
+    let a = `<text style='word-spacing:3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1>   <anim2><div id='anim2' style='font-size:38px'></div></anim2>   <anim3><div id='anim3' style='font-size:38px'></div></anim3>   <anim4><div id='anim4' style='font-size:38px'></div></anim4></text>`
     if (modInfo.End == 0) return a = ''
     return a
   },
-  function () { return `<i><text style='color:var(--None);font-size:9px'>We'll see you soon.</text></i><br>` },
   // function () {
   //   let x = getUndulatingColor()
   //   let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
   //   return a
   // },
-  function () {
-    return "<i><text id='waiting' style='color:#575859;font-size:13px'></text></i>"
-  },
-  function () {
-    if (currentSongIndex == 9) return `<i><text style='color:#fff;font-size:15px'>Something will appear here shortly...</text></i><br>`
-    else return `<i><text style='color:#575859;font-size:9px'>Change the song until something appears here...</text></i><br>`
-  }
 ]
 
 // Style for the background, can be a function

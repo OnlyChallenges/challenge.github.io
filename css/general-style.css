@@ -5,8 +5,8 @@ body {
 	background: linear-gradient(var(--DEV) ,#0f0f0f 0.5%, var(--FoR) 100%);
 	--color: #6d6d6d;
 	--points: #000000;
-	--FoR: #ff0000;
-	--Stars: #ff0000;
+	--FoR: #a19898;
+	--Stars: #ffeeee;
 	--DEV: 180deg;
 	--song: linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%);
 	--None: #fff;
