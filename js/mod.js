@@ -2,7 +2,7 @@
 
 let modInfo = {
   name: `The clock is ticking...`,
-  id: "clock",
+  id: "finale",
   author: "vali (snor mimi)",
   pointsName: "money",
   modFiles: ["tree.js", "layers/newspaper.js"],
