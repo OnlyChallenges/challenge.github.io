@@ -55,10 +55,11 @@ addLayer("L", {
     bars: {
         Phealth: {
             direction: RIGHT,
-            width: 380,
+            width: 450,
             height: 37,
             fillStyle() { return { 'background-color': player.L.barprog2, } },
             borderStyle() { return { "border-color": "#569945", } },
+            baseStyle() { return { 'background-color': player.L.barprog2+"6f"} },
             healthBarProg() {
                 let prog = player.L.health.div(player.L.healthMax)
                 if (prog > 0.99) player.L.barprog2 = "#47d424"
@@ -83,11 +84,7 @@ addLayer("L", {
             },
             display() {
                 if (player.L.health > 0)
-                    return "Health: " + formatWhole(player.L.health) + " / " + formatWhole(player.L.healthMax)
-                if ((player.L.health > 1000) && (player.L.healthMax > 1000))
-                    return "health: " + format(player.L.health.div(1000)) + " Thousand / " + format(player.L.healthMax.div(1000)) + " Thousand"
-                if ((player.L.health < 1000) && (player.L.healthMax > 1000))
-                    return "health: " + formatWhole(player.L.health) + " / " + format(player.L.healthMax.div(1000)) + " Thousand"
+                    return "<text style='color:green'>Health: " + formatWhole(player.L.health) + " / " + formatWhole(player.L.healthMax) + "</text>"
                 else
                     return "You died."
             },
@@ -97,10 +94,11 @@ addLayer("L", {
         },
         Ehealth: {
             direction: RIGHT,
-            width: 380,
+            width: 450,
             height: 37,
             fillStyle() { return { 'background-color': player.L.barprog, } },
             borderStyle() { return { "border-color": "#569945", } },
+            baseStyle() { return { 'background-color': player.L.barprog+"6f"} },
             healthBarProg() {
                 let prog = player.L.enemyHP.div(player.L.enemyHPMax)
                 if (prog > 0.99) player.L.barprog = "#47d424"
@@ -124,12 +122,7 @@ addLayer("L", {
                 return prog
             },
             display() {
-                if ((player.L.enemyHP > 1000) && (player.L.enemyHPMax > 1000))
-                    return "Health: " + format(player.L.enemyHP.div(1000)) + " Thousand / " + format(player.L.enemyHPMax.div(1000)) + " Thousand"
-                if ((player.L.enemyHP < 1000) && (player.L.enemyHPMax > 1000))
-                    return "Health: " + formatWhole(player.L.enemyHP) + " / " + format(player.L.enemyHPMax.div(1000)) + " Thousand"
-                else
-                    return "Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax)
+                    return "<text style='color:green'>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "</text>"
             },
             unlocked() {
                 return player.L.enemyHP > 0
@@ -149,11 +142,6 @@ addLayer("L", {
                 return prog
             },
             display() {
-                if ((player.L.enemyShield > 1000) && (player.L.enemyShieldMax > 1000))
-                    return "Shield: " + format(player.L.enemyShield.div(1000)) + " Thousand / " + format(player.L.enemyShieldMax.div(1000)) + " Thousand"
-                if ((player.L.enemyShield < 1000) && (player.L.enemyShieldMax > 1000))
-                    return "Shield: " + formatWhole(player.L.enemyShield) + " / " + format(player.L.enemyShieldMax.div(1000)) + " Thousand" 
-                else
                     return "Shield: " + formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
             },
             unlocked() {
@@ -163,10 +151,11 @@ addLayer("L", {
 
         EXP: {
             direction: RIGHT,
-            width: 380,
-            height: 34,
-            fillStyle: { 'background-color': "#f281fc", },
+            width: 640,
+            height: 38,
+            fillStyle: { 'background-color': "#0dc2e2ff", },
             borderStyle() { return { "border-color": "#f4ccfc", } },
+            baseStyle() { return { 'background-color': "#0dc2e23f", } },
             progress() {
                 let prog = player.L.exp.div(player.L.expMax)
                 if (player.L.exp == player.L.expMax) prog = 1
@@ -174,12 +163,7 @@ addLayer("L", {
                 return prog
             },
             display() {
-                if ((player.L.exp > 1000) && (player.L.expMax > 1000))
-                    return "Level: " + formatWhole(player.L.level) + "<br>Experience: " + format(player.L.exp.div(1000)) + " Thousand / " + format(player.L.expMax.div(1000)) + " Thousand"
-                if ((player.L.exp < 1000) && (player.L.expMax > 1000))
-                    return "Level: " + formatWhole(player.L.level) + "<br>Experience: " + format(player.L.exp) + " / " + format(player.L.expMax.div(1000)) + " Thousand"
-                else
-                    return "Level: " + formatWhole(player.L.level) + "<br>Experience: " + format(player.L.exp) + " / " + formatWhole(player.L.expMax)
+                    return "<text style='color:#0d69e2ff'>Level: " + formatWhole(player.L.level) + "</text><br><text style='color:#ac59e3'>Experience: " + format(player.L.exp) + " / " + formatWhole(player.L.expMax) + "</text>"
             },
             unlocked() {
                 return true
@@ -190,7 +174,7 @@ addLayer("L", {
 
     
 
-    levelChecker() {
+    gameStats() {
         let i = player.L.level - 1
         let xpRequirement = [10, 20, 30, 60, 90, 130, 180, 250, 300, 400, 500, 850, 1300, 1700, 2000, 2200, 2500, 3000, 5000, 7500, 12500, 15000, 17500, 20000, 30000, 40000, 55000, 70000, 80000];
         let LevelArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
@@ -208,19 +192,12 @@ addLayer("L", {
             player.L.Wattack = new Decimal(setWAttack[i+1])
             player.L.defense = new Decimal(setDefense[i+1])
             player.L.Wdefense = new Decimal(setWDefense[i+1])
+            if (player.L.level == LevelArray[3]) player.L.zone = new Decimal(2) // Level 4
+            else if (player.L.level == LevelArray[10]) player.L.zone = new Decimal(3) // Level 11
+            else if (player.L.level == LevelArray[17]) player.L.zone = new Decimal(4) // Level 18
+            else if (player.L.level == LevelArray[24]) player.L.zone = new Decimal(5) // Level 25
+            else if (player.L.level == LevelArray[29]) player.L.zone = new Decimal(6) // Level 30
         }
-    },
-    recheckChecker() {
-        let i = player.L.level - 1
-        let xpRequirement = [10, 20, 30, 60, 90, 130, 180, 250, 300, 400, 500, 850, 1300, 1700, 2000, 2200, 2500, 3000, 5000, 7500, 12500, 15000, 17500, 20000, 30000, 40000, 55000, 70000, 80000];
-        let LevelArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
-        // Level Up Checker - DelogV1
-        // Zone Movements
-        if (player.L.level == LevelArray[3]) player.L.zone = new Decimal(2)
-        if (player.L.level == LevelArray[10]) player.L.zone = new Decimal(3)
-        if (player.L.level == LevelArray[17]) player.L.zone = new Decimal(4)
-        if (player.L.level == LevelArray[24]) player.L.zone = new Decimal(5)
-        if (player.L.level == LevelArray[29]) player.L.zone = new Decimal(6)
     },
 
     colorcheckerOne() {
@@ -273,8 +250,17 @@ addLayer("L", {
                     if (player.L.zone == 4) func = "Zone: <rainbow>Garden</rainbow>"
                     if (player.L.zone == 5) func = "Zone: <obs>Observatory</obs>"
                     if (player.L.zone == 6) func = "Zone: <ruins>Reality</ruins>"
-                    let func2 = (func + "<br>(This is still in beta so expect multiple bugs from Level 1 - 30 :D)<br><corrupt>Developer Mode</corrupt>; AI:" + formatWhole(player.L.AI))
+                    let func2 = (func)
                     return func2
+                }, {}],
+                ["display-text", function () {
+                    let func = "<fail>Zone 2 unlocks at Level 4</fail><br>"
+                    if (player.L.zone == 2) func = "<fail>Zone 3 unlocks at Level 11</fail><br>"
+                    if (player.L.zone == 3) func = "<fail>Zone 4 unlocks at Level 18</fail><br>"
+                    if (player.L.zone == 4) func = "<fail>Zone 5 unlocks at Level 25</fail><br>"
+                    if (player.L.zone == 5) func = "<fail>Zone 6 unlocks at Level 30</fail><br>"
+                    if (player.L.zone == 6) func = "<fail>Zone 7 unlocks at Level 37</fail><br>"
+                    return func
                 }, {}],
                 "blank",
                 ["bar", "EXP"],
@@ -380,16 +366,6 @@ addLayer("L", {
                 }, {}],
                 "blank",
                 ["display-text", function () {
-                    let func = "<fail>Zone 2 unlocks at Level 4</fail><br>(You are currently Level " + formatWhole(player.L.level) + ")"
-                    if (player.L.zone == 2) func = "<fail>Zone 3 unlocks at Level 11</fail><br>(You are currently Level " + formatWhole(player.L.level) + ")"
-                    if (player.L.zone == 3) func = "<fail>Zone 4 unlocks at Level 18</fail><br>(You are currently Level " + formatWhole(player.L.level) + ")"
-                    if (player.L.zone == 4) func = "<fail>Zone 5 unlocks at Level 25</fail><br>(You are currently Level " + formatWhole(player.L.level) + ")"
-                    if (player.L.zone == 5) func = "<fail>Zone 6 unlocks at Level 30</fail><br>(You are currently Level " + formatWhole(player.L.level) + ")"
-                    if (player.L.zone == 6) func = "<fail>Zone 7 unlocks at Level 37</fail><br>(You are currently Level " + formatWhole(player.L.level) + ")"
-                    return func
-                }, {}],
-                "blank",
-                ["display-text", function () {
                     let func = ""
                     if ((player.L.exp < 1) && player.L.level == (2)) func = "<levelup>Level Up! You're now Level 2</levelup><br> (+4 Max Health, +2 Attack)"
                     if ((player.L.exp < 1) && player.L.level == (3)) func = "<levelup>Level Up! You're now Level 3</levelup><br> (+5 Max Health, +1 Weapon Attack, +1 Defense)"
@@ -445,6 +421,7 @@ addLayer("L", {
                     return func
                 }, {}],
                 "blank",
+                "h-line",
                 "blank",
                 ["bar", "Eshield"],
                 ["bar", "Ehealth"],
