@@ -24,7 +24,7 @@ addLayer("L", {
             revives: new Decimal(0),
             dmg: new Decimal(0),
             // Health, Sheild, & Bar Color Formats
-            spec: "#DAC0CB",
+            spec: "#f7619fff",
             spectwo: "#00FF00",
             specthree: "#FF4433",
             barprog: "#47d424",
@@ -50,7 +50,7 @@ addLayer("L", {
     row: 5, // Row the layer is in on the tree (0 is the first row)
     type: "none",
     layerShown() { return true },
-
+    
 
     bars: {
         Phealth: {
@@ -188,222 +188,39 @@ addLayer("L", {
 
     },
 
-
+    
 
     levelChecker() {
-        if ((player.L.exp > 10) && player.L.level == 1) player.L.expMax = player.L.expMax.times(2)
-        if ((player.L.exp > 10) && player.L.level == 1) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 20) && player.L.level == 2) player.L.expMax = player.L.expMax.times(1.5)
-        if ((player.L.exp > 20) && player.L.level == 2) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 30) && player.L.level == 3) player.L.expMax = player.L.expMax.times(2)
-        if ((player.L.exp > 30) && player.L.level == 3) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 60) && player.L.level == 4) player.L.expMax = player.L.expMax.times(1.5)
-        if ((player.L.exp > 60) && player.L.level == 4) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 90) && player.L.level == 5) player.L.expMax = player.L.expMax.add(40)
-        if ((player.L.exp > 90) && player.L.level == 5) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 130) && player.L.level == 6) player.L.expMax = player.L.expMax.add(50)
-        if ((player.L.exp > 130) && player.L.level == 6) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 180) && player.L.level == 7) player.L.expMax = player.L.expMax.add(70)
-        if ((player.L.exp > 180) && player.L.level == 7) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 250) && player.L.level == 8) player.L.expMax = player.L.expMax.add(50)
-        if ((player.L.exp > 250) && player.L.level == 8) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 300) && player.L.level == 9) player.L.expMax = player.L.expMax.add(100)
-        if ((player.L.exp > 300) && player.L.level == 9) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 400) && player.L.level == 10) player.L.expMax = player.L.expMax.add(100)
-        if ((player.L.exp > 400) && player.L.level == 10) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 500) && player.L.level == 11) player.L.expMax = player.L.expMax.add(350)
-        if ((player.L.exp > 500) && player.L.level == 11) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 850) && player.L.level == 12) player.L.expMax = player.L.expMax.add(450)
-        if ((player.L.exp > 850) && player.L.level == 12) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 1300) && player.L.level == 13) player.L.expMax = player.L.expMax.add(400)
-        if ((player.L.exp > 1300) && player.L.level == 13) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 1700) && player.L.level == 14) player.L.expMax = player.L.expMax.add(300)
-        if ((player.L.exp > 1700) && player.L.level == 14) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 2000) && player.L.level == 15) player.L.expMax = player.L.expMax.add(200)
-        if ((player.L.exp > 2000) && player.L.level == 15) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 2200) && player.L.level == 16) player.L.expMax = player.L.expMax.add(300)
-        if ((player.L.exp > 2200) && player.L.level == 16) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 2500) && player.L.level == 17) player.L.expMax = player.L.expMax.add(500)
-        if ((player.L.exp > 2500) && player.L.level == 17) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 3000) && player.L.level == 18) player.L.expMax = player.L.expMax.add(2000)
-        if ((player.L.exp > 3000) && player.L.level == 18) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 5000) && player.L.level == 19) player.L.expMax = player.L.expMax.add(2500)
-        if ((player.L.exp > 5000) && player.L.level == 19) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 7500) && player.L.level == 20) player.L.expMax = player.L.expMax.add(5000)
-        if ((player.L.exp > 7500) && player.L.level == 20) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 12500) && player.L.level == 21) player.L.expMax = player.L.expMax.add(2500)
-        if ((player.L.exp > 12500) && player.L.level == 21) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 15000) && player.L.level == 22) player.L.expMax = player.L.expMax.add(2500)
-        if ((player.L.exp > 15000) && player.L.level == 22) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 17500) && player.L.level == 23) player.L.expMax = player.L.expMax.add(2500)
-        if ((player.L.exp > 17500) && player.L.level == 23) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 20000) && player.L.level == 24) player.L.expMax = player.L.expMax.add(10000)
-        if ((player.L.exp > 20000) && player.L.level == 24) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 30000) && player.L.level == 25) player.L.expMax = player.L.expMax.add(10000)
-        if ((player.L.exp > 30000) && player.L.level == 25) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 40000) && player.L.level == 26) player.L.expMax = player.L.expMax.add(15000)
-        if ((player.L.exp > 40000) && player.L.level == 26) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 55000) && player.L.level == 27) player.L.expMax = player.L.expMax.add(15000)
-        if ((player.L.exp > 55000) && player.L.level == 27) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 70000) && player.L.level == 28) player.L.expMax = player.L.expMax.add(10000)
-        if ((player.L.exp > 70000) && player.L.level == 28) player.L.exp = new Decimal(0)
-        if ((player.L.exp > 80000) && player.L.level == 29) player.L.expMax = player.L.expMax.add(20000)
-        if ((player.L.exp > 80000) && player.L.level == 29) player.L.exp = new Decimal(0)
+        let i = player.L.level - 1
+        let xpRequirement = [10, 20, 30, 60, 90, 130, 180, 250, 300, 400, 500, 850, 1300, 1700, 2000, 2200, 2500, 3000, 5000, 7500, 12500, 15000, 17500, 20000, 30000, 40000, 55000, 70000, 80000];
+        let LevelArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+        let setmaxHealth = [20, 24, 29, 33, 40, 45, 48, 50, 53, 60, 64, 67, 75, 80, 80, 85, 90, 150, 199, 220, 220, 260, 260, 280, 300, 325, 360, 380, 400, 400];
+        let setAttack = [2, 4, 4, 4, 7, 9, 9, 9, 11, 15, 17, 17, 17, 23, 26, 30, 37, 45, 70, 99, 120, 140, 150, 160, 175, 200, 220, 220, 220, 220];
+        let setWAttack = [1, 1, 2, 3, 3, 3, 4, 4, 4, 4, 4, 6, 8, 9, 10, 13, 13, 20, 25, 30, 30, 34, 36, 36, 36, 36, 36, 41, 45, 60];
+        let setDefense = [1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 6, 6, 7, 7, 8, 10, 10, 10, 10, 10, 10, 14, 15, 17, 20, 23, 25, 25, 25, 25];
+        let setWDefense = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8];
+        if ((player.L.exp > xpRequirement[i]) && player.L.level == LevelArray[i]) {
+            player.L.level = new Decimal(LevelArray[i+1]),
+            player.L.expMax = new Decimal(xpRequirement[i+1]),
+            player.L.exp = new Decimal(0)
+            player.L.healthMax = new Decimal(setmaxHealth[i+1]),
+            player.L.attack = new Decimal(setAttack[i+1])
+            player.L.Wattack = new Decimal(setWAttack[i+1])
+            player.L.defense = new Decimal(setDefense[i+1])
+            player.L.Wdefense = new Decimal(setWDefense[i+1])
+        }
     },
     recheckChecker() {
+        let i = player.L.level - 1
+        let xpRequirement = [10, 20, 30, 60, 90, 130, 180, 250, 300, 400, 500, 850, 1300, 1700, 2000, 2200, 2500, 3000, 5000, 7500, 12500, 15000, 17500, 20000, 30000, 40000, 55000, 70000, 80000];
+        let LevelArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
         // Level Up Checker - DelogV1
-        if ((player.L.expMax > 10) && player.L.level == 1) player.L.level = new Decimal(2)
-        if ((player.L.expMax > 20) && player.L.level == 2) player.L.level = new Decimal(3)
-        if ((player.L.expMax > 30) && player.L.level == 3) player.L.level = new Decimal(4)
-        if ((player.L.expMax > 60) && player.L.level == 4) player.L.level = new Decimal(5)
-        if ((player.L.expMax > 90) && player.L.level == 5) player.L.level = new Decimal(6)
-        if ((player.L.expMax > 130) && player.L.level == 6) player.L.level = new Decimal(7)
-        if ((player.L.expMax > 180) && player.L.level == 7) player.L.level = new Decimal(8)
-        if ((player.L.expMax > 250) && player.L.level == 8) player.L.level = new Decimal(9)
-        if ((player.L.expMax > 300) && player.L.level == 9) player.L.level = new Decimal(10)
-        if ((player.L.expMax > 400) && player.L.level == 10) player.L.level = new Decimal(11)
-        if ((player.L.expMax > 500) && player.L.level == 11) player.L.level = new Decimal(12)
-        if ((player.L.expMax > 850) && player.L.level == 12) player.L.level = new Decimal(13)
-        if ((player.L.expMax > 1300) && player.L.level == 13) player.L.level = new Decimal(14)
-        if ((player.L.expMax > 1700) && player.L.level == 14) player.L.level = new Decimal(15)
-        if ((player.L.expMax > 2000) && player.L.level == 15) player.L.level = new Decimal(16)
-        if ((player.L.expMax > 2200) && player.L.level == 16) player.L.level = new Decimal(17)
-        if ((player.L.expMax > 2500) && player.L.level == 17) player.L.level = new Decimal(18)
-        if ((player.L.expMax > 3000) && player.L.level == 18) player.L.level = new Decimal(19)
-        if ((player.L.expMax > 5000) && player.L.level == 19) player.L.level = new Decimal(20)
-        if ((player.L.expMax > 7500) && player.L.level == 20) player.L.level = new Decimal(21)
-        if ((player.L.expMax > 12500) && player.L.level == 21) player.L.level = new Decimal(22)
-        if ((player.L.expMax > 15000) && player.L.level == 22) player.L.level = new Decimal(23)
-        if ((player.L.expMax > 17500) && player.L.level == 23) player.L.level = new Decimal(24)
-        if ((player.L.expMax > 20000) && player.L.level == 24) player.L.level = new Decimal(25)
-        if ((player.L.expMax > 30000) && player.L.level == 25) player.L.level = new Decimal(26)
-        if ((player.L.expMax > 40000) && player.L.level == 26) player.L.level = new Decimal(27)
-        if ((player.L.expMax > 55000) && player.L.level == 27) player.L.level = new Decimal(28)
-        if ((player.L.expMax > 70000) && player.L.level == 28) player.L.level = new Decimal(29)
-        if ((player.L.expMax > 80000) && player.L.level == 29) player.L.level = new Decimal(30)
-
         // Zone Movements
-        if (player.L.level == 4) player.L.zone = new Decimal(2)
-        if (player.L.level == 11) player.L.zone = new Decimal(3)
-        if (player.L.level == 18) player.L.zone = new Decimal(4)
-        if (player.L.level == 25) player.L.zone = new Decimal(5)
-        if (player.L.level == 30) player.L.zone = new Decimal(6)
-
-
-        //Level 1 Stats
-        if (player.L.level == 1) player.L.healthMax = new Decimal(20)
-        if (player.L.level == 1) player.L.attack = new Decimal(2)
-        //Level 2 Stats
-        if (player.L.level == 2) player.L.healthMax = new Decimal(24)
-        if (player.L.level == 2) player.L.attack = new Decimal(4)
-        //Level 3 Stats
-        if (player.L.level == 3) player.L.healthMax = new Decimal(29)
-        if (player.L.level == 3) player.L.Wattack = new Decimal(2)
-        if (player.L.level == 3) player.L.defense = new Decimal(2)
-        //Level 4 Stats
-        if (player.L.level == 4) player.L.healthMax = new Decimal(33)
-        if (player.L.level == 4) player.L.Wattack = new Decimal(3)
-        //Level 5 Stats
-        if (player.L.level == 5) player.L.healthMax = new Decimal(40)
-        if (player.L.level == 5) player.L.attack = new Decimal(7)
-        //Level 6 Stats
-        if (player.L.level == 6) player.L.attack = new Decimal(9)
-        if (player.L.level == 6) player.L.healthMax = new Decimal(45)
-        if (player.L.level == 6) player.L.defense = new Decimal(3)
-        //Level 7 Stats
-        if (player.L.level == 7) player.L.healthMax = new Decimal(48)
-        if (player.L.level == 7) player.L.Wattack = new Decimal(4)
-        //Level 8 Stats
-        if (player.L.level == 8) player.L.healthMax = new Decimal(50)
-        if (player.L.level == 8) player.L.Wdefense = new Decimal(1)
-        //Level 9 Stats
-        if (player.L.level == 9) player.L.healthMax = new Decimal(53)
-        if (player.L.level == 9) player.L.attack = new Decimal(11)
-        //Level 10 Stats
-        if (player.L.level == 10) player.L.healthMax = new Decimal(60)
-        if (player.L.level == 10) player.L.attack = new Decimal(15)
-        if (player.L.level == 10) player.L.defense = new Decimal(4)
-        //Level 11 Stats
-        if (player.L.level == 11) player.L.healthMax = new Decimal(64)
-        if (player.L.level == 11) player.L.attack = new Decimal(17)
-        if (player.L.level == 11) player.L.Wdefense = new Decimal(2)
-        if (player.L.level == 11) player.L.defense = new Decimal(6)
-        //Level 12 Stats
-        if (player.L.level == 12) player.L.healthMax = new Decimal(67)
-        if (player.L.level == 12) player.L.Wattack = new Decimal(6)
-        //Level 13 Stats
-        if (player.L.level == 13) player.L.healthMax = new Decimal(75)
-        if (player.L.level == 13) player.L.Wattack = new Decimal(8)
-        if (player.L.level == 13) player.L.defense = new Decimal(7)
-        //Level 14 Stats
-        if (player.L.level == 14) player.L.healthMax = new Decimal(80)
-        if (player.L.level == 14) player.L.Wattack = new Decimal(9)
-        if (player.L.level == 14) player.L.attack = new Decimal(23)
-        //Level 15 Stats
-        if (player.L.level == 15) player.L.Wattack = new Decimal(10)
-        if (player.L.level == 15) player.L.attack = new Decimal(26)
-        if (player.L.level == 15) player.L.defense = new Decimal(8)
-        //Level 16 Stats
-        if (player.L.level == 16) player.L.Wattack = new Decimal(13)
-        if (player.L.level == 16) player.L.attack = new Decimal(30)
-        if (player.L.level == 16) player.L.defense = new Decimal(10)
-        if (player.L.level == 16) player.L.healthMax = new Decimal(85)
-        //Level 17 Stats
-        if (player.L.level == 17) player.L.healthMax = new Decimal(90)
-        if (player.L.level == 17) player.L.attack = new Decimal(37)
-        if (player.L.level == 17) player.L.Wdefense = new Decimal(3)
-        //Level 18 Stats
-        if (player.L.level == 18) player.L.healthMax = new Decimal(150)
-        if (player.L.level == 18) player.L.attack = new Decimal(45)
-        if (player.L.level == 18) player.L.Wdefense = new Decimal(5)
-        if (player.L.level == 18) player.L.Wattack = new Decimal(20)
-        //Level 19 Stats
-        if (player.L.level == 19) player.L.healthMax = new Decimal(199)
-        if (player.L.level == 19) player.L.attack = new Decimal(70)
-        if (player.L.level == 19) player.L.Wdefense = new Decimal(6)
-        if (player.L.level == 19) player.L.Wattack = new Decimal(25)
-        //Level 20 Stats
-        if (player.L.level == 20) player.L.healthMax = new Decimal(220)
-        if (player.L.level == 20) player.L.attack = new Decimal(99)
-        if (player.L.level == 20) player.L.Wdefense = new Decimal(7)
-        if (player.L.level == 20) player.L.Wattack = new Decimal(30)
-        //Level 21 Stats
-        if (player.L.level == 21) player.L.attack = new Decimal(120)
-        //Level 22 Stats
-        if (player.L.level == 22) player.L.attack = new Decimal(140)
-        if (player.L.level == 22) player.L.Wattack = new Decimal(34)
-        if (player.L.level == 22) player.L.defense = new Decimal(14)
-        if (player.L.level == 22) player.L.healthMax = new Decimal(260)
-        //Level 23 Stats
-        if (player.L.level == 23) player.L.attack = new Decimal(150)
-        if (player.L.level == 23) player.L.Wattack = new Decimal(36)
-        if (player.L.level == 23) player.L.defense = new Decimal(15)
-        //Level 24 Stats
-        if (player.L.level == 24) player.L.attack = new Decimal(160)
-        if (player.L.level == 24) player.L.defense = new Decimal(17)
-        if (player.L.level == 24) player.L.healthMax = new Decimal(280)
-        //Level 25 Stats
-        if (player.L.level == 25) player.L.attack = new Decimal(175)
-        if (player.L.level == 25) player.L.defense = new Decimal(20)
-        if (player.L.level == 25) player.L.healthMax = new Decimal(300)
-        //Level 26 Stats
-        if (player.L.level == 26) player.L.attack = new Decimal(200)
-        if (player.L.level == 26) player.L.defense = new Decimal(23)
-        if (player.L.level == 26) player.L.healthMax = new Decimal(325)
-        //Level 27 Stats
-        if (player.L.level == 27) player.L.attack = new Decimal(220)
-        if (player.L.level == 27) player.L.defense = new Decimal(25)
-        if (player.L.level == 27) player.L.healthMax = new Decimal(350)
-        //Level 28 Stats
-        if (player.L.level == 28) player.L.Wattack = new Decimal(41)
-        if (player.L.level == 28) player.L.Wdefense = new Decimal(8)
-        if (player.L.level == 28) player.L.healthMax = new Decimal(365)
-        //Level 29 Stats
-        if (player.L.level == 29) player.L.Wattack = new Decimal(45)
-        //Level 30 Stats
-        if (player.L.level == 30) player.L.Wattack = new Decimal(60)
-        if (player.L.level == 30) player.L.healthMax = new Decimal(400)
-        if (player.L.level == 30) player.L.Pregen = new Decimal(0.2)
+        if (player.L.level == LevelArray[3]) player.L.zone = new Decimal(2)
+        if (player.L.level == LevelArray[10]) player.L.zone = new Decimal(3)
+        if (player.L.level == LevelArray[17]) player.L.zone = new Decimal(4)
+        if (player.L.level == LevelArray[24]) player.L.zone = new Decimal(5)
+        if (player.L.level == LevelArray[29]) player.L.zone = new Decimal(6)
     },
 
     colorcheckerOne() {
@@ -429,7 +246,7 @@ addLayer("L", {
         if ((player.L.randomizer == (2) && player.L.zone == (6)) && player.L.enemyHP < player.L.enemyHPMax) // Regenerative Attack If Enemy Health is under the max.
             player.L.enemyHP = player.L.enemyHP.add(6)
 
-        if (player.L.health > player.L.healthMax) player.L.health = player.L.health.minus(0.1)
+        // if (player.L.health > player.L.healthMax) player.L.health = player.L.health.minus(0.1)
         // Health Depressed - FIXED
         if (player.L.health < player.L.healthMax) player.L.health = player.L.health.add(player.L.Pregen)
         // Player Regen 
@@ -608,11 +425,11 @@ addLayer("L", {
                 }, {}],
                 ["clickables", [function() {
                     let x = 1
-                    if (player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7)) x = 0
+                    if ((player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7)) && player.L.health > 0) x = 0
                     return x
                 },]],
                 ["display-text", function () {
-                    let func = "* You need 2.5 Points per Attack, Heal, or Flee action!"
+                    let func = ""
                     if (player.L.health <= 0) func = "* You have been killed..."
                     if (player.L.dmg == 1) func = "* You're <logic>Bleeding</logic>! (10HP/sec)"
                     if (player.L.randomizer == (2) && player.L.zone == (6)) func = "* You've been inflicted with <fail>Bird's Fear</fail>! (You lose 25% of your DEF!)<br>* <rainbow>Vali</rainbow> regenerates health overtime!"
@@ -671,7 +488,11 @@ addLayer("L", {
                     return func
                 }, {}],
                 "blank",
-                ["clickables", [2]],
+                ["clickables", [function() {
+                    let x = 0
+                    if ((player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7))) x = 2
+                    return x
+                },]],
                 "blank",
                 ["display-text", function () {
                     let func = ""
@@ -1188,7 +1009,7 @@ addLayer("L", {
             },
             style() {
                 return {
-                    'background-color': tmp.L.color,
+                    'background-color': tmp.A.color,
                 }
             },
             unlocked() { return (player.L.health <= 0) },
