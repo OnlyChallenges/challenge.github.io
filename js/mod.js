@@ -122,8 +122,34 @@ function isEndgame() {
 // Less important things beyond this point!
 
 // Style for the background, can be a function
-var backgroundStyle = {
-
+var backgroundStyle = function () {
+	let backSty = { "background-image": "rgb(0, 0, 0)" }
+	if (player.L.zone == 1) backSty = {
+		"background-image": "url('pool.png')",
+    "backdrop-filter": "blur(100px)",
+		'background-size': 'cover',
+	}
+	if (player.L.zone == 2) backSty = {
+		"background-image": "url('library.png')",
+    "backdrop-filter": "blur(100px)",
+		'background-size': 'cover',
+	}
+  	if (player.L.zone == 3) backSty = {
+		"background-image": "url('server.png')",
+    "backdrop-filter": "blur(100px)",
+		'background-size': 'cover',
+	}
+  if (player.L.zone == 4) backSty = {
+		"background-image": "url('garden.png')",
+    "backdrop-filter": "blur(100px)",
+		'background-size': 'cover',
+	}
+    if (player.L.zone == 5) backSty = {
+		"background-image": "url('observe.png')",
+    "backdrop-filter": "blur(100px)",
+		'background-size': 'cover',
+	}
+	return backSty
 }
 
 // You can change this if you have things that can be messed up by long tick lengths

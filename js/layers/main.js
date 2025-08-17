@@ -50,7 +50,7 @@ addLayer("L", {
     row: 5, // Row the layer is in on the tree (0 is the first row)
     type: "none",
     layerShown() { return true },
-    
+
 
     bars: {
         Phealth: {
@@ -59,7 +59,7 @@ addLayer("L", {
             height: 37,
             fillStyle() { return { 'background-color': player.L.barprog2, } },
             borderStyle() { return { "border-color": "#569945", } },
-            baseStyle() { return { 'background-color': player.L.barprog2+"6f"} },
+            baseStyle() { return { 'background-color': player.L.barprog2 + "6f" } },
             healthBarProg() {
                 let prog = player.L.health.div(player.L.healthMax)
                 if (prog > 0.99) player.L.barprog2 = "#47d424"
@@ -98,10 +98,11 @@ addLayer("L", {
             height: 37,
             fillStyle() { return { 'background-color': player.L.barprog, } },
             borderStyle() { return { "border-color": "#569945", } },
-            baseStyle() { return { 'background-color': player.L.barprog+"6f"} },
+            baseStyle() { return { 'background-color': player.L.barprog + "6f" } },
             healthBarProg() {
                 let prog = player.L.enemyHP.div(player.L.enemyHPMax)
-                if (prog > 0.99) player.L.barprog = "#47d424"
+                if (prog > 1.001) player.L.barprog = "#24d4c5ff"
+                if (prog > 0.9 && prog < 1.0001) player.L.barprog = "#47d424"
                 if (prog < 0.9) player.L.barprog = "#67d424"
                 if (prog < 0.8) player.L.barprog = "#88d424"
                 if (prog < 0.7) player.L.barprog = "#b4d424"
@@ -122,7 +123,10 @@ addLayer("L", {
                 return prog
             },
             display() {
-                    return "<text style='color:green'>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "</text>"
+                let prog = player.L.enemyHP.div(player.L.enemyHPMax)
+                if (prog > 1.001) return "<text style='color:blue'>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "</text><br>(Overheal!)"
+                else return "<text style='color:green'>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "</text>"
+
             },
             unlocked() {
                 return player.L.enemyHP > 0
@@ -142,7 +146,7 @@ addLayer("L", {
                 return prog
             },
             display() {
-                    return "Shield: " + formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
+                return "Shield: " + formatWhole(player.L.enemyShield) + " / " + formatWhole(player.L.enemyShieldMax)
             },
             unlocked() {
                 return (player.L.enemyShield > 0)
@@ -163,7 +167,7 @@ addLayer("L", {
                 return prog
             },
             display() {
-                    return "<text style='color:#0d69e2ff'>Level: " + formatWhole(player.L.level) + "</text><br><text style='color:#ac59e3'>Experience: " + format(player.L.exp) + " / " + formatWhole(player.L.expMax) + "</text>"
+                return "<text style='color:#0d69e2ff'>Level: " + formatWhole(player.L.level) + "</text><br><text style='color:#ac59e3'>Experience: " + format(player.L.exp) + " / " + formatWhole(player.L.expMax) + "</text>"
             },
             unlocked() {
                 return true
@@ -172,7 +176,7 @@ addLayer("L", {
 
     },
 
-    
+
 
     gameStats() {
         let i = player.L.level - 1
@@ -184,20 +188,25 @@ addLayer("L", {
         let setDefense = [1, 1, 2, 2, 2, 3, 3, 3, 3, 4, 6, 6, 7, 7, 8, 10, 10, 10, 10, 10, 10, 14, 15, 17, 20, 23, 25, 25, 25, 25];
         let setWDefense = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 5, 6, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 8];
         if ((player.L.exp > xpRequirement[i]) && player.L.level == LevelArray[i]) {
-            player.L.level = new Decimal(LevelArray[i+1]),
-            player.L.expMax = new Decimal(xpRequirement[i+1]),
-            player.L.exp = new Decimal(0)
-            player.L.healthMax = new Decimal(setmaxHealth[i+1]),
-            player.L.attack = new Decimal(setAttack[i+1])
-            player.L.Wattack = new Decimal(setWAttack[i+1])
-            player.L.defense = new Decimal(setDefense[i+1])
-            player.L.Wdefense = new Decimal(setWDefense[i+1])
+            player.L.level = new Decimal(LevelArray[i + 1]),
+                player.L.expMax = new Decimal(xpRequirement[i + 1]),
+                player.L.exp = new Decimal(0)
+            player.L.healthMax = new Decimal(setmaxHealth[i + 1]),
+                player.L.attack = new Decimal(setAttack[i + 1])
+            player.L.Wattack = new Decimal(setWAttack[i + 1])
+            player.L.defense = new Decimal(setDefense[i + 1])
+            player.L.Wdefense = new Decimal(setWDefense[i + 1])
             if (player.L.level == LevelArray[3]) player.L.zone = new Decimal(2) // Level 4
             else if (player.L.level == LevelArray[10]) player.L.zone = new Decimal(3) // Level 11
             else if (player.L.level == LevelArray[17]) player.L.zone = new Decimal(4) // Level 18
             else if (player.L.level == LevelArray[24]) player.L.zone = new Decimal(5) // Level 25
             else if (player.L.level == LevelArray[29]) player.L.zone = new Decimal(6) // Level 30
         }
+    },
+
+    colorcheckerTwo() {
+        if ((player.points > 2.5 && player.L.health < player.L.healthMax) && (player.L.randomizer == (7) || player.L.randomizer == (6) || player.L.randomizer == (2))) player.L.spec = "#e837f8ff"
+        else player.L.spec = "#f5cbcb"
     },
 
     colorcheckerOne() {
@@ -216,6 +225,8 @@ addLayer("L", {
 
 
     update(diff) {
+        let i = player.L.level - 1
+        let setmaxHealth = [20, 24, 29, 33, 40, 45, 48, 50, 53, 60, 64, 67, 75, 80, 80, 85, 90, 150, 199, 220, 220, 260, 260, 280, 300, 325, 360, 380, 400, 400];
         if (player.L.dmg == 1)
             player.L.health = player.L.health.minus(0.3)
         if (player.L.dmg == 2)
@@ -399,7 +410,7 @@ addLayer("L", {
 
                     return func
                 }, {}],
-                ["clickables", [function() {
+                ["clickables", [function () {
                     let x = 1
                     if ((player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7)) && player.L.health > 0) x = 0
                     return x
@@ -414,9 +425,9 @@ addLayer("L", {
                 ["display-text", function () {
                     let func = " "
                     if (player.L.crit == 2) func = "<fail>Critical Hit!</fail>"
-                    if (player.L.counter == 5 && player.L.AI == 1) func = "<fail>Enemy Counter! (2x Damage Taken)</fail>"
+                    if (player.L.counter == 5 && player.L.AI == (1 || 3)) func = "<fail>Enemy Counter! (2x Damage Taken)</fail>"
                     if (player.L.counter == 5 && player.L.AI == 2) func = "<fail>Enemy Counter but healed! (Nothing happened)</fail>"
-                    if (player.L.crit == 2 && player.L.counter == 5 && player.L.AI == 1) func = "<fail>Critical Hit but Enemy Countered! (Take 3x Damage & Crit Fails)</fail>"
+                    if (player.L.crit == 2 && player.L.counter == 5 && player.L.AI == (1 || 3)) func = "<fail>Critical Hit but Enemy Countered! (Take 3x Damage & Crit Fails)</fail>"
                     if (player.L.crit == 2 && player.L.counter == 5 && player.L.AI == 2) func = "<fail>Critical Hit but Enemy Healed!! (Crit Fails and nothing happens)</fail>"
                     return func
                 }, {}],
@@ -465,7 +476,7 @@ addLayer("L", {
                     return func
                 }, {}],
                 "blank",
-                ["clickables", [function() {
+                ["clickables", [function () {
                     let x = 0
                     if ((player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7))) x = 2
                     return x
@@ -474,7 +485,7 @@ addLayer("L", {
                 ["display-text", function () {
                     let func = ""
                     if (player.L.AI == (2) && (player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7))) func = "* The enemy used <logic>heal</logic>!"
-                    if (player.L.AI == (1) && (player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7))) func = "* The enemy <logic>attacked</logic> you!"
+                    if (player.L.AI != 2 && (player.L.randomizer == (2) || player.L.randomizer == (6) || player.L.randomizer == (7))) func = "* The enemy <logic>attacked</logic> you!"
                     return func
                 }, {}],
                 ["display-text", function () {
@@ -980,7 +991,11 @@ addLayer("L", {
                 if (player.L.randomizer == (0)) player.L.enemyShieldMax = player.L.enemyShieldMax.minus(player.L.enemyShieldMax)
                 if (player.L.randomizer == (0)) player.L.Eregen = player.L.Eregen.minus(player.L.Eregen)
                 // Enemy Stat Reset on Revive
-                player.L.health = new Decimal(20)
+                if (player.L.zone == 1) player.L.health = new Decimal(20)
+                else if (player.L.zone == 2) player.L.health = new Decimal(35)
+                else if (player.L.zone == 3) player.L.health = new Decimal(50)
+                else if (player.L.zone == 4) player.L.health = new Decimal(100)
+                else if (player.L.zone == 5) player.L.health = new Decimal(200)
                 player.L.exp = player.L.exp.div(2)
                 player.L.revives = player.L.revives.add(1)
             },
@@ -1026,15 +1041,15 @@ addLayer("L", {
 
                 player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
                 // DefenseRNG; Allows The Player to sustain less damage dependant on Weapon Defense
-                player.L.AI = Math.floor((Math.random() * 2) + 1)
+                player.L.AI = Math.floor((Math.random() * 3) + 1)
                 // Enemy AI: Lets it choose it own choice depend on Player's Action
-                if (player.L.zone > 4) player.L.crit = Math.floor((Math.random() * 5) + 1)
+                if (player.L.zone >= 4) player.L.crit = Math.floor((Math.random() * 5) + 1)
                 if (player.L.crit == 2 && player.L.counter != 5) player.L.DMGBoost = 2
                 if (player.L.crit != 2) player.L.DMGBoost = 1
-                if (player.L.zone > 4) player.L.counter = Math.floor((Math.random() * 10) + 1)
-                if (player.L.counter != 5 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
-                if (player.L.counter == 5 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.times(2).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
-                if (player.L.counter == 5 && player.L.crit == 2 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.times(3).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                if (player.L.zone >= 4) player.L.counter = Math.floor((Math.random() * 10) + 1)
+                if (player.L.counter != 5 && player.L.AI != 2) player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                if (player.L.counter == 5 && player.L.AI != 2) player.L.health = player.L.health.minus(player.L.enemyAttack.times(2).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                if (player.L.counter == 5 && player.L.crit == 2 && player.L.AI != 2) player.L.health = player.L.health.minus(player.L.enemyAttack.times(3).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
                 // Attack Formuals
                 // Attacking Enemy Damage Formula: (attack(+weapon_attack * Damage Luck Mult(Crit2x)) - Enemy_Defense)) (Minimum of 0 Damage)
                 // Player Damage Formula: (Enemy_attack+(defense+(Weapon_Defense*Defense_RNG))) (Minimum of 0 Damage)
@@ -1092,61 +1107,40 @@ addLayer("L", {
 
                 // Enemy Actions TB
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(1)
-                if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(2)
+                let prog = player.L.enemyHP.div(player.L.enemyHPMax)
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(1)
-                if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(2)
+                if (prog < 1) {
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(10))
+                    if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(10))
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(2)
-                if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(3)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(10))
+                    if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(8))
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(2)
-                if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(3)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(9.5))
+                    if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(9))
 
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(3)
-                if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(5)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(8.6))
+                    if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(8.5))
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(3)
-                if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(5)
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(9)
-                if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(12)
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(9)
-                if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(12)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(6.8))
+                    if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(7))
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(137)
-                if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(175)
-
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(137)
-                if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(175)
-
-                if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(470)
-                if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(470)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(6.5))
+                }
 
 
 
@@ -1203,77 +1197,56 @@ addLayer("L", {
             onClick() {
                 player.L.defenseRNG = Math.floor((Math.random() * 4) + 1)
                 // DefenseRNG; Allows The Player to sustain less damage dependant on Weapon Defense
-                player.L.AI = Math.floor((Math.random() * 2) + 1)
+                player.L.AI = Math.floor((Math.random() * 3) + 1)
                 // Enemy AI: Lets it choose it own choice depend on Player's Action
-                if (player.L.zone > 4) player.L.crit = Math.floor((Math.random() * 5) + 1)
+                if (player.L.zone >= 4) player.L.crit = Math.floor((Math.random() * 5) + 1)
                 if (player.L.crit == 2 && player.L.counter != 5) player.L.DMGBoost = 2
                 if (player.L.crit != 2) player.L.DMGBoost = 1
-                if (player.L.zone > 4) player.L.counter = Math.floor((Math.random() * 10) + 1)
-                if (player.L.counter != 5 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
-                if (player.L.counter == 5 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.times(2).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
-                if (player.L.counter == 5 && player.L.crit == 2 && player.L.AI == (1)) player.L.health = player.L.health.minus(player.L.enemyAttack.times(3).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                if (player.L.zone >= 4) player.L.counter = Math.floor((Math.random() * 10) + 1)
+                if (player.L.counter != 5 && player.L.AI != 2) player.L.health = player.L.health.minus(player.L.enemyAttack.minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                if (player.L.counter == 5 && player.L.AI != 2) player.L.health = player.L.health.minus(player.L.enemyAttack.times(2).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
+                if (player.L.counter == 5 && player.L.crit == 2 && player.L.AI != 2) player.L.health = player.L.health.minus(player.L.enemyAttack.times(3).minus(player.L.defense.add(player.L.Wdefense.times(player.L.defenseRNG))).max(0))
 
 
 
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(1)
-                if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(2)
+                let prog = player.L.enemyHP.div(player.L.enemyHPMax)
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(1)
-                if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(2)
+                if (prog < 1) {
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(10))
+                    if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(10))
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(2)
-                if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(3)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(10))
+                    if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(8))
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (2) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(2)
-                if (player.L.randomizer == (6) && player.L.zone == (2) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(3)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(9.5))
+                    if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(9))
 
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(3)
-                if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(5)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(8.6))
+                    if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(8.5))
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (3) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(3)
-                if (player.L.randomizer == (6) && player.L.zone == (3) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(5)
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(9)
-                if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(12)
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (4) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(9)
-                if (player.L.randomizer == (6) && player.L.zone == (4) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(12)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(6.8))
+                    if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(7))
 
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(137)
-                if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(175)
-
-                if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (5) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(137)
-                if (player.L.randomizer == (6) && player.L.zone == (5) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(175)
-
-                if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
-                    player.L.enemyHP = player.L.enemyHP.add(470)
-                if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
-                    player.L.enemyHPMax = player.L.enemyHPMax.add(470)
+                    if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
+                        player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(6.5))
+                }
 
                 if (player.L.level < 12)
-                    player.L.health = player.L.health.add(2)
+                    player.L.health = player.L.health.add(3)
                 if ((player.L.level < 18) && player.L.zone == 3)
                     player.L.health = player.L.health.add(5)
                 if ((player.L.level < 26) && player.L.zone == 4)

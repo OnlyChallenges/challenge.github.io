@@ -40,10 +40,10 @@
 
 <body onload="load()" onmousemove="updateMouse(event)">
 	<div id="app">
-		<div class="main"></div>
+		<!-- <div class="main"></div>
 		<div class="main2"></div>
 		<div class="main3"></div>
-		<div class="main4"></div>
+		<div class="main4"></div> -->
 		<canvas id="treeCanvas" class="canvas" v-if="!(tmp.gameEnded && !player.keepGoing)"></canvas>
 
 		<div v-if="false" id="loadingSection" class="fullWidth">
@@ -60,12 +60,6 @@
 			<button class="longUpg can" onclick="hardReset(true)">Play Again</button>&nbsp;&nbsp;&nbsp;&nbsp;<button
 				class="longUpg can" onclick="keepGoing()">Keep Going</button>
 			<br><br><br>
-			<span v-if="modInfo.discordLink"><a class="link" v-bind:href="modInfo.discordLink"
-					target="_blank">{{modInfo.discordName}}</a><br></span>
-			<a class="link" href="https://discord.gg/F3xveHV" target="_blank"
-				v-bind:style="modInfo.discordLink ? {'font-size': '16px'} : {}">The Modding Tree Discord</a><br>
-			<a class="link" href="http://discord.gg/wwQfgPa" target="_blank" v-bind:style="{'font-size': '16px'}">Main
-				Prestige Tree server</a><br>
 			<br><br>
 		</div>
 
@@ -82,19 +76,6 @@
 			<img id="optionWheel" class="overlayThing" v-if="player.tab!='options-tab'" src="options_wheel.png"
 				onclick="showTab('options-tab')"></img>
 			<div id="info" v-if="player.tab!='info-tab'" class="overlayThing" onclick="showTab('info-tab')"><br>i</div>
-			<div id="discord" class="overlayThing">
-				<img onclick="window.open((modInfo.discordLink ? modInfo.discordLink : 'https://discord.gg/F3xveHV'),'mywindow')"
-					src="discord.png" target="_blank"></img>
-				<ul id="discord-links">
-					<li v-if="modInfo.discordLink"><a class="link" v-bind:href="modInfo.discordLink"
-							target="_blank">{{modInfo.discordName}}</a><br></li>
-					<li><a class="link" href="https://discord.gg/F3xveHV" target="_blank"
-							v-bind:style="modInfo.discordLink ? {'font-size': '16px'} : {}">The Modding Tree
-							Discord</a><br></li>
-					<li><a class="link" href="http://discord.gg/wwQfgPa" target="_blank"
-							v-bind:style="{'font-size': '16px'}">Main Prestige Tree server</a></li>
-				</ul>
-			</div>
 			<overlay-head v-if="!(tmp.gameEnded && !player.keepGoing)"></overlay-head>
 			<div class="sideLayers">
 				<div v-for="(node, index) in OTHER_LAYERS['side']">
