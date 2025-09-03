@@ -23,6 +23,7 @@ addLayer("L", {
             kills: new Decimal(0),
             revives: new Decimal(0),
             dmg: new Decimal(0),
+            overkill: new Decimal(0),
             // Health, Sheild, & Bar Color Formats
             spec: "#f7619fff",
             spectwo: "#00FF00",
@@ -125,6 +126,7 @@ addLayer("L", {
             display() {
                 let prog = player.L.enemyHP.div(player.L.enemyHPMax)
                 if (prog > 1.001) return "<text style='color:blue'>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "</text><br>(Overheal!)"
+                else if (prog < 1 && player.L.overkill > 0) return "<text style='color:red'>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "</text><br>(Overkill Damaged!) ("+ formatWhole(player.L.overkill) + ")"
                 else return "<text style='color:green'>Health: " + formatWhole(player.L.enemyHP) + " / " + formatWhole(player.L.enemyHPMax) + "</text>"
 
             },
@@ -1022,6 +1024,7 @@ addLayer("L", {
                 return click
             },
             onClick() {
+                player.L.overkill = new Decimal(0)
                 if (player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6))
                     player.L.dmgMult = Math.floor((Math.random() * 7) + 1)
                 if ((player.L.randomizer == (7) || player.L.randomizer == (2) || player.L.randomizer == (6)) && player.L.level > 6)
@@ -1058,13 +1061,20 @@ addLayer("L", {
                 // Crit Change Mech: Randomly Picks a Number between 1 - 5, if the number lands on 2, land a crit on the enemy, applies to main damage but shield damage is still reduced based on Enemy Defense.
                 // Counter Chance Mech: Randomly picks a number between 1 - 10, if the number lands on 5, land a counter by the enemy to do double damage, doesn't apply the Crit Given to the enemy and Player Weapon Defense can always relucate the damage.
                 // Crit Chance & Counter Chance are the Same Predic: Counter takes over Crit and Crit becomes defective and only charges with a normal attack, disavantage is that you take 3x damage instead due to the counter damage
-                if (player.L.enemyShield <= 0) player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).times(player.L.DMGBoost))).minus(player.L.enemyDefense).max(0))
-                if (player.L.enemyShield > 0) player.L.enemyHP = player.L.enemyHP.minus(0)
-                if (player.L.enemyShield > 0) player.L.enemyShield = player.L.enemyShield.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).times(player.L.DMGBoost))).minus(player.L.enemyDefense.times(3)).max(0))
-
-
-
-
+                // if (player.L.enemyShield > 0) player.L.enemyShield = player.L.enemyShield.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).times(player.L.DMGBoost))).minus(player.L.enemyDefense.times(3)).max(0))
+                let Damage = new Decimal((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).times(player.L.DMGBoost))).minus(player.L.enemyDefense.times(3)).max(0))
+                if ((player.L.enemyShield < Damage) && (player.L.enemyShield > 0)) {
+                    Damage = Damage.minus(player.L.enemyShield)
+                    player.L.overkill = new Decimal(Damage)
+                    player.L.enemyHP = player.L.enemyHP.minus(player.L.overkill)
+                    player.L.enemyShield = new Decimal(0)
+                }
+                else if ((player.L.enemyShield > Damage) && (player.L.enemyShield > 0)) {
+                    player.L.enemyShield = player.L.enemyShield.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).times(player.L.DMGBoost))).minus(player.L.enemyDefense.times(3)).max(0))
+                }
+                else if (player.L.enemyShield <= 0) {
+                    player.L.enemyHP = player.L.enemyHP.minus((player.L.attack.add(player.L.Wattack.times(player.L.dmgMult).times(player.L.DMGBoost))).minus(player.L.enemyDefense).max(0))
+                }
 
                 player.points = player.points.minus(2.5)
                 // Somewhat of a Mana Storage
@@ -1109,7 +1119,7 @@ addLayer("L", {
 
                 let prog = player.L.enemyHP.div(player.L.enemyHPMax)
 
-                if (prog < 1) {
+                if (prog < 1 && player.L.overkill == 0) {
                     if ((player.L.randomizer == (7) || player.L.randomizer == (2)) && player.L.zone == (1) && player.L.AI == (2))
                         player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(10))
                     if (player.L.randomizer == (6) && player.L.zone == (1) && player.L.AI == (2))
@@ -1141,7 +1151,6 @@ addLayer("L", {
                     if ((player.L.randomizer == (7) || player.L.randomizer == (6)) && player.L.zone == (6) && player.L.AI == (2))
                         player.L.enemyHP = player.L.enemyHP.add(new Decimal(player.L.enemyHPMax).div(6.5))
                 }
-
 
 
 
