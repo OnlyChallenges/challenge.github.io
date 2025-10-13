@@ -8,7 +8,7 @@ let modInfo = {
   discordLink: "", // Whats that?
   initialStartPoints: new Decimal(0), // 0
   offlineLimit: 1,  // 1 Hours of Offline Time Mode
-  demoTime: new Decimal(7000), // 7,000 Seconds
+  demoTime: new Decimal(1800), // 7,000 Seconds
   devTime: new Decimal("1e999"), // Overclocking Infinity;
 }
 

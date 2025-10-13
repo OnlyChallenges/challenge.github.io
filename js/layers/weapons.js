@@ -72,7 +72,7 @@ addLayer("V", {
         { key: "w", description: "w: Reset for Weapons", onPress() { if (canReset(this.layer) && player.V.unlocked) doReset(this.layer) } },
     ],
     layerShown() {
-        let lay = true
+        let lay = false
         if (hasAchievement('A', 17)) lay = true
         return lay
     },
@@ -321,7 +321,6 @@ addLayer("V", {
         let final = a/b
         return final
     },
-<<<<<<< HEAD
 
     desmos1(){
         // \log\left(x^{1.5}\right)  +  x\sqrt{\log\left(1\right)}
@@ -352,9 +351,6 @@ addLayer("V", {
 
 
 
-=======
-    
->>>>>>> 72b2ec8cacf841efef5d516d635630e94c7ccb31
     tabFormat: {
         "Facility": {
             content: [
