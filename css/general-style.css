@@ -3,13 +3,13 @@ body {
 	color: var(--color);
 	overflow: hidden;
 	background: linear-gradient(var(--DEV) ,#0f0f0f 0.5%, var(--FoR) 100%);
-	--color: #6d6d6d;
+	--color: #2d89f3;
 	--points: #000000;
-	--FoR: #a19898;
+	--FoR: #6fa0fa;
 	--Stars: #ffeeee;
 	--DEV: 180deg;
-	--song: linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%);
-	--None: #fff;
+	--song: linear-gradient(90deg, #6fb8ca 0.5%, #8af7ff 100%);
+	--None: #3fedfa;
 	backdrop-filter: brightness(50%) blur(16px);
 	animation: bg 15s infinite alternate;
 	background-repeat: no-repeat;

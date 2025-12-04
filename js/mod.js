@@ -1,7 +1,7 @@
 
 
 let modInfo = {
-  name: `The clock is ticking...`,
+  name: `The clock is ticking... yet again`,
   id: "finale",
   author: "vali (snor mimi)",
   pointsName: "money",
@@ -15,16 +15,12 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-  num: "0.3.2.a-release ",
+  num: "0.0.0.1-release ",
   ver: "Changelog",
   name: " @Ozvali",
 }
 
-let changelog = `<power><h2>Secret Place...</h2></power><br>
-  How... How did you even find this!?<br><br>...<br><br>You deserve something for finding this I guess...<br><br>...<br><br>
-  That doesn't matter honestly...<br><br>
-  One of the names of the new experiments are...<br>
-  Karte... Tailspin... Deerue... Cosha... Seeshi?!!?!... Only time will tell...<br>`
+let changelog = `<power><h2>Secret Place...</h2></power><br>`
 let winText = `You've started to make vaccines? Start to make the cure...`
 
 function changeLog(x) {
@@ -63,8 +59,8 @@ const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2025-07-15T23:00:00.000-04:00").getTime()
-const countDownDate2 = new Date("2025-07-04T00:00:00.000-04:00").getTime()
+const countDownDate = new Date("2026-04-11T23:00:00.000-04:00").getTime()
+const countDownDate2 = new Date("2025-12-06T13:30:00.000-04:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
   return {
@@ -132,7 +128,7 @@ const playlist = [
 ];
 
 const playlistName = [
-  "Close to the end.",
+  "The End of One Game, The Beginning of Another.",
   "Deltarune Ch4 - With Hope Crossed On Our Hearts",
   "FoR - The Foundry Theme",
   "FoR - Power Outage Halloween Theme",
@@ -145,7 +141,7 @@ const playlistName = [
 ];
 
 const songColors = [
-  "#a19898",
+  "#4af0fcff",
   "#6bfaf5",
   "#ba6e09",
   "#1c368c",
@@ -158,7 +154,7 @@ const songColors = [
 ];
 
 const textColors = [
-  "#fff",
+  "#3c27f3ff",
   "#a39965",
   "#dce627",
   "#2fa0eb",
@@ -171,7 +167,7 @@ const textColors = [
 ];
 
 const nameColors = [
-  "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
+  "linear-gradient(90deg, #06999eff 0.5%, #06999eff 100%)",
   "linear-gradient(90deg,rgb(4, 117, 139) 15%,rgb(175, 21, 21) 100%)",
   "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
   "linear-gradient(90deg, #36ff36 0.5%, #36ff36 100%)",
@@ -294,7 +290,7 @@ setInterval(() => {
 
 
 
-var Pages = "The End."
+var Pages = "Another Beginning."
 
 
 
@@ -337,10 +333,14 @@ var displayThings = [
         document.getElementById("anim2").innerHTML = hours + "h   "
         document.getElementById("anim3").innerHTML = minutes + "m   "
         document.getElementById("anim4").innerHTML = seconds + "s   "
-        document.getElementById('waiting').innerHTML = days2 + "d " + hours2 + "h "
-          + minutes2 + "m " + seconds2 + "s" + " remaining"
+        if (countDownDate2 >= maintime) {
+          document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Something is coming...<br>Development starts in... " + days2 + "d " + hours2 + "h " + minutes2 + "m " + seconds2 + "s</text>" 
+        }
+        else
+        {document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Development has started...<br>Facility of Redemption is soon to be much different...</text>" }
+        
         if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") document.title = "✺✺✺✺✺✺✺✺✺"
-        else document.title = "FoR Page: " + VERSION.withoutName;
+        else document.title = VERSION.withoutName;
         document.getElementById("version4").innerHTML = formatTime(playlist[currentSongIndex].currentTime) + " / " + formatTime(playlist[currentSongIndex].duration)
 
       }
@@ -354,7 +354,7 @@ var displayThings = [
 
       }
     }, 100);
-    let a = `<text style='word-spacing:3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1>   <anim2><div id='anim2' style='font-size:38px'></div></anim2>   <anim3><div id='anim3' style='font-size:38px'></div></anim3>   <anim4><div id='anim4' style='font-size:38px'></div></anim4></text>`
+    let a = `<text style='word-spacing:3rem'><anim1><div id='anim1' style='font-size:38px'></div></anim1>   <anim2><div id='anim2' style='font-size:38px'></div></anim2>   <anim3><div id='anim3' style='font-size:38px'></div></anim3>   <anim4><div id='anim4' style='font-size:38px'></div></anim4></text><br><br><div id='waiting' style='font-size:17px'></div></text>`
     if (modInfo.End == 0) return a = ''
     return a
   },
@@ -368,7 +368,7 @@ var displayThings = [
 // Style for the background, can be a function
 var backgroundStyle = ("background-image: url('supernova.jpg')")
 
-var CurrentSong = "Play Next Song"
+var CurrentSong = ""
 
 
 
