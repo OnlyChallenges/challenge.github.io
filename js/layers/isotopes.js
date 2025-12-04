@@ -22,6 +22,12 @@ addLayer("F", {
 
     },
 
+    nodeStyle() {
+        return {
+            "background": (player.F.unlocked || canReset("F")) ? "radial-gradient(#faf736ff, #faf736ff)" : "#bf8f8f",
+        }
+    },
+
     doReset(resettingLayer) {
         player.V.chaltime = player.V.chaltime.div(1.1)
         if (layers[resettingLayer].row > this.row) layerDataReset(this.layer);

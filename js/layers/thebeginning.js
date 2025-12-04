@@ -66,8 +66,10 @@ addLayer("P", {
     },
 
     update(diff){
-        if (hasUpgrade("P", 41)) player[this.layer].space = player[this.layer].space.plus(new Decimal(0.075).times(diff));
-
+        let spaceincome = new Decimal(0)
+        if (hasUpgrade("P", 41)) spaceincome = new Decimal(0.075)
+        if (hasUpgrade("P", 42_1)) spaceincome = spaceincome.times(2)
+        player[this.layer].space = player[this.layer].space.plus(spaceincome.times(diff));
     },
     branches: ["F", "SP", "V", "W"],
     tabFormat: {
@@ -465,7 +467,7 @@ addLayer("P", {
                 return text;
             },
             tooltip() { return "√^2(log(x^1.5)*(x√log(1)^0.22)^<text style='color:#a63ef0'>y</text><br><br>Exponent: <text style='color:#a63ef0'>" + format(tmp["V"].desmos4) + `</text><h5 style="opacity:0.5">(This is a CANON UPGRADE. You will keep this upgrade forever)</h5>"<i>Space... Time... Dimension... only these will bring three eyes of vision into a life of purpose. <text style='color:purple'>Enter my dimensional plane to understand the time of space</text></i>"<br><spaceroute>You will enter the Space Route if you proceed</spaceroute>.` },
-            unlocked() { return hasUpgrade('P', 25) },
+            unlocked() { return hasUpgrade('P', 25) && !hasUpgrade("P", 32) },
             color() { return '#5e1691' },
             color2() { return '#5b85b3' },
             cost() { return new Decimal(1e15) },
@@ -488,7 +490,7 @@ addLayer("P", {
                 return text;
             },
             tooltip() { return `√^3((log(x^0.1)*(x√log(10)))^<text style='color:green'>y</text><br><br>Exponent: <text style='color:green'>` + format(tmp["V"].desmos3) + `</text><br><br>"<i><text style='color:red'>Solid</text>... <text style='color:cyan'>Liquid</text>... <text style='color:pink'>Gas</text>... <text style='color:#bd6ffc'>Plasma</text>.. <text style='color:#bd6ffc'>that's my name</text>.</i>"` },
-            unlocked() { return hasUpgrade('P', 25) },
+            unlocked() { return hasUpgrade('P', 25) && !hasUpgrade("P", 31) },
             color() { return 'lime' },
             color2() { return '#5b85b3' },
             cost() { return new Decimal(1e15) },
@@ -540,7 +542,8 @@ addLayer("P", {
         42_2: {
             branches(){return [[41, "#a259eb"]]},
             title: "<spaceroute style='font-size:12px'>Third Eye</spaceroute>",
-            description: `<text style='font-size:11px'>Quantum Foam boosts Crystal gain</text><br><text style='color:grey'><i>"I have more than two"</i></text>`,
+            effect() {return player[this.layer].space.pow(0.15)},
+            description() { return `<text style='font-size:11px'>Quantum Foam boosts Crystal gain</text><br><text style='color:grey'><i>"I have more than two"</i></text><br>Effect: ` + format(upgradeEffect("P", 42_2)) + `x` },
             unlocked() { return hasUpgrade('P', 41) },
             color() { return '#000000' },
             color2() { return '#5e1691' },
