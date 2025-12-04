@@ -59,7 +59,7 @@ const year = currentDate.getFullYear();
 const month2 = currentDate.getMonth();
 const day = currentDate.getDate();
 
-const countDownDate = new Date("2026-04-11T23:00:00.000-04:00").getTime()
+const countDownDate = new Date("2026-04-18T23:00:00.000-04:00").getTime()
 const countDownDate2 = new Date("2025-12-06T13:30:00.000-04:00").getTime()
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values
 function addedPlayerData() {
@@ -141,7 +141,7 @@ const playlistName = [
 ];
 
 const songColors = [
-  "#4af0fcff",
+  "#1d959eff",
   "#6bfaf5",
   "#ba6e09",
   "#1c368c",
@@ -181,9 +181,8 @@ const nameColors = [
 
 
 let currentSongIndex = 0;
-let ve = false
-let Resume = "Pause Music"
-window.onload = playlist[currentSongIndex].play();
+let ve = true
+let Resume = "Resume Music"
 function playNextSong() {
   music = true
   if (currentSongIndex < playlist.length) {
@@ -512,3 +511,4 @@ function maxTickLength() {
 // you can cap their current resources with this.
 function fixOldSave(oldVersion) {
 }
+window.onloadstart = playlist[currentSongIndex].play();
