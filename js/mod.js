@@ -336,7 +336,7 @@ var displayThings = [
           document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Development has started...<br>Facility of Redemption is soon to be much different...</text>"
         }
         else
-        {}
+        {document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Development has started...<br>Facility of Redemption is soon to be much different...</text>"}
         
         if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") document.title = "✺✺✺✺✺✺✺✺✺"
         else document.title = VERSION.withoutName;
