@@ -333,10 +333,10 @@ var displayThings = [
         document.getElementById("anim3").innerHTML = minutes + "m   "
         document.getElementById("anim4").innerHTML = seconds + "s   "
         if (countDownDate2 >= maintime) {
-          document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Something is coming...<br>Development starts in... " + days2 + "d " + hours2 + "h " + minutes2 + "m " + seconds2 + "s</text>" 
+          document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Development has started...<br>Facility of Redemption is soon to be much different...</text>"
         }
         else
-        {document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Development has started...<br>Facility of Redemption is soon to be much different...</text>" }
+        {}
         
         if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") document.title = "✺✺✺✺✺✺✺✺✺"
         else document.title = VERSION.withoutName;
