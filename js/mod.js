@@ -115,7 +115,7 @@ function getUndulatingColor(period = Math.sqrt(760)) {
 }
 
 const playlist = [
-  new Audio('music/facility.mp3'),
+  new Audio('music/Singularity.mp3'),
   new Audio('music/hope.mp3'),
   new Audio('music/poweroutage2.mp3'),
   new Audio('music/poweroutage_hallo.mp3'),
@@ -128,7 +128,7 @@ const playlist = [
 ];
 
 const playlistName = [
-  "The End of One Game, The Beginning of Another.",
+  "Singularity - Rosentwig",
   "Deltarune Ch4 - With Hope Crossed On Our Hearts",
   "FoR - The Foundry Theme",
   "FoR - Power Outage Halloween Theme",
@@ -154,7 +154,7 @@ const songColors = [
 ];
 
 const textColors = [
-  "#3c27f3ff",
+  "#7869fcff",
   "#a39965",
   "#dce627",
   "#2fa0eb",
@@ -295,7 +295,7 @@ var Pages = "Another Beginning."
 
 // Less important things beyond this point!
 var displayThings = [
-  function () { return "<br><br><br><br><br><br><br><br><br><br><br><br>" },
+  function () { return "<br><br>" },
   // function () {
   //   let base = `<button class="longUpg can" style="color:red" onclick="playNextSong()">Start Article...</button>`
   //   if (music == true && modInfo.End == 0) base = '<button class="longUpg can" style="color:red" onclick="proceed()">Proceed...</button>'
@@ -336,7 +336,7 @@ var displayThings = [
           document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Something is coming...<br>Development starts in... " + days2 + "d " + hours2 + "h " + minutes2 + "m " + seconds2 + "s</text>" 
         }
         else
-        {document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Development has started...<br>Facility of Redemption is soon to be much different...</text>" }
+        {document.getElementById('waiting').innerHTML = "<text style='color:cyan'>Development has started...<br>Facility of Redemption is soon to be much different...</text><br>" }
         
         if (playlistName[currentSongIndex] == "✺✺✺ - An Unknown Presence Theme") document.title = "✺✺✺✺✺✺✺✺✺"
         else document.title = VERSION.withoutName;
@@ -357,11 +357,45 @@ var displayThings = [
     if (modInfo.End == 0) return a = ''
     return a
   },
-  // function () {
-  //   let x = getUndulatingColor()
-  //   let a = colorText("b", x, "<i><text style='font-size:15px'>Every 5 Days starting from May 24th a new update on this website will occur.</text></i> ")
-  //   return a
-  // },
+  function () {
+    let x = ''
+    let a = ''
+    let b = ''
+    let c = ''
+    if (ve == false && playlist[currentSongIndex].currentTime < 11) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 11.3 && playlist[currentSongIndex].currentTime < 19.2) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 19.2 && playlist[currentSongIndex].currentTime < 26.4) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision..."
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 26.4 && playlist[currentSongIndex].currentTime < 34.5) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision...<br><br>But... We... believe this is the right call...<br><br>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 34.5 && playlist[currentSongIndex].currentTime < 44.4) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision...<br><br>But... We... believe this is the right call...<br><br>For my own sake...<br><br>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 44.4 && playlist[currentSongIndex].currentTime < 51.3) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision...<br><br>But... We... believe this is the right call...<br><br>For my own sake...<br><br>And for the rest of the 17 Developers...</text><br><br><text style='color:cyan'>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 51.3 && playlist[currentSongIndex].currentTime < 57.2) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision...<br><br>But... We... believe this is the right call...<br><br>For my own sake...<br><br>And for the rest of the 17 Developers...</text><br><br><text style='color:cyan'>Will you stay with us...<br><br>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 57.2 && playlist[currentSongIndex].currentTime < 63.4) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision...<br><br>But... We... believe this is the right call...<br><br>For my own sake...<br><br>And for the rest of the 17 Developers...</text><br><br><text style='color:cyan'>Will you stay with us...<br>Long enough to see it happen..."
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 63.4 && playlist[currentSongIndex].currentTime < 70.2) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision...<br><br>But... We... believe this is the right call...<br><br>For my own sake...<br><br>And for the rest of the 17 Developers...</text><br><br><text style='color:cyan'>Will you stay with us...<br>Long enough to see it happen...<br>..."
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 70.2 && playlist[currentSongIndex].currentTime < 81.3) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision...<br><br>But... We... believe this is the right call...<br><br>For my own sake...<br><br>And for the rest of the 17 Developers...</text><br><br><text style='color:cyan'>Will you stay with us...<br>Long enough to see it happen...<br>...<br>Long enough to see us finish...<br>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 81.3 && playlist[currentSongIndex].currentTime < 93) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision...<br><br>But... We... believe this is the right call...<br><br>For my own sake...<br><br>And for the rest of the 17 Developers...</text><br><br><text style='color:cyan'>Will you stay with us...<br>Long enough to see it happen...<br>...<br>Long enough to see us finish...<br>Long enough... to do the impossible...<br>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 93 && playlist[currentSongIndex].currentTime < 112) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:red'>Something must be said about this...<br><br>Facility of Redemption will not be the same...<br><br>This has been a tough decision...<br><br>But... We... believe this is the right call...<br><br>For my own sake...<br><br>And for the rest of the 17 Developers...</text><br><br><text style='color:cyan'>Will you stay with us...<br>Long enough to see it happen...<br>...<br>Long enough to see us finish...<br>Long enough... to do the impossible...<br>...<br>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 112 && playlist[currentSongIndex].currentTime < 137) x = "<i><text style='color:grey;font-size:11px'>The music will progress the text.</text></i><br><text style='color:cyan'>...Do you... believe?</text><br><br>"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 137 && playlist[currentSongIndex].currentTime < 157) x = "That we can do anything."
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 157 && playlist[currentSongIndex].currentTime < 157.7) x = "New Map"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 157.7 && playlist[currentSongIndex].currentTime < 158.5) x = "New Infection Mechanic"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 158.5 && playlist[currentSongIndex].currentTime < 159.4) x = "20+ New Experiments"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 159.4 && playlist[currentSongIndex].currentTime < 160.4) x = "5+ New Weapons"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 160.4 && playlist[currentSongIndex].currentTime < 161.4) x = "An Main Menu"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 161.4 && playlist[currentSongIndex].currentTime < 162.4) x = "New Locker Mechanic"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 162.4 && playlist[currentSongIndex].currentTime < 163.4) x = "Improved UI"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 163.4 && playlist[currentSongIndex].currentTime < 164.4) x = "Official Soundtrack"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 164.4 && playlist[currentSongIndex].currentTime < 165.4) x = "Improved Combat"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 165.4 && playlist[currentSongIndex].currentTime < 166.4) x = "Camera Animations"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 166.4 && playlist[currentSongIndex].currentTime < 167.4) x = "Game Update Trailer"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 167.4 && playlist[currentSongIndex].currentTime < 168.4) x = "Game & Experiment Book"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 168.4 && playlist[currentSongIndex].currentTime < 169.4) x = "Lore"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 168.4 && playlist[currentSongIndex].currentTime < 169.4) x = "Massive Weapon Changes"
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 169.4 && playlist[currentSongIndex].currentTime < 172) x = "And So much more to come..."
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 172 && playlist[currentSongIndex].currentTime < 180) x = "April 18th."
+    else if (ve == false && playlist[currentSongIndex].currentTime >= 180 && playlist[currentSongIndex].currentTime < 184) x = "See you then..."
+    else if (ve == true) x = "Start the Music..."
+    return "<br>" + x
+  },
 ]
 
 // Style for the background, can be a function
